@@ -1,15 +1,15 @@
 export const appInfo = {
   name: 'AWS Master Academy',
-  version: '0.4.5',
-  phase: 'Phase 4 第6弾（SAA 第4分野：コスト最適化）',
+  version: '0.4.6',
+  phase: 'Phase 4 完了（SAAコース・比較グループ）',
   disclaimer:
     'AWS非公式の学習用アプリです。Amazon Web Services、AWS は、Amazon.com, Inc. またはその関連会社の商標です。',
 } as const
 
 /** 各機能の実装状況。機能を公開するときに ready を true にする */
 export const features = {
-  clf: { ready: true, partial: true, phase: 3, label: 'CLF学習', to: '/learn/clf' },
-  saa: { ready: true, partial: true, phase: 4, label: 'SAA学習', to: '/learn/saa' },
+  clf: { ready: true, partial: false, phase: 3, label: 'CLF学習', to: '/learn/clf' },
+  saa: { ready: true, partial: false, phase: 4, label: 'SAA学習', to: '/learn/saa' },
   services: { ready: true, partial: true, phase: 3, label: 'サービス図鑑', to: '/services' },
   compare: { ready: true, partial: true, phase: 4, label: '類似サービス比較', to: '/compare' },
   designer: { ready: false, partial: false, phase: 5, label: '構成図シミュレーター', to: '/designer' },

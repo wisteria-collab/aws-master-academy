@@ -302,6 +302,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Using Requester Pays general purpose buckets（Amazon S3 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -323,48 +327,52 @@
     "format": "scenario",
     "select": "single",
     "difficulty": "standard",
-    "stem": "ある企業は、Amazon EBS、Amazon RDS、Amazon EFSのバックアップを、サービスごとに別々のスクリプトで取得しています。スクリプトの保守に手間がかかるため、スクリプトの運用をやめて、バックアップの頻度と保持期間をポリシーで一元的に管理したいと考えています。最も適切なサービスはどれですか。",
+    "stem": "ある企業は、月次の集計データをAmazon S3に保存しています。データを参照するのは月に1回程度ですが、参照するときには、すぐに取り出せる必要があります。頻繁にアクセスするデータ向けのクラスより、保存のコストを下げたいと考えています。最も適切なストレージクラスはどれですか。",
     "choices": [
       {
         "id": "a",
-        "text": "AWS Backup",
+        "text": "S3 Standard-IA",
         "correct": true,
-        "explanation": "AWS Backupは、AWSのサービス全体のバックアップを、ポリシーに基づいて一元化・自動化するフルマネージドのサービスです。バックアップの頻度と保持期間をルールとして決められます。"
+        "explanation": "S3 Standard-IAは、アクセスの頻度は低いものの、必要なときにはすぐに取り出したいデータ向けのクラスです。バックアップや、たまに参照する過去のデータに向いています。"
       },
       {
         "id": "b",
-        "text": "サービスごとのスクリプトを、1台のEC2インスタンスにまとめて動かす",
+        "text": "S3 Standard",
         "correct": false,
-        "explanation": "スクリプトを1か所に集めても、スクリプトの保守は残ります。",
-        "eliminatedBy": "スクリプトの運用をやめて"
+        "explanation": "S3 Standardは、頻繁にアクセスするデータ向けです。あまり使わないデータを置き続けると、費用の面で不利になります。",
+        "eliminatedBy": "参照するのは月に1回程度"
       },
       {
         "id": "c",
-        "text": "AWS DataSync",
+        "text": "S3 Glacier Flexible Retrieval",
         "correct": false,
-        "explanation": "DataSyncは、ストレージの間のデータ移動を自動化するサービスです。バックアップの頻度と保持期間を管理するものではありません。",
-        "eliminatedBy": "バックアップの頻度と保持期間をポリシーで一元的に管理"
+        "explanation": "S3 Glacier Flexible Retrievalは、すぐに必要にならない長期の保管向けです。すぐに取り出す用途には向きません。",
+        "eliminatedBy": "すぐに取り出せる必要があります"
       },
       {
         "id": "d",
-        "text": "AWS Storage Gateway",
+        "text": "S3 Glacier Deep Archive",
         "correct": false,
-        "explanation": "Storage Gatewayは、オンプレミスのアプリケーションがAWSのストレージを使えるようにするサービスです。AWSのサービスのバックアップを一元管理するものではありません。",
-        "eliminatedBy": "Amazon EBS、Amazon RDS、Amazon EFSのバックアップ"
+        "explanation": "S3 Glacier Deep Archiveは、取り出しに数時間かかります。すぐに取り出す必要があるデータには合いません。",
+        "eliminatedBy": "すぐに取り出せる必要があります"
       }
     ],
     "keywords": [
-      "スクリプトの運用をやめて",
-      "ポリシーで一元的に管理"
+      "月に1回程度",
+      "すぐに取り出せる必要"
     ],
-    "decisionPoint": "複数のサービスのバックアップをポリシーで一元管理＝AWS Backup。",
+    "decisionPoint": "たまにしか使わないが、使うときはすぐ＝S3 Standard-IA。",
     "serviceIds": [
-      "aws-backup"
+      "amazon-s3"
     ],
     "related": [
       {
         "type": "lesson",
         "id": "saa-cost-storage"
+      },
+      {
+        "type": "comparison",
+        "id": "s3-storage-classes"
       }
     ]
   },
@@ -965,6 +973,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Using Aurora serverless（Amazon Aurora ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -986,41 +998,42 @@
     "format": "scenario",
     "select": "single",
     "difficulty": "standard",
-    "stem": "ある企業は、新しいアプリケーションのデータベースにAmazon DynamoDBを使います。新しいサービスのため、読み書きの量はまったく予測できません。キャパシティをあらかじめ決めずに、読み書きのリクエストごとに支払いたいと考えています。最も適切なキャパシティモードはどれですか。",
+    "stem": "ある企業のAmazon DynamoDBのテーブルは、読み書きの量が安定していて、今後の量も見通せます。読み書きのキャパシティユニットをあらかじめ定義しておき、必要に応じてAuto Scalingで調整したいと考えています。最も適切なキャパシティモードはどれですか。",
     "choices": [
       {
         "id": "a",
-        "text": "オンデマンド",
+        "text": "プロビジョンド",
         "correct": true,
-        "explanation": "DynamoDBのオンデマンドのキャパシティモードでは、読み書きのリクエストごとに支払います。キャパシティをあらかじめ定義する必要がありません。"
+        "explanation": "プロビジョンドのキャパシティモードでは、読み書きのキャパシティユニットをあらかじめ定義します。Auto Scalingで調整することもできます。"
       },
       {
         "id": "b",
-        "text": "プロビジョンド",
+        "text": "オンデマンド",
         "correct": false,
-        "explanation": "プロビジョンドは、読み書きのキャパシティユニットをあらかじめ定義するモードです。量が予測できない場合には決めにくくなります。",
-        "eliminatedBy": "キャパシティをあらかじめ決めずに"
+        "explanation": "オンデマンドは、キャパシティを定義せずに、読み書きのリクエストごとに支払うモードです。あらかじめ定義したいという条件に合いません。",
+        "eliminatedBy": "キャパシティユニットをあらかじめ定義"
       },
       {
         "id": "c",
         "text": "DynamoDB Accelerator（DAX）",
         "correct": false,
-        "explanation": "DAXは、DynamoDBのインメモリキャッシュです。キャパシティモード（課金の方式）ではありません。",
+        "explanation": "DAXは、DynamoDBのインメモリキャッシュです。キャパシティモードではありません。",
         "eliminatedBy": "最も適切なキャパシティモード"
       },
       {
         "id": "d",
-        "text": "リードレプリカ",
+        "text": "Aurora Serverless",
         "correct": false,
-        "explanation": "リードレプリカは、Amazon RDSやAuroraで読み取りをスケーリングする仕組みです。DynamoDBのキャパシティモードではありません。",
-        "eliminatedBy": "最も適切なキャパシティモード"
+        "explanation": "Aurora Serverlessは、Amazon Auroraの構成です。DynamoDBのキャパシティモードではありません。",
+        "eliminatedBy": "Amazon DynamoDBのテーブル"
       }
     ],
     "keywords": [
-      "まったく予測できません",
-      "リクエストごとに支払いたい"
+      "量が安定",
+      "あらかじめ定義",
+      "Auto Scaling"
     ],
-    "decisionPoint": "リクエストごとに支払う＝オンデマンド。あらかじめ定義する＝プロビジョンド。",
+    "decisionPoint": "あらかじめ定義する＝プロビジョンド。リクエストごとに支払う＝オンデマンド。",
     "serviceIds": [
       "amazon-dynamodb"
     ],
@@ -1109,6 +1122,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Using Aurora serverless（Amazon Aurora ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1130,43 +1147,44 @@
     "format": "scenario",
     "select": "single",
     "difficulty": "standard",
-    "stem": "ある企業は、オンプレミスの商用データベースを、エンジンの異なるAmazon Aurora PostgreSQLへ移行します。移行中も、移行元のデータベースは稼働させ続ける必要があります。最も適切な方法はどれですか。",
+    "stem": "ある企業のアプリケーションでは、Amazon DynamoDBの同じ項目を読み取るリクエストが、繰り返し大量に届いています。読み取りのキャパシティを増やし続ける代わりに、テーブルに届く読み取りを減らしたいと考えています。最も適切な方法はどれですか。",
     "choices": [
       {
         "id": "a",
-        "text": "AWS Schema Conversion Tool（AWS SCT）でスキーマを変換し、AWS DMSでデータを移行する",
+        "text": "DynamoDB Accelerator（DAX）を使う",
         "correct": true,
-        "explanation": "異なるエンジンへの移行（異種間の移行）では、AWS SCTでスキーマを移行先のエンジン向けに変換し、AWS DMSでデータを移行します。AWS DMSでは、移行中も移行元のデータベースは稼働し続けます。"
+        "explanation": "DAXは、DynamoDBのためのインメモリキャッシュです。よく読まれる項目をメモリから返すことで、テーブルに届く読み取りを減らせます。"
       },
       {
         "id": "b",
-        "text": "AWS DataSyncで、データベースのファイルをコピーする",
+        "text": "テーブルの読み取りのキャパシティを、さらに増やす",
         "correct": false,
-        "explanation": "DataSyncは、ファイルやオブジェクトのストレージの間のデータ移動を自動化するサービスです。エンジンの異なるデータベースへ、スキーマを変換して移行するものではありません。",
-        "eliminatedBy": "エンジンの異なる"
+        "explanation": "キャパシティを増やせば処理はできますが、問題文は、増やし続ける代わりの方法を求めています。",
+        "eliminatedBy": "読み取りのキャパシティを増やし続ける代わりに"
       },
       {
         "id": "c",
-        "text": "AWS Snow Familyの機器にデータベースを書き出して輸送する",
+        "text": "Amazon RDS Proxyを使う",
         "correct": false,
-        "explanation": "Snow Familyは、物理的な機器でデータを輸送するサービスです。輸送の間に更新されたデータは反映されず、スキーマの変換も行いません。",
-        "eliminatedBy": "移行元のデータベースは稼働させ続ける"
+        "explanation": "RDS Proxyは、Amazon RDSやAuroraのデータベースの接続をプールして共有するサービスです。DynamoDBの読み取りを減らすものではありません。",
+        "eliminatedBy": "Amazon DynamoDBの同じ項目"
       },
       {
         "id": "d",
-        "text": "AWS Storage Gatewayを、オンプレミスのデータベースの前に配置する",
+        "text": "AWS Backupでバックアップの頻度を上げる",
         "correct": false,
-        "explanation": "Storage Gatewayは、オンプレミスのアプリケーションがAWSのストレージを使えるようにするサービスです。データベースの移行のサービスではありません。",
-        "eliminatedBy": "エンジンの異なるAmazon Aurora PostgreSQLへ移行"
+        "explanation": "バックアップは、データを保護するためのものです。読み取りのリクエストは減りません。",
+        "eliminatedBy": "テーブルに届く読み取りを減らしたい"
       }
     ],
     "keywords": [
-      "エンジンの異なる",
-      "移行元のデータベースは稼働させ続ける"
+      "DynamoDB",
+      "同じ項目を読み取る",
+      "繰り返し大量に"
     ],
-    "decisionPoint": "異種間の移行＝SCT（スキーマ変換）＋DMS（データ移行、移行元は稼働）。",
+    "decisionPoint": "DynamoDBの読み取りのキャッシュ＝DAX。RDSの読み取りのキャッシュ＝ElastiCache。",
     "serviceIds": [
-      "aws-dms"
+      "amazon-dynamodb"
     ],
     "related": [
       {

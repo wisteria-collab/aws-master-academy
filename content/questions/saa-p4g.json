@@ -1,0 +1,3594 @@
+[
+  {
+    "id": "saa-q-acc-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Access for an IAM user in another AWS account that you own（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html"
+      },
+      {
+        "title": "How do I use IAM to access resources in another AWS account?（AWS re:Post ナレッジセンター）",
+        "url": "https://repost.aws/knowledge-center/cross-account-access-iam"
+      },
+      {
+        "title": "assume-role（AWS CLI コマンドリファレンス）",
+        "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業のアプリケーションは、Amazon EC2インスタンスで動き、Amazon S3のバケットを読み書きします。現在は、IAMユーザーのアクセスキーを、インスタンスの設定ファイルに保存しています。長期的な認証情報をインスタンスに置かないようにしたいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "必要な権限を持つIAMロールを、EC2インスタンスに関連付ける",
+        "correct": true,
+        "explanation": "AWSのコンピューティングサービスの上で動くワークロードには、ロールの一時的な認証情報が渡されます。そのため、長期的な認証情報を配る必要がありません。"
+      },
+      {
+        "id": "b",
+        "text": "アクセスキーを、アプリケーションのソースコードに直接書く",
+        "correct": false,
+        "explanation": "ソースコードに書いても、長期的な認証情報をインスタンスに置くことは変わりません。漏えいの危険も高まります。",
+        "eliminatedBy": "長期的な認証情報をインスタンスに置かない"
+      },
+      {
+        "id": "c",
+        "text": "ルートユーザーのアクセスキーを作成して使う",
+        "correct": false,
+        "explanation": "ルートユーザーの認証情報は、すべての操作ができる最も強い認証情報です。アプリケーションに使わせるべきではありません。",
+        "eliminatedBy": "長期的な認証情報をインスタンスに置かない"
+      },
+      {
+        "id": "d",
+        "text": "アクセスキーを、すべてのインスタンスで共有する",
+        "correct": false,
+        "explanation": "共有しても、長期的な認証情報であることは変わりません。漏えいしたときの影響も大きくなります。",
+        "eliminatedBy": "長期的な認証情報をインスタンスに置かない"
+      }
+    ],
+    "keywords": [
+      "EC2インスタンス",
+      "アクセスキー",
+      "長期的な認証情報"
+    ],
+    "decisionPoint": "EC2やLambdaで動くワークロードには、アクセスキーではなくIAMロール（一時的な認証情報）。",
+    "serviceIds": [
+      "aws-iam",
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-acc-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Access for an IAM user in another AWS account that you own（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html"
+      },
+      {
+        "title": "How do I use IAM to access resources in another AWS account?（AWS re:Post ナレッジセンター）",
+        "url": "https://repost.aws/knowledge-center/cross-account-access-iam"
+      },
+      {
+        "title": "assume-role（AWS CLI コマンドリファレンス）",
+        "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるアプリケーションが、AWS STSを使ってIAMロールを引き受けます（AssumeRole）。このときにAWS STSから返されるものとして、正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "アクセスキーID、シークレットアクセスキー、セキュリティトークンで構成される、一時的な認証情報",
+        "correct": true,
+        "explanation": "ロールを引き受けると、AWS STSが一時的な認証情報を返します。一時的な認証情報は、アクセスキーID、シークレットアクセスキー、セキュリティトークンで構成されます。"
+      },
+      {
+        "id": "b",
+        "text": "期限のない、長期的なアクセスキー",
+        "correct": false,
+        "explanation": "ロールを引き受けて得られるのは、一時的な認証情報です。期限のない長期的な認証情報ではありません。",
+        "eliminatedBy": "IAMロールを引き受けます"
+      },
+      {
+        "id": "c",
+        "text": "ルートユーザーのパスワード",
+        "correct": false,
+        "explanation": "ロールを引き受けても、ルートユーザーのパスワードが返されることはありません。",
+        "eliminatedBy": "AWS STSから返されるもの"
+      },
+      {
+        "id": "d",
+        "text": "新しく作成されたIAMユーザー",
+        "correct": false,
+        "explanation": "ロールを引き受けても、IAMユーザーは作成されません。返されるのは一時的な認証情報です。",
+        "eliminatedBy": "AWS STSから返されるもの"
+      }
+    ],
+    "keywords": [
+      "AWS STS",
+      "AssumeRole"
+    ],
+    "decisionPoint": "AssumeRole＝STSが一時的な認証情報（アクセスキーID・シークレットアクセスキー・セキュリティトークン）を返す。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-acc-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Access for an IAM user in another AWS account that you own（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html"
+      },
+      {
+        "title": "How do I use IAM to access resources in another AWS account?（AWS re:Post ナレッジセンター）",
+        "url": "https://repost.aws/knowledge-center/cross-account-access-iam"
+      },
+      {
+        "title": "assume-role（AWS CLI コマンドリファレンス）",
+        "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、AWS Organizationsのサービスコントロールポリシー（SCP）で、Amazon S3の操作を許可しています。ところが、メンバーアカウントのあるIAMユーザーは、S3を操作できません。このユーザーには、ポリシーが1つも付いていません。原因として最も考えられるものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "SCPは権限を与えないため、ユーザーに権限を与えるポリシーが別に必要である",
+        "correct": true,
+        "explanation": "SCPは、組織内のアカウントのプリンシパルに対する、権限のガードレールです。SCPそのものは権限を与えません。権限を与えるには、アイデンティティベースまたはリソースベースのポリシーが必要です。"
+      },
+      {
+        "id": "b",
+        "text": "SCPは、IAMユーザーには適用されず、ロールにだけ適用される",
+        "correct": false,
+        "explanation": "SCPは、組織内のアカウントのすべてのプリンシパル（ロールとユーザー）に対するガードレールです。",
+        "eliminatedBy": "あるIAMユーザーは、S3を操作できません"
+      },
+      {
+        "id": "c",
+        "text": "SCPで許可した操作は、反映されるまでに数日かかる",
+        "correct": false,
+        "explanation": "原因は反映の時間ではありません。ユーザーに権限を与えるポリシーが付いていないことです。",
+        "eliminatedBy": "ポリシーが1つも付いていません"
+      },
+      {
+        "id": "d",
+        "text": "Amazon S3は、AWS Organizationsに対応していない",
+        "correct": false,
+        "explanation": "S3の操作はSCPで制御できます。原因は、ユーザーに権限を与えるポリシーがないことです。",
+        "eliminatedBy": "ポリシーが1つも付いていません"
+      }
+    ],
+    "keywords": [
+      "SCP",
+      "ポリシーが1つも付いていません"
+    ],
+    "decisionPoint": "SCP＝上限（ガードレール）。権限を与えるのは、アイデンティティベースかリソースベースのポリシー。",
+    "serviceIds": [
+      "aws-organizations",
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-acc-08",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Access for an IAM user in another AWS account that you own（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html"
+      },
+      {
+        "title": "How do I use IAM to access resources in another AWS account?（AWS re:Post ナレッジセンター）",
+        "url": "https://repost.aws/knowledge-center/cross-account-access-iam"
+      },
+      {
+        "title": "assume-role（AWS CLI コマンドリファレンス）",
+        "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、開発者に、IAMロールを作成する作業を任せたいと考えています。ただし、開発者が作成するロールに、決められた範囲を超える権限を付けられないように、委任する権限の上限を設定したいと考えています。最も適切な機能はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "アクセス許可の境界",
+        "correct": true,
+        "explanation": "アクセス許可の境界は、権限を委任するときに、委任する権限の上限を設定します。境界そのものは権限を与えません。"
+      },
+      {
+        "id": "b",
+        "text": "信頼ポリシー",
+        "correct": false,
+        "explanation": "信頼ポリシーは、誰がそのロールを引き受けられるかを定めるものです。ロールに付けられる権限の上限を設定するものではありません。",
+        "eliminatedBy": "委任する権限の上限を設定"
+      },
+      {
+        "id": "c",
+        "text": "AWS Control Tower",
+        "correct": false,
+        "explanation": "Control Towerは、複数アカウントの環境（ランディングゾーン）のセットアップを自動化するサービスです。個々のロールの権限の上限を設定する機能ではありません。",
+        "eliminatedBy": "委任する権限の上限を設定"
+      },
+      {
+        "id": "d",
+        "text": "IAM Access Analyzer",
+        "correct": false,
+        "explanation": "IAM Access Analyzerは、公開またはクロスアカウントのアクセスを許可しているリソースを見つける機能です。権限の上限を設定するものではありません。",
+        "eliminatedBy": "委任する権限の上限を設定"
+      }
+    ],
+    "keywords": [
+      "IAMロールを作成する作業を任せたい",
+      "権限の上限"
+    ],
+    "decisionPoint": "権限の委任の上限＝アクセス許可の境界（それ自体は権限を与えない）。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-acc-09",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Access for an IAM user in another AWS account that you own（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html"
+      },
+      {
+        "title": "How do I use IAM to access resources in another AWS account?（AWS re:Post ナレッジセンター）",
+        "url": "https://repost.aws/knowledge-center/cross-account-access-iam"
+      },
+      {
+        "title": "assume-role（AWS CLI コマンドリファレンス）",
+        "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業のセキュリティ担当者は、自社のAWSアカウントのリソースの中に、意図せずに外部へ公開されているものや、ほかのアカウントからアクセスできるものがないかを確認したいと考えています。最も適切な機能はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "IAM Access Analyzer",
+        "correct": true,
+        "explanation": "IAM Access Analyzerは、公開またはクロスアカウントのアクセスを許可しているリソースを見つけて知らせます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS IAM Identity Center",
+        "correct": false,
+        "explanation": "IAM Identity Centerは、複数のAWSアカウントや業務アプリケーションへのシングルサインオンを一元管理するサービスです。公開されているリソースを見つけるものではありません。",
+        "eliminatedBy": "外部へ公開されているもの"
+      },
+      {
+        "id": "c",
+        "text": "AWS Directory Service",
+        "correct": false,
+        "explanation": "Directory Serviceは、マネージドなMicrosoft Active Directoryを提供するサービスです。リソースの公開の状況を調べるものではありません。",
+        "eliminatedBy": "外部へ公開されているもの"
+      },
+      {
+        "id": "d",
+        "text": "AWS STS",
+        "correct": false,
+        "explanation": "AWS STSは、一時的な認証情報を返すサービスです。公開されているリソースを見つけるものではありません。",
+        "eliminatedBy": "ほかのアカウントからアクセスできるもの"
+      }
+    ],
+    "keywords": [
+      "外部へ公開されているもの",
+      "ほかのアカウントからアクセスできるもの"
+    ],
+    "decisionPoint": "公開・クロスアカウントのアクセスを見つける＝IAM Access Analyzer。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-acc-10",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Access for an IAM user in another AWS account that you own（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html"
+      },
+      {
+        "title": "How do I use IAM to access resources in another AWS account?（AWS re:Post ナレッジセンター）",
+        "url": "https://repost.aws/knowledge-center/cross-account-access-iam"
+      },
+      {
+        "title": "assume-role（AWS CLI コマンドリファレンス）",
+        "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、数十個のAWSアカウントと、複数の業務アプリケーションを使っています。社員が1回のサインインで、割り当てられたアカウントやアプリケーションにアクセスできるようにし、そのアクセスを一元的に管理したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS IAM Identity Center",
+        "correct": true,
+        "explanation": "IAM Identity Centerは、複数のAWSアカウントや業務アプリケーションへのシングルサインオンを、一元的に管理します。"
+      },
+      {
+        "id": "b",
+        "text": "アカウントごとに、社員全員のIAMユーザーを作成する",
+        "correct": false,
+        "explanation": "アカウントの数だけIAMユーザーとパスワードが増え、1回のサインインにも、一元的な管理にもなりません。",
+        "eliminatedBy": "1回のサインインで"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Cognito",
+        "correct": false,
+        "explanation": "Cognitoは、自社のアプリの利用者（顧客）のサインアップとサインインを追加するサービスです。社員のAWSアカウントへのアクセスを一元管理するものではありません。",
+        "eliminatedBy": "数十個のAWSアカウント"
+      },
+      {
+        "id": "d",
+        "text": "AWS Secrets Manager",
+        "correct": false,
+        "explanation": "Secrets Managerは、データベースの認証情報などを保管してローテーションするサービスです。シングルサインオンのサービスではありません。",
+        "eliminatedBy": "1回のサインインで"
+      }
+    ],
+    "keywords": [
+      "数十個のAWSアカウント",
+      "1回のサインイン",
+      "一元的に管理"
+    ],
+    "decisionPoint": "複数アカウント・業務アプリへのシングルサインオン＝IAM Identity Center。",
+    "serviceIds": [
+      "aws-iam-identity-center"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-acc-11",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Access for an IAM user in another AWS account that you own（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html"
+      },
+      {
+        "title": "How do I use IAM to access resources in another AWS account?（AWS re:Post ナレッジセンター）",
+        "url": "https://repost.aws/knowledge-center/cross-account-access-iam"
+      },
+      {
+        "title": "assume-role（AWS CLI コマンドリファレンス）",
+        "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Microsoft Active Directoryに依存する社内アプリケーションを、AWSに移行します。Active Directoryのサーバーを自分で構築・運用せずに、マネージドなMicrosoft Active Directoryを使いたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Directory Service",
+        "correct": true,
+        "explanation": "AWS Directory Serviceは、マネージドなMicrosoft Active Directoryを提供します。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Cognito",
+        "correct": false,
+        "explanation": "Cognitoは、アプリの利用者のサインアップとサインインを追加するサービスです。Microsoft Active Directoryを提供するものではありません。",
+        "eliminatedBy": "マネージドなMicrosoft Active Directory"
+      },
+      {
+        "id": "c",
+        "text": "AWS Organizations",
+        "correct": false,
+        "explanation": "Organizationsは、AWSアカウントをまとめて統制するサービスです。ディレクトリのサービスではありません。",
+        "eliminatedBy": "マネージドなMicrosoft Active Directory"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EC2に、Active Directoryを自分でインストールする",
+        "correct": false,
+        "explanation": "EC2にインストールすれば動かせますが、サーバーの構築と運用を自分で行うことになります。",
+        "eliminatedBy": "自分で構築・運用せずに"
+      }
+    ],
+    "keywords": [
+      "Microsoft Active Directory",
+      "自分で構築・運用せずに"
+    ],
+    "decisionPoint": "マネージドなMicrosoft Active Directory＝AWS Directory Service。",
+    "serviceIds": [
+      "aws-directory-service"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-acc-12",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Access for an IAM user in another AWS account that you own（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html"
+      },
+      {
+        "title": "How do I use IAM to access resources in another AWS account?（AWS re:Post ナレッジセンター）",
+        "url": "https://repost.aws/knowledge-center/cross-account-access-iam"
+      },
+      {
+        "title": "assume-role（AWS CLI コマンドリファレンス）",
+        "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "IAMのポリシーには、ユーザーやロールに付けるものと、リソースに付けるものがあります。Amazon S3のバケットのように、リソースそのものに付けて権限を与えるポリシーは、どれに分類されますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "リソースベースのポリシー",
+        "correct": true,
+        "explanation": "権限を与えるポリシーには、ユーザーやロールに付けるアイデンティティベースのポリシーと、リソースに付けるリソースベースのポリシーがあります。"
+      },
+      {
+        "id": "b",
+        "text": "アイデンティティベースのポリシー",
+        "correct": false,
+        "explanation": "アイデンティティベースのポリシーは、ユーザーやロールに付けるポリシーです。リソースに付けるものではありません。",
+        "eliminatedBy": "リソースそのものに付けて"
+      },
+      {
+        "id": "c",
+        "text": "サービスコントロールポリシー（SCP）",
+        "correct": false,
+        "explanation": "SCPは、組織内のアカウントに対する権限のガードレールです。権限を与えるものではなく、リソースに付けるものでもありません。",
+        "eliminatedBy": "権限を与えるポリシー"
+      },
+      {
+        "id": "d",
+        "text": "アクセス許可の境界",
+        "correct": false,
+        "explanation": "アクセス許可の境界は、委任する権限の上限を設定するものです。それ自体は権限を与えません。",
+        "eliminatedBy": "権限を与えるポリシー"
+      }
+    ],
+    "keywords": [
+      "リソースそのものに付けて",
+      "権限を与える"
+    ],
+    "decisionPoint": "ユーザー・ロールに付ける＝アイデンティティベース。リソースに付ける＝リソースベース。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-acc-13",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Access for an IAM user in another AWS account that you own（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html"
+      },
+      {
+        "title": "How do I use IAM to access resources in another AWS account?（AWS re:Post ナレッジセンター）",
+        "url": "https://repost.aws/knowledge-center/cross-account-access-iam"
+      },
+      {
+        "title": "assume-role（AWS CLI コマンドリファレンス）",
+        "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "scenario",
+    "select": "multiple",
+    "difficulty": "standard",
+    "stem": "ある企業は、漏えいの危険を減らすために、長期的な認証情報の利用を減らしたいと考えています。推奨される方法を2つ選んでください。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "社員などの人のユーザーには、IDプロバイダーとのフェデレーションで、ロールを引き受けさせる",
+        "correct": true,
+        "explanation": "人のユーザーには、フェデレーションでロールを引き受けて、一時的な認証情報を使わせることが推奨されています。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon EC2やAWS Lambdaで動くワークロードには、IAMロールを使わせる",
+        "correct": true,
+        "explanation": "AWSのコンピューティングサービスで動くワークロードには、ロールの一時的な認証情報が渡されるため、長期的な認証情報を配る必要がありません。"
+      },
+      {
+        "id": "c",
+        "text": "アクセスキーを、アプリケーションのソースコードに書いておく",
+        "correct": false,
+        "explanation": "ソースコードに書いたアクセスキーは、長期的な認証情報のままで、漏えいの危険が高くなります。",
+        "eliminatedBy": "長期的な認証情報の利用を減らしたい"
+      },
+      {
+        "id": "d",
+        "text": "部署の全員で、1つのIAMユーザーのパスワードを共有する",
+        "correct": false,
+        "explanation": "認証情報を共有すると、誰が操作したかを追えなくなり、漏えいの危険も高まります。",
+        "eliminatedBy": "漏えいの危険を減らす"
+      },
+      {
+        "id": "e",
+        "text": "ルートユーザーのアクセスキーを作成して、日常の作業に使う",
+        "correct": false,
+        "explanation": "ルートユーザーの認証情報は最も強い認証情報です。日常の作業に使うべきではありません。",
+        "eliminatedBy": "漏えいの危険を減らす"
+      }
+    ],
+    "keywords": [
+      "長期的な認証情報の利用を減らしたい",
+      "2つ"
+    ],
+    "decisionPoint": "人＝フェデレーション、ワークロード＝ロール。どちらも一時的な認証情報。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-wl-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+      },
+      {
+        "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業のウェブアプリケーションが、SQLインジェクションなどの、ウェブアプリケーションを狙った攻撃を受けています。こうした攻撃からアプリケーションを保護するために、最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS WAF",
+        "correct": true,
+        "explanation": "AWS WAFは、SQLインジェクションなど、ウェブアプリケーションへの攻撃から保護するウェブアプリケーションファイアウォールです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Shield",
+        "correct": false,
+        "explanation": "Shieldは、DDoS攻撃から保護するサービスです。SQLインジェクションのような、リクエストの内容を悪用する攻撃を防ぐのはWAFです。",
+        "eliminatedBy": "SQLインジェクション"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Macie",
+        "correct": false,
+        "explanation": "Macieは、Amazon S3の機密データを発見するサービスです。ウェブアプリケーションへの攻撃を防ぐものではありません。",
+        "eliminatedBy": "攻撃からアプリケーションを保護"
+      },
+      {
+        "id": "d",
+        "text": "AWS Secrets Manager",
+        "correct": false,
+        "explanation": "Secrets Managerは、認証情報などを保管してローテーションするサービスです。攻撃のリクエストを防ぐものではありません。",
+        "eliminatedBy": "攻撃からアプリケーションを保護"
+      }
+    ],
+    "keywords": [
+      "SQLインジェクション",
+      "ウェブアプリケーションを狙った攻撃"
+    ],
+    "decisionPoint": "SQLインジェクションなどウェブアプリへの攻撃＝WAF。DDoS＝Shield。",
+    "serviceIds": [
+      "aws-waf"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-wl-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+      },
+      {
+        "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業の公開ウェブサイトが、大量の通信を送りつけてサービスを止めようとするDDoS攻撃を受けるおそれがあります。DDoS攻撃からの保護のために、最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Shield",
+        "correct": true,
+        "explanation": "AWS Shieldは、DDoS攻撃から保護するサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Cognito",
+        "correct": false,
+        "explanation": "Cognitoは、アプリの利用者のサインアップとサインインを追加するサービスです。DDoS攻撃から保護するものではありません。",
+        "eliminatedBy": "DDoS攻撃からの保護"
+      },
+      {
+        "id": "c",
+        "text": "Amazon GuardDuty",
+        "correct": false,
+        "explanation": "GuardDutyは、悪意のある活動を継続的に監視して検出するサービスです。DDoS攻撃から保護する役割は、Shieldが担います。",
+        "eliminatedBy": "DDoS攻撃からの保護"
+      },
+      {
+        "id": "d",
+        "text": "AWS Certificate Manager（ACM）",
+        "correct": false,
+        "explanation": "ACMは、SSL/TLS証明書を管理するサービスです。DDoS攻撃から保護するものではありません。",
+        "eliminatedBy": "DDoS攻撃からの保護"
+      }
+    ],
+    "keywords": [
+      "DDoS攻撃"
+    ],
+    "decisionPoint": "DDoS攻撃からの保護＝Shield。",
+    "serviceIds": [
+      "aws-shield"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-wl-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+      },
+      {
+        "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業のアプリケーションは、データベースのパスワードを、ソースコードに直接書いています。パスワードをコードの外で安全に保管し、定期的に自動でローテーションしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Secrets Manager",
+        "correct": true,
+        "explanation": "Secrets Managerは、データベースの認証情報などを保管し、ローテーションします。認証情報をコードに直接書かずに済みます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Certificate Manager（ACM）",
+        "correct": false,
+        "explanation": "ACMは、SSL/TLS証明書を管理するサービスです。データベースのパスワードを保管してローテーションするものではありません。",
+        "eliminatedBy": "データベースのパスワード"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Macie",
+        "correct": false,
+        "explanation": "Macieは、Amazon S3の機密データを発見するサービスです。パスワードを保管するものではありません。",
+        "eliminatedBy": "安全に保管し"
+      },
+      {
+        "id": "d",
+        "text": "パスワードを、インスタンスの設定ファイルに平文で保存する",
+        "correct": false,
+        "explanation": "コードの外には出ますが、平文のままで安全ではなく、自動のローテーションもできません。",
+        "eliminatedBy": "定期的に自動でローテーション"
+      }
+    ],
+    "keywords": [
+      "パスワードを、ソースコードに直接書いています",
+      "自動でローテーション"
+    ],
+    "decisionPoint": "認証情報の保管とローテーション＝Secrets Manager。",
+    "serviceIds": [
+      "aws-secrets-manager"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-wl-08",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+      },
+      {
+        "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、AWSのアカウントやワークロードに対する、悪意のある活動や不審なふるまいを、継続的に監視して検出したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon GuardDuty",
+        "correct": true,
+        "explanation": "GuardDutyは、悪意のある活動を継続的に監視する、脅威検出のサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS WAF",
+        "correct": false,
+        "explanation": "WAFは、ウェブアプリケーションへの攻撃のリクエストを防ぐファイアウォールです。アカウント全体の不審な活動を監視するものではありません。",
+        "eliminatedBy": "アカウントやワークロードに対する"
+      },
+      {
+        "id": "c",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "Artifactは、AWSのコンプライアンスのレポートを入手するためのサービスです。脅威を検出するものではありません。",
+        "eliminatedBy": "継続的に監視して検出"
+      },
+      {
+        "id": "d",
+        "text": "AWS Site-to-Site VPN",
+        "correct": false,
+        "explanation": "Site-to-Site VPNは、自社のネットワークとVPCを暗号化されたトンネルで接続するサービスです。脅威を検出するものではありません。",
+        "eliminatedBy": "継続的に監視して検出"
+      }
+    ],
+    "keywords": [
+      "悪意のある活動",
+      "継続的に監視して検出"
+    ],
+    "decisionPoint": "悪意のある活動の継続的な監視＝GuardDuty。",
+    "serviceIds": [
+      "amazon-guardduty"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-wl-09",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+      },
+      {
+        "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、VPCにデータベースサーバーを配置します。データベースサーバーは、インターネットから直接アクセスされてはいけません。最も適切な配置はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "インターネットゲートウェイへの経路を持たない、プライベートサブネットに配置する",
+        "correct": true,
+        "explanation": "インターネットから直接アクセスされるべきでないインスタンスは、プライベートサブネットに置きます。プライベートサブネットは、インターネットゲートウェイへの経路を持たないサブネットです。"
+      },
+      {
+        "id": "b",
+        "text": "パブリックサブネットに配置し、パブリックIPアドレスを割り当てる",
+        "correct": false,
+        "explanation": "パブリックサブネットでパブリックIPアドレスを持つと、インターネットから到達できる場所に置かれることになります。",
+        "eliminatedBy": "インターネットから直接アクセスされてはいけません"
+      },
+      {
+        "id": "c",
+        "text": "パブリックサブネットに配置し、セキュリティグループですべての通信を許可する",
+        "correct": false,
+        "explanation": "すべての通信を許可すると、インターネットからのアクセスも受け付けることになります。",
+        "eliminatedBy": "インターネットから直接アクセスされてはいけません"
+      },
+      {
+        "id": "d",
+        "text": "インターネットゲートウェイに、データベースサーバーを直接関連付ける",
+        "correct": false,
+        "explanation": "インターネットゲートウェイは、VPCとインターネットをつなぐ出入口です。データベースを直接アクセスさせない目的に反します。",
+        "eliminatedBy": "インターネットから直接アクセスされてはいけません"
+      }
+    ],
+    "keywords": [
+      "データベースサーバー",
+      "インターネットから直接アクセスされてはいけません"
+    ],
+    "decisionPoint": "直接アクセスさせないもの＝プライベートサブネット（インターネットゲートウェイへの経路なし）。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-wl-10",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+      },
+      {
+        "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるエンジニアが、ウェブサーバーのセキュリティグループに、HTTPSの受信を許可するルールを追加しました。このとき、受信した通信への応答（戻りの通信）を通すために、送信のルールを追加する必要はありますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "必要ない。セキュリティグループはステートフルで、許可された通信への応答は自動的に許可される",
+        "correct": true,
+        "explanation": "セキュリティグループはステートフルです。受信を許可した通信への応答は、送信のルールに関係なく通ります。"
+      },
+      {
+        "id": "b",
+        "text": "必要である。セキュリティグループはステートレスで、戻りの通信も明示的に許可する必要がある",
+        "correct": false,
+        "explanation": "ステートレスで、戻りの通信も明示的に許可する必要があるのは、ネットワークACLです。セキュリティグループはステートフルです。",
+        "eliminatedBy": "セキュリティグループに"
+      },
+      {
+        "id": "c",
+        "text": "必要である。セキュリティグループには拒否のルールがあり、既定で応答を拒否する",
+        "correct": false,
+        "explanation": "セキュリティグループが持つのは、許可のルールだけです。拒否のルールはありません。",
+        "eliminatedBy": "セキュリティグループに"
+      },
+      {
+        "id": "d",
+        "text": "必要ない。セキュリティグループは、サブネット全体に対して動作するためである",
+        "correct": false,
+        "explanation": "セキュリティグループは、インスタンスの単位で動作します。サブネットの単位で動作するのはネットワークACLです。",
+        "eliminatedBy": "ウェブサーバーのセキュリティグループ"
+      }
+    ],
+    "keywords": [
+      "セキュリティグループ",
+      "戻りの通信"
+    ],
+    "decisionPoint": "セキュリティグループ＝ステートフル（応答は自動で通る）。ネットワークACL＝ステートレス。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      },
+      {
+        "type": "comparison",
+        "id": "sg-nacl"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-wl-11",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+      },
+      {
+        "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "scenario",
+    "select": "multiple",
+    "difficulty": "standard",
+    "stem": "ある企業は、ウェブ、アプリケーション、データベースの3層のアプリケーションをVPCに構築します。データベースの層を保護するための設計として、適切なものを2つ選んでください。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "データベースを、プライベートサブネットに配置する",
+        "correct": true,
+        "explanation": "インターネットから直接アクセスされるべきでないインスタンスは、インターネットゲートウェイへの経路を持たないプライベートサブネットに置きます。"
+      },
+      {
+        "id": "b",
+        "text": "データベースのセキュリティグループで、アプリケーションの層からの通信だけを許可する",
+        "correct": true,
+        "explanation": "セキュリティグループは、インスタンスへのアクセスを制御する主な手段です。必要な通信だけを許可します。"
+      },
+      {
+        "id": "c",
+        "text": "データベースを、パブリックサブネットに配置し、パブリックIPアドレスを割り当てる",
+        "correct": false,
+        "explanation": "インターネットから到達できる場所に置くことになり、データベースの層の保護になりません。",
+        "eliminatedBy": "データベースの層を保護"
+      },
+      {
+        "id": "d",
+        "text": "データベースのセキュリティグループで、すべてのIPアドレスからの、すべてのポートへの通信を許可する",
+        "correct": false,
+        "explanation": "すべての通信を許可すると、不要なアクセスも受け付けることになります。",
+        "eliminatedBy": "データベースの層を保護"
+      },
+      {
+        "id": "e",
+        "text": "データベースの認証情報を、アプリケーションのソースコードに直接書く",
+        "correct": false,
+        "explanation": "認証情報をコードに直接書くと、漏えいの危険が高まります。AWS Secrets Managerなどに保管します。",
+        "eliminatedBy": "データベースの層を保護"
+      }
+    ],
+    "keywords": [
+      "3層",
+      "データベースの層を保護",
+      "2つ"
+    ],
+    "decisionPoint": "データベース＝プライベートサブネット＋必要な通信だけを許可するセキュリティグループ。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-data-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS KMS keys（AWS KMS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html"
+      },
+      {
+        "title": "AWS KMS FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/kms/faqs/"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、多数のAmazon S3のバケットに、さまざまなデータを保存しています。その中に、個人情報などの機密データが含まれていないかを、発見したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Macie",
+        "correct": true,
+        "explanation": "Macieは、Amazon S3の機密データを発見するサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon GuardDuty",
+        "correct": false,
+        "explanation": "GuardDutyは、悪意のある活動を継続的に監視するサービスです。S3の中の機密データを発見するのはMacieです。",
+        "eliminatedBy": "機密データが含まれていないか"
+      },
+      {
+        "id": "c",
+        "text": "AWS KMS",
+        "correct": false,
+        "explanation": "KMSは、暗号鍵を作成・管理するサービスです。データの中身を調べて機密データを発見するものではありません。",
+        "eliminatedBy": "発見したい"
+      },
+      {
+        "id": "d",
+        "text": "AWS Backup",
+        "correct": false,
+        "explanation": "AWS Backupは、バックアップを一元化・自動化するサービスです。機密データを発見するものではありません。",
+        "eliminatedBy": "発見したい"
+      }
+    ],
+    "keywords": [
+      "Amazon S3のバケット",
+      "機密データ",
+      "発見"
+    ],
+    "decisionPoint": "S3の機密データの発見＝Macie。",
+    "serviceIds": [
+      "amazon-macie"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-data-security"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-data-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS KMS keys（AWS KMS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html"
+      },
+      {
+        "title": "AWS KMS FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/kms/faqs/"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、転送中のデータを保護するために、暗号化されていない通信によるリクエストを受け付けないようにしたいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ポリシーの条件を使って、TLSを使ったリクエストだけを許可する",
+        "correct": true,
+        "explanation": "ポリシーには条件を指定できます。条件を使って、TLSを使ったリクエストだけを許可することができます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS KMSのカスタマー管理キーで、保存するデータを暗号化する",
+        "correct": false,
+        "explanation": "KMSの鍵による暗号化は、保存時のデータを保護するものです。転送中の通信を暗号化されたものに限るものではありません。",
+        "eliminatedBy": "転送中のデータを保護"
+      },
+      {
+        "id": "c",
+        "text": "AWS Backupで、バックアップを取得する",
+        "correct": false,
+        "explanation": "バックアップは、データを失わないためのものです。転送中のデータを保護するものではありません。",
+        "eliminatedBy": "転送中のデータを保護"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Macieを有効にする",
+        "correct": false,
+        "explanation": "Macieは、Amazon S3の機密データを発見するサービスです。暗号化されていない通信を拒否するものではありません。",
+        "eliminatedBy": "リクエストを受け付けない"
+      }
+    ],
+    "keywords": [
+      "転送中のデータ",
+      "暗号化されていない通信"
+    ],
+    "decisionPoint": "転送時の保護＝TLS。ポリシーの条件で、TLSを使ったリクエストだけを許可できる。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-data-security"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-data-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS KMS keys（AWS KMS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html"
+      },
+      {
+        "title": "AWS KMS FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/kms/faqs/"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、保存するデータを暗号化します。鍵のポリシーやローテーションを自分で細かく制御する必要はなく、鍵の管理に手間をかけない、手軽さを最も重視しています。AWS KMSの鍵の種類のうち、この考え方に最も合うものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS所有のキー",
+        "correct": true,
+        "explanation": "AWS所有のキーは、AWSが所有して管理します。制御が重要なときはカスタマー管理キー、手軽さが重要なときはAWS所有のキーを使います。"
+      },
+      {
+        "id": "b",
+        "text": "カスタマー管理キー",
+        "correct": false,
+        "explanation": "カスタマー管理キーは、利用者が作成して管理する鍵です。キーポリシーなどを制御できますが、その分の管理が必要です。",
+        "eliminatedBy": "手軽さを最も重視"
+      },
+      {
+        "id": "c",
+        "text": "AWS CloudHSMで管理する鍵",
+        "correct": false,
+        "explanation": "CloudHSMは、専用のHSMで自分の暗号鍵を管理するサービスです。手軽さを重視する場合には合いません。",
+        "eliminatedBy": "鍵の管理に手間をかけない"
+      },
+      {
+        "id": "d",
+        "text": "自社のサーバーで作成して保管する鍵",
+        "correct": false,
+        "explanation": "自社で鍵を作成して保管すると、鍵の管理をすべて自分で行うことになります。",
+        "eliminatedBy": "鍵の管理に手間をかけない"
+      }
+    ],
+    "keywords": [
+      "自分で細かく制御する必要はなく",
+      "手軽さを最も重視"
+    ],
+    "decisionPoint": "制御を重視＝カスタマー管理キー。手軽さを重視＝AWS所有のキー。",
+    "serviceIds": [
+      "aws-kms"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-data-security"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-data-08",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS KMS keys（AWS KMS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html"
+      },
+      {
+        "title": "AWS KMS FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/kms/faqs/"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "AWS KMSで、ある鍵について「誰がその鍵を、どのように使えるか」を定めるものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "キーポリシー",
+        "correct": true,
+        "explanation": "キーポリシーは、鍵へのアクセスを制御します。それぞれの鍵に1つあり、誰がその鍵を、どのように使えるかを定めます。"
+      },
+      {
+        "id": "b",
+        "text": "サービスコントロールポリシー（SCP）",
+        "correct": false,
+        "explanation": "SCPは、組織内のアカウントに対する権限のガードレールです。個々の鍵に付けて、鍵の使い方を定めるものではありません。",
+        "eliminatedBy": "ある鍵について"
+      },
+      {
+        "id": "c",
+        "text": "セキュリティグループ",
+        "correct": false,
+        "explanation": "セキュリティグループは、インスタンスへの通信を制御するものです。鍵へのアクセスを定めるものではありません。",
+        "eliminatedBy": "誰がその鍵を、どのように使えるか"
+      },
+      {
+        "id": "d",
+        "text": "S3のライフサイクルポリシー",
+        "correct": false,
+        "explanation": "ライフサイクルポリシーは、S3のオブジェクトをストレージクラスの間で移すルールです。鍵へのアクセスとは関係がありません。",
+        "eliminatedBy": "誰がその鍵を、どのように使えるか"
+      }
+    ],
+    "keywords": [
+      "AWS KMS",
+      "誰がその鍵を、どのように使えるか"
+    ],
+    "decisionPoint": "鍵へのアクセスの制御＝キーポリシー（鍵ごとに1つ）。",
+    "serviceIds": [
+      "aws-kms"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-data-security"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-data-09",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS KMS keys（AWS KMS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html"
+      },
+      {
+        "title": "AWS KMS FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/kms/faqs/"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、AWS KMSの鍵で暗号化したデータを、別のAWSアカウントのチームにも復号させる必要があります。そのために、鍵へのアクセスを、アカウントをまたいで共有したいと考えています。使う鍵の種類として、最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "カスタマー管理キー",
+        "correct": true,
+        "explanation": "カスタマー管理キーは、利用者が作成して管理する鍵で、キーポリシーなどを制御できます。アカウントをまたいで、鍵へのアクセスを共有することもできます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS所有のキー",
+        "correct": false,
+        "explanation": "AWS所有のキーは、AWSが所有して管理する鍵です。利用者がキーポリシーを制御して、別のアカウントと共有する使い方には合いません。",
+        "eliminatedBy": "アカウントをまたいで共有"
+      },
+      {
+        "id": "c",
+        "text": "AWSマネージドキー",
+        "correct": false,
+        "explanation": "AWSマネージドキーは、AWSのサービスが、利用者のアカウントに作成して管理する鍵です。利用者が自由に制御して共有する鍵は、カスタマー管理キーです。",
+        "eliminatedBy": "アカウントをまたいで共有"
+      },
+      {
+        "id": "d",
+        "text": "SSL/TLS証明書",
+        "correct": false,
+        "explanation": "SSL/TLS証明書は、転送時の暗号化に使うものです。KMSの鍵の種類ではありません。",
+        "eliminatedBy": "AWS KMSの鍵"
+      }
+    ],
+    "keywords": [
+      "別のAWSアカウント",
+      "アカウントをまたいで共有"
+    ],
+    "decisionPoint": "鍵を自分で制御する・アカウントをまたいで共有する＝カスタマー管理キー。",
+    "serviceIds": [
+      "aws-kms"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-data-security"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-data-10",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS KMS keys（AWS KMS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html"
+      },
+      {
+        "title": "AWS KMS FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/kms/faqs/"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、監査への対応として、AWSのリソースの設定が、いつ、どのように変更されたかという履歴を確認できるようにしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Config",
+        "correct": true,
+        "explanation": "AWS Configで、リソースの設定の変更履歴を確認できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "Artifactは、AWSのコンプライアンスのレポートを入手するためのサービスです。自社のリソースの設定の変更履歴を確認するものではありません。",
+        "eliminatedBy": "リソースの設定が、いつ、どのように変更されたか"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Macie",
+        "correct": false,
+        "explanation": "Macieは、Amazon S3の機密データを発見するサービスです。設定の変更履歴を確認するものではありません。",
+        "eliminatedBy": "設定が、いつ、どのように変更されたか"
+      },
+      {
+        "id": "d",
+        "text": "AWS Certificate Manager（ACM）",
+        "correct": false,
+        "explanation": "ACMは、SSL/TLS証明書を管理するサービスです。設定の変更履歴を確認するものではありません。",
+        "eliminatedBy": "設定が、いつ、どのように変更されたか"
+      }
+    ],
+    "keywords": [
+      "リソースの設定",
+      "変更されたかという履歴"
+    ],
+    "decisionPoint": "リソースの設定の変更履歴＝AWS Config。コンプライアンスのレポート＝Artifact。",
+    "serviceIds": [
+      "aws-config"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-data-security"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-data-11",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS KMS keys（AWS KMS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html"
+      },
+      {
+        "title": "AWS KMS FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/kms/faqs/"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、監査人から、AWSが取得している第三者認証や、コンプライアンスに関するレポートの提出を求められました。これらのレポートを入手するために、最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Artifact",
+        "correct": true,
+        "explanation": "AWS Artifactで、AWSのコンプライアンスのレポートを入手できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Config",
+        "correct": false,
+        "explanation": "Configは、自社のリソースの設定の変更履歴を確認するサービスです。AWSのコンプライアンスのレポートを入手するものではありません。",
+        "eliminatedBy": "コンプライアンスに関するレポート"
+      },
+      {
+        "id": "c",
+        "text": "AWS Backup",
+        "correct": false,
+        "explanation": "AWS Backupは、バックアップを一元化・自動化するサービスです。レポートを入手するものではありません。",
+        "eliminatedBy": "レポートを入手"
+      },
+      {
+        "id": "d",
+        "text": "AWS KMS",
+        "correct": false,
+        "explanation": "KMSは、暗号鍵を作成・管理するサービスです。コンプライアンスのレポートを入手するものではありません。",
+        "eliminatedBy": "レポートを入手"
+      }
+    ],
+    "keywords": [
+      "AWSが取得している第三者認証",
+      "レポート"
+    ],
+    "decisionPoint": "AWSのコンプライアンスのレポートの入手＝Artifact。",
+    "serviceIds": [
+      "aws-artifact"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-data-security"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-data-12",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS KMS keys（AWS KMS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html"
+      },
+      {
+        "title": "AWS KMS FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/kms/faqs/"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、SSL/TLS証明書の管理を自動化するために、AWS Certificate Manager（ACM）を使うことにしました。ACMによってなくせる手作業として、正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "証明書の購入、アップロード、更新",
+        "correct": true,
+        "explanation": "ACMは、SSL/TLS証明書をプロビジョニング、管理、デプロイします。証明書の購入、アップロード、更新という手作業をなくします。"
+      },
+      {
+        "id": "b",
+        "text": "暗号鍵のキーポリシーの作成",
+        "correct": false,
+        "explanation": "キーポリシーは、AWS KMSの鍵へのアクセスを制御するものです。ACMがなくす手作業ではありません。",
+        "eliminatedBy": "SSL/TLS証明書の管理"
+      },
+      {
+        "id": "c",
+        "text": "Amazon S3の機密データの発見",
+        "correct": false,
+        "explanation": "S3の機密データの発見は、Amazon Macieの役割です。証明書の管理とは関係がありません。",
+        "eliminatedBy": "SSL/TLS証明書の管理"
+      },
+      {
+        "id": "d",
+        "text": "データベースのバックアップの取得",
+        "correct": false,
+        "explanation": "バックアップの一元化・自動化は、AWS Backupの役割です。証明書の管理とは関係がありません。",
+        "eliminatedBy": "SSL/TLS証明書の管理"
+      }
+    ],
+    "keywords": [
+      "SSL/TLS証明書",
+      "AWS Certificate Manager"
+    ],
+    "decisionPoint": "ACM＝証明書の購入・アップロード・更新の手作業をなくす。",
+    "serviceIds": [
+      "aws-certificate-manager"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-data-security"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるネットショップでは、注文が確定すると、メールの送信、在庫の更新、分析用の記録という3つの処理を行います。注文を受け付けるアプリケーションは、1つのメッセージを発行するだけにし、それを複数の処理に同時に配信したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon SNS",
+        "correct": true,
+        "explanation": "SNSは、1つのメッセージを、複数の購読者に配信します（パブリッシュ／サブスクライブ）。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheは、よく読まれるデータをメモリから返すキャッシュです。メッセージを配信するサービスではありません。",
+        "eliminatedBy": "複数の処理に同時に配信"
+      },
+      {
+        "id": "c",
+        "text": "AWS Transfer Family",
+        "correct": false,
+        "explanation": "Transfer Familyは、SFTPなどによるファイル転送のサービスです。メッセージを複数の処理に配信するものではありません。",
+        "eliminatedBy": "1つのメッセージを発行"
+      },
+      {
+        "id": "d",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontは、コンテンツをエッジロケーションにキャッシュして配信するサービスです。アプリケーションの部品どうしのメッセージの配信には使いません。",
+        "eliminatedBy": "複数の処理に同時に配信"
+      }
+    ],
+    "keywords": [
+      "1つのメッセージを発行",
+      "複数の処理に同時に配信"
+    ],
+    "decisionPoint": "1つのメッセージを複数へ配信＝SNS。キューにためて順に処理＝SQS。",
+    "serviceIds": [
+      "amazon-sns"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      },
+      {
+        "type": "comparison",
+        "id": "messaging"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-08",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、AWSのリソースの状態の変化などのイベントが起きたときに、そのイベントを受け取り、AWS Lambdaなどのターゲットに届ける、イベント駆動の仕組みを作りたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon EventBridge",
+        "correct": true,
+        "explanation": "EventBridgeは、イベントをターゲットに届けるサービスです。イベント駆動のアーキテクチャに使います。"
+      },
+      {
+        "id": "b",
+        "text": "Elastic Load Balancing",
+        "correct": false,
+        "explanation": "Elastic Load Balancingは、通信を複数のターゲットに分散するサービスです。イベントを受け取って届けるものではありません。",
+        "eliminatedBy": "イベントを受け取り"
+      },
+      {
+        "id": "c",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheは、よく読まれるデータをメモリから返すキャッシュです。イベントを届けるサービスではありません。",
+        "eliminatedBy": "ターゲットに届ける"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EKS",
+        "correct": false,
+        "explanation": "EKSは、Kubernetesでコンテナをオーケストレーションするサービスです。イベントをターゲットに届けるものではありません。",
+        "eliminatedBy": "イベント駆動の仕組み"
+      }
+    ],
+    "keywords": [
+      "イベント",
+      "ターゲットに届ける",
+      "イベント駆動"
+    ],
+    "decisionPoint": "イベントをターゲットへ届ける（イベント駆動）＝EventBridge。",
+    "serviceIds": [
+      "amazon-eventbridge"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      },
+      {
+        "type": "comparison",
+        "id": "messaging"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-09",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるウェブアプリケーションは、利用者のセッションの情報を、それぞれのEC2インスタンスのメモリに保存しています。Amazon EC2 Auto Scalingで台数を増減させると、別のインスタンスに振り分けられた利用者が、ログインし直すことになります。水平スケーリングをしやすくするために、最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "セッションの情報をインスタンスの外（Amazon ElastiCacheなど）に保存し、サーバーをステートレスにする",
+        "correct": true,
+        "explanation": "水平スケーリングをしやすくするには、サーバーが利用者ごとの状態を持たない「ステートレス」な作りにします。セッションの情報は、インメモリのデータストアなど、インスタンスの外に置きます。"
+      },
+      {
+        "id": "b",
+        "text": "インスタンスを、より大きなインスタンスタイプに変更する",
+        "correct": false,
+        "explanation": "インスタンスを大きくしても、セッションの情報がそれぞれのインスタンスにあることは変わりません。",
+        "eliminatedBy": "別のインスタンスに振り分けられた利用者"
+      },
+      {
+        "id": "c",
+        "text": "Auto Scalingをやめて、1台のインスタンスだけで運用する",
+        "correct": false,
+        "explanation": "1台にすれば問題は起きませんが、スケーリングができなくなり、単一障害点にもなります。",
+        "eliminatedBy": "水平スケーリングをしやすくする"
+      },
+      {
+        "id": "d",
+        "text": "セッションの情報を、それぞれのインスタンスのディスクに保存する",
+        "correct": false,
+        "explanation": "メモリからディスクに変えても、情報がそれぞれのインスタンスにあることは変わりません。",
+        "eliminatedBy": "別のインスタンスに振り分けられた利用者"
+      }
+    ],
+    "keywords": [
+      "セッションの情報",
+      "それぞれのEC2インスタンスのメモリ",
+      "水平スケーリング"
+    ],
+    "decisionPoint": "水平スケーリングの前提＝ステートレス。状態（セッション）は外に出す。",
+    "serviceIds": [
+      "amazon-elasticache",
+      "amazon-ec2-auto-scaling"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-10",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるデータベースサーバーの処理能力が足りなくなったため、インスタンスタイプを、より大きなものに変更しました。このスケーリングの方法は、どれにあたりますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "垂直スケーリング",
+        "correct": true,
+        "explanation": "垂直スケーリングは、1台の大きさ（インスタンスタイプ）を変える方法です。水平スケーリングは、台数を増減する方法です。"
+      },
+      {
+        "id": "b",
+        "text": "水平スケーリング",
+        "correct": false,
+        "explanation": "水平スケーリングは、台数を増減する方法です。インスタンスタイプを大きくするのは、垂直スケーリングです。",
+        "eliminatedBy": "インスタンスタイプを、より大きなものに変更"
+      },
+      {
+        "id": "c",
+        "text": "疎結合",
+        "correct": false,
+        "explanation": "疎結合は、部品どうしの結びつきを弱める設計の考え方です。スケーリングの方法ではありません。",
+        "eliminatedBy": "スケーリングの方法"
+      },
+      {
+        "id": "d",
+        "text": "フェイルオーバー",
+        "correct": false,
+        "explanation": "フェイルオーバーは、障害のときに予備へ切り替えることです。スケーリングの方法ではありません。",
+        "eliminatedBy": "スケーリングの方法"
+      }
+    ],
+    "keywords": [
+      "インスタンスタイプを、より大きなものに変更",
+      "スケーリングの方法"
+    ],
+    "decisionPoint": "大きさを変える＝垂直スケーリング。台数を変える＝水平スケーリング。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-11",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、アプリケーションをコンテナで動かします。コンテナを動かすためのサーバー（EC2インスタンス）の管理は、したくありません。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Fargate",
+        "correct": true,
+        "explanation": "Fargateは、サーバーを管理せずにコンテナを実行できるサービスです。Amazon ECSやAmazon EKSと組み合わせて使います。"
+      },
+      {
+        "id": "b",
+        "text": "自分で管理するEC2インスタンスに、コンテナの実行環境をインストールする",
+        "correct": false,
+        "explanation": "EC2インスタンスの管理を、自分で行うことになります。",
+        "eliminatedBy": "サーバー（EC2インスタンス）の管理は、したくありません"
+      },
+      {
+        "id": "c",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheは、インメモリのキャッシュです。コンテナを実行するサービスではありません。",
+        "eliminatedBy": "アプリケーションをコンテナで動かします"
+      },
+      {
+        "id": "d",
+        "text": "Amazon API Gateway",
+        "correct": false,
+        "explanation": "API Gatewayは、APIを作成・公開するサービスです。コンテナを実行するサービスではありません。",
+        "eliminatedBy": "アプリケーションをコンテナで動かします"
+      }
+    ],
+    "keywords": [
+      "コンテナ",
+      "サーバー（EC2インスタンス）の管理は、したくありません"
+    ],
+    "decisionPoint": "サーバーを管理せずにコンテナ＝Fargate。コードだけ＝Lambda。",
+    "serviceIds": [
+      "aws-fargate"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      },
+      {
+        "type": "comparison",
+        "id": "compute"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-12",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスでKubernetesを使ってコンテナを運用しています。AWSに移行したあとも、Kubernetesを使い続けたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon EKS",
+        "correct": true,
+        "explanation": "EKSは、Kubernetesでコンテナのオーケストレーションを行うサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon ECS",
+        "correct": false,
+        "explanation": "ECSも、コンテナのオーケストレーションを行いますが、AWS独自のサービスです。Kubernetesを使い続けたい場合はEKSを選びます。",
+        "eliminatedBy": "Kubernetesを使い続けたい"
+      },
+      {
+        "id": "c",
+        "text": "AWS Lambda",
+        "correct": false,
+        "explanation": "Lambdaは、コードを実行するサーバーレスのサービスです。Kubernetesのサービスではありません。",
+        "eliminatedBy": "Kubernetesを使い続けたい"
+      },
+      {
+        "id": "d",
+        "text": "AWS Step Functions",
+        "correct": false,
+        "explanation": "Step Functionsは、複数の部品をワークフローで連携させるサービスです。Kubernetesのサービスではありません。",
+        "eliminatedBy": "Kubernetesを使い続けたい"
+      }
+    ],
+    "keywords": [
+      "Kubernetes",
+      "使い続けたい"
+    ],
+    "decisionPoint": "Kubernetes＝EKS。AWS独自のコンテナオーケストレーション＝ECS。",
+    "serviceIds": [
+      "amazon-eks"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      },
+      {
+        "type": "comparison",
+        "id": "compute"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-13",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、サードパーティ製の仮想ファイアウォール（仮想ネットワークアプライアンス）を、VPCに複数台配置します。通信をこれらのアプライアンスに分散させたい場合、最も適切なロードバランサーはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Gateway Load Balancer",
+        "correct": true,
+        "explanation": "Gateway Load Balancerは、サードパーティの仮想ネットワークアプライアンス向けのロードバランサーです。"
+      },
+      {
+        "id": "b",
+        "text": "Application Load Balancer",
+        "correct": false,
+        "explanation": "Application Load Balancerは、HTTP/HTTPS（レイヤー7）の通信を分散します。仮想ネットワークアプライアンス向けではありません。",
+        "eliminatedBy": "仮想ネットワークアプライアンス"
+      },
+      {
+        "id": "c",
+        "text": "Network Load Balancer",
+        "correct": false,
+        "explanation": "Network Load Balancerは、TCP（レイヤー4）の通信を分散します。サードパーティの仮想ネットワークアプライアンス向けには、Gateway Load Balancerがあります。",
+        "eliminatedBy": "仮想ネットワークアプライアンス"
+      },
+      {
+        "id": "d",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontは、コンテンツをエッジロケーションにキャッシュして配信するサービスです。ロードバランサーではありません。",
+        "eliminatedBy": "最も適切なロードバランサー"
+      }
+    ],
+    "keywords": [
+      "サードパーティ製",
+      "仮想ネットワークアプライアンス"
+    ],
+    "decisionPoint": "HTTP/HTTPS＝ALB。TCP＝NLB。サードパーティの仮想アプライアンス＝GWLB。",
+    "serviceIds": [
+      "elastic-load-balancing"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      },
+      {
+        "type": "comparison",
+        "id": "load-balancers"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-14",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "multiple",
+    "difficulty": "standard",
+    "stem": "ある企業の注文システムでは、部品どうしが直接呼び出し合っているため、1つの部品の遅れや障害が、全体に広がります。部品どうしの結びつきを弱める（疎結合にする）方法として、適切なものを2つ選んでください。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "部品の間にAmazon SQSのキューを置き、受け取る側が自分のペースで処理する",
+        "correct": true,
+        "explanation": "SQSは、メッセージをキューにためて、受け取る側のペースで処理できるようにします。送る側は、受け取る側の遅れや障害の影響を受けにくくなります。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon SNSでメッセージを発行し、複数の購読者に配信する",
+        "correct": true,
+        "explanation": "SNSは、1つのメッセージを複数の購読者に配信します。発行する側は、受け取る側がいくつあるかを知らなくて済みます。"
+      },
+      {
+        "id": "c",
+        "text": "すべての部品を、1台の大きなEC2インスタンスにまとめる",
+        "correct": false,
+        "explanation": "1台にまとめると、その1台が単一障害点になり、部品どうしの結びつきもかえって強くなります。",
+        "eliminatedBy": "結びつきを弱める"
+      },
+      {
+        "id": "d",
+        "text": "部品どうしの直接の呼び出しを、さらに増やす",
+        "correct": false,
+        "explanation": "直接の呼び出しを増やすと、結びつきは強くなり、遅れや障害がさらに広がりやすくなります。",
+        "eliminatedBy": "遅れや障害が、全体に広がります"
+      },
+      {
+        "id": "e",
+        "text": "それぞれの部品を、より大きなインスタンスタイプに変更する",
+        "correct": false,
+        "explanation": "インスタンスを大きくしても、部品どうしが直接呼び出し合う構造は変わりません。",
+        "eliminatedBy": "部品どうしが直接呼び出し合っている"
+      }
+    ],
+    "keywords": [
+      "直接呼び出し合っている",
+      "疎結合",
+      "2つ"
+    ],
+    "decisionPoint": "疎結合＝間にキュー（SQS）や、発行・購読（SNS）をはさむ。",
+    "serviceIds": [
+      "amazon-sqs",
+      "amazon-sns"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+      },
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "Amazon RDSのマルチAZ配置では、別のアベイラビリティゾーンにスタンバイが維持されます。プライマリからスタンバイへの複製の方式と、主な目的の組み合わせとして、正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "同期の複製で、主な目的は高可用性",
+        "correct": true,
+        "explanation": "マルチAZ配置は、別のアベイラビリティゾーンに、同期のスタンバイを自動的に維持します。主な目的は高可用性で、問題が検出されると自動でフェイルオーバーします。"
+      },
+      {
+        "id": "b",
+        "text": "非同期の複製で、主な目的は読み取りのスケーリング",
+        "correct": false,
+        "explanation": "非同期で複製し、読み取りのスケーリングを主な目的とするのは、リードレプリカです。",
+        "eliminatedBy": "マルチAZ配置"
+      },
+      {
+        "id": "c",
+        "text": "同期の複製で、主な目的は読み取りのスケーリング",
+        "correct": false,
+        "explanation": "複製は同期ですが、マルチAZ配置の主な目的は高可用性です。読み取りのスケーリングは、リードレプリカの目的です。",
+        "eliminatedBy": "マルチAZ配置"
+      },
+      {
+        "id": "d",
+        "text": "非同期の複製で、主な目的は災害対策",
+        "correct": false,
+        "explanation": "マルチAZ配置の複製は同期です。災害対策と、利用者に近い場所での性能を主な目的とするのは、マルチリージョン配置です。",
+        "eliminatedBy": "別のアベイラビリティゾーンにスタンバイ"
+      }
+    ],
+    "keywords": [
+      "マルチAZ配置",
+      "複製の方式",
+      "主な目的"
+    ],
+    "decisionPoint": "マルチAZ＝同期・高可用性・自動フェイルオーバー。リードレプリカ＝非同期・読み取りのスケーリング。",
+    "serviceIds": [
+      "amazon-rds"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "comparison",
+        "id": "rds-ha"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-08",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+      },
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある金融サービスの会社は、基幹システムの災害対策を検討しています。データの損失も、停止の時間も、ほぼゼロにする必要があります。費用と複雑さが最も大きくなることは受け入れます。最も適切な災害対策の戦略はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "マルチサイト アクティブ／アクティブ",
+        "correct": true,
+        "explanation": "マルチサイト アクティブ／アクティブは、複数のリージョンで同時に動かす戦略です。RPOはほぼゼロ、RTOはゼロに近くなります。最も費用がかかり、最も複雑です。"
+      },
+      {
+        "id": "b",
+        "text": "バックアップ＆リストア",
+        "correct": false,
+        "explanation": "バックアップ＆リストアは、費用と複雑さが最も低い戦略です。目安はRPOが数時間、RTOが24時間以内で、ほぼゼロという要件を満たせません。",
+        "eliminatedBy": "ほぼゼロにする必要"
+      },
+      {
+        "id": "c",
+        "text": "パイロットライト",
+        "correct": false,
+        "explanation": "パイロットライトは、追加の操作をしないとリクエストを処理できません。目安はRPOが数分、RTOが数十分です。",
+        "eliminatedBy": "ほぼゼロにする必要"
+      },
+      {
+        "id": "d",
+        "text": "ウォームスタンバイ",
+        "correct": false,
+        "explanation": "ウォームスタンバイは、縮小版の環境を常に動かす戦略です。目安はRPOが数秒、RTOが数分で、ほぼゼロにはなりません。",
+        "eliminatedBy": "ほぼゼロにする必要"
+      }
+    ],
+    "keywords": [
+      "データの損失も、停止の時間も、ほぼゼロ",
+      "費用と複雑さが最も大きくなることは受け入れます"
+    ],
+    "decisionPoint": "RPO・RTOともほぼゼロ＝マルチサイト アクティブ／アクティブ（最も高価・複雑）。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "comparison",
+        "id": "dr-strategies"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-09",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+      },
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業のモバイルアプリは、世界中の利用者に使われています。データはAmazon DynamoDBに保存しており、複数のリージョンのどこからでも書き込めるようにしたいと考えています。最も適切な機能はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon DynamoDBグローバルテーブル",
+        "correct": true,
+        "explanation": "DynamoDBグローバルテーブルは、複数のリージョンで書き込めます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon RDSのリードレプリカ",
+        "correct": false,
+        "explanation": "リードレプリカは、Amazon RDSの読み取りをスケーリングする仕組みです。DynamoDBの機能ではなく、書き込みもできません。",
+        "eliminatedBy": "どこからでも書き込める"
+      },
+      {
+        "id": "c",
+        "text": "Amazon S3のレプリケーション",
+        "correct": false,
+        "explanation": "S3のレプリケーションは、オブジェクトを別のリージョンへ複製する機能です。DynamoDBのテーブルを複数のリージョンで書き込めるようにするものではありません。",
+        "eliminatedBy": "データはAmazon DynamoDBに保存"
+      },
+      {
+        "id": "d",
+        "text": "Amazon RDSのマルチAZ配置",
+        "correct": false,
+        "explanation": "マルチAZ配置は、同じリージョンの別のアベイラビリティゾーンにスタンバイを置く、Amazon RDSの構成です。DynamoDBの機能ではありません。",
+        "eliminatedBy": "複数のリージョン"
+      }
+    ],
+    "keywords": [
+      "Amazon DynamoDB",
+      "複数のリージョン",
+      "どこからでも書き込める"
+    ],
+    "decisionPoint": "複数のリージョンで書き込めるNoSQL＝DynamoDBグローバルテーブル。リレーショナルならAuroraグローバルデータベース。",
+    "serviceIds": [
+      "amazon-dynamodb"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-10",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+      },
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、サーバーで動いているアプリケーションとデータベースを、災害に備えてAWSへ複製しておきたいと考えています。ふだんは複製だけを行い、災害のときにAWSで起動する、パイロットライトの戦略をとります。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Elastic Disaster Recovery",
+        "correct": true,
+        "explanation": "Elastic Disaster Recoveryは、サーバーで動くアプリケーションやデータベースを、パイロットライトの戦略で複製するサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Transfer Family",
+        "correct": false,
+        "explanation": "Transfer Familyは、SFTPなどによるファイル転送のサービスです。サーバーを災害対策のために複製するものではありません。",
+        "eliminatedBy": "アプリケーションとデータベースを、災害に備えてAWSへ複製"
+      },
+      {
+        "id": "c",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontは、コンテンツをキャッシュして配信するサービスです。災害対策のためにサーバーを複製するものではありません。",
+        "eliminatedBy": "災害に備えてAWSへ複製"
+      },
+      {
+        "id": "d",
+        "text": "AWS Step Functions",
+        "correct": false,
+        "explanation": "Step Functionsは、複数の部品をワークフローで連携させるサービスです。サーバーを複製するものではありません。",
+        "eliminatedBy": "災害に備えてAWSへ複製"
+      }
+    ],
+    "keywords": [
+      "サーバーで動いているアプリケーションとデータベース",
+      "パイロットライト"
+    ],
+    "decisionPoint": "サーバーをパイロットライトで複製＝Elastic Disaster Recovery。",
+    "serviceIds": [
+      "aws-elastic-disaster-recovery"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "comparison",
+        "id": "dr-strategies"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-11",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+      },
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、複数のAWSのサービスのバックアップを一元的に管理しています。リージョン全体の災害に備えて、バックアップを別のリージョンにもコピーしておきたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Backup",
+        "correct": true,
+        "explanation": "AWS Backupは、バックアップを一元管理し、別のリージョンへのコピーにも対応します。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Route 53",
+        "correct": false,
+        "explanation": "Route 53は、DNSのサービスで、ヘルスチェックによるフェイルオーバーに対応します。バックアップをコピーするものではありません。",
+        "eliminatedBy": "バックアップを別のリージョンにもコピー"
+      },
+      {
+        "id": "c",
+        "text": "AWS Global Accelerator",
+        "correct": false,
+        "explanation": "Global Acceleratorは、通信を正常なエンドポイントに届けるサービスです。バックアップをコピーするものではありません。",
+        "eliminatedBy": "バックアップを別のリージョンにもコピー"
+      },
+      {
+        "id": "d",
+        "text": "Elastic Load Balancing",
+        "correct": false,
+        "explanation": "Elastic Load Balancingは、通信を複数のターゲットに分散するサービスです。バックアップを管理するものではありません。",
+        "eliminatedBy": "バックアップを一元的に管理"
+      }
+    ],
+    "keywords": [
+      "バックアップを一元的に管理",
+      "別のリージョンにもコピー"
+    ],
+    "decisionPoint": "バックアップの一元管理と、別のリージョンへのコピー＝AWS Backup。",
+    "serviceIds": [
+      "aws-backup"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-12",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+      },
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、東京リージョンのAmazon S3のバケットに保存されるオブジェクトを、災害に備えて、自動的に別のリージョンのバケットにも置いておきたいと考えています。最も適切な機能はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "S3のレプリケーション",
+        "correct": true,
+        "explanation": "S3のレプリケーションは、オブジェクトを別のリージョンへ非同期で複製します。データの破損や誤操作に備えるには、バージョニングもあわせて有効にすることが推奨されています。"
+      },
+      {
+        "id": "b",
+        "text": "S3のライフサイクルポリシー",
+        "correct": false,
+        "explanation": "ライフサイクルポリシーは、オブジェクトをストレージクラスの間で移すルールです。別のリージョンへ複製するものではありません。",
+        "eliminatedBy": "別のリージョンのバケットにも"
+      },
+      {
+        "id": "c",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontは、コンテンツをエッジロケーションにキャッシュして配信するサービスです。オブジェクトを別のリージョンのバケットに複製するものではありません。",
+        "eliminatedBy": "別のリージョンのバケットにも"
+      },
+      {
+        "id": "d",
+        "text": "S3 Intelligent-Tiering",
+        "correct": false,
+        "explanation": "S3 Intelligent-Tieringは、アクセスのパターンに合わせて層を自動で移すストレージクラスです。別のリージョンへ複製するものではありません。",
+        "eliminatedBy": "別のリージョンのバケットにも"
+      }
+    ],
+    "keywords": [
+      "Amazon S3",
+      "自動的に別のリージョンのバケットにも"
+    ],
+    "decisionPoint": "S3のオブジェクトを別のリージョンへ＝レプリケーション（非同期）。誤操作への備えはバージョニング。",
+    "serviceIds": [
+      "amazon-s3"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-13",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+      },
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "災害対策の戦略である「パイロットライト」と「ウォームスタンバイ」の違いについての説明として、正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "パイロットライトは、追加の操作をしないとリクエストを処理できないが、ウォームスタンバイは、縮小した規模ならすぐに処理できる",
+        "correct": true,
+        "explanation": "パイロットライトは、データの複製に必要なリソースだけを常に動かし、残りは電源を切っておきます。ウォームスタンバイは、縮小版の環境を常に動かしています。"
+      },
+      {
+        "id": "b",
+        "text": "パイロットライトは、複数のリージョンで同時に本番の通信を処理する",
+        "correct": false,
+        "explanation": "複数のリージョンで同時に動かすのは、マルチサイト アクティブ／アクティブです。",
+        "eliminatedBy": "パイロットライト"
+      },
+      {
+        "id": "c",
+        "text": "ウォームスタンバイは、バックアップだけを置いておき、災害のときにすべてを作り直す",
+        "correct": false,
+        "explanation": "バックアップだけを置くのは、バックアップ＆リストアです。ウォームスタンバイは、縮小版の環境を常に動かします。",
+        "eliminatedBy": "ウォームスタンバイ"
+      },
+      {
+        "id": "d",
+        "text": "パイロットライトのほうが、ウォームスタンバイより復旧にかかる時間の目安が短い",
+        "correct": false,
+        "explanation": "目安は、パイロットライトがRTO数十分、ウォームスタンバイがRTO数分です。ウォームスタンバイのほうが短くなります。",
+        "eliminatedBy": "違いについての説明"
+      }
+    ],
+    "keywords": [
+      "パイロットライト",
+      "ウォームスタンバイ",
+      "違い"
+    ],
+    "decisionPoint": "パイロットライト＝追加の操作が必要。ウォームスタンバイ＝縮小版がすでに動いている。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "comparison",
+        "id": "dr-strategies"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-14",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+      },
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Amazon RDSのデータベースを、複数のリージョンに配置することを検討しています。マルチリージョン配置の主な目的として、正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "災害対策と、利用者に近い場所での性能",
+        "correct": true,
+        "explanation": "マルチリージョン配置の主な目的は、災害対策と、利用者に近い場所での性能です。"
+      },
+      {
+        "id": "b",
+        "text": "同じリージョンの中での、自動フェイルオーバーによる高可用性",
+        "correct": false,
+        "explanation": "同じリージョンの別のアベイラビリティゾーンへの自動フェイルオーバーは、マルチAZ配置の役割です。",
+        "eliminatedBy": "複数のリージョンに配置"
+      },
+      {
+        "id": "c",
+        "text": "バックアップの保持期間を延ばすこと",
+        "correct": false,
+        "explanation": "バックアップの保持期間は、バックアップの設定で決めるものです。マルチリージョン配置の目的ではありません。",
+        "eliminatedBy": "マルチリージョン配置の主な目的"
+      },
+      {
+        "id": "d",
+        "text": "データベースエンジンを、別のエンジンに変換すること",
+        "correct": false,
+        "explanation": "エンジンの変換は、移行の作業です。マルチリージョン配置の目的ではありません。",
+        "eliminatedBy": "マルチリージョン配置の主な目的"
+      }
+    ],
+    "keywords": [
+      "複数のリージョン",
+      "主な目的"
+    ],
+    "decisionPoint": "マルチAZ＝高可用性。リードレプリカ＝読み取りのスケーリング。マルチリージョン＝災害対策と、近い場所での性能。",
+    "serviceIds": [
+      "amazon-rds"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "comparison",
+        "id": "rds-ha"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-15",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+      },
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "multiple",
+    "difficulty": "standard",
+    "stem": "ある企業のウェブアプリケーションは、1つのアベイラビリティゾーンにある1台のEC2インスタンスと、1台のAmazon RDSのDBインスタンスで動いています。単一障害点をなくし、障害のときに自動で切り替わるようにするための変更として、適切なものを2つ選んでください。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "EC2インスタンスを複数のアベイラビリティゾーンに配置し、Elastic Load Balancingで通信を分散する",
+        "correct": true,
+        "explanation": "EC2インスタンスを複数のアベイラビリティゾーンに配置し、Elastic Load Balancingで分散すると、1台や1つのゾーンの障害でも、処理を続けられます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon RDSを、マルチAZ配置にする",
+        "correct": true,
+        "explanation": "マルチAZ配置は、別のアベイラビリティゾーンに同期のスタンバイを維持し、問題が検出されると自動でフェイルオーバーします。"
+      },
+      {
+        "id": "c",
+        "text": "EC2インスタンスを、より大きなインスタンスタイプに変更する",
+        "correct": false,
+        "explanation": "インスタンスを大きくしても、1台であることは変わらず、単一障害点のままです。",
+        "eliminatedBy": "単一障害点をなくし"
+      },
+      {
+        "id": "d",
+        "text": "Amazon RDSのリードレプリカを1つ作成するだけにする",
+        "correct": false,
+        "explanation": "リードレプリカの主な目的は読み取りのスケーリングで、昇格は手動です。自動で切り替わる構成にはなりません。",
+        "eliminatedBy": "自動で切り替わる"
+      },
+      {
+        "id": "e",
+        "text": "EC2インスタンスのEBSボリュームのスナップショットを、毎日取得するだけにする",
+        "correct": false,
+        "explanation": "スナップショットはデータの保護には役立ちますが、障害のときに自動で切り替わる構成にはなりません。",
+        "eliminatedBy": "自動で切り替わる"
+      }
+    ],
+    "keywords": [
+      "1つのアベイラビリティゾーン",
+      "単一障害点",
+      "自動で切り替わる",
+      "2つ"
+    ],
+    "decisionPoint": "単一障害点をなくす＝EC2は複数ゾーン＋ELB、RDSはマルチAZ。",
+    "serviceIds": [
+      "elastic-load-balancing",
+      "amazon-rds"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-pd-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "Amazon RDS Proxy FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/rds/proxy/faqs/"
+      },
+      {
+        "title": "RDS Proxy concepts and terminology（Amazon RDS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.howitworks.html"
+      },
+      {
+        "title": "DynamoDB on-demand and provisioned capacity（AWS Well-Architected サーバーレスアプリケーションレンズ）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/capacity.html"
+      },
+      {
+        "title": "Evaluate your table capacity mode（Amazon DynamoDB デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/CostOptimization_TableCapacityMode.html"
+      },
+      {
+        "title": "What is the AWS Schema Conversion Tool?（AWS SCT ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      },
+      {
+        "title": "Amazon DynamoDB Features（AWS公式）",
+        "url": "https://www.amazonaws.cn/en/dynamodb/features"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるSNSのサービスは、利用者どうしの「友人の友人」のような、つながり（関係）をたどる検索を数多く行います。つながりを扱うために作られたデータベースを使いたい場合、最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Neptune",
+        "correct": true,
+        "explanation": "Neptuneは、グラフデータベースのサービスです。人や物のつながり（関係）を扱う用途に向いています。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Timestream",
+        "correct": false,
+        "explanation": "Timestreamは、時系列のデータのためのデータベースです。つながりをたどる検索のためのものではありません。",
+        "eliminatedBy": "つながり（関係）をたどる検索"
+      },
+      {
+        "id": "c",
+        "text": "Amazon DocumentDB",
+        "correct": false,
+        "explanation": "DocumentDBは、ドキュメントデータベースです。つながりを扱うために作られたものではありません。",
+        "eliminatedBy": "つながりを扱うために作られたデータベース"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Redshift",
+        "correct": false,
+        "explanation": "Redshiftは、大量のデータへの複雑な分析のためのデータウェアハウスです。つながりをたどる検索のためのものではありません。",
+        "eliminatedBy": "つながり（関係）をたどる検索"
+      }
+    ],
+    "keywords": [
+      "友人の友人",
+      "つながり（関係）をたどる"
+    ],
+    "decisionPoint": "つながり（グラフ）＝Neptune。時系列＝Timestream。ドキュメント＝DocumentDB。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-database"
+      },
+      {
+        "type": "comparison",
+        "id": "database"
+      }
+    ]
+  }
+]
