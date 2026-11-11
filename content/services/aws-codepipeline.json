@@ -1,0 +1,71 @@
+{
+  "id": "aws-codepipeline",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS CodePipeline",
+  "aliases": [
+    "CodePipeline",
+    "コードパイプライン"
+  ],
+  "category": "developer-tools",
+  "summary": "ビルド、テスト、デプロイの流れを自動化する、フルマネージドの継続的デリバリーサービス。",
+  "beginner": {
+    "analogy": "工場の「自動の生産ライン」です。材料を入れると、組み立て、検査、出荷までが順番に自動で進みます。",
+    "description": "プログラムを変更してからリリースするまでの一連の流れを、自動で進めてくれるサービスです。"
+  },
+  "exam": {
+    "description": "リリースのパイプラインを自動化して、アプリケーションとインフラストラクチャを素早く確実に更新できるようにする、フルマネージドの継続的デリバリーサービスです。コードが変更されるたびに、定義したリリースモデルに基づいて、ビルド、テスト、デプロイの各段階を自動化します。",
+    "points": [
+      "リリースの流れ（ビルド→テスト→デプロイ）の自動化＝AWS CodePipeline。",
+      "継続的デリバリーのサービス。"
+    ]
+  },
+  "useCases": [
+    "コードの変更から本番への反映までの自動化"
+  ],
+  "mechanism": "コードの変更をきっかけに、ビルド、テスト、デプロイの各段階を順番に実行します。",
+  "pros": [
+    "リリースを素早く確実にできる"
+  ],
+  "cons": [
+    "ビルドそのものはAWS CodeBuildなどが行う"
+  ],
+  "scenes": [
+    "コードを変更すると、自動でテストされ、検証環境に反映されるようにする"
+  ],
+  "similarServiceIds": [
+    "aws-codebuild"
+  ],
+  "relatedServiceIds": [
+    "aws-codebuild",
+    "aws-cloudformation"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "low"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/codepipeline/"
+}

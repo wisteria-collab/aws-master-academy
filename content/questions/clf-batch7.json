@@ -1,0 +1,1199 @@
+[
+  {
+    "id": "clf-q-ana-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-7",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、Amazon S3に保存してあるログのデータを、サーバーを用意せずに、標準的なSQLで分析したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Athena",
+        "correct": true,
+        "explanation": "Athenaは、S3のデータを標準的なSQLで分析できる対話型のクエリサービスです。サーバーレスなので、管理するインフラストラクチャがありません。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Kinesis",
+        "correct": false,
+        "explanation": "Kinesisは、リアルタイムのストリーミングデータを収集、処理、分析するサービスです。S3に保存してあるデータにSQLで問い合わせるサービスではありません。",
+        "eliminatedBy": "Amazon S3に保存してあるログのデータを"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Lex",
+        "correct": false,
+        "explanation": "Lexは、チャットボットなどの会話型インターフェイスを作るAIサービスです。データをSQLで分析するサービスではありません。",
+        "eliminatedBy": "標準的なSQLで分析したい"
+      },
+      {
+        "id": "d",
+        "text": "Amazon SQS",
+        "correct": false,
+        "explanation": "SQSは、メッセージをキューにためて受け渡すサービスです。データの分析を行うサービスではありません。",
+        "eliminatedBy": "SQLで分析したい"
+      }
+    ],
+    "keywords": [
+      "Amazon S3に保存してある",
+      "標準的なSQLで分析"
+    ],
+    "decisionPoint": "「S3のデータ」＋「SQL」＋「サーバーレス」＝Athena。",
+    "serviceIds": [
+      "amazon-athena"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-ai-analytics"
+      },
+      {
+        "type": "service",
+        "id": "amazon-athena"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-ana-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-7",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "あるゲーム会社は、プレイヤーの操作の記録を、発生するそばからリアルタイムに収集して分析したいと考えています。このようなストリーミングデータの処理に最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Kinesis",
+        "correct": true,
+        "explanation": "Kinesisは、リアルタイムのストリーミングデータを簡単に収集、処理、分析できるサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Glue",
+        "correct": false,
+        "explanation": "Glueは、分析のためにデータを準備して読み込むETLのサービスです。発生するそばからリアルタイムに収集して分析する、という用途にはKinesisが合います。",
+        "eliminatedBy": "発生するそばからリアルタイムに収集"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Quick",
+        "correct": false,
+        "explanation": "Quickは、データをダッシュボードなどで可視化するBIのサービスです。ストリーミングデータを収集するサービスではありません。",
+        "eliminatedBy": "ストリーミングデータの処理"
+      },
+      {
+        "id": "d",
+        "text": "Amazon SES",
+        "correct": false,
+        "explanation": "SESは、アプリケーションからメールを送信するサービスです。データの収集や分析とは関係がありません。",
+        "eliminatedBy": "リアルタイムに収集して分析したい"
+      }
+    ],
+    "keywords": [
+      "リアルタイムに収集",
+      "ストリーミングデータ"
+    ],
+    "decisionPoint": "「リアルタイム」「ストリーミング」＝Kinesis。",
+    "serviceIds": [
+      "amazon-kinesis"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-ai-analytics"
+      },
+      {
+        "type": "service",
+        "id": "amazon-kinesis"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-ana-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-7",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、複数の場所にある形式の異なるデータを、分析できるように抽出、変換して読み込む（ETL）処理を、フルマネージドのサービスで行いたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Glue",
+        "correct": true,
+        "explanation": "Glueは、分析のためのデータの準備と読み込みを簡単にする、フルマネージドのETLサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Athena",
+        "correct": false,
+        "explanation": "Athenaは、S3のデータにSQLで問い合わせるサービスです。データを抽出、変換して読み込むETLのためのサービスではありません。",
+        "eliminatedBy": "抽出、変換して読み込む（ETL）処理"
+      },
+      {
+        "id": "c",
+        "text": "Amazon SageMaker AI",
+        "correct": false,
+        "explanation": "SageMaker AIは、機械学習のモデルを構築、トレーニング、デプロイするサービスです。ETLのためのサービスではありません。",
+        "eliminatedBy": "抽出、変換して読み込む（ETL）処理"
+      },
+      {
+        "id": "d",
+        "text": "Amazon SNS",
+        "correct": false,
+        "explanation": "SNSは、メッセージを購読者に配信するサービスです。データの変換や読み込みは行いません。",
+        "eliminatedBy": "抽出、変換して読み込む"
+      }
+    ],
+    "keywords": [
+      "抽出、変換して読み込む（ETL）"
+    ],
+    "decisionPoint": "「ETL」＝Glue。",
+    "serviceIds": [
+      "aws-glue"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-ai-analytics"
+      },
+      {
+        "type": "service",
+        "id": "aws-glue"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-ana-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-7",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、売上のデータを対話的なダッシュボードにして、社内の関係者がブラウザから見られるようにしたいと考えています。このビジネスインテリジェンス（BI）の用途に最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Quick",
+        "correct": true,
+        "explanation": "Quick（以前の名前はAmazon QuickSight）は、ビジネスインテリジェンスのサービスです。ブラウザやモバイルデバイスからアクセスできる、対話的なダッシュボードを作成して公開できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Glue",
+        "correct": false,
+        "explanation": "Glueは、データを分析用に準備するETLのサービスです。ダッシュボードを作成して共有するサービスではありません。",
+        "eliminatedBy": "対話的なダッシュボードにして"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Kinesis",
+        "correct": false,
+        "explanation": "Kinesisは、ストリーミングデータを収集、処理、分析するサービスです。ダッシュボードを作成して関係者に見せるためのサービスではありません。",
+        "eliminatedBy": "対話的なダッシュボードにして"
+      },
+      {
+        "id": "d",
+        "text": "AWS X-Ray",
+        "correct": false,
+        "explanation": "X-Rayは、アプリケーションを分析・デバッグするサービスです。売上データのダッシュボードを作るBIのサービスではありません。",
+        "eliminatedBy": "ビジネスインテリジェンス（BI）の用途"
+      }
+    ],
+    "keywords": [
+      "対話的なダッシュボード",
+      "ビジネスインテリジェンス（BI）"
+    ],
+    "decisionPoint": "「ダッシュボード」「BI」「可視化」＝Quick（旧QuickSight）。",
+    "serviceIds": [
+      "amazon-quick"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-ai-analytics"
+      },
+      {
+        "type": "service",
+        "id": "amazon-quick"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-ai-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-7",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "あるデータサイエンスのチームは、自社のデータを使って独自の機械学習モデルを構築し、トレーニングして、デプロイしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon SageMaker AI",
+        "correct": true,
+        "explanation": "SageMaker AIでは、フルマネージドのインフラストラクチャ、ツール、ワークフローを使って、機械学習モデルを構築、トレーニング、デプロイできます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Lex",
+        "correct": false,
+        "explanation": "Lexは、会話型インターフェイスを作るための、用途の決まったAIサービスです。独自の機械学習モデルを構築してトレーニングするためのサービスではありません。",
+        "eliminatedBy": "独自の機械学習モデルを構築し、トレーニングして"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Athena",
+        "correct": false,
+        "explanation": "Athenaは、S3のデータにSQLで問い合わせるサービスです。機械学習モデルを作るサービスではありません。",
+        "eliminatedBy": "機械学習モデルを構築"
+      },
+      {
+        "id": "d",
+        "text": "AWS CodeBuild",
+        "correct": false,
+        "explanation": "CodeBuildは、ソースコードをコンパイルしてテストするビルドのサービスです。機械学習モデルをトレーニングするサービスではありません。",
+        "eliminatedBy": "機械学習モデルを構築し、トレーニングして"
+      }
+    ],
+    "keywords": [
+      "独自の機械学習モデルを構築し、トレーニングして、デプロイ"
+    ],
+    "decisionPoint": "「モデルを構築・トレーニング・デプロイ」＝SageMaker AI。",
+    "serviceIds": [
+      "amazon-sagemaker-ai"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-ai-analytics"
+      },
+      {
+        "type": "service",
+        "id": "amazon-sagemaker-ai"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-ai-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-7",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、ウェブサイトに、利用者と音声やテキストで会話して予約を受け付けるチャットボットを組み込みたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Lex",
+        "correct": true,
+        "explanation": "Lexは、音声とテキストを使った会話型インターフェイスを、アプリケーションに組み込めるフルマネージドのAIサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon SageMaker AI",
+        "correct": false,
+        "explanation": "SageMaker AIは、機械学習モデルを自分で構築、トレーニング、デプロイするサービスです。会話型インターフェイスを作るには、その用途のために用意されたLexが合います。",
+        "eliminatedBy": "会話して予約を受け付けるチャットボット"
+      },
+      {
+        "id": "c",
+        "text": "Amazon SES",
+        "correct": false,
+        "explanation": "SESは、アプリケーションからメールを送信するサービスです。会話するチャットボットを作るサービスではありません。",
+        "eliminatedBy": "音声やテキストで会話"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Kinesis",
+        "correct": false,
+        "explanation": "Kinesisは、ストリーミングデータを収集、処理、分析するサービスです。チャットボットを作るサービスではありません。",
+        "eliminatedBy": "チャットボットを組み込みたい"
+      }
+    ],
+    "keywords": [
+      "音声やテキストで会話",
+      "チャットボット"
+    ],
+    "decisionPoint": "「チャットボット」「会話型」＝Lex。",
+    "serviceIds": [
+      "amazon-lex"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-ai-analytics"
+      },
+      {
+        "type": "service",
+        "id": "amazon-lex"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-oth-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-8",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、システムで障害が起きたときに、1つのメッセージを、登録している複数の担当者にいっせいに通知したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon SNS",
+        "correct": true,
+        "explanation": "SNSは、pub/subのメッセージングサービスです。トピックにメッセージを送ると、購読しているすべての受け取り手に配信されます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon SQS",
+        "correct": false,
+        "explanation": "SQSは、メッセージをキューにためておき、受け取る側が取り出して処理するサービスです。複数の担当者にいっせいに通知する用途にはSNSが合います。",
+        "eliminatedBy": "複数の担当者にいっせいに通知"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Athena",
+        "correct": false,
+        "explanation": "Athenaは、S3のデータにSQLで問い合わせるサービスです。通知を送るサービスではありません。",
+        "eliminatedBy": "いっせいに通知したい"
+      },
+      {
+        "id": "d",
+        "text": "AWS CodePipeline",
+        "correct": false,
+        "explanation": "CodePipelineは、リリースの流れを自動化するサービスです。担当者に通知を配信するためのサービスではありません。",
+        "eliminatedBy": "複数の担当者にいっせいに通知"
+      }
+    ],
+    "keywords": [
+      "1つのメッセージ",
+      "複数の担当者にいっせいに通知"
+    ],
+    "decisionPoint": "「通知」「いっせいに複数へ」＝SNS。「ためて順に処理」＝SQS。",
+    "serviceIds": [
+      "amazon-sns"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-other-services"
+      },
+      {
+        "type": "service",
+        "id": "amazon-sns"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-oth-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-8",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるネットショップでは、注文を受け付ける処理と、時間のかかる発送の処理が直接つながっています。発送の処理が混雑しても注文を受け付け続けられるように、2つの処理の間にメッセージをためておくキューを置きたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon SQS",
+        "correct": true,
+        "explanation": "SQSは、フルマネージドのメッセージキューサービスです。処理の間にキューを置くことで、システムを疎結合にできます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon SNS",
+        "correct": false,
+        "explanation": "SNSは、メッセージを購読者にプッシュ型で配信するサービスです。メッセージをためておき、受け取る側のペースで取り出す用途にはSQSが合います。",
+        "eliminatedBy": "メッセージをためておくキュー"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Connect",
+        "correct": false,
+        "explanation": "Connectは、クラウド型のコンタクトセンターのサービスです。処理の間に置くキューのサービスではありません。",
+        "eliminatedBy": "2つの処理の間に"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Quick",
+        "correct": false,
+        "explanation": "Quickは、データを可視化するBIのサービスです。メッセージをためておくサービスではありません。",
+        "eliminatedBy": "メッセージをためておくキュー"
+      }
+    ],
+    "keywords": [
+      "メッセージをためておくキュー"
+    ],
+    "decisionPoint": "「キュー」「疎結合」「ためておく」＝SQS。",
+    "serviceIds": [
+      "amazon-sqs"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-other-services"
+      },
+      {
+        "type": "service",
+        "id": "amazon-sqs"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-oth-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-8",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、AWSのサービスや連携するSaaSアプリケーションで発生したイベントを受け取り、それをきっかけにAWS Lambdaの処理を実行する、イベント駆動型のアプリケーションを作りたいと考えています。サーバーレスのイベントバスとして最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon EventBridge",
+        "correct": true,
+        "explanation": "EventBridgeは、サーバーレスのイベントバスです。アプリケーション、SaaS、AWSのサービスのイベントを、AWS Lambdaなどのターゲットに届けます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon SES",
+        "correct": false,
+        "explanation": "SESは、メールを送信するサービスです。イベントを受け取ってターゲットに届けるイベントバスではありません。",
+        "eliminatedBy": "サーバーレスのイベントバス"
+      },
+      {
+        "id": "c",
+        "text": "AWS Glue",
+        "correct": false,
+        "explanation": "Glueは、ETLのサービスです。イベント駆動型のアプリケーションのためのイベントバスではありません。",
+        "eliminatedBy": "イベントバスとして"
+      },
+      {
+        "id": "d",
+        "text": "Amazon WorkSpaces",
+        "correct": false,
+        "explanation": "WorkSpacesは、クラウド上のデスクトップのサービスです。イベントを扱うサービスではありません。",
+        "eliminatedBy": "発生したイベントを受け取り"
+      }
+    ],
+    "keywords": [
+      "イベント駆動型",
+      "サーバーレスのイベントバス"
+    ],
+    "decisionPoint": "「イベントバス」「イベント駆動」＝EventBridge。",
+    "serviceIds": [
+      "amazon-eventbridge"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-other-services"
+      },
+      {
+        "type": "service",
+        "id": "amazon-eventbridge"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-oth-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-8",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、顧客からの電話やチャットでの問い合わせに対応するコンタクトセンターを、設備を購入せずにクラウド上に開設したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Connect",
+        "correct": true,
+        "explanation": "Connectは、セルフサービスで使える、オムニチャネルのクラウド型コンタクトセンターサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon SES",
+        "correct": false,
+        "explanation": "SESは、アプリケーションからメールを送信するサービスです。電話やチャットに対応するコンタクトセンターのサービスではありません。",
+        "eliminatedBy": "電話やチャットでの問い合わせに対応するコンタクトセンター"
+      },
+      {
+        "id": "c",
+        "text": "Amazon SNS",
+        "correct": false,
+        "explanation": "SNSは、メッセージを購読者に配信するサービスです。顧客からの問い合わせに対応する窓口のサービスではありません。",
+        "eliminatedBy": "コンタクトセンター"
+      },
+      {
+        "id": "d",
+        "text": "AWS IoT Core",
+        "correct": false,
+        "explanation": "IoT Coreは、IoTデバイスをクラウドに接続するサービスです。コンタクトセンターとは関係がありません。",
+        "eliminatedBy": "顧客からの電話やチャットでの問い合わせ"
+      }
+    ],
+    "keywords": [
+      "コンタクトセンター",
+      "クラウド上に開設"
+    ],
+    "decisionPoint": "「コンタクトセンター」＝Connect。「メール送信」＝SES。",
+    "serviceIds": [
+      "amazon-connect"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-other-services"
+      },
+      {
+        "type": "service",
+        "id": "amazon-connect"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-oth-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-8",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "あるネットショップは、注文が入るたびに、アプリケーションから顧客に注文確認のメールを自動で送信したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon SES",
+        "correct": true,
+        "explanation": "SESは、アプリケーションからメールを送信できるサービスです。注文確認などのトランザクションメールに対応します。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Connect",
+        "correct": false,
+        "explanation": "Connectは、電話やチャットに対応するコンタクトセンターのサービスです。アプリケーションからメールを送信するためのサービスではありません。",
+        "eliminatedBy": "アプリケーションから顧客に注文確認のメールを自動で送信"
+      },
+      {
+        "id": "c",
+        "text": "Amazon SQS",
+        "correct": false,
+        "explanation": "SQSは、メッセージをキューにためて受け渡すサービスです。顧客にメールを送信するサービスではありません。",
+        "eliminatedBy": "顧客に注文確認のメールを"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Athena",
+        "correct": false,
+        "explanation": "Athenaは、S3のデータにSQLで問い合わせるサービスです。メールの送信とは関係がありません。",
+        "eliminatedBy": "メールを自動で送信"
+      }
+    ],
+    "keywords": [
+      "アプリケーションから",
+      "メールを自動で送信"
+    ],
+    "decisionPoint": "「アプリケーションからのメール送信」＝SES。",
+    "serviceIds": [
+      "amazon-ses"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-other-services"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ses"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-oth-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-8",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある開発チームは、コードが変更されるたびに、ビルド、テスト、デプロイの各段階を自動で進めるリリースのパイプラインを作りたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS CodePipeline",
+        "correct": true,
+        "explanation": "CodePipelineは、フルマネージドの継続的デリバリーサービスです。コードが変更されるたびに、ビルド、テスト、デプロイの各段階を自動化します。"
+      },
+      {
+        "id": "b",
+        "text": "AWS X-Ray",
+        "correct": false,
+        "explanation": "X-Rayは、アプリケーションを分析・デバッグするサービスです。リリースの流れを自動化するサービスではありません。",
+        "eliminatedBy": "ビルド、テスト、デプロイの各段階を自動で進める"
+      },
+      {
+        "id": "c",
+        "text": "AWS CodeBuild",
+        "correct": false,
+        "explanation": "CodeBuildは、コンパイルとテストを行うビルドのサービスです。ビルドの段階を担当しますが、デプロイまでを含むパイプライン全体を自動で進めるのはCodePipelineです。",
+        "eliminatedBy": "デプロイの各段階を自動で進めるリリースのパイプライン"
+      },
+      {
+        "id": "d",
+        "text": "AWS Amplify",
+        "correct": false,
+        "explanation": "Amplifyは、ウェブやモバイルのアプリケーションを作るためのサービスです。問題文が求めているのは、リリースのパイプラインそのものです。",
+        "eliminatedBy": "リリースのパイプライン"
+      }
+    ],
+    "keywords": [
+      "ビルド、テスト、デプロイ",
+      "リリースのパイプライン"
+    ],
+    "decisionPoint": "「パイプライン」「リリースの自動化」＝CodePipeline。「ビルドだけ」＝CodeBuild。",
+    "serviceIds": [
+      "aws-codepipeline"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-other-services"
+      },
+      {
+        "type": "service",
+        "id": "aws-codepipeline"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-oth-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-8",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある開発者は、複数のサービスで構成されたアプリケーションの応答が遅い原因を調べるために、リクエストがどこで時間を使っているかを分析したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS X-Ray",
+        "correct": true,
+        "explanation": "X-Rayは、分散アプリケーションを分析・デバッグするサービスです。性能の問題やエラーの根本原因を特定できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS CodeBuild",
+        "correct": false,
+        "explanation": "CodeBuildは、ソースコードをコンパイルしてテストするサービスです。動いているアプリケーションの遅い箇所を分析するサービスではありません。",
+        "eliminatedBy": "応答が遅い原因を調べる"
+      },
+      {
+        "id": "c",
+        "text": "AWS CloudTrail",
+        "correct": false,
+        "explanation": "CloudTrailは、アカウント内のAPIの操作履歴を記録するサービスです。誰が何をしたかの記録であり、リクエストがどこで時間を使っているかを分析するサービスではありません。",
+        "eliminatedBy": "リクエストがどこで時間を使っているかを分析"
+      },
+      {
+        "id": "d",
+        "text": "Amazon SNS",
+        "correct": false,
+        "explanation": "SNSは、メッセージを配信するサービスです。アプリケーションの性能を分析するサービスではありません。",
+        "eliminatedBy": "応答が遅い原因を調べる"
+      }
+    ],
+    "keywords": [
+      "応答が遅い原因",
+      "リクエストがどこで時間を使っているかを分析"
+    ],
+    "decisionPoint": "アプリケーションの「分析・デバッグ・トラブルシューティング」＝X-Ray。",
+    "serviceIds": [
+      "aws-x-ray"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-other-services"
+      },
+      {
+        "type": "service",
+        "id": "aws-x-ray"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-oth-08",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-8",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、在宅勤務の社員に、クラウド上のWindowsデスクトップを提供したいと考えています。社員は手元の端末から接続して、デスクトップ全体を使います。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon WorkSpaces",
+        "correct": true,
+        "explanation": "WorkSpacesは、フルマネージドで安全なクラウドデスクトップサービスです。WindowsまたはLinuxのデスクトップを数分で用意できます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon AppStream 2.0",
+        "correct": false,
+        "explanation": "AppStream 2.0は、アプリケーションをストリーミングで配信するサービスです。デスクトップ全体を提供したいという要件には、WorkSpacesが合います。",
+        "eliminatedBy": "デスクトップ全体を使います"
+      },
+      {
+        "id": "c",
+        "text": "AWS Amplify",
+        "correct": false,
+        "explanation": "Amplifyは、ウェブやモバイルのアプリケーションを作るためのサービスです。デスクトップ環境を提供するサービスではありません。",
+        "eliminatedBy": "クラウド上のWindowsデスクトップを提供"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Connect",
+        "correct": false,
+        "explanation": "Connectは、コンタクトセンターのサービスです。デスクトップ環境を提供するサービスではありません。",
+        "eliminatedBy": "クラウド上のWindowsデスクトップを提供"
+      }
+    ],
+    "keywords": [
+      "クラウド上のWindowsデスクトップ",
+      "デスクトップ全体"
+    ],
+    "decisionPoint": "「デスクトップ全体」＝WorkSpaces。「アプリケーションだけを配信」＝AppStream 2.0。",
+    "serviceIds": [
+      "amazon-workspaces"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-other-services"
+      },
+      {
+        "type": "service",
+        "id": "amazon-workspaces"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-oth-09",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-8",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある少人数の開発チームは、スマートフォンアプリとウェブアプリのフロントエンドを作っています。バックエンドを簡単に用意して、フロントエンドと統合したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Amplify",
+        "correct": true,
+        "explanation": "Amplifyは、バックエンドをプロビジョニングして管理し、iOS、Android、ウェブなどのフロントエンドと簡単に統合するためのフレームワークを提供します。"
+      },
+      {
+        "id": "b",
+        "text": "AWS IoT Core",
+        "correct": false,
+        "explanation": "IoT Coreは、IoTデバイスをクラウドに接続するサービスです。スマートフォンアプリやウェブアプリのフロントエンドを作るためのサービスではありません。",
+        "eliminatedBy": "スマートフォンアプリとウェブアプリのフロントエンド"
+      },
+      {
+        "id": "c",
+        "text": "AWS Glue",
+        "correct": false,
+        "explanation": "Glueは、ETLのサービスです。アプリのバックエンドを用意してフロントエンドと統合するサービスではありません。",
+        "eliminatedBy": "フロントエンドと統合したい"
+      },
+      {
+        "id": "d",
+        "text": "Amazon WorkSpaces",
+        "correct": false,
+        "explanation": "WorkSpacesは、クラウド上のデスクトップのサービスです。アプリケーションを開発するためのサービスではありません。",
+        "eliminatedBy": "スマートフォンアプリとウェブアプリのフロントエンドを作っています"
+      }
+    ],
+    "keywords": [
+      "スマートフォンアプリとウェブアプリのフロントエンド",
+      "バックエンドを簡単に用意"
+    ],
+    "decisionPoint": "「フロントエンドのウェブ・モバイル」＝Amplify。",
+    "serviceIds": [
+      "aws-amplify"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-other-services"
+      },
+      {
+        "type": "service",
+        "id": "aws-amplify"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-oth-10",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-8",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "あるメーカーは、全国に設置した多数のセンサーをクラウドに接続し、センサーが送るメッセージを安全に受け取って処理したいと考えています。IoTデバイスの接続に最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS IoT Core",
+        "correct": true,
+        "explanation": "IoT Coreは、接続されたデバイスが、クラウドのアプリケーションや他のデバイスと、簡単かつ安全にやり取りできるようにするマネージドサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Amplify",
+        "correct": false,
+        "explanation": "Amplifyは、ウェブやモバイルのアプリケーションを作るためのサービスです。多数のセンサーをクラウドに接続するためのサービスではありません。",
+        "eliminatedBy": "多数のセンサーをクラウドに接続"
+      },
+      {
+        "id": "c",
+        "text": "Amazon SES",
+        "correct": false,
+        "explanation": "SESは、メールを送信するサービスです。IoTデバイスの接続とは関係がありません。",
+        "eliminatedBy": "IoTデバイスの接続"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Quick",
+        "correct": false,
+        "explanation": "Quickは、データを可視化するBIのサービスです。センサーをクラウドに接続するサービスではありません。",
+        "eliminatedBy": "センサーをクラウドに接続"
+      }
+    ],
+    "keywords": [
+      "多数のセンサーをクラウドに接続",
+      "IoTデバイス"
+    ],
+    "decisionPoint": "「IoTデバイス」「センサーの接続」＝IoT Core。",
+    "serviceIds": [
+      "aws-iot-core"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-other-services"
+      },
+      {
+        "type": "service",
+        "id": "aws-iot-core"
+      }
+    ]
+  }
+]

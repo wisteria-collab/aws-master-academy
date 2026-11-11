@@ -1,0 +1,73 @@
+{
+  "id": "amazon-athena",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon Athena",
+  "aliases": [
+    "Athena",
+    "アテナ"
+  ],
+  "category": "analytics",
+  "summary": "Amazon S3にあるデータを、標準的なSQLで簡単に分析できる対話型のクエリサービス。",
+  "beginner": {
+    "analogy": "倉庫（S3）に置いたままの書類の山に、「この条件の書類を集計して」と質問できる係のようなものです。書類を別の場所に運び直す必要がありません。",
+    "description": "S3に保存してあるデータに、SQLという問い合わせの言葉で質問して、結果を得られるサービスです。サーバーの用意は不要です。"
+  },
+  "exam": {
+    "description": "Amazon S3のデータを標準的なSQLで簡単に分析できる、対話型のクエリサービスです。サーバーレスなので管理するインフラストラクチャがなく、実行したクエリの分だけ支払います。",
+    "points": [
+      "S3のデータをSQLで分析＝Amazon Athena。",
+      "サーバーレス。管理するインフラストラクチャがない。",
+      "実行したクエリの分だけ支払う。"
+    ]
+  },
+  "useCases": [
+    "S3に保存したログの分析"
+  ],
+  "mechanism": "S3にあるデータを指定し、SQLでクエリを実行します。",
+  "pros": [
+    "サーバーの管理が不要",
+    "S3のデータをそのまま分析できる"
+  ],
+  "cons": [
+    "クエリを実行するたびに料金がかかる"
+  ],
+  "scenes": [
+    "S3にためたアクセスログから、特定の期間のアクセス数をSQLで集計する"
+  ],
+  "similarServiceIds": [
+    "aws-glue"
+  ],
+  "relatedServiceIds": [
+    "amazon-s3",
+    "amazon-quick"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/athena/"
+}

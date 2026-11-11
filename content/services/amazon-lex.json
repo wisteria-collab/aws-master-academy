@@ -1,0 +1,74 @@
+{
+  "id": "amazon-lex",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon Lex",
+  "aliases": [
+    "Lex",
+    "レックス"
+  ],
+  "category": "machine-learning",
+  "summary": "音声とテキストを使った会話型のインターフェイス（チャットボットなど）を、アプリケーションに組み込めるフルマネージドのAIサービス。",
+  "beginner": {
+    "analogy": "お店の「自動応答の受付係」を作る道具です。お客さんの話し言葉や文章を理解して、受け答えをします。",
+    "description": "チャットボットや音声での自動応答を作るためのサービスです。話した言葉を文字にして、何をしたいのかを読み取ります。"
+  },
+  "exam": {
+    "description": "音声とテキストを使った会話型インターフェイスを、設計、構築、テスト、デプロイして、あらゆるアプリケーションに組み込めるフルマネージドのAIサービスです。音声をテキストに変換する自動音声認識（ASR）と、テキストの意図を認識する自然言語理解（NLU）の機能を提供します。",
+    "points": [
+      "チャットボット・会話型インターフェイス＝Amazon Lex。",
+      "音声認識（ASR）と自然言語理解（NLU）を提供する。",
+      "MLモデルを自分で作るのはAmazon SageMaker AI。"
+    ]
+  },
+  "useCases": [
+    "問い合わせ対応のチャットボット",
+    "音声での自動応答"
+  ],
+  "mechanism": "利用者の音声やテキストを受け取り、意図を認識して応答します。",
+  "pros": [
+    "会話の仕組みを自分で一から作らなくてよい",
+    "音声とテキストの両方に対応する"
+  ],
+  "cons": [
+    "会話型インターフェイス以外の用途には別のサービスを使う"
+  ],
+  "scenes": [
+    "ウェブサイトに、予約を受け付けるチャットボットを設置する"
+  ],
+  "similarServiceIds": [
+    "amazon-sagemaker-ai"
+  ],
+  "relatedServiceIds": [
+    "amazon-connect",
+    "aws-lambda"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/lex/"
+}

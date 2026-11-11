@@ -350,6 +350,32 @@ function AccessMethods() {
   )
 }
 
+function DataFlow() {
+  const step = (x: number, verb: string, svc: string, last?: boolean) => (
+    <g>
+      <Box x={x} y={8} w={78} h={30} r={15} fill={soft} />
+      <T x={x + 39} y={28} size={12} bold>{verb}</T>
+      <line x1={x + 39} y1={38} x2={x + 39} y2={50} stroke={line} strokeWidth="2" />
+      <Box x={x} y={50} w={78} h={50} fill={tint} stroke={orange} />
+      <T x={x + 39} y={80} size={12} bold>{svc}</T>
+      {!last && <line x1={x + 78} y1={23} x2={x + 88} y2={23} stroke={line} strokeWidth="2" markerEnd="url(#flow-arrow)" />}
+    </g>
+  )
+  return (
+    <Frame title="データを扱う4つの段階と、分析のサービス" height={108}>
+      <defs>
+        <marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M0 0L10 5L0 10z" fill={line} />
+        </marker>
+      </defs>
+      {step(4, '集める', 'Kinesis')}
+      {step(95, '整える', 'Glue')}
+      {step(186, '調べる', 'Athena')}
+      {step(277, '見せる', 'Quick', true)}
+    </Frame>
+  )
+}
+
 const registry: Record<FigureId, () => ReactNode> = {
   'region-az': RegionAz,
   'shared-responsibility': SharedResponsibility,
@@ -363,6 +389,7 @@ const registry: Record<FigureId, () => ReactNode> = {
   'purchase-options': PurchaseOptions,
   'cost-tools': CostTools,
   'access-methods': AccessMethods,
+  'data-flow': DataFlow,
 }
 
 export function Figure({ id }: { id: string }) {

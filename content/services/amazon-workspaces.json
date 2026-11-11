@@ -1,0 +1,72 @@
+{
+  "id": "amazon-workspaces",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon WorkSpaces",
+  "aliases": [
+    "WorkSpaces",
+    "ワークスペース"
+  ],
+  "category": "end-user-computing",
+  "summary": "フルマネージドで安全な、クラウド上のデスクトップ（仮想デスクトップ）サービス。",
+  "beginner": {
+    "analogy": "「クラウドの中にある自分のパソコン」です。手元の端末からつなぐと、いつものデスクトップ画面が表示されます。",
+    "description": "クラウド上にWindowsやLinuxのデスクトップを用意し、手元の端末から画面を呼び出して使うサービスです。"
+  },
+  "exam": {
+    "description": "フルマネージドで安全なクラウドデスクトップサービスです。WindowsまたはLinuxのデスクトップを数分でプロビジョニングでき、世界中の働き手に向けて、数千台のデスクトップまで素早くスケールできます。",
+    "points": [
+      "クラウド上のデスクトップ（仮想デスクトップ）＝Amazon WorkSpaces。",
+      "デスクトップ全体ではなく、アプリケーションだけを配信するのはAmazon AppStream 2.0。",
+      "ブラウザからの安全なウェブアクセスはAmazon WorkSpaces Secure Browser。"
+    ]
+  },
+  "useCases": [
+    "在宅勤務の社員へのデスクトップ環境の提供"
+  ],
+  "mechanism": "クラウド上にデスクトップを用意し、利用者は手元の端末から接続して使います。",
+  "pros": [
+    "数分でデスクトップを用意できる",
+    "台数を素早く増減できる"
+  ],
+  "cons": [
+    "アプリケーションだけを配信したい場合はAmazon AppStream 2.0を検討する"
+  ],
+  "scenes": [
+    "新しく入った社員に、その日のうちに業務用のデスクトップ環境を用意する"
+  ],
+  "similarServiceIds": [
+    "amazon-appstream-2"
+  ],
+  "relatedServiceIds": [
+    "amazon-appstream-2"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "low"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/workspaces/"
+}

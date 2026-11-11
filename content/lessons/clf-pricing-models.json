@@ -31,7 +31,7 @@
     }
   ],
   "course": "clf",
-  "order": 14,
+  "order": 16,
   "title": "AWSの料金モデル（EC2の購入方法）",
   "domainId": "clf-d4",
   "taskIds": [

@@ -1,0 +1,74 @@
+{
+  "id": "amazon-eventbridge",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon EventBridge",
+  "aliases": [
+    "EventBridge",
+    "イベントブリッジ"
+  ],
+  "category": "application-integration",
+  "summary": "アプリケーション、SaaS、AWSのサービスが出すイベントを使って、イベント駆動型のアプリケーションを作りやすくするサーバーレスのイベントバス。",
+  "beginner": {
+    "analogy": "駅の「乗り換え案内の係」です。到着した出来事（イベント）の種類を見て、決められた行き先に案内します。",
+    "description": "「ファイルが置かれた」「状態が変わった」といった出来事（イベント）を受け取り、ルールに従って、次の処理へ届けるサービスです。"
+  },
+  "exam": {
+    "description": "サーバーレスのイベントバスです。自分のアプリケーション、連携するSaaSアプリケーション、AWSのサービスが生成するイベントを使って、イベント駆動型のアプリケーションを大規模に構築しやすくします。イベントソースからのリアルタイムのデータを、AWS Lambdaなどのターゲットに届けます。",
+    "points": [
+      "イベントバス・イベント駆動＝Amazon EventBridge。",
+      "AWSのサービス、SaaS、自分のアプリケーションのイベントを扱う。",
+      "サーバーレス。"
+    ]
+  },
+  "useCases": [
+    "AWSのサービスで起きた出来事をきっかけに、処理を自動で実行する"
+  ],
+  "mechanism": "イベントソースからのイベントを受け取り、ターゲット（AWS Lambdaなど）に届けます。",
+  "pros": [
+    "出来事をきっかけに処理を自動化できる",
+    "SaaSのイベントも扱える"
+  ],
+  "cons": [
+    "単純ないっせい通知だけならAmazon SNSで足りる"
+  ],
+  "scenes": [
+    "AWS Healthのイベントをきっかけに、担当者への通知を自動で行う"
+  ],
+  "similarServiceIds": [
+    "amazon-sns",
+    "amazon-sqs"
+  ],
+  "relatedServiceIds": [
+    "aws-lambda",
+    "aws-health-dashboard"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/eventbridge/"
+}

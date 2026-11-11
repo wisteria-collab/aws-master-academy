@@ -1,0 +1,78 @@
+{
+  "id": "amazon-quick",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "What is Amazon Quick?（Amazon Quick ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/quick/latest/userguide/what-is.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon Quick",
+  "aliases": [
+    "Quick",
+    "QuickSight",
+    "Amazon QuickSight",
+    "Quick Sight",
+    "クイックサイト"
+  ],
+  "category": "analytics",
+  "summary": "組織の全員に知見を届けられる、ビジネスインテリジェンス（BI）のサービス。以前の名前はAmazon QuickSight。",
+  "beginner": {
+    "analogy": "車の「メーターパネル」を作る道具です。数字の羅列を、ひと目でわかるグラフやダッシュボードに変えます。",
+    "description": "データをグラフやダッシュボードにして、みんなで見られるようにするサービスです。以前はAmazon QuickSightと呼ばれていました。"
+  },
+  "exam": {
+    "description": "クラウドを活用した高速なビジネスインテリジェンス（BI）サービスで、組織の全員に知見を届けられます。ブラウザやモバイルデバイスからアクセスできる対話的なダッシュボードを作成して公開でき、ダッシュボードをアプリケーションに埋め込むこともできます。Amazon QuickSightはAmazon Quickに名称が変わり、従来のQuickSightはAmazon Quick Sightという機能として引き継がれています。",
+    "points": [
+      "BI（ダッシュボード、データの可視化）＝Amazon Quick。",
+      "以前の名前はAmazon QuickSight。試験ガイド バージョン1.3ではAmazon Quickと書かれている。",
+      "対話的なダッシュボードを作成・公開できる。"
+    ]
+  },
+  "useCases": [
+    "売上や利用状況のダッシュボードの作成と共有"
+  ],
+  "mechanism": "データソースに接続し、グラフやダッシュボードを作成して共有します。",
+  "pros": [
+    "ダッシュボードを組織内で共有できる",
+    "アプリケーションに埋め込める"
+  ],
+  "cons": [
+    "データの変換や準備はAWS Glueなどで行う"
+  ],
+  "scenes": [
+    "経営会議で使う売上のダッシュボードを作成し、関係者に共有する"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "amazon-athena",
+    "aws-glue"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/quick/"
+}

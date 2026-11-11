@@ -1,0 +1,70 @@
+{
+  "id": "amazon-connect",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon Connect",
+  "aliases": [
+    "Connect",
+    "コネクト",
+    "Connect Customer"
+  ],
+  "category": "business-applications",
+  "summary": "セルフサービスで使える、オムニチャネルのクラウド型コンタクトセンターサービス。",
+  "beginner": {
+    "analogy": "「お客様相談室」を、機材を買わずにクラウド上に開設できるサービスです。",
+    "description": "電話やチャットでお客さんに対応する窓口（コンタクトセンター）を、クラウド上に作れるサービスです。"
+  },
+  "exam": {
+    "description": "あらゆる企業が、より低いコストでより良い顧客サービスを提供できるようにする、セルフサービスのオムニチャネル型クラウドコンタクトセンターサービスです。世界中のAmazonのカスタマーサービス担当者が使っているのと同じコンタクトセンターの技術に基づいています。",
+    "points": [
+      "クラウド型のコンタクトセンター＝Amazon Connect。",
+      "試験ガイドではビジネスアプリケーションのサービスとして挙げられている。"
+    ]
+  },
+  "useCases": [
+    "顧客からの電話やチャットの問い合わせ窓口"
+  ],
+  "mechanism": "クラウド上にコンタクトセンターを設定し、顧客からの問い合わせを受け付けます。",
+  "pros": [
+    "設備を持たずにコンタクトセンターを開設できる"
+  ],
+  "cons": [
+    "メールの大量送信にはAmazon SESを使う"
+  ],
+  "scenes": [
+    "新しい商品の発売に合わせて、問い合わせ窓口を短期間で用意する"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "amazon-lex"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "low"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/connect/",
+  "uncertainNote": "試験ガイド（バージョン1.3）ではAmazon Connectと書かれています。AWSのホワイトペーパーでは「Connect Customer」という名前で説明されています。このアプリは試験ガイドの名前に合わせています。"
+}

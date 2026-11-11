@@ -1,0 +1,73 @@
+{
+  "id": "amazon-sagemaker-ai",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon SageMaker AI",
+  "aliases": [
+    "SageMaker AI",
+    "SageMaker",
+    "セージメーカー"
+  ],
+  "category": "machine-learning",
+  "summary": "機械学習（ML）モデルを、構築、トレーニング、デプロイできるフルマネージドのサービス。",
+  "beginner": {
+    "analogy": "料理人のための「設備のそろった貸しキッチン」です。道具も火も用意されていて、レシピ（モデル）作りに集中できます。",
+    "description": "機械学習のモデルを自分たちで作って、動かすところまでを、まとめて行えるサービスです。必要な道具や機械はAWSが用意します。"
+  },
+  "exam": {
+    "description": "フルマネージドのインフラストラクチャ、ツール、ワークフローを使って、あらゆるユースケースのMLモデルを構築、トレーニング、デプロイできます。MLに使うすべてのコンポーネントを1つのツールセットで提供するため、より少ない労力と低いコストで、モデルを素早く本番環境に届けられます。",
+    "points": [
+      "MLモデルの構築・トレーニング・デプロイ＝Amazon SageMaker AI。",
+      "自分たちでモデルを作るためのサービス。",
+      "会話、翻訳、画像分析など、用途が決まっているものは専用のAIサービス（Amazon Lexなど）を選ぶ。"
+    ]
+  },
+  "useCases": [
+    "需要予測や不正検知のモデルの開発"
+  ],
+  "mechanism": "データを用意し、SageMaker AI上でモデルを構築、トレーニングして、デプロイします。",
+  "pros": [
+    "MLの各工程を1つのツールセットで行える",
+    "インフラストラクチャの管理をAWSに任せられる"
+  ],
+  "cons": [
+    "モデルを作るための知識は必要"
+  ],
+  "scenes": [
+    "データサイエンティストが、自社のデータで独自の予測モデルを作る"
+  ],
+  "similarServiceIds": [
+    "amazon-lex"
+  ],
+  "relatedServiceIds": [
+    "amazon-s3"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/sagemaker/"
+}

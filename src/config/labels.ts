@@ -13,6 +13,11 @@ export const categoryLabels: Record<string, string> = {
   storage: 'ストレージ',
   'machine-learning': '機械学習',
   'cost-management': 'クラウド財務管理',
+  'business-applications': 'ビジネスアプリケーション',
+  'developer-tools': '開発者ツール',
+  'end-user-computing': 'エンドユーザーコンピューティング',
+  'frontend-web-mobile': 'フロントエンドウェブとモバイル',
+  iot: 'IoT',
 }
 export const categoryLabel = (id: string) => categoryLabels[id] ?? id
 
@@ -21,4 +26,4 @@ export const difficultyLabels = { basic: '基礎', standard: '標準', advanced:
 export const formatLabels = { basic: '知識', scenario: 'シナリオ', comparison: 'サービス比較', architecture: '構成選択' } as const
 
 /** コースの予定テーマ数（公開済みの数とあわせて表示する） */
-export const plannedLessons = { clf: 22, saa: 14 } as const
+export const plannedLessons = { clf: 21, saa: 14 } as const

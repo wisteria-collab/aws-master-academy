@@ -1,0 +1,73 @@
+{
+  "id": "aws-glue",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Glue",
+  "aliases": [
+    "Glue",
+    "グルー"
+  ],
+  "category": "analytics",
+  "summary": "分析のためのデータの準備と読み込みを簡単にする、フルマネージドのETL（抽出・変換・ロード）サービス。",
+  "beginner": {
+    "analogy": "料理の「下ごしらえ係」です。ばらばらの食材（データ）を洗って切りそろえ、すぐ調理（分析）できる状態にします。",
+    "description": "あちこちにある形式のばらばらなデータを、分析しやすい形に整えるサービスです。データの場所を教えると、どんなデータかを自動で調べて整理してくれます。"
+  },
+  "exam": {
+    "description": "分析のためのデータの準備と読み込みを簡単にする、フルマネージドのETLサービスです。AWSに保存されているデータを指定すると、AWS Glueがデータを検出し、テーブル定義やスキーマなどのメタデータをAWS Glue Data Catalogに保存します。",
+    "points": [
+      "ETL（抽出・変換・ロード）＝AWS Glue。",
+      "データを検出して、メタデータをData Catalogに保存する。",
+      "フルマネージド。"
+    ]
+  },
+  "useCases": [
+    "分析の前の、データの準備と変換"
+  ],
+  "mechanism": "データの場所を指定すると、Glueがデータを検出してカタログに登録し、ETLジョブで変換・読み込みを行います。",
+  "pros": [
+    "ETLのためのサーバーを管理しなくてよい",
+    "データの構造を自動で検出できる"
+  ],
+  "cons": [
+    "データを可視化するサービスではない（それはAmazon Quick）"
+  ],
+  "scenes": [
+    "複数のシステムから集めたデータを、分析用にまとめて整える"
+  ],
+  "similarServiceIds": [
+    "amazon-athena"
+  ],
+  "relatedServiceIds": [
+    "amazon-s3",
+    "amazon-quick"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/glue/"
+}

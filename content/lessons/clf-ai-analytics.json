@@ -1,0 +1,83 @@
+{
+  "id": "clf-ai-analytics",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "What is Amazon Quick?（Amazon Quick ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/quick/latest/userguide/what-is.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 10,
+  "title": "AI/ML・分析のサービス",
+  "domainId": "clf-d3",
+  "taskIds": [
+    "clf-3-7"
+  ],
+  "overview": "AWSには、データを分析するサービスと、AI・機械学習（ML）のサービスが数多くあります。CLFでは、細かい使い方ではなく、「何をするためのサービスか」を見分けられることが求められます。\n試験ガイド（バージョン1.3）では、AI/MLのサービスの例としてAmazon SageMaker AIとAmazon Lex、分析のサービスの例としてAmazon Athena、Amazon Kinesis、AWS Glue、Amazon Quickが挙げられています。\nAmazon Quickは、以前はAmazon QuickSightと呼ばれていたサービスです。古い教材では旧名で出てくるので注意してください。",
+  "beginner": {
+    "analogy": "データの分析を、料理にたとえます。Amazon Kinesisは、次々に届く食材を受け取る「搬入口」です。AWS Glueは、食材を洗って切る「下ごしらえ」です。Amazon Athenaは、倉庫にある食材について質問に答える「在庫係」です。Amazon Quickは、料理をきれいに「盛り付けて見せる」係です。AIのサービスは、決まった仕事が得意な「専門の職人」（Amazon Lexは会話の職人）で、Amazon SageMaker AIは、自分で新しい職人を育てるための「修業の場」です。",
+    "description": "データは、「集める」「整える」「調べる」「見せる」の順に扱います。それぞれの段階に、得意なサービスがあります。AIについては、「用途の決まったものをすぐ使う」か、「自分でモデルを作る」かで、選ぶサービスが変わります。"
+  },
+  "useCases": [
+    "S3にためたログを、SQLで分析する",
+    "アプリの利用状況を、リアルタイムに把握する",
+    "ばらばらなデータを、分析できる形に整える",
+    "売上のダッシュボードを作って共有する",
+    "問い合わせ対応のチャットボットを作る",
+    "自社のデータで、独自の予測モデルを作る"
+  ],
+  "mechanism": {
+    "text": "【分析のサービス】\n・Amazon Kinesis（集める）：リアルタイムのストリーミングデータを、収集、処理、分析します。\n・AWS Glue（整える）：フルマネージドのETL（抽出・変換・ロード）サービスです。データを検出し、メタデータをAWS Glue Data Catalogに保存します。\n・Amazon Athena（調べる）：Amazon S3のデータを、標準的なSQLで分析できる対話型のクエリサービスです。サーバーレスで、実行したクエリの分だけ支払います。\n・Amazon Quick（見せる）：ビジネスインテリジェンス（BI）のサービスです。対話的なダッシュボードを作成して公開できます。\n【AI/MLのサービス】\n・Amazon SageMaker AI：機械学習モデルを、構築、トレーニング、デプロイできます。自分でモデルを作るためのサービスです。\n・Amazon Lex：音声とテキストを使った会話型インターフェイス（チャットボットなど）を、アプリケーションに組み込めます。\nこのほかにも、用途の決まったAIサービスがあります。たとえば、Amazon Pollyはテキストを音声に変換し、Amazon Transcribeは音声をテキストに変換し、Amazon Translateは翻訳を行い、Amazon Rekognitionは画像や動画を分析し、Amazon Textractはスキャンした文書からテキストやデータを抽出し、Amazon Comprehendはテキストから知見を見つけ、Amazon Kendraは機械学習を使った検索を提供します。Amazon Bedrockは、基盤モデルをAPIを通じて利用できるフルマネージドのサービスです。",
+    "figureId": "data-flow"
+  },
+  "relatedServiceIds": [
+    "amazon-kinesis",
+    "aws-glue",
+    "amazon-athena",
+    "amazon-quick",
+    "amazon-sagemaker-ai",
+    "amazon-lex",
+    "amazon-s3"
+  ],
+  "examPoints": [
+    "S3のデータをSQLで分析（サーバーレス）＝Amazon Athena。",
+    "リアルタイムのストリーミングデータ＝Amazon Kinesis。",
+    "ETL（抽出・変換・ロード）＝AWS Glue。",
+    "BI・ダッシュボード＝Amazon Quick（以前の名前はAmazon QuickSight）。",
+    "機械学習モデルの構築・トレーニング・デプロイ＝Amazon SageMaker AI。",
+    "チャットボット・会話型インターフェイス＝Amazon Lex。",
+    "音声にする＝Polly、文字に起こす＝Transcribe、翻訳＝Translate、画像・動画の分析＝Rekognition、文書からの抽出＝Textract。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-ana-01",
+    "clf-q-ana-02",
+    "clf-q-ana-03",
+    "clf-q-ana-04",
+    "clf-q-ai-01",
+    "clf-q-ai-02"
+  ],
+  "glossaryTermIds": [
+    "machine-learning",
+    "etl",
+    "streaming-data",
+    "business-intelligence",
+    "serverless",
+    "fully-managed"
+  ]
+}

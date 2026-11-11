@@ -1,0 +1,88 @@
+{
+  "id": "clf-other-services",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 11,
+  "title": "その他のサービス（統合・開発・業務・IoT）",
+  "domainId": "clf-d3",
+  "taskIds": [
+    "clf-3-8"
+  ],
+  "overview": "ここまでのレッスンで扱わなかった分野のサービスを、まとめて学びます。\nCLFの試験ガイドでは、次の分野が挙げられています。アプリケーション統合（Amazon EventBridge、Amazon SNS、Amazon SQS）、ビジネスアプリケーション（Amazon Connect、Amazon SES）、開発者ツール（AWS CodeBuild、AWS CodePipeline、AWS X-Rayなど）、エンドユーザーコンピューティング（Amazon AppStream 2.0、Amazon WorkSpaces、Amazon WorkSpaces Secure Browser）、フロントエンドのウェブとモバイル（AWS Amplify）、IoT（AWS IoT Coreなど）です。\n数は多いですが、どれも「何をするサービスか」をひとことで言えれば十分です。",
+  "beginner": {
+    "analogy": "会社の中の係にたとえます。Amazon SNSは、全員に知らせる「社内放送」です。Amazon SQSは、仕事の依頼をためておく「依頼箱」です。Amazon EventBridgeは、出来事に応じて担当に取り次ぐ「受付」です。Amazon Connectは「お客様相談室」、Amazon SESは「メール発送係」です。AWS CodePipelineは「自動の生産ライン」、AWS X-Rayは不具合を見つける「レントゲン」です。Amazon WorkSpacesは「貸し出しパソコン」です。",
+    "description": "似た名前や似た役割のサービスは、「違い」を1つだけ覚えるのがこつです。SNSは「いっせいに配る」、SQSは「ためて順に処理する」。WorkSpacesは「デスクトップ全体」、AppStream 2.0は「アプリケーションだけ」。CodeBuildは「ビルド」、CodePipelineは「リリースの流れ全体」です。"
+  },
+  "useCases": [
+    "障害のアラートを、複数の担当者に通知する",
+    "処理の間にキューを置いて、混雑に強くする",
+    "問い合わせ窓口をクラウド上に開設する",
+    "リリースまでの流れを自動化する",
+    "在宅勤務の社員にデスクトップ環境を提供する",
+    "センサーをクラウドに接続する"
+  ],
+  "mechanism": {
+    "text": "【アプリケーション統合】メッセージを届け、アラートや通知を送る\n・Amazon SNS：pub/subのメッセージングサービスです。トピックに送ったメッセージが、購読しているすべての受け取り手にプッシュ型で配信されます。\n・Amazon SQS：メッセージキューのサービスです。メッセージをためておき、受け取る側が取り出して処理します。\n・Amazon EventBridge：サーバーレスのイベントバスです。アプリケーション、SaaS、AWSのサービスのイベントを、ターゲットに届けます。\nSNSとSQSは、どちらもシステムどうしを疎結合にするために使います。\n【ビジネスアプリケーション】\n・Amazon Connect：クラウド型のコンタクトセンターです。\n・Amazon SES：アプリケーションからメールを送信するサービスです。\n【開発者ツール】開発、デプロイ、トラブルシューティング\n・AWS CodeBuild：ソースコードをコンパイルし、テストを実行するビルドサービスです。\n・AWS CodePipeline：ビルド、テスト、デプロイを自動化する、継続的デリバリーのサービスです。\n・AWS X-Ray：分散アプリケーションを分析・デバッグし、性能の問題やエラーの原因を特定します。\n【エンドユーザーコンピューティング】仮想マシンの出力を利用者の端末に表示する\n・Amazon WorkSpaces：クラウド上のデスクトップです。\n・Amazon AppStream 2.0：アプリケーションをストリーミングで配信します。\n・Amazon WorkSpaces Secure Browser：社内のウェブサイトやSaaSアプリケーションへの安全なアクセスを、既存のウェブブラウザから行えるようにします。\n【フロントエンドのウェブとモバイル】\n・AWS Amplify：ウェブやモバイルのアプリケーションのバックエンドを用意し、フロントエンドと統合します。\n【IoT】\n・AWS IoT Core：デバイスをクラウドに接続し、安全にやり取りできるようにします。"
+  },
+  "relatedServiceIds": [
+    "amazon-sns",
+    "amazon-sqs",
+    "amazon-eventbridge",
+    "amazon-connect",
+    "amazon-ses",
+    "aws-codebuild",
+    "aws-codepipeline",
+    "aws-x-ray",
+    "amazon-workspaces",
+    "amazon-appstream-2",
+    "aws-amplify",
+    "aws-iot-core"
+  ],
+  "examPoints": [
+    "いっせいに通知（pub/sub、プッシュ型）＝Amazon SNS。ためて順に処理（キュー）＝Amazon SQS。",
+    "イベントバス・イベント駆動＝Amazon EventBridge。",
+    "コンタクトセンター＝Amazon Connect。メール送信＝Amazon SES。",
+    "ビルド＝AWS CodeBuild。リリースの流れ全体の自動化＝AWS CodePipeline。分析・デバッグ＝AWS X-Ray。",
+    "クラウド上のデスクトップ＝Amazon WorkSpaces。アプリケーションのストリーミング＝Amazon AppStream 2.0。",
+    "ブラウザからの安全なウェブアクセス＝Amazon WorkSpaces Secure Browser。",
+    "ウェブ・モバイルアプリの作成＝AWS Amplify。IoTデバイスの接続＝AWS IoT Core。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-oth-01",
+    "clf-q-oth-02",
+    "clf-q-oth-03",
+    "clf-q-oth-04",
+    "clf-q-oth-05",
+    "clf-q-oth-06",
+    "clf-q-oth-07",
+    "clf-q-oth-08",
+    "clf-q-oth-09",
+    "clf-q-oth-10"
+  ],
+  "glossaryTermIds": [
+    "message-queue",
+    "pub-sub",
+    "decoupling",
+    "continuous-delivery",
+    "iot",
+    "serverless"
+  ],
+  "uncertainNote": "Amazon AppStream 2.0、Amazon WorkSpaces Secure Browser、Amazon Connectの名前は、試験ガイド（バージョン1.3）の表記に合わせています。AWSのホワイトペーパーでは、それぞれAmazon WorkSpaces Applications、Amazon WorkSpaces Web、Connect Customerという名前で説明されています。"
+}
