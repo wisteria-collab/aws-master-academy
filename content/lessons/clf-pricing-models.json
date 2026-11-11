@@ -1,0 +1,88 @@
+{
+  "id": "clf-pricing-models",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+    },
+    {
+      "title": "Spot Instances（Amazon EC2 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html"
+    },
+    {
+      "title": "Amazon EC2 Reserved Instances Pricing（AWS公式）",
+      "url": "https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/"
+    },
+    {
+      "title": "Reserved Instances（AWS Billing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ri-behavior.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 13,
+  "title": "AWSの料金モデル（EC2の購入方法）",
+  "domainId": "clf-d4",
+  "taskIds": [
+    "clf-4-1"
+  ],
+  "overview": "AWSの料金の基本は「使った分だけ支払う」ことですが、使い方に合った購入方法を選ぶと、同じ使い方でも費用を下げられます。\nCLFの試験ガイドでは、コンピューティングの購入方法として、オンデマンドインスタンス、リザーブドインスタンス、スポットインスタンス、Savings Plans、Dedicated Hosts、Dedicated Instances、キャパシティ予約が挙げられています。それぞれを「どんなときに使うか」で見分けられるようにします。\nストレージの料金の考え方は、レッスン「ストレージサービス」のストレージクラスの説明を参照してください。データ転送の料金は、今後のレッスンで扱います。",
+  "beginner": {
+    "analogy": "乗り物の料金にたとえます。オンデマンドは「予約なしのタクシー」です。リザーブドインスタンスは、路線と期間を決めて買う「定期券」です。Savings Plansは、「毎月これだけは使う」と約束する定額割引です。スポットインスタンスは、安いけれど席が必要になったら譲る「空席待ち」です。Dedicated Hostsは「バスを1台まるごと貸し切る」ことです。",
+    "description": "長く使うと約束できるなら、約束する代わりに安くしてもらえます。途中で止まってもよい処理なら、空いている容量を安く使えます。どれも当てはまらないなら、約束なしで使った分だけ払います。この3つの考え方が基本です。"
+  },
+  "useCases": [
+    "短期間のテスト用サーバーを、約束なしで使う",
+    "1年中動かすサーバーの料金を、利用の約束で下げる",
+    "中断されてもやり直せるバッチ処理を、安く動かす",
+    "既存のソフトウェアライセンスを、専用の物理ホストに持ち込む"
+  ],
+  "mechanism": {
+    "text": "【オンデマンドインスタンス】\n起動したインスタンスの分だけ、秒単位で支払います。長期の約束は不要です。\n【リザーブドインスタンス】\nインスタンスタイプやリージョンを含む一定のインスタンス構成を、1年または3年にわたって約束することで、コストを下げます。\n【Savings Plans】\n1時間あたりの一定の利用額（米ドル）を、1年または3年にわたって約束することで、コストを下げます。特定のインスタンス構成は約束できないが、利用額なら約束できる場合に向いています。\n【スポットインスタンス】\nEC2の空いている容量を、オンデマンドより低い価格で使います。EC2が容量を必要としたときは中断され、その2分前に通知が届きます。データ分析、バッチ処理、バックグラウンド処理などに適しています。\n【Dedicated Hosts】\n利用者のインスタンス専用の物理ホストに対して支払います。ソケット単位、コア単位、VM単位の既存のソフトウェアライセンスを持ち込んで、コストを下げられます。\n【Dedicated Instances】\n単一の利用者専用のハードウェアで動くインスタンスに、時間単位で支払います。\nDedicated HostsとDedicated Instancesは、コンプライアンス要件への対応に役立ちます。\n【キャパシティ予約】\n特定のアベイラビリティゾーンで、EC2インスタンスの容量を予約します。\n【AWS Organizationsとの関係】\n一括請求を使っている組織では、リザーブドインスタンスの割引やSavings Plansが、組織内のアカウントで共有されます。\n割引率などの数値は変わることがあります。最新の情報は公式の料金ページで確認してください。",
+    "figureId": "purchase-options"
+  },
+  "relatedServiceIds": [
+    "amazon-ec2",
+    "aws-savings-plans",
+    "aws-organizations",
+    "aws-fargate",
+    "aws-lambda"
+  ],
+  "examPoints": [
+    "オンデマンド＝約束なし・使った分だけ。短期間、予測できない利用、中断できない処理に。",
+    "リザーブドインスタンス＝「インスタンス構成」を1年または3年約束して割引。",
+    "Savings Plans＝「利用額」を1年または3年約束して割引。構成を変えられる柔軟さがある。",
+    "スポットインスタンス＝空いている容量を低価格で。中断されることがある（2分前に通知）。中断に耐えられる処理に。",
+    "Dedicated Hosts＝専用の物理ホスト。既存のライセンスの持ち込み（BYOL）やコンプライアンス要件に。",
+    "キャパシティ予約＝特定のアベイラビリティゾーンで容量を確保する。",
+    "一括請求では、リザーブドインスタンスの割引とSavings Plansが組織内で共有される。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-price-01",
+    "clf-q-price-02",
+    "clf-q-price-03",
+    "clf-q-price-04",
+    "clf-q-price-05",
+    "clf-q-price-06"
+  ],
+  "glossaryTermIds": [
+    "on-demand",
+    "reserved-instance",
+    "savings-plans",
+    "spot-instance",
+    "byol",
+    "instance",
+    "availability-zone"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "clf-billing-cost",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+    },
+    {
+      "title": "Consolidating billing for AWS Organizations（AWS Billing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html"
+    },
+    {
+      "title": "Organizing and tracking costs using AWS cost allocation tags（AWS Billing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 14,
+  "title": "請求・予算・コスト管理",
+  "domainId": "clf-d4",
+  "taskIds": [
+    "clf-4-2"
+  ],
+  "overview": "AWSには、料金を「見積もる」「確認する」「超えないように見張る」「整理する」ためのツールがそろっています。\nCLFの試験ガイドでは、AWS BudgetsとAWS Cost Explorerの使い分け、AWS Pricing Calculatorの用途、AWS Organizationsの一括請求、コスト配分タグの種類と請求レポート（AWS Cost and Usage Reportなど）との関係が挙げられています。\nどれも「いつ、何のために使うか」で区別できます。",
+  "beginner": {
+    "analogy": "家計の管理にたとえます。AWS Pricing Calculatorは、買い物の前の「見積もり」です。AWS Cost Explorerは、何にいくら使ったかをグラフで見る「家計簿」です。AWS Budgetsは、使いすぎを知らせる「予算オーバー通知」です。コスト配分タグは、レシートに貼る「食費」「交通費」の付せんです。一括請求は、家族全員の請求を1枚にまとめる「家族割」です。",
+    "description": "お金の管理は、「使う前」「使っている間」「使った後」の3つの場面に分けて考えるとわかりやすくなります。使う前は見積もり、使っている間は予算とアラート、使った後は分析です。"
+  },
+  "useCases": [
+    "移行を検討する段階で、AWSでの費用を見積もる",
+    "月の予算を決めて、超えそうなときに通知を受け取る",
+    "コストが増えた原因を、サービス別のグラフで調べる",
+    "プロジェクトごとのコストを、タグで分けて確認する",
+    "複数のアカウントの請求を1つにまとめる"
+  ],
+  "mechanism": {
+    "text": "【AWS Pricing Calculator】使う前の見積もり\n計画しているワークロードのコストを見積もります。\n【AWS Budgets】予算とアラート\nコストや使用量にカスタムの予算を設定し、しきい値を超えたときにアラートを受け取ります。\n【AWS Cost Explorer】分析と予測\nコストと使用量のデータを、ビジュアル、フィルター、グループ化で分析します。コストの予測や、カスタムレポートの作成もできます。\n【AWS Organizationsの一括請求】\n複数のAWSアカウントの請求と支払いを1つにまとめます。管理アカウントが、メンバーアカウントの料金をすべて支払います。利点は次の4つです。\n・1つの請求書：複数のアカウントの請求が1つになります。\n・追跡のしやすさ：複数のアカウントの料金を追跡できます。\n・使用量の合算：組織内の使用量を合算し、ボリューム割引、リザーブドインスタンスの割引、Savings Plansを共有できます。\n・追加料金なし：一括請求に追加の費用はかかりません。\n【コスト配分タグ】\nリソースに付けたタグを使って、コストを整理し、追跡します。2種類あります。\n・AWS生成タグ：AWSが定義、作成、適用します。\n・ユーザー定義タグ：利用者が定義、作成、適用します。\nどちらも、請求とコスト管理のコンソールで有効化してから使います。有効化したタグごとのコストは、Cost ExplorerやAWS Cost and Usage Reportで確認できます。",
+    "figureId": "cost-tools"
+  },
+  "relatedServiceIds": [
+    "aws-pricing-calculator",
+    "aws-budgets",
+    "aws-cost-explorer",
+    "aws-organizations",
+    "aws-savings-plans"
+  ],
+  "examPoints": [
+    "使う前の見積もり＝AWS Pricing Calculator。",
+    "予算の設定と、しきい値を超えたときのアラート＝AWS Budgets。",
+    "コストと使用量の分析・可視化・予測＝AWS Cost Explorer。",
+    "複数アカウントの請求を1つに＝AWS Organizationsの一括請求。追加料金なし。",
+    "一括請求では使用量が合算され、ボリューム割引、リザーブドインスタンスの割引、Savings Plansを共有できる。",
+    "コスト配分タグは「AWS生成タグ」と「ユーザー定義タグ」の2種類。有効化して使う。",
+    "タグごとのコストは、Cost ExplorerやAWS Cost and Usage Reportで確認できる。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-bill-01",
+    "clf-q-bill-02",
+    "clf-q-bill-03",
+    "clf-q-bill-04",
+    "clf-q-bill-05",
+    "clf-q-bill-06"
+  ],
+  "glossaryTermIds": [
+    "consolidated-billing",
+    "cost-allocation-tag",
+    "reserved-instance",
+    "savings-plans",
+    "pay-as-you-go"
+  ]
+}

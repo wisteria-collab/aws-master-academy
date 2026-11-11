@@ -1,0 +1,75 @@
+{
+  "id": "aws-cost-explorer",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Cost Explorer",
+  "aliases": [
+    "Cost Explorer",
+    "コストエクスプローラー"
+  ],
+  "category": "cost-management",
+  "summary": "コストと使用量のデータを、グラフ、フィルター、グループ化で分析するツール。",
+  "beginner": {
+    "analogy": "家計簿アプリの「グラフ画面」に似ています。何にいくら使ったかを、月ごとや項目ごとに見られます。",
+    "description": "AWSで「何に」「いつ」「いくら」使ったかを、グラフで確認できるツールです。この先の費用の予測もできます。"
+  },
+  "exam": {
+    "description": "コストと使用量のデータを、ビジュアル、フィルター、グループ化を使って分析します。コストを予測したり、カスタムレポートを作成したりできます。コスト配分タグやコストカテゴリごとにコストを表示することもできます。",
+    "points": [
+      "コストと使用量を「分析・可視化」する＝AWS Cost Explorer。",
+      "コストの予測（フォーキャスト）と、カスタムレポートの作成ができる。",
+      "有効化したコスト配分タグごとに、コストを確認できる。",
+      "「しきい値を超えたら通知」はAWS Budgets、「使う前の見積もり」はAWS Pricing Calculator。役割で区別する。"
+    ]
+  },
+  "useCases": [
+    "先月のコストがどのサービスで増えたのかを調べる",
+    "今後数か月のコストを予測する"
+  ],
+  "mechanism": "請求とコスト管理のデータをもとに、コストと使用量をグラフで表示します。サービス別やタグ別などに絞り込み・グループ化できます。",
+  "pros": [
+    "コストの内訳をグラフで確認できる",
+    "今後のコストを予測できる"
+  ],
+  "cons": [
+    "通知を送る仕組みではない（通知はAWS Budgets）"
+  ],
+  "scenes": [
+    "コストが急に増えた月について、どのサービスが原因かをグラフで確認する"
+  ],
+  "similarServiceIds": [
+    "aws-budgets",
+    "aws-pricing-calculator"
+  ],
+  "relatedServiceIds": [
+    "aws-organizations"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d4"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/cost-management/"
+}

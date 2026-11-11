@@ -1,0 +1,63 @@
+{
+  "id": "clf-support-plans",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "AWS Support Plans（AWS Support ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 15,
+  "title": "AWSサポートプラン",
+  "domainId": "clf-d4",
+  "taskIds": [
+    "clf-4-3"
+  ],
+  "overview": "AWSを使っていて困ったときのために、AWSはサポートプランを用意しています。\n現在のプランは、Basic、AWS Business Support+、AWS Enterprise Support、AWS Unified Operationsです。CLFの試験ガイド（バージョン1.3）でも、これらの名前が挙げられています。\nこのレッスンでは、各プランで何が利用できるかを学びます。技術情報の探し方（AWS re:Postなど）や、AWSパートナー、AWS Marketplaceについては、今後のレッスンで扱います。",
+  "beginner": {
+    "analogy": "家電の保証プランにたとえます。Basicは、買えば必ず付いてくる「基本保証」です。Business Support+は、いつでも電話で技術者に相談できる「あんしんプラン」です。Enterprise Supportは、自分の家の事情を知っている「専任の担当者」が付くプランです。",
+    "description": "無料のBasicでは、請求やアカウントの質問はできますが、技術的な問題をエンジニアに相談するには有料のプランが必要です。上のプランほど、より手厚い支援が受けられます。"
+  },
+  "useCases": [
+    "請求の内容について、AWSに問い合わせる",
+    "本番環境の障害について、エンジニアに電話で相談する",
+    "専任の担当者から、継続的に助言を受ける"
+  ],
+  "mechanism": {
+    "text": "【Basic Support】すべての利用者に含まれる\n・アカウントと請求に関する質問への個別の回答\n・サポートフォーラム\n・サービスのヘルスチェック\n・ドキュメント、技術資料、ベストプラクティスのガイド\n【AWS Business Support+】Basicに加えて\n・生成AIによる、リアルタイムで状況に応じた応答\n・クラウドサポートエンジニアへの、24時間365日の電話・ウェブ・チャットでのアクセス\n・ビジネスに重大な影響のあるシステム停止の場合、30分未満での担当者の対応\n・500を超えるAWS Trusted Advisorのチェック\n・サポートケースの数に制限なし\n【AWS Enterprise Support】Business Support+のすべてに加えて\n・指名されたテクニカルアカウントマネージャー（TAM）\n・本番環境に重大な影響のあるケースへの、最短15分での対応\n・AWS Security Incident Responseの利用\n・AWSの専門家との戦略的なビジネスレビュー\n【AWS Unified Operations】\n・アプリケーションのアーキテクチャに関する助言\n・指名されたTAMと、分野の専門エンジニア\n・重要なワークロードのレビューと、個別の運用手順書\n有料のプランは月単位の料金で、長期の契約はありません。\n【以前のプランについて】\nDeveloper、Business、Enterprise On-Rampの各プランは、2027年1月1日に終了すると案内されています。古い教材にはこれらの名前が出てくることがあるので注意してください。\nプランの内容や料金は変わることがあります。最新の情報は公式ページで確認してください。"
+  },
+  "relatedServiceIds": [
+    "aws-support",
+    "aws-trusted-advisor"
+  ],
+  "examPoints": [
+    "現在のプラン：Basic、Business Support+、Enterprise Support、Unified Operations。",
+    "Basicはすべての利用者に含まれる。アカウントと請求の質問、フォーラム、ヘルスチェック、ドキュメント。",
+    "エンジニアへの24時間365日の電話・ウェブ・チャット＝Business Support+から。",
+    "指名されたテクニカルアカウントマネージャー（TAM）＝Enterprise Supportから。",
+    "500を超えるTrusted Advisorのチェック＝Business Support+から。",
+    "Developer、Business、Enterprise On-Rampは2027年1月1日に終了予定。古い教材の名前と混同しない。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-sup-01",
+    "clf-q-sup-02",
+    "clf-q-sup-03"
+  ],
+  "glossaryTermIds": [
+    "tam",
+    "workload"
+  ],
+  "volatile": true
+}

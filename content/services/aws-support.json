@@ -1,0 +1,79 @@
+{
+  "id": "aws-support",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "AWS Support Plans（AWS Support ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Support",
+  "aliases": [
+    "サポートプラン",
+    "AWSサポート",
+    "Business Support+",
+    "Enterprise Support",
+    "Unified Operations"
+  ],
+  "category": "management-governance",
+  "summary": "AWSの利用について、質問や技術的な問題の相談ができるサポート。必要に応じてプランを選ぶ。",
+  "beginner": {
+    "analogy": "家電の「保証プラン」に似ています。全員に付く基本の保証があり、追加料金を払うと、電話相談や専任の担当者などが付く上位のプランを選べます。",
+    "description": "AWSを使っていて困ったときの相談窓口です。すべての利用者に無料の基本サポートがあり、技術的な相談をしたい場合は有料のプランを選びます。"
+  },
+  "exam": {
+    "description": "AWSのサポートプランには、Basic、AWS Business Support+、AWS Enterprise Support、AWS Unified Operationsがあります。Basic Supportはすべての利用者に含まれ、アカウントと請求に関する質問への対応、サポートフォーラム、サービスのヘルスチェック、ドキュメントや技術資料などを利用できます。Business Support+では、生成AIによる応答、クラウドサポートエンジニアへの24時間365日の電話・ウェブ・チャットでのアクセス、500を超えるAWS Trusted Advisorのチェックなどが加わります。Enterprise Supportでは、指名されたテクニカルアカウントマネージャー（TAM）などが加わります。",
+    "points": [
+      "プランはBasic、Business Support+、Enterprise Support、Unified Operations。",
+      "Basic Supportはすべての利用者に含まれる。アカウントと請求の質問、フォーラム、ドキュメントなど。",
+      "クラウドサポートエンジニアへの24時間365日の電話・ウェブ・チャット＝Business Support+以上。",
+      "指名されたテクニカルアカウントマネージャー（TAM）＝Enterprise Support。",
+      "500を超えるTrusted Advisorのチェックは、Business Support+で利用できる。",
+      "Developer、Business、Enterprise On-Rampの各プランは、2027年1月1日に終了すると案内されている。"
+    ]
+  },
+  "useCases": [
+    "本番環境で障害が起きたときに、AWSのエンジニアに相談する",
+    "請求内容についてAWSに問い合わせる"
+  ],
+  "mechanism": "利用者は、必要なサポートの内容に応じてプランを選びます。有料のプランは月単位の料金で、長期の契約はありません。",
+  "pros": [
+    "すべての利用者に基本のサポートがある",
+    "必要に応じて上位のプランを選べる"
+  ],
+  "cons": [
+    "技術的なサポートケースには有料のプランが必要",
+    "プランの内容や料金は変わることがあるため、最新の情報は公式ページで確認する"
+  ],
+  "scenes": [
+    "本番システムを動かしている企業が、24時間いつでもエンジニアに相談できるプランを選ぶ"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "aws-trusted-advisor"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "low"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d4"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/awssupport/",
+  "volatile": true
+}

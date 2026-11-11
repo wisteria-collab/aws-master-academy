@@ -956,5 +956,307 @@
     "plain": "同じ内容のノートのコピーを何冊か用意して、大勢が同時に読めるようにするイメージです。",
     "example": "Amazon Auroraで、読み取り用のリードレプリカを追加して、読み取りの負荷を分散する。",
     "serviceIds": []
+  },
+  {
+    "id": "fixed-variable-cost",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Six advantages of cloud computing（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "固定費と変動費",
+    "description": "固定費は、使う量にかかわらず先に支払う費用です。変動費は、使った量に応じて支払う費用です。",
+    "plain": "固定費は「車を買う」、変動費は「乗った距離だけ払うタクシー」に似ています。車は乗らない日もお金がかかっていますが、タクシーは乗った分だけです。",
+    "example": "オンプレミスのサーバーの購入費は固定費、AWSで使った分だけ支払う料金は変動費。",
+    "serviceIds": []
+  },
+  {
+    "id": "economies-of-scale",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Six advantages of cloud computing（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "規模の経済",
+    "description": "利用の規模が大きくなるほど、1つあたりの費用が下がることです。",
+    "plain": "まとめ買いをすると1個あたりが安くなるのと同じです。AWSは非常に多くの顧客の利用をまとめているので、低い価格で提供できます。",
+    "example": "非常に多くの顧客の利用が集約されることで、AWSが低い従量課金の価格を提供する。",
+    "serviceIds": []
+  },
+  {
+    "id": "rightsizing",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Right Sizing（AWS公式）",
+        "url": "https://aws.amazon.com/aws-cost-management/aws-cost-optimization/right-sizing/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "ライトサイジング",
+    "description": "インスタンスの種類やサイズを、ワークロードに必要な性能と容量に合わせ、できるだけ低いコストにすることです。",
+    "plain": "家族の人数に合った大きさの車を選ぶイメージです。2人で乗るのに大型バスを借りると、お金が無駄になります。",
+    "example": "ほとんど使われていない大きなインスタンスを、小さいサイズに変更してコストを下げる。一度きりではなく、継続して見直す。",
+    "serviceIds": []
+  },
+  {
+    "id": "byol",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "BYOL",
+    "description": "Bring Your Own Licenseの略で、すでに持っているソフトウェアのライセンスをAWSに持ち込んで使うことです。",
+    "plain": "自分のボウリングシューズを持って行くと、レンタル料を払わずに済むのに似ています。",
+    "example": "ソケット単位やコア単位の既存のソフトウェアライセンスを、Dedicated Hostsに持ち込んでコストを下げる。",
+    "serviceIds": []
+  },
+  {
+    "id": "on-demand",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "オンデマンド",
+    "description": "長期の約束をせずに、起動したインスタンスの分だけ支払う購入方法です。",
+    "plain": "予約なしで乗る「流しのタクシー」のようなものです。いつでも使えて、乗った分だけ払います。",
+    "example": "数週間だけ必要なテスト用のサーバーを、オンデマンドインスタンスで動かす。",
+    "serviceIds": []
+  },
+  {
+    "id": "reserved-instance",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "リザーブドインスタンス",
+    "description": "インスタンスタイプやリージョンなどの構成を決めて、1年または3年の利用を約束することで、料金を下げる購入方法です。RIと略します。",
+    "plain": "「年間パスポート」に似ています。長く使うと約束する代わりに、1回あたりの料金が安くなります。",
+    "example": "1年を通して止めずに動かすサーバーに、リザーブドインスタンスを適用する。",
+    "serviceIds": []
+  },
+  {
+    "id": "savings-plans",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "Savings Plans",
+    "description": "1時間あたりの一定の利用額を、1年または3年にわたって約束することで、料金を下げる柔軟な料金モデルです。",
+    "plain": "「毎月これだけは使います」と約束する定額割引のようなものです。何に使うかは細かく決めなくてよいので、融通がききます。",
+    "example": "インスタンスの構成は変わるかもしれないが、一定の利用額は続くと見込める場合に、Savings Plansを購入する。",
+    "serviceIds": []
+  },
+  {
+    "id": "spot-instance",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Spot Instances（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html"
+      },
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "スポットインスタンス",
+    "description": "Amazon EC2の空いている容量を、オンデマンドより低い価格で使う購入方法です。EC2が容量を必要としたときは中断されます。",
+    "plain": "飛行機の「空席待ち」の割引に似ています。安く乗れますが、席が必要になったら譲らなければなりません。",
+    "example": "途中で止まってもやり直せるバッチ処理やデータ分析を、スポットインスタンスで安く動かす。",
+    "serviceIds": []
+  },
+  {
+    "id": "consolidated-billing",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Consolidating billing for AWS Organizations（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html"
+      },
+      {
+        "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "一括請求",
+    "description": "AWS Organizationsの機能で、複数のAWSアカウントの請求と支払いを1つにまとめることです。コンソリデーティッドビリングとも呼びます。",
+    "plain": "家族の携帯電話料金を、1枚の請求書にまとめる「家族割」のようなものです。まとめることで、割引も受けやすくなります。",
+    "example": "部署ごとに分かれた複数のアカウントの料金を、管理アカウントがまとめて支払う。",
+    "serviceIds": []
+  },
+  {
+    "id": "cost-allocation-tag",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Organizing and tracking costs using AWS cost allocation tags（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html"
+      },
+      {
+        "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "コスト配分タグ",
+    "description": "AWSのリソースに付けた目印（タグ）を使って、コストを整理し、追跡する仕組みです。",
+    "plain": "レシートに「これは食費」「これは交通費」と付せんを貼って、家計簿を付けるイメージです。",
+    "example": "リソースに「プロジェクト名」のタグを付けて有効化し、プロジェクトごとのコストをAWS Cost Explorerで確認する。",
+    "serviceIds": []
+  },
+  {
+    "id": "tam",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS Support Plans（AWS Support ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "テクニカルアカウントマネージャー",
+    "description": "AWSのサポートプランで提供される、利用者に指名された担当者です。TAMと略します。",
+    "plain": "かかりつけの「担当コンシェルジュ」のようなものです。こちらの事情を知ったうえで相談に乗ってくれます。",
+    "example": "AWS Enterprise Supportでは、指名されたテクニカルアカウントマネージャー（TAM）が付く。",
+    "serviceIds": []
   }
 ]

@@ -1,0 +1,79 @@
+{
+  "id": "clf-cloud-economics",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Six advantages of cloud computing（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html"
+    },
+    {
+      "title": "Right Sizing（AWS公式）",
+      "url": "https://aws.amazon.com/aws-cost-management/aws-cost-optimization/right-sizing/"
+    },
+    {
+      "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 2,
+  "title": "クラウドの経済性",
+  "domainId": "clf-d1",
+  "taskIds": [
+    "clf-1-4"
+  ],
+  "overview": "クラウドの経済性とは、クラウドを使うと費用のかかり方がどう変わるのか、という考え方です。\nCLFの試験ガイドでは、固定費と変動費の違い、オンプレミスにかかる費用、ライセンスの扱い方（BYOLと、ライセンスが含まれる形の違い）、ライトサイジング、自動化の利点、規模の経済が挙げられています。\n前のレッスンで学んだ「クラウドの6つの利点」のうち、お金に関係する部分を掘り下げます。",
+  "beginner": {
+    "analogy": "車にたとえます。オンプレミスは「車を買う」ことです。購入費、車庫、車検、修理の費用が、乗らない日にもかかります。クラウドは「必要なときだけタクシーやレンタカーを使う」ことです。乗った分だけ払い、車の整備は会社に任せられます。さらに、2人で移動するのに大型バスを借りない（ライトサイジング）ことも大切です。",
+    "description": "オンプレミスでは、サーバーを買う前に「どれくらい必要か」を予想して、先にお金を払います。予想が外れると、余らせるか、足りなくなります。クラウドでは、使った分だけ払い、必要に応じて増減できるので、この無駄を減らせます。"
+  },
+  "useCases": [
+    "初期投資を抑えて新しい事業を始める",
+    "使われていない大きなインスタンスを、小さいサイズに見直す",
+    "すでに持っているソフトウェアライセンスを、AWSでも活用する"
+  ],
+  "mechanism": {
+    "text": "【固定費と変動費】\nオンプレミスでは、データセンターやサーバーに先に投資します（固定費）。クラウドでは、使ったコンピューティングリソースの分だけ支払います（変動費）。\n【オンプレミスにかかる費用】\nオンプレミスでは、サーバーそのものの購入費に加えて、サーバーを設置し、電源を供給し、運用・保守するための費用と作業がかかります。クラウドでは、こうした作業から解放され、自社の顧客に集中できます。\n【規模の経済】\n非常に多くの顧客の利用が集約されるため、AWSはより大きな規模の経済を実現でき、それが低い従量課金の価格につながります。\n【ライトサイジング】\nインスタンスの種類やサイズを、ワークロードに必要な性能と容量に合わせ、できるだけ低いコストにすることです。必要な量は変化するため、一度きりではなく継続して行います。\n【ライセンスの扱い方】\nすでに持っているソフトウェアライセンスをAWSに持ち込んで使うことを、BYOL（Bring Your Own License）と呼びます。たとえばDedicated Hostsでは、ソケット単位、コア単位、VM単位の既存のライセンスを持ち込んで、コストを下げられます。\n【自動化の利点】\nマネージドサービスは、管理作業を自動化します。たとえばAmazon RDSは、ハードウェアの用意、セットアップ、パッチ適用、バックアップを自動化します。人手の作業が減ることも、費用の面での利点です。"
+  },
+  "relatedServiceIds": [
+    "amazon-ec2",
+    "amazon-rds",
+    "aws-pricing-calculator"
+  ],
+  "examPoints": [
+    "固定費（先に投資）を変動費（使った分だけ）に変えられることが、クラウドの経済性の基本。",
+    "オンプレミスには、機器の購入費だけでなく、設置、電源、運用・保守の費用と作業がかかる。",
+    "規模の経済＝多くの顧客の利用が集約されることで、AWSが低い価格を提供できる。",
+    "ライトサイジング＝ワークロードに合った種類とサイズに見直し、コストを下げる。継続して行う。",
+    "BYOL＝既存のライセンスの持ち込み。ソケット・コア単位のライセンスにはDedicated Hosts。",
+    "管理作業の自動化（マネージドサービスなど）も、コスト面の利点として問われる。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-econ-01",
+    "clf-q-econ-02",
+    "clf-q-econ-03"
+  ],
+  "glossaryTermIds": [
+    "fixed-variable-cost",
+    "economies-of-scale",
+    "rightsizing",
+    "byol",
+    "on-premises",
+    "pay-as-you-go"
+  ]
+}

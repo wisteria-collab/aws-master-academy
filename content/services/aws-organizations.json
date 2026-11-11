@@ -1,0 +1,85 @@
+{
+  "id": "aws-organizations",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Consolidating billing for AWS Organizations（AWS Billing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html"
+    },
+    {
+      "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+    },
+    {
+      "title": "Reserved Instances（AWS Billing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ri-behavior.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Organizations",
+  "aliases": [
+    "Organizations",
+    "オーガニゼーションズ"
+  ],
+  "category": "management-governance",
+  "summary": "複数のAWSアカウントを1つの組織としてまとめ、請求と支払いを一括にできるサービス。",
+  "beginner": {
+    "analogy": "携帯電話の「家族割」に似ています。家族それぞれの回線（アカウント）を1つの契約にまとめ、請求書を1枚にして、割引もみんなで分け合います。",
+    "description": "会社の中に複数のAWSアカウントがあるとき、それらを1つの組織にまとめるサービスです。料金の請求を1つにまとめられ、まとめた分だけ割引も受けやすくなります。"
+  },
+  "exam": {
+    "description": "AWS Organizationsの一括請求（コンソリデーティッドビリング）機能を使うと、複数のAWSアカウントの請求と支払いをまとめられます。すべての組織には管理アカウントがあり、メンバーアカウントの料金をすべて支払います。一括請求の利点は、1つの請求書、複数アカウントの料金の追跡のしやすさ、使用量の合算によるボリューム割引・リザーブドインスタンスの割引・Savings Plansの共有、そして追加料金がかからないことです。",
+    "points": [
+      "複数アカウントの請求をまとめる＝AWS Organizationsの一括請求。",
+      "管理アカウントが、メンバーアカウントの料金をすべて支払う。",
+      "使用量を合算することで、ボリューム割引、リザーブドインスタンスの割引、Savings Plansを組織内で共有できる。",
+      "一括請求に追加料金はかからない。",
+      "請求の上では、組織内のすべてのアカウントが1つのアカウントとして扱われる。リザーブドインスタンスの割引の共有は、設定でオフにもできる。"
+    ]
+  },
+  "useCases": [
+    "部署ごとに分かれたアカウントの請求を1つにまとめる",
+    "組織全体の使用量を合算して、ボリューム割引を受ける"
+  ],
+  "mechanism": "組織を作成し、管理アカウントにメンバーアカウントを所属させます。請求は管理アカウントにまとめられます。",
+  "pros": [
+    "請求書が1つになる",
+    "アカウントをまたいだ料金の追跡がしやすい",
+    "割引を組織全体で共有できる",
+    "追加料金がかからない"
+  ],
+  "cons": [
+    "メンバーアカウントの料金は、管理アカウントが支払うことになる"
+  ],
+  "scenes": [
+    "開発、検証、本番でアカウントを分けつつ、請求は1つにまとめる"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "aws-cost-explorer",
+    "aws-budgets",
+    "aws-savings-plans"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d4"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/organizations/"
+}

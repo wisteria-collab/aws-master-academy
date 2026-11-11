@@ -1,0 +1,72 @@
+{
+  "id": "aws-budgets",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Budgets",
+  "aliases": [
+    "Budgets",
+    "バジェッツ"
+  ],
+  "category": "cost-management",
+  "summary": "コストや使用量に独自の予算を設定し、しきい値を超えたときにアラートを受け取るサービス。",
+  "beginner": {
+    "analogy": "家計簿アプリの「使いすぎ通知」に似ています。「今月は3万円まで」と決めておくと、超えそうなときに知らせてくれます。",
+    "description": "「今月はここまで」という予算を決めておき、超えたら通知を受け取れるサービスです。使いすぎに早く気づけます。"
+  },
+  "exam": {
+    "description": "コストと使用量に対してカスタムの予算を設定し、組織全体のコストを管理します。コストが定義したしきい値を超えたときに、アラートを受け取れます。",
+    "points": [
+      "予算を設定し、しきい値を超えたらアラート＝AWS Budgets。",
+      "コストだけでなく、使用量にも予算を設定できる。",
+      "過去や現在のコストをグラフで分析するのはAWS Cost Explorer。"
+    ]
+  },
+  "useCases": [
+    "月ごとの予算を決めて、超えそうなときに通知を受け取る"
+  ],
+  "mechanism": "利用者が予算としきい値を設定します。コストや使用量がしきい値を超えると、アラートが送られます。",
+  "pros": [
+    "使いすぎに早く気づける",
+    "コストと使用量の両方に予算を設定できる"
+  ],
+  "cons": [
+    "予算やしきい値は利用者が設定する必要がある"
+  ],
+  "scenes": [
+    "開発用のアカウントで、月の予算を超えたら担当者にアラートを送る"
+  ],
+  "similarServiceIds": [
+    "aws-cost-explorer"
+  ],
+  "relatedServiceIds": [
+    "aws-organizations"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d4"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/cost-management/"
+}

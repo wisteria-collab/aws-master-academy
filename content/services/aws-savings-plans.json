@@ -1,0 +1,82 @@
+{
+  "id": "aws-savings-plans",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+    },
+    {
+      "title": "Amazon EC2 Reserved Instances Pricing（AWS公式）",
+      "url": "https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/"
+    },
+    {
+      "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Savings Plans",
+  "aliases": [
+    "セービングプラン",
+    "Compute Savings Plans"
+  ],
+  "category": "cost-management",
+  "summary": "一定の利用額を1年または3年約束することで、オンデマンド料金より安く利用できる柔軟な料金モデル。",
+  "beginner": {
+    "analogy": "「毎月これだけは使います」と約束する定額割引に似ています。どの機種を使うかまでは決めなくてよいので、後から使い方を変えやすいのが特徴です。",
+    "description": "「1時間あたりこれだけの金額は使い続けます」と1年または3年の約束をすると、料金が安くなる仕組みです。"
+  },
+  "exam": {
+    "description": "1時間あたりの一定の利用額（米ドル）を、1年または3年の期間にわたって約束することで、Amazon EC2のコストを下げられます。特定のインスタンス構成は約束できないが、利用額なら約束できる、という場合に向いています。たとえばCompute Savings Plansでは、インスタンスの種類やリージョンを変更した場合や、ワークロードをAmazon EC2からAWS FargateやAWS Lambdaに移した場合にも、低い料金が自動的に適用されます。",
+    "points": [
+      "一定の「利用額」を1年または3年約束して割引＝Savings Plans。",
+      "特定の「インスタンス構成」を約束するのはリザーブドインスタンス。約束するものが違う。",
+      "Compute Savings Plansは、EC2に加えてFargateやLambdaの利用にも適用される。",
+      "AWS Organizationsの一括請求では、Savings Plansを組織内で共有できる。"
+    ]
+  },
+  "useCases": [
+    "構成が変わる可能性はあるが、一定の利用が続くワークロードのコスト削減"
+  ],
+  "mechanism": "利用者が、1時間あたりの利用額と期間（1年または3年）を約束します。約束した範囲の利用に、低い料金が適用されます。",
+  "pros": [
+    "構成を変えても割引が続く柔軟さがある",
+    "オンデマンドより料金を下げられる"
+  ],
+  "cons": [
+    "1年または3年の約束が必要"
+  ],
+  "scenes": [
+    "今後EC2からFargateに移行するかもしれないが、コンピューティングの利用額は続く見込みがある"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "amazon-ec2",
+    "aws-fargate",
+    "aws-lambda",
+    "aws-organizations"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d4"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/savingsplans/"
+}

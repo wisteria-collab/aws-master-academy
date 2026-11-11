@@ -1,0 +1,70 @@
+{
+  "id": "aws-pricing-calculator",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Pricing Calculator",
+  "aliases": [
+    "Pricing Calculator",
+    "料金計算ツール"
+  ],
+  "category": "cost-management",
+  "summary": "AWSのサービスを使う前に、コストの見積もりを作成するツール。",
+  "beginner": {
+    "analogy": "引っ越しの「見積もりサイト」に似ています。荷物の量や距離を入れると、頼む前におおよその費用がわかります。",
+    "description": "これから使おうとしているAWSのサービスについて、いくらかかりそうかを事前に計算できるツールです。"
+  },
+  "exam": {
+    "description": "計画しているワークロードのコストを見積もるためのツールです。公開されているPricing Calculatorのウェブサイトでは、オンデマンド料金でAWSのサービスを利用する場合のコストの見積もりを作成できます。コンソール内のPricing Calculatorでは、割引や購入のコミットメントを反映して、計画しているクラウドのコストを見積もれます。",
+    "points": [
+      "利用を始める前の「見積もり」＝AWS Pricing Calculator。",
+      "すでに発生したコストの分析はAWS Cost Explorer、予算とアラートはAWS Budgets。",
+      "公開ウェブサイト版は、オンデマンド料金での見積もりを作成する。"
+    ]
+  },
+  "useCases": [
+    "オンプレミスからの移行を検討するときに、AWSでの費用を見積もる",
+    "新しいシステムの構成案ごとに、費用を比べる"
+  ],
+  "mechanism": "使う予定のサービスと使用量を入力すると、コストの見積もりが作成されます。",
+  "pros": [
+    "使い始める前に費用の目安がわかる"
+  ],
+  "cons": [
+    "見積もりであり、実際の請求額そのものではない"
+  ],
+  "scenes": [
+    "新しいウェブサービスを始める前に、月々の費用の目安を上司に報告する"
+  ],
+  "similarServiceIds": [
+    "aws-cost-explorer"
+  ],
+  "relatedServiceIds": [],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d4"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/pricing-calculator/"
+}

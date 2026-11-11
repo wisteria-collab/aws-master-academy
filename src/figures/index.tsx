@@ -282,6 +282,47 @@ function VpcStructure() {
   )
 }
 
+function PurchaseOptions() {
+  const row = (y: number, name: string, a: string, b: string) => (
+    <g>
+      <Box x={6} y={y} w={348} h={46} />
+      <rect x={6} y={y} width={124} height={46} rx={8} fill={tint} stroke={orange} strokeWidth="1.5" />
+      <T x={68} y={y + 28} size={12} bold>{name}</T>
+      <T x={140} y={y + 20} size={12} anchor="start">{a}</T>
+      <T x={140} y={y + 37} size={12} anchor="start">{b}</T>
+    </g>
+  )
+  return (
+    <Frame title="EC2の主な購入方法と、選ぶときの手がかり" height={214}>
+      {row(4, 'オンデマンド', '約束なし。使った分だけ', '短期間・中断できない処理に')}
+      {row(56, 'リザーブド', '「構成」を1年か3年約束', '同じ構成で動かし続けるときに')}
+      {row(108, 'Savings Plans', '「利用額」を1年か3年約束', '構成が変わるかもしれないときに')}
+      {row(160, 'スポット', '空き容量を低価格で。中断あり', '中断されてもよい処理に')}
+    </Frame>
+  )
+}
+
+function CostTools() {
+  const col = (x: number, when: string, tool: string, a: string, b: string) => (
+    <g>
+      <Box x={x} y={6} w={112} h={30} r={15} fill={soft} />
+      <T x={x + 56} y={26} size={12} bold>{when}</T>
+      <line x1={x + 56} y1={36} x2={x + 56} y2={48} stroke={line} strokeWidth="2" />
+      <Box x={x} y={48} w={112} h={96} fill={tint} stroke={orange} />
+      <T x={x + 56} y={70} size={11} bold>{tool}</T>
+      <T x={x + 56} y={98} size={12}>{a}</T>
+      <T x={x + 56} y={116} size={12}>{b}</T>
+    </g>
+  )
+  return (
+    <Frame title="場面ごとに使うコスト管理のツール" height={150}>
+      {col(4, '使う前', 'Pricing Calculator', 'コストを', '見積もる')}
+      {col(124, '使っている間', 'AWS Budgets', '予算を超えたら', 'アラート')}
+      {col(244, '使った後', 'Cost Explorer', 'グラフで分析', '・予測')}
+    </Frame>
+  )
+}
+
 const registry: Record<FigureId, () => ReactNode> = {
   'region-az': RegionAz,
   'shared-responsibility': SharedResponsibility,
@@ -292,6 +333,8 @@ const registry: Record<FigureId, () => ReactNode> = {
   'edge-delivery': EdgeDelivery,
   'db-types': DbTypes,
   'vpc-structure': VpcStructure,
+  'purchase-options': PurchaseOptions,
+  'cost-tools': CostTools,
 }
 
 export function Figure({ id }: { id: string }) {

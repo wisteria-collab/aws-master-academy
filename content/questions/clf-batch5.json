@@ -1,0 +1,1366 @@
+[
+  {
+    "id": "clf-q-econ-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Right Sizing（AWS公式）",
+        "url": "https://aws.amazon.com/aws-cost-management/aws-cost-optimization/right-sizing/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業が利用状況を調べたところ、必要な性能よりもはるかに大きなサイズのインスタンスを使っていることがわかりました。ワークロードに合ったインスタンスの種類とサイズに見直して、コストを下げる取り組みを何と呼びますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ライトサイジング",
+        "correct": true,
+        "explanation": "ライトサイジングは、インスタンスの種類やサイズを、ワークロードに必要な性能と容量に合わせ、できるだけ低いコストにすることです。一度きりではなく、継続して行います。"
+      },
+      {
+        "id": "b",
+        "text": "一括請求",
+        "correct": false,
+        "explanation": "一括請求は、複数のAWSアカウントの請求と支払いを1つにまとめる機能です。インスタンスの種類やサイズを見直す取り組みのことではありません。",
+        "eliminatedBy": "インスタンスの種類とサイズに見直して"
+      },
+      {
+        "id": "c",
+        "text": "規模の経済",
+        "correct": false,
+        "explanation": "規模の経済は、多くの顧客の利用が集約されることで、AWSが低い価格を提供できるという考え方です。個々のインスタンスのサイズを見直す取り組みのことではありません。",
+        "eliminatedBy": "インスタンスの種類とサイズに見直して"
+      },
+      {
+        "id": "d",
+        "text": "責任共有モデル",
+        "correct": false,
+        "explanation": "責任共有モデルは、セキュリティとコンプライアンスの責任をAWSと利用者で分担する考え方です。コストを下げるための見直しとは関係がありません。",
+        "eliminatedBy": "コストを下げる取り組み"
+      }
+    ],
+    "keywords": [
+      "ワークロードに合ったインスタンスの種類とサイズに見直して"
+    ],
+    "decisionPoint": "「ワークロードに合ったサイズに見直す」＝ライトサイジング。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-cloud-economics"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-econ-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Six advantages of cloud computing（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-4",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "AWSは、非常に多くの顧客の利用が集約されることで、低い従量課金の価格を提供できます。この考え方を表す言葉はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "規模の経済",
+        "correct": true,
+        "explanation": "非常に多くの顧客の利用がクラウドに集約されるため、AWSのような事業者はより大きな規模の経済を実現でき、それが低い従量課金の価格につながります。"
+      },
+      {
+        "id": "b",
+        "text": "弾力性",
+        "correct": false,
+        "explanation": "弾力性は、需要に合わせてリソースを増やしたり減らしたりできる性質です。価格が低くなる理由を説明する言葉ではありません。",
+        "eliminatedBy": "低い従量課金の価格を提供できます"
+      },
+      {
+        "id": "c",
+        "text": "ライトサイジング",
+        "correct": false,
+        "explanation": "ライトサイジングは、利用者がインスタンスの種類やサイズをワークロードに合わせて見直すことです。多くの顧客の利用が集約されることとは関係がありません。",
+        "eliminatedBy": "非常に多くの顧客の利用が集約される"
+      },
+      {
+        "id": "d",
+        "text": "高可用性",
+        "correct": false,
+        "explanation": "高可用性は、システムが止まりにくいことを表す言葉です。価格の話ではありません。",
+        "eliminatedBy": "低い従量課金の価格を提供できます"
+      }
+    ],
+    "keywords": [
+      "非常に多くの顧客の利用が集約される",
+      "低い従量課金の価格"
+    ],
+    "decisionPoint": "「利用が集約される→価格が下がる」＝規模の経済。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-cloud-economics"
+      },
+      {
+        "type": "lesson",
+        "id": "clf-cloud-basics"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-econ-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、ソケット単位で契約している既存のソフトウェアライセンスを持っています。このライセンスをAWSに持ち込んで使い、コストを下げたいと考えています。最も適切なAmazon EC2の購入方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Dedicated Hosts",
+        "correct": true,
+        "explanation": "Dedicated Hostsは、利用者のインスタンス専用の物理ホストに対して支払う購入方法です。ソケット単位、コア単位、VM単位の既存のソフトウェアライセンスを持ち込んで、コストを下げられます。"
+      },
+      {
+        "id": "b",
+        "text": "スポットインスタンス",
+        "correct": false,
+        "explanation": "スポットインスタンスは、EC2の空いている容量を低い価格で使う購入方法です。既存のソケット単位のライセンスを持ち込むためのものではありません。",
+        "eliminatedBy": "ソケット単位で契約している既存のソフトウェアライセンス"
+      },
+      {
+        "id": "c",
+        "text": "オンデマンドインスタンス",
+        "correct": false,
+        "explanation": "オンデマンドインスタンスは、起動したインスタンスの分だけ支払う購入方法です。物理ホストが専用になるわけではなく、ソケット単位のライセンスを持ち込む用途には、専用の物理ホストであるDedicated Hostsが合います。",
+        "eliminatedBy": "ソケット単位で契約している既存のソフトウェアライセンス"
+      },
+      {
+        "id": "d",
+        "text": "キャパシティ予約",
+        "correct": false,
+        "explanation": "キャパシティ予約は、特定のアベイラビリティゾーンでEC2インスタンスの容量を予約するものです。ライセンスの持ち込みを目的としたものではありません。",
+        "eliminatedBy": "ライセンスをAWSに持ち込んで"
+      }
+    ],
+    "keywords": [
+      "ソケット単位",
+      "既存のソフトウェアライセンス",
+      "持ち込んで"
+    ],
+    "decisionPoint": "既存のライセンスの持ち込み（BYOL）で、ソケット・コア単位のライセンスならDedicated Hosts。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-cloud-economics"
+      },
+      {
+        "type": "lesson",
+        "id": "clf-pricing-models"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-price-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "Spot Instances（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、数週間だけ使うテスト用のサーバーが必要です。1年や3年の利用の約束はしたくありません。また、処理の途中で中断されると困ります。最も適切なAmazon EC2の購入方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "オンデマンドインスタンス",
+        "correct": true,
+        "explanation": "オンデマンドインスタンスは、起動したインスタンスの分だけ秒単位で支払う購入方法です。長期の約束が不要で、スポットインスタンスのようにEC2の都合で中断されることもありません。"
+      },
+      {
+        "id": "b",
+        "text": "リザーブドインスタンス",
+        "correct": false,
+        "explanation": "リザーブドインスタンスは、1年または3年の利用を約束して料金を下げる購入方法です。数週間だけの利用や、長期の約束をしたくないという要件に合いません。",
+        "eliminatedBy": "1年や3年の利用の約束はしたくありません"
+      },
+      {
+        "id": "c",
+        "text": "Savings Plans",
+        "correct": false,
+        "explanation": "Savings Plansも、1年または3年にわたる一定の利用額を約束する料金モデルです。長期の約束をしたくないという要件に合いません。",
+        "eliminatedBy": "1年や3年の利用の約束はしたくありません"
+      },
+      {
+        "id": "d",
+        "text": "スポットインスタンス",
+        "correct": false,
+        "explanation": "スポットインスタンスは低い価格で使えますが、EC2が容量を必要としたときに中断されます。中断されると困るという要件に合いません。",
+        "eliminatedBy": "処理の途中で中断されると困ります"
+      }
+    ],
+    "keywords": [
+      "数週間だけ",
+      "約束はしたくありません",
+      "中断されると困ります"
+    ],
+    "decisionPoint": "「短期間」「約束なし」「中断不可」ならオンデマンド。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-pricing-models"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ec2"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-price-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Spot Instances（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html"
+      },
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、夜間に大量のデータを分析するバッチ処理を動かしています。この処理は、途中で中断されても後からやり直すことができます。コンピューティングのコストをできるだけ下げたい場合、最も適切なAmazon EC2の購入方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "スポットインスタンス",
+        "correct": true,
+        "explanation": "スポットインスタンスは、EC2の空いている容量をオンデマンドより低い価格で使う購入方法です。中断されることがありますが、データ分析やバッチ処理のように、中断に耐えられる処理に適しています。"
+      },
+      {
+        "id": "b",
+        "text": "オンデマンドインスタンス",
+        "correct": false,
+        "explanation": "オンデマンドインスタンスでも処理は動かせますが、割引はありません。中断されてもやり直せる処理なら、より低い価格のスポットインスタンスを使えます。",
+        "eliminatedBy": "コンピューティングのコストをできるだけ下げたい"
+      },
+      {
+        "id": "c",
+        "text": "Dedicated Hosts",
+        "correct": false,
+        "explanation": "Dedicated Hostsは、専用の物理ホストに対して支払う購入方法で、コンプライアンス要件への対応や既存ライセンスの持ち込みに使います。コストをできるだけ下げたいバッチ処理の要件には合いません。",
+        "eliminatedBy": "コンピューティングのコストをできるだけ下げたい"
+      },
+      {
+        "id": "d",
+        "text": "キャパシティ予約",
+        "correct": false,
+        "explanation": "キャパシティ予約は、特定のアベイラビリティゾーンで容量を確保するためのものです。コストを下げることを目的とした購入方法ではありません。",
+        "eliminatedBy": "コストをできるだけ下げたい"
+      }
+    ],
+    "keywords": [
+      "途中で中断されても後からやり直すことができます",
+      "コストをできるだけ下げたい"
+    ],
+    "decisionPoint": "「中断されてもよい」＋「できるだけ安く」＝スポットインスタンス。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-pricing-models"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ec2"
+      }
+    ],
+    "practicalNote": "スポットインスタンスが中断されるときは、2分前に通知が届きます。"
+  },
+  {
+    "id": "clf-q-price-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、今後3年間、同じリージョンで同じインスタンスタイプのサーバーを動かし続ける予定です。特定のインスタンス構成の利用を約束することで、Amazon EC2のコストを下げたいと考えています。最も適切な購入方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "リザーブドインスタンス",
+        "correct": true,
+        "explanation": "リザーブドインスタンスは、インスタンスタイプやリージョンを含む一定のインスタンス構成を、1年または3年にわたって約束することで、EC2のコストを下げる購入方法です。"
+      },
+      {
+        "id": "b",
+        "text": "スポットインスタンス",
+        "correct": false,
+        "explanation": "スポットインスタンスは、空いている容量を使う購入方法で、EC2が容量を必要としたときに中断されます。構成の利用を約束して割引を受ける仕組みではなく、動かし続ける予定のサーバーには向きません。",
+        "eliminatedBy": "サーバーを動かし続ける予定"
+      },
+      {
+        "id": "c",
+        "text": "オンデマンドインスタンス",
+        "correct": false,
+        "explanation": "オンデマンドインスタンスは約束なしで使えますが、約束による割引はありません。3年間の利用を約束できるなら、リザーブドインスタンスでコストを下げられます。",
+        "eliminatedBy": "利用を約束することで、Amazon EC2のコストを下げたい"
+      },
+      {
+        "id": "d",
+        "text": "Dedicated Instances",
+        "correct": false,
+        "explanation": "Dedicated Instancesは、単一の利用者専用のハードウェアで動くインスタンスに、時間単位で支払う購入方法です。構成の利用を約束して割引を受ける仕組みではありません。",
+        "eliminatedBy": "特定のインスタンス構成の利用を約束する"
+      }
+    ],
+    "keywords": [
+      "3年間",
+      "特定のインスタンス構成の利用を約束する"
+    ],
+    "decisionPoint": "「インスタンス構成」を約束＝リザーブドインスタンス。「利用額」を約束＝Savings Plans。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-pricing-models"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ec2"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-price-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "Amazon EC2 Reserved Instances Pricing（AWS公式）",
+        "url": "https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、今後インスタンスの種類を変更したり、一部の処理をAWS Fargateに移したりする可能性があります。特定のインスタンス構成は約束できませんが、1時間あたりの一定の利用額を1年間使い続けることは約束できます。コストを下げるために最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Savings Plans",
+        "correct": true,
+        "explanation": "Savings Plansは、1時間あたりの一定の利用額を1年または3年約束することで、コストを下げる料金モデルです。特定のインスタンス構成は約束できないが利用額なら約束できる、という場合に向いています。Compute Savings Plansは、EC2からFargateに移した場合にも適用されます。"
+      },
+      {
+        "id": "b",
+        "text": "リザーブドインスタンス",
+        "correct": false,
+        "explanation": "リザーブドインスタンスは、インスタンスタイプやリージョンを含む一定のインスタンス構成を約束する購入方法です。構成を約束できないという条件に合いません。",
+        "eliminatedBy": "特定のインスタンス構成は約束できません"
+      },
+      {
+        "id": "c",
+        "text": "スポットインスタンス",
+        "correct": false,
+        "explanation": "スポットインスタンスは、空いている容量を低い価格で使う購入方法です。利用額を約束して割引を受ける仕組みではなく、中断される可能性もあります。",
+        "eliminatedBy": "一定の利用額を1年間使い続けることは約束できます"
+      },
+      {
+        "id": "d",
+        "text": "キャパシティ予約",
+        "correct": false,
+        "explanation": "キャパシティ予約は、特定のアベイラビリティゾーンで容量を確保するためのものです。利用額の約束による割引の仕組みではありません。",
+        "eliminatedBy": "コストを下げるために"
+      }
+    ],
+    "keywords": [
+      "特定のインスタンス構成は約束できません",
+      "一定の利用額"
+    ],
+    "decisionPoint": "約束するのが「利用額」ならSavings Plans。構成が変わっても割引が続きます。",
+    "serviceIds": [
+      "aws-savings-plans",
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-pricing-models"
+      },
+      {
+        "type": "service",
+        "id": "aws-savings-plans"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-price-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、重要なイベントの期間中に、特定のアベイラビリティゾーンでAmazon EC2インスタンスを確実に起動できるようにしておきたいと考えています。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "キャパシティ予約",
+        "correct": true,
+        "explanation": "キャパシティ予約は、特定のアベイラビリティゾーンで、EC2インスタンスの容量を予約するものです。必要なときに起動できる容量を確保しておけます。"
+      },
+      {
+        "id": "b",
+        "text": "スポットインスタンス",
+        "correct": false,
+        "explanation": "スポットインスタンスは、空いている容量を使う購入方法です。容量が確保されるわけではなく、EC2が容量を必要としたときには中断されます。",
+        "eliminatedBy": "確実に起動できるようにしておきたい"
+      },
+      {
+        "id": "c",
+        "text": "Savings Plans",
+        "correct": false,
+        "explanation": "Savings Plansは、利用額の約束によって料金を下げる料金モデルです。料金に関する仕組みであり、特定のアベイラビリティゾーンの容量を確保するものではありません。",
+        "eliminatedBy": "特定のアベイラビリティゾーンで"
+      },
+      {
+        "id": "d",
+        "text": "AWS Budgets",
+        "correct": false,
+        "explanation": "AWS Budgetsは、予算を設定してアラートを受け取るサービスです。インスタンスの容量を確保するものではありません。",
+        "eliminatedBy": "確実に起動できるようにしておきたい"
+      }
+    ],
+    "keywords": [
+      "特定のアベイラビリティゾーン",
+      "確実に起動できるようにしておきたい"
+    ],
+    "decisionPoint": "「容量を確保したい」＝キャパシティ予約。料金の割引とは別の話です。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-pricing-models"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-price-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Reserved Instances（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ri-behavior.html"
+      },
+      {
+        "title": "Consolidating billing for AWS Organizations（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、AWS Organizationsの一括請求を使って、複数のアカウントをまとめています。あるメンバーアカウントで購入したリザーブドインスタンスの割引は、既定の設定ではどのように扱われますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "組織内の他のアカウントの対象となる利用にも、割引が共有される",
+        "correct": true,
+        "explanation": "一括請求では、請求の上で組織内のすべてのアカウントが1つのアカウントとして扱われ、リザーブドインスタンスの割引が共有されます。既定では共有が有効で、設定でオフにすることもできます。"
+      },
+      {
+        "id": "b",
+        "text": "購入したアカウントだけに適用され、他のアカウントには決して適用されない",
+        "correct": false,
+        "explanation": "一括請求では、リザーブドインスタンスの割引は組織内で共有されます。共有をオフにする設定をした場合を除き、購入したアカウントだけに限られるわけではありません。",
+        "eliminatedBy": "既定の設定では"
+      },
+      {
+        "id": "c",
+        "text": "一括請求を使うと、リザーブドインスタンスの割引は無効になる",
+        "correct": false,
+        "explanation": "一括請求によって割引が無効になることはありません。むしろ、使用量を合算して割引を共有できることが、一括請求の利点の1つです。",
+        "eliminatedBy": "AWS Organizationsの一括請求"
+      },
+      {
+        "id": "d",
+        "text": "管理アカウントが追加料金を支払った場合にだけ共有される",
+        "correct": false,
+        "explanation": "一括請求は追加料金なしで提供されます。割引の共有のために追加料金を支払う必要はありません。",
+        "eliminatedBy": "既定の設定では"
+      }
+    ],
+    "keywords": [
+      "AWS Organizationsの一括請求",
+      "リザーブドインスタンスの割引",
+      "既定の設定では"
+    ],
+    "decisionPoint": "一括請求では、組織全体が1つのアカウントのように扱われ、割引が共有されます。",
+    "serviceIds": [
+      "aws-organizations"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-pricing-models"
+      },
+      {
+        "type": "lesson",
+        "id": "clf-billing-cost"
+      },
+      {
+        "type": "service",
+        "id": "aws-organizations"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-bill-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、先月のAWSのコストがどのサービスで増えたのかをグラフで確認し、今後のコストも予測したいと考えています。最も適切なツールはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Cost Explorer",
+        "correct": true,
+        "explanation": "Cost Explorerは、コストと使用量のデータを、ビジュアル、フィルター、グループ化で分析するツールです。コストの予測や、カスタムレポートの作成もできます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Pricing Calculator",
+        "correct": false,
+        "explanation": "Pricing Calculatorは、これから使うサービスのコストを見積もるためのツールです。すでに発生した先月のコストを分析するものではありません。",
+        "eliminatedBy": "先月のAWSのコスト"
+      },
+      {
+        "id": "c",
+        "text": "AWS Budgets",
+        "correct": false,
+        "explanation": "Budgetsは、予算を設定し、しきい値を超えたときにアラートを受け取るサービスです。問題文が求めているのは、コストの内訳をグラフで確認して分析することです。",
+        "eliminatedBy": "グラフで確認"
+      },
+      {
+        "id": "d",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "Artifactは、AWSのセキュリティとコンプライアンスに関するレポートを入手するためのサービスです。コストの分析とは関係がありません。",
+        "eliminatedBy": "コストがどのサービスで増えたのか"
+      }
+    ],
+    "keywords": [
+      "グラフで確認",
+      "今後のコストも予測"
+    ],
+    "decisionPoint": "「分析・可視化・予測」＝Cost Explorer。",
+    "serviceIds": [
+      "aws-cost-explorer"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-billing-cost"
+      },
+      {
+        "type": "service",
+        "id": "aws-cost-explorer"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-bill-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、毎月のAWSのコストに予算を設定し、コストが決めたしきい値を超えたときにアラートを受け取りたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Budgets",
+        "correct": true,
+        "explanation": "Budgetsでは、コストや使用量にカスタムの予算を設定し、定義したしきい値を超えたときにアラートを受け取れます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Cost Explorer",
+        "correct": false,
+        "explanation": "Cost Explorerは、コストと使用量をグラフで分析するツールです。問題文が求めているのは、予算を設定してアラートを受け取ることです。",
+        "eliminatedBy": "しきい値を超えたときにアラートを受け取りたい"
+      },
+      {
+        "id": "c",
+        "text": "AWS Pricing Calculator",
+        "correct": false,
+        "explanation": "Pricing Calculatorは、利用を始める前にコストを見積もるツールです。予算に対するアラートを送る機能のものではありません。",
+        "eliminatedBy": "アラートを受け取りたい"
+      },
+      {
+        "id": "d",
+        "text": "AWS Organizations",
+        "correct": false,
+        "explanation": "Organizationsは、複数のアカウントをまとめ、請求を一括にできるサービスです。予算のしきい値を超えたときのアラートを設定するサービスではありません。",
+        "eliminatedBy": "予算を設定し"
+      }
+    ],
+    "keywords": [
+      "予算を設定",
+      "しきい値を超えたときにアラート"
+    ],
+    "decisionPoint": "「予算」「しきい値」「アラート」＝Budgets。",
+    "serviceIds": [
+      "aws-budgets"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-billing-cost"
+      },
+      {
+        "type": "service",
+        "id": "aws-budgets"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-bill-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、オンプレミスのシステムをAWSに移行することを検討しています。まだAWSを使い始めていない段階で、利用する予定のサービスのコストを見積もりたいと考えています。最も適切なツールはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Pricing Calculator",
+        "correct": true,
+        "explanation": "Pricing Calculatorは、計画しているワークロードのコストを見積もるためのツールです。AWSのサービスを利用する場合のコストの見積もりを作成できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Cost Explorer",
+        "correct": false,
+        "explanation": "Cost Explorerは、実際に発生したコストと使用量のデータを分析するツールです。まだ使い始めていない段階では、分析するデータがありません。",
+        "eliminatedBy": "まだAWSを使い始めていない段階"
+      },
+      {
+        "id": "c",
+        "text": "AWS Budgets",
+        "correct": false,
+        "explanation": "Budgetsは、予算を設定してアラートを受け取るサービスです。利用する予定のサービスのコストを見積もるツールではありません。",
+        "eliminatedBy": "コストを見積もりたい"
+      },
+      {
+        "id": "d",
+        "text": "AWS Trusted Advisor",
+        "correct": false,
+        "explanation": "Trusted Advisorは、利用中の環境を調べて、コスト最適化やセキュリティなどの推奨事項を示すサービスです。使い始める前の見積もりを作るツールではありません。",
+        "eliminatedBy": "まだAWSを使い始めていない段階"
+      }
+    ],
+    "keywords": [
+      "まだAWSを使い始めていない段階",
+      "コストを見積もりたい"
+    ],
+    "decisionPoint": "「使う前の見積もり」＝Pricing Calculator。",
+    "serviceIds": [
+      "aws-pricing-calculator"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-billing-cost"
+      },
+      {
+        "type": "service",
+        "id": "aws-pricing-calculator"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-bill-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Consolidating billing for AWS Organizations（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html"
+      },
+      {
+        "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業には、部署ごとに作られた複数のAWSアカウントがあります。これらの請求を1つの請求書にまとめ、使用量を合算してボリューム割引を受けたいと考えています。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Organizationsの一括請求",
+        "correct": true,
+        "explanation": "一括請求を使うと、複数のアカウントの請求と支払いを1つにまとめられます。組織内のすべてのアカウントの使用量を合算して、ボリューム割引、リザーブドインスタンスの割引、Savings Plansを共有できます。"
+      },
+      {
+        "id": "b",
+        "text": "コスト配分タグ",
+        "correct": false,
+        "explanation": "コスト配分タグは、リソースに付けたタグでコストを整理・追跡する仕組みです。複数のアカウントの請求を1つにまとめるものではありません。",
+        "eliminatedBy": "請求を1つの請求書にまとめ"
+      },
+      {
+        "id": "c",
+        "text": "AWS Budgets",
+        "correct": false,
+        "explanation": "Budgetsは、予算を設定してアラートを受け取るサービスです。請求をまとめたり、ボリューム割引を受けたりするためのものではありません。",
+        "eliminatedBy": "使用量を合算してボリューム割引を受けたい"
+      },
+      {
+        "id": "d",
+        "text": "AWS Pricing Calculator",
+        "correct": false,
+        "explanation": "Pricing Calculatorは、コストを見積もるためのツールです。複数のアカウントの請求をまとめる機能ではありません。",
+        "eliminatedBy": "請求を1つの請求書にまとめ"
+      }
+    ],
+    "keywords": [
+      "複数のAWSアカウント",
+      "1つの請求書にまとめ",
+      "ボリューム割引"
+    ],
+    "decisionPoint": "「複数アカウント」「1つの請求書」「割引の共有」＝Organizationsの一括請求。",
+    "serviceIds": [
+      "aws-organizations"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-billing-cost"
+      },
+      {
+        "type": "service",
+        "id": "aws-organizations"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-bill-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Organizing and tracking costs using AWS cost allocation tags（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html"
+      },
+      {
+        "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、1つのAWSアカウントの中で複数のプロジェクトを動かしています。プロジェクトごとにコストを整理して追跡したいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "リソースにタグを付け、コスト配分タグとして有効化する",
+        "correct": true,
+        "explanation": "リソースにタグを付け、請求とコスト管理のコンソールで有効化すると、コスト配分タグとして使えます。Cost Explorerなどで、タグごとにコストを確認できます。"
+      },
+      {
+        "id": "b",
+        "text": "プロジェクトごとにリザーブドインスタンスを購入する",
+        "correct": false,
+        "explanation": "リザーブドインスタンスは、利用の約束によって料金を下げる購入方法です。コストをプロジェクトごとに整理して追跡する仕組みではありません。",
+        "eliminatedBy": "プロジェクトごとにコストを整理して追跡したい"
+      },
+      {
+        "id": "c",
+        "text": "AWS Pricing Calculatorで見積もりを作成する",
+        "correct": false,
+        "explanation": "Pricing Calculatorは、利用する前のコストを見積もるツールです。実際に発生したコストをプロジェクトごとに追跡するものではありません。",
+        "eliminatedBy": "コストを整理して追跡したい"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Route 53でドメイン名を登録する",
+        "correct": false,
+        "explanation": "Route 53はDNSのサービスです。コストの整理や追跡とは関係がありません。",
+        "eliminatedBy": "プロジェクトごとにコストを整理して追跡したい"
+      }
+    ],
+    "keywords": [
+      "1つのAWSアカウントの中",
+      "プロジェクトごとにコストを整理して追跡"
+    ],
+    "decisionPoint": "アカウントの中でコストを分類したいときは、コスト配分タグを使います。",
+    "serviceIds": [
+      "aws-cost-explorer"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-billing-cost"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-bill-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Organizing and tracking costs using AWS cost allocation tags（AWS Billing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "コスト配分タグの種類の説明として正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWSが定義して適用する「AWS生成タグ」と、利用者が定義して適用する「ユーザー定義タグ」の2種類がある",
+        "correct": true,
+        "explanation": "コスト配分タグには、AWS生成タグとユーザー定義タグの2種類があります。AWS生成タグはAWSが定義・作成・適用し、ユーザー定義タグは利用者が定義・作成・適用します。"
+      },
+      {
+        "id": "b",
+        "text": "コスト配分タグは、有効化しなくても自動的にすべての請求レポートに表示される",
+        "correct": false,
+        "explanation": "コスト配分タグは、請求とコスト管理のコンソールで有効化する必要があります。有効化した後に、Cost Explorerやレポートで確認できるようになります。",
+        "eliminatedBy": "コスト配分タグ"
+      },
+      {
+        "id": "c",
+        "text": "コスト配分タグは、AWSだけが作成でき、利用者は作成できない",
+        "correct": false,
+        "explanation": "利用者が定義して作成し、リソースに適用するユーザー定義タグがあります。AWSだけが作成できるわけではありません。",
+        "eliminatedBy": "コスト配分タグの種類"
+      },
+      {
+        "id": "d",
+        "text": "コスト配分タグを使うと、リザーブドインスタンスの割引率が上がる",
+        "correct": false,
+        "explanation": "コスト配分タグは、コストを整理して追跡するための仕組みです。料金の割引とは関係がありません。",
+        "eliminatedBy": "コスト配分タグ"
+      }
+    ],
+    "keywords": [
+      "コスト配分タグの種類"
+    ],
+    "decisionPoint": "コスト配分タグは「AWS生成」と「ユーザー定義」の2種類。どちらも有効化して使います。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-billing-cost"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-sup-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS Support Plans（AWS Support ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、本番環境で問題が起きたときに、AWSのクラウドサポートエンジニアに24時間365日、電話やチャットで相談できるようにしたいと考えています。この要件を満たすサポートプランはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Business Support+",
+        "correct": true,
+        "explanation": "Business Support+では、クラウドサポートエンジニアに、24時間365日、電話、ウェブ、チャットでアクセスできます。"
+      },
+      {
+        "id": "b",
+        "text": "Basic Support",
+        "correct": false,
+        "explanation": "Basic Supportで利用できるのは、アカウントと請求に関する質問への対応、サポートフォーラム、ドキュメントなどです。エンジニアに電話やチャットで技術的な相談をすることは含まれていません。",
+        "eliminatedBy": "クラウドサポートエンジニアに24時間365日、電話やチャットで相談"
+      },
+      {
+        "id": "c",
+        "text": "AWS Trusted Advisor",
+        "correct": false,
+        "explanation": "Trusted Advisorは、環境を調べて推奨事項を示すサービスであり、サポートプランではありません。エンジニアに相談する窓口でもありません。",
+        "eliminatedBy": "サポートプランはどれですか"
+      },
+      {
+        "id": "d",
+        "text": "AWS Budgets",
+        "correct": false,
+        "explanation": "Budgetsは、予算を設定してアラートを受け取るサービスです。サポートプランではありません。",
+        "eliminatedBy": "サポートプランはどれですか"
+      }
+    ],
+    "keywords": [
+      "クラウドサポートエンジニア",
+      "24時間365日",
+      "電話やチャット"
+    ],
+    "decisionPoint": "エンジニアへの24時間365日の電話・チャット＝Business Support+以上。Basicには含まれません。",
+    "serviceIds": [
+      "aws-support"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-support-plans"
+      },
+      {
+        "type": "service",
+        "id": "aws-support"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-sup-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS Support Plans（AWS Support ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある大企業は、自社のAWS環境を理解したうえで継続的に助言してくれる、指名されたテクニカルアカウントマネージャー（TAM）を必要としています。次のうち、この要件を満たすものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Enterprise Support",
+        "correct": true,
+        "explanation": "Enterprise Supportには、Business Support+のすべての特典に加えて、指名されたテクニカルアカウントマネージャー（TAM）などが含まれます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Business Support+",
+        "correct": false,
+        "explanation": "Business Support+には、エンジニアへの24時間365日のアクセスなどが含まれますが、指名されたTAMは、Enterprise Supportで加わる特典として案内されています。",
+        "eliminatedBy": "指名されたテクニカルアカウントマネージャー（TAM）"
+      },
+      {
+        "id": "c",
+        "text": "Basic Support",
+        "correct": false,
+        "explanation": "Basic Supportは、アカウントと請求に関する質問への対応やドキュメントなどが中心です。指名されたTAMは含まれていません。",
+        "eliminatedBy": "指名されたテクニカルアカウントマネージャー（TAM）"
+      },
+      {
+        "id": "d",
+        "text": "AWS Cost Explorer",
+        "correct": false,
+        "explanation": "Cost Explorerは、コストと使用量を分析するツールです。サポートプランではなく、TAMとも関係がありません。",
+        "eliminatedBy": "テクニカルアカウントマネージャー（TAM）を必要としています"
+      }
+    ],
+    "keywords": [
+      "指名されたテクニカルアカウントマネージャー（TAM）"
+    ],
+    "decisionPoint": "「指名されたTAM」＝Enterprise Support。",
+    "serviceIds": [
+      "aws-support"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-support-plans"
+      },
+      {
+        "type": "service",
+        "id": "aws-support"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-sup-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS Support Plans（AWS Support ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "すべてのAWSの利用者が、追加の申し込みをしなくても利用できるBasic Supportに含まれるものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "アカウントと請求に関する質問への個別の回答",
+        "correct": true,
+        "explanation": "すべてのAWSの利用者は、Basic Supportとして、アカウントと請求に関する質問への個別の回答、サポートフォーラム、サービスのヘルスチェック、ドキュメントや技術資料などを利用できます。"
+      },
+      {
+        "id": "b",
+        "text": "指名されたテクニカルアカウントマネージャー（TAM）",
+        "correct": false,
+        "explanation": "指名されたTAMは、Enterprise Supportで加わる特典です。Basic Supportには含まれていません。",
+        "eliminatedBy": "Basic Supportに含まれるもの"
+      },
+      {
+        "id": "c",
+        "text": "クラウドサポートエンジニアへの24時間365日の電話でのアクセス",
+        "correct": false,
+        "explanation": "エンジニアへの24時間365日の電話・ウェブ・チャットでのアクセスは、Business Support+で加わる特典です。Basic Supportには含まれていません。",
+        "eliminatedBy": "Basic Supportに含まれるもの"
+      },
+      {
+        "id": "d",
+        "text": "500を超えるAWS Trusted Advisorのチェック",
+        "correct": false,
+        "explanation": "500を超えるTrusted Advisorのチェックは、Business Support+で加わる特典です。Basic Supportには含まれていません。",
+        "eliminatedBy": "Basic Supportに含まれるもの"
+      }
+    ],
+    "keywords": [
+      "すべてのAWSの利用者",
+      "Basic Support"
+    ],
+    "decisionPoint": "Basic＝アカウントと請求の質問、フォーラム、ヘルスチェック、ドキュメント。技術的な相談は有料プランです。",
+    "serviceIds": [
+      "aws-support"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-support-plans"
+      },
+      {
+        "type": "service",
+        "id": "aws-support"
+      }
+    ]
+  }
+]
