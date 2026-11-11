@@ -13,6 +13,10 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon EC2 instance type specifications（Amazon EC2 ドキュメント）",
+      "url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-type-specifications.html"
     }
   ],
   "verifiedAt": "2026-11-11",
@@ -40,7 +44,10 @@
       "仮想サーバー＝EC2。コンピューティングリソースを完全に制御できる。",
       "責任共有モデルでは、ゲストOS（更新とセキュリティパッチを含む）、インストールしたソフトウェア、セキュリティグループの設定は利用者の責任。",
       "購入オプションには、オンデマンドインスタンス、スポットインスタンス、リザーブドインスタンス、Savings Plans、Dedicated Hostsがある（詳細はコンピューティングのレッスンで扱います）。",
-      "ディスクとしてEBSボリュームを接続して使う。"
+      "ディスクとしてEBSボリュームを接続して使う。",
+      "インスタンスタイプは用途別に分類される。汎用＝コンピューティング・メモリ・ネットワークのバランス型（ウェブサーバーなど）。",
+      "コンピューティング最適化＝高性能なプロセッサが必要な処理（バッチ処理、メディアの変換など）。メモリ最適化＝大きなデータをメモリ上で処理する用途。",
+      "ストレージ最適化＝ローカルストレージ上の非常に大きなデータへの、高い読み書き性能が必要な用途。高速コンピューティング＝ハードウェアアクセラレーターを使う処理（グラフィックス処理など）。"
     ]
   },
   "useCases": [
@@ -62,11 +69,17 @@
     "キャンペーン期間だけウェブサーバーの台数を増やす",
     "既存の業務アプリケーションを、OSごとAWSに移す"
   ],
-  "similarServiceIds": [],
+  "similarServiceIds": [
+    "aws-lambda",
+    "amazon-lightsail",
+    "aws-elastic-beanstalk"
+  ],
   "relatedServiceIds": [
     "amazon-ebs",
+    "amazon-ec2-auto-scaling",
     "amazon-efs",
-    "amazon-s3"
+    "amazon-s3",
+    "elastic-load-balancing"
   ],
   "comparisonGroupIds": [],
   "importance": {

@@ -1,0 +1,78 @@
+{
+  "id": "aws-lambda",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Lambda",
+  "aliases": [
+    "Lambda",
+    "ラムダ"
+  ],
+  "category": "serverless",
+  "summary": "サーバーを用意・管理せずに、コードを実行できるサーバーレスのコンピューティングサービス。",
+  "beginner": {
+    "analogy": "必要なときだけ来てくれる出張シェフのようなものです。厨房（サーバー）を自分で持たず、料理した時間の分だけ支払います。",
+    "description": "プログラムのコードをアップロードしておくと、必要なときに自動で実行されます。実行していない間は料金がかかりません。"
+  },
+  "exam": {
+    "description": "サーバーのプロビジョニングや管理をせずにコードを実行できます。使用したコンピューティング時間に対してのみ料金を支払い、コードが実行されていないときは料金が発生しません。コードの実行とスケーリングに必要なことは、高可用性を含めてすべてLambdaが行います。他のAWSサービスから自動で呼び出すことも、ウェブやモバイルのアプリから直接呼び出すこともできます。",
+    "points": [
+      "サーバーレスのコンピューティング＝Lambda（コード）とFargate（コンテナ）。",
+      "サーバーのプロビジョニングや管理が不要。",
+      "料金は使用したコンピューティング時間の分だけ。実行していないときは無料。",
+      "他のAWSサービスから自動で実行できる。"
+    ]
+  },
+  "useCases": [
+    "ファイルがアップロードされたときに自動で処理する",
+    "ウェブやモバイルアプリの裏側の処理",
+    "決まった作業の自動実行"
+  ],
+  "mechanism": "コードをアップロードすると、Lambdaがそのコードの実行とスケーリングに必要なことをすべて行います。",
+  "pros": [
+    "サーバーの管理が不要",
+    "実行した時間の分だけの支払い",
+    "実行とスケーリングをLambdaが自動で行う"
+  ],
+  "cons": [
+    "OSやサーバーを細かく制御したい場合には向かない（その場合はEC2を検討する）"
+  ],
+  "scenes": [
+    "画像がアップロードされるたびに、サムネイルを作る処理を実行する",
+    "利用の少ない社内ツールを、常時起動のサーバーなしで動かす"
+  ],
+  "similarServiceIds": [
+    "amazon-ec2",
+    "aws-fargate"
+  ],
+  "relatedServiceIds": [
+    "amazon-s3"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/lambda/"
+}

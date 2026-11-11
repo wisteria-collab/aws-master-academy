@@ -290,5 +290,171 @@
     "plain": "建物の骨組みだけを借りて、内装や家具は自分で用意するイメージです。自由度が高い分、自分で管理する範囲も広くなります。",
     "example": "Amazon EC2はIaaSに分類される。ゲストOSの更新、アプリケーション、セキュリティグループの設定は利用者が行う。",
     "serviceIds": []
+  },
+  {
+    "id": "serverless",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "サーバーレス",
+    "description": "サーバーの用意や管理を利用者が行わずに、プログラムやコンテナを動かせる形態です。",
+    "plain": "「サーバーがない」のではなく、「サーバーのことを考えなくてよい」という意味です。料理にたとえると、厨房の準備や片付けを任せて、レシピだけを渡すイメージです。",
+    "example": "AWS Lambdaはコードをアップロードするだけで実行でき、AWS Fargateはサーバーやクラスターを管理せずにコンテナを動かせる。",
+    "serviceIds": []
+  },
+  {
+    "id": "container",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "コンテナ",
+    "description": "アプリケーションと、その動作に必要なものをひとまとめにして動かす仕組みです。",
+    "plain": "引っ越しの「コンテナ」のように、中身をまとめて箱に入れ、どこへ運んでも同じように使える状態にしたものです。",
+    "example": "Amazon ECSやAmazon EKSでコンテナを動かし、コンテナの元になるイメージはAmazon ECRに保存する。",
+    "serviceIds": []
+  },
+  {
+    "id": "load-balancer",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "ロードバランサー",
+    "description": "届いた通信を、複数のサーバーなどに自動で振り分ける仕組みです。",
+    "plain": "スーパーのレジで、お客さんを空いているレジに案内する係のようなものです。1つのレジに行列が集中するのを防ぎます。",
+    "example": "Elastic Load Balancingが、アプリケーションへの通信を複数のEC2インスタンスに振り分ける。",
+    "serviceIds": []
+  },
+  {
+    "id": "instance",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "インスタンス",
+    "description": "Amazon EC2で起動する、1台1台の仮想サーバーのことです。",
+    "plain": "クラウド上で借りる「コンピューター1台」のことです。必要な台数だけ起動し、不要になったら止められます。",
+    "example": "ウェブサーバー用にEC2インスタンスを2台起動し、アクセスが増えたら台数を増やす。",
+    "serviceIds": []
+  },
+  {
+    "id": "workload",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Definitions - AWS Well-Architected Framework（AWS公式）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/definitions.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "ワークロード",
+    "description": "ビジネス上の価値を生み出す、ひとまとまりのシステム（複数の構成要素の集まり）です。",
+    "plain": "「オンラインショップ」「社内の勤怠システム」のように、ひとつの目的のために動いているシステム全体を指す言葉です。",
+    "example": "オンラインショップのワークロードは、ウェブサーバー、データベース、画像の保存場所などの構成要素でできている。",
+    "serviceIds": []
+  },
+  {
+    "id": "fully-managed",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "フルマネージド",
+    "description": "サーバーの構築、保守、拡張などの運用作業を、AWSが代わりに行ってくれるサービスの形態です。",
+    "plain": "賃貸で、設備の修理や点検を管理会社がすべてやってくれるようなものです。利用者は「使うこと」に集中できます。",
+    "example": "Amazon EKSはフルマネージドのKubernetesサービスで、Kubernetesの管理用の基盤をAWSが運用する。",
+    "serviceIds": []
+  },
+  {
+    "id": "kubernetes",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "Kubernetes",
+    "description": "たくさんのコンテナを、どこでいつ動かすかを自動で管理する、広く使われているオープンソースの仕組みです。",
+    "plain": "たくさんのコンテナを指揮する「指揮者」のようなものです。読み方は「クバネティス」「クーベネティス」などです。",
+    "example": "すでにKubernetesで動かしているアプリケーションを、Amazon EKSに移して動かす。",
+    "serviceIds": []
   }
 ]

@@ -130,10 +130,60 @@ function StorageTypes() {
   )
 }
 
+function WaPillars() {
+  const cell = (col: number, row: number, name: string, a: string, b: string) => {
+    const x = 6 + col * 177
+    const y = 6 + row * 84
+    return (
+      <g>
+        <Box x={x} y={y} w={171} h={76} fill={tint} stroke={orange} />
+        <T x={x + 85.5} y={y + 24} bold>{name}</T>
+        <T x={x + 85.5} y={y + 46} size={12}>{a}</T>
+        <T x={x + 85.5} y={y + 63} size={12}>{b}</T>
+      </g>
+    )
+  }
+  return (
+    <Frame title="Well-Architected Frameworkの6つの柱" height={258}>
+      {cell(0, 0, '運用上の優秀性', '効果的に運用し、', '継続的に改善する')}
+      {cell(1, 0, 'セキュリティ', 'データ・システム・', '資産を保護する')}
+      {cell(0, 1, '信頼性', '意図した機能を', '正しく一貫して実行する')}
+      {cell(1, 1, 'パフォーマンス効率', 'リソースを効率的に', '使って要件を満たす')}
+      {cell(0, 2, 'コスト最適化', '最も低い価格で', '価値を提供する')}
+      {cell(1, 2, '持続可能性', 'エネルギー消費を減らし', '環境への影響を改善する')}
+    </Frame>
+  )
+}
+
+function ComputeOptions() {
+  const row = (y: number, name: string, mine: string, w: number) => (
+    <g>
+      <T x={12} y={y + 16} bold anchor="start">{name}</T>
+      <rect x={12} y={y + 24} width={336} height={30} rx={6} fill={navy} />
+      <rect x={12} y={y + 24} width={w} height={30} rx={6} fill={orange} />
+      <T x={20} y={y + 44} size={12} anchor="start">{mine}</T>
+    </g>
+  )
+  return (
+    <Frame title="下へ行くほど、利用者が管理する範囲が狭くなる（図はイメージ）" height={318}>
+      <rect x={12} y={8} width={14} height={14} rx={3} fill={orange} />
+      <T x={32} y={20} size={12} anchor="start">利用者が管理</T>
+      <rect x={130} y={8} width={14} height={14} rx={3} fill={navy} />
+      <T x={150} y={20} size={12} anchor="start">AWSが管理</T>
+      {row(34, 'Amazon EC2（仮想サーバー）', 'OS・ソフトウェア・アプリケーション', 250)}
+      {row(104, 'ECS・EKS ＋ EC2（コンテナ）', 'コンテナとサーバー群', 190)}
+      {row(174, 'AWS Fargate（コンテナ・サーバーレス）', 'コンテナ', 110)}
+      {row(244, 'AWS Lambda（コード・サーバーレス）', 'コード', 70)}
+    </Frame>
+  )
+}
+
 const registry: Record<FigureId, () => ReactNode> = {
   'region-az': RegionAz,
   'shared-responsibility': SharedResponsibility,
   'storage-types': StorageTypes,
+  'wa-pillars': WaPillars,
+  'compute-options': ComputeOptions,
 }
 
 export function Figure({ id }: { id: string }) {

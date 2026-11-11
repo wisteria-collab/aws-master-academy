@@ -13,7 +13,7 @@ def launch(p, viewport, mobile):
         viewport=viewport, is_mobile=mobile, has_touch=mobile, device_scale_factor=2 if mobile else 1,
         accept_downloads=True, args=['--no-sandbox'])
 
-PAGES = ['', '#/learn', '#/learn/clf', '#/learn/saa', '#/learn/clf/clf-cloud-basics', '#/learn/clf/clf-regions-azs', '#/learn/clf/clf-shared-responsibility', '#/learn/clf/clf-storage', '#/services', '#/services/amazon-s3', '#/services/amazon-fsx', '#/compare', '#/compare/storage', '#/compare/storage/training', '#/designer', '#/practice', '#/practice/run?exam=clf&mode=random', '#/progress', '#/review', '#/settings', '#/nope']
+PAGES = ['', '#/learn', '#/learn/clf', '#/learn/saa', '#/learn/clf/clf-cloud-basics', '#/learn/clf/clf-regions-azs', '#/learn/clf/clf-shared-responsibility', '#/learn/clf/clf-storage', '#/learn/clf/clf-well-architected', '#/learn/clf/clf-migration-caf', '#/learn/clf/clf-compute', '#/services/aws-lambda', '#/services/elastic-load-balancing', '#/services', '#/services/amazon-s3', '#/services/amazon-fsx', '#/compare', '#/compare/storage', '#/compare/storage/training', '#/designer', '#/practice', '#/practice/run?exam=clf&mode=random', '#/progress', '#/review', '#/settings', '#/nope']
 
 with sync_playwright() as p:
     ctx = launch(p, {'width': 390, 'height': 844}, True)
@@ -128,7 +128,11 @@ with sync_playwright() as p:
 
     page.goto(BASE + '#/learn/clf'); page.wait_for_timeout(400)
     t = page.inner_text('main')
-    check('コースにレッスン4本', all(x in t for x in ['クラウドコンピューティングとは', 'リージョンとアベイラビリティゾーン', 'セキュリティと責任共有モデル', 'ストレージサービス']))
+    check('コースにレッスン7本', all(x in t for x in ['クラウドコンピューティングとは', 'リージョンとアベイラビリティゾーン', 'セキュリティと責任共有モデル', 'ストレージサービス', 'AWS Well-Architected Framework', 'クラウド移行とAWS CAF', 'コンピューティングサービス']))
+    for lid in ['clf-well-architected', 'clf-compute']:
+        page.goto(BASE + f'#/learn/clf/{lid}'); page.wait_for_timeout(400)
+        check(f'図解を表示 {lid}', page.locator('main svg[role=img]').count() == 1)
+        page.locator('main svg[role=img]').screenshot(path=f'{OUT}/fig-{lid}.png')
 
     page.goto(BASE + '#/learn/clf/clf-storage'); page.wait_for_timeout(500)
     t = page.inner_text('main')
@@ -157,7 +161,7 @@ with sync_playwright() as p:
     check('間違えた問題が復習リストに', len(rev) == 1 and rev[0]['questionId'] == 'clf-q-storage-02' and rev[0]['stage'] == 0, json.dumps(rev))
     check('レッスンが完了になる', any(l['lessonId'] == 'clf-storage' and l['status'] == 'completed' for l in lp), json.dumps(lp))
     page.goto(BASE + '#/learn/clf'); page.wait_for_timeout(400)
-    check('コース画面に完了を反映', '1 / 4 完了' in page.inner_text('main'))
+    check('コース画面に完了を反映', '1 / 7 完了' in page.inner_text('main'))
 
     # 複数選択問題
     page.goto(BASE + '#/learn/clf/clf-shared-responsibility'); page.wait_for_timeout(500)
@@ -173,7 +177,7 @@ with sync_playwright() as p:
 
     # サービス図鑑
     page.goto(BASE + '#/services'); page.wait_for_timeout(400)
-    check('図鑑に5サービス', page.locator('main ul li a').count() == 5)
+    check('図鑑に15サービス', page.locator('main ul li a').count() == 15)
     page.get_by_placeholder('サービス名で検索').fill('efs'); page.wait_for_timeout(200)
     check('検索で絞り込み', page.locator('main ul li a').count() == 1 and 'Amazon EFS' in page.inner_text('main'))
     page.locator('main ul li a').first.click(); page.wait_for_timeout(400)
@@ -208,16 +212,16 @@ with sync_playwright() as p:
     # 演習・進捗・復習
     page.goto(BASE + '#/practice'); page.wait_for_timeout(400)
     t = page.inner_text('main')
-    check('演習メニュー', all(x in t for x in ['ランダム演習', '分野別演習', 'サービス別演習', '公開中 14 問']))
+    check('演習メニュー', all(x in t for x in ['ランダム演習', '分野別演習', 'サービス別演習', '公開中 29 問']))
     page.goto(BASE + '#/practice/run?exam=clf&mode=domain&domain=clf-d1'); page.wait_for_timeout(500)
-    check('分野別演習の出題', '1 / 2' in page.inner_text('main') and '分野別演習：クラウドのコンセプト' in page.inner_text('main'))
+    check('分野別演習の出題', '1 / 10' in page.inner_text('main') and '分野別演習：クラウドのコンセプト' in page.inner_text('main'))
     page.goto(BASE + '#/progress'); page.wait_for_timeout(500)
     t = page.inner_text('main')
     check('分野別の理解度', '各問題の最新の解答で集計' in t and '100%' in t)
     check('苦手サービスにS3', 'Amazon S3' in t.split('苦手サービスランキング')[1].split('模擬試験')[0] and '比較で確認' in t)
     page.screenshot(path=f'{OUT}/m-progress-phase3.png', full_page=True)
     page.goto(BASE); page.wait_for_timeout(400)
-    check('ホームにCLF進捗', '2 / 4 レッスン' in page.inner_text('main'))
+    check('ホームにCLF進捗', '2 / 7 レッスン' in page.inner_text('main'))
     page.goto(BASE + '#/review'); page.wait_for_timeout(400)
     t = page.inner_text('main')
     check('復習予定1問・今日は0問', '今日の復習はありません' in t and '★ Amazon EFS' in t)
@@ -357,7 +361,7 @@ with sync_playwright() as p:
     page.on('pageerror', lambda e: errors.append(str(e)))
     page.on('console', lambda m: errors.append(m.text) if m.type == 'error' else None)
     page.goto(BASE + '#/learn/clf'); page.wait_for_timeout(500)
-    check('再起動後もレッスン進捗が残る', '2 / 4 完了' in page.inner_text('main'))
+    check('再起動後もレッスン進捗が残る', '2 / 7 完了' in page.inner_text('main'))
     att = page.evaluate("""() => new Promise(r => { const q = indexedDB.open('aws-master-academy'); q.onsuccess = () => { const g = q.result.transaction('attempts').objectStore('attempts').count(); g.onsuccess = () => r(g.result) } })""")
     check('再起動後も解答履歴が残る', att == att_before_restart, f'{att} vs {att_before_restart}')
     ctx.close()

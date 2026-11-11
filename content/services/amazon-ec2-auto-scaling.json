@@ -1,0 +1,76 @@
+{
+  "id": "amazon-ec2-auto-scaling",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon EC2 Auto Scaling",
+  "aliases": [
+    "EC2 Auto Scaling",
+    "Auto Scaling",
+    "オートスケーリング"
+  ],
+  "category": "compute",
+  "summary": "需要の変化に合わせて、EC2インスタンスの台数を自動で増減するサービス。",
+  "beginner": {
+    "analogy": "お店の混み具合に合わせて、レジ係の人数を自動で増やしたり減らしたりしてくれる仕組みです。",
+    "description": "アクセスが増えたらサーバーを増やし、減ったら減らす、という作業を自動で行います。"
+  },
+  "exam": {
+    "description": "定義した条件に従ってEC2インスタンスを自動的に追加・削除し、アプリケーションの可用性を維持します。需要の変化に応答する動的スケーリングと、予測した需要に基づいて適切な台数をあらかじめ用意する予測スケーリングがあります。フリート管理の機能で、インスタンス群の健全性と可用性を保ちます。",
+    "points": [
+      "オートスケーリングは弾力性をもたらす（試験ガイドの記載）。",
+      "需要に合わせてEC2インスタンスを自動で追加・削除する。",
+      "動的スケーリング＝需要の変化に応答。予測スケーリング＝予測した需要に基づいて用意。",
+      "AWS Auto Scalingは、EC2に加えてECS、DynamoDB、Auroraなど複数のサービスのスケーリングをまとめて設定できるサービス。"
+    ]
+  },
+  "useCases": [
+    "アクセスの増減に合わせたサーバー台数の自動調整",
+    "故障したインスタンスの入れ替えによる可用性の維持"
+  ],
+  "mechanism": "利用者が定義した条件に従って、インスタンスの台数を自動で増減します。",
+  "pros": [
+    "需要に合わせた容量を自動で確保できる",
+    "アプリケーションの可用性を維持できる"
+  ],
+  "cons": [
+    "増減の条件は利用者が定義する必要がある"
+  ],
+  "scenes": [
+    "昼間はアクセスが多く夜間は少ないウェブサイトで、時間帯に合わせて台数を自動調整する"
+  ],
+  "similarServiceIds": [
+    "aws-lambda"
+  ],
+  "relatedServiceIds": [
+    "amazon-ec2",
+    "elastic-load-balancing"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/autoscaling/"
+}

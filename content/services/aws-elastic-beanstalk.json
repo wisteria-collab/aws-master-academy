@@ -1,0 +1,72 @@
+{
+  "id": "aws-elastic-beanstalk",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Elastic Beanstalk",
+  "aliases": [
+    "Elastic Beanstalk",
+    "Beanstalk",
+    "ビーンストーク"
+  ],
+  "category": "compute",
+  "summary": "コードをアップロードするだけで、ウェブアプリケーションのデプロイとスケーリングを行ってくれるサービス。",
+  "beginner": {
+    "analogy": "家具付き・設備付きの店舗を借りるようなものです。商品（コード）を持ち込めば、内装や設備の準備は済んでいて、すぐ開店できます。",
+    "description": "ウェブアプリケーションを動かすのに必要なサーバーや設定を、まとめて用意してくれます。"
+  },
+  "exam": {
+    "description": "ウェブアプリケーションやサービスを、デプロイしてスケーリングするための使いやすいサービスです。コードをアップロードするだけで、デプロイ、容量のプロビジョニング、負荷分散、オートスケーリング、アプリケーションの状態の監視を自動的に処理します。その一方で、アプリケーションを動かしているAWSリソースを利用者が完全に制御でき、いつでも基盤のリソースにアクセスできます。",
+    "points": [
+      "コードをアップロードするだけで、デプロイからスケーリングまで自動で行う。",
+      "容量のプロビジョニング、負荷分散、オートスケーリング、状態の監視を処理する。",
+      "基盤のAWSリソースは、利用者が制御できる。"
+    ]
+  },
+  "useCases": [
+    "ウェブアプリケーションを、インフラの細かい設定なしで公開する"
+  ],
+  "mechanism": "アップロードされたコードに合わせて、必要なAWSリソースを用意し、アプリケーションを配置します。",
+  "pros": [
+    "インフラの準備に時間をかけずにアプリケーションを公開できる",
+    "必要なら基盤のリソースを直接操作できる"
+  ],
+  "cons": [
+    "対応している言語や実行環境の範囲で使う"
+  ],
+  "scenes": [
+    "開発したウェブアプリケーションを、サーバーの設定を一から行わずに公開する"
+  ],
+  "similarServiceIds": [
+    "amazon-ec2",
+    "amazon-lightsail"
+  ],
+  "relatedServiceIds": [
+    "amazon-ec2",
+    "elastic-load-balancing",
+    "amazon-ec2-auto-scaling"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/elasticbeanstalk/"
+}

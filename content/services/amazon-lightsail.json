@@ -1,0 +1,66 @@
+{
+  "id": "amazon-lightsail",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon Lightsail",
+  "aliases": [
+    "Lightsail",
+    "ライトセイル"
+  ],
+  "category": "compute",
+  "summary": "仮想プライベートサーバーを、わかりやすい料金で手軽に起動・管理できるサービス。",
+  "beginner": {
+    "analogy": "必要なものがひとそろい入った「スターターセット」のようなものです。サーバー、保存領域、通信量などがまとめて用意されます。",
+    "description": "小さなウェブサイトやアプリケーションを、手軽に始めたいときに使います。"
+  },
+  "exam": {
+    "description": "AWSで仮想プライベートサーバーを起動・管理する、最も簡単な方法です。仮想マシン、SSDベースのストレージ、データ転送、DNS管理、静的IPアドレスが、低額で予測可能な料金で含まれています。",
+    "points": [
+      "仮想プライベートサーバーを手軽に始める＝Lightsail。",
+      "必要なものがまとめて含まれ、料金が予測しやすい。"
+    ]
+  },
+  "useCases": [
+    "小規模なウェブサイトやアプリケーション"
+  ],
+  "mechanism": "サーバー、ストレージ、データ転送などがひとまとめになったプランを選んで起動します。",
+  "pros": [
+    "始めやすい",
+    "料金が予測しやすい"
+  ],
+  "cons": [
+    "細かい構成の自由度や大規模な構成が必要な場合は、EC2を検討する"
+  ],
+  "scenes": [
+    "個人や小規模な事業者が、ウェブサイトを手軽に公開する"
+  ],
+  "similarServiceIds": [
+    "amazon-ec2",
+    "aws-elastic-beanstalk"
+  ],
+  "relatedServiceIds": [],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "low"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/lightsail/"
+}

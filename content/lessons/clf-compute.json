@@ -1,0 +1,83 @@
+{
+  "id": "clf-compute",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Amazon EC2 instance type specifications（Amazon EC2 ドキュメント）",
+      "url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-type-specifications.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 5,
+  "title": "コンピューティングサービス",
+  "domainId": "clf-d3",
+  "taskIds": [
+    "clf-3-3"
+  ],
+  "overview": "コンピューティングとは、プログラムを動かすための計算能力のことです。AWSには、プログラムの動かし方が異なる複数のコンピューティングサービスがあります。\n大きく分けると、仮想サーバーを借りる方法（Amazon EC2）、コンテナで動かす方法（Amazon ECS、Amazon EKS）、サーバーを意識せずに動かすサーバーレスの方法（AWS Lambda、AWS Fargate）の3つです。\n違いは「利用者がどこまで管理するか」です。自由度が高いほど管理する範囲が広く、任せる範囲が広いほど手間が減ります。",
+  "beginner": {
+    "analogy": "食事にたとえると、EC2は「キッチンを借りて自分で料理する」、コンテナは「下ごしらえ済みの材料セットを持ち込む」、サーバーレスは「レシピだけ渡して作ってもらう」イメージです。自分でやる範囲が広いほど自由ですが、手間もかかります。",
+    "description": "OSから自分で決めたいならEC2、コンテナを使うならECSやEKS、サーバーの管理をなくしたいならLambdaやFargateです。アクセスの増減にはオートスケーリング、アクセスの振り分けにはロードバランサーを使います。"
+  },
+  "useCases": [
+    "既存の業務アプリケーションを、OSごとEC2に移す",
+    "ファイルのアップロードをきっかけに、Lambdaで処理を自動実行する",
+    "コンテナ化したアプリケーションを、Fargateでサーバーの管理なしに動かす",
+    "アクセスの増減に合わせてEC2 Auto Scalingで台数を調整し、Elastic Load Balancingで振り分ける"
+  ],
+  "mechanism": {
+    "text": "Amazon EC2は、サイズ変更可能なコンピューティング能力を提供する仮想サーバーのサービスです。インスタンスタイプは用途別に分類されています。汎用は、コンピューティング・メモリ・ネットワークのバランスがよく、ウェブサーバーなどに向きます。コンピューティング最適化は、高性能なプロセッサが必要な計算負荷の高い処理に向きます。メモリ最適化は、大きなデータセットをメモリ上で処理する用途に向きます。ストレージ最適化は、ローカルストレージ上の非常に大きなデータへの、高い読み書き性能が必要な用途に向きます。高速コンピューティングは、ハードウェアアクセラレーターを使う処理に向きます。\nコンテナを動かすサービスには、Amazon ECSとAmazon EKSがあります。ECSはDockerコンテナをサポートするコンテナオーケストレーションサービスで、EKSはフルマネージドのKubernetesサービスです。\nサーバーレスには、AWS LambdaとAWS Fargateがあります。Lambdaは、サーバーを管理せずにコードを実行でき、実行した時間の分だけ料金を支払います。Fargateは、サーバーやクラスターを管理せずにコンテナを実行できます。\nAmazon EC2 Auto Scalingは、定義した条件に従ってEC2インスタンスを自動的に追加・削除します。需要に合わせて容量を増減できるため、弾力性をもたらします。\nElastic Load Balancingは、受信したトラフィックを、EC2インスタンスやコンテナなど複数のターゲットに自動的に分散します。\nこのほか、コードをアップロードするだけでウェブアプリケーションを公開できるAWS Elastic Beanstalk、仮想プライベートサーバーを手軽に使えるAmazon Lightsail、大量のバッチ処理を実行するAWS Batchがあります。",
+    "figureId": "compute-options"
+  },
+  "relatedServiceIds": [
+    "amazon-ec2",
+    "aws-lambda",
+    "aws-fargate",
+    "amazon-ecs",
+    "amazon-eks",
+    "amazon-ec2-auto-scaling",
+    "elastic-load-balancing",
+    "aws-elastic-beanstalk",
+    "amazon-lightsail",
+    "aws-batch"
+  ],
+  "examPoints": [
+    "EC2のインスタンスタイプは、何に負荷がかかるかで選ぶ（汎用、コンピューティング最適化、メモリ最適化、ストレージ最適化、高速コンピューティング）。",
+    "コンテナ：Amazon ECS（AWSのコンテナオーケストレーション）、Amazon EKS（Kubernetes）。",
+    "サーバーレス：AWS Lambda（コードを実行）、AWS Fargate（コンテナを実行）。",
+    "Lambdaは、実行した時間の分だけ料金がかかり、実行していないときは料金がかからない。",
+    "オートスケーリングは弾力性をもたらす。需要に合わせて台数を自動で増減する。",
+    "ロードバランサーの目的は、トラフィックを複数のターゲットに分散すること。",
+    "台数を増減する（Auto Scaling）と、通信を振り分ける（Elastic Load Balancing）は別の役割。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-comp-01",
+    "clf-q-comp-05",
+    "clf-q-comp-02",
+    "clf-q-comp-03"
+  ],
+  "glossaryTermIds": [
+    "instance",
+    "container",
+    "serverless",
+    "load-balancer",
+    "elasticity",
+    "kubernetes",
+    "fully-managed"
+  ]
+}

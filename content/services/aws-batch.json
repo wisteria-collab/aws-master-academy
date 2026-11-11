@@ -1,0 +1,68 @@
+{
+  "id": "aws-batch",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Batch",
+  "aliases": [
+    "Batch",
+    "バッチ"
+  ],
+  "category": "compute",
+  "summary": "大量のバッチ処理（まとめて行う計算処理）を、規模を問わずフルマネージドで実行できるサービス。",
+  "beginner": {
+    "analogy": "たまった洗濯物を、量に合わせて必要な台数の洗濯機で一気に片付けてくれるコインランドリーのようなものです。",
+    "description": "一度にまとめて行う大量の計算を、必要な分だけのサーバーを自動で用意して実行します。"
+  },
+  "exam": {
+    "description": "数十万件規模のバッチコンピューティングジョブを実行できます。投入されたジョブの量とリソース要件に基づいて、最適な量と種類のコンピューティングリソースを動的にプロビジョニングします。バッチ処理用のソフトウェアやサーバークラスターを、利用者がインストール・管理する必要はありません。",
+    "points": [
+      "大量のバッチ処理をフルマネージドで実行＝AWS Batch。",
+      "ジョブの量と要件に合わせて、コンピューティングリソースを自動で用意する。"
+    ]
+  },
+  "useCases": [
+    "大量のデータの一括処理",
+    "科学技術計算"
+  ],
+  "mechanism": "利用者がジョブを投入すると、AWS Batchが必要なコンピューティングリソースを用意して実行します。",
+  "pros": [
+    "バッチ処理用のソフトウェアやサーバー群の管理が不要"
+  ],
+  "cons": [
+    "常時動かし続けるウェブサーバーのような用途には向かない"
+  ],
+  "scenes": [
+    "夜間に、1日分の売上データをまとめて集計する"
+  ],
+  "similarServiceIds": [
+    "aws-lambda",
+    "amazon-ec2"
+  ],
+  "relatedServiceIds": [
+    "amazon-ec2"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/batch/"
+}

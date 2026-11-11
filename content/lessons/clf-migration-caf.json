@@ -1,0 +1,77 @@
+{
+  "id": "clf-migration-caf",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Foundational capabilities - An Overview of the AWS Cloud Adoption Framework（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html"
+    },
+    {
+      "title": "AWS Cloud Adoption Framework: People Perspective（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-caf-people-perspective/aws-caf-people-perspective.pdf"
+    },
+    {
+      "title": "About the migration strategies - AWS Prescriptive Guidance（AWS公式）",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 14,
+  "title": "クラウド移行とAWS CAF",
+  "domainId": "clf-d1",
+  "taskIds": [
+    "clf-1-3"
+  ],
+  "overview": "オンプレミスのシステムをクラウドへ移すことを「移行」と呼びます。移行は、サーバーを移すだけの技術的な作業ではありません。組織の進め方や人材の育成も含めた取り組みです。\nAWSクラウド導入フレームワーク（AWS CAF）は、クラウドの導入を成功させるための指針を、6つの「パースペクティブ」（視点）に整理したものです。\nまた、個々のアプリケーションをどう移すかには、「7つのR」と呼ばれる7種類の移行戦略があります。",
+  "beginner": {
+    "analogy": "会社の引っ越しに似ています。荷物を運ぶ（技術）だけでなく、新しい働き方のルールを決め（ガバナンス）、社員に新しい設備の使い方を教える（ピープル）必要があります。荷物も、そのまま運ぶもの、買い替えるもの、捨てるものに仕分けします。これが移行戦略です。",
+    "description": "クラウドに移るときは、「誰が何を準備するか」を6つの視点で整理し、アプリケーションごとに「そのまま移す」「少し直して移す」「やめる」などを決めていきます。"
+  },
+  "useCases": [
+    "データセンターの契約終了にあわせて、アプリケーションを変更せずにAWSへ移す（リホスト）",
+    "データベースを、運用の手間が少ないマネージドサービスへ移す（リプラットフォーム）",
+    "使われていないアプリケーションを、移行せずに廃止する（リタイア）",
+    "データベースを、業務を止めずにAWSへ移す（AWS DMS）"
+  ],
+  "mechanism": {
+    "text": "AWS CAFの6つのパースペクティブは次のとおりです。ビジネス、ピープル、ガバナンスの3つはビジネスの能力に、プラットフォーム、セキュリティ、オペレーションの3つは技術の能力に焦点を当てます。\n・ビジネス：クラウドへの投資が、ビジネスの成果を加速させるようにする。\n・ピープル：技術とビジネスの橋渡しをする。文化、組織構造、リーダーシップ、人材に焦点を当てる。\n・ガバナンス：クラウドの取り組みを統制し、組織の利益を最大化しながら、変革に伴うリスクを最小化する。\n・プラットフォーム：スケーラブルなハイブリッドクラウド基盤を構築し、既存のワークロードを最新化する。\n・セキュリティ：データとワークロードの機密性、完全性、可用性を実現する。\n・オペレーション：クラウドサービスを、ビジネスのニーズを満たすレベルで提供する。\nクラウドの導入によって得られる成果として、ビジネスリスクの軽減、環境・社会・ガバナンス（ESG）のパフォーマンスの向上、収益の増加、運用効率の向上が挙げられます。\n7つの移行戦略（7つのR）は次のとおりです。\n・リタイア：不要なアプリケーションを廃止する。\n・リテイン：移行元の環境に残す（今は移行しない）。\n・リホスト：変更を加えずにそのまま移す。「リフト＆シフト」とも呼ぶ。\n・リロケート：多数のサーバーを、プラットフォームのクラウド版へまとめて移す。\n・リパーチェス：別のバージョンや製品（SaaSなど）に置き換える。\n・リプラットフォーム：移す際に、ある程度の最適化を加える。例：Microsoft SQL ServerからAmazon RDS for SQL Serverへ。\n・リファクタリング（リアーキテクト）：クラウドネイティブな機能を活用するために、アーキテクチャを変更する。最も複雑でコストがかかる。\n移行を支援するサービスもあります。AWS Application Discovery Serviceは、オンプレミスのサーバーの情報を集めて移行の計画を助けます。AWS Database Migration Service（AWS DMS）は、移行元を稼働させたままデータベースを移行でき、継続的なレプリケーションにも使えます。AWS Migration Hubは、複数のツールによる移行の進み具合を1か所で追跡できます。"
+  },
+  "relatedServiceIds": [
+    "aws-dms"
+  ],
+  "examPoints": [
+    "AWS CAFのパースペクティブは6つ：ビジネス、ピープル、ガバナンス、プラットフォーム、セキュリティ、オペレーション。",
+    "ビジネス・ピープル・ガバナンス＝ビジネスの能力。プラットフォーム・セキュリティ・オペレーション＝技術の能力。",
+    "クラウド導入の成果：ビジネスリスクの軽減、ESGパフォーマンスの向上、収益の増加、運用効率の向上。",
+    "リホスト＝変更なしで移す（リフト＆シフト）。リプラットフォーム＝少し最適化して移す。リファクタリング＝アーキテクチャを変更する。",
+    "リタイア＝廃止。リテイン＝残す。リパーチェス＝別の製品に置き換える。",
+    "データベースを止めずに移行する、継続的にレプリケーションする＝AWS DMS。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-caf-01",
+    "clf-q-caf-02",
+    "clf-q-mig-01",
+    "clf-q-mig-02",
+    "clf-q-mig-03"
+  ],
+  "glossaryTermIds": [
+    "on-premises",
+    "workload",
+    "fully-managed"
+  ]
+}

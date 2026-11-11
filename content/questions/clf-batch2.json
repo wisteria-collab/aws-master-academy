@@ -1,0 +1,1096 @@
+[
+  {
+    "id": "clf-q-wa-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Definitions - AWS Well-Architected Framework（AWS公式）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/definitions.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "AWS Well-Architected Frameworkの柱のうち、「ワークロードが意図した機能を、期待されるときに正しく一貫して実行する能力」を扱うものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "信頼性",
+        "correct": true,
+        "explanation": "信頼性の柱は、ワークロードが意図した機能を、期待されるときに正しく一貫して実行する能力を扱います。"
+      },
+      {
+        "id": "b",
+        "text": "パフォーマンス効率",
+        "correct": false,
+        "explanation": "コンピューティングリソースを効率的に使ってシステムの要件を満たし、需要や技術の変化に合わせてその効率を維持する能力です。「正しく一貫して実行する」ことではなく、リソースの使い方の効率を扱います。",
+        "eliminatedBy": "正しく一貫して実行する能力"
+      },
+      {
+        "id": "c",
+        "text": "運用上の優秀性",
+        "correct": false,
+        "explanation": "開発を支援し、ワークロードを効果的に運用し、運用の状況を把握して、プロセスや手順を継続的に改善する能力です。運用と改善を扱う柱です。",
+        "eliminatedBy": "正しく一貫して実行する能力"
+      },
+      {
+        "id": "d",
+        "text": "コスト最適化",
+        "correct": false,
+        "explanation": "最も低い価格でビジネス価値を提供できるようにシステムを運用する能力です。費用を扱う柱です。",
+        "eliminatedBy": "正しく一貫して実行する能力"
+      }
+    ],
+    "keywords": [
+      "意図した機能",
+      "正しく一貫して実行する能力"
+    ],
+    "decisionPoint": "「正しく・一貫して動く」は信頼性。「効率よく使う」はパフォーマンス効率、「安く」はコスト最適化と区別します。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-well-architected"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-wa-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Definitions - AWS Well-Architected Framework（AWS公式）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/definitions.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、AWS上のシステムを見直し、使っていないリソースを減らして、最も低い価格でビジネス価値を提供できるようにしたいと考えています。この取り組みは、AWS Well-Architected Frameworkのどの柱に最も関係しますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "コスト最適化",
+        "correct": true,
+        "explanation": "コスト最適化の柱は、最も低い価格でビジネス価値を提供できるようにシステムを運用する能力を扱います。"
+      },
+      {
+        "id": "b",
+        "text": "セキュリティ",
+        "correct": false,
+        "explanation": "クラウドの技術を活用して、データ、システム、資産を保護する方法を扱う柱です。価格の話ではありません。",
+        "eliminatedBy": "最も低い価格でビジネス価値を提供"
+      },
+      {
+        "id": "c",
+        "text": "信頼性",
+        "correct": false,
+        "explanation": "ワークロードが意図した機能を正しく一貫して実行する能力を扱う柱です。価格の話ではありません。",
+        "eliminatedBy": "最も低い価格でビジネス価値を提供"
+      },
+      {
+        "id": "d",
+        "text": "運用上の優秀性",
+        "correct": false,
+        "explanation": "ワークロードを効果的に運用し、プロセスや手順を継続的に改善する能力を扱う柱です。「改善」という点は近いですが、問題文の中心は価格です。",
+        "eliminatedBy": "最も低い価格でビジネス価値を提供"
+      }
+    ],
+    "keywords": [
+      "最も低い価格でビジネス価値を提供"
+    ],
+    "decisionPoint": "「最も低い価格で価値を提供」はコスト最適化の柱の説明そのものです。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-well-architected"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-wa-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Definitions - AWS Well-Architected Framework（AWS公式）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/definitions.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "AWS Well-Architected Frameworkの柱のうち、エネルギー消費を減らし、ワークロードのすべての構成要素の効率を高めることで、環境への影響を継続的に改善することを扱うものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "持続可能性",
+        "correct": true,
+        "explanation": "持続可能性の柱は、エネルギー消費を減らし、効率を高めることで、持続可能性への影響を継続的に改善する能力を扱います。"
+      },
+      {
+        "id": "b",
+        "text": "パフォーマンス効率",
+        "correct": false,
+        "explanation": "「効率」という言葉は共通しますが、こちらはシステムの要件を満たすためにコンピューティングリソースを効率的に使う能力です。エネルギー消費や環境への影響を扱う柱ではありません。",
+        "eliminatedBy": "エネルギー消費を減らし"
+      },
+      {
+        "id": "c",
+        "text": "コスト最適化",
+        "correct": false,
+        "explanation": "最も低い価格でビジネス価値を提供する能力です。環境への影響ではなく費用を扱います。",
+        "eliminatedBy": "環境への影響"
+      },
+      {
+        "id": "d",
+        "text": "信頼性",
+        "correct": false,
+        "explanation": "ワークロードが意図した機能を正しく一貫して実行する能力です。環境への影響は扱いません。",
+        "eliminatedBy": "環境への影響"
+      }
+    ],
+    "keywords": [
+      "エネルギー消費を減らし",
+      "環境への影響"
+    ],
+    "decisionPoint": "エネルギーや環境が出てきたら持続可能性です。「効率」だけで判断しないようにします。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-well-architected"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-caf-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Foundational capabilities - An Overview of the AWS Cloud Adoption Framework（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "AWSクラウド導入フレームワーク（AWS CAF）のパースペクティブのうち、文化、組織構造、リーダーシップ、人材に焦点を当て、技術とビジネスの橋渡しをするものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ピープル",
+        "correct": true,
+        "explanation": "ピープルのパースペクティブは、技術とビジネスの橋渡しをし、文化、組織構造、リーダーシップ、人材に焦点を当てます。"
+      },
+      {
+        "id": "b",
+        "text": "ビジネス",
+        "correct": false,
+        "explanation": "クラウドへの投資が、デジタルトランスフォーメーションの目標やビジネスの成果を加速させるようにするパースペクティブです。文化や人材に焦点を当てるものではありません。",
+        "eliminatedBy": "文化、組織構造、リーダーシップ、人材"
+      },
+      {
+        "id": "c",
+        "text": "ガバナンス",
+        "correct": false,
+        "explanation": "クラウドの取り組みを統制し、組織の利益を最大化しながら、変革に伴うリスクを最小化するパースペクティブです。",
+        "eliminatedBy": "文化、組織構造、リーダーシップ、人材"
+      },
+      {
+        "id": "d",
+        "text": "プラットフォーム",
+        "correct": false,
+        "explanation": "エンタープライズ向けのスケーラブルなハイブリッドクラウド基盤の構築や、既存のワークロードの最新化を扱う、技術的なパースペクティブです。",
+        "eliminatedBy": "文化、組織構造、リーダーシップ、人材"
+      }
+    ],
+    "keywords": [
+      "文化、組織構造、リーダーシップ、人材"
+    ],
+    "decisionPoint": "人や組織の話はピープル。ビジネス・ピープル・ガバナンスの3つがビジネス寄りのパースペクティブです。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-migration-caf"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-caf-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Foundational capabilities - An Overview of the AWS Cloud Adoption Framework（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "AWSクラウド導入フレームワーク（AWS CAF）のパースペクティブのうち、クラウドサービスを、ビジネスのニーズを満たすレベルで提供できるようにすることを扱うものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "オペレーション",
+        "correct": true,
+        "explanation": "オペレーションのパースペクティブは、クラウドサービスがビジネスのニーズを満たすレベルで提供されるようにすることを扱います。"
+      },
+      {
+        "id": "b",
+        "text": "セキュリティ",
+        "correct": false,
+        "explanation": "データとクラウド上のワークロードの、機密性、完全性、可用性を実現するためのパースペクティブです。",
+        "eliminatedBy": "ビジネスのニーズを満たすレベルで提供"
+      },
+      {
+        "id": "c",
+        "text": "プラットフォーム",
+        "correct": false,
+        "explanation": "スケーラブルなハイブリッドクラウド基盤の構築、既存のワークロードの最新化、クラウドネイティブな仕組みの実装を扱います。基盤を「作る」側のパースペクティブです。",
+        "eliminatedBy": "提供できるようにする"
+      },
+      {
+        "id": "d",
+        "text": "ビジネス",
+        "correct": false,
+        "explanation": "クラウドへの投資がビジネスの成果を加速させるようにするパースペクティブです。サービスの提供水準を扱うものではありません。",
+        "eliminatedBy": "クラウドサービスを、ビジネスのニーズを満たすレベルで提供"
+      }
+    ],
+    "keywords": [
+      "ビジネスのニーズを満たすレベルで提供"
+    ],
+    "decisionPoint": "プラットフォーム・セキュリティ・オペレーションの3つが技術寄り。サービスの提供水準はオペレーションです。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-migration-caf"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-mig-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "About the migration strategies - AWS Prescriptive Guidance（AWS公式）",
+        "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、データセンターの契約終了が迫っているため、オンプレミスのアプリケーションを、アプリケーションに変更を加えずにそのままAWSへ移行したいと考えています。この移行戦略はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "リホスト",
+        "correct": true,
+        "explanation": "リホストは、アプリケーションに変更を加えずに、移行元の環境からAWSへ移す戦略です。「リフト＆シフト」とも呼ばれます。"
+      },
+      {
+        "id": "b",
+        "text": "リファクタリング",
+        "correct": false,
+        "explanation": "アプリケーションをクラウドへ移し、クラウドネイティブな機能を活用するためにアーキテクチャを変更する戦略です。最も複雑でコストがかかる戦略で、「変更を加えずに」という条件に合いません。",
+        "eliminatedBy": "変更を加えずに"
+      },
+      {
+        "id": "c",
+        "text": "リプラットフォーム",
+        "correct": false,
+        "explanation": "クラウドへ移す際に、効率的な運用やコスト削減のために、ある程度の最適化を加える戦略です。「変更を加えずにそのまま」という条件に合いません。",
+        "eliminatedBy": "変更を加えずにそのまま"
+      },
+      {
+        "id": "d",
+        "text": "リタイア",
+        "correct": false,
+        "explanation": "不要になったアプリケーションを廃止する戦略です。移行して使い続けたいという要件に合いません。",
+        "eliminatedBy": "AWSへ移行したい"
+      }
+    ],
+    "keywords": [
+      "変更を加えずにそのまま"
+    ],
+    "decisionPoint": "変更なしで移す＝リホスト。少し最適化＝リプラットフォーム。作り変える＝リファクタリング。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-migration-caf"
+      }
+    ],
+    "practicalNote": "実務では、まずリホストで素早く移し、クラウド上で動かしてから最適化を進める進め方がよく取られます。",
+    "variationGroupId": "migration-strategy"
+  },
+  {
+    "id": "clf-q-mig-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "About the migration strategies - AWS Prescriptive Guidance（AWS公式）",
+        "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスのMicrosoft SQL Serverのデータベースを、AWSへの移行にあわせてAmazon RDS for SQL Serverへ移し、データベースの運用作業を減らしたいと考えています。アプリケーションの作りは大きく変えません。この移行戦略はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "リプラットフォーム",
+        "correct": true,
+        "explanation": "リプラットフォームは、クラウドへ移す際に、効率的な運用やコスト削減のために、ある程度の最適化を加える戦略です。Microsoft SQL ServerをAmazon RDS for SQL Serverへ移すことは、その代表的な例です。"
+      },
+      {
+        "id": "b",
+        "text": "リホスト",
+        "correct": false,
+        "explanation": "アプリケーションに変更を加えずにそのまま移す戦略です。この問題では、移行にあわせてマネージドサービスへ移すという最適化を行っているため、リホストではありません。",
+        "eliminatedBy": "Amazon RDS for SQL Serverへ移し"
+      },
+      {
+        "id": "c",
+        "text": "リファクタリング",
+        "correct": false,
+        "explanation": "クラウドネイティブな機能を活用するために、アーキテクチャを変更する戦略です。「アプリケーションの作りは大きく変えません」という条件に合いません。",
+        "eliminatedBy": "アプリケーションの作りは大きく変えません"
+      },
+      {
+        "id": "d",
+        "text": "リパーチェス",
+        "correct": false,
+        "explanation": "アプリケーションを、別のバージョンや別の製品（SaaSなど）に置き換える戦略です。この問題では、同じSQL Serverを使い続けています。",
+        "eliminatedBy": "Amazon RDS for SQL Serverへ移し"
+      }
+    ],
+    "keywords": [
+      "Amazon RDS for SQL Serverへ移し",
+      "運用作業を減らしたい",
+      "アプリケーションの作りは大きく変えません"
+    ],
+    "decisionPoint": "前の問題と違い、移行にあわせて「少しだけ最適化」しています。この条件が加わるとリプラットフォームになります。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-migration-caf"
+      }
+    ],
+    "variationGroupId": "migration-strategy"
+  },
+  {
+    "id": "clf-q-mig-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスのデータベースをAWSへ移行します。移行中も移行元のデータベースを稼働させたままにして、アプリケーションの停止時間を最小限に抑えたいと考えています。最も適切なAWSサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Database Migration Service（AWS DMS）",
+        "correct": true,
+        "explanation": "AWS DMSは、データベースをAWSへ移行するためのサービスです。移行中も移行元のデータベースは完全に稼働し続けるため、アプリケーションの停止時間を最小限に抑えられます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Batch",
+        "correct": false,
+        "explanation": "大量のバッチ処理を実行するためのサービスです。データベースの移行のためのサービスではありません。",
+        "eliminatedBy": "データベースをAWSへ移行"
+      },
+      {
+        "id": "c",
+        "text": "Amazon EC2 Auto Scaling",
+        "correct": false,
+        "explanation": "需要に合わせてEC2インスタンスの台数を自動で増減するサービスです。データベースの移行とは関係がありません。",
+        "eliminatedBy": "データベースをAWSへ移行"
+      },
+      {
+        "id": "d",
+        "text": "AWS Elastic Beanstalk",
+        "correct": false,
+        "explanation": "ウェブアプリケーションのデプロイとスケーリングを行うサービスです。データベースの移行のためのサービスではありません。",
+        "eliminatedBy": "データベースをAWSへ移行"
+      }
+    ],
+    "keywords": [
+      "データベースをAWSへ移行",
+      "移行元のデータベースを稼働させたまま",
+      "停止時間を最小限"
+    ],
+    "decisionPoint": "データベースの移行で「止めずに移す」はAWS DMSです。",
+    "serviceIds": [
+      "aws-dms"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-migration-caf"
+      },
+      {
+        "type": "service",
+        "id": "aws-dms"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-comp-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、ファイルがアップロードされたときだけ動く短い処理を実装します。サーバーのプロビジョニングや管理は行いたくなく、処理が実行されていない間は料金を支払いたくありません。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Lambda",
+        "correct": true,
+        "explanation": "Lambdaは、サーバーのプロビジョニングや管理をせずにコードを実行できます。使用したコンピューティング時間に対してのみ料金を支払い、コードが実行されていないときは料金が発生しません。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon EC2",
+        "correct": false,
+        "explanation": "仮想サーバーのサービスで、OSの管理などは利用者が行います。「サーバーの管理は行いたくない」という条件に合いません。",
+        "eliminatedBy": "サーバーのプロビジョニングや管理は行いたくなく"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Lightsail",
+        "correct": false,
+        "explanation": "仮想プライベートサーバーを手軽に使えるサービスですが、サーバーを起動して使う形です。処理が動いていない間も料金を支払わないという条件に合いません。",
+        "eliminatedBy": "処理が実行されていない間は料金を支払いたくありません"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EC2 Auto Scaling",
+        "correct": false,
+        "explanation": "EC2インスタンスの台数を自動で増減するサービスです。コードを実行するサービスではなく、サーバーの管理もなくなりません。",
+        "eliminatedBy": "サーバーのプロビジョニングや管理は行いたくなく"
+      }
+    ],
+    "keywords": [
+      "サーバーのプロビジョニングや管理は行いたくなく",
+      "実行されていない間は料金を支払いたくありません"
+    ],
+    "decisionPoint": "「サーバー管理なし」「実行した分だけ」の2つがそろえばLambdaです。",
+    "serviceIds": [
+      "aws-lambda",
+      "amazon-ec2",
+      "amazon-lightsail"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-compute"
+      },
+      {
+        "type": "service",
+        "id": "aws-lambda"
+      }
+    ],
+    "practicalNote": "画像の加工や通知の送信など、何かが起きたときだけ動けばよい処理でよく使われます。",
+    "variationGroupId": "compute-select"
+  },
+  {
+    "id": "clf-q-comp-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、複数のEC2インスタンスでウェブサイトを運用しています。アクセスが増えたときはインスタンスを自動で追加し、減ったときは自動で削除したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon EC2 Auto Scaling",
+        "correct": true,
+        "explanation": "EC2 Auto Scalingは、定義した条件に従ってEC2インスタンスを自動的に追加・削除します。需要に合わせて容量を調整でき、弾力性をもたらします。"
+      },
+      {
+        "id": "b",
+        "text": "Elastic Load Balancing",
+        "correct": false,
+        "explanation": "届いた通信を複数のターゲットに振り分けるサービスです。インスタンスの台数そのものを増減するサービスではありません。",
+        "eliminatedBy": "インスタンスを自動で追加し、減ったときは自動で削除"
+      },
+      {
+        "id": "c",
+        "text": "AWS Batch",
+        "correct": false,
+        "explanation": "大量のバッチ処理を実行するサービスです。ウェブサイトのインスタンスの台数を需要に合わせて調整するものではありません。",
+        "eliminatedBy": "ウェブサイトを運用"
+      },
+      {
+        "id": "d",
+        "text": "AWS Elastic Beanstalk",
+        "correct": false,
+        "explanation": "ウェブアプリケーションのデプロイとスケーリングをまとめて行うサービスで、内部でオートスケーリングも扱います。ただし、すでに運用しているEC2インスタンスの台数を増減するという要件に直接応えるのは、EC2 Auto Scalingです。",
+        "eliminatedBy": "複数のEC2インスタンスでウェブサイトを運用しています"
+      }
+    ],
+    "keywords": [
+      "自動で追加",
+      "自動で削除"
+    ],
+    "decisionPoint": "台数を増減する＝Auto Scaling。通信を振り分ける＝ロードバランサー。役割を区別します。",
+    "serviceIds": [
+      "amazon-ec2-auto-scaling",
+      "elastic-load-balancing",
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-compute"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ec2-auto-scaling"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-comp-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、複数のアベイラビリティゾーンに配置したEC2インスタンスに、利用者からのトラフィックを自動的に分散させたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Elastic Load Balancing",
+        "correct": true,
+        "explanation": "Elastic Load Balancingは、受信したアプリケーションのトラフィックを、EC2インスタンスなど複数のターゲットに自動的に分散します。複数のアベイラビリティゾーンにまたがって処理できます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon EC2 Auto Scaling",
+        "correct": false,
+        "explanation": "EC2インスタンスの台数を自動で増減するサービスです。トラフィックを振り分ける役割は持ちません。",
+        "eliminatedBy": "トラフィックを自動的に分散"
+      },
+      {
+        "id": "c",
+        "text": "AWS Lambda",
+        "correct": false,
+        "explanation": "サーバーを管理せずにコードを実行するサービスです。EC2インスタンスへのトラフィックの分散とは関係がありません。",
+        "eliminatedBy": "EC2インスタンスに、利用者からのトラフィックを自動的に分散"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EKS",
+        "correct": false,
+        "explanation": "Kubernetesでコンテナを動かすためのサービスです。EC2インスタンスへのトラフィックを分散するサービスではありません。",
+        "eliminatedBy": "トラフィックを自動的に分散"
+      }
+    ],
+    "keywords": [
+      "トラフィックを自動的に分散"
+    ],
+    "decisionPoint": "「分散」「振り分け」はロードバランサーの役割です。",
+    "serviceIds": [
+      "elastic-load-balancing",
+      "amazon-ec2-auto-scaling"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-compute"
+      },
+      {
+        "type": "service",
+        "id": "elastic-load-balancing"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-comp-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 instance type specifications（Amazon EC2 ドキュメント）",
+        "url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-type-specifications.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、非常に大きなデータセットをメモリ上で処理するアプリケーションをAmazon EC2で動かします。最も適切なインスタンスタイプの分類はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "メモリ最適化",
+        "correct": true,
+        "explanation": "メモリ最適化インスタンスは、大きなデータセットをメモリ上で処理するワークロードに、高速な性能を提供するよう設計されています。"
+      },
+      {
+        "id": "b",
+        "text": "コンピューティング最適化",
+        "correct": false,
+        "explanation": "高性能なプロセッサの恩恵を受ける、計算負荷の高いアプリケーション向けです。バッチ処理やメディアの変換などに適しており、メモリ上での大きなデータの処理が中心の用途向けではありません。",
+        "eliminatedBy": "メモリ上で処理"
+      },
+      {
+        "id": "c",
+        "text": "ストレージ最適化",
+        "correct": false,
+        "explanation": "ローカルストレージ上の非常に大きなデータセットへの、高い読み書き性能が必要なワークロード向けです。メモリ上ではなく、ストレージ上のデータの読み書きが中心の用途です。",
+        "eliminatedBy": "メモリ上で処理"
+      },
+      {
+        "id": "d",
+        "text": "汎用",
+        "correct": false,
+        "explanation": "コンピューティング、メモリ、ネットワークのリソースをバランスよく備え、ウェブサーバーなどに適しています。大きなデータをメモリ上で処理するという特定の要件には、メモリ最適化のほうが適しています。",
+        "eliminatedBy": "非常に大きなデータセットをメモリ上で処理"
+      }
+    ],
+    "keywords": [
+      "非常に大きなデータセット",
+      "メモリ上で処理"
+    ],
+    "decisionPoint": "何に負荷がかかるかで選びます。メモリ→メモリ最適化、計算→コンピューティング最適化、ディスクの読み書き→ストレージ最適化。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-compute"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ec2"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-comp-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、アプリケーションをコンテナにまとめてAWSで動かします。コンテナを動かすサーバーやクラスターのプロビジョニング、設定、スケーリングは行いたくありません。最も適切な選択肢はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Fargate",
+        "correct": true,
+        "explanation": "Fargateは、サーバーやクラスターを管理せずにコンテナを実行できる、コンテナ向けのサーバーレスコンピューティングです。仮想マシンのクラスターのプロビジョニング、設定、スケーリングが不要になります。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Lambda",
+        "correct": false,
+        "explanation": "サーバーレスですが、コードを実行するサービスです。この問題では、コンテナにまとめたアプリケーションをサーバー管理なしで動かすことが求められており、コンテナ向けのFargateが適しています。",
+        "eliminatedBy": "コンテナにまとめて"
+      },
+      {
+        "id": "c",
+        "text": "Amazon ECSのEC2起動タイプ",
+        "correct": false,
+        "explanation": "コンテナを動かせますが、サーバー群のプロビジョニング、パッチ適用、スケーリングは利用者の責任になります。「サーバーやクラスターの管理は行いたくない」という条件に合いません。",
+        "eliminatedBy": "プロビジョニング、設定、スケーリングは行いたくありません"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EC2",
+        "correct": false,
+        "explanation": "仮想サーバーのサービスで、サーバーの管理は利用者が行います。条件に合いません。",
+        "eliminatedBy": "プロビジョニング、設定、スケーリングは行いたくありません"
+      }
+    ],
+    "keywords": [
+      "コンテナにまとめて",
+      "サーバーやクラスターのプロビジョニング、設定、スケーリングは行いたくありません"
+    ],
+    "decisionPoint": "サーバーレスのうち、コードならLambda、コンテナならFargateです。「コンテナ」という条件で正解が変わります。",
+    "serviceIds": [
+      "aws-fargate",
+      "aws-lambda",
+      "amazon-ecs",
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-compute"
+      },
+      {
+        "type": "service",
+        "id": "aws-fargate"
+      }
+    ],
+    "variationGroupId": "compute-select"
+  },
+  {
+    "id": "clf-q-comp-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスでKubernetesを使ってコンテナのアプリケーションを運用しています。既存のKubernetesのツールをそのまま使いながら、AWSへ移行したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon EKS",
+        "correct": true,
+        "explanation": "EKSはフルマネージドのKubernetesサービスです。Kubernetesの適合認定を受けているため既存のツールやプラグインを使え、標準的なKubernetes環境で動いているアプリケーションを移行しやすくなっています。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon ECS",
+        "correct": false,
+        "explanation": "コンテナを動かすサービスですが、AWS独自のコンテナオーケストレーションサービスです。既存のKubernetesのツールをそのまま使いたいという要件には、EKSが適しています。",
+        "eliminatedBy": "既存のKubernetesのツールをそのまま使いながら"
+      },
+      {
+        "id": "c",
+        "text": "AWS Lambda",
+        "correct": false,
+        "explanation": "コードを実行するサーバーレスのサービスで、Kubernetesの環境を提供するものではありません。",
+        "eliminatedBy": "Kubernetesを使って"
+      },
+      {
+        "id": "d",
+        "text": "AWS Batch",
+        "correct": false,
+        "explanation": "大量のバッチ処理を実行するためのサービスで、Kubernetesの環境を移行する先ではありません。",
+        "eliminatedBy": "Kubernetesを使って"
+      }
+    ],
+    "keywords": [
+      "Kubernetes",
+      "既存のKubernetesのツールをそのまま使いながら"
+    ],
+    "decisionPoint": "Kubernetesという言葉が出てきたらEKSです。こだわらなければECSという選択肢もあります。",
+    "serviceIds": [
+      "amazon-eks",
+      "amazon-ecs"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-compute"
+      },
+      {
+        "type": "service",
+        "id": "amazon-eks"
+      }
+    ],
+    "variationGroupId": "compute-select"
+  },
+  {
+    "id": "clf-q-comp-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある開発者は、作成したウェブアプリケーションをAWSで公開します。コードをアップロードするだけで、容量のプロビジョニング、負荷分散、オートスケーリング、状態の監視までを自動的に処理してほしいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Elastic Beanstalk",
+        "correct": true,
+        "explanation": "Elastic Beanstalkは、コードをアップロードするだけで、デプロイ、容量のプロビジョニング、負荷分散、オートスケーリング、アプリケーションの状態の監視を自動的に処理します。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon EC2",
+        "correct": false,
+        "explanation": "仮想サーバーを提供しますが、負荷分散やオートスケーリング、監視の設定は利用者が自分で組み合わせる必要があります。「コードをアップロードするだけで」という条件に合いません。",
+        "eliminatedBy": "コードをアップロードするだけで"
+      },
+      {
+        "id": "c",
+        "text": "Elastic Load Balancing",
+        "correct": false,
+        "explanation": "通信を振り分けるサービスで、求められている機能の一部（負荷分散）しか担いません。",
+        "eliminatedBy": "容量のプロビジョニング、負荷分散、オートスケーリング、状態の監視まで"
+      },
+      {
+        "id": "d",
+        "text": "AWS Batch",
+        "correct": false,
+        "explanation": "大量のバッチ処理を実行するサービスで、ウェブアプリケーションを公開するためのものではありません。",
+        "eliminatedBy": "ウェブアプリケーションをAWSで公開"
+      }
+    ],
+    "keywords": [
+      "コードをアップロードするだけで",
+      "負荷分散、オートスケーリング、状態の監視までを自動的に処理"
+    ],
+    "decisionPoint": "ウェブアプリケーションに必要なものを「まとめて自動で」用意するのはElastic Beanstalkです。",
+    "serviceIds": [
+      "aws-elastic-beanstalk",
+      "amazon-ec2",
+      "elastic-load-balancing"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-compute"
+      },
+      {
+        "type": "service",
+        "id": "aws-elastic-beanstalk"
+      }
+    ]
+  }
+]
