@@ -31,7 +31,7 @@ with sync_playwright() as p:
         check(f'文字14px以上 {path or "/"}', len(small) == 0, str(small[:3]))
         page.screenshot(path=f'{OUT}/m-{(path or "home").replace("#/","").replace("/","-").replace("?","-").replace("&","-")}.png', full_page=True)
 
-    page.goto(BASE); page.wait_for_timeout(300)
+    page.goto(BASE); page.get_by_text('0 / 21').first.wait_for(timeout=5000)   # 進捗は保存領域を読んでから表示される
     body = page.inner_text('body')
     for word in ['学習進捗', 'CLF学習', 'SAA学習', 'サービス図鑑', '類似サービス比較', '構成図シミュレーター', '問題演習', '苦手分野・復習', 'AWS非公式']:
         check(f'ホームに「{word}」', word in body)
