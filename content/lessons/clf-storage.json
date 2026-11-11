@@ -1,0 +1,69 @@
+{
+  "id": "clf-storage",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 6,
+  "title": "ストレージサービス",
+  "domainId": "clf-d3",
+  "taskIds": [
+    "clf-3-6"
+  ],
+  "overview": "ストレージとは、データを保存しておく場所のことです。AWSには、保存の方式が異なる複数のストレージサービスがあります。\n方式は大きく3つです。ファイルをまるごと預けるオブジェクトストレージ、サーバーのディスクとして使うブロックストレージ、複数のサーバーで共有するファイルストレージです。\nどの方式が合うかは、「誰が（何台が）、どのように使うか」で決まります。試験でも実務でも、要件に合うサービスを選べることが重要です。",
+  "beginner": {
+    "analogy": "荷物の預け方にたとえられます。S3は「倉庫」で、荷物に名札を付けて預け、必要なときに取り出します。EBSは「自分の机の引き出し」で、自分だけがすぐ開け閉めできます。EFSは「部署の共有キャビネット」で、みんなが同時に使えます。",
+    "description": "写真やバックアップを大量に置くならS3、サーバーのディスクならEBS、何台ものサーバーで同じファイルを使うならEFSです。Windowsの共有フォルダなど、特定の種類のファイルサーバーが必要ならFSxを使います。"
+  },
+  "useCases": [
+    "ウェブサイトの画像やバックアップをS3に保存する",
+    "EC2インスタンスのOSやデータベースのデータをEBSに置く",
+    "複数のウェブサーバーが、EFS上の同じファイルを共有する",
+    "Windowsの業務アプリケーションの共有フォルダを、FSx for Windows File Serverに置く"
+  ],
+  "mechanism": {
+    "text": "Amazon S3はオブジェクトストレージです。99.999999999%（イレブンナイン）の耐久性で設計されています。アクセス頻度に合わせたストレージクラスがあり、よく使うデータにはS3 Standard、あまり使わないデータにはS3 Standard-IAやS3 One Zone-IA、アーカイブにはS3 Glacier系のクラスを使います。アクセスの傾向がわからない場合は、S3 Intelligent-Tieringが自動で最適化します。S3ライフサイクルポリシーを使うと、アプリケーションを変えずに、データをクラス間で自動的に移せます。\nAmazon EBSはブロックストレージです。EC2インスタンスで使う永続的なボリュームで、アベイラビリティゾーン内で自動的に複製されます。確保した分に対して料金がかかります。ブロックストレージには、EBSのほかにインスタンスストアもあります（コンピューティングのレッスンで扱います）。\nAmazon EFSはファイルストレージです。Linuxベースのワークロード向けで、数千のEC2インスタンスから同時に共有できます。容量は自動で増減し、複数のアベイラビリティゾーンにデータを保存します。\nAmazon FSxもファイルサービスで、Windows File Server、Lustre、NetApp ONTAP、OpenZFSの4種類をフルマネージドで提供します。\nこのほか、オンプレミスのアプリケーションからAWSのストレージを使えるようにするAWS Storage Gatewayや、複数のAWSサービスのバックアップを一元管理・自動化するAWS Backupがあります。",
+    "figureId": "storage-types"
+  },
+  "relatedServiceIds": [
+    "amazon-s3",
+    "amazon-ebs",
+    "amazon-efs",
+    "amazon-fsx",
+    "amazon-ec2"
+  ],
+  "examPoints": [
+    "オブジェクト＝S3、ブロック＝EBS（とインスタンスストア）、ファイル＝EFS・FSx。",
+    "S3の耐久性は99.999999999%（イレブンナイン）で設計されている。",
+    "S3のストレージクラスは、アクセス頻度で使い分ける。違いを区別できるようにする。",
+    "ライフサイクルポリシーは、期間に応じてストレージクラス間の移動を自動化する。",
+    "複数のEC2インスタンスで共有＝EFS（Linux向け）。WindowsのSMB共有＝FSx for Windows File Server。",
+    "オンプレミスからAWSのストレージを使うハイブリッド構成＝AWS Storage Gateway。",
+    "複数サービスのバックアップを一元管理・自動化＝AWS Backup。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-storage-01",
+    "clf-q-storage-02"
+  ],
+  "glossaryTermIds": [
+    "object-storage",
+    "block-storage",
+    "file-storage",
+    "availability-zone"
+  ]
+}

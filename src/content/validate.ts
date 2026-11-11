@@ -5,6 +5,7 @@
  * - 参照先（関連サービス、問題など）が存在し、公開済みか
  * - 確認日が古くなっていないか（警告）
  */
+import { figureIds } from '../figures/ids'
 import { contentKinds, emptyBundle, type ContentBundle, type ContentKind } from './schema'
 
 export interface ContentIssue {
@@ -46,7 +47,11 @@ export function daysBetween(fromDate: string, toDate: string): number {
  * @param files パス → JSONの中身（1件のオブジェクト、または配列）
  * @param today YYYY-MM-DD
  */
-export function validateContent(files: Record<string, unknown>, today: string): ValidationResult {
+export function validateContent(
+  files: Record<string, unknown>,
+  today: string,
+  knownFigureIds: readonly string[] = figureIds,
+): ValidationResult {
   const issues: ContentIssue[] = []
   const entries: Entry[] = []
 
@@ -130,6 +135,13 @@ export function validateContent(files: Record<string, unknown>, today: string): 
     }
   }
 
+  const figureRef = (e: Entry, id: string | undefined) => {
+    if (id && !knownFigureIds.includes(id)) {
+      issues.push({ level: 'error', file: e.file, id: e.value.id, message: `図解 ${id} が存在しない` })
+      broken.add(`${e.kind}:${e.value.id}`)
+    }
+  }
+
   /** 試験範囲に基づく教材は、基準にした公式ガイドのバージョンを記録する */
   const guideRef = (e: Entry, exam: string) => {
     if (e.value.status !== 'verified') return
@@ -154,6 +166,7 @@ export function validateContent(files: Record<string, unknown>, today: string): 
         const v = e.value as unknown as ContentBundle['lessons'][number]
         domainRef(e, v.course, v.domainId, v.taskIds)
         guideRef(e, v.course)
+        figureRef(e, v.mechanism.figureId)
         v.relatedServiceIds.forEach((id) => ref(e, 'services', id, '関連サービス'))
         v.quizQuestionIds.forEach((id) => ref(e, 'questions', id, '確認問題'))
         v.glossaryTermIds.forEach((id) => ref(e, 'glossary', id, '用語'))
@@ -170,6 +183,7 @@ export function validateContent(files: Record<string, unknown>, today: string): 
       case 'comparisons': {
         const v = e.value as unknown as ContentBundle['comparisons'][number]
         v.items.forEach((i) => ref(e, 'services', i.serviceId, '比較対象'))
+        v.figureIds.forEach((f) => figureRef(e, f))
         v.trainingQuestionIds.forEach((id) => ref(e, 'questions', id, 'トレーニング問題'))
         break
       }

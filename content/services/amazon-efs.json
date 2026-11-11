@@ -1,0 +1,84 @@
+{
+  "id": "amazon-efs",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon EFS",
+  "aliases": [
+    "EFS",
+    "Elastic File System"
+  ],
+  "category": "storage",
+  "summary": "複数のEC2インスタンスから同時に使える、Linux向けの共有ファイルシステム。",
+  "beginner": {
+    "analogy": "社内の共有フォルダのようなものです。何人（何台）でも同時に開けて、入れた分だけ自動で広がります。",
+    "description": "たくさんのサーバーから同じファイルを読み書きしたいときに使います。容量は自動で増減するので、事前に大きさを決める必要がありません。"
+  },
+  "exam": {
+    "description": "Linuxベースのワークロード向けの、シンプルでスケーラブル、伸縮自在なファイルシステムです。ペタバイト規模までオンデマンドで拡張・縮小し、数千のEC2インスタンスからの並列な共有アクセスを提供します。リージョン単位のサービスで、複数のアベイラビリティゾーンにデータを保存します。",
+    "points": [
+      "複数のEC2インスタンスからの共有ファイルシステム＝EFS。",
+      "Linuxベースのワークロード向け。標準的なファイルシステムのインターフェースで使えるため、既存のアプリケーションを変更せずに済む。",
+      "容量は自動で拡張・縮小する。",
+      "リージョン単位のサービスで、複数のアベイラビリティゾーンにデータを保存する。",
+      "Direct ConnectやSite-to-Site VPN経由で、オンプレミスのサーバーとも共有できる。"
+    ]
+  },
+  "useCases": [
+    "複数のウェブサーバーで同じコンテンツを共有する",
+    "コンテンツ管理システムのファイル置き場",
+    "コンテナの共有ストレージ",
+    "開発・テスト環境の共有ファイル"
+  ],
+  "mechanism": "ファイルシステムを作成し、複数のEC2インスタンスからマウント（接続）します。どのインスタンスからも同じファイルが見え、同時に読み書きできます。",
+  "pros": [
+    "多数のインスタンスから同時に使える",
+    "容量が自動で増減し、事前の容量設計が不要",
+    "複数のアベイラビリティゾーンにデータを保存する"
+  ],
+  "cons": [
+    "Linuxベースのワークロード向けで、Windowsのファイル共有（SMB）が必要な場合はFSx for Windows File Serverを選ぶ",
+    "1台だけで使うディスクなら、EBSのほうが単純"
+  ],
+  "scenes": [
+    "負荷分散された3台のウェブサーバーが、同じ画像フォルダを参照する",
+    "複数のコンテナが同じ設定ファイルやデータを共有する"
+  ],
+  "similarServiceIds": [
+    "amazon-s3",
+    "amazon-ebs",
+    "amazon-fsx"
+  ],
+  "relatedServiceIds": [
+    "amazon-ec2"
+  ],
+  "comparisonGroupIds": [
+    "storage"
+  ],
+  "importance": {
+    "clf": "mid",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/efs/"
+}

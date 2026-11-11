@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
 import { RecordTabs } from '../components/RecordTabs'
 import { Card, CardTitle, EmptyState, PageHeader, Stat } from '../components/ui'
 import { learningConfig } from '../config/learning'
+import { content } from '../content'
 import { useProgressSummary } from '../hooks/useProgressSummary'
 
 export function Review() {
@@ -19,6 +21,14 @@ export function Review() {
             <Stat label="今日が復習日の問題" value={`${s.dueReviews.length}問`} />
             <Stat label="復習予定の合計" value={`${s.scheduledReviews}問`} />
           </div>
+          {s.dueReviews.length > 0 && (
+            <Link
+              to="/practice/run?mode=review"
+              className="mt-3 flex min-h-12 items-center justify-center rounded-xl bg-brand-500 px-4 text-base font-bold text-navy-900"
+            >
+              復習を始める（{s.dueReviews.length}問）
+            </Link>
+          )}
           {s.dueReviews.length === 0 && (
             <div className="mt-3">
               <EmptyState title="今日の復習はありません">
@@ -49,7 +59,18 @@ export function Review() {
               サービスや問題を登録すると、ここからすぐ開けます。
             </EmptyState>
           ) : (
-            <p className="text-base">{s.favorites.length}件</p>
+            <ul className="flex flex-wrap gap-2">
+              {s.favorites.map((f) => {
+                const service = f.type === 'service' ? content.services.find((x) => x.id === f.refId) : undefined
+                return service ? (
+                  <li key={f.id}>
+                    <Link to={`/services/${service.id}`} className="inline-flex min-h-11 items-center rounded-full border border-navy-600 px-3 font-semibold">
+                      ★ {service.name}
+                    </Link>
+                  </li>
+                ) : null
+              })}
+            </ul>
           )}
         </Card>
       </div>

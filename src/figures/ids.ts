@@ -1,0 +1,3 @@
+/** 教材から参照できる図解のID。図を追加したらここにも追加する（検証スクリプトが参照先を確認する） */
+export const figureIds = ['region-az', 'shared-responsibility', 'storage-types'] as const
+export type FigureId = (typeof figureIds)[number]

@@ -1,0 +1,85 @@
+{
+  "id": "amazon-fsx",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon FSx",
+  "aliases": [
+    "FSx",
+    "FSx for Windows File Server",
+    "FSx for Lustre",
+    "FSx for NetApp ONTAP",
+    "FSx for OpenZFS"
+  ],
+  "category": "storage",
+  "summary": "Windows File ServerやLustreなど、広く使われているファイルシステムをフルマネージドで使えるサービス。",
+  "beginner": {
+    "analogy": "使い慣れた種類のファイルサーバーを、設置や保守を任せて借りられるサービスです。「Windowsの共有フォルダがそのまま欲しい」といった要望に応えます。",
+    "description": "すでに社内で使っているファイルサーバーと同じ種類のものを、AWS上で使いたいときに選びます。4種類のファイルシステムから選べます。"
+  },
+  "exam": {
+    "description": "4種類のファイルシステムをフルマネージドで提供します。FSx for Windows File ServerはWindows Server上に構築され、SMBプロトコル、NTFS、Active Directory連携に対応します。FSx for LustreはHPCや機械学習など計算負荷の高いワークロード向けで、S3と連携します。FSx for NetApp ONTAPはNFS・SMB・iSCSIで利用でき、FSx for OpenZFSはOpenZFSベースのファイルストレージです。",
+    "points": [
+      "Windowsのファイル共有（SMB、Active Directory連携）が必要＝FSx for Windows File Server。",
+      "HPC・機械学習など計算負荷の高い処理向けの高速ファイルシステム＝FSx for Lustre。S3と連携できる。",
+      "NetApp ONTAPやOpenZFSを使っている環境を、アプリケーションを変えずに移行する用途にも使う。",
+      "試験ガイドでは、EFSと並んで「ファイルサービス」の例として挙げられている。"
+    ]
+  },
+  "useCases": [
+    "Windowsアプリケーションのファイル共有、ホームディレクトリ",
+    "HPC、機械学習、メディア処理の高速なファイル置き場",
+    "オンプレミスのファイルサーバーの移行"
+  ],
+  "mechanism": "使いたいファイルシステムの種類を選んで作成し、サーバーやクライアントから、その種類に対応したプロトコル（SMB、NFSなど）で接続します。",
+  "pros": [
+    "使い慣れたファイルシステムの機能をそのまま使える",
+    "フルマネージドで、ファイルサーバーの構築や保守が不要",
+    "前払いや最低利用料がなく、使ったリソース分だけ支払う"
+  ],
+  "cons": [
+    "種類ごとに特徴と向いている用途が異なるため、要件に合う種類を選ぶ必要がある",
+    "Linuxで単純に共有したいだけなら、EFSのほうが手軽"
+  ],
+  "scenes": [
+    "Windowsの業務アプリケーションが使う共有フォルダをAWSに移す",
+    "機械学習の学習データを高速に読み込むためにFSx for Lustreを使う"
+  ],
+  "similarServiceIds": [
+    "amazon-s3",
+    "amazon-ebs",
+    "amazon-efs"
+  ],
+  "relatedServiceIds": [
+    "amazon-ec2"
+  ],
+  "comparisonGroupIds": [
+    "storage"
+  ],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/fsx/"
+}

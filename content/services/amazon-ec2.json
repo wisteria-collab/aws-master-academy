@@ -1,0 +1,87 @@
+{
+  "id": "amazon-ec2",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Shared Responsibility Model（AWS公式）",
+      "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon EC2",
+  "aliases": [
+    "EC2",
+    "Elastic Compute Cloud",
+    "イーシーツー"
+  ],
+  "category": "compute",
+  "summary": "必要なときに数分で用意できる、サイズ変更可能な仮想サーバー。",
+  "beginner": {
+    "analogy": "インターネット上に、自分専用のコンピューターを用意するようなものです。必要なときに借りて、不要になったら返せます。",
+    "description": "OSやソフトウェアを自分で選んで入れられるサーバーです。台数や性能を、必要に応じて増やしたり減らしたりできます。"
+  },
+  "exam": {
+    "description": "クラウド上で、安全でサイズ変更可能なコンピューティング能力を提供するウェブサービスです。新しいサーバーインスタンスの取得と起動にかかる時間を数分に短縮し、要件の変化に合わせて容量を増減できます。実際に使用した分だけ料金を支払います。",
+    "points": [
+      "仮想サーバー＝EC2。コンピューティングリソースを完全に制御できる。",
+      "責任共有モデルでは、ゲストOS（更新とセキュリティパッチを含む）、インストールしたソフトウェア、セキュリティグループの設定は利用者の責任。",
+      "購入オプションには、オンデマンドインスタンス、スポットインスタンス、リザーブドインスタンス、Savings Plans、Dedicated Hostsがある（詳細はコンピューティングのレッスンで扱います）。",
+      "ディスクとしてEBSボリュームを接続して使う。"
+    ]
+  },
+  "useCases": [
+    "ウェブサーバー、アプリケーションサーバー",
+    "OSやミドルウェアを細かく設定したいシステム",
+    "短期間だけ必要な検証環境"
+  ],
+  "mechanism": "「インスタンス」と呼ばれる仮想サーバーを起動します。インスタンスにはEBSボリュームなどのストレージを接続し、利用者がOSやアプリケーションを管理します。",
+  "pros": [
+    "数分でサーバーを用意でき、不要になれば止められる",
+    "OSやソフトウェアを自由に選べる",
+    "使った分だけの支払い"
+  ],
+  "cons": [
+    "OSの更新やセキュリティパッチの適用は利用者の責任",
+    "サーバーの管理が不要なサービス（AWS Lambdaなど）に比べて運用の手間がかかる"
+  ],
+  "scenes": [
+    "キャンペーン期間だけウェブサーバーの台数を増やす",
+    "既存の業務アプリケーションを、OSごとAWSに移す"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "amazon-ebs",
+    "amazon-efs",
+    "amazon-s3"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    },
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/ec2/"
+}

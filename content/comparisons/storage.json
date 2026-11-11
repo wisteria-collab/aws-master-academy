@@ -1,0 +1,159 @@
+{
+  "id": "storage",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Attach an EBS volume to multiple EC2 instances using Multi-Attach（Amazon EBS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "title": "ストレージ：S3・EBS・EFS・FSx",
+  "category": "storage",
+  "summary": "4つとも「データを保存する」サービスですが、保存の方式と使い方が違います。「何台から、どのように使うか」で選びます。",
+  "items": [
+    {
+      "key": "s3",
+      "label": "Amazon S3",
+      "serviceId": "amazon-s3",
+      "oneLine": "名札を付けて預ける倉庫（オブジェクトストレージ）",
+      "values": {
+        "role": "ファイルをオブジェクトとして保存する",
+        "mechanism": "バケットにオブジェクトを保存し、エンドポイントを通じて出し入れする",
+        "data": "オブジェクト単位（ファイルまるごと）",
+        "useCases": "ウェブサイトの画像、バックアップと復元、アーカイブ、ビッグデータ分析",
+        "availability": "99.999999999%の耐久性で設計されている",
+        "performance": "用途に応じたストレージクラスを選ぶ。最も頻繁にアクセスするデータ向けのクラスもある",
+        "scalability": "容量を事前に決めずに使える",
+        "cost": "アクセス頻度に合うストレージクラスを選ぶと抑えられる。ライフサイクルポリシーで自動化できる",
+        "operations": "サーバーやディスクの管理は不要。権限と暗号化の選択は利用者が行う",
+        "limits": "サーバーのディスクとして接続して使うものではない",
+        "chooseWhen": "大量のファイルを保存する、サーバーへの接続が不要、保存量が予測できない",
+        "avoidWhen": "OSの起動ディスクやデータベースのディスクが必要なとき"
+      }
+    },
+    {
+      "key": "ebs",
+      "label": "Amazon EBS",
+      "serviceId": "amazon-ebs",
+      "oneLine": "サーバーに取り付けるディスク（ブロックストレージ）",
+      "values": {
+        "role": "EC2インスタンス用の永続的なディスクを提供する",
+        "mechanism": "ボリュームを作成し、同じアベイラビリティゾーンのEC2インスタンスに接続する",
+        "data": "ブロック単位（ディスクとして見える）",
+        "useCases": "OSのディスク、データベースのデータ、低レイテンシーが必要なアプリケーション",
+        "availability": "アベイラビリティゾーン内で自動的に複製される",
+        "performance": "一貫した低レイテンシー",
+        "scalability": "数分で容量や性能を変更できる",
+        "cost": "確保（プロビジョニング）した分に料金がかかる",
+        "operations": "容量の確保や、ファイルシステムの作成は利用者が行う",
+        "limits": "ボリュームは1つのアベイラビリティゾーンに属する。基本的に1台のインスタンスに接続する（マルチアタッチはio1・io2ボリューム、同一AZ内に限る）",
+        "chooseWhen": "1台のEC2インスタンスに接続するディスクが必要なとき",
+        "avoidWhen": "複数のサーバーでファイルを共有したいとき"
+      }
+    },
+    {
+      "key": "efs",
+      "label": "Amazon EFS",
+      "serviceId": "amazon-efs",
+      "oneLine": "みんなで使う共有キャビネット（Linux向けファイルストレージ）",
+      "values": {
+        "role": "複数のEC2インスタンスで共有できるファイルシステムを提供する",
+        "mechanism": "ファイルシステムを作成し、複数のインスタンスからマウントする",
+        "data": "ファイルとフォルダの階層",
+        "useCases": "ウェブサーバー間のコンテンツ共有、コンテンツ管理、コンテナの共有ストレージ",
+        "availability": "リージョン単位のサービスで、複数のアベイラビリティゾーンにデータを保存する",
+        "performance": "数千のインスタンスからの並列アクセスに対応し、一貫した低レイテンシー",
+        "scalability": "ペタバイト規模まで自動で拡張・縮小する",
+        "cost": "容量が自動で増減するため、事前に大きく確保する必要がない。アクセスの少ないデータ向けの低コストなクラスもある",
+        "operations": "容量の管理が不要",
+        "limits": "Linuxベースのワークロード向け",
+        "chooseWhen": "複数のLinuxサーバーから同じファイルを同時に読み書きするとき",
+        "avoidWhen": "WindowsのSMB共有が必要なとき、1台だけで使うディスクが必要なとき"
+      }
+    },
+    {
+      "key": "fsx",
+      "label": "Amazon FSx",
+      "serviceId": "amazon-fsx",
+      "oneLine": "種類を選べるフルマネージドのファイルサーバー",
+      "values": {
+        "role": "Windows File Server、Lustre、NetApp ONTAP、OpenZFSのファイルシステムを提供する",
+        "mechanism": "ファイルシステムの種類を選んで作成し、対応するプロトコル（SMB、NFSなど）で接続する",
+        "data": "ファイルとフォルダの階層",
+        "useCases": "Windowsのファイル共有、HPCや機械学習の高速ファイル処理、オンプレミスのファイルサーバーの移行",
+        "availability": "種類によって異なる（例：FSx for Lustreは処理用の非複製ストレージで、長期保存のデータはS3に置く）",
+        "performance": "種類によって異なる。FSx for Lustreは計算負荷の高い処理向けの高い性能を持つ",
+        "scalability": "種類によって異なる",
+        "cost": "使ったリソース分だけ支払う。前払いや最低利用料はない",
+        "operations": "フルマネージドで、ファイルサーバーの構築や保守が不要",
+        "limits": "種類ごとに特徴が異なるため、要件に合う種類を選ぶ必要がある",
+        "chooseWhen": "SMBやActive Directory連携など、特定のファイルシステムの機能が必要なとき",
+        "avoidWhen": "Linuxで単純に共有したいだけのとき（EFSのほうが手軽）"
+      }
+    }
+  ],
+  "figureIds": [
+    "storage-types"
+  ],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "複数のサーバーから同時に、同じファイルを共有して使いますか？",
+      "yes": "n2",
+      "no": "n3"
+    },
+    {
+      "id": "n2",
+      "question": "WindowsのSMB共有や、Lustre・NetApp ONTAP・OpenZFSなど、特定のファイルシステムの機能が必要ですか？",
+      "yes": "r-fsx",
+      "no": "r-efs"
+    },
+    {
+      "id": "n3",
+      "question": "EC2インスタンスに接続するディスク（OSやデータベース用）として使いますか？",
+      "yes": "r-ebs",
+      "no": "r-s3"
+    },
+    {
+      "id": "r-fsx",
+      "resultItemKey": "fsx",
+      "note": "必要な機能に合わせて、4種類のファイルシステムから選びます。"
+    },
+    {
+      "id": "r-efs",
+      "resultItemKey": "efs",
+      "note": "Linuxのサーバーで共有するなら、容量管理のいらないEFSが手軽です。"
+    },
+    {
+      "id": "r-ebs",
+      "resultItemKey": "ebs",
+      "note": "インスタンスと同じアベイラビリティゾーンにボリュームを作ります。"
+    },
+    {
+      "id": "r-s3",
+      "resultItemKey": "s3",
+      "note": "ファイルを保存して取り出すだけなら、容量を気にせず使えるS3が適しています。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "clf-q-stg-train-01",
+    "clf-q-stg-train-02",
+    "clf-q-stg-train-03",
+    "clf-q-stg-train-04"
+  ]
+}

@@ -4,12 +4,20 @@ import { Layout } from './components/Layout'
 import { Notice } from './components/ui'
 import { StorageHealthProvider } from './hooks/useStorageHealth'
 import { ComingSoon } from './pages/ComingSoon'
+import { Compare } from './pages/Compare'
+import { CompareDetail } from './pages/CompareDetail'
 import { ExamOverview } from './pages/ExamOverview'
 import { Home } from './pages/Home'
 import { LearnHub } from './pages/LearnHub'
+import { Lesson } from './pages/Lesson'
+import { Practice } from './pages/Practice'
+import { PracticeRun } from './pages/PracticeRun'
 import { Progress } from './pages/Progress'
 import { Review } from './pages/Review'
+import { ServiceDetail } from './pages/ServiceDetail'
+import { Services } from './pages/Services'
 import { Settings } from './pages/Settings'
+import { Training } from './pages/Training'
 import { useSettings } from './storage/settings'
 
 function ScrollToTop() {
@@ -46,10 +54,15 @@ export default function App() {
             <Route index element={<Home />} />
             <Route path="learn" element={<LearnHub />} />
             <Route path="learn/:exam" element={<ExamOverview />} />
-            <Route path="services/*" element={<ComingSoon kind="services" />} />
-            <Route path="compare/*" element={<ComingSoon kind="compare" />} />
+            <Route path="learn/:exam/:lessonId" element={<Lesson />} />
+            <Route path="services" element={<Services />} />
+            <Route path="services/:serviceId" element={<ServiceDetail />} />
+            <Route path="compare" element={<Compare />} />
+            <Route path="compare/:groupId" element={<CompareDetail />} />
+            <Route path="compare/:groupId/training" element={<Training />} />
             <Route path="designer/*" element={<ComingSoon kind="designer" />} />
-            <Route path="practice/*" element={<ComingSoon kind="practice" />} />
+            <Route path="practice" element={<Practice />} />
+            <Route path="practice/run" element={<PracticeRun />} />
             <Route path="exam/*" element={<ComingSoon kind="practice" />} />
             <Route path="progress" element={<Progress />} />
             <Route path="review" element={<Review />} />

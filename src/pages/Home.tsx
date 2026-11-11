@@ -3,7 +3,7 @@ import { BookIcon, CompareIcon, DiagramIcon, PencilIcon, RefreshIcon, SearchIcon
 import { Badge, Button, Card, CardTitle, LinkRow, Notice, ProgressBar, Stat } from '../components/ui'
 import { features, type FeatureKey } from '../config/app'
 import { learningConfig } from '../config/learning'
-import { getExamSpec } from '../content'
+import { content, getExamSpec } from '../content'
 import { useProgressSummary, type CourseProgress } from '../hooks/useProgressSummary'
 import { useStorageHealth } from '../hooks/useStorageHealth'
 import { addDays, formatDuration } from '../logic/dates'
@@ -12,7 +12,8 @@ import { useSettings } from '../storage/settings'
 
 function StatusBadge({ feature }: { feature: FeatureKey }) {
   const f = features[feature]
-  return f.ready ? null : <Badge>準備中・Phase {f.phase}</Badge>
+  if (!f.ready) return <Badge>準備中・Phase {f.phase}</Badge>
+  return f.partial ? <Badge tone="good">一部公開中</Badge> : null
 }
 
 function CourseCard({ p }: { p: CourseProgress }) {
@@ -130,11 +131,9 @@ export function Home() {
             <span className="flex flex-wrap items-center gap-2">
               <span className="text-lg font-bold">類似サービス比較</span>
               <Badge tone="brand">最重要</Badge>
-              {!features.compare.ready && (
-                <span className="rounded-full border border-navy-600 px-2.5 py-0.5 text-sm">
-                  準備中・Phase {features.compare.phase}
-                </span>
-              )}
+              <span className="rounded-full border border-navy-600 px-2.5 py-0.5 text-sm">
+                {content.comparisons.length}グループ公開中
+              </span>
             </span>
             <span className="mt-0.5 block text-sm leading-relaxed text-navy-100">
               S3・EBS・EFS のような似たサービスを比べ、要件から選ぶ練習をします。
@@ -174,7 +173,7 @@ export function Home() {
           <LinkRow
             to="/practice"
             title="問題演習"
-            note="分野別演習と模擬試験"
+            note="分野別・サービス別・ランダム演習"
             icon={<PencilIcon />}
             aside={<StatusBadge feature="practice" />}
           />

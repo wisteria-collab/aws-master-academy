@@ -1,0 +1,88 @@
+{
+  "id": "amazon-ebs",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Attach an EBS volume to multiple EC2 instances using Multi-Attach（Amazon EBS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon EBS",
+  "aliases": [
+    "EBS",
+    "Elastic Block Store"
+  ],
+  "category": "storage",
+  "summary": "EC2インスタンスに接続して使う、永続的なブロックストレージ（仮想ディスク）。",
+  "beginner": {
+    "analogy": "パソコンに取り付けるハードディスクやSSDのようなものです。EC2という「パソコン本体」に、EBSという「ディスク」をつないで使います。",
+    "description": "EC2インスタンスのOSを入れたり、データベースのデータを置いたりするディスクです。データを永続的に保存できます。"
+  },
+  "exam": {
+    "description": "EC2インスタンスで使う永続的なブロックストレージボリュームです。各ボリュームはアベイラビリティゾーン内で自動的に複製され、高い可用性と耐久性を提供します。一貫した低レイテンシーの性能を持ち、プロビジョニング（確保）した分に対して料金を支払います。",
+    "points": [
+      "ブロックストレージ＝EBS。EC2インスタンスに接続して使う。",
+      "ボリュームはアベイラビリティゾーン内で自動的に複製される。",
+      "料金はプロビジョニング（確保）した容量に対して発生する。",
+      "複数のインスタンスでファイルを共有する用途には、EFSやFSxなどのファイルサービスを選ぶ。",
+      "マルチアタッチは、プロビジョンドIOPS SSD（io1・io2）ボリュームを同じアベイラビリティゾーン内の複数インスタンスに接続する機能。標準的なファイルシステムは複数サーバーからの同時アクセスを想定していない。"
+    ]
+  },
+  "useCases": [
+    "EC2インスタンスのOS用ディスク",
+    "データベースのデータ用ディスク",
+    "低レイテンシーが必要なアプリケーションのデータ置き場"
+  ],
+  "mechanism": "ボリューム（仮想ディスク）を作成し、同じアベイラビリティゾーンにあるEC2インスタンスに接続します。インスタンスからは、普通のディスクと同じように見えます。",
+  "pros": [
+    "データを永続的に保存できる",
+    "一貫した低レイテンシーの性能",
+    "数分で容量や性能を変更できる"
+  ],
+  "cons": [
+    "ボリュームは1つのアベイラビリティゾーンに属する",
+    "基本的に1台のインスタンスに接続して使う（マルチアタッチは一部のボリュームタイプ・同一AZ内に限られる）",
+    "使っていなくても、確保した容量に料金がかかる"
+  ],
+  "scenes": [
+    "EC2上でデータベースを動かし、そのデータをEBSボリュームに保存する",
+    "ウェブサーバー1台のOSとアプリケーションをEBSに置く"
+  ],
+  "similarServiceIds": [
+    "amazon-s3",
+    "amazon-efs",
+    "amazon-fsx"
+  ],
+  "relatedServiceIds": [
+    "amazon-ec2"
+  ],
+  "comparisonGroupIds": [
+    "storage"
+  ],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/ebs/"
+}

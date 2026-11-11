@@ -1,0 +1,1061 @@
+[
+  {
+    "id": "clf-q-cloud-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Six advantages of cloud computing（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-4",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、新しいサービスを始めるにあたり、サーバーを自社で購入する代わりにAWSを利用することにしました。最初に大きな設備投資をせず、使った分だけ支払うことができます。これは、クラウドのどの利点を表していますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "固定費を変動費に変えられる",
+        "correct": true,
+        "explanation": "データセンターやサーバーに先に投資する代わりに、使ったコンピューティングリソースの分だけ支払えることを指す利点です。問題文の「最初に大きな設備投資をせず、使った分だけ支払う」がそのまま当てはまります。"
+      },
+      {
+        "id": "b",
+        "text": "数分で世界中に展開できる",
+        "correct": false,
+        "explanation": "世界中の複数のリージョンにアプリケーションを展開できる利点です。問題文は展開する場所ではなく、費用の支払い方について述べています。",
+        "eliminatedBy": "最初に大きな設備投資をせず、使った分だけ支払う"
+      },
+      {
+        "id": "c",
+        "text": "キャパシティの推測が不要になる",
+        "correct": false,
+        "explanation": "必要な容量を事前に見積もらなくても、数分で増減できる利点です。問題文には、容量の見積もりや増減についての記述がありません。",
+        "eliminatedBy": "最初に大きな設備投資をせず、使った分だけ支払う"
+      },
+      {
+        "id": "d",
+        "text": "データセンターの運用と保守への投資が不要になる",
+        "correct": false,
+        "explanation": "サーバーの設置や電源管理などの作業から解放され、自社の顧客に集中できる利点です。近い内容ですが、問題文が述べているのは運用作業ではなく、設備投資を使った分の支払いに置き換える点です。",
+        "eliminatedBy": "使った分だけ支払う"
+      }
+    ],
+    "keywords": [
+      "最初に大きな設備投資をせず",
+      "使った分だけ支払う"
+    ],
+    "decisionPoint": "「先に投資する費用（固定費）」を「使った分の費用（変動費）」に置き換える話かどうかを見ます。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-cloud-basics"
+      }
+    ],
+    "practicalNote": "実務では、新規事業のように利用量が読めない場面で、初期投資を抑えて始められる点が評価されます。"
+  },
+  {
+    "id": "clf-q-cloud-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Six advantages of cloud computing（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-1",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "あるオンラインショップは、セールの期間だけアクセスが大幅に増えます。セール中はサーバーを増やし、終わったら減らしたいと考えています。この要件に最も関係するクラウドの特性はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "弾力性",
+        "correct": true,
+        "explanation": "需要に合わせてリソースを増やし、不要になったら減らせる性質です。クラウドでは数分で容量を増減できるため、「セール中は増やし、終わったら減らす」という要件に合います。"
+      },
+      {
+        "id": "b",
+        "text": "データ主権",
+        "correct": false,
+        "explanation": "データを特定の国や地域の中に保管するという考え方で、複数のリージョンを使い分ける理由の1つです。アクセスの増減への対応とは関係がありません。",
+        "eliminatedBy": "セール中はサーバーを増やし、終わったら減らしたい"
+      },
+      {
+        "id": "c",
+        "text": "規模の経済",
+        "correct": false,
+        "explanation": "多数の顧客の利用が集約されることで、AWSが低い従量課金の価格を提供できるという利点です。価格に関する特性であり、リソースの増減の話ではありません。",
+        "eliminatedBy": "セール中はサーバーを増やし、終わったら減らしたい"
+      },
+      {
+        "id": "d",
+        "text": "責任共有",
+        "correct": false,
+        "explanation": "セキュリティとコンプライアンスの責任を、AWSと利用者で分担するという考え方です。リソースの増減とは別の話題です。",
+        "eliminatedBy": "セール中はサーバーを増やし、終わったら減らしたい"
+      }
+    ],
+    "keywords": [
+      "セール中はサーバーを増やし、終わったら減らしたい"
+    ],
+    "decisionPoint": "「増やす」だけでなく「減らす」も含まれていれば、弾力性を問う問題です。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-cloud-basics"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-region-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Regions and Availability Zones（AWS公式）",
+        "url": "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/"
+      },
+      {
+        "title": "Global infrastructure（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/global-infrastructure.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、東京リージョンでウェブアプリケーションを運用しています。1つのデータセンターで障害が起きても、サービスを継続できるようにしたいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "同じリージョン内の複数のアベイラビリティゾーンにサーバーを配置する",
+        "correct": true,
+        "explanation": "アベイラビリティゾーンは、電源・ネットワークが独立し、互いに物理的に離れた1つ以上のデータセンターで構成されます。複数のアベイラビリティゾーンに配置すれば、1つのデータセンターの障害がサービス全体の停止につながりにくくなります。"
+      },
+      {
+        "id": "b",
+        "text": "1つのアベイラビリティゾーン内で、サーバーの台数を増やす",
+        "correct": false,
+        "explanation": "台数を増やしても、すべてが同じアベイラビリティゾーンにあると、そのゾーンの障害で全台が影響を受ける可能性があります。",
+        "eliminatedBy": "1つのデータセンターで障害が起きても"
+      },
+      {
+        "id": "c",
+        "text": "サーバーをより高性能なものに変更する",
+        "correct": false,
+        "explanation": "性能を上げても、障害が起きたときの継続性は高まりません。可用性は、配置場所を分散することで高めます。",
+        "eliminatedBy": "障害が起きても、サービスを継続"
+      },
+      {
+        "id": "d",
+        "text": "サーバーのバックアップを、同じサーバーのディスクに保存する",
+        "correct": false,
+        "explanation": "同じサーバーにバックアップを置いても、そのサーバーがあるデータセンターで障害が起きれば、サーバーもバックアップも使えなくなります。サービスの継続にはつながりません。",
+        "eliminatedBy": "1つのデータセンターで障害が起きても"
+      }
+    ],
+    "keywords": [
+      "1つのデータセンターで障害が起きても",
+      "継続"
+    ],
+    "decisionPoint": "「データセンターの障害に耐える」は、複数のアベイラビリティゾーンへの配置で実現します。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-regions-azs"
+      }
+    ],
+    "practicalNote": "実務でも、本番環境は複数のアベイラビリティゾーンにまたがって構成するのが基本です。"
+  },
+  {
+    "id": "clf-q-region-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Regions and Availability Zones（AWS公式）",
+        "url": "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/"
+      },
+      {
+        "title": "Global infrastructure（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/global-infrastructure.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "AWSのリージョンとアベイラビリティゾーンの関係について、正しい説明はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "1つのリージョンは、互いに分離され物理的に離れた複数のアベイラビリティゾーンで構成される",
+        "correct": true,
+        "explanation": "AWSのリージョンは、地理的な区域の中にある、分離され物理的に離れた複数のアベイラビリティゾーンで構成されます。"
+      },
+      {
+        "id": "b",
+        "text": "1つのアベイラビリティゾーンは、複数のリージョンで構成される",
+        "correct": false,
+        "explanation": "関係が逆です。リージョンの中にアベイラビリティゾーンがあります。",
+        "eliminatedBy": "リージョンとアベイラビリティゾーンの関係"
+      },
+      {
+        "id": "c",
+        "text": "アベイラビリティゾーンは、必ず1つのデータセンターだけで構成される",
+        "correct": false,
+        "explanation": "アベイラビリティゾーンは「1つ以上の」データセンターで構成されます。1つとは限りません。",
+        "eliminatedBy": "正しい説明"
+      },
+      {
+        "id": "d",
+        "text": "同じリージョン内のアベイラビリティゾーンは、電源とネットワークを共有している",
+        "correct": false,
+        "explanation": "アベイラビリティゾーンは、それぞれ独立した電源・冷却・物理セキュリティを持ちます。共有していないからこそ、障害が広がりにくくなります。",
+        "eliminatedBy": "正しい説明"
+      }
+    ],
+    "keywords": [
+      "リージョンとアベイラビリティゾーンの関係"
+    ],
+    "decisionPoint": "「リージョン ⊃ アベイラビリティゾーン ⊃ データセンター」という入れ子の関係を覚えます。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-regions-azs"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-region-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      },
+      {
+        "title": "Regions and Availability Zones（AWS公式）",
+        "url": "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、日本の利用者向けのシステムを東京リージョンで運用しています。大規模な災害で東京リージョン全体が使えなくなった場合でも、事業を継続できるようにしたいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "別のリージョンにもシステムを用意する",
+        "correct": true,
+        "explanation": "リージョン全体が使えなくなる事態に備えるには、地理的に離れた別のリージョンを使います。試験ガイドでも、複数のリージョンを使う場面として災害対策と事業継続が挙げられています。"
+      },
+      {
+        "id": "b",
+        "text": "東京リージョン内のアベイラビリティゾーンを1つ増やす",
+        "correct": false,
+        "explanation": "アベイラビリティゾーンを増やすと、データセンター単位の障害には強くなります。しかし、リージョン全体が使えなくなる事態には対応できません。",
+        "eliminatedBy": "東京リージョン全体が使えなくなった場合"
+      },
+      {
+        "id": "c",
+        "text": "サーバーのディスク容量を増やす",
+        "correct": false,
+        "explanation": "ディスク容量は、障害や災害時の継続性とは関係がありません。",
+        "eliminatedBy": "事業を継続"
+      },
+      {
+        "id": "d",
+        "text": "サーバーの台数を2倍にする",
+        "correct": false,
+        "explanation": "同じリージョン内で台数を増やしても、リージョン全体の障害では全台が影響を受けます。",
+        "eliminatedBy": "東京リージョン全体が使えなくなった場合"
+      }
+    ],
+    "keywords": [
+      "東京リージョン全体が使えなくなった場合",
+      "事業を継続"
+    ],
+    "decisionPoint": "障害の範囲を読み取ります。データセンター単位なら複数AZ、リージョン単位なら複数リージョンです。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-regions-azs"
+      }
+    ],
+    "variationGroupId": "region-scope"
+  },
+  {
+    "id": "clf-q-shared-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Shared Responsibility Model（AWS公式）",
+        "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-1",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業がAmazon EC2インスタンスを使ってウェブサーバーを運用しています。責任共有モデルにおいて、このインスタンスのゲストOSにセキュリティパッチを適用する責任は誰にありますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "利用者（お客様）",
+        "correct": true,
+        "explanation": "EC2はIaaSに分類され、ゲストOSの管理（更新とセキュリティパッチを含む）は利用者の責任です。インストールしたアプリケーションや、セキュリティグループの設定も利用者が行います。"
+      },
+      {
+        "id": "b",
+        "text": "AWS",
+        "correct": false,
+        "explanation": "AWSが責任を持つのは、クラウドを動かす基盤（ハードウェア、ソフトウェア、ネットワーク、施設）です。EC2インスタンスの中で動くゲストOSは、AWSの責任範囲ではありません。",
+        "eliminatedBy": "Amazon EC2インスタンス"
+      },
+      {
+        "id": "c",
+        "text": "AWSと利用者が同じ作業を共同で行う",
+        "correct": false,
+        "explanation": "パッチ管理は「共有される統制」ですが、同じ対象を共同で作業するわけではありません。AWSは基盤にパッチを当て、利用者はゲストOSとアプリケーションにパッチを当てます。ゲストOSは利用者の担当です。",
+        "eliminatedBy": "ゲストOS"
+      },
+      {
+        "id": "d",
+        "text": "インスタンスを設置しているデータセンターの管理会社",
+        "correct": false,
+        "explanation": "責任共有モデルは、AWSと利用者の間の責任分担を定めたものです。第三者の管理会社という区分はありません。",
+        "eliminatedBy": "責任共有モデル"
+      }
+    ],
+    "keywords": [
+      "Amazon EC2インスタンス",
+      "ゲストOS"
+    ],
+    "decisionPoint": "EC2では、ゲストOSから上は利用者の責任です。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-shared-responsibility"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ec2"
+      }
+    ],
+    "practicalNote": "実務では、OSのパッチ適用を忘れると脆弱性が残ります。自動化の仕組みを用意するのが一般的です。"
+  },
+  {
+    "id": "clf-q-shared-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Shared Responsibility Model（AWS公式）",
+        "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-1",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "責任共有モデルにおいて、AWSが責任を負うものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "データセンターの物理的なセキュリティ",
+        "correct": true,
+        "explanation": "AWSは、クラウドを動かす基盤（ハードウェア、ソフトウェア、ネットワーク、施設）を保護する責任を負います。物理的・環境的な統制は、利用者がAWSからそのまま継承する統制です。"
+      },
+      {
+        "id": "b",
+        "text": "EC2インスタンスのセキュリティグループの設定",
+        "correct": false,
+        "explanation": "セキュリティグループ（AWSが提供するファイアウォール）の設定は、利用者の責任です。",
+        "eliminatedBy": "AWSが責任を負うもの"
+      },
+      {
+        "id": "c",
+        "text": "S3に保存するデータの暗号化の選択",
+        "correct": false,
+        "explanation": "データの管理（暗号化のオプションの選択を含む）は、利用者の責任です。",
+        "eliminatedBy": "AWSが責任を負うもの"
+      },
+      {
+        "id": "d",
+        "text": "IAMを使ったアクセス権限の設定",
+        "correct": false,
+        "explanation": "IAMで適切な権限を設定することは、利用者の責任です。",
+        "eliminatedBy": "AWSが責任を負うもの"
+      }
+    ],
+    "keywords": [
+      "AWSが責任を負うもの"
+    ],
+    "decisionPoint": "AWSは「クラウドのセキュリティ」（基盤）、利用者は「クラウド内のセキュリティ」（データ・設定）と覚えます。",
+    "serviceIds": [
+      "amazon-ec2",
+      "amazon-s3"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-shared-responsibility"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-shared-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Shared Responsibility Model（AWS公式）",
+        "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-1",
+    "format": "basic",
+    "select": "multiple",
+    "difficulty": "standard",
+    "stem": "ある企業がAmazon S3にデータを保存しています。責任共有モデルにおいて、利用者の責任となるものを2つ選んでください。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "保存するデータの暗号化オプションを選択する",
+        "correct": true,
+        "explanation": "S3のような抽象化されたサービスでも、データの管理（暗号化のオプションを含む）は利用者の責任です。"
+      },
+      {
+        "id": "b",
+        "text": "IAMを使って適切なアクセス権限を設定する",
+        "correct": true,
+        "explanation": "IAMのツールを使って適切な権限を適用することは、利用者の責任です。"
+      },
+      {
+        "id": "c",
+        "text": "S3を動かしているサーバーのOSにパッチを適用する",
+        "correct": false,
+        "explanation": "S3のような抽象化されたサービスでは、基盤の層、OS、プラットフォームをAWSが運用します。利用者がOSにパッチを当てることはありません。",
+        "eliminatedBy": "Amazon S3"
+      },
+      {
+        "id": "d",
+        "text": "S3のデータが置かれているデータセンターの入退室を管理する",
+        "correct": false,
+        "explanation": "施設の物理的なセキュリティは、AWSの責任です。",
+        "eliminatedBy": "利用者の責任"
+      },
+      {
+        "id": "e",
+        "text": "S3を構成するハードウェアの故障した部品を交換する",
+        "correct": false,
+        "explanation": "ハードウェアの保守は、AWSの責任です。",
+        "eliminatedBy": "利用者の責任"
+      }
+    ],
+    "keywords": [
+      "Amazon S3",
+      "利用者の責任"
+    ],
+    "decisionPoint": "サービスが変わると利用者の責任範囲も変わります。S3ではOSはAWS側、データと権限は利用者側です。",
+    "serviceIds": [
+      "amazon-s3"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-shared-responsibility"
+      },
+      {
+        "type": "service",
+        "id": "amazon-s3"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-storage-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-6",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、ウェブサイトで使う大量の画像ファイルとバックアップデータを保存したいと考えています。容量を事前に決めずに使える、オブジェクトストレージのサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon S3",
+        "correct": true,
+        "explanation": "S3はオブジェクトストレージのサービスです。ウェブサイト、バックアップと復元、アーカイブなどの用途で使われます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon EBS",
+        "correct": false,
+        "explanation": "EBSは、EC2インスタンスに接続して使うブロックストレージ（仮想ディスク）です。オブジェクトストレージではありません。",
+        "eliminatedBy": "オブジェクトストレージ"
+      },
+      {
+        "id": "c",
+        "text": "Amazon EFS",
+        "correct": false,
+        "explanation": "EFSは、複数のEC2インスタンスから共有するファイルストレージです。オブジェクトストレージではありません。",
+        "eliminatedBy": "オブジェクトストレージ"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EC2",
+        "correct": false,
+        "explanation": "EC2は仮想サーバーのサービスで、ストレージのサービスではありません。",
+        "eliminatedBy": "オブジェクトストレージ"
+      }
+    ],
+    "keywords": [
+      "オブジェクトストレージ"
+    ],
+    "decisionPoint": "オブジェクト＝S3、ブロック＝EBS、ファイル＝EFS・FSx の対応を覚えます。",
+    "serviceIds": [
+      "amazon-s3",
+      "amazon-ebs",
+      "amazon-efs"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-storage"
+      },
+      {
+        "type": "comparison",
+        "id": "storage"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-storage-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-6",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Amazon S3に保存したログファイルを、保存から一定期間が過ぎたら、より低コストなアーカイブ用のストレージクラスへ自動的に移したいと考えています。アプリケーションは変更したくありません。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "S3ライフサイクルポリシーを設定する",
+        "correct": true,
+        "explanation": "S3ライフサイクルポリシーを使うと、アプリケーションを変更せずに、データをストレージクラス間で自動的に移動できます。"
+      },
+      {
+        "id": "b",
+        "text": "ログファイルをAmazon EBSボリュームに移す",
+        "correct": false,
+        "explanation": "EBSはEC2インスタンスに接続するブロックストレージです。S3のストレージクラス間の移動とは関係がなく、アーカイブ向けでもありません。",
+        "eliminatedBy": "アーカイブ用のストレージクラスへ自動的に移したい"
+      },
+      {
+        "id": "c",
+        "text": "担当者が定期的にファイルを手作業で移動する",
+        "correct": false,
+        "explanation": "実現はできますが、「自動的に」という要件を満たしません。作業漏れのおそれもあります。",
+        "eliminatedBy": "自動的に"
+      },
+      {
+        "id": "d",
+        "text": "ログファイルをAmazon EFSに保存し直す",
+        "correct": false,
+        "explanation": "EFSは複数のサーバーで共有するファイルストレージです。S3のストレージクラスを使ったコスト削減にはなりません。",
+        "eliminatedBy": "アーカイブ用のストレージクラスへ"
+      }
+    ],
+    "keywords": [
+      "一定期間が過ぎたら",
+      "自動的に",
+      "アプリケーションは変更したくありません"
+    ],
+    "decisionPoint": "「期間に応じて自動でクラスを移す」はライフサイクルポリシーの役割です。",
+    "serviceIds": [
+      "amazon-s3"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-storage"
+      },
+      {
+        "type": "service",
+        "id": "amazon-s3"
+      }
+    ],
+    "practicalNote": "実務では、ログやバックアップのように時間がたつと参照されなくなるデータで、保管コストを下げるために使います。"
+  },
+  {
+    "id": "clf-q-stg-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Attach an EBS volume to multiple EC2 instances using Multi-Attach（Amazon EBS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-6",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、複数のLinuxのEC2インスタンスでウェブアプリケーションを動かしています。すべてのインスタンスから、同じファイルシステムに同時にアクセスして読み書きする必要があります。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon EFS",
+        "correct": true,
+        "explanation": "EFSは、Linuxベースのワークロード向けの共有ファイルシステムです。多数のEC2インスタンスから同時にアクセスでき、容量も自動で増減します。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon S3",
+        "correct": false,
+        "explanation": "S3はオブジェクトストレージです。エンドポイントを通じてオブジェクトを保存・取得するサービスで、複数のインスタンスが同じファイルシステムとして同時に読み書きする用途には向きません。",
+        "eliminatedBy": "同じファイルシステムに同時にアクセス"
+      },
+      {
+        "id": "c",
+        "text": "Amazon EBS",
+        "correct": false,
+        "explanation": "EBSは、基本的に1台のEC2インスタンスに接続して使うブロックストレージです。マルチアタッチという機能はありますが、一部のボリュームタイプ（io1・io2）かつ同じアベイラビリティゾーン内に限られます。また、標準的なファイルシステムは複数サーバーからの同時アクセスを想定していません。",
+        "eliminatedBy": "複数のLinuxのEC2インスタンス"
+      },
+      {
+        "id": "d",
+        "text": "Amazon FSx for Windows File Server",
+        "correct": false,
+        "explanation": "複数台で共有できるファイルサービスですが、Windows Server上に構築され、SMBプロトコルで使うWindows向けのものです。Linuxのインスタンスで単純に共有するなら、EFSが適しています。",
+        "eliminatedBy": "Linux"
+      }
+    ],
+    "keywords": [
+      "複数のLinuxのEC2インスタンス",
+      "同じファイルシステムに同時にアクセス"
+    ],
+    "decisionPoint": "「複数台」「同じファイルシステム」「Linux」の3つがそろえばEFSです。",
+    "serviceIds": [
+      "amazon-efs",
+      "amazon-s3",
+      "amazon-ebs",
+      "amazon-fsx"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "storage"
+      },
+      {
+        "type": "service",
+        "id": "amazon-efs"
+      }
+    ],
+    "practicalNote": "負荷分散された複数のウェブサーバーで、アップロードされたファイルを共有する構成でよく使われます。",
+    "variationGroupId": "storage-select"
+  },
+  {
+    "id": "clf-q-stg-train-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-6",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Windowsの業務アプリケーションをAWSに移行します。複数のサーバーから、SMBプロトコルでアクセスする共有フォルダが必要で、既存のActive Directoryと連携させたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon FSx for Windows File Server",
+        "correct": true,
+        "explanation": "Windows Server上に構築されたフルマネージドのファイルシステムです。SMBプロトコル、NTFS、Active Directory連携に対応しています。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon EFS",
+        "correct": false,
+        "explanation": "複数台で共有できるファイルシステムですが、Linuxベースのワークロード向けです。SMBやActive Directory連携というWindows向けの要件には合いません。",
+        "eliminatedBy": "SMBプロトコル"
+      },
+      {
+        "id": "c",
+        "text": "Amazon S3",
+        "correct": false,
+        "explanation": "オブジェクトストレージで、SMBでアクセスする共有フォルダとしては使えません。",
+        "eliminatedBy": "SMBプロトコルでアクセスする共有フォルダ"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EBS",
+        "correct": false,
+        "explanation": "基本的に1台のEC2インスタンスに接続するブロックストレージで、複数のサーバーから使う共有フォルダには向きません。",
+        "eliminatedBy": "複数のサーバーから"
+      }
+    ],
+    "keywords": [
+      "Windows",
+      "SMBプロトコル",
+      "Active Directory"
+    ],
+    "decisionPoint": "前の問題と同じ「複数台で共有」でも、WindowsとSMBが条件に加わるとFSx for Windows File Serverに変わります。",
+    "serviceIds": [
+      "amazon-fsx",
+      "amazon-efs",
+      "amazon-s3",
+      "amazon-ebs"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "storage"
+      },
+      {
+        "type": "service",
+        "id": "amazon-fsx"
+      }
+    ],
+    "variationGroupId": "storage-select"
+  },
+  {
+    "id": "clf-q-stg-train-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-6",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、1台のEC2インスタンスでデータベースを動かします。このインスタンスに接続し、低レイテンシーで読み書きできる永続的なディスクが必要です。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon EBS",
+        "correct": true,
+        "explanation": "EBSは、EC2インスタンスで使う永続的なブロックストレージボリュームです。一貫した低レイテンシーの性能を持ち、インスタンスのディスクとして使います。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon S3",
+        "correct": false,
+        "explanation": "オブジェクトストレージで、インスタンスに接続するディスクではありません。データベースのデータ用ディスクには向きません。",
+        "eliminatedBy": "インスタンスに接続"
+      },
+      {
+        "id": "c",
+        "text": "Amazon EFS",
+        "correct": false,
+        "explanation": "複数のインスタンスで共有するためのファイルシステムです。1台のインスタンスのディスクが必要なこの要件では、共有の仕組みは不要で、ブロックストレージのEBSが適しています。",
+        "eliminatedBy": "1台のEC2インスタンス"
+      },
+      {
+        "id": "d",
+        "text": "Amazon FSx for Lustre",
+        "correct": false,
+        "explanation": "HPCや機械学習など、計算負荷の高い処理向けの高速なファイルシステムです。1台のデータベース用ディスクという要件には合いません。",
+        "eliminatedBy": "1台のEC2インスタンスでデータベース"
+      }
+    ],
+    "keywords": [
+      "1台のEC2インスタンス",
+      "接続",
+      "永続的なディスク"
+    ],
+    "decisionPoint": "共有の必要がなく「1台に接続するディスク」ならEBSです。条件が「複数台で共有」から「1台」に変わると、正解も変わります。",
+    "serviceIds": [
+      "amazon-ebs",
+      "amazon-s3",
+      "amazon-efs",
+      "amazon-fsx"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "storage"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ebs"
+      }
+    ],
+    "variationGroupId": "storage-select"
+  },
+  {
+    "id": "clf-q-stg-train-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-6",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、モバイルアプリの利用者がアップロードする写真を保存します。保存量は今後どこまで増えるか予測できません。サーバーにディスクとして接続する必要はなく、高い耐久性で保存できれば十分です。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon S3",
+        "correct": true,
+        "explanation": "S3は、99.999999999%の耐久性で設計されたオブジェクトストレージです。容量を事前に決めずに使え、モバイルアプリのデータ保存は代表的な用途の1つです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon EBS",
+        "correct": false,
+        "explanation": "EC2インスタンスに接続するブロックストレージです。容量を事前に確保する必要があり、確保した分に料金がかかります。保存量が予測できず、ディスクとして接続する必要もないこの要件には合いません。",
+        "eliminatedBy": "サーバーにディスクとして接続する必要はなく"
+      },
+      {
+        "id": "c",
+        "text": "Amazon EFS",
+        "correct": false,
+        "explanation": "複数のサーバーで共有するファイルシステムです。この要件では共有ファイルシステムは求められておらず、ファイルを保存して取り出すだけならS3が適しています。",
+        "eliminatedBy": "サーバーにディスクとして接続する必要はなく"
+      },
+      {
+        "id": "d",
+        "text": "Amazon FSx for Windows File Server",
+        "correct": false,
+        "explanation": "Windows向けの共有ファイルシステムです。Windowsのファイル共有は求められていません。",
+        "eliminatedBy": "高い耐久性で保存できれば十分"
+      }
+    ],
+    "keywords": [
+      "保存量は今後どこまで増えるか予測できません",
+      "ディスクとして接続する必要はなく",
+      "高い耐久性"
+    ],
+    "decisionPoint": "サーバーへの接続が不要で、ファイルを大量に保存するだけならS3です。",
+    "serviceIds": [
+      "amazon-s3",
+      "amazon-ebs",
+      "amazon-efs",
+      "amazon-fsx"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "storage"
+      },
+      {
+        "type": "service",
+        "id": "amazon-s3"
+      }
+    ],
+    "variationGroupId": "storage-select"
+  }
+]

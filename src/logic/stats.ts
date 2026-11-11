@@ -41,3 +41,33 @@ export function accuracy(attempts: Attempt[]): Accuracy {
 export function formatRate(rate: number | null): string {
   return rate === null ? '—' : `${Math.round(rate * 100)}%`
 }
+
+export interface GroupAccuracy extends Accuracy {
+  key: string
+}
+
+/**
+ * 問題ごとの「最新の解答」で集計する。
+ * 同じ問題を何度も解いたとき、過去の誤答が残り続けて理解度が低く見えるのを防ぐ。
+ */
+export function latestAttempts(attempts: Attempt[]): Attempt[] {
+  const latest = new Map<string, Attempt>()
+  for (const a of attempts) {
+    const prev = latest.get(a.questionId)
+    if (!prev || a.answeredAt > prev.answeredAt) latest.set(a.questionId, a)
+  }
+  return [...latest.values()]
+}
+
+/** 解答を、問題ごとのキー（分野・サービスなど）でまとめて正答率を出す。1問が複数のキーに属してよい */
+export function accuracyBy(attempts: Attempt[], keysOf: (questionId: string) => string[]): GroupAccuracy[] {
+  const groups = new Map<string, Attempt[]>()
+  for (const a of latestAttempts(attempts)) {
+    for (const key of keysOf(a.questionId)) {
+      const list = groups.get(key) ?? []
+      list.push(a)
+      groups.set(key, list)
+    }
+  }
+  return [...groups.entries()].map(([key, list]) => ({ key, ...accuracy(list) }))
+}

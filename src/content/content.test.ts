@@ -117,3 +117,41 @@ describe('教材の検証', () => {
     expect(r.bundle.questions).toHaveLength(1)
   })
 })
+
+describe('公開中の教材', () => {
+  it('エラーなく読み込め、相互の参照が成立している', async () => {
+    const { validation, content } = await import('./node')
+    expect(validation.issues.filter((i) => i.level === 'error')).toEqual([])
+    // レッスンの確認問題・比較のトレーニング問題がすべて公開されている
+    const ids = new Set(content.questions.map((q) => q.id))
+    for (const l of content.lessons) for (const q of l.quizQuestionIds) expect(ids.has(q), `${l.id}→${q}`).toBe(true)
+    for (const c of content.comparisons) for (const q of c.trainingQuestionIds) expect(ids.has(q), `${c.id}→${q}`).toBe(true)
+  })
+
+  it('すべての問題で、全選択肢に解説があり、不正解には排除の根拠がある', async () => {
+    const { content } = await import('./node')
+    for (const q of content.questions) {
+      for (const c of q.choices) {
+        expect(c.explanation.length, `${q.id}:${c.id}`).toBeGreaterThanOrEqual(20)
+        if (!c.correct) expect(c.eliminatedBy, `${q.id}:${c.id}`).toBeTruthy()
+      }
+      expect(q.sources.length, q.id).toBeGreaterThan(0)
+      expect(q.basedOnGuide?.[0]?.version, q.id).toBe('1.3')
+    }
+  })
+
+  it('不正解の「排除の根拠」は、問題文の中の語句を指している', async () => {
+    const { content } = await import('./node')
+    for (const q of content.questions) {
+      for (const c of q.choices.filter((x) => !x.correct)) {
+        expect(q.stem.includes(c.eliminatedBy!), `${q.id}:${c.id}「${c.eliminatedBy}」`).toBe(true)
+      }
+    }
+  })
+
+  it('比較グループは12項目すべてに値がある', async () => {
+    const { content } = await import('./node')
+    const { comparisonAxes } = await import('./schema')
+    for (const g of content.comparisons) for (const i of g.items) for (const a of comparisonAxes) expect(i.values[a.key], `${g.id}:${i.key}:${a.key}`).toBeTruthy()
+  })
+})

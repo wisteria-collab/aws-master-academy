@@ -64,6 +64,7 @@ export function useProgressSummary() {
       servicesTotal: content.services.length,
       finishedExams: exams.data.filter((e) => e.status === 'finished'),
       favorites: favorites.data,
+      attempts: validAttempts,
       hasAnyRecord,
     }
   }, [lessons.data, attempts.data, sessions.data, reviews.data, services.data, exams.data, favorites.data, diagrams.data, loading, today])
