@@ -1,7 +1,7 @@
 export const appInfo = {
   name: 'AWS Master Academy',
-  version: '0.5.0',
-  phase: 'Phase 5 第1弾（構成図：お手本構成）',
+  version: '0.5.1',
+  phase: 'Phase 5 第2弾（構成図：自分で作る）',
   disclaimer:
     'AWS非公式の学習用アプリです。Amazon Web Services、AWS は、Amazon.com, Inc. またはその関連会社の商標です。',
 } as const

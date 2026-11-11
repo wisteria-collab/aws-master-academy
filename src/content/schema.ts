@@ -298,7 +298,7 @@ const diagramNodeSchema = z.object({
   note: nonEmpty.optional(),
 })
 const diagramEdgeSchema = z.object({ id: idSchema, from: idSchema, to: idSchema, label: nonEmpty.optional() })
-const diagramBodySchema = z.object({ nodes: z.array(diagramNodeSchema), edges: z.array(diagramEdgeSchema) })
+export const diagramBodySchema = z.object({ nodes: z.array(diagramNodeSchema), edges: z.array(diagramEdgeSchema) })
 
 export const diagramTemplateSchema = z
   .object({
@@ -315,6 +315,9 @@ export const diagramTemplateSchema = z
   })
   .superRefine(checkMeta)
 export type DiagramTemplate = z.infer<typeof diagramTemplateSchema>
+export type DiagramBody = z.infer<typeof diagramBodySchema>
+export type DiagramNode = DiagramBody['nodes'][number]
+export type DiagramEdge = DiagramBody['edges'][number]
 
 export const designChallengeSchema = z
   .object({

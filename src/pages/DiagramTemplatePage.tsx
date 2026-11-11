@@ -1,18 +1,21 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { DiagramView } from '../components/DiagramView'
 import { BackLink, usePageTitle } from '../components/Navigation'
 import { guideLabel } from '../components/QuestionCard'
 import { RichText } from '../components/RichText'
 import { SourceList } from '../components/SourceList'
-import { Card, EmptyState } from '../components/ui'
+import { Button, Card, EmptyState } from '../components/ui'
 import { content } from '../content'
 import { useSessionState } from '../hooks/useSessionState'
+import { newDiagramId } from '../logic/diagram'
+import { storage } from '../storage'
 
 export function DiagramTemplatePage() {
   const { templateId } = useParams()
   const template = content.diagrams.find((d) => d.id === templateId)
   usePageTitle(template?.title ?? 'お手本構成')
   const [selectedId, setSelectedId] = useSessionState<string | null>('dg-selected', null)
+  const navigate = useNavigate()
 
   if (!template) {
     return (
@@ -121,6 +124,24 @@ export function DiagramTemplatePage() {
             </ul>
           </>
         )}
+      </Card>
+
+      <Card>
+        <h2 className="text-lg font-bold">この構成を自分で変えてみる</h2>
+        <p className="mt-1 text-base leading-relaxed text-navy-700">お手本をコピーして、箱を足したり、つなぎ変えたりできます。お手本そのものは変わりません。</p>
+        <div className="mt-3">
+          <Button
+            onClick={() => {
+              const id = newDiagramId()
+              void storage
+                .put('diagrams', { id, name: `${template.title}（コピー）`, nodes: template.diagram.nodes, edges: template.diagram.edges, updatedAt: new Date().toISOString() })
+                .then(() => navigate(`/designer/edit/${id}`))
+                .catch(() => {})
+            }}
+          >
+            コピーして編集する
+          </Button>
+        </div>
       </Card>
 
       <SourceList sources={template.sources} verifiedAt={template.verifiedAt} uncertainNote={template.uncertainNote} guide={guideLabel(template.basedOnGuide)} />

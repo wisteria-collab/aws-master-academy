@@ -2,25 +2,19 @@
  * 構成図の表示。スマートフォンの幅（約360px）で文字が読めるよう、
  * 図の横幅を 360 の座標にそろえて描く。AWSの公式アイコンは使わず、枠と文字で表す。
  */
-import type { DiagramTemplate } from '../content/schema'
+import { useRef, type PointerEvent as ReactPointerEvent } from 'react'
+import type { DiagramBody } from '../content/schema'
+import { nodeBox } from '../logic/diagram'
 
-type Body = DiagramTemplate['diagram']
-type Node = Body['nodes'][number]
+export { nodeBox } from '../logic/diagram'
+
+type Body = DiagramBody
 
 const navy = '#232f3e'
 const orange = '#ff9900'
 const tint = '#fff6e5'
 const line = '#46597a'
 const soft = '#f3f5f9'
-
-export const NODE_W = 104
-export const NODE_H = 44
-
-export function nodeBox(n: Node) {
-  const w = n.width ?? (n.kind === 'actor' ? 88 : NODE_W)
-  const h = n.height ?? NODE_H
-  return { x: n.x, y: n.y, w, h, cx: n.x + w / 2, cy: n.y + h / 2 }
-}
 
 /** 箱の中心から相手の中心へ向かう線が、箱の縁と交わる点 */
 function edgePoint(a: ReturnType<typeof nodeBox>, b: ReturnType<typeof nodeBox>) {
@@ -54,29 +48,95 @@ interface Props {
   title: string
   selectedId?: string | null
   onSelect?: (id: string) => void
+  /** 以下は編集画面用 */
+  selectedEdgeId?: string | null
+  onSelectEdge?: (id: string) => void
+  onBackground?: () => void
+  /** 箱をドラッグしたとき。dx・dy は、ドラッグを始めた位置からの移動量（図の座標） */
+  onMoveStart?: (id: string) => void
+  onMove?: (id: string, dx: number, dy: number) => void
+  onMoveEnd?: (id: string) => void
+  /** 図の高さ。省略すると、箱に合わせる */
+  height?: number
+  /** 線をつなぐ元として選ばれている箱 */
+  connectFromId?: string | null
+  showCaption?: boolean
 }
 
-export function DiagramView({ diagram, title, selectedId, onSelect }: Props) {
+export function DiagramView({ diagram, title, selectedId, onSelect, selectedEdgeId, onSelectEdge, onBackground, onMoveStart, onMove, onMoveEnd, height: fixedHeight, connectFromId, showCaption = true }: Props) {
+  const svgRef = useRef<SVGSVGElement>(null)
+  const drag = useRef<{ id: string; x: number; y: number; moved: boolean } | null>(null)
+  const editable = onMove !== undefined
   const boxes = new Map(diagram.nodes.map((n) => [n.id, nodeBox(n)]))
-  const height = Math.max(...diagram.nodes.map((n) => nodeBox(n).y + nodeBox(n).h), 100) + 12
+  const height = fixedHeight ?? Math.max(...diagram.nodes.map((n) => nodeBox(n).y + nodeBox(n).h), 100) + 12
   const groups = diagram.nodes.filter((n) => n.kind === 'group')
   const items = diagram.nodes.filter((n) => n.kind !== 'group')
   // 外側の枠から順に描く（内側の枠が上に重なるように）
   groups.sort((a, b) => nodeBox(b).w * nodeBox(b).h - nodeBox(a).w * nodeBox(a).h)
+  const outer = (id: string) => !diagram.nodes.some((o) => o.kind === 'group' && o.id !== id && contains(nodeBox(o), boxes.get(id)!))
+
+  const scale = () => 360 / (svgRef.current?.getBoundingClientRect().width || 360)
+  const handlers = (id: string) => {
+    if (!onSelect) return {}
+    const key = (ev: { key: string; preventDefault: () => void }) => {
+      if (ev.key === 'Enter' || ev.key === ' ') {
+        ev.preventDefault()
+        onSelect(id)
+      }
+    }
+    if (!editable) return { onClick: () => onSelect(id), onKeyDown: key }
+    return {
+      onKeyDown: key,
+      onPointerDown: (ev: ReactPointerEvent<SVGGElement>) => {
+        ev.stopPropagation()
+        ev.currentTarget.setPointerCapture?.(ev.pointerId)
+        drag.current = { id, x: ev.clientX, y: ev.clientY, moved: false }
+        onMoveStart?.(id)
+      },
+      onPointerMove: (ev: ReactPointerEvent<SVGGElement>) => {
+        const d = drag.current
+        if (!d || d.id !== id) return
+        const dx = (ev.clientX - d.x) * scale()
+        const dy = (ev.clientY - d.y) * scale()
+        if (!d.moved && Math.hypot(dx, dy) < 5) return
+        d.moved = true
+        onMove?.(id, dx, dy)
+      },
+      onPointerUp: (ev: ReactPointerEvent<SVGGElement>) => {
+        const d = drag.current
+        drag.current = null
+        ev.stopPropagation()
+        if (!d) return
+        if (d.moved) onMoveEnd?.(id)
+        else onSelect(id)
+      },
+      onPointerCancel: () => {
+        if (drag.current?.moved) onMoveEnd?.(id)
+        drag.current = null
+      },
+      onClick: (ev: { stopPropagation: () => void }) => ev.stopPropagation(),
+    }
+  }
+  const interactive = (label: string, selected: boolean) =>
+    onSelect ? { role: 'button' as const, tabIndex: 0, 'aria-label': label, 'aria-pressed': selected, style: { cursor: 'pointer', touchAction: editable ? ('none' as const) : undefined } } : {}
 
   return (
     <figure className="mx-auto w-full max-w-md">
-      <svg viewBox={`0 0 360 ${height}`} role="img" aria-label={title} className="h-auto w-full" fontFamily="inherit">
+      <svg ref={svgRef} viewBox={`0 0 360 ${height}`} role="img" aria-label={title} className="h-auto w-full select-none" fontFamily="inherit" onClick={onBackground}>
         <defs>
           <marker id="dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0 0 L10 5 L0 10 z" fill={line} />
           </marker>
+          <marker id="dg-arrow-on" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill={orange} />
+          </marker>
         </defs>
         {groups.map((g) => {
           const b = nodeBox(g)
+          const selected = editable && g.id === selectedId
           return (
-            <g key={g.id}>
-              <rect x={b.x} y={b.y} width={b.w} height={b.h} rx={8} fill={g.parentId ? '#fff' : soft} stroke={line} strokeWidth="1.2" strokeDasharray="5 3" />
+            <g key={g.id} {...(editable ? interactive(`枠：${g.label}`, selected) : {})} {...(editable ? handlers(g.id) : {})}>
+              <rect x={b.x} y={b.y} width={b.w} height={b.h} rx={8} fill={outer(g.id) ? soft : '#fff'} stroke={selected ? orange : line} strokeWidth={selected ? 2.5 : 1.2} strokeDasharray="5 3" />
               <text x={b.x + 8} y={b.y + 15} fontSize={11} fontWeight={700} fill={line}>
                 {g.label}
               </text>
@@ -91,9 +151,10 @@ export function DiagramView({ diagram, title, selectedId, onSelect }: Props) {
           const p2 = edgePoint(b, a)
           const mx = (p1.x + p2.x) / 2
           const my = (p1.y + p2.y) / 2
+          const on = e.id === selectedEdgeId
           return (
             <g key={e.id}>
-              <line x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} stroke={line} strokeWidth="1.5" markerEnd="url(#dg-arrow)" />
+              <line x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} stroke={on ? orange : line} strokeWidth={on ? 3 : 1.5} markerEnd={on ? 'url(#dg-arrow-on)' : 'url(#dg-arrow)'} />
               {e.label && (
                 <>
                   <rect x={mx - textWidth(e.label) * 5.25 - 3} y={my - 8} width={textWidth(e.label) * 10.5 + 6} height={16} rx={4} fill="#fff" opacity="0.92" />
@@ -102,43 +163,52 @@ export function DiagramView({ diagram, title, selectedId, onSelect }: Props) {
                   </text>
                 </>
               )}
+              {onSelectEdge && (
+                <rect
+                  x={mx - Math.max(Math.hypot(p2.x - p1.x, p2.y - p1.y), 24) / 2}
+                  y={my - 12}
+                  width={Math.max(Math.hypot(p2.x - p1.x, p2.y - p1.y), 24)}
+                  height={24}
+                  transform={`rotate(${(Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180) / Math.PI} ${mx} ${my})`}
+                  fill="transparent"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`線：${labelOf(diagram, e.from)} から ${labelOf(diagram, e.to)}`}
+                  aria-pressed={on}
+                  style={{ cursor: 'pointer' }}
+                  onClick={(ev) => {
+                    ev.stopPropagation()
+                    onSelectEdge(e.id)
+                  }}
+                  onKeyDown={(ev) => {
+                    if (ev.key === 'Enter' || ev.key === ' ') {
+                      ev.preventDefault()
+                      onSelectEdge(e.id)
+                    }
+                  }}
+                />
+              )}
             </g>
           )
         })}
         {items.map((n) => {
           const b = nodeBox(n)
           const selected = n.id === selectedId
+          const from = n.id === connectFromId
           const lines = splitLabel(n.label, (b.w - 12) / 11.5)
           const actor = n.kind === 'actor'
           return (
-            <g
-              key={n.id}
-              role={onSelect ? 'button' : undefined}
-              tabIndex={onSelect ? 0 : undefined}
-              aria-label={n.label}
-              aria-pressed={onSelect ? selected : undefined}
-              onClick={onSelect ? () => onSelect(n.id) : undefined}
-              onKeyDown={
-                onSelect
-                  ? (ev) => {
-                      if (ev.key === 'Enter' || ev.key === ' ') {
-                        ev.preventDefault()
-                        onSelect(n.id)
-                      }
-                    }
-                  : undefined
-              }
-              style={onSelect ? { cursor: 'pointer' } : undefined}
-            >
+            <g key={n.id} {...interactive(n.label, selected)} {...handlers(n.id)}>
               <rect
                 x={b.x}
                 y={b.y}
                 width={b.w}
                 height={b.h}
                 rx={actor ? b.h / 2 : 8}
-                fill={selected ? tint : actor ? navy : '#fff'}
-                stroke={selected ? orange : actor ? navy : line}
-                strokeWidth={selected ? 3 : 1.5}
+                fill={selected || from ? tint : actor ? navy : '#fff'}
+                stroke={selected || from ? orange : actor ? navy : line}
+                strokeWidth={selected || from ? 3 : 1.5}
+                strokeDasharray={from && !selected ? '4 3' : undefined}
               />
               {lines.map((t, i) => (
                 <text
@@ -147,7 +217,7 @@ export function DiagramView({ diagram, title, selectedId, onSelect }: Props) {
                   y={b.cy + 4 + (i - (lines.length - 1) / 2) * 13}
                   fontSize={11.5}
                   fontWeight={700}
-                  fill={actor && !selected ? '#fff' : navy}
+                  fill={actor && !(selected || from) ? '#fff' : navy}
                   textAnchor="middle"
                 >
                   {t}
@@ -157,7 +227,11 @@ export function DiagramView({ diagram, title, selectedId, onSelect }: Props) {
           )
         })}
       </svg>
-      <figcaption className="mt-1 text-center text-sm text-navy-700">{title}</figcaption>
+      {showCaption && <figcaption className="mt-1 text-center text-sm text-navy-700">{title}</figcaption>}
     </figure>
   )
 }
+
+type B = ReturnType<typeof nodeBox>
+const contains = (o: B, i: B) => i.x >= o.x && i.y >= o.y && i.x + i.w <= o.x + o.w && i.y + i.h <= o.y + o.h
+const labelOf = (d: Body, id: string) => d.nodes.find((n) => n.id === id)?.label ?? ''
