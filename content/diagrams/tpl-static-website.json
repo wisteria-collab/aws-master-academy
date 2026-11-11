@@ -1,0 +1,153 @@
+{
+  "id": "tpl-static-website",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "What is Amazon CloudFront?（Amazon CloudFront デベロッパーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html"
+    },
+    {
+      "title": "How CloudFront delivers content（Amazon CloudFront デベロッパーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "AWS Global Infrastructure（AWS公式）",
+      "url": "https://aws.amazon.com/about-aws/global-infrastructure/"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "VPC peering（AWSホワイトペーパー Amazon VPC Connectivity Options）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/vpc-peering.html"
+    },
+    {
+      "title": "How VPC peering connections work（Amazon VPC ピアリングガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html"
+    },
+    {
+      "title": "What is VPC peering?（Amazon VPC ピアリングガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/Welcome.html"
+    },
+    {
+      "title": "Communicating across VPCs and AWS Regions（AWS Prescriptive Guidance）",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/secure-outbound-network-traffic/vpc-region-communication.html"
+    },
+    {
+      "title": "Disaster recovery options in the cloud（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Compare NAT gateways and NAT instances（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html"
+    },
+    {
+      "title": "NAT gateway basics（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-basics.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html"
+    },
+    {
+      "title": "COST08-BP03 Implement services to reduce data transfer costs（AWS Well-Architected コスト最適化の柱）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/cost_data_transfer_implement_services.html"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "静的ウェブサイトの配信",
+  "order": 1,
+  "summary": "画像やHTMLなどの変わらないファイルを、世界中の利用者に速く届ける、最も基本の構成です。サーバーを1台も管理しません。",
+  "diagram": {
+    "nodes": [
+      {
+        "id": "user",
+        "kind": "actor",
+        "label": "利用者",
+        "x": 136,
+        "y": 8,
+        "note": "アプリケーションを使う人です。インターネットからアクセスします。",
+        "width": 88,
+        "height": 36
+      },
+      {
+        "id": "r53",
+        "kind": "service",
+        "label": "Amazon Route 53",
+        "x": 16,
+        "y": 96,
+        "serviceId": "amazon-route-53",
+        "note": "www.example.comのような名前を、接続先に変換して、利用者を案内します（DNS）。"
+      },
+      {
+        "id": "cf",
+        "kind": "service",
+        "label": "Amazon CloudFront",
+        "x": 240,
+        "y": 96,
+        "serviceId": "amazon-cloudfront",
+        "note": "利用者に近いエッジロケーションにコンテンツをキャッシュして配信します。同じファイルを、何度もオリジンから取りに行かずに済みます。"
+      },
+      {
+        "id": "s3",
+        "kind": "service",
+        "label": "Amazon S3",
+        "x": 240,
+        "y": 196,
+        "serviceId": "amazon-s3",
+        "note": "コンテンツの元の置き場所（オリジン）です。ファイルをオブジェクトとして保存します。"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "user",
+        "to": "r53",
+        "label": "①名前を調べる"
+      },
+      {
+        "id": "e2",
+        "from": "user",
+        "to": "cf",
+        "label": "②リクエスト"
+      },
+      {
+        "id": "e3",
+        "from": "cf",
+        "to": "s3",
+        "label": "③なければ取得"
+      }
+    ]
+  },
+  "flow": [
+    "利用者が、サイトの名前を使ってアクセスします。Route 53が、名前を接続先に変換します。",
+    "リクエストは、遅延が最も小さいエッジロケーションに振り分けられます。",
+    "エッジロケーションにキャッシュがあれば、そこから返します。なければ、オリジンのS3から取得して返します。"
+  ],
+  "explanation": "【サーバーを持たない】\nファイルの保存はS3、配信はCloudFrontに任せるため、管理するサーバーがありません。\n【速く届ける】\nCloudFrontは、エッジロケーションと呼ばれる世界各地の拠点のネットワークを通じて、コンテンツを配信します。利用者に近い場所から返すため、表示が速くなります。\n【オリジンからの転送を減らす】\n同じコンテンツを何度も配信するとき、キャッシュから返すことで、オリジンからのデータ転送を減らせます。",
+  "points": [
+    "静的なコンテンツを世界中に速く配信＝CloudFront（キャッシュ）＋S3（オリジン）。",
+    "名前を接続先に変換して案内する＝Route 53（DNS）。",
+    "CloudFrontのオリジンには、S3、Elastic Load Balancing、EC2などを指定できる。"
+  ],
+  "relatedLessonIds": [
+    "clf-global-edge",
+    "saa-perf-network",
+    "saa-cost-network"
+  ]
+}

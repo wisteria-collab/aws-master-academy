@@ -1,0 +1,247 @@
+{
+  "id": "tpl-ha-web-3tier",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Amazon RDS Read Replicas（AWS公式）",
+      "url": "https://aws.amazon.com/rds/features/read-replicas/"
+    },
+    {
+      "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+    },
+    {
+      "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+    },
+    {
+      "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+    },
+    {
+      "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "可用性の高い3層ウェブアプリケーション",
+  "order": 2,
+  "summary": "ウェブ・アプリケーション・データベースの3層を、2つのアベイラビリティゾーンにまたがって配置する、SAAで最もよく出る構成です。",
+  "diagram": {
+    "nodes": [
+      {
+        "id": "user",
+        "kind": "actor",
+        "label": "利用者",
+        "x": 136,
+        "y": 8,
+        "note": "アプリケーションを使う人です。インターネットからアクセスします。",
+        "width": 88,
+        "height": 36
+      },
+      {
+        "id": "vpc",
+        "kind": "group",
+        "label": "VPC",
+        "x": 8,
+        "y": 58,
+        "width": 344,
+        "height": 330
+      },
+      {
+        "id": "alb",
+        "kind": "service",
+        "label": "Application Load Balancer",
+        "x": 116,
+        "y": 80,
+        "serviceId": "elastic-load-balancing",
+        "note": "インターネットからの入口です。パブリックサブネットに置き、通信を複数のアベイラビリティゾーンのインスタンスに分散します。",
+        "width": 128,
+        "height": 44,
+        "parentId": "vpc"
+      },
+      {
+        "id": "aza",
+        "kind": "group",
+        "label": "アベイラビリティゾーン A",
+        "x": 16,
+        "y": 140,
+        "width": 160,
+        "height": 240,
+        "parentId": "vpc"
+      },
+      {
+        "id": "azc",
+        "kind": "group",
+        "label": "アベイラビリティゾーン C",
+        "x": 184,
+        "y": 140,
+        "width": 160,
+        "height": 240,
+        "parentId": "vpc"
+      },
+      {
+        "id": "appa",
+        "kind": "group",
+        "label": "プライベート（アプリ）",
+        "x": 24,
+        "y": 162,
+        "width": 144,
+        "height": 90,
+        "parentId": "aza"
+      },
+      {
+        "id": "appc",
+        "kind": "group",
+        "label": "プライベート（アプリ）",
+        "x": 192,
+        "y": 162,
+        "width": 144,
+        "height": 90,
+        "parentId": "azc"
+      },
+      {
+        "id": "dba",
+        "kind": "group",
+        "label": "プライベート（DB）",
+        "x": 24,
+        "y": 260,
+        "width": 144,
+        "height": 112,
+        "parentId": "aza"
+      },
+      {
+        "id": "dbc",
+        "kind": "group",
+        "label": "プライベート（DB）",
+        "x": 192,
+        "y": 260,
+        "width": 144,
+        "height": 112,
+        "parentId": "azc"
+      },
+      {
+        "id": "ec2a",
+        "kind": "service",
+        "label": "EC2（Auto Scaling）",
+        "x": 40,
+        "y": 192,
+        "serviceId": "amazon-ec2-auto-scaling",
+        "note": "アプリケーションを動かすサーバーです。Auto Scalingが、需要に合わせて台数を自動的に増減します。インターネットから直接アクセスされないよう、プライベートサブネットに置きます。",
+        "width": 112,
+        "height": 44,
+        "parentId": "appa"
+      },
+      {
+        "id": "ec2c",
+        "kind": "service",
+        "label": "EC2（Auto Scaling）",
+        "x": 208,
+        "y": 192,
+        "serviceId": "amazon-ec2-auto-scaling",
+        "note": "アベイラビリティゾーンAと同じ役割のサーバーです。片方のゾーンに障害が起きても、もう片方で処理を続けられます。",
+        "width": 112,
+        "height": 44,
+        "parentId": "appc"
+      },
+      {
+        "id": "rdsp",
+        "kind": "service",
+        "label": "RDS プライマリ",
+        "x": 32,
+        "y": 304,
+        "serviceId": "amazon-rds",
+        "note": "ふだん読み書きを受け付けるデータベースです。マルチAZ配置にしています。",
+        "width": 104,
+        "height": 44,
+        "parentId": "dba"
+      },
+      {
+        "id": "rdss",
+        "kind": "service",
+        "label": "RDS スタンバイ",
+        "x": 224,
+        "y": 304,
+        "serviceId": "amazon-rds",
+        "note": "別のアベイラビリティゾーンに、同期で維持される予備です。プライマリに問題が検出されると、自動でフェイルオーバーします。",
+        "width": 104,
+        "height": 44,
+        "parentId": "dbc"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "user",
+        "to": "alb",
+        "label": "HTTPS"
+      },
+      {
+        "id": "e2",
+        "from": "alb",
+        "to": "ec2a"
+      },
+      {
+        "id": "e3",
+        "from": "alb",
+        "to": "ec2c"
+      },
+      {
+        "id": "e4",
+        "from": "ec2a",
+        "to": "rdsp"
+      },
+      {
+        "id": "e5",
+        "from": "ec2c",
+        "to": "rdsp"
+      },
+      {
+        "id": "e6",
+        "from": "rdsp",
+        "to": "rdss",
+        "label": "同期の複製"
+      }
+    ]
+  },
+  "flow": [
+    "利用者のリクエストを、ロードバランサーが受け取ります。",
+    "ロードバランサーが、2つのアベイラビリティゾーンのEC2インスタンスに通信を分散します。",
+    "EC2インスタンスが、データベースのプライマリを読み書きします。",
+    "プライマリの内容は、別のアベイラビリティゾーンのスタンバイに、同期で複製されます。"
+  ],
+  "explanation": "【単一障害点をなくす】\nそこが止まると全体が止まる部分をなくすために、EC2インスタンスを複数のアベイラビリティゾーンに配置し、Elastic Load Balancingで通信を分散します。\n【データベースの高可用性】\nAmazon RDSのマルチAZ配置は、別のアベイラビリティゾーンに、同期のスタンバイを自動的に維持します。問題が検出されると、自動でフェイルオーバーします。\n【層ごとに守る】\nインターネットから直接アクセスされるべきでないインスタンスは、プライベートサブネットに置きます。入口になるロードバランサーだけを、パブリックサブネットに置きます。\n【需要に合わせる】\nAmazon EC2 Auto Scalingが、定義した条件に従って、インスタンスを自動的に追加・削除します。",
+  "points": [
+    "単一障害点をなくす＝EC2は複数のアベイラビリティゾーン＋ロードバランサー、RDSはマルチAZ配置。",
+    "マルチAZ配置＝同期のスタンバイ・自動フェイルオーバー（目的は高可用性）。読み取りのスケーリングはリードレプリカ。",
+    "入口（ロードバランサー）だけパブリックサブネット。アプリケーションとデータベースはプライベートサブネット。",
+    "この図では、パブリックサブネットとNATゲートウェイの枠を省略している。"
+  ],
+  "relatedLessonIds": [
+    "saa-ha-ft",
+    "saa-secure-workloads",
+    "saa-scalable-loose"
+  ]
+}

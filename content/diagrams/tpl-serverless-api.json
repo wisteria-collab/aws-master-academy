@@ -1,0 +1,158 @@
+{
+  "id": "tpl-serverless-api",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Amazon RDS Read Replicas（AWS公式）",
+      "url": "https://aws.amazon.com/rds/features/read-replicas/"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+    },
+    {
+      "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+    },
+    {
+      "title": "Amazon RDS Proxy FAQs（AWS公式）",
+      "url": "https://aws.amazon.com/rds/proxy/faqs/"
+    },
+    {
+      "title": "RDS Proxy concepts and terminology（Amazon RDS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.howitworks.html"
+    },
+    {
+      "title": "DynamoDB on-demand and provisioned capacity（AWS Well-Architected サーバーレスアプリケーションレンズ）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/capacity.html"
+    },
+    {
+      "title": "Evaluate your table capacity mode（Amazon DynamoDB デベロッパーガイド）",
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/CostOptimization_TableCapacityMode.html"
+    },
+    {
+      "title": "What is the AWS Schema Conversion Tool?（AWS SCT ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.html"
+    },
+    {
+      "title": "Amazon DynamoDB Features（AWS公式）",
+      "url": "https://www.amazonaws.cn/en/dynamodb/features"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "サーバーレスのAPI",
+  "order": 3,
+  "summary": "モバイルアプリやウェブアプリのバックエンドを、サーバーを1台も管理せずに作る構成です。使われた分だけ処理が動きます。",
+  "diagram": {
+    "nodes": [
+      {
+        "id": "user",
+        "kind": "actor",
+        "label": "利用者",
+        "x": 136,
+        "y": 8,
+        "note": "モバイルアプリやウェブアプリの利用者です。",
+        "width": 88,
+        "height": 36
+      },
+      {
+        "id": "cog",
+        "kind": "service",
+        "label": "Amazon Cognito",
+        "x": 12,
+        "y": 96,
+        "serviceId": "amazon-cognito",
+        "note": "アプリの利用者の、サインアップとサインインを受け持ちます。"
+      },
+      {
+        "id": "api",
+        "kind": "service",
+        "label": "Amazon API Gateway",
+        "x": 236,
+        "y": 96,
+        "serviceId": "amazon-api-gateway",
+        "note": "バックエンドへの「正面玄関」となるAPIです。アプリからのリクエストを受け付けます。",
+        "width": 112
+      },
+      {
+        "id": "fn",
+        "kind": "service",
+        "label": "AWS Lambda",
+        "x": 240,
+        "y": 182,
+        "serviceId": "aws-lambda",
+        "note": "リクエストに応じて、コードを実行します。サーバーの管理は不要で、実行した分だけ支払います。"
+      },
+      {
+        "id": "ddb",
+        "kind": "service",
+        "label": "Amazon DynamoDB",
+        "x": 240,
+        "y": 268,
+        "serviceId": "amazon-dynamodb",
+        "note": "データを保存する、サーバーの管理が不要なNoSQLデータベースです。"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "user",
+        "to": "cog",
+        "label": "①サインイン"
+      },
+      {
+        "id": "e2",
+        "from": "user",
+        "to": "api",
+        "label": "②リクエスト"
+      },
+      {
+        "id": "e3",
+        "from": "api",
+        "to": "fn",
+        "label": "③実行"
+      },
+      {
+        "id": "e4",
+        "from": "fn",
+        "to": "ddb",
+        "label": "④読み書き"
+      }
+    ]
+  },
+  "flow": [
+    "利用者が、Cognitoでサインインします。",
+    "アプリが、API Gatewayにリクエストを送ります。",
+    "API Gatewayが、Lambdaのコードを呼び出します。",
+    "Lambdaが、DynamoDBのデータを読み書きして、結果を返します。"
+  ],
+  "explanation": "【サーバーを管理しない】\nAPI Gatewayは、バックエンドへの「正面玄関」となるAPIを作成・公開する、フルマネージドのサービスです。Lambdaは、サーバーを管理せずにコードを実行できます。DynamoDBも、サーバーの管理が不要です。\n【使った分だけ】\nLambdaは、実行した分だけ支払います。たまにしか使われないAPIでも、待機しているサーバーの料金がかかりません。\n【利用者の認証】\nCognitoで、アプリにサインアップとサインインの機能を追加します。",
+  "points": [
+    "サーバーを管理しないAPI＝API Gateway＋Lambda。データはDynamoDB。",
+    "アプリの利用者のサインアップ・サインイン＝Cognito。",
+    "たまにしか動かない処理は、実行した分だけ支払うLambdaが向く。"
+  ],
+  "relatedLessonIds": [
+    "saa-scalable-loose",
+    "saa-secure-workloads",
+    "saa-cost-compute"
+  ]
+}

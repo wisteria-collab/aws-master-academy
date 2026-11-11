@@ -160,6 +160,23 @@ export function validateContent(
     }
   }
 
+  /** 構成図の中のつながり（線の両端、親の枠）が、図の中に存在するかを確かめる */
+  const checkDiagram = (e: Entry, d: { nodes: { id: string; kind: string; parentId?: string; serviceId?: string }[]; edges: { id: string; from: string; to: string }[] }) => {
+    const ids = new Set(d.nodes.map((n) => n.id))
+    const fail = (message: string) => {
+      issues.push({ level: 'error', file: e.file, id: e.value.id, message })
+      broken.add(`${e.kind}:${e.value.id}`)
+    }
+    if (ids.size !== d.nodes.length) fail('構成図のノードIDが重複している')
+    for (const n of d.nodes) {
+      if (n.parentId && !ids.has(n.parentId)) fail(`構成図のノード ${n.id} の親 ${n.parentId} が存在しない`)
+      if (n.kind === 'service' && !n.serviceId) fail(`構成図のノード ${n.id} にサービスIDがない`)
+    }
+    for (const edge of d.edges) {
+      if (!ids.has(edge.from) || !ids.has(edge.to)) fail(`構成図の線 ${edge.id} の両端が存在しない`)
+    }
+  }
+
   for (const e of entries) {
     switch (e.kind) {
       case 'lessons': {
@@ -200,11 +217,14 @@ export function validateContent(
       case 'diagrams': {
         const v = e.value as unknown as ContentBundle['diagrams'][number]
         v.diagram.nodes.forEach((n) => ref(e, 'services', n.serviceId, '構成図のサービス'))
+        ;(v.relatedLessonIds ?? []).forEach((id) => ref(e, 'lessons', id, '関連レッスン'))
+        checkDiagram(e, v.diagram)
         break
       }
       case 'challenges': {
         const v = e.value as unknown as ContentBundle['challenges'][number]
         v.modelAnswer.nodes.forEach((n) => ref(e, 'services', n.serviceId, '模範解答のサービス'))
+        checkDiagram(e, v.modelAnswer)
         break
       }
       case 'glossary': {

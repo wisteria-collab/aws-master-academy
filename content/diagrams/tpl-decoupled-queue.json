@@ -1,0 +1,122 @@
+{
+  "id": "tpl-decoupled-queue",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Amazon RDS Read Replicas（AWS公式）",
+      "url": "https://aws.amazon.com/rds/features/read-replicas/"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "キューで疎結合にした処理",
+  "order": 4,
+  "summary": "依頼を受け付ける層と、時間のかかる処理を行う層の間に、キューをはさむ構成です。依頼が急に増えても、受け付けが止まりません。",
+  "diagram": {
+    "nodes": [
+      {
+        "id": "user",
+        "kind": "actor",
+        "label": "利用者",
+        "x": 136,
+        "y": 8,
+        "note": "処理を依頼する人です（例：動画の変換を依頼する）。",
+        "width": 88,
+        "height": 36
+      },
+      {
+        "id": "web",
+        "kind": "service",
+        "label": "EC2（ウェブ層）",
+        "x": 124,
+        "y": 84,
+        "serviceId": "amazon-ec2",
+        "note": "依頼を受け付けて、キューにメッセージを入れます。処理の完了を待たずに、次の依頼を受け付けられます。",
+        "width": 112
+      },
+      {
+        "id": "sqs",
+        "kind": "service",
+        "label": "Amazon SQS",
+        "x": 128,
+        "y": 170,
+        "serviceId": "amazon-sqs",
+        "note": "依頼のメッセージをためておくキューです。処理が追いつかない間も、メッセージはキューにたまるため、失われません。"
+      },
+      {
+        "id": "wrk",
+        "kind": "service",
+        "label": "EC2（処理層）",
+        "x": 124,
+        "y": 256,
+        "serviceId": "amazon-ec2-auto-scaling",
+        "note": "キューからメッセージを自分のペースで取り出して、処理します。キューの状況に応じて、Auto Scalingで台数を増減します。",
+        "width": 112
+      },
+      {
+        "id": "s3",
+        "kind": "service",
+        "label": "Amazon S3",
+        "x": 128,
+        "y": 342,
+        "serviceId": "amazon-s3",
+        "note": "処理の結果のファイルを保存します。"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "user",
+        "to": "web",
+        "label": "依頼"
+      },
+      {
+        "id": "e2",
+        "from": "web",
+        "to": "sqs",
+        "label": "メッセージを入れる"
+      },
+      {
+        "id": "e3",
+        "from": "wrk",
+        "to": "sqs",
+        "label": "取り出す"
+      },
+      {
+        "id": "e4",
+        "from": "wrk",
+        "to": "s3",
+        "label": "結果を保存"
+      }
+    ]
+  },
+  "flow": [
+    "利用者が、ウェブ層に処理を依頼します。",
+    "ウェブ層が、依頼の内容をメッセージとして、SQSのキューに入れます。",
+    "処理層が、キューからメッセージを取り出して、処理します。",
+    "処理層が、結果をS3に保存します。"
+  ],
+  "explanation": "【直接呼び出さない】\nウェブ層が処理層を直接呼び出すと、処理層の遅れや障害が、そのまま受け付けに影響します。間にキューを置くと、2つの層を疎結合にできます。\n【それぞれが独立してスケールする】\nキューを置くと、それぞれの層が独立してスケールできます。処理が追いつかない依頼はキューにたまり、処理層を増やすことで消化できます。\n【メッセージが失われない】\n受け取る側は、自分のペースでメッセージを取り出して処理できます。処理が追いつかない間も、メッセージはキューにたまります。",
+  "points": [
+    "2つの層の間にキュー（SQS）を置く＝疎結合。片方の遅れや障害が、もう片方に広がりにくい。",
+    "処理層は、キューの状況に応じてスケールさせる。",
+    "1つのメッセージを複数の宛先に同時に配信したいときは、SNSを使う。"
+  ],
+  "relatedLessonIds": [
+    "saa-scalable-loose",
+    "saa-perf-compute"
+  ]
+}

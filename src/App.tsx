@@ -6,6 +6,8 @@ import { Layout } from './components/Layout'
 import { Notice } from './components/ui'
 import { StorageHealthProvider } from './hooks/useStorageHealth'
 import { ComingSoon } from './pages/ComingSoon'
+import { Designer } from './pages/Designer'
+import { DiagramTemplatePage } from './pages/DiagramTemplatePage'
 import { Compare } from './pages/Compare'
 import { CompareDetail } from './pages/CompareDetail'
 import { ExamOverview } from './pages/ExamOverview'
@@ -55,6 +57,8 @@ export default function App() {
             <Route path="compare" element={<Compare />} />
             <Route path="compare/:groupId" element={<CompareDetail />} />
             <Route path="compare/:groupId/training" element={<Training />} />
+            <Route path="designer" element={<Designer />} />
+            <Route path="designer/templates/:templateId" element={<DiagramTemplatePage />} />
             <Route path="designer/*" element={<ComingSoon kind="designer" />} />
             <Route path="practice" element={<Practice />} />
             <Route path="practice/run" element={<PracticeRun />} />

@@ -294,6 +294,8 @@ const diagramNodeSchema = z.object({
   width: z.number().positive().optional(),
   height: z.number().positive().optional(),
   parentId: idSchema.optional(),
+  /** この構成の中での役割（タップしたときに表示する） */
+  note: nonEmpty.optional(),
 })
 const diagramEdgeSchema = z.object({ id: idSchema, from: idSchema, to: idSchema, label: nonEmpty.optional() })
 const diagramBodySchema = z.object({ nodes: z.array(diagramNodeSchema), edges: z.array(diagramEdgeSchema) })
@@ -307,6 +309,9 @@ export const diagramTemplateSchema = z
     diagram: diagramBodySchema,
     explanation: nonEmpty,
     points: z.array(nonEmpty).min(1),
+    /** 通信や処理の流れを、順番に説明する */
+    flow: z.array(nonEmpty).optional(),
+    relatedLessonIds: z.array(idSchema).optional(),
   })
   .superRefine(checkMeta)
 export type DiagramTemplate = z.infer<typeof diagramTemplateSchema>

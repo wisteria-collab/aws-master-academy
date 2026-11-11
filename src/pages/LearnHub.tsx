@@ -20,7 +20,7 @@ export function LearnHub() {
         <LinkRow to="/learn/clf" title="CLFコース" note={`クラウドの基礎・公開中 ${clfLessons} / 予定 ${plannedLessons.clf} テーマ`} icon={<BookIcon />} aside={state(clfLessons, plannedLessons.clf)} />
         <LinkRow to="/learn/saa" title="SAA応用コース" note={`公式4分野・14タスク・公開中 ${saaLessons} / 予定 ${plannedLessons.saa} テーマ`} icon={<BookIcon />} aside={saaLessons > 0 ? state(saaLessons, plannedLessons.saa) : soon(features.saa.phase)} />
         <LinkRow to="/services" title="サービス図鑑" note={`サービス名・カテゴリーで検索・${content.services.length} サービス公開中`} icon={<SearchIcon />} aside={open} />
-        <LinkRow to="/designer" title="構成図シミュレーター" note="お手本構成と設計問題" icon={<DiagramIcon />} aside={soon(features.designer.phase)} />
+        <LinkRow to="/designer" title="構成図シミュレーター" note={`お手本構成 ${content.diagrams.length} テーマ公開中・作図と設計問題は準備中`} icon={<DiagramIcon />} aside={content.diagrams.length > 0 ? open : soon(features.designer.phase)} />
       </div>
     </div>
   )
