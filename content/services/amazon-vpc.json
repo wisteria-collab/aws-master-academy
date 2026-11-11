@@ -71,7 +71,8 @@
   ],
   "comparisonGroupIds": [
     "sg-nacl",
-    "vpc-endpoints"
+    "vpc-endpoints",
+    "vpc-connectivity"
   ],
   "importance": {
     "clf": "high",

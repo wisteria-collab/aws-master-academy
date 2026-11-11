@@ -59,7 +59,9 @@
     "amazon-s3",
     "amazon-efs"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "data-transfer"
+  ],
   "importance": {
     "clf": "low",
     "saa": "mid"

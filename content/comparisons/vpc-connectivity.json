@@ -1,0 +1,141 @@
+{
+  "id": "vpc-connectivity",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "VPC peering（AWSホワイトペーパー Amazon VPC Connectivity Options）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/vpc-peering.html"
+    },
+    {
+      "title": "How VPC peering connections work（Amazon VPC ピアリングガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html"
+    },
+    {
+      "title": "What is VPC peering?（Amazon VPC ピアリングガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/Welcome.html"
+    },
+    {
+      "title": "Communicating across VPCs and AWS Regions（AWS Prescriptive Guidance）",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/secure-outbound-network-traffic/vpc-region-communication.html"
+    },
+    {
+      "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "VPCどうしの接続：VPCピアリング・Transit Gateway・PrivateLink",
+  "category": "networking",
+  "summary": "どれも、VPCの間をインターネットを通らずにつなぐ方法です。「いくつのVPCをつなぐか」と、「ネットワーク全体をつなぐのか、特定のサービスだけを使わせるのか」で選びます。",
+  "items": [
+    {
+      "key": "peering",
+      "label": "VPCピアリング",
+      "oneLine": "隣の家との専用の渡り廊下（1対1）",
+      "values": {
+        "role": "2つのVPCを接続する",
+        "mechanism": "2つのVPCの間に、1対1の接続を作る",
+        "data": "互いのプライベートIPアドレスで、同じネットワークにあるかのように通信する",
+        "useCases": "少数のVPCの間の接続",
+        "availability": "VPCの機能として提供される",
+        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "すべてのVPCを互いに通信させるには、VPCの組み合わせごとに接続が必要",
+        "cost": "同じアベイラビリティゾーンの中にとどまるデータ転送は無料。アベイラビリティゾーンやリージョンをまたぐ転送には料金がかかる",
+        "operations": "接続の数が増えると、管理が複雑になる",
+        "limits": "推移的なルーティングに対応しない。プライマリのIPv4のCIDRブロックが重なるVPCどうしは接続できない",
+        "chooseWhen": "2つ（または少数）のVPCをつなぎたいとき",
+        "avoidWhen": "多数のVPCを相互につなぎたいとき（その場合はTransit Gateway）"
+      },
+      "serviceId": "amazon-vpc"
+    },
+    {
+      "key": "tgw",
+      "label": "AWS Transit Gateway",
+      "oneLine": "みんなが経由する乗り継ぎ空港（ハブ）",
+      "values": {
+        "role": "多数のVPCとオンプレミスのネットワークを、中央のハブで接続する",
+        "mechanism": "各VPCやネットワークをハブに接続する（ハブアンドスポーク）",
+        "data": "ハブを経由して、接続されたネットワークの間で通信する",
+        "useCases": "多数のVPCとオンプレミスの相互接続",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "VPCが増えても、ハブに接続するだけでよい",
+        "cost": "料金は公式の料金ページで確認する",
+        "operations": "接続を1か所で管理できる",
+        "limits": "2つのVPCをつなぐだけの用途には大がかり",
+        "chooseWhen": "多数のVPCや、オンプレミスのネットワークを相互につなぎたいとき",
+        "avoidWhen": "2つのVPCをつなぐだけのとき（その場合はVPCピアリング）"
+      },
+      "serviceId": "aws-transit-gateway"
+    },
+    {
+      "key": "privatelink",
+      "label": "AWS PrivateLink",
+      "oneLine": "特定の窓口にだけつながる連絡通路",
+      "values": {
+        "role": "VPC、AWSのサービス、オンプレミスのアプリケーションの間に、プライベートな接続を提供する",
+        "mechanism": "エンドポイントを通じて、プライベートIPアドレスでサービスに接続する",
+        "data": "通信がパブリックなインターネットにさらされない",
+        "useCases": "特定のサービスにだけ、プライベートに接続させる",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "料金は公式の料金ページで確認する",
+        "operations": "サービスごとにエンドポイントを作成する",
+        "limits": "ネットワーク全体を相互に接続するものではない",
+        "chooseWhen": "ネットワーク全体ではなく、特定のサービスへのアクセスだけを提供したいとき",
+        "avoidWhen": "VPCどうしで、互いのリソースに広く通信させたいとき"
+      },
+      "serviceId": "aws-privatelink"
+    }
+  ],
+  "figureIds": [],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "ネットワーク全体ではなく、特定のサービスへのアクセスだけを提供したいですか？",
+      "yes": "r-pl",
+      "no": "n2"
+    },
+    {
+      "id": "n2",
+      "question": "多数のVPCや、オンプレミスのネットワークも含めて相互に接続しますか？",
+      "yes": "r-tgw",
+      "no": "r-peer"
+    },
+    {
+      "id": "r-pl",
+      "resultItemKey": "privatelink",
+      "note": "通信はパブリックなインターネットにさらされません。"
+    },
+    {
+      "id": "r-tgw",
+      "resultItemKey": "tgw",
+      "note": "中央のハブに接続します。"
+    },
+    {
+      "id": "r-peer",
+      "resultItemKey": "peering",
+      "note": "1対1の接続です。CIDRブロックが重ならないようにします。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "saa-q-pn-01",
+    "saa-q-pn-04",
+    "saa-q-vc-train-01"
+  ]
+}

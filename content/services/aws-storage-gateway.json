@@ -62,7 +62,9 @@
     "amazon-ebs",
     "amazon-fsx"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "data-transfer"
+  ],
   "importance": {
     "clf": "low",
     "saa": "high"

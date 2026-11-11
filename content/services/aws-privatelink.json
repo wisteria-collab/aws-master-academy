@@ -71,7 +71,8 @@
     "amazon-dynamodb"
   ],
   "comparisonGroupIds": [
-    "vpc-endpoints"
+    "vpc-endpoints",
+    "vpc-connectivity"
   ],
   "importance": {
     "clf": "low",

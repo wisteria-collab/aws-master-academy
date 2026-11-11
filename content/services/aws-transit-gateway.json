@@ -1,0 +1,85 @@
+{
+  "id": "aws-transit-gateway",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Communicating across VPCs and AWS Regions（AWS Prescriptive Guidance）",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/secure-outbound-network-traffic/vpc-region-communication.html"
+    },
+    {
+      "title": "VPC peering（AWSホワイトペーパー Amazon VPC Connectivity Options）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/vpc-peering.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS Transit Gateway",
+  "aliases": [
+    "Transit Gateway",
+    "TGW",
+    "トランジットゲートウェイ"
+  ],
+  "category": "networking",
+  "summary": "多数のVPCとオンプレミスのネットワークを、中央のハブでつなぐサービス。",
+  "beginner": {
+    "analogy": "各地を結ぶ「乗り継ぎ空港」です。どの都市（VPC）からも、この空港を経由すれば、ほかのすべての都市へ行けます。",
+    "description": "たくさんのVPCや社内のネットワークを、1つの中継地点にまとめてつなぐサービスです。1つずつ個別につなぐ必要がなくなります。"
+  },
+  "exam": {
+    "description": "VPCとオンプレミスのネットワークをつなぐ、中央のハブとして機能します。ハブアンドスポークのモデルで、複数のVPCとオンプレミスのネットワークを接続します。VPCの間の通信は、Transit Gatewayを通じて管理されます。VPCピアリングは推移的なルーティングに対応しないため、多数のVPCを互いに通信させたい場合は、Transit Gatewayをネットワークの中継ハブとして使えます。",
+    "points": [
+      "多数のVPCとオンプレミスを、中央のハブでつなぐ＝AWS Transit Gateway。",
+      "ハブアンドスポークのモデル。",
+      "VPCピアリングは1対1で、推移的なルーティングができない。多数のVPCにはTransit Gateway。"
+    ]
+  },
+  "useCases": [
+    "数十のVPCと、オンプレミスのネットワークを相互に接続する"
+  ],
+  "mechanism": "各VPCやオンプレミスのネットワークをTransit Gatewayに接続し、Transit Gatewayが間の通信を中継します。",
+  "pros": [
+    "接続の数が増えても、構成が複雑になりにくい",
+    "オンプレミスのネットワークもつなげられる"
+  ],
+  "cons": [
+    "2つのVPCをつなぐだけなら、VPCピアリングで足りる"
+  ],
+  "scenes": [
+    "VPCが増えて、VPCピアリングの接続の数が管理しきれなくなった"
+  ],
+  "similarServiceIds": [
+    "aws-privatelink"
+  ],
+  "relatedServiceIds": [
+    "amazon-vpc",
+    "aws-vpn",
+    "aws-direct-connect"
+  ],
+  "comparisonGroupIds": [
+    "vpc-connectivity"
+  ],
+  "importance": {
+    "clf": "low",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/vpc/latest/tgw/"
+}

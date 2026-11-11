@@ -1,0 +1,84 @@
+{
+  "id": "saa-perf-data",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 10,
+  "title": "高パフォーマンスなデータの取り込みと変換",
+  "domainId": "saa-d3",
+  "taskIds": [
+    "saa-3-5"
+  ],
+  "overview": "5つ目のタスクは、データを「取り込み」「変換し」「分析できるようにする」流れの設計です。CLFでは、Kinesis、Glue、Athena、Quickの役割を学びました。SAAでは、データの量や発生の頻度から、取り込みの方法を選び、データレイクとして安全に保管するところまで考えます。\n試験ガイドでは、分析と可視化のサービス（Amazon Athena、AWS Lake Formation、Amazon Quick）、取り込みのパターン（頻度）、データ転送のサービス（AWS DataSync、AWS Storage Gateway）、変換のサービス（AWS Glue）、ストリーミングのサービス（Amazon Kinesis）、データレイクの構築と保護、フォーマットの変換（CSVからParquetなど）が挙げられています。",
+  "beginner": {
+    "analogy": "水道にたとえます。データの発生元は「水源」です。流れ続ける水は水路（Kinesis）で受け、送水管（Data Firehose）で湖（S3のデータレイク）へ運びます。たまったタンクの水は、トラック（DataSyncやSnow Family）でまとめて運びます。湖の水は、浄水場（Glue）で使いやすくしてから、蛇口（AthenaやQuick）で使います。湖の管理事務所（Lake Formation）が、誰がどの水を使えるかを決めます。",
+    "description": "最初に見るのは、データが「流れ続けるのか」「まとまって届くのか」です。流れ続けるならストリーミングのサービス、まとまっているなら転送のサービスを選びます。次に、分析しやすい形（列指向のフォーマット）に変換しておくと、あとの分析が速く、安くなります。"
+  },
+  "useCases": [
+    "アプリのログを、継続的にデータレイクへ取り込む",
+    "取引のイベントを、リアルタイムに処理する",
+    "オンプレミスの大量のデータを、AWSへ移す",
+    "データレイクのアクセスを、部署ごとに管理する",
+    "ログを全文検索できるようにする"
+  ],
+  "mechanism": {
+    "text": "【ストリーミングデータの取り込み】\n・Amazon Kinesis Data Streams：大規模に拡張できる、リアルタイムのデータストリーミングサービスです。データはミリ秒単位で利用できるようになります。\n・Amazon Data Firehose：ストリーミングデータを取り込み、変換して、Amazon S3、Amazon Redshift、Amazon OpenSearch Serviceなどに届けます。フルマネージドで、自動的にスケールします。S3に届ける前に、Apache ParquetやApache ORCといった列指向のフォーマットに変換できます。\n・Amazon MSK：Apache Kafkaを使うアプリケーションのための、フルマネージドのサービスです。\n【まとまったデータの転送】\n・AWS DataSync：オンプレミスのストレージとS3・EFSの間のデータ移動を自動化します。\n・AWS Storage Gateway：オンプレミスのアプリケーションが、AWSのストレージを継続的に使えるようにします。\n・AWS Transfer Family：SFTP・FTPS・FTPでのファイル転送を、S3やEFSに直接届けます。\n・AWS Snow Family：大量のデータを、物理的な機器で輸送します。\n【データレイク】\nデータレイクは、すべてのデータを、元の形のままでも、分析用に整えた形でも保管する場所です。AWS Lake Formationは、データを収集してカタログ化し、Amazon S3のデータレイクに移し、機密性の高いデータへのアクセスを保護します。\n【変換】\nAWS Glueは、フルマネージドのETLサービスです。データを検出し、メタデータをAWS Glue Data Catalogに保存します。\n【分析と可視化】\n・Amazon Athena：S3のデータを、標準的なSQLで分析します。サーバーレスで、AWS Glue Data Catalogと連携します。\n・Amazon Redshift：大量のデータに複雑な分析を行うデータウェアハウスです。\n・Amazon EMR：Apache Sparkなどで、ビッグデータを処理します。\n・Amazon OpenSearch Service：ログ分析や全文検索を行います。\n・Amazon Quick：ダッシュボードで可視化します（以前の名前はAmazon QuickSight）。\n【取り込み口の保護】\n取り込みに使うサービスへのアクセスは、IAMのポリシーで必要最小限に絞ります。インターネットを通さずに取り込みたい場合は、VPCエンドポイントを使います。",
+    "figureId": "data-flow"
+  },
+  "relatedServiceIds": [
+    "amazon-kinesis",
+    "amazon-data-firehose",
+    "aws-datasync",
+    "aws-storage-gateway",
+    "aws-transfer-family",
+    "aws-snow-family",
+    "aws-lake-formation",
+    "aws-glue",
+    "amazon-athena",
+    "amazon-redshift",
+    "amazon-emr",
+    "amazon-opensearch-service",
+    "amazon-quick"
+  ],
+  "examPoints": [
+    "流れ続けるデータをミリ秒単位で処理＝Kinesis Data Streams。保存先へ届ける（変換つき・管理不要）＝Data Firehose。",
+    "Data Firehoseは、S3に届ける前にParquetやORCに変換できる。",
+    "まとまったデータ：ネットワーク経由＝DataSync、物理輸送＝Snow Family、SFTP＝Transfer Family、使い続ける＝Storage Gateway。",
+    "安全なデータレイクの構築とアクセス管理＝Lake Formation。保存先はS3。",
+    "ETL＝Glue。S3へのSQL＝Athena。データウェアハウス＝Redshift。Sparkなど＝EMR。ログ・全文検索＝OpenSearch Service。可視化＝Quick。",
+    "Apache Kafkaを使い続けたい＝Amazon MSK。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-di-01",
+    "saa-q-di-02",
+    "saa-q-di-03",
+    "saa-q-di-04",
+    "saa-q-di-05",
+    "saa-q-dt-train-01",
+    "saa-q-dt-train-02"
+  ],
+  "glossaryTermIds": [
+    "streaming-data",
+    "etl",
+    "data-lake",
+    "columnar-format",
+    "business-intelligence",
+    "data-warehouse"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "amazon-data-firehose",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "Amazon Data Firehose",
+  "aliases": [
+    "Data Firehose",
+    "Firehose",
+    "Kinesis Data Firehose",
+    "ファイアホース"
+  ],
+  "category": "analytics",
+  "summary": "ストリーミングデータを、データストアや分析ツールに確実に読み込ませる、フルマネージドのサービス。",
+  "beginner": {
+    "analogy": "流れてくる水を、決まった貯水池まで運ぶ「送水管」です。途中でろ過（変換）もできます。",
+    "description": "次々に流れてくるデータを受け取って、Amazon S3などの保存先まで自動で届けてくれるサービスです。"
+  },
+  "exam": {
+    "description": "ストリーミングデータを、データストアや分析ツールに確実に読み込ませるための、最も簡単な方法です。ストリーミングデータを取り込み、変換して、Amazon S3、Amazon Redshift、Amazon OpenSearch Service、Splunkに読み込ませます。フルマネージドで、データのスループットに合わせて自動的にスケールし、継続的な管理は不要です。Amazon S3に届ける前に、受け取ったデータをApache ParquetやApache ORCといった列指向のフォーマットに変換することもできます。",
+    "points": [
+      "ストリーミングデータを保存先（S3、Redshiftなど）へ届ける＝Amazon Data Firehose。",
+      "自動でスケールし、管理が不要。",
+      "S3に届ける前に、ParquetやORCに変換できる。",
+      "ミリ秒単位でデータを使うリアルタイムの処理はAmazon Kinesis Data Streams。"
+    ]
+  },
+  "useCases": [
+    "アプリのログを、継続的にS3へ保存する"
+  ],
+  "mechanism": "データを受け取り、必要なら変換して、指定した保存先に届けます。",
+  "pros": [
+    "保存先までの配信を自分で作らなくてよい",
+    "自動でスケールする"
+  ],
+  "cons": [
+    "独自のリアルタイム処理を作り込む用途にはKinesis Data Streamsが合う"
+  ],
+  "scenes": [
+    "クリックの記録をParquetに変換しながらS3にため、Athenaで分析する"
+  ],
+  "similarServiceIds": [
+    "amazon-kinesis"
+  ],
+  "relatedServiceIds": [
+    "amazon-s3",
+    "amazon-redshift",
+    "amazon-athena"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/firehose/"
+}

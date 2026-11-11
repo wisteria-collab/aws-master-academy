@@ -2324,5 +2324,135 @@
     "plain": "「3か月使わなかった書類は書庫へ、1年たったら倉庫へ」という、書類整理のルールのようなものです。",
     "example": "アップロードから30日たったログを、低頻度アクセス用のクラスへ、1年たったらアーカイブ用のクラスへ自動で移す。",
     "serviceIds": []
+  },
+  {
+    "id": "vpc-peering",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "VPC peering（AWSホワイトペーパー Amazon VPC Connectivity Options）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/vpc-peering.html"
+      },
+      {
+        "title": "How VPC peering connections work（Amazon VPC ピアリングガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "VPCピアリング",
+    "description": "2つのVPCを直接つなぎ、互いのプライベートIPアドレスで通信できるようにする接続です。1対1の関係で、別のVPCを経由した通信（推移的なピアリング）はできません。",
+    "plain": "隣どうしの家の間に作る「専用の渡り廊下」です。A家とB家、B家とC家に廊下があっても、A家からB家を通り抜けてC家へは行けません。",
+    "example": "開発用のVPCと共有サービス用のVPCを、VPCピアリングで接続する。",
+    "serviceIds": []
+  },
+  {
+    "id": "hub-and-spoke",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Communicating across VPCs and AWS Regions（AWS Prescriptive Guidance）",
+        "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/secure-outbound-network-traffic/vpc-region-communication.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "ハブアンドスポーク",
+    "description": "中央の「ハブ」に、複数の拠点（スポーク）をつなぐ構成です。拠点どうしは、ハブを経由して通信します。",
+    "plain": "自転車の車輪のように、中心から放射状にのびた形です。空港の「乗り継ぎ拠点」も同じ考え方です。",
+    "example": "AWS Transit Gatewayをハブにして、多数のVPCとオンプレミスのネットワークを接続する。",
+    "serviceIds": []
+  },
+  {
+    "id": "data-lake",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "データレイク",
+    "description": "あらゆるデータを、元の形のままでも、分析用に整えた形でも、1か所に集めて安全に保管しておく場所です。",
+    "plain": "いろいろな川（データの発生元）から水が流れ込む「湖」のようなものです。あとで必要な水を汲んで使います。",
+    "example": "Amazon S3をデータレイクにして、AWS Lake Formationでアクセスを管理し、Amazon Athenaで分析する。",
+    "serviceIds": []
+  },
+  {
+    "id": "columnar-format",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "列指向フォーマット",
+    "description": "データを、行ごとではなく列ごとにまとめて保存する形式です。Apache ParquetやApache ORCが代表例で、分析に向いています。",
+    "plain": "名簿を「1人ずつのカード」ではなく、「名前だけの一覧」「年齢だけの一覧」に分けて持つイメージです。年齢の平均を出すとき、年齢の一覧だけを見れば済みます。",
+    "example": "Amazon Data Firehoseで、受け取ったデータをApache Parquetに変換してからAmazon S3に保存する。",
+    "serviceIds": []
+  },
+  {
+    "id": "cidr",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "VPC peering（AWSホワイトペーパー Amazon VPC Connectivity Options）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/vpc-peering.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "CIDR",
+    "description": "IPアドレスの範囲を表す書き方です。VPCやサブネットを作るときに、使うIPアドレスの範囲をCIDRで指定します。",
+    "plain": "「この町内は1番地から256番地まで」というように、番地の範囲をまとめて表す書き方です。",
+    "example": "VPCピアリングでは、2つのVPCのIPv4のCIDRの範囲が重なっていると接続できないため、あらかじめ重ならない範囲を割り当てる。",
+    "serviceIds": []
   }
 ]

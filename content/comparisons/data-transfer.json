@@ -1,0 +1,152 @@
+{
+  "id": "data-transfer",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "データの移動：DataSync・Transfer Family・Storage Gateway・Snow Family",
+  "category": "migration-transfer",
+  "summary": "どれも、オンプレミスとAWSの間でデータをやり取りするサービスですが、やり取りのしかたが違います。「まとめて移すのか、使い続けるのか」「ネットワークで送れるか」「相手がSFTPを使うか」で選びます。",
+  "items": [
+    {
+      "key": "datasync",
+      "label": "AWS DataSync",
+      "oneLine": "データの引っ越し便（ネットワーク経由）",
+      "values": {
+        "role": "オンプレミスのストレージと、Amazon S3やAmazon EFSの間のデータの移動を自動化する",
+        "mechanism": "ネットワーク経由でデータを転送する",
+        "data": "暗号化、データの整合性の検証を自動で行う",
+        "useCases": "ファイルサーバーのデータの移行",
+        "availability": "サービスとして提供される",
+        "performance": "ネットワークの最適化を自動で行う",
+        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "インスタンスの実行、スクリプトの管理などの作業が自動化される",
+        "limits": "ネットワーク経由のため、回線が細いと時間がかかる",
+        "chooseWhen": "ネットワーク経由で、データをまとめて移したいとき",
+        "avoidWhen": "回線が細く、ネットワークでは現実的でないとき（その場合はSnow Family）"
+      },
+      "serviceId": "aws-datasync"
+    },
+    {
+      "key": "transfer",
+      "label": "AWS Transfer Family",
+      "oneLine": "取引先用の専用の搬入口（SFTPなど）",
+      "values": {
+        "role": "SFTP、FTPS、FTPによるファイル転送を、Amazon S3やAmazon EFSとの間で直接行えるようにする",
+        "mechanism": "SFTPなどで受け取ったファイルを、S3やEFSに保存する",
+        "data": "既存の認証システムと統合できる",
+        "useCases": "取引先とのSFTPでのファイル交換",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "フルマネージドで、ファイル転送用のサーバーの運用が不要",
+        "limits": "SFTP・FTPS・FTPでの転送のためのサービス",
+        "chooseWhen": "相手がSFTPなどの転送の方法を使い続けるとき",
+        "avoidWhen": "一度に大量のデータを移行したいとき"
+      },
+      "serviceId": "aws-transfer-family"
+    },
+    {
+      "key": "storage-gateway",
+      "label": "AWS Storage Gateway",
+      "oneLine": "奥がAWSの倉庫につながっている棚",
+      "values": {
+        "role": "オンプレミスのアプリケーションが、AWSのクラウドストレージを使えるようにする",
+        "mechanism": "オンプレミスに置いたゲートウェイに、NFS、SMB、iSCSIで接続する",
+        "data": "よく使うデータは、ローカルにキャッシュする",
+        "useCases": "バックアップとアーカイブ、災害対策、ストレージの階層化、移行",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "ローカルのキャッシュにより、よく使うデータに低遅延でアクセスできる",
+        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "オンプレミスにゲートウェイを置く",
+        "limits": "オンプレミスにゲートウェイが必要",
+        "chooseWhen": "オンプレミスのアプリケーションが、AWSのストレージを継続的に使い続けるとき",
+        "avoidWhen": "1回だけデータを移せばよいとき（その場合はDataSync）"
+      },
+      "serviceId": "aws-storage-gateway"
+    },
+    {
+      "key": "snow",
+      "label": "AWS Snow Family",
+      "oneLine": "データの引っ越しトラック（物理輸送）",
+      "values": {
+        "role": "大量のデータを、物理的な機器でAWSとの間で輸送する",
+        "mechanism": "機器にデータを入れ、機器を輸送する",
+        "data": "エクサバイト規模までのデータを運べる",
+        "useCases": "安定したネットワーク接続がない場所からのデータの移行",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "ネットワークの速度に左右されない",
+        "scalability": "エクサバイト規模まで対応",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "機器の受け取りと発送の作業がある",
+        "limits": "機器の輸送に時間がかかる",
+        "chooseWhen": "回線が細い、またはデータが非常に大きく、ネットワークでは現実的でないとき",
+        "avoidWhen": "ネットワークで十分に速く送れるとき"
+      },
+      "serviceId": "aws-snow-family"
+    }
+  ],
+  "figureIds": [],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "取引先などの相手が、SFTP・FTPS・FTPでファイルを送ってきますか？",
+      "yes": "r-tf",
+      "no": "n2"
+    },
+    {
+      "id": "n2",
+      "question": "オンプレミスのアプリケーションが、AWSのストレージを継続的に使い続けますか？",
+      "yes": "r-sg",
+      "no": "n3"
+    },
+    {
+      "id": "n3",
+      "question": "ネットワーク経由で、現実的な時間のうちに送れますか？",
+      "yes": "r-ds",
+      "no": "r-snow"
+    },
+    {
+      "id": "r-tf",
+      "resultItemKey": "transfer",
+      "note": "相手の送り方を変えずに、S3やEFSに保存できます。"
+    },
+    {
+      "id": "r-sg",
+      "resultItemKey": "storage-gateway",
+      "note": "NFS・SMB・iSCSIで接続し、ローカルのキャッシュも使えます。"
+    },
+    {
+      "id": "r-ds",
+      "resultItemKey": "datasync",
+      "note": "暗号化や整合性の検証が自動で行われます。"
+    },
+    {
+      "id": "r-snow",
+      "resultItemKey": "snow",
+      "note": "物理的な機器で輸送します。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "saa-q-di-04",
+    "saa-q-dt-train-01",
+    "saa-q-dt-train-02"
+  ]
+}

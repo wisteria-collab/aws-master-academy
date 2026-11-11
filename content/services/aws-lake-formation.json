@@ -1,0 +1,74 @@
+{
+  "id": "aws-lake-formation",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS Lake Formation",
+  "aliases": [
+    "Lake Formation",
+    "レイクフォーメーション"
+  ],
+  "category": "analytics",
+  "summary": "安全なデータレイクを、短期間で簡単にセットアップできるサービス。",
+  "beginner": {
+    "analogy": "「湖の管理事務所」です。水（データ）を集めて台帳に載せ、誰がどの水を汲んでよいかを管理します。",
+    "description": "いろいろなデータを1か所（Amazon S3）に集めて、誰がどのデータを見られるかを管理する仕組みを、簡単に作れるサービスです。"
+  },
+  "exam": {
+    "description": "安全なデータレイクを、数日で簡単にセットアップできるサービスです。データレイクは、すべてのデータを、元の形のままでも、分析用に整えた形でも保管する、一元化され、整理され、保護されたリポジトリです。Lake Formationは、データを収集してカタログ化し、Amazon S3のデータレイクに移し、機密性の高いデータへのアクセスを保護します。",
+    "points": [
+      "安全なデータレイクの構築とアクセス管理＝AWS Lake Formation。",
+      "データレイクの保存先はAmazon S3。",
+      "データの変換（ETL）はAWS Glue、SQLでの分析はAmazon Athena。"
+    ]
+  },
+  "useCases": [
+    "複数のシステムのデータを集めた、分析用のデータレイクの構築"
+  ],
+  "mechanism": "データを収集してカタログ化し、S3のデータレイクに移して、アクセスを管理します。",
+  "pros": [
+    "データレイクの構築が短期間で済む",
+    "アクセスの管理を一元化できる"
+  ],
+  "cons": [
+    "データの分析そのものは、AthenaやRedshiftなどで行う"
+  ],
+  "scenes": [
+    "部署ごとに見せるデータを分けながら、全社のデータをS3に集める"
+  ],
+  "similarServiceIds": [
+    "aws-glue"
+  ],
+  "relatedServiceIds": [
+    "amazon-s3",
+    "aws-glue",
+    "amazon-athena"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/lake-formation/"
+}

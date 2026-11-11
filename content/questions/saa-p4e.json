@@ -1,0 +1,1020 @@
+[
+  {
+    "id": "saa-q-pn-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Communicating across VPCs and AWS Regions（AWS Prescriptive Guidance）",
+        "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/secure-outbound-network-traffic/vpc-region-communication.html"
+      },
+      {
+        "title": "VPC peering（AWSホワイトペーパー Amazon VPC Connectivity Options）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/vpc-peering.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-4",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、30個のVPCと、オンプレミスのネットワークを相互に接続する必要があります。VPCは今後も増える見込みで、接続の管理を単純にしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Transit Gateway",
+        "correct": true,
+        "explanation": "Transit Gatewayは、VPCとオンプレミスのネットワークをつなぐ中央のハブとして機能します。VPCが増えても、ハブに接続するだけで済みます。"
+      },
+      {
+        "id": "b",
+        "text": "すべてのVPCの間にVPCピアリングを作成する",
+        "correct": false,
+        "explanation": "VPCピアリングは1対1の接続で、推移的なルーティングに対応しません。すべてのVPCを互いに通信させるには、VPCの組み合わせごとに接続が必要になり、管理が複雑になります。",
+        "eliminatedBy": "接続の管理を単純にしたい"
+      },
+      {
+        "id": "c",
+        "text": "各VPCにNATゲートウェイを作成する",
+        "correct": false,
+        "explanation": "NATゲートウェイは、プライベートサブネットからインターネットへアクセスするためのものです。VPCどうしやオンプレミスを接続するものではありません。",
+        "eliminatedBy": "VPCと、オンプレミスのネットワークを相互に接続"
+      },
+      {
+        "id": "d",
+        "text": "Amazon CloudFrontのディストリビューションを作成する",
+        "correct": false,
+        "explanation": "CloudFrontはコンテンツを配信するサービスです。ネットワークどうしを接続するものではありません。",
+        "eliminatedBy": "相互に接続する必要があります"
+      }
+    ],
+    "keywords": [
+      "30個のVPC",
+      "オンプレミスのネットワーク",
+      "接続の管理を単純に"
+    ],
+    "decisionPoint": "多数のVPC＋オンプレミス＝Transit Gateway（ハブ）。2つだけならVPCピアリング。",
+    "serviceIds": [
+      "aws-transit-gateway"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-network"
+      },
+      {
+        "type": "comparison",
+        "id": "vpc-connectivity"
+      },
+      {
+        "type": "service",
+        "id": "aws-transit-gateway"
+      }
+    ],
+    "variationGroupId": "vpc-connectivity-select"
+  },
+  {
+    "id": "saa-q-pn-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、世界中の利用者に、静的な画像や動画を配信しています。利用者に近い場所にコンテンツのコピーをキャッシュして、表示を速くしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon CloudFront",
+        "correct": true,
+        "explanation": "CloudFrontは、コンテンツのコピーを世界各地のエッジロケーションにキャッシュし、利用者に近い場所から低い遅延で配信するCDNです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Global Accelerator",
+        "correct": false,
+        "explanation": "Global Acceleratorは、通信をAWSのグローバルネットワーク経由で最も近い正常なエンドポイントに届けるサービスです。コンテンツをキャッシュするものではありません。",
+        "eliminatedBy": "コンテンツのコピーをキャッシュして"
+      },
+      {
+        "id": "c",
+        "text": "AWS Direct Connect",
+        "correct": false,
+        "explanation": "Direct Connectは、自社の拠点とAWSを専用のネットワーク接続で結ぶサービスです。世界中の一般の利用者への配信には使いません。",
+        "eliminatedBy": "世界中の利用者に"
+      },
+      {
+        "id": "d",
+        "text": "AWS Transit Gateway",
+        "correct": false,
+        "explanation": "Transit Gatewayは、VPCやオンプレミスのネットワークをつなぐハブです。コンテンツを配信するものではありません。",
+        "eliminatedBy": "静的な画像や動画を配信"
+      }
+    ],
+    "keywords": [
+      "静的な画像や動画",
+      "コピーをキャッシュ"
+    ],
+    "decisionPoint": "キャッシュして配信＝CloudFront。キャッシュせず経路を最適化＝Global Accelerator。",
+    "serviceIds": [
+      "amazon-cloudfront"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-network"
+      },
+      {
+        "type": "service",
+        "id": "amazon-cloudfront"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-pn-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるオンラインゲームの会社は、複数のリージョンでゲームサーバーを動かしています。利用者には固定の静的なIPアドレスを入口として提供し、通信をAWSのグローバルネットワーク経由で、最も近い正常なエンドポイントへ届けたいと考えています。コンテンツのキャッシュは不要です。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Global Accelerator",
+        "correct": true,
+        "explanation": "Global Acceleratorは、固定の入口となる静的なIPアドレスを提供し、通信をAWSのグローバルネットワーク経由で、最も近い正常なエンドポイントに届けます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontは、コンテンツをエッジロケーションにキャッシュして配信するCDNです。問題文では、キャッシュは不要で、静的なIPアドレスが求められています。",
+        "eliminatedBy": "コンテンツのキャッシュは不要です"
+      },
+      {
+        "id": "c",
+        "text": "VPCピアリング",
+        "correct": false,
+        "explanation": "VPCピアリングは、2つのVPCを接続するものです。利用者の通信を最寄りのエンドポイントに届けるものではありません。",
+        "eliminatedBy": "利用者には固定の静的なIPアドレスを入口として提供"
+      },
+      {
+        "id": "d",
+        "text": "AWS Site-to-Site VPN",
+        "correct": false,
+        "explanation": "Site-to-Site VPNは、自社のネットワークとVPCを暗号化されたトンネルで結ぶものです。一般の利用者の通信を届けるものではありません。",
+        "eliminatedBy": "最も近い正常なエンドポイントへ届けたい"
+      }
+    ],
+    "keywords": [
+      "固定の静的なIPアドレス",
+      "AWSのグローバルネットワーク経由",
+      "キャッシュは不要"
+    ],
+    "decisionPoint": "静的IP＋グローバルネットワーク経由＝Global Accelerator。",
+    "serviceIds": [
+      "aws-global-accelerator"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-network"
+      },
+      {
+        "type": "service",
+        "id": "aws-global-accelerator"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-pn-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "VPC peering（AWSホワイトペーパー Amazon VPC Connectivity Options）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/vpc-peering.html"
+      },
+      {
+        "title": "What is VPC peering?（Amazon VPC ピアリングガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/Welcome.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-4",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、2つのVPCをVPCピアリングで接続しようとしましたが、接続を作成できませんでした。原因として最も考えられるものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "2つのVPCの、プライマリのIPv4のCIDRブロックが重なっている",
+        "correct": true,
+        "explanation": "プライマリのIPv4のCIDRブロックが重なっている2つのVPCは、ピアリングできません。VPCを設計するときに、重ならない範囲を割り当てておく必要があります。"
+      },
+      {
+        "id": "b",
+        "text": "2つのVPCが、別々のAWSアカウントにある",
+        "correct": false,
+        "explanation": "VPCピアリングは、別々のアカウントにあるVPCの間でも作成できます。これは原因になりません。",
+        "eliminatedBy": "接続を作成できませんでした"
+      },
+      {
+        "id": "c",
+        "text": "2つのVPCが、別々のリージョンにある",
+        "correct": false,
+        "explanation": "VPCピアリングは、別々のリージョンにあるVPCの間でも作成できます（リージョン間のVPCピアリング）。これは原因になりません。",
+        "eliminatedBy": "接続を作成できませんでした"
+      },
+      {
+        "id": "d",
+        "text": "VPCピアリングは、IPv4の通信に対応していない",
+        "correct": false,
+        "explanation": "VPCピアリングは、IPv4とIPv6の両方の通信に対応しています。",
+        "eliminatedBy": "VPCピアリングで接続しようとしました"
+      }
+    ],
+    "keywords": [
+      "VPCピアリング",
+      "接続を作成できませんでした"
+    ],
+    "decisionPoint": "VPCピアリングの条件：CIDRが重ならないこと。将来を見越してIPアドレスの範囲を設計します。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-network"
+      },
+      {
+        "type": "comparison",
+        "id": "vpc-connectivity"
+      }
+    ],
+    "variationGroupId": "vpc-connectivity-select"
+  },
+  {
+    "id": "saa-q-pn-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、3層のウェブアプリケーション（ウェブ、アプリケーション、データベース）をVPCに配置します。インターネットからアクセスできるのはロードバランサーだけにし、アプリケーションサーバーとデータベースは、インターネットから直接アクセスできないようにしたいと考えています。最も適切な配置はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ロードバランサーをパブリックサブネットに、アプリケーションサーバーとデータベースをプライベートサブネットに置く",
+        "correct": true,
+        "explanation": "サブネットを使ってアプリケーションの層を分離し、インターネットから直接アクセスされるべきでないインスタンスはプライベートサブネットに置きます。"
+      },
+      {
+        "id": "b",
+        "text": "すべてをパブリックサブネットに置き、セキュリティグループだけで制御する",
+        "correct": false,
+        "explanation": "すべてをパブリックサブネットに置くと、アプリケーションサーバーとデータベースもインターネットへの経路を持つことになります。層を分離するという要件に合いません。",
+        "eliminatedBy": "インターネットから直接アクセスできないようにしたい"
+      },
+      {
+        "id": "c",
+        "text": "すべてをプライベートサブネットに置く",
+        "correct": false,
+        "explanation": "すべてをプライベートサブネットに置くと、ロードバランサーもインターネットからアクセスできなくなります。",
+        "eliminatedBy": "インターネットからアクセスできるのはロードバランサーだけ"
+      },
+      {
+        "id": "d",
+        "text": "データベースだけをパブリックサブネットに置く",
+        "correct": false,
+        "explanation": "データベースは、インターネットから直接アクセスできないようにしたい対象です。パブリックサブネットに置くのは逆の配置です。",
+        "eliminatedBy": "データベースは、インターネットから直接アクセスできないように"
+      }
+    ],
+    "keywords": [
+      "3層のウェブアプリケーション",
+      "インターネットからアクセスできるのはロードバランサーだけ"
+    ],
+    "decisionPoint": "多層構成：入口だけパブリック、残りはプライベート。",
+    "serviceIds": [
+      "amazon-vpc",
+      "elastic-load-balancing"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-network"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      },
+      {
+        "type": "service",
+        "id": "amazon-vpc"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-di-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-5",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、アプリケーションが出力するクリックの記録を、継続的にAmazon S3に保存しています。あとでAmazon Athenaで効率よく分析できるように、S3に保存する前に、データをApache Parquetに変換したいと考えています。サーバーの管理はしたくありません。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Data Firehose",
+        "correct": true,
+        "explanation": "Data Firehoseは、ストリーミングデータを取り込み、変換して、S3などに届けるフルマネージドのサービスです。S3に届ける前に、Apache Parquetなどの列指向のフォーマットに変換できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Snow Family",
+        "correct": false,
+        "explanation": "Snow Familyは、大量のデータを物理的な機器で輸送するサービスです。継続的に発生する記録をS3に届けるものではありません。",
+        "eliminatedBy": "継続的にAmazon S3に保存"
+      },
+      {
+        "id": "c",
+        "text": "AWS Transfer Family",
+        "correct": false,
+        "explanation": "Transfer Familyは、SFTPなどによるファイル転送のサービスです。ストリーミングデータをParquetに変換してS3に届けるものではありません。",
+        "eliminatedBy": "データをApache Parquetに変換したい"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EC2に変換用のプログラムを置いて運用する",
+        "correct": false,
+        "explanation": "EC2で変換することもできますが、サーバーの管理が必要になります。",
+        "eliminatedBy": "サーバーの管理はしたくありません"
+      }
+    ],
+    "keywords": [
+      "継続的にAmazon S3に保存",
+      "Apache Parquetに変換",
+      "サーバーの管理はしたくありません"
+    ],
+    "decisionPoint": "ストリーミングデータをS3へ＋Parquet変換＋管理不要＝Data Firehose。",
+    "serviceIds": [
+      "amazon-data-firehose"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-data"
+      },
+      {
+        "type": "service",
+        "id": "amazon-data-firehose"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-di-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-5",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、複数のシステムのデータをAmazon S3に集めて、データレイクを作ります。データをカタログ化し、機密性の高いデータへのアクセスを保護する仕組みを、短期間で用意したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Lake Formation",
+        "correct": true,
+        "explanation": "Lake Formationは、安全なデータレイクを短期間でセットアップできるサービスです。データを収集してカタログ化し、S3のデータレイクに移し、機密性の高いデータへのアクセスを保護します。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheはインメモリのキャッシュです。データレイクを作るサービスではありません。",
+        "eliminatedBy": "データレイクを作ります"
+      },
+      {
+        "id": "c",
+        "text": "AWS Global Accelerator",
+        "correct": false,
+        "explanation": "Global Acceleratorは、通信をエンドポイントに届けるネットワークのサービスです。データレイクとは関係がありません。",
+        "eliminatedBy": "データレイクを作ります"
+      },
+      {
+        "id": "d",
+        "text": "Amazon SQS",
+        "correct": false,
+        "explanation": "SQSはメッセージキューのサービスです。データをカタログ化したり、アクセスを保護したりするものではありません。",
+        "eliminatedBy": "データをカタログ化し、機密性の高いデータへのアクセスを保護"
+      }
+    ],
+    "keywords": [
+      "データレイク",
+      "カタログ化",
+      "アクセスを保護"
+    ],
+    "decisionPoint": "安全なデータレイクの構築＝Lake Formation。",
+    "serviceIds": [
+      "aws-lake-formation"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-data"
+      },
+      {
+        "type": "service",
+        "id": "aws-lake-formation"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-di-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-5",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある金融サービスの会社は、取引のイベントを毎秒大量に受け取り、数ミリ秒のうちに独自のプログラムで不正の兆候を検知したいと考えています。データを継続的に取り込み、ミリ秒単位で利用できるようにするサービスとして、最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Kinesis Data Streams",
+        "correct": true,
+        "explanation": "Kinesis Data Streamsは、大規模に拡張でき、耐久性のあるリアルタイムのデータストリーミングサービスです。データはミリ秒単位で利用できるようになり、リアルタイムのダッシュボードや異常検知に使えます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS DataSync",
+        "correct": false,
+        "explanation": "DataSyncは、ストレージの間でデータを移動する転送サービスです。発生するイベントをミリ秒単位で処理するためのものではありません。",
+        "eliminatedBy": "数ミリ秒のうちに"
+      },
+      {
+        "id": "c",
+        "text": "Amazon S3 Glacier Deep Archive",
+        "correct": false,
+        "explanation": "Glacier Deep Archiveは、長期のアーカイブ用のストレージクラスです。リアルタイムの処理には使えません。",
+        "eliminatedBy": "数ミリ秒のうちに"
+      },
+      {
+        "id": "d",
+        "text": "AWS Storage Gateway",
+        "correct": false,
+        "explanation": "Storage Gatewayは、オンプレミスからAWSのストレージを使うためのサービスです。イベントをリアルタイムに取り込むものではありません。",
+        "eliminatedBy": "取引のイベントを毎秒大量に受け取り"
+      }
+    ],
+    "keywords": [
+      "毎秒大量に",
+      "数ミリ秒のうちに",
+      "独自のプログラムで"
+    ],
+    "decisionPoint": "リアルタイム（ミリ秒）で独自に処理＝Kinesis Data Streams。保存先へ届けるだけ＝Data Firehose。",
+    "serviceIds": [
+      "amazon-kinesis"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-data"
+      },
+      {
+        "type": "service",
+        "id": "amazon-kinesis"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-di-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-5",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスのデータセンターにある80テラバイトのファイルを、AWSへ1回で移行します。データセンターの回線は細く、ネットワークで送ると数か月かかる見込みです。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Snow Familyの機器を使って、データを物理的に輸送する",
+        "correct": true,
+        "explanation": "Snow Familyは、安定したネットワーク接続がない場所などで、大量のデータを物理的な機器でAWSとの間で輸送するためのサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS DataSyncで、ネットワーク経由で転送する",
+        "correct": false,
+        "explanation": "DataSyncはネットワーク経由でデータを移動するサービスです。回線が細く数か月かかる状況では、物理的な輸送のほうが適切です。",
+        "eliminatedBy": "ネットワークで送ると数か月かかる"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Data Firehoseで取り込む",
+        "correct": false,
+        "explanation": "Data Firehoseは、ストリーミングデータを保存先に届けるサービスです。既存の大量のファイルを1回で移行するためのものではありません。",
+        "eliminatedBy": "80テラバイトのファイルを、AWSへ1回で移行"
+      },
+      {
+        "id": "d",
+        "text": "Amazon CloudFrontで配信する",
+        "correct": false,
+        "explanation": "CloudFrontは、コンテンツを利用者に配信するサービスです。データをAWSへ移行するものではありません。",
+        "eliminatedBy": "AWSへ1回で移行"
+      }
+    ],
+    "keywords": [
+      "回線は細く",
+      "数か月かかる"
+    ],
+    "decisionPoint": "回線が細い／データが巨大＝Snow Family（物理輸送）。回線が使えるならDataSync。",
+    "serviceIds": [
+      "aws-snow-family"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-data"
+      },
+      {
+        "type": "comparison",
+        "id": "data-transfer"
+      },
+      {
+        "type": "service",
+        "id": "aws-snow-family"
+      }
+    ],
+    "variationGroupId": "data-transfer-select"
+  },
+  {
+    "id": "saa-q-di-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-5",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、アプリケーションの大量のログを取り込み、キーワードでの全文検索と、リアルタイムの可視化を行いたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon OpenSearch Service",
+        "correct": true,
+        "explanation": "OpenSearch Serviceは、データをリアルタイムに検索、分析、可視化できるようにします。ログ分析や全文検索の用途に向いています。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Redshift",
+        "correct": false,
+        "explanation": "Redshiftは、SQLで大量のデータに複雑な分析を行うデータウェアハウスです。キーワードでの全文検索のためのサービスではありません。",
+        "eliminatedBy": "キーワードでの全文検索"
+      },
+      {
+        "id": "c",
+        "text": "AWS Lake Formation",
+        "correct": false,
+        "explanation": "Lake Formationは、データレイクを構築してアクセスを管理するサービスです。全文検索や可視化を行うものではありません。",
+        "eliminatedBy": "全文検索と、リアルタイムの可視化"
+      },
+      {
+        "id": "d",
+        "text": "Amazon RDS Proxy",
+        "correct": false,
+        "explanation": "RDS Proxyは、データベースの接続をプールするプロキシです。ログの検索とは関係がありません。",
+        "eliminatedBy": "大量のログを取り込み"
+      }
+    ],
+    "keywords": [
+      "ログ",
+      "キーワードでの全文検索",
+      "リアルタイムの可視化"
+    ],
+    "decisionPoint": "ログ分析・全文検索＝OpenSearch Service。",
+    "serviceIds": [
+      "amazon-opensearch-service"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-data"
+      },
+      {
+        "type": "service",
+        "id": "amazon-opensearch-service"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-vc-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "VPC peering（AWSホワイトペーパー Amazon VPC Connectivity Options）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/vpc-peering.html"
+      },
+      {
+        "title": "How VPC peering connections work（Amazon VPC ピアリングガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-4",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業には、VPC A、VPC B、VPC Cの3つがあります。AとBの間、BとCの間に、それぞれVPCピアリングを作成しました。このとき、VPC AからVPC Cへの通信についての説明として正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "VPC Bを経由して通信することはできない。AとCを通信させるには、AとCの間にも直接の接続が必要である",
+        "correct": true,
+        "explanation": "VPCピアリングは、推移的なルーティングに対応していません。直接ピアリングされていない2つのVPCは、別のVPCを経由して通信できません。Transit Gatewayを中継ハブとして使う方法もあります。"
+      },
+      {
+        "id": "b",
+        "text": "VPC Bを経由して、自動的に通信できる",
+        "correct": false,
+        "explanation": "VPCピアリングは推移的なピアリングに対応していないため、VPC Bを中継して通信することはできません。",
+        "eliminatedBy": "AとBの間、BとCの間に、それぞれVPCピアリングを作成"
+      },
+      {
+        "id": "c",
+        "text": "VPC Bのルートテーブルを設定すれば、Bを経由して通信できる",
+        "correct": false,
+        "explanation": "ルートテーブルを設定しても、VPCピアリングを中継して別のVPCへ通信することはできません。",
+        "eliminatedBy": "VPC AからVPC Cへの通信"
+      },
+      {
+        "id": "d",
+        "text": "VPCピアリングは、同時に1つしか作成できないため、そもそもこの構成は作れない",
+        "correct": false,
+        "explanation": "1つのVPCに、複数のVPCピアリングを作成できます。この構成自体は作れます。",
+        "eliminatedBy": "それぞれVPCピアリングを作成しました"
+      }
+    ],
+    "keywords": [
+      "AとBの間、BとCの間",
+      "VPC AからVPC Cへの通信"
+    ],
+    "decisionPoint": "VPCピアリングは推移的でない。A–B、B–CがあってもA–Cは通信できません。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "vpc-connectivity"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-perf-network"
+      }
+    ],
+    "variationGroupId": "vpc-connectivity-select"
+  },
+  {
+    "id": "saa-q-dt-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-5",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスのファイルサーバーにある大量のファイルを、Amazon EFSへ移行します。十分な帯域の回線があり、ネットワーク経由で転送できます。転送中の暗号化や、データの整合性の検証を、自動で行いたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS DataSync",
+        "correct": true,
+        "explanation": "DataSyncは、オンプレミスのストレージとS3やEFSの間のデータ移動を自動化します。暗号化、ネットワークの最適化、データの整合性の検証などを自動的に処理します。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Snow Family",
+        "correct": false,
+        "explanation": "Snow Familyは、物理的な機器でデータを輸送するサービスです。十分な帯域の回線があり、ネットワーク経由で転送できる場合には、DataSyncが合います。",
+        "eliminatedBy": "十分な帯域の回線があり、ネットワーク経由で転送できます"
+      },
+      {
+        "id": "c",
+        "text": "AWS Transfer Family",
+        "correct": false,
+        "explanation": "Transfer Familyは、SFTPなどによるファイル転送の窓口を提供するサービスです。ファイルサーバーのデータをまとめてEFSに移行し、整合性を検証する用途にはDataSyncが合います。",
+        "eliminatedBy": "データの整合性の検証を、自動で行いたい"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Data Firehose",
+        "correct": false,
+        "explanation": "Data Firehoseは、ストリーミングデータを保存先に届けるサービスです。ファイルサーバーのファイルを移行するものではありません。",
+        "eliminatedBy": "ファイルサーバーにある大量のファイルを、Amazon EFSへ移行"
+      }
+    ],
+    "keywords": [
+      "Amazon EFSへ移行",
+      "ネットワーク経由で転送できます",
+      "整合性の検証"
+    ],
+    "decisionPoint": "ネットワーク経由のまとまった移行＝DataSync。",
+    "serviceIds": [
+      "aws-datasync"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "data-transfer"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-perf-data"
+      }
+    ],
+    "variationGroupId": "data-transfer-select"
+  },
+  {
+    "id": "saa-q-dt-train-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-5",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業のオンプレミスのバックアップソフトウェアは、iSCSIで接続するストレージにバックアップを書き込みます。ソフトウェアの設定をほとんど変えずに、バックアップの保存先をAWSにしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Storage Gateway",
+        "correct": true,
+        "explanation": "Storage Gatewayは、オンプレミスのアプリケーションが、NFS、SMB、iSCSIといった標準のプロトコルで、AWSのクラウドストレージを使えるようにします。バックアップとアーカイブは、代表的な用途です。"
+      },
+      {
+        "id": "b",
+        "text": "AWS DataSync",
+        "correct": false,
+        "explanation": "DataSyncは、データの移動を自動化する転送サービスです。バックアップソフトウェアがiSCSIで書き込む保存先になるものではありません。",
+        "eliminatedBy": "iSCSIで接続するストレージにバックアップを書き込みます"
+      },
+      {
+        "id": "c",
+        "text": "AWS Snow Family",
+        "correct": false,
+        "explanation": "Snow Familyは、物理的な機器でデータを輸送するサービスです。毎日のバックアップの保存先として使い続けるものではありません。",
+        "eliminatedBy": "バックアップの保存先をAWSにしたい"
+      },
+      {
+        "id": "d",
+        "text": "AWS Transfer Family",
+        "correct": false,
+        "explanation": "Transfer Familyは、SFTP・FTPS・FTPによるファイル転送のサービスです。iSCSIでの接続には対応していません。",
+        "eliminatedBy": "iSCSIで接続する"
+      }
+    ],
+    "keywords": [
+      "iSCSI",
+      "設定をほとんど変えずに",
+      "バックアップの保存先をAWSに"
+    ],
+    "decisionPoint": "標準プロトコル（NFS・SMB・iSCSI）で使い続ける＝Storage Gateway。",
+    "serviceIds": [
+      "aws-storage-gateway"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "data-transfer"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-perf-data"
+      }
+    ],
+    "variationGroupId": "data-transfer-select"
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "id": "amazon-opensearch-service",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "Amazon OpenSearch Service",
+  "aliases": [
+    "OpenSearch Service",
+    "OpenSearch",
+    "オープンサーチ"
+  ],
+  "category": "analytics",
+  "summary": "OpenSearchを使って、データをリアルタイムに検索、分析、可視化できるようにするサービス。",
+  "beginner": {
+    "analogy": "膨大な書類の中から、キーワードで一瞬にして探し出す「検索係」です。",
+    "description": "大量のログや文章の中から、キーワードで素早く検索したり、傾向を可視化したりするためのサービスです。"
+  },
+  "exam": {
+    "description": "OpenSearchを簡単にデプロイ、保護、運用、スケールして、データをリアルタイムに検索、分析、可視化できるようにします。ログ分析、全文検索、アプリケーションの監視、クリックストリーム分析などの用途に向いています。",
+    "points": [
+      "ログ分析・全文検索＝Amazon OpenSearch Service。",
+      "リアルタイムに検索、分析、可視化する。",
+      "S3のデータへのSQLはAmazon Athena、データウェアハウスはAmazon Redshift。"
+    ]
+  },
+  "useCases": [
+    "アプリケーションのログの検索と可視化",
+    "サイト内の全文検索"
+  ],
+  "mechanism": "データを取り込み、検索や分析のリクエストに応えます。",
+  "pros": [
+    "キーワードでの検索が速い",
+    "運用をAWSに任せられる"
+  ],
+  "cons": [
+    "業務データの複雑な集計にはデータウェアハウスが合う"
+  ],
+  "scenes": [
+    "大量のログから、エラーの発生状況をキーワードで検索する"
+  ],
+  "similarServiceIds": [
+    "amazon-athena"
+  ],
+  "relatedServiceIds": [
+    "amazon-data-firehose",
+    "amazon-cloudwatch"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/opensearch-service/"
+}

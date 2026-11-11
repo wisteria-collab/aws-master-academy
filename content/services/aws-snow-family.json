@@ -1,0 +1,75 @@
+{
+  "id": "aws-snow-family",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS Snow Family",
+  "aliases": [
+    "Snow Family",
+    "Snowball",
+    "Snowball Edge",
+    "スノーファミリー"
+  ],
+  "category": "migration-transfer",
+  "summary": "ネットワークでは運びにくい大量のデータを、物理的な機器でAWSとの間で運ぶサービス。",
+  "beginner": {
+    "analogy": "データの「引っ越しトラック」です。回線で送ると何か月もかかる荷物を、箱に詰めて物理的に運びます。",
+    "description": "専用の機器にデータを入れて、その機器ごとAWSに送ることで、大量のデータを運ぶサービスです。ネットワークが使えない場所でも使えます。"
+  },
+  "exam": {
+    "description": "過酷な、データセンターではない環境や、安定したネットワーク接続がない場所で運用する必要がある顧客を支援します。AWS SnowballとAWS Snowball Edgeで構成され、多くはコンピューティングの機能を内蔵した、いくつかの物理的な機器を提供します。エクサバイト規模までのデータを、AWSとの間で物理的に輸送するのに役立ちます。",
+    "points": [
+      "大量のデータを物理的な機器で輸送＝AWS Snow Family。",
+      "安定したネットワーク接続がない場所でも使える。コンピューティングの機能を内蔵した機器もある。",
+      "ネットワーク経由のデータ移動はAWS DataSync。"
+    ]
+  },
+  "useCases": [
+    "回線が細い拠点から、大量のデータをAWSへ移す"
+  ],
+  "mechanism": "機器にデータを入れ、機器をAWSに送ることで、データを移します。",
+  "pros": [
+    "ネットワークに頼らずに大量のデータを運べる"
+  ],
+  "cons": [
+    "機器の輸送の時間がかかる"
+  ],
+  "scenes": [
+    "ネットワークで送ると数か月かかる量のデータを、AWSへ移す"
+  ],
+  "similarServiceIds": [
+    "aws-datasync"
+  ],
+  "relatedServiceIds": [
+    "amazon-s3"
+  ],
+  "comparisonGroupIds": [
+    "data-transfer"
+  ],
+  "importance": {
+    "clf": "low",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/snowball/"
+}

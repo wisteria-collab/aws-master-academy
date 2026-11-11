@@ -1,0 +1,101 @@
+{
+  "id": "saa-perf-network",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "VPC peering（AWSホワイトペーパー Amazon VPC Connectivity Options）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/vpc-peering.html"
+    },
+    {
+      "title": "How VPC peering connections work（Amazon VPC ピアリングガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html"
+    },
+    {
+      "title": "What is VPC peering?（Amazon VPC ピアリングガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/Welcome.html"
+    },
+    {
+      "title": "Communicating across VPCs and AWS Regions（AWS Prescriptive Guidance）",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/secure-outbound-network-traffic/vpc-region-communication.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Disaster recovery options in the cloud（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 9,
+  "title": "高パフォーマンスでスケーラブルなネットワークの設計",
+  "domainId": "saa-d3",
+  "taskIds": [
+    "saa-3-4"
+  ],
+  "overview": "4つ目のタスクはネットワークです。これまでに、VPCの中の構成（サブネット、NATゲートウェイ、VPCエンドポイント）と、ロードバランサーを学びました。ここでは、VPCどうしやオンプレミスとの「つなぎ方」と、世界中の利用者に速く届けるための「エッジの使い方」を学びます。\n試験ガイドでは、エッジのネットワークサービス（Amazon CloudFront、AWS Global Accelerator）、ネットワークの設計（サブネットの層、ルーティング、IPアドレスの割り当て）、ロードバランシング、接続の選択肢（AWS VPN、AWS Direct Connect、AWS PrivateLink）が挙げられています。",
+  "beginner": {
+    "analogy": "街と街を結ぶ道にたとえます。VPCピアリングは、隣町との間の「直通の道」です。町が増えるたびに道を1本ずつ作るのは大変なので、町が多いときは、すべての町がつながる「乗り継ぎターミナル」（Transit Gateway）を作ります。CloudFrontは、人気の商品を各地の店に置いておく仕組み、Global Acceleratorは、目的地まで混まない専用道路で案内する仕組みです。",
+    "description": "ネットワークの設計では、最初に決めた「番地の割り振り」（IPアドレスの範囲）を、あとから変えるのが大変です。将来VPCどうしをつなぐことを考えて、範囲が重ならないように決めておくことが、いちばんの備えです。"
+  },
+  "useCases": [
+    "多数のVPCとオンプレミスを相互に接続する",
+    "世界中の利用者に、コンテンツを速く届ける",
+    "3層のアプリケーションを、サブネットで分けて配置する",
+    "将来の拡張を見越して、IPアドレスの範囲を決める"
+  ],
+  "mechanism": {
+    "text": "【サブネットの層とルーティング】\nウェブ、アプリケーション、データベースの層を、サブネットで分けます。入口になるロードバランサーはパブリックサブネットに、それ以外はプライベートサブネットに置きます。通信の経路は、ルートテーブルで決まります。\n【IPアドレスの割り当て】\nVPCとサブネットには、使うIPアドレスの範囲（CIDR）を割り当てます。プライマリのIPv4のCIDRブロックが重なるVPCどうしは、VPCピアリングで接続できません。将来の接続を見越して、重ならない範囲を割り当てます。\n【VPCどうしの接続】\n・VPCピアリング：2つのVPCを1対1で接続します。別のアカウントや別のリージョンのVPCとも接続できます。推移的なルーティングには対応しません。\n・AWS Transit Gateway：多数のVPCとオンプレミスのネットワークを、中央のハブで接続します。\n・AWS PrivateLink：ネットワーク全体ではなく、特定のサービスへのプライベートな接続を提供します。\n【オンプレミスとの接続】\n・AWS Site-to-Site VPN：暗号化されたトンネルで接続します。\n・AWS Direct Connect：専用のネットワーク接続です。インターネット経由より一貫性のある通信を提供でき、帯域のスループットを高められます。\n【ロードバランシング】\nApplication Load Balancer（HTTP/HTTPS、レイヤー7）、Network Load Balancer（TCP、レイヤー4、極めて高い性能）、Gateway Load Balancer（サードパーティのアプライアンス）から選びます。\n【エッジのサービス】\n・Amazon CloudFront：コンテンツをエッジロケーションにキャッシュして配信します。\n・AWS Global Accelerator：静的なIPアドレスを入口として提供し、通信をAWSのグローバルネットワーク経由で、最も近い正常なエンドポイントに届けます。DNSのキャッシュの影響を受けません。\n・Amazon Route 53：遅延ベース、地理的、加重などのルーティングで、利用者を適切なエンドポイントに案内します。",
+    "figureId": "vpc-structure"
+  },
+  "relatedServiceIds": [
+    "amazon-vpc",
+    "aws-transit-gateway",
+    "aws-privatelink",
+    "aws-vpn",
+    "aws-direct-connect",
+    "elastic-load-balancing",
+    "amazon-cloudfront",
+    "aws-global-accelerator",
+    "amazon-route-53"
+  ],
+  "examPoints": [
+    "2つのVPCをつなぐ＝VPCピアリング（1対1、推移的でない）。多数のVPC＋オンプレミス＝Transit Gateway（ハブ）。",
+    "VPCピアリングは、CIDRブロックが重なると作成できない。IPアドレスの範囲は重ならないように設計する。",
+    "特定のサービスへのアクセスだけをプライベートに提供＝PrivateLink。",
+    "キャッシュして配信＝CloudFront。静的IPで、グローバルネットワーク経由で届ける＝Global Accelerator。",
+    "オンプレミスとの接続：暗号化されたトンネル＝VPN。専用の接続・一貫性のある通信＝Direct Connect。",
+    "多層構成：入口（ロードバランサー）だけパブリックサブネット、残りはプライベートサブネット。",
+    "Route 53のルーティング：遅延ベース、地理的、加重、フェイルオーバー。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-pn-01",
+    "saa-q-pn-02",
+    "saa-q-pn-03",
+    "saa-q-pn-04",
+    "saa-q-pn-05",
+    "saa-q-vc-train-01"
+  ],
+  "glossaryTermIds": [
+    "vpc-peering",
+    "hub-and-spoke",
+    "cidr",
+    "subnet",
+    "cdn",
+    "edge-location",
+    "latency",
+    "load-balancer"
+  ]
+}
