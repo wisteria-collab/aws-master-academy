@@ -456,5 +456,201 @@
     "plain": "たくさんのコンテナを指揮する「指揮者」のようなものです。読み方は「クバネティス」「クーベネティス」などです。",
     "example": "すでにKubernetesで動かしているアプリケーションを、Amazon EKSに移して動かす。",
     "serviceIds": []
+  },
+  {
+    "id": "root-user",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Root user best practices for your AWS account（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "ルートユーザー",
+    "description": "AWSアカウントを作成したときに最初からある、アカウント内のすべてのリソースに完全にアクセスできる特別なユーザーです。",
+    "plain": "建物の「マスターキー」を持つ人のようなものです。何でもできてしまうので、普段は金庫にしまっておき、どうしても必要なときだけ使います。",
+    "example": "アカウントの解約など、ルートユーザーにしかできない作業のときだけサインインし、日常の作業には使わない。",
+    "serviceIds": []
+  },
+  {
+    "id": "mfa",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Root user best practices for your AWS account（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "多要素認証",
+    "description": "パスワードに加えて、本人が持っているデバイスが生成する応答なども確認する認証の方法です。MFAと略します。",
+    "plain": "銀行のATMで、「キャッシュカード（持っている物）」と「暗証番号（知っていること）」の両方が必要なのと同じ考え方です。片方が漏れても、もう片方がなければ入れません。",
+    "example": "ルートユーザーのサインインに、パスワードに加えてスマートフォンの認証アプリが表示するコードの入力を必須にする。",
+    "serviceIds": []
+  },
+  {
+    "id": "least-privilege",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "最小権限",
+    "description": "作業に必要な最小限の権限だけを与える、という考え方です。",
+    "plain": "会社の入館証で、自分の働くフロアにだけ入れるようにするイメージです。全員に全フロアの鍵を渡すより、事故や不正が起きにくくなります。",
+    "example": "ログを読むだけの担当者には、読み取りの権限だけを与え、削除や変更の権限は与えない。",
+    "serviceIds": []
+  },
+  {
+    "id": "temporary-credentials",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "一時的な認証情報",
+    "description": "一定の時間だけ有効で、時間がたつと使えなくなる認証情報です。IAMロールを通じて提供されます。",
+    "plain": "ホテルのカードキーのようなものです。滞在中だけ使えて、チェックアウト後は自動的に使えなくなるので、落としても被害が広がりにくくなります。",
+    "example": "EC2インスタンス上のアプリケーションが、IAMロールの一時的な認証情報を使ってS3にアクセスする。長期間有効なアクセスキーを置かずに済む。",
+    "serviceIds": []
+  },
+  {
+    "id": "encryption",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "暗号化",
+    "description": "データを、鍵を持つ人だけが読める形に変換して保護することです。",
+    "plain": "手紙を、合言葉を知っている人だけが読める暗号文にするイメージです。途中で誰かに見られても、中身はわかりません。",
+    "example": "保存してあるデータを暗号化する（保存時の暗号化）、通信の途中のデータを暗号化する（転送時の暗号化）。",
+    "serviceIds": []
+  },
+  {
+    "id": "ddos",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "DDoS攻撃",
+    "description": "大量の通信を一斉に送りつけて、ウェブサイトなどを使えなくする攻撃です。",
+    "plain": "お店に大量のいたずら電話をかけ続けて、本当のお客さんの電話がつながらないようにする嫌がらせに似ています。",
+    "example": "AWS Shieldは、AWS上で動くウェブアプリケーションをDDoS攻撃から保護する。",
+    "serviceIds": []
+  },
+  {
+    "id": "vulnerability",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "脆弱性",
+    "description": "ソフトウェアにある、攻撃に悪用されるおそれのあるセキュリティ上の弱点です。",
+    "plain": "家の「鍵のかかっていない窓」のようなものです。気づかずに放っておくと、そこから侵入されるおそれがあります。",
+    "example": "Amazon Inspectorが、EC2インスタンスのソフトウェアの脆弱性を継続的にスキャンして見つける。",
+    "serviceIds": []
+  },
+  {
+    "id": "compliance",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "コンプライアンス",
+    "description": "法律、規制、業界の基準などの決まりを守ることです。",
+    "plain": "飲食店が、衛生に関する決まりを守って営業することに似ています。決まりは業種や地域によって違います。",
+    "example": "AWS Artifactから、AWSのセキュリティとコンプライアンスに関するレポートを入手して、監査の資料にする。",
+    "serviceIds": []
   }
 ]

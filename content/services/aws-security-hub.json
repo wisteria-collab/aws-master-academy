@@ -1,0 +1,72 @@
+{
+  "id": "aws-security-hub",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Security Hub",
+  "aliases": [
+    "Security Hub",
+    "Security Hub CSPM"
+  ],
+  "category": "security",
+  "summary": "セキュリティのベストプラクティスに沿っているかを自動で継続的にチェックし、複数のサービスの検出結果を1か所に集約するサービス。",
+  "beginner": {
+    "analogy": "複数の警備システムからの報告を、1つの画面にまとめて見せてくれる「警備室のモニター」のようなものです。",
+    "description": "GuardDutyやInspectorなどが見つけた問題を、まとめて確認できます。"
+  },
+  "exam": {
+    "description": "AWSリソースに対して、セキュリティのベストプラクティスのチェックを自動で継続的に実行します。AWSのサービスやパートナー製品からの検出結果を標準化された形式で集約し、アカウント全体のセキュリティの状態を把握できます。公式資料では「AWS Security Hub CSPM」と表記されることもあります。",
+    "points": [
+      "セキュリティの検出結果の集約と、ベストプラクティスのチェック＝Security Hub。",
+      "GuardDutyなどの個別のサービスが検出し、Security Hubがまとめる。"
+    ]
+  },
+  "useCases": [
+    "複数のセキュリティサービスの検出結果の一元的な確認"
+  ],
+  "mechanism": "各サービスからの検出結果を集め、まとめて表示します。",
+  "pros": [
+    "セキュリティの状態を1か所で把握できる"
+  ],
+  "cons": [
+    "個々の検出そのものは、GuardDutyなど各サービスが行う"
+  ],
+  "scenes": [
+    "複数のアカウントのセキュリティ上の問題を、1つの画面で確認する"
+  ],
+  "similarServiceIds": [
+    "amazon-guardduty"
+  ],
+  "relatedServiceIds": [
+    "amazon-guardduty",
+    "amazon-inspector",
+    "amazon-macie"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/securityhub/"
+}

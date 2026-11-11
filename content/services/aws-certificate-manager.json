@@ -1,0 +1,70 @@
+{
+  "id": "aws-certificate-manager",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Certificate Manager",
+  "aliases": [
+    "ACM",
+    "Certificate Manager"
+  ],
+  "category": "security",
+  "summary": "通信の暗号化に使うSSL/TLS証明書を、発行・管理・配置できるサービス。",
+  "beginner": {
+    "analogy": "ウェブサイトの「身分証明書」を発行して、期限が切れる前に更新までしてくれる窓口のようなものです。",
+    "description": "ウェブサイトとの通信を暗号化（HTTPS）するために必要な証明書を用意し、更新も任せられます。"
+  },
+  "exam": {
+    "description": "AWSのサービスや内部のリソースで使うSSL/TLS証明書を、プロビジョニング、管理、デプロイできます。Elastic Load Balancing、Amazon CloudFront、API Gatewayと統合されており、証明書の更新も処理します。",
+    "points": [
+      "SSL/TLS証明書の管理＝ACM。転送時の暗号化に関係する。",
+      "Elastic Load BalancingやCloudFrontと統合され、証明書の更新も処理する。"
+    ]
+  },
+  "useCases": [
+    "ウェブサイトのHTTPS化"
+  ],
+  "mechanism": "証明書を用意し、ロードバランサーなどの統合されたサービスに配置します。",
+  "pros": [
+    "証明書の更新を任せられる"
+  ],
+  "cons": [
+    "統合されているサービスで使うことが前提"
+  ],
+  "scenes": [
+    "ロードバランサーに証明書を設定して、利用者との通信を暗号化する"
+  ],
+  "similarServiceIds": [
+    "aws-kms"
+  ],
+  "relatedServiceIds": [
+    "elastic-load-balancing"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/acm/"
+}

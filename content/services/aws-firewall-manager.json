@@ -1,0 +1,70 @@
+{
+  "id": "aws-firewall-manager",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Firewall Manager",
+  "aliases": [
+    "Firewall Manager"
+  ],
+  "category": "security",
+  "summary": "AWS Organizations内の複数のアカウントやアプリケーションに対して、ファイアウォールのルールを一元的に設定・管理するサービス。",
+  "beginner": {
+    "analogy": "チェーン店の本部が、全店舗の防犯ルールをまとめて決めて配る仕組みです。",
+    "description": "アカウントがたくさんあっても、共通のセキュリティルールをまとめて適用できます。"
+  },
+  "exam": {
+    "description": "AWS Organizationsのアカウントとアプリケーション全体で、ファイアウォールのルールを一元的に設定・管理するセキュリティ管理サービスです。新しいアプリケーションやリソースが作成されたときにも、共通のセキュリティルールを一貫して適用できます。",
+    "points": [
+      "複数アカウントのファイアウォールルールを一元管理＝Firewall Manager。",
+      "個々のルールで攻撃を防ぐのはAWS WAFなど。Firewall Managerはそれらをまとめて管理する。"
+    ]
+  },
+  "useCases": [
+    "多数のアカウントを持つ組織での、共通ルールの適用"
+  ],
+  "mechanism": "中央の管理者アカウントからルールを設定し、対象のアカウントやリソースに適用します。",
+  "pros": [
+    "新しいリソースにも共通のルールが自動で適用される"
+  ],
+  "cons": [
+    "AWS Organizationsで複数アカウントを管理していることが前提"
+  ],
+  "scenes": [
+    "全アカウントのウェブアプリケーションに、同じAWS WAFのルールを適用する"
+  ],
+  "similarServiceIds": [
+    "aws-waf"
+  ],
+  "relatedServiceIds": [
+    "aws-waf",
+    "aws-shield"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/waf/"
+}

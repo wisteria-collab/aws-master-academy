@@ -1,0 +1,72 @@
+{
+  "id": "aws-config",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Config",
+  "aliases": [
+    "Config",
+    "コンフィグ"
+  ],
+  "category": "management-governance",
+  "summary": "AWSリソースの一覧、設定の履歴、設定変更の通知を提供するフルマネージドのサービス。",
+  "beginner": {
+    "analogy": "設備の「点検台帳」のようなものです。いつ、どの設備の設定がどう変わったかを記録し、決まりどおりかを確認します。",
+    "description": "リソースの設定が、いつどのように変わったかを記録します。ルールに合っているかも自動で確認できます。"
+  },
+  "exam": {
+    "description": "AWSリソースのインベントリ（一覧）、設定の履歴、設定変更の通知を提供するフルマネージドのサービスです。Config Rulesで、記録したリソースの設定を自動的にチェックできます。コンプライアンスの監査、セキュリティの分析、リソースの変更の追跡に使います。",
+    "points": [
+      "リソースの設定の履歴と、ルールへの適合のチェック＝Config。",
+      "CloudTrailは「誰が操作したか」、Configは「設定がどう変わったか」。"
+    ]
+  },
+  "useCases": [
+    "設定変更の追跡",
+    "設定がルールどおりかの継続的な確認"
+  ],
+  "mechanism": "リソースの設定を記録し、変更があれば履歴として残します。",
+  "pros": [
+    "設定の変化をさかのぼって確認できる"
+  ],
+  "cons": [
+    "どのルールでチェックするかは利用者が決める"
+  ],
+  "scenes": [
+    "ストレージが暗号化されているかを、ルールで継続的にチェックする"
+  ],
+  "similarServiceIds": [
+    "aws-cloudtrail",
+    "amazon-cloudwatch"
+  ],
+  "relatedServiceIds": [
+    "aws-cloudtrail"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/config/"
+}

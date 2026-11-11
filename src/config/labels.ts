@@ -21,4 +21,4 @@ export const difficultyLabels = { basic: '基礎', standard: '標準', advanced:
 export const formatLabels = { basic: '知識', scenario: 'シナリオ', comparison: 'サービス比較', architecture: '構成選択' } as const
 
 /** コースの予定テーマ数（公開済みの数とあわせて表示する） */
-export const plannedLessons = { clf: 16, saa: 14 } as const
+export const plannedLessons = { clf: 18, saa: 14 } as const

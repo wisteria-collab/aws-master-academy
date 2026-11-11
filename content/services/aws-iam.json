@@ -1,0 +1,81 @@
+{
+  "id": "aws-iam",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Security best practices in IAM（IAM ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS IAM",
+  "aliases": [
+    "IAM",
+    "Identity and Access Management",
+    "アイアム"
+  ],
+  "category": "security",
+  "summary": "AWSのサービスやリソースへのアクセスを、ユーザー、グループ、ロールごとに安全に管理するサービス。",
+  "beginner": {
+    "analogy": "会社の入館証と権限の管理に似ています。誰が、どの部屋に、どんな条件で入れるかを決めます。",
+    "description": "「誰が」「何に対して」「何をできるか」を決める仕組みです。最初は何の権限もない状態から、必要な権限だけを与えていきます。"
+  },
+  "exam": {
+    "description": "ユーザー、グループ、ロールに対して、AWSのサービスとリソースへのアクセスを安全に制御します。誰がどのリソースに、どの条件でアクセスできるかを細かく指定できます。IDは権限のない状態から始まります。IAMユーザーやAWSのサービスがロールを引き受けると一時的な認証情報が得られるため、長期的な認証情報を共有せずに済みます。",
+    "points": [
+      "IAM＝AWSのアクセス管理。ユーザー、グループ、ロール、ポリシーで権限を管理する。",
+      "最小権限の原則：作業に必要な権限だけを与える。",
+      "ロールは一時的な認証情報を提供する。ワークロードにはロールを使う。",
+      "AWS管理ポリシーは、多くの一般的な用途向けにAWSが用意したポリシー。用途に合わせてさらに絞ったカスタマー管理ポリシーへ移行していく。",
+      "IAMユーザーやルートユーザーには、多要素認証（MFA）を必須にする。"
+    ]
+  },
+  "useCases": [
+    "担当者ごとのアクセス権限の管理",
+    "アプリケーションからAWSリソースへのアクセスの許可"
+  ],
+  "mechanism": "ポリシー（許可の内容を書いたもの）を、ユーザー、グループ、ロールに関連付けて、できることを決めます。",
+  "pros": [
+    "細かい単位で権限を設定できる",
+    "ロールにより、長期的な認証情報を共有せずに済む"
+  ],
+  "cons": [
+    "権限の設計と見直しは利用者の責任"
+  ],
+  "scenes": [
+    "開発者には開発用のリソースだけ、経理担当には請求情報だけを見られるようにする"
+  ],
+  "similarServiceIds": [
+    "aws-iam-identity-center"
+  ],
+  "relatedServiceIds": [
+    "aws-iam-identity-center",
+    "aws-secrets-manager"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/iam/"
+}

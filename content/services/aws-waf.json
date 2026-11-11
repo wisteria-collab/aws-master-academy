@@ -1,0 +1,73 @@
+{
+  "id": "aws-waf",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS WAF",
+  "aliases": [
+    "WAF",
+    "Web Application Firewall",
+    "ワフ"
+  ],
+  "category": "security",
+  "summary": "SQLインジェクションなどの一般的な攻撃やボットから、ウェブアプリケーションやAPIを保護するファイアウォール。",
+  "beginner": {
+    "analogy": "入口で手荷物検査をして、危険物を持った人を通さない検査係のようなものです。",
+    "description": "ウェブサイトへのリクエストの中身を調べて、攻撃とみられるものを止めます。"
+  },
+  "exam": {
+    "description": "ウェブアプリケーションやAPIを、SQLインジェクションやクロスサイトスクリプティングなどの一般的な攻撃やボットから保護する、ウェブアプリケーションファイアウォールです。あらかじめ設定されたマネージドルールも利用できます。",
+    "points": [
+      "ウェブアプリケーションへの攻撃（SQLインジェクション、クロスサイトスクリプティング）からの保護＝AWS WAF。",
+      "DDoS攻撃からの保護はShield、と役割を区別する。"
+    ]
+  },
+  "useCases": [
+    "ウェブアプリケーションやAPIの保護"
+  ],
+  "mechanism": "ルールを設定し、ルールに合致するリクエストを許可またはブロックします。",
+  "pros": [
+    "マネージドルールで、一般的なリスクにすぐ対応できる"
+  ],
+  "cons": [
+    "どのルールを適用するかは利用者が決める"
+  ],
+  "scenes": [
+    "入力フォームを悪用したSQLインジェクション攻撃をブロックする"
+  ],
+  "similarServiceIds": [
+    "aws-shield",
+    "aws-firewall-manager"
+  ],
+  "relatedServiceIds": [
+    "aws-shield",
+    "aws-firewall-manager"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/waf/"
+}

@@ -1,0 +1,73 @@
+{
+  "id": "amazon-macie",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon Macie",
+  "aliases": [
+    "Macie",
+    "メイシー"
+  ],
+  "category": "security",
+  "summary": "機械学習とパターンマッチングを使って、Amazon S3にある機密データを見つけるデータセキュリティのサービス。",
+  "beginner": {
+    "analogy": "書庫の中から、個人情報が書かれた書類を探し出して教えてくれる係のようなものです。",
+    "description": "S3に保存したデータの中に、個人情報などの機密データがないかを自動で探します。"
+  },
+  "exam": {
+    "description": "機械学習とパターンマッチングを使って、Amazon S3にある個人を特定できる情報（PII）などの機密データを検出する、データセキュリティとプライバシーのサービスです。暗号化されていないバケットや公開されているバケットなど、S3のセキュリティの状態も継続的に評価します。",
+    "points": [
+      "S3の機密データ（個人情報など）の発見＝Macie。",
+      "対象はAmazon S3。"
+    ]
+  },
+  "useCases": [
+    "S3に保存されている個人情報の把握",
+    "公開状態や暗号化されていないバケットの把握"
+  ],
+  "mechanism": "S3のデータを分析し、機密データとみられるものを検出結果として報告します。",
+  "pros": [
+    "大量のデータから機密データを自動で見つけられる"
+  ],
+  "cons": [
+    "対象はAmazon S3のデータ"
+  ],
+  "scenes": [
+    "S3のバケットに、顧客の個人情報を含むファイルが置かれていないかを確認する"
+  ],
+  "similarServiceIds": [
+    "amazon-guardduty",
+    "amazon-inspector"
+  ],
+  "relatedServiceIds": [
+    "amazon-s3",
+    "aws-security-hub"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/macie/"
+}

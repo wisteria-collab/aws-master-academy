@@ -1,0 +1,72 @@
+{
+  "id": "amazon-inspector",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon Inspector",
+  "aliases": [
+    "Inspector",
+    "インスペクター"
+  ],
+  "category": "security",
+  "summary": "EC2インスタンスやコンテナイメージを継続的にスキャンして、ソフトウェアの脆弱性や意図しないネットワークの露出を見つけるサービス。",
+  "beginner": {
+    "analogy": "建物を定期的に点検して、鍵のかかっていない窓や壊れた扉を見つけてくれる点検員のようなものです。",
+    "description": "サーバーに入っているソフトウェアに、攻撃されやすい弱点がないかを自動で調べます。"
+  },
+  "exam": {
+    "description": "自動化された脆弱性管理サービスです。Amazon EC2インスタンスと、Amazon ECRのコンテナイメージを継続的にスキャンし、ソフトウェアの脆弱性と意図しないネットワークの露出を検出します。",
+    "points": [
+      "ソフトウェアの脆弱性のスキャン＝Inspector。対象はEC2インスタンスやコンテナイメージ。",
+      "「攻撃や不審な活動の検出」はGuardDuty。Inspectorは「弱点を事前に見つける」。"
+    ]
+  },
+  "useCases": [
+    "EC2インスタンスやコンテナイメージの脆弱性の発見"
+  ],
+  "mechanism": "対象を継続的にスキャンし、見つかった脆弱性をリスクの度合いとともに報告します。",
+  "pros": [
+    "継続的に自動でスキャンできる"
+  ],
+  "cons": [
+    "見つかった脆弱性の修正（パッチ適用など）は利用者が行う"
+  ],
+  "scenes": [
+    "運用中のEC2インスタンスに、既知の脆弱性を含むソフトウェアがないかを調べる"
+  ],
+  "similarServiceIds": [
+    "amazon-guardduty",
+    "amazon-macie"
+  ],
+  "relatedServiceIds": [
+    "amazon-ec2",
+    "aws-security-hub"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/inspector/"
+}

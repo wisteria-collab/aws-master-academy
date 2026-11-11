@@ -1,0 +1,68 @@
+{
+  "id": "aws-trusted-advisor",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Trusted Advisor",
+  "aliases": [
+    "Trusted Advisor",
+    "トラステッドアドバイザー"
+  ],
+  "category": "management-governance",
+  "summary": "AWSのベストプラクティスに沿って、コストの削減、パフォーマンスの向上、セキュリティの改善を助けるオンラインのリソース。",
+  "beginner": {
+    "analogy": "家計と住まいの「無料診断」のようなものです。無駄な出費や、戸締まりの甘いところを指摘してくれます。",
+    "description": "自分のAWS環境を点検して、改善したほうがよい点を教えてくれます。"
+  },
+  "exam": {
+    "description": "AWS環境を最適化することで、コストの削減、パフォーマンスの向上、セキュリティの改善を助けるオンラインのリソースです。AWSのベストプラクティスに従ってリソースをプロビジョニングするための、リアルタイムのガイダンスを提供します。試験ガイドでは、セキュリティ上の問題の特定に使うサービスの例として挙げられています。",
+    "points": [
+      "ベストプラクティスに基づく推奨（コスト、パフォーマンス、セキュリティ）＝Trusted Advisor。",
+      "試験ガイドは、セキュリティ上の問題を特定するサービスの例として挙げている。"
+    ]
+  },
+  "useCases": [
+    "AWS環境の点検と改善点の把握"
+  ],
+  "mechanism": "環境をチェックし、ベストプラクティスに基づく推奨事項を示します。",
+  "pros": [
+    "複数の観点からまとめて点検できる"
+  ],
+  "cons": [
+    "推奨事項に対応するかどうかの判断と作業は利用者が行う"
+  ],
+  "scenes": [
+    "使われていないリソースや、セキュリティ上の設定の甘い箇所を確認する"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "aws-security-hub"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/awssupport/"
+}

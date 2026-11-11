@@ -1,0 +1,70 @@
+{
+  "id": "clf-security-governance",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 11,
+  "title": "セキュリティ・ガバナンス・コンプライアンスの概念",
+  "domainId": "clf-d2",
+  "taskIds": [
+    "clf-2-2"
+  ],
+  "overview": "クラウドを安全に使うには、攻撃を防ぐだけでなく、「決まりを守っていること」と「何が起きたかを記録していること」が必要です。\nコンプライアンスとは、法律、規制、業界の基準などを守ることです。ガバナンスとは、組織として決めたルールどおりに運用されるよう、統制することです。\nこのレッスンでは、コンプライアンスの情報の入手先、データの暗号化、ログや記録を残すサービスを学びます。",
+  "beginner": {
+    "analogy": "お店の運営にたとえると、「衛生の基準を守る」のがコンプライアンス、「店のルールが全店で守られているかを本部が確認する」のがガバナンスです。そのために、検査の証明書を保管し（Artifact）、金庫に鍵をかけ（暗号化）、防犯カメラの記録（CloudTrail）、設備の点検台帳（Config）、温度計と警報（CloudWatch）を備えます。",
+    "description": "「ちゃんとやっています」と言うだけでは足りません。証明する書類と、あとから確認できる記録を残しておくことが大切です。"
+  },
+  "useCases": [
+    "監査のために、AWSのコンプライアンスレポートをAWS Artifactから入手する",
+    "保存するデータと、通信の途中のデータを暗号化する",
+    "誰が設定を変更したかを、AWS CloudTrailの記録で調べる",
+    "リソースの設定がルールどおりかを、AWS Configで継続的にチェックする"
+  ],
+  "mechanism": {
+    "text": "コンプライアンスの情報は、AWS Artifactから入手できます。AWS Artifactは、AWSのセキュリティとコンプライアンスのレポート（SOCレポート、PCIレポートなど）に、オンデマンドでアクセスできる窓口です。コンプライアンスの要件は、地域や業種によって異なり、AWSのサービスによっても異なります。\n暗号化には2種類あります。保存時の暗号化は、保存してあるデータを暗号化します。転送時の暗号化は、通信の途中のデータを暗号化します。AWS Key Management Service（AWS KMS）は、暗号鍵を作成・管理し、その使用を制御します。AWS Certificate Managerは、通信の暗号化に使うSSL/TLS証明書を発行・管理し、更新も処理します。\nガバナンスとコンプライアンスを助けるサービスには、次のものがあります。\n・Amazon CloudWatch（監視）：ログ、メトリクス、イベントを収集し、アラームを設定できる。\n・AWS CloudTrail（監査）：AWS APIの呼び出しを記録する。記録には、呼び出した者、時刻、送信元のIPアドレスなどが含まれる。\n・AWS Config（監査）：リソースの設定の履歴と変更の通知を提供し、ルールで設定を自動的にチェックできる。\n利用者がAWS上のリソースを保護するためのサービスとして、試験ガイドはAmazon Inspector、AWS Security Hub、Amazon GuardDuty、AWS Shieldを例に挙げています。これらは次のレッスンで扱います。"
+  },
+  "relatedServiceIds": [
+    "aws-artifact",
+    "aws-kms",
+    "aws-certificate-manager",
+    "aws-cloudtrail",
+    "aws-config",
+    "amazon-cloudwatch"
+  ],
+  "examPoints": [
+    "AWSのコンプライアンスに関するレポートの入手先＝AWS Artifact。",
+    "コンプライアンスの要件は、地域、業種、AWSのサービスによって異なる。",
+    "暗号化の種類：保存時の暗号化と、転送時の暗号化。",
+    "暗号鍵の管理＝AWS KMS。SSL/TLS証明書の管理＝AWS Certificate Manager。",
+    "監視＝CloudWatch（メトリクス、ログ、アラーム）。",
+    "監査＝CloudTrail（誰がAPIを呼び出したか）と、Config（設定がどう変わったか）。",
+    "CloudTrail・Config・CloudWatchの3つは、役割の違いを区別できるようにする。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-gov-01",
+    "clf-q-gov-02",
+    "clf-q-gov-03",
+    "clf-q-gov-04",
+    "clf-q-gov-05"
+  ],
+  "glossaryTermIds": [
+    "compliance",
+    "encryption"
+  ]
+}

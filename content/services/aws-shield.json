@@ -1,0 +1,73 @@
+{
+  "id": "aws-shield",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Shield",
+  "aliases": [
+    "Shield",
+    "Shield Standard",
+    "Shield Advanced"
+  ],
+  "category": "security",
+  "summary": "AWS上で動くウェブアプリケーションを、DDoS攻撃から保護するマネージドサービス。",
+  "beginner": {
+    "analogy": "お店の入口に立って、大量の迷惑な来客を食い止めてくれる警備員のようなものです。",
+    "description": "大量の通信を送りつけてサービスを止めようとする攻撃（DDoS攻撃）から守ります。"
+  },
+  "exam": {
+    "description": "DDoS攻撃からの保護を提供するマネージドサービスです。Shield Standardは、すべての利用者に追加料金なしで含まれ、ネットワーク層・トランスポート層の一般的なDDoS攻撃を防ぎます。Shield Advancedは有料で、より大規模で高度な攻撃への保護、攻撃の可視化、AWS WAFとの統合、DDoS対応チームへの24時間365日のアクセスなどが加わります。",
+    "points": [
+      "DDoS攻撃からの保護＝AWS Shield。",
+      "Shield Standardは、すべての利用者に追加料金なしで含まれる。",
+      "Shield Advancedは有料で、より高度な攻撃への保護や対応チームへのアクセスが加わる。"
+    ]
+  },
+  "useCases": [
+    "ウェブサイトやアプリケーションのDDoS攻撃対策"
+  ],
+  "mechanism": "攻撃を常時検知し、自動的に緩和します。",
+  "pros": [
+    "Standardは追加料金なしで自動的に保護される"
+  ],
+  "cons": [
+    "SQLインジェクションなど、アプリケーションの弱点を突く攻撃への対策にはAWS WAFを使う"
+  ],
+  "scenes": [
+    "大量のアクセスを送りつける攻撃から、公開しているウェブサイトを守る"
+  ],
+  "similarServiceIds": [
+    "aws-waf"
+  ],
+  "relatedServiceIds": [
+    "aws-waf",
+    "elastic-load-balancing"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/shield/"
+}

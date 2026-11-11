@@ -178,12 +178,41 @@ function ComputeOptions() {
   )
 }
 
+function IamElements() {
+  const item = (y: number, name: string, a: string) => (
+    <g>
+      <Box x={150} y={y} w={204} h={50} />
+      <T x={162} y={y + 21} bold anchor="start">{name}</T>
+      <T x={162} y={y + 40} size={12} anchor="start">{a}</T>
+      <line x1={112} y1={y + 25} x2={146} y2={y + 25} stroke={line} strokeWidth="2" markerEnd="url(#iam-arrow)" />
+    </g>
+  )
+  return (
+    <Frame title="ポリシー（許可の内容）を、ユーザー・グループ・ロールに関連付ける" height={196}>
+      <defs>
+        <marker id="iam-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 0L10 5L0 10z" fill={line} />
+        </marker>
+      </defs>
+      <Box x={6} y={56} w={106} h={84} fill={tint} stroke={orange} />
+      <T x={59} y={86} bold>ポリシー</T>
+      <T x={59} y={106} size={12}>何をしてよいか</T>
+      <T x={59} y={123} size={12}>を書いたもの</T>
+      <line x1={112} y1={31} x2={112} y2={165} stroke={line} strokeWidth="2" />
+      {item(6, 'ユーザー', '人やアプリケーション')}
+      {item(73, 'グループ', 'ユーザーのまとまり')}
+      {item(140, 'ロール', '一時的に引き受ける役割')}
+    </Frame>
+  )
+}
+
 const registry: Record<FigureId, () => ReactNode> = {
   'region-az': RegionAz,
   'shared-responsibility': SharedResponsibility,
   'storage-types': StorageTypes,
   'wa-pillars': WaPillars,
   'compute-options': ComputeOptions,
+  'iam-elements': IamElements,
 }
 
 export function Figure({ id }: { id: string }) {

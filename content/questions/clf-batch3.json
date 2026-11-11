@@ -1,0 +1,1384 @@
+[
+  {
+    "id": "clf-q-iam-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Root user best practices for your AWS account（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業が新しいAWSアカウントを作成しました。ルートユーザーへの不正なサインインを防ぐために、最初に行うべき対策として最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ルートユーザーに多要素認証（MFA）を設定する",
+        "correct": true,
+        "explanation": "ルートユーザーはアカウント内のすべてのリソースに完全にアクセスできるため、MFAでサインインを保護することが推奨されています。"
+      },
+      {
+        "id": "b",
+        "text": "ルートユーザーのアクセスキーを作成して、チームで共有する",
+        "correct": false,
+        "explanation": "ルートユーザーのアクセスキーは作成しないことが推奨されています。また、ルートユーザーの認証情報は共有すべきではありません。不正なサインインを防ぐどころか、リスクを高めます。",
+        "eliminatedBy": "不正なサインインを防ぐ"
+      },
+      {
+        "id": "c",
+        "text": "日常の作業をすべてルートユーザーで行う",
+        "correct": false,
+        "explanation": "ルートユーザーは、ルートユーザーの認証情報が必要な作業にだけ使うことが推奨されています。日常的に使うと、認証情報が漏れる機会が増えます。",
+        "eliminatedBy": "不正なサインインを防ぐ"
+      },
+      {
+        "id": "d",
+        "text": "ルートユーザーのパスワードを、覚えやすい短いものにする",
+        "correct": false,
+        "explanation": "長くて強力な、他で使っていないパスワードを使うことが推奨されています。短いパスワードは不正なサインインのリスクを高めます。",
+        "eliminatedBy": "不正なサインインを防ぐ"
+      }
+    ],
+    "keywords": [
+      "ルートユーザー",
+      "不正なサインインを防ぐ"
+    ],
+    "decisionPoint": "ルートユーザーの保護は、MFAの設定、アクセスキーを作らない、日常的に使わない、が基本です。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-iam"
+      }
+    ],
+    "practicalNote": "実務でも、アカウントを作成したら最初にルートユーザーのMFAを設定します。"
+  },
+  {
+    "id": "clf-q-iam-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、ログファイルを確認するだけの担当者にIAMで権限を与えます。この担当者には、ログの読み取りに必要な権限だけを与え、それ以外の権限は与えないことにしました。この考え方を何と呼びますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "最小権限の原則",
+        "correct": true,
+        "explanation": "作業に必要な権限だけを与える考え方を、最小権限の原則と呼びます。IAMのベストプラクティスとして推奨されています。"
+      },
+      {
+        "id": "b",
+        "text": "責任共有モデル",
+        "correct": false,
+        "explanation": "セキュリティとコンプライアンスの責任を、AWSと利用者で分担するという考え方です。個々の担当者に与える権限の範囲の話ではありません。",
+        "eliminatedBy": "必要な権限だけを与え"
+      },
+      {
+        "id": "c",
+        "text": "多要素認証",
+        "correct": false,
+        "explanation": "パスワードに加えて、デバイスが生成する応答なども確認する認証の方法です。権限の範囲を絞る考え方ではありません。",
+        "eliminatedBy": "必要な権限だけを与え"
+      },
+      {
+        "id": "d",
+        "text": "フェデレーション",
+        "correct": false,
+        "explanation": "IDプロバイダーを使ってAWSにアクセスできるようにする仕組みです。権限の範囲を絞る考え方ではありません。",
+        "eliminatedBy": "必要な権限だけを与え"
+      }
+    ],
+    "keywords": [
+      "必要な権限だけを与え",
+      "それ以外の権限は与えない"
+    ],
+    "decisionPoint": "「必要な分だけ」という表現が出てきたら最小権限の原則です。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-iam"
+      },
+      {
+        "type": "service",
+        "id": "aws-iam"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-iam-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、EC2インスタンスで動くアプリケーションから、Amazon S3のデータにアクセスさせます。長期間有効なアクセスキーをインスタンスに置かず、一時的な認証情報を使いたいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "IAMロールを使う",
+        "correct": true,
+        "explanation": "IAMロールは一時的な認証情報を提供します。ワークロードは、IAMロールの一時的な認証情報を使ってAWSにアクセスすることが推奨されています。"
+      },
+      {
+        "id": "b",
+        "text": "ルートユーザーのアクセスキーをアプリケーションに設定する",
+        "correct": false,
+        "explanation": "ルートユーザーのアクセスキーは作成しないことが推奨されています。完全な権限を持つ長期的な認証情報を置くことになり、最も避けるべき方法です。",
+        "eliminatedBy": "長期間有効なアクセスキーをインスタンスに置かず"
+      },
+      {
+        "id": "c",
+        "text": "IAMユーザーのアクセスキーをプログラムのコードに書く",
+        "correct": false,
+        "explanation": "アクセスキーは長期的な認証情報です。「長期間有効なアクセスキーを置かない」という条件に合いません。コードに書くと漏えいのリスクも高まります。",
+        "eliminatedBy": "長期間有効なアクセスキーをインスタンスに置かず"
+      },
+      {
+        "id": "d",
+        "text": "S3のデータを誰でもアクセスできるように公開する",
+        "correct": false,
+        "explanation": "認証情報は不要になりますが、誰でもデータを読めてしまいます。安全なアクセスという目的に反します。",
+        "eliminatedBy": "一時的な認証情報を使いたい"
+      }
+    ],
+    "keywords": [
+      "長期間有効なアクセスキーをインスタンスに置かず",
+      "一時的な認証情報"
+    ],
+    "decisionPoint": "「一時的な認証情報」「キーを置かない」はIAMロールです。",
+    "serviceIds": [
+      "aws-iam",
+      "amazon-ec2",
+      "amazon-s3"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-iam"
+      },
+      {
+        "type": "service",
+        "id": "aws-iam"
+      }
+    ],
+    "practicalNote": "実務では、EC2やLambdaなどのサービスにロールを割り当てて、他のAWSリソースへアクセスさせるのが基本です。"
+  },
+  {
+    "id": "clf-q-iam-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Tasks that require root user credentials（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-tasks.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "次のうち、AWSアカウントのルートユーザーの認証情報が必要な作業はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWSアカウントを解約する",
+        "correct": true,
+        "explanation": "AWSアカウント（スタンドアロンのアカウント）の解約は、ルートユーザーの認証情報が必要な作業の1つです。"
+      },
+      {
+        "id": "b",
+        "text": "EC2インスタンスを起動する",
+        "correct": false,
+        "explanation": "適切な権限を持つIAMのユーザーやロールで行えます。ルートユーザーである必要はありません。",
+        "eliminatedBy": "ルートユーザーの認証情報が必要な作業"
+      },
+      {
+        "id": "c",
+        "text": "S3バケットにファイルをアップロードする",
+        "correct": false,
+        "explanation": "適切な権限を持つIAMのユーザーやロールで行えます。ルートユーザーである必要はありません。",
+        "eliminatedBy": "ルートユーザーの認証情報が必要な作業"
+      },
+      {
+        "id": "d",
+        "text": "IAMユーザーを作成する",
+        "correct": false,
+        "explanation": "適切な権限を持つIAMのユーザーやロールで行えます。ルートユーザーである必要はありません。",
+        "eliminatedBy": "ルートユーザーの認証情報が必要な作業"
+      }
+    ],
+    "keywords": [
+      "ルートユーザーの認証情報が必要な作業"
+    ],
+    "decisionPoint": "ルートユーザーが必要なのは、アカウントそのものに関わる限られた作業です。日常の操作はIAMで行います。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-iam"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-iam-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、複数のAWSアカウントを使っています。従業員が一度サインインするだけで、割り当てられた複数のアカウントにアクセスできるように、アクセスを一元管理したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS IAM Identity Center",
+        "correct": true,
+        "explanation": "IAM Identity Centerは、複数のAWSアカウントと業務アプリケーションへのアクセスを一元的に管理する、シングルサインオンのサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Secrets Manager",
+        "correct": false,
+        "explanation": "データベースの認証情報やAPIキーなどのシークレットを保管・ローテーションするサービスです。従業員のサインインを一元化するものではありません。",
+        "eliminatedBy": "一度サインインするだけで"
+      },
+      {
+        "id": "c",
+        "text": "AWS KMS",
+        "correct": false,
+        "explanation": "暗号鍵を作成・管理するサービスです。サインインの一元管理とは関係がありません。",
+        "eliminatedBy": "アクセスを一元管理"
+      },
+      {
+        "id": "d",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "AWSのコンプライアンスに関するレポートを入手する窓口です。サインインの一元管理とは関係がありません。",
+        "eliminatedBy": "アクセスを一元管理"
+      }
+    ],
+    "keywords": [
+      "複数のAWSアカウント",
+      "一度サインインするだけで",
+      "一元管理"
+    ],
+    "decisionPoint": "複数アカウントへのシングルサインオンはIAM Identity Centerです。",
+    "serviceIds": [
+      "aws-iam-identity-center",
+      "aws-secrets-manager"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-iam"
+      },
+      {
+        "type": "service",
+        "id": "aws-iam-identity-center"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-iam-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業のアプリケーションは、データベースのパスワードをプログラムのコードに直接書いています。パスワードをコードから取り除き、安全に保管して、定期的にローテーションしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Secrets Manager",
+        "correct": true,
+        "explanation": "Secrets Managerは、データベースの認証情報などのシークレットを保管し、ローテーション、管理、取得できます。アプリケーションはAPIで取得するため、コードに書く必要がなくなります。"
+      },
+      {
+        "id": "b",
+        "text": "AWS IAM Identity Center",
+        "correct": false,
+        "explanation": "複数のAWSアカウントへの、人のユーザーのサインインを一元管理するサービスです。データベースのパスワードの保管やローテーションを行うものではありません。",
+        "eliminatedBy": "データベースのパスワード"
+      },
+      {
+        "id": "c",
+        "text": "AWS Certificate Manager",
+        "correct": false,
+        "explanation": "通信の暗号化に使うSSL/TLS証明書を管理するサービスです。パスワードの保管を行うものではありません。",
+        "eliminatedBy": "パスワードをコードから取り除き、安全に保管"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Macie",
+        "correct": false,
+        "explanation": "Amazon S3にある機密データを見つけるサービスです。パスワードの保管やローテーションを行うものではありません。",
+        "eliminatedBy": "定期的にローテーション"
+      }
+    ],
+    "keywords": [
+      "データベースのパスワード",
+      "安全に保管",
+      "定期的にローテーション"
+    ],
+    "decisionPoint": "認証情報の「保管」と「ローテーション」はSecrets Managerです。",
+    "serviceIds": [
+      "aws-secrets-manager",
+      "aws-iam-identity-center"
+    ],
+    "related": [
+      {
+        "type": "service",
+        "id": "aws-secrets-manager"
+      },
+      {
+        "type": "lesson",
+        "id": "clf-iam"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-gov-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、監査への対応のために、AWSのセキュリティとコンプライアンスに関するレポート（SOCレポートなど）を入手する必要があります。どこから入手できますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Artifact",
+        "correct": true,
+        "explanation": "AWS Artifactは、AWSのセキュリティとコンプライアンスのレポートに、オンデマンドでアクセスできる窓口です。"
+      },
+      {
+        "id": "b",
+        "text": "AWS CloudTrail",
+        "correct": false,
+        "explanation": "アカウントでのAPI呼び出しを記録するサービスです。利用者自身の操作の記録であり、AWSのコンプライアンスレポートを入手する場所ではありません。",
+        "eliminatedBy": "AWSのセキュリティとコンプライアンスに関するレポート"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Inspector",
+        "correct": false,
+        "explanation": "EC2インスタンスなどの脆弱性をスキャンするサービスです。AWSのコンプライアンスレポートを入手する場所ではありません。",
+        "eliminatedBy": "レポート（SOCレポートなど）を入手"
+      },
+      {
+        "id": "d",
+        "text": "AWS Trusted Advisor",
+        "correct": false,
+        "explanation": "利用者のAWS環境を点検して、改善点を推奨するサービスです。AWSが受けた監査のレポートを入手する場所ではありません。",
+        "eliminatedBy": "AWSのセキュリティとコンプライアンスに関するレポート"
+      }
+    ],
+    "keywords": [
+      "AWSのセキュリティとコンプライアンスに関するレポート",
+      "入手"
+    ],
+    "decisionPoint": "AWS側のコンプライアンスの書類はArtifactです。",
+    "serviceIds": [
+      "aws-artifact"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-governance"
+      },
+      {
+        "type": "service",
+        "id": "aws-artifact"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-gov-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業で、重要なリソースの設定が変更されていました。誰が、いつ、どのIPアドレスからその操作（APIの呼び出し）を行ったのかを調べる必要があります。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS CloudTrail",
+        "correct": true,
+        "explanation": "CloudTrailはAWS APIの呼び出しを記録します。記録には、呼び出した者のID、時刻、送信元のIPアドレスなどが含まれます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon CloudWatch",
+        "correct": false,
+        "explanation": "ログ、メトリクス、イベントを収集して監視するサービスです。性能の監視やアラームに使うもので、「誰がAPIを呼び出したか」の記録を調べるにはCloudTrailを使います。",
+        "eliminatedBy": "誰が、いつ、どのIPアドレスから"
+      },
+      {
+        "id": "c",
+        "text": "AWS Config",
+        "correct": false,
+        "explanation": "リソースの設定の履歴を記録するサービスで、「設定がどう変わったか」はわかります。しかし、「誰がどのIPアドレスから操作したか」というAPI呼び出しの記録はCloudTrailの役割です。",
+        "eliminatedBy": "誰が、いつ、どのIPアドレスから"
+      },
+      {
+        "id": "d",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "AWSのコンプライアンスレポートを入手する窓口です。操作の記録を調べるものではありません。",
+        "eliminatedBy": "操作（APIの呼び出し）"
+      }
+    ],
+    "keywords": [
+      "誰が、いつ、どのIPアドレスから",
+      "APIの呼び出し"
+    ],
+    "decisionPoint": "「誰が操作したか」はCloudTrailです。",
+    "serviceIds": [
+      "aws-cloudtrail",
+      "amazon-cloudwatch",
+      "aws-config"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-governance"
+      },
+      {
+        "type": "service",
+        "id": "aws-cloudtrail"
+      }
+    ],
+    "practicalNote": "障害や不正の調査で、最初に確認する記録の1つです。",
+    "variationGroupId": "audit-select"
+  },
+  {
+    "id": "clf-q-gov-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、AWSリソースの設定がこれまでどのように変わってきたかの履歴を確認し、設定が社内のルールに合っているかを自動的にチェックしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Config",
+        "correct": true,
+        "explanation": "AWS Configは、リソースの設定の履歴と設定変更の通知を提供します。Config Rulesで、設定を自動的にチェックできます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS CloudTrail",
+        "correct": false,
+        "explanation": "APIの呼び出しを記録するサービスで、「誰が操作したか」を調べるのに使います。設定の履歴の確認や、ルールへの適合の自動チェックはConfigの役割です。",
+        "eliminatedBy": "設定が社内のルールに合っているかを自動的にチェック"
+      },
+      {
+        "id": "c",
+        "text": "Amazon CloudWatch",
+        "correct": false,
+        "explanation": "メトリクスやログを収集して監視するサービスです。リソースの設定の履歴を記録するものではありません。",
+        "eliminatedBy": "設定がこれまでどのように変わってきたかの履歴"
+      },
+      {
+        "id": "d",
+        "text": "Amazon GuardDuty",
+        "correct": false,
+        "explanation": "悪意のある活動や異常な振る舞いを検出するサービスです。設定の履歴を記録するものではありません。",
+        "eliminatedBy": "設定がこれまでどのように変わってきたかの履歴"
+      }
+    ],
+    "keywords": [
+      "設定がこれまでどのように変わってきたかの履歴",
+      "ルールに合っているかを自動的にチェック"
+    ],
+    "decisionPoint": "前の問題の「誰が操作したか」から、「設定がどう変わったか・ルールどおりか」に条件が変わるとConfigになります。",
+    "serviceIds": [
+      "aws-config",
+      "aws-cloudtrail",
+      "amazon-cloudwatch"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-governance"
+      },
+      {
+        "type": "service",
+        "id": "aws-config"
+      }
+    ],
+    "variationGroupId": "audit-select"
+  },
+  {
+    "id": "clf-q-gov-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、EC2インスタンスのCPU使用率などのメトリクスを監視し、あらかじめ決めた値を超えたときにアラームで通知を受け取りたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon CloudWatch",
+        "correct": true,
+        "explanation": "CloudWatchは、ログ、メトリクス、イベントを収集する監視のサービスです。アラームを設定し、条件を満たしたときに通知や自動的なアクションを実行できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS CloudTrail",
+        "correct": false,
+        "explanation": "APIの呼び出しを記録するサービスです。メトリクスの監視やアラームの機能を提供するものではありません。",
+        "eliminatedBy": "メトリクスを監視"
+      },
+      {
+        "id": "c",
+        "text": "AWS Config",
+        "correct": false,
+        "explanation": "リソースの設定の履歴を記録するサービスです。CPU使用率のようなメトリクスを監視するものではありません。",
+        "eliminatedBy": "CPU使用率などのメトリクス"
+      },
+      {
+        "id": "d",
+        "text": "AWS Trusted Advisor",
+        "correct": false,
+        "explanation": "ベストプラクティスに基づいて環境の改善点を推奨するサービスです。メトリクスを監視してアラームを出すものではありません。",
+        "eliminatedBy": "アラームで通知"
+      }
+    ],
+    "keywords": [
+      "メトリクスを監視",
+      "アラームで通知"
+    ],
+    "decisionPoint": "メトリクスとアラームはCloudWatchです。3つの役割（監視・操作の記録・設定の履歴）を区別します。",
+    "serviceIds": [
+      "amazon-cloudwatch",
+      "aws-cloudtrail",
+      "aws-config"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-governance"
+      },
+      {
+        "type": "service",
+        "id": "amazon-cloudwatch"
+      }
+    ],
+    "variationGroupId": "audit-select"
+  },
+  {
+    "id": "clf-q-gov-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、ウェブサイトと利用者の間の通信を暗号化（転送時の暗号化）するために、SSL/TLS証明書を用意し、更新も任せたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Certificate Manager",
+        "correct": true,
+        "explanation": "AWS Certificate Managerは、SSL/TLS証明書をプロビジョニング、管理、デプロイでき、証明書の更新も処理します。"
+      },
+      {
+        "id": "b",
+        "text": "AWS KMS",
+        "correct": false,
+        "explanation": "暗号鍵を作成・管理するサービスです。主に保存するデータの暗号化の鍵の管理に使います。SSL/TLS証明書を発行・更新するサービスではありません。",
+        "eliminatedBy": "SSL/TLS証明書"
+      },
+      {
+        "id": "c",
+        "text": "AWS Secrets Manager",
+        "correct": false,
+        "explanation": "データベースの認証情報などのシークレットを保管・ローテーションするサービスです。SSL/TLS証明書を発行するサービスではありません。",
+        "eliminatedBy": "SSL/TLS証明書"
+      },
+      {
+        "id": "d",
+        "text": "AWS Shield",
+        "correct": false,
+        "explanation": "DDoS攻撃から保護するサービスです。通信の暗号化のための証明書を扱うものではありません。",
+        "eliminatedBy": "通信を暗号化"
+      }
+    ],
+    "keywords": [
+      "通信を暗号化",
+      "SSL/TLS証明書"
+    ],
+    "decisionPoint": "通信（転送時）の暗号化の証明書はACM、暗号鍵の管理はKMSです。",
+    "serviceIds": [
+      "aws-certificate-manager",
+      "aws-kms"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-governance"
+      },
+      {
+        "type": "service",
+        "id": "aws-certificate-manager"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-sec-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業のウェブサイトが、大量の通信を一斉に送りつけられてサービスを利用できなくなるDDoS攻撃を受けるおそれがあります。DDoS攻撃からの保護を提供するAWSのサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Shield",
+        "correct": true,
+        "explanation": "AWS Shieldは、DDoS攻撃からの保護を提供するマネージドサービスです。Shield Standardは、すべての利用者に追加料金なしで含まれます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Inspector",
+        "correct": false,
+        "explanation": "EC2インスタンスなどのソフトウェアの脆弱性をスキャンするサービスです。DDoS攻撃を防ぐものではありません。",
+        "eliminatedBy": "DDoS攻撃からの保護"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Macie",
+        "correct": false,
+        "explanation": "Amazon S3にある機密データを見つけるサービスです。DDoS攻撃を防ぐものではありません。",
+        "eliminatedBy": "DDoS攻撃からの保護"
+      },
+      {
+        "id": "d",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "AWSのコンプライアンスレポートを入手する窓口です。攻撃からの保護を提供するものではありません。",
+        "eliminatedBy": "DDoS攻撃からの保護"
+      }
+    ],
+    "keywords": [
+      "DDoS攻撃からの保護"
+    ],
+    "decisionPoint": "DDoSといえばShieldです。",
+    "serviceIds": [
+      "aws-shield"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-services"
+      },
+      {
+        "type": "service",
+        "id": "aws-shield"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-sec-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、ウェブアプリケーションへのリクエストを検査し、SQLインジェクションやクロスサイトスクリプティングなどの攻撃をブロックしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS WAF",
+        "correct": true,
+        "explanation": "AWS WAFは、ウェブアプリケーションやAPIを、SQLインジェクションやクロスサイトスクリプティングなどの一般的な攻撃から保護するウェブアプリケーションファイアウォールです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Shield",
+        "correct": false,
+        "explanation": "DDoS攻撃からの保護を提供するサービスです。リクエストの内容を検査してSQLインジェクションなどをブロックするのは、AWS WAFの役割です。",
+        "eliminatedBy": "SQLインジェクションやクロスサイトスクリプティング"
+      },
+      {
+        "id": "c",
+        "text": "Amazon GuardDuty",
+        "correct": false,
+        "explanation": "アカウントやワークロードでの悪意のある活動を検出するサービスです。検出して知らせるもので、ウェブアプリケーションへのリクエストをブロックするファイアウォールではありません。",
+        "eliminatedBy": "リクエストを検査し"
+      },
+      {
+        "id": "d",
+        "text": "AWS Firewall Manager",
+        "correct": false,
+        "explanation": "複数のアカウントのファイアウォールのルールを一元管理するサービスです。攻撃をブロックするルールそのものは、AWS WAFなどが提供します。",
+        "eliminatedBy": "攻撃をブロック"
+      }
+    ],
+    "keywords": [
+      "リクエストを検査",
+      "SQLインジェクションやクロスサイトスクリプティング"
+    ],
+    "decisionPoint": "アプリケーションの弱点を突く攻撃はWAF、大量の通信による攻撃はShieldです。",
+    "serviceIds": [
+      "aws-waf",
+      "aws-shield",
+      "aws-firewall-manager"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-services"
+      },
+      {
+        "type": "service",
+        "id": "aws-waf"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-sec-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、AWSアカウントやワークロードで、悪意のある活動や異常な振る舞いが起きていないかを継続的に監視し、脅威を検出したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon GuardDuty",
+        "correct": true,
+        "explanation": "GuardDutyは、AWSアカウントやワークロードなどを対象に、悪意のある活動や異常な振る舞いを継続的に監視する脅威検出サービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Inspector",
+        "correct": false,
+        "explanation": "ソフトウェアの脆弱性（弱点）をスキャンするサービスです。実際に起きている悪意のある活動を監視・検出するのはGuardDutyの役割です。",
+        "eliminatedBy": "悪意のある活動や異常な振る舞い"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Macie",
+        "correct": false,
+        "explanation": "Amazon S3にある機密データを見つけるサービスです。アカウント全体の悪意のある活動を監視するものではありません。",
+        "eliminatedBy": "悪意のある活動や異常な振る舞い"
+      },
+      {
+        "id": "d",
+        "text": "AWS Config",
+        "correct": false,
+        "explanation": "リソースの設定の履歴を記録するサービスです。悪意のある活動を検出するものではありません。",
+        "eliminatedBy": "脅威を検出"
+      }
+    ],
+    "keywords": [
+      "悪意のある活動や異常な振る舞い",
+      "継続的に監視",
+      "脅威を検出"
+    ],
+    "decisionPoint": "「起きている不審な活動を見つける」はGuardDutyです。",
+    "serviceIds": [
+      "amazon-guardduty",
+      "amazon-inspector",
+      "amazon-macie"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-services"
+      },
+      {
+        "type": "service",
+        "id": "amazon-guardduty"
+      }
+    ],
+    "practicalNote": "不正アクセスの兆候を早く見つけるために、多くの環境で有効にされています。",
+    "variationGroupId": "detect-select"
+  },
+  {
+    "id": "clf-q-sec-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、運用中のEC2インスタンスに、攻撃に悪用されるおそれのあるソフトウェアの脆弱性がないかを、継続的にスキャンして見つけたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Inspector",
+        "correct": true,
+        "explanation": "Amazon Inspectorは、EC2インスタンスやコンテナイメージを継続的にスキャンし、ソフトウェアの脆弱性と意図しないネットワークの露出を検出する脆弱性管理サービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon GuardDuty",
+        "correct": false,
+        "explanation": "悪意のある活動や異常な振る舞いを監視する脅威検出サービスです。ソフトウェアの脆弱性をスキャンして事前に見つけるのは、Inspectorの役割です。",
+        "eliminatedBy": "ソフトウェアの脆弱性"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Macie",
+        "correct": false,
+        "explanation": "Amazon S3にある機密データを見つけるサービスです。EC2インスタンスの脆弱性をスキャンするものではありません。",
+        "eliminatedBy": "EC2インスタンスに"
+      },
+      {
+        "id": "d",
+        "text": "AWS Shield",
+        "correct": false,
+        "explanation": "DDoS攻撃からの保護を提供するサービスです。脆弱性をスキャンするものではありません。",
+        "eliminatedBy": "スキャンして見つけたい"
+      }
+    ],
+    "keywords": [
+      "EC2インスタンス",
+      "ソフトウェアの脆弱性",
+      "スキャン"
+    ],
+    "decisionPoint": "前の問題の「活動の監視」から「弱点のスキャン」に条件が変わると、Inspectorになります。",
+    "serviceIds": [
+      "amazon-inspector",
+      "amazon-guardduty",
+      "amazon-macie"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-services"
+      },
+      {
+        "type": "service",
+        "id": "amazon-inspector"
+      }
+    ],
+    "variationGroupId": "detect-select"
+  },
+  {
+    "id": "clf-q-sec-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Amazon S3に保存している大量のファイルの中に、個人を特定できる情報などの機密データが含まれていないかを自動的に見つけたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Macie",
+        "correct": true,
+        "explanation": "Amazon Macieは、機械学習とパターンマッチングを使って、Amazon S3にある個人を特定できる情報などの機密データを検出するサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Inspector",
+        "correct": false,
+        "explanation": "EC2インスタンスやコンテナイメージのソフトウェアの脆弱性をスキャンするサービスです。S3のファイルの中の機密データを見つけるものではありません。",
+        "eliminatedBy": "機密データが含まれていないか"
+      },
+      {
+        "id": "c",
+        "text": "Amazon GuardDuty",
+        "correct": false,
+        "explanation": "悪意のある活動や異常な振る舞いを監視する脅威検出サービスです。ファイルの中身から機密データを見つけるのは、Macieの役割です。",
+        "eliminatedBy": "個人を特定できる情報などの機密データ"
+      },
+      {
+        "id": "d",
+        "text": "AWS KMS",
+        "correct": false,
+        "explanation": "暗号鍵を作成・管理するサービスです。データの中から機密データを見つけるものではありません。",
+        "eliminatedBy": "機密データが含まれていないかを自動的に見つけたい"
+      }
+    ],
+    "keywords": [
+      "Amazon S3",
+      "個人を特定できる情報などの機密データ",
+      "見つけたい"
+    ],
+    "decisionPoint": "対象がS3で、探すものが「機密データ」ならMacieです。",
+    "serviceIds": [
+      "amazon-macie",
+      "amazon-inspector",
+      "amazon-guardduty"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-services"
+      },
+      {
+        "type": "service",
+        "id": "amazon-macie"
+      }
+    ],
+    "variationGroupId": "detect-select"
+  },
+  {
+    "id": "clf-q-sec-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、AWS Organizationsで多数のアカウントを管理しています。すべてのアカウントに対して、ファイアウォールのルールを中央から一元的に設定・管理したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Firewall Manager",
+        "correct": true,
+        "explanation": "AWS Firewall Managerは、AWS Organizationsのアカウントとアプリケーション全体で、ファイアウォールのルールを一元的に設定・管理するサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS WAF",
+        "correct": false,
+        "explanation": "ウェブアプリケーションを攻撃から保護するファイアウォールそのものです。多数のアカウントにまたがるルールの一元管理は、Firewall Managerの役割です。",
+        "eliminatedBy": "すべてのアカウントに対して"
+      },
+      {
+        "id": "c",
+        "text": "AWS Shield",
+        "correct": false,
+        "explanation": "DDoS攻撃からの保護を提供するサービスです。ファイアウォールのルールを一元管理するものではありません。",
+        "eliminatedBy": "ファイアウォールのルールを中央から一元的に設定・管理"
+      },
+      {
+        "id": "d",
+        "text": "AWS IAM Identity Center",
+        "correct": false,
+        "explanation": "複数のアカウントへのサインインを一元管理するサービスです。「一元管理」という点は似ていますが、対象はサインインであり、ファイアウォールのルールではありません。",
+        "eliminatedBy": "ファイアウォールのルール"
+      }
+    ],
+    "keywords": [
+      "多数のアカウント",
+      "ファイアウォールのルール",
+      "一元的に設定・管理"
+    ],
+    "decisionPoint": "ルールで守るのがWAF、そのルールを複数アカウントにまとめて配るのがFirewall Managerです。",
+    "serviceIds": [
+      "aws-firewall-manager",
+      "aws-waf",
+      "aws-shield"
+    ],
+    "related": [
+      {
+        "type": "service",
+        "id": "aws-firewall-manager"
+      },
+      {
+        "type": "lesson",
+        "id": "clf-security-services"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-sec-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、自社のAWS環境がAWSのベストプラクティスに沿っているかを点検し、セキュリティの改善やコストの削減につながる推奨事項を受け取りたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Trusted Advisor",
+        "correct": true,
+        "explanation": "AWS Trusted Advisorは、AWS環境を最適化することで、コストの削減、パフォーマンスの向上、セキュリティの改善を助けます。ベストプラクティスに基づくガイダンスを提供します。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "AWSのコンプライアンスレポートを入手する窓口です。利用者の環境を点検して推奨事項を示すものではありません。",
+        "eliminatedBy": "推奨事項を受け取りたい"
+      },
+      {
+        "id": "c",
+        "text": "AWS CloudTrail",
+        "correct": false,
+        "explanation": "APIの呼び出しを記録するサービスです。環境を点検して推奨事項を示すものではありません。",
+        "eliminatedBy": "ベストプラクティスに沿っているかを点検"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Macie",
+        "correct": false,
+        "explanation": "Amazon S3にある機密データを見つけるサービスです。コストの削減を含む、環境全体の推奨事項を示すものではありません。",
+        "eliminatedBy": "セキュリティの改善やコストの削減につながる推奨事項"
+      }
+    ],
+    "keywords": [
+      "ベストプラクティスに沿っているかを点検",
+      "セキュリティの改善やコストの削減",
+      "推奨事項"
+    ],
+    "decisionPoint": "コストとセキュリティの両方について「推奨」してくれるのはTrusted Advisorです。",
+    "serviceIds": [
+      "aws-trusted-advisor"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-services"
+      },
+      {
+        "type": "service",
+        "id": "aws-trusted-advisor"
+      }
+    ]
+  }
+]

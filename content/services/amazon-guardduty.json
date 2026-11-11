@@ -1,0 +1,72 @@
+{
+  "id": "amazon-guardduty",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon GuardDuty",
+  "aliases": [
+    "GuardDuty",
+    "ガードデューティ"
+  ],
+  "category": "security",
+  "summary": "AWSアカウントやワークロードでの悪意のある活動や異常な振る舞いを、継続的に監視する脅威検出サービス。",
+  "beginner": {
+    "analogy": "建物の中を見回って、不審な動きを見つけたら知らせてくれる警備システムのようなものです。",
+    "description": "不正アクセスなどの怪しい動きがないかを、自動で見張り続けます。"
+  },
+  "exam": {
+    "description": "AWSアカウント、ワークロード、Amazon S3のデータなどを対象に、悪意のある活動や異常な振る舞いを継続的に監視する脅威検出サービスです。脅威インテリジェンスと機械学習による異常検出を使い、検出結果を通知します。",
+    "points": [
+      "脅威の検出（悪意のある活動、異常な振る舞いの継続的な監視）＝GuardDuty。",
+      "脆弱性のスキャンはInspector、機密データの発見はMacie、と区別する。"
+    ]
+  },
+  "useCases": [
+    "不正アクセスや不審な活動の検出"
+  ],
+  "mechanism": "アカウントやワークロードの活動を継続的に分析し、脅威とみられるものを検出結果として報告します。",
+  "pros": [
+    "継続的に自動で監視できる"
+  ],
+  "cons": [
+    "検出結果への対応は利用者が行う"
+  ],
+  "scenes": [
+    "普段と違う場所からの不審なアクセスを検出して、担当者に知らせる"
+  ],
+  "similarServiceIds": [
+    "amazon-inspector",
+    "amazon-macie",
+    "aws-security-hub"
+  ],
+  "relatedServiceIds": [
+    "aws-security-hub"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/guardduty/"
+}

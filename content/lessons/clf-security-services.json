@@ -1,0 +1,74 @@
+{
+  "id": "clf-security-services",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 12,
+  "title": "セキュリティのサービスとリソース",
+  "domainId": "clf-d2",
+  "taskIds": [
+    "clf-2-4"
+  ],
+  "overview": "AWSには、攻撃を防ぐ、不審な動きを見つける、弱点を見つける、といった目的別のセキュリティサービスがあります。\n名前が似ていて混同しやすいので、「何から守るのか」「何を見つけるのか」で整理して覚えます。\nあわせて、セキュリティに関する情報をどこで入手できるかも学びます。",
+  "beginner": {
+    "analogy": "建物の防犯にたとえると、AWS Shieldは「入口に殺到する迷惑な群衆を食い止める警備員」、AWS WAFは「入口の手荷物検査」、Amazon GuardDutyは「館内を見回る警備システム」、Amazon Inspectorは「鍵のかかっていない窓を探す点検員」、Amazon Macieは「書庫から個人情報の書類を探す係」です。",
+    "description": "「防ぐ」サービスと「見つける」サービスがあります。見つけるサービスは、さらに「怪しい活動」「ソフトウェアの弱点」「機密データ」のどれを見つけるかで分かれます。"
+  },
+  "useCases": [
+    "ウェブサイトをDDoS攻撃から守る（AWS Shield）",
+    "SQLインジェクションなどの攻撃をブロックする（AWS WAF）",
+    "不審な活動を継続的に監視する（Amazon GuardDuty）",
+    "EC2インスタンスの脆弱性をスキャンする（Amazon Inspector）",
+    "S3の中の個人情報を見つける（Amazon Macie）"
+  ],
+  "mechanism": {
+    "text": "防ぐためのサービスは次のとおりです。\n・AWS Shield：DDoS攻撃からの保護を提供します。Shield Standardは、すべての利用者に追加料金なしで含まれます。Shield Advancedは有料で、より大規模で高度な攻撃への保護などが加わります。\n・AWS WAF：ウェブアプリケーションやAPIを、SQLインジェクションやクロスサイトスクリプティングなどの一般的な攻撃から保護する、ウェブアプリケーションファイアウォールです。\n・AWS Firewall Manager：AWS Organizationsのアカウント全体で、ファイアウォールのルールを一元的に設定・管理します。\n見つけるためのサービスは次のとおりです。\n・Amazon GuardDuty：悪意のある活動や異常な振る舞いを、継続的に監視する脅威検出サービスです。\n・Amazon Inspector：EC2インスタンスやコンテナイメージを継続的にスキャンし、ソフトウェアの脆弱性を見つけます。\n・Amazon Macie：機械学習とパターンマッチングを使って、Amazon S3にある機密データを見つけます。\n・AWS Security Hub：セキュリティのベストプラクティスのチェックを自動で実行し、各サービスの検出結果を1か所に集約します。\n・AWS Trusted Advisor：ベストプラクティスに基づいて、コストの削減、パフォーマンスの向上、セキュリティの改善を助けます。\nこのほか、試験ガイドでは次の点が挙げられています。サードパーティーのセキュリティ製品は、AWS Marketplaceから入手できます。AWSのセキュリティに関する情報は、AWS Knowledge Center、AWS Security Center、AWS Security Blogなどで入手できます。"
+  },
+  "relatedServiceIds": [
+    "aws-shield",
+    "aws-waf",
+    "aws-firewall-manager",
+    "amazon-guardduty",
+    "amazon-inspector",
+    "amazon-macie",
+    "aws-security-hub",
+    "aws-trusted-advisor"
+  ],
+  "examPoints": [
+    "DDoS攻撃からの保護＝Shield。Standardは追加料金なしで全利用者に含まれる。",
+    "ウェブアプリケーションへの攻撃（SQLインジェクションなど）からの保護＝WAF。",
+    "複数アカウントのファイアウォールルールの一元管理＝Firewall Manager。",
+    "悪意のある活動の継続的な監視（脅威検出）＝GuardDuty。",
+    "ソフトウェアの脆弱性のスキャン＝Inspector。S3の機密データの発見＝Macie。",
+    "検出結果の集約＝Security Hub。ベストプラクティスに基づく推奨＝Trusted Advisor。",
+    "サードパーティーのセキュリティ製品はAWS Marketplaceで入手できる。",
+    "セキュリティ情報の入手先：AWS Knowledge Center、AWS Security Center、AWS Security Blog。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-sec-01",
+    "clf-q-sec-02",
+    "clf-q-sec-03",
+    "clf-q-sec-04",
+    "clf-q-sec-05"
+  ],
+  "glossaryTermIds": [
+    "ddos",
+    "vulnerability"
+  ]
+}

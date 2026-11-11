@@ -1,0 +1,83 @@
+{
+  "id": "clf-iam",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Security best practices in IAM（IAM ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+    },
+    {
+      "title": "Root user best practices for your AWS account（IAM ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html"
+    },
+    {
+      "title": "Tasks that require root user credentials（IAM ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-tasks.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 10,
+  "title": "IAM（アクセス管理）",
+  "domainId": "clf-d2",
+  "taskIds": [
+    "clf-2-3"
+  ],
+  "overview": "AWS Identity and Access Management（IAM）は、「誰が」「何に対して」「何をできるか」を管理するサービスです。\nAWSアカウントを作ると、最初にルートユーザーという特別なユーザーができます。ルートユーザーはすべてのリソースに完全にアクセスできるため、厳重に保護し、日常の作業には使いません。\n日常の作業では、IAMを使って、必要な人や仕組みに、必要な権限だけを与えます。これを最小権限の原則と呼びます。",
+  "beginner": {
+    "analogy": "会社のセキュリティにたとえると、ルートユーザーは「全館のマスターキー」です。普段は金庫にしまっておきます。社員には、自分の仕事に必要な部屋にだけ入れる入館証（IAMの権限）を渡します。来客や業者には、その日だけ使える一時的な入館証（ロールの一時的な認証情報）を渡します。",
+    "description": "全員に何でもできる権限を渡すと、間違いや不正が起きたときの被害が大きくなります。必要な人に、必要な分だけ渡すのが基本です。"
+  },
+  "useCases": [
+    "ルートユーザーに多要素認証を設定し、普段は使わない",
+    "担当者をグループにまとめ、グループに権限を与える",
+    "EC2インスタンス上のアプリケーションに、ロールを使ってS3へのアクセスを許可する",
+    "複数のAWSアカウントへのサインインを、IAM Identity Centerで一元化する"
+  ],
+  "mechanism": {
+    "text": "IAMでは、ユーザー、グループ、ロールに対してアクセスを制御します。許可の内容はポリシーに書きます。IDは、何の権限もない状態から始まります。\nポリシーには、AWSが多くの一般的な用途向けに用意したAWS管理ポリシーと、利用者が自分の用途に合わせて作るカスタマー管理ポリシーがあります。まずAWS管理ポリシーから始め、用途に合わせて権限をさらに絞っていくことが推奨されています。\nロールを引き受けると、一時的な認証情報が得られます。長期的な認証情報（アクセスキーなど）を共有せずに済むため、アプリケーションなどのワークロードにはロールを使うことが推奨されています。人のユーザーは、IDプロバイダーとのフェデレーションで一時的な認証情報を使ってアクセスすることが推奨され、その管理にはAWS IAM Identity Centerが推奨されています。\n多要素認証（MFA）は、パスワードなどの認証情報に加えて、デバイスが生成する応答も確認する方法です。IAMユーザーやルートユーザーには、MFAを必須にします。\nルートユーザーを保護する方法として、次のことが推奨されています。強力なパスワードを使う。MFAを設定する。ルートユーザーのアクセスキーを作らない。認証情報を共有しない。ルートユーザーの認証情報が必要な作業にだけ使う。\nルートユーザーの認証情報が必要な作業には、アカウントの設定の変更（メールアドレスやルートユーザーのパスワードなど）、AWSアカウントの解約、請求とコスト管理のコンソールへのIAMアクセスの有効化などがあります。\nデータベースのパスワードなどの認証情報は、AWS Secrets Managerに保管すると、コードに直接書かずに済み、ローテーションも自動化できます。",
+    "figureId": "iam-elements"
+  },
+  "relatedServiceIds": [
+    "aws-iam",
+    "aws-iam-identity-center",
+    "aws-secrets-manager"
+  ],
+  "examPoints": [
+    "ルートユーザーは完全なアクセス権を持つ。MFAを設定し、アクセスキーを作らず、日常の作業に使わない。",
+    "ルートユーザーにしかできない作業がある（アカウントの解約、アカウントの設定の変更など）。",
+    "最小権限の原則＝作業に必要な権限だけを与える。",
+    "ユーザー、グループ、ロールにポリシーを関連付けて権限を管理する。",
+    "AWS管理ポリシー（AWSが用意）と、カスタマー管理ポリシー（利用者が作成）がある。",
+    "ロールは一時的な認証情報を提供する。ワークロードにはロールを使う。",
+    "認証の方法の例：多要素認証（MFA）、IAM Identity Center、クロスアカウントのIAMロール。",
+    "複数アカウントのアクセスの一元管理＝IAM Identity Center。認証情報の保管とローテーション＝Secrets Manager。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-iam-01",
+    "clf-q-iam-02",
+    "clf-q-iam-03",
+    "clf-q-iam-04",
+    "clf-q-iam-05"
+  ],
+  "glossaryTermIds": [
+    "root-user",
+    "mfa",
+    "least-privilege",
+    "temporary-credentials"
+  ]
+}

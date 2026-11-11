@@ -1,0 +1,73 @@
+{
+  "id": "aws-cloudtrail",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS CloudTrail",
+  "aliases": [
+    "CloudTrail",
+    "クラウドトレイル"
+  ],
+  "category": "management-governance",
+  "summary": "アカウントでのAWS APIの呼び出しを記録し、ログファイルとして届けるサービス。",
+  "beginner": {
+    "analogy": "建物の入退室記録のようなものです。「誰が、いつ、どこから、何をしたか」が残ります。",
+    "description": "AWSの中で行われた操作の記録を残します。あとから「誰がこの設定を変えたのか」を調べられます。"
+  },
+  "exam": {
+    "description": "アカウントでのAWS APIの呼び出しを記録し、ログファイルを届けるサービスです。記録には、呼び出した者のID、時刻、送信元のIPアドレス、リクエストのパラメータ、レスポンスの要素が含まれます。セキュリティの分析、リソースの変更の追跡、コンプライアンスの監査に使います。",
+    "points": [
+      "「誰が、いつ、何をしたか」（API呼び出し）の記録＝CloudTrail。監査に使う。",
+      "性能の監視やアラームはCloudWatch、リソースの設定の履歴はConfig、と区別する。"
+    ]
+  },
+  "useCases": [
+    "操作の監査",
+    "セキュリティの調査"
+  ],
+  "mechanism": "API呼び出しを記録し、ログファイルとして保存します。",
+  "pros": [
+    "操作の記録が残り、あとから追跡できる"
+  ],
+  "cons": [
+    "記録するサービスであり、不審な活動の検出そのものは別のサービスが行う"
+  ],
+  "scenes": [
+    "重要な設定を誰が変更したのかを、記録から調べる"
+  ],
+  "similarServiceIds": [
+    "aws-config",
+    "amazon-cloudwatch"
+  ],
+  "relatedServiceIds": [
+    "aws-config",
+    "amazon-cloudwatch"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/cloudtrail/"
+}
