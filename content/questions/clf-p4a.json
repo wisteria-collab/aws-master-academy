@@ -1,0 +1,1360 @@
+[
+  {
+    "id": "clf-q-price-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Reserved Instances for Amazon EC2 overview（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "リザーブドインスタンスの提供クラスのうち、割引はスタンダードより小さいものの、別の属性のリザーブドインスタンスと交換できるものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "コンバーティブルリザーブドインスタンス",
+        "correct": true,
+        "explanation": "コンバーティブルは、スタンダードより割引は小さい代わりに、別の属性を持つコンバーティブルリザーブドインスタンスと交換できます。"
+      },
+      {
+        "id": "b",
+        "text": "スタンダードリザーブドインスタンス",
+        "correct": false,
+        "explanation": "スタンダードは、割引が最も大きい代わりに、変更しかできず、交換はできません。",
+        "eliminatedBy": "別の属性のリザーブドインスタンスと交換できる"
+      },
+      {
+        "id": "c",
+        "text": "スポットインスタンス",
+        "correct": false,
+        "explanation": "スポットインスタンスは、EC2の空いている容量を低い価格で使う購入方法です。リザーブドインスタンスの提供クラスではありません。",
+        "eliminatedBy": "リザーブドインスタンスの提供クラスのうち"
+      },
+      {
+        "id": "d",
+        "text": "オンデマンドインスタンス",
+        "correct": false,
+        "explanation": "オンデマンドインスタンスは、約束なしで使った分だけ支払う購入方法です。リザーブドインスタンスの提供クラスではありません。",
+        "eliminatedBy": "リザーブドインスタンスの提供クラスのうち"
+      }
+    ],
+    "keywords": [
+      "割引はスタンダードより小さい",
+      "交換できる"
+    ],
+    "decisionPoint": "交換できる＝コンバーティブル。割引が最大＝スタンダード。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-pricing-models"
+      },
+      {
+        "type": "comparison",
+        "id": "ec2-purchase"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-price-08",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Modify Reserved Instances（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html"
+      },
+      {
+        "title": "Reserved Instances for Amazon EC2 overview（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、リザーブドインスタンスを購入するにあたり、特定のアベイラビリティゾーンで容量も予約しておきたいと考えています。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ゾーンのリザーブドインスタンス",
+        "correct": true,
+        "explanation": "ゾーンのリザーブドインスタンスは、特定のアベイラビリティゾーンに限定され、そのアベイラビリティゾーンの容量を予約します。"
+      },
+      {
+        "id": "b",
+        "text": "リージョンのリザーブドインスタンス",
+        "correct": false,
+        "explanation": "リージョンのリザーブドインスタンスは、リージョン内のどのアベイラビリティゾーンにも割引が適用されますが、容量の予約はありません。",
+        "eliminatedBy": "容量も予約しておきたい"
+      },
+      {
+        "id": "c",
+        "text": "スポットインスタンス",
+        "correct": false,
+        "explanation": "スポットインスタンスは空いている容量を使う購入方法で、容量は予約されません。EC2が容量を必要としたときは中断されます。",
+        "eliminatedBy": "容量も予約しておきたい"
+      },
+      {
+        "id": "d",
+        "text": "AWS Budgets",
+        "correct": false,
+        "explanation": "AWS Budgetsは、予算を設定してアラートを受け取るサービスです。インスタンスの容量を予約するものではありません。",
+        "eliminatedBy": "容量も予約しておきたい"
+      }
+    ],
+    "keywords": [
+      "リザーブドインスタンス",
+      "特定のアベイラビリティゾーンで容量も予約"
+    ],
+    "decisionPoint": "容量の予約が付くのはゾーンのリザーブドインスタンス。リージョンは柔軟だが容量の予約なし。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-pricing-models"
+      },
+      {
+        "type": "comparison",
+        "id": "ec2-purchase"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-price-09",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS Global Network FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/about-aws/global-infrastructure/global-network/faqs"
+      },
+      {
+        "title": "Overview of Data Transfer Costs for Common Architectures（AWS Architecture Blog）",
+        "url": "https://aws.amazon.com/blogs/architecture/overview-of-data-transfer-costs-for-common-architectures"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Amazon EC2インスタンスどうしでデータをやり取りしています。データ転送の料金がかからないのは、次のうちどの場合ですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "同じアベイラビリティゾーンの中でやり取りする場合",
+        "correct": true,
+        "explanation": "同じアベイラビリティゾーンの中のデータ転送は無料です。"
+      },
+      {
+        "id": "b",
+        "text": "同じリージョンの、別のアベイラビリティゾーンの間でやり取りする場合",
+        "correct": false,
+        "explanation": "同じリージョンでも、別のアベイラビリティゾーンにあるEC2インスタンスの間のデータ転送には、料金がかかります。",
+        "eliminatedBy": "料金がかからない"
+      },
+      {
+        "id": "c",
+        "text": "別のリージョンの間でやり取りする場合",
+        "correct": false,
+        "explanation": "別のリージョンの間のデータ転送には料金がかかります。金額は、送信元と送信先のリージョンによって決まります。",
+        "eliminatedBy": "料金がかからない"
+      },
+      {
+        "id": "d",
+        "text": "料金がかからない場合はなく、どこでやり取りしても必ず料金がかかる",
+        "correct": false,
+        "explanation": "同じアベイラビリティゾーンの中のデータ転送は無料です。必ず料金がかかるわけではありません。",
+        "eliminatedBy": "料金がかからないのは"
+      }
+    ],
+    "keywords": [
+      "データ転送の料金がかからない"
+    ],
+    "decisionPoint": "同じAZ内＝無料。AZをまたぐ、リージョンをまたぐ、インターネットへ出る＝有料。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-pricing-models"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-stor-ist-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Data persistence for Amazon EC2 instance store volumes（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-lifetime.html"
+      },
+      {
+        "title": "Storage options for your Amazon EC2 instances（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Storage.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-6",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある担当者が、Amazon EC2インスタンスのインスタンスストアにデータを保存しました。その後、インスタンスを停止してから再び開始しました。インスタンスストアのデータはどうなりますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "失われる",
+        "correct": true,
+        "explanation": "インスタンスストアは一時的なブロックストレージです。インスタンスを停止、休止、終了すると、データは失われます。"
+      },
+      {
+        "id": "b",
+        "text": "そのまま残る",
+        "correct": false,
+        "explanation": "インスタンスストアのデータが残るのは、インスタンスを再起動した場合です。停止した場合は残りません。",
+        "eliminatedBy": "インスタンスを停止してから再び開始"
+      },
+      {
+        "id": "c",
+        "text": "自動的にAmazon S3にコピーされて残る",
+        "correct": false,
+        "explanation": "インスタンスストアのデータが、自動的にS3にコピーされることはありません。残したいデータは、利用者が自分でEBSやS3などにコピーしておく必要があります。",
+        "eliminatedBy": "インスタンスストアにデータを保存"
+      },
+      {
+        "id": "d",
+        "text": "別のインスタンスに自動的に引き継がれる",
+        "correct": false,
+        "explanation": "インスタンスストアは、そのインスタンスに結び付いた一時的なストレージです。別のインスタンスに引き継がれることはありません。",
+        "eliminatedBy": "インスタンスストアのデータはどうなりますか"
+      }
+    ],
+    "keywords": [
+      "インスタンスストア",
+      "停止してから再び開始"
+    ],
+    "decisionPoint": "インスタンスストア：再起動では残る、停止・休止・終了で失われる。",
+    "serviceIds": [
+      "amazon-ec2",
+      "amazon-ebs"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-storage"
+      },
+      {
+        "type": "comparison",
+        "id": "storage"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-mig-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What Is AWS Application Migration Service?（AWS MGN ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/mgn/latest/ug/what-is-application-migration-service.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスで動いている多数のサーバーを、アプリケーションに変更を加えずにそのままAWSへ移行（リホスト）したいと考えています。この移行を自動化するために最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Application Migration Service",
+        "correct": true,
+        "explanation": "Application Migration Serviceは、リフト＆シフト（リホスト）のための高度に自動化されたサービスです。移行元のサーバーを、利用者のAWSアカウントに複製します。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Database Migration Service（AWS DMS）",
+        "correct": false,
+        "explanation": "AWS DMSは、データベースを移行するためのサービスです。サーバーをそのまま移行するためのサービスではありません。",
+        "eliminatedBy": "多数のサーバーを、アプリケーションに変更を加えずにそのまま"
+      },
+      {
+        "id": "c",
+        "text": "AWS Application Discovery Service",
+        "correct": false,
+        "explanation": "Application Discovery Serviceは、オンプレミスのサーバーの情報を集めて、移行の計画を助けるサービスです。移行そのものを行うサービスではありません。",
+        "eliminatedBy": "この移行を自動化する"
+      },
+      {
+        "id": "d",
+        "text": "AWS Schema Conversion Tool（AWS SCT）",
+        "correct": false,
+        "explanation": "AWS SCTは、データベースのスキーマを別のエンジン向けに変換するツールです。サーバーを移行するものではありません。",
+        "eliminatedBy": "サーバーを、アプリケーションに変更を加えずにそのまま"
+      }
+    ],
+    "keywords": [
+      "多数のサーバー",
+      "そのままAWSへ移行（リホスト）"
+    ],
+    "decisionPoint": "サーバーのリホスト＝Application Migration Service。データベースの移行＝DMS。",
+    "serviceIds": [
+      "aws-application-migration-service"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-migration-caf"
+      },
+      {
+        "type": "service",
+        "id": "aws-application-migration-service"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-db-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-4",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Oracleのリレーショナルデータベースを使う業務システムをAWSに移します。データベースエンジンはOracleのまま使い続け、パッチ適用やバックアップはAWSに任せたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon RDS",
+        "correct": true,
+        "explanation": "RDSは、Oracleを含む複数のエンジンから選べる、マネージドのリレーショナルデータベースサービスです。パッチ適用やバックアップを自動化します。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Aurora",
+        "correct": false,
+        "explanation": "AuroraはMySQLおよびPostgreSQLと互換性のあるデータベースです。Oracleのエンジンをそのまま使い続けることはできません。",
+        "eliminatedBy": "データベースエンジンはOracleのまま使い続け"
+      },
+      {
+        "id": "c",
+        "text": "Amazon DynamoDB",
+        "correct": false,
+        "explanation": "DynamoDBはキーバリュー型・ドキュメント型のNoSQLデータベースです。リレーショナルデータベースではありません。",
+        "eliminatedBy": "Oracleのリレーショナルデータベース"
+      },
+      {
+        "id": "d",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheはインメモリのキャッシュです。リレーショナルデータベースの移行先にはなりません。",
+        "eliminatedBy": "リレーショナルデータベースを使う業務システム"
+      }
+    ],
+    "keywords": [
+      "Oracleのまま使い続け",
+      "AWSに任せたい"
+    ],
+    "decisionPoint": "エンジンを選べるマネージドなリレーショナルDB＝RDS。AuroraはMySQL・PostgreSQL互換だけ。",
+    "serviceIds": [
+      "amazon-rds",
+      "amazon-aurora",
+      "amazon-dynamodb",
+      "amazon-elasticache"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "database"
+      },
+      {
+        "type": "service",
+        "id": "amazon-rds"
+      }
+    ],
+    "variationGroupId": "database-select"
+  },
+  {
+    "id": "clf-q-db-train-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-4",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、MySQLと互換性のあるリレーショナルデータベースを使っています。読み取りの負荷が高いため、低遅延のリードレプリカを多数使い、データを3つのアベイラビリティゾーンにまたがって複製したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Aurora",
+        "correct": true,
+        "explanation": "AuroraはMySQL・PostgreSQL互換のリレーショナルデータベースで、低遅延のリードレプリカを最大15個まで使え、データは3つのアベイラビリティゾーンにまたがって複製されます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheは読み取りを速くする手段の1つですが、インメモリのキャッシュであり、MySQLと互換性のあるリレーショナルデータベースではありません。",
+        "eliminatedBy": "MySQLと互換性のあるリレーショナルデータベース"
+      },
+      {
+        "id": "c",
+        "text": "Amazon DynamoDB",
+        "correct": false,
+        "explanation": "DynamoDBはNoSQLデータベースです。MySQLと互換性のあるリレーショナルデータベースではありません。",
+        "eliminatedBy": "MySQLと互換性のあるリレーショナルデータベース"
+      },
+      {
+        "id": "d",
+        "text": "Amazon S3",
+        "correct": false,
+        "explanation": "S3はオブジェクトストレージです。データベースではなく、リードレプリカもありません。",
+        "eliminatedBy": "リードレプリカを多数使い"
+      }
+    ],
+    "keywords": [
+      "MySQLと互換性",
+      "リードレプリカ",
+      "3つのアベイラビリティゾーンにまたがって複製"
+    ],
+    "decisionPoint": "「MySQL・PostgreSQL互換」＋「リードレプリカ最大15個」「3つのAZに複製」＝Aurora。",
+    "serviceIds": [
+      "amazon-rds",
+      "amazon-aurora",
+      "amazon-dynamodb",
+      "amazon-elasticache"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "database"
+      },
+      {
+        "type": "service",
+        "id": "amazon-aurora"
+      }
+    ],
+    "variationGroupId": "database-select"
+  },
+  {
+    "id": "clf-q-db-train-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-4",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるウェブサイトはAmazon RDSを使っています。同じ商品ランキングの問い合わせが何度も繰り返され、データベースの負荷が高くなっています。データベースはそのままにして、繰り返し読まれる結果をメモリから返すようにしたい場合、追加するサービスとして最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon ElastiCache",
+        "correct": true,
+        "explanation": "ElastiCacheは、マネージドのインメモリキャッシュです。繰り返し読まれるデータをメモリから返すことで、ディスクベースのデータベースだけに頼らずに応答を速くできます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon DynamoDB",
+        "correct": false,
+        "explanation": "DynamoDBは、それ自体が別の種類のデータベースです。問題文は、データベースはそのままにして、結果をメモリから返す仕組みを追加したいと述べています。",
+        "eliminatedBy": "データベースはそのままにして"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Aurora",
+        "correct": false,
+        "explanation": "Auroraはリレーショナルデータベースです。問題文が求めているのは、データベースの置き換えではなく、メモリから結果を返す仕組みの追加です。",
+        "eliminatedBy": "繰り返し読まれる結果をメモリから返す"
+      },
+      {
+        "id": "d",
+        "text": "AWS DMS",
+        "correct": false,
+        "explanation": "AWS DMSは、データベースを移行するためのサービスです。問い合わせの結果をメモリから返すものではありません。",
+        "eliminatedBy": "メモリから返す"
+      }
+    ],
+    "keywords": [
+      "データベースはそのままにして",
+      "メモリから返す"
+    ],
+    "decisionPoint": "「メモリから返す」「キャッシュ」＝ElastiCache。データベースの手前に追加して使います。",
+    "serviceIds": [
+      "amazon-rds",
+      "amazon-aurora",
+      "amazon-dynamodb",
+      "amazon-elasticache"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "database"
+      },
+      {
+        "type": "service",
+        "id": "amazon-elasticache"
+      }
+    ],
+    "variationGroupId": "database-select"
+  },
+  {
+    "id": "clf-q-cmp-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-3",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、ファイルがアップロードされたときだけ動く短い処理を作りたいと考えています。サーバーは管理したくありません。また、処理が動いていない間は料金を支払いたくありません。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Lambda",
+        "correct": true,
+        "explanation": "Lambdaは、サーバーを管理せずにコードを実行できます。使用したコンピューティング時間の分だけ支払い、コードが実行されていないときは料金が発生しません。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon EC2",
+        "correct": false,
+        "explanation": "EC2は仮想サーバーのサービスで、ゲストOSなどの管理が必要です。サーバーは管理したくない、という要件に合いません。",
+        "eliminatedBy": "サーバーは管理したくありません"
+      },
+      {
+        "id": "c",
+        "text": "Amazon EKS",
+        "correct": false,
+        "explanation": "EKSはKubernetesのサービスです。コンテナとKubernetesを使う構成になり、ファイルがアップロードされたときだけ動く短い処理、という要件にはLambdaのほうが合います。",
+        "eliminatedBy": "ファイルがアップロードされたときだけ動く短い処理"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Lightsail",
+        "correct": false,
+        "explanation": "Lightsailは、仮想プライベートサーバーを手軽に使えるサービスです。サーバーを使う形になるため、要件に合いません。",
+        "eliminatedBy": "サーバーは管理したくありません"
+      }
+    ],
+    "keywords": [
+      "アップロードされたときだけ動く",
+      "サーバーは管理したくありません",
+      "動いていない間は料金を支払いたくありません"
+    ],
+    "decisionPoint": "「イベントで動く」「サーバー管理なし」「動いた分だけ」＝Lambda。",
+    "serviceIds": [
+      "amazon-ec2",
+      "aws-lambda",
+      "amazon-ecs",
+      "amazon-eks",
+      "aws-fargate"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "compute"
+      },
+      {
+        "type": "service",
+        "id": "aws-lambda"
+      }
+    ],
+    "variationGroupId": "compute-select"
+  },
+  {
+    "id": "clf-q-cmp-train-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-3",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある開発チームは、アプリケーションをコンテナにまとめて動かしています。コンテナを動かすためのサーバーやクラスターの用意と管理は、したくないと考えています。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Fargate",
+        "correct": true,
+        "explanation": "Fargateは、サーバーやクラスターを管理せずにコンテナを実行できるコンピューティングエンジンです。仮想マシンのクラスターのプロビジョニング、設定、スケーリングが不要になります。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon EC2",
+        "correct": false,
+        "explanation": "EC2でもコンテナは動かせますが、サーバーの用意と管理を利用者が行う必要があります。",
+        "eliminatedBy": "サーバーやクラスターの用意と管理は、したくない"
+      },
+      {
+        "id": "c",
+        "text": "AWS Lambda",
+        "correct": false,
+        "explanation": "Lambdaはサーバーレスですが、コードを実行するサービスです。問題文のチームは、アプリケーションをコンテナにまとめて動かしています。",
+        "eliminatedBy": "コンテナにまとめて動かしています"
+      },
+      {
+        "id": "d",
+        "text": "AWS Batch",
+        "correct": false,
+        "explanation": "Batchは、大量のバッチ処理のジョブを実行するサービスです。コンテナのアプリケーションをサーバーの管理なしで動かす、という要件に直接答えるものではありません。",
+        "eliminatedBy": "コンテナを動かすためのサーバーやクラスター"
+      }
+    ],
+    "keywords": [
+      "コンテナ",
+      "サーバーやクラスターの用意と管理は、したくない"
+    ],
+    "decisionPoint": "「コンテナ」＋「サーバー管理なし」＝Fargate。「コード」＋「サーバー管理なし」＝Lambda。",
+    "serviceIds": [
+      "amazon-ec2",
+      "aws-lambda",
+      "amazon-ecs",
+      "amazon-eks",
+      "aws-fargate"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "compute"
+      },
+      {
+        "type": "service",
+        "id": "aws-fargate"
+      }
+    ],
+    "variationGroupId": "compute-select"
+  },
+  {
+    "id": "clf-q-cmp-train-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-3",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスでKubernetesを使ってコンテナを運用しています。既存のKubernetesのツールやプラグインをそのまま使いながら、AWSに移行したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon EKS",
+        "correct": true,
+        "explanation": "EKSは、フルマネージドのKubernetesサービスです。Kubernetesの適合認定を受けているため、既存のツールやプラグインを使え、標準的なKubernetes環境のアプリケーションをそのまま移行できます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon ECS",
+        "correct": false,
+        "explanation": "ECSは、AWSのコンテナオーケストレーションサービスです。コンテナは動かせますが、Kubernetesそのものではないため、既存のKubernetesのツールをそのまま使うという要件にはEKSが合います。",
+        "eliminatedBy": "既存のKubernetesのツールやプラグインをそのまま使いながら"
+      },
+      {
+        "id": "c",
+        "text": "AWS Lambda",
+        "correct": false,
+        "explanation": "Lambdaは、コードを実行するサーバーレスのサービスです。Kubernetesの環境ではありません。",
+        "eliminatedBy": "Kubernetesを使ってコンテナを運用"
+      },
+      {
+        "id": "d",
+        "text": "AWS Elastic Beanstalk",
+        "correct": false,
+        "explanation": "Elastic Beanstalkは、コードをアップロードするだけでウェブアプリケーションを公開できるサービスです。Kubernetesの環境ではありません。",
+        "eliminatedBy": "既存のKubernetesのツールやプラグイン"
+      }
+    ],
+    "keywords": [
+      "Kubernetes",
+      "既存のKubernetesのツールやプラグインをそのまま使いながら"
+    ],
+    "decisionPoint": "「Kubernetes」＝EKS。「AWSのコンテナオーケストレーション」＝ECS。",
+    "serviceIds": [
+      "amazon-ec2",
+      "aws-lambda",
+      "amazon-ecs",
+      "amazon-eks",
+      "aws-fargate"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "compute"
+      },
+      {
+        "type": "service",
+        "id": "amazon-eks"
+      }
+    ],
+    "variationGroupId": "compute-select"
+  },
+  {
+    "id": "clf-q-msg-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-8",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある動画サイトでは、動画のアップロードを受け付ける処理と、時間のかかる変換の処理があります。変換の処理が混雑していても、アップロードの受け付けは止めたくありません。変換の依頼をためておき、変換の処理が自分のペースで順に取り出せるようにしたい場合、最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon SQS",
+        "correct": true,
+        "explanation": "SQSはメッセージキューのサービスです。依頼をキューにためておき、受け取る側が取り出して処理するため、2つの処理を疎結合にできます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon SNS",
+        "correct": false,
+        "explanation": "SNSは、メッセージを購読者にプッシュ型でいっせいに配信するサービスです。依頼をためておき、受け取る側のペースで取り出す、という使い方にはSQSが合います。",
+        "eliminatedBy": "依頼をためておき、変換の処理が自分のペースで順に取り出せる"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Kinesis",
+        "correct": false,
+        "explanation": "Kinesisは、ストリーミングデータをリアルタイムに収集、処理、分析するサービスです。処理の間に置くキューが目的の場合はSQSが合います。",
+        "eliminatedBy": "依頼をためておき"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EventBridge",
+        "correct": false,
+        "explanation": "EventBridgeは、イベントをターゲットに届けるイベントバスです。依頼をためておいて、受け取る側が順に取り出すためのキューではありません。",
+        "eliminatedBy": "自分のペースで順に取り出せる"
+      }
+    ],
+    "keywords": [
+      "依頼をためておき",
+      "自分のペースで順に取り出せる"
+    ],
+    "decisionPoint": "「ためておく」「受け取る側のペース」＝SQS。",
+    "serviceIds": [
+      "amazon-sqs",
+      "amazon-sns",
+      "amazon-eventbridge",
+      "amazon-kinesis"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "messaging"
+      },
+      {
+        "type": "service",
+        "id": "amazon-sqs"
+      }
+    ],
+    "variationGroupId": "messaging-select"
+  },
+  {
+    "id": "clf-q-msg-train-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-8",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるネットショップでは、注文が確定したという1つの知らせを、在庫管理、発送、メール通知の3つのシステムに、同時に届けたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon SNS",
+        "correct": true,
+        "explanation": "SNSはpub/subのメッセージングサービスです。トピックに送った1つのメッセージが、購読しているすべての受け取り手に配信されます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon SQS",
+        "correct": false,
+        "explanation": "SQSのキューは、ためたメッセージを受け取る側が取り出して処理するためのものです。1つの知らせを複数のシステムに同時に届ける、という要件にはSNSが合います。",
+        "eliminatedBy": "3つのシステムに、同時に届けたい"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Kinesis",
+        "correct": false,
+        "explanation": "Kinesisは、ストリーミングデータをリアルタイムに収集、処理、分析するサービスです。1つの知らせを複数の相手に配信するためのサービスではありません。",
+        "eliminatedBy": "1つの知らせを"
+      },
+      {
+        "id": "d",
+        "text": "Amazon SES",
+        "correct": false,
+        "explanation": "SESは、メールを送信するサービスです。複数のシステムに知らせを届ける仕組みではありません。",
+        "eliminatedBy": "3つのシステムに、同時に届けたい"
+      }
+    ],
+    "keywords": [
+      "1つの知らせ",
+      "3つのシステムに、同時に届けたい"
+    ],
+    "decisionPoint": "「1つを複数へ同時に」＝SNS。",
+    "serviceIds": [
+      "amazon-sqs",
+      "amazon-sns",
+      "amazon-eventbridge",
+      "amazon-kinesis"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "messaging"
+      },
+      {
+        "type": "service",
+        "id": "amazon-sns"
+      }
+    ],
+    "variationGroupId": "messaging-select"
+  },
+  {
+    "id": "clf-q-msg-train-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-7",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、数千台の機器から途切れなく送られてくる測定データを、発生するそばからリアルタイムに収集して分析したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Kinesis",
+        "correct": true,
+        "explanation": "Kinesisは、リアルタイムのストリーミングデータを、簡単に収集、処理、分析できるサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon SQS",
+        "correct": false,
+        "explanation": "SQSは、システムの間でメッセージを受け渡すためのキューです。途切れなく流れるデータをリアルタイムに収集して分析する、という用途にはKinesisが合います。",
+        "eliminatedBy": "リアルタイムに収集して分析したい"
+      },
+      {
+        "id": "c",
+        "text": "Amazon SNS",
+        "correct": false,
+        "explanation": "SNSは、メッセージを購読者に配信するサービスです。ストリーミングデータを収集して分析するサービスではありません。",
+        "eliminatedBy": "途切れなく送られてくる測定データを"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EventBridge",
+        "correct": false,
+        "explanation": "EventBridgeは、イベントをターゲットに届けるイベントバスです。途切れなく流れるデータを収集して分析するためのサービスではありません。",
+        "eliminatedBy": "リアルタイムに収集して分析したい"
+      }
+    ],
+    "keywords": [
+      "途切れなく送られてくる",
+      "リアルタイムに収集して分析"
+    ],
+    "decisionPoint": "「途切れなく流れるデータ」「リアルタイムに分析」＝Kinesis。",
+    "serviceIds": [
+      "amazon-sqs",
+      "amazon-sns",
+      "amazon-eventbridge",
+      "amazon-kinesis"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "messaging"
+      },
+      {
+        "type": "service",
+        "id": "amazon-kinesis"
+      }
+    ],
+    "variationGroupId": "messaging-select"
+  },
+  {
+    "id": "clf-q-buy-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "Spot Instances（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html"
+      },
+      {
+        "title": "Reserved Instances for Amazon EC2 overview（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、画像を変換する処理を大量に実行します。処理は途中で中断されても、続きからやり直せるように作られています。できるだけ低い料金で実行したい場合、最も適切なAmazon EC2の購入方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "スポットインスタンス",
+        "correct": true,
+        "explanation": "スポットインスタンスは、EC2の空いている容量をオンデマンドより低い価格で使う購入方法です。中断されることがあるため、中断に耐えられる処理に適しています。"
+      },
+      {
+        "id": "b",
+        "text": "オンデマンドインスタンス",
+        "correct": false,
+        "explanation": "オンデマンドインスタンスでも実行できますが、割引はありません。中断されてもやり直せる処理なら、より低い価格のスポットインスタンスを使えます。",
+        "eliminatedBy": "できるだけ低い料金で実行したい"
+      },
+      {
+        "id": "c",
+        "text": "Dedicated Hosts",
+        "correct": false,
+        "explanation": "Dedicated Hostsは、専用の物理ホストに対して支払う購入方法です。料金をできるだけ下げたい、という要件のためのものではありません。",
+        "eliminatedBy": "できるだけ低い料金で実行したい"
+      },
+      {
+        "id": "d",
+        "text": "ゾーンのリザーブドインスタンス",
+        "correct": false,
+        "explanation": "リザーブドインスタンスは、1年または3年の利用を約束して料金を下げる購入方法です。中断されてもよい処理を最も低い料金で動かす、という要件にはスポットインスタンスが合います。",
+        "eliminatedBy": "途中で中断されても、続きからやり直せる"
+      }
+    ],
+    "keywords": [
+      "途中で中断されても、続きからやり直せる",
+      "できるだけ低い料金"
+    ],
+    "decisionPoint": "「中断されてもよい」＋「できるだけ安く」＝スポット。",
+    "serviceIds": [
+      "amazon-ec2",
+      "aws-savings-plans"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "ec2-purchase"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ec2"
+      }
+    ],
+    "variationGroupId": "ec2-purchase-select"
+  },
+  {
+    "id": "clf-q-buy-train-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "Spot Instances（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html"
+      },
+      {
+        "title": "Reserved Instances for Amazon EC2 overview（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      },
+      {
+        "title": "Amazon EC2 Reserved Instances Pricing（AWS公式）",
+        "url": "https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、今後3年間、コンピューティングを一定の金額以上使い続ける見込みです。ただし、途中でインスタンスの種類を変えたり、一部をAWS Lambdaに移したりする可能性があります。料金を下げるために最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Savings Plans",
+        "correct": true,
+        "explanation": "Savings Plansは、1時間あたりの一定の利用額を約束する料金モデルです。Compute Savings Plansは、インスタンスの種類を変えた場合や、Lambdaに移した場合にも適用されます。"
+      },
+      {
+        "id": "b",
+        "text": "スタンダードリザーブドインスタンス",
+        "correct": false,
+        "explanation": "スタンダードリザーブドインスタンスは、特定のインスタンス構成を約束するもので、交換もできません。途中で構成を変える可能性がある場合には向きません。",
+        "eliminatedBy": "途中でインスタンスの種類を変えたり、一部をAWS Lambdaに移したりする可能性"
+      },
+      {
+        "id": "c",
+        "text": "スポットインスタンス",
+        "correct": false,
+        "explanation": "スポットインスタンスは、空いている容量を低い価格で使う購入方法で、中断される可能性があります。3年間使い続ける見込みの利用に対して割引を受ける仕組みではありません。",
+        "eliminatedBy": "今後3年間、コンピューティングを一定の金額以上使い続ける見込み"
+      },
+      {
+        "id": "d",
+        "text": "オンデマンドインスタンス",
+        "correct": false,
+        "explanation": "オンデマンドインスタンスには割引がありません。3年間使い続ける見込みがあるなら、約束による割引を受けられます。",
+        "eliminatedBy": "料金を下げるために"
+      }
+    ],
+    "keywords": [
+      "一定の金額以上使い続ける見込み",
+      "インスタンスの種類を変えたり、一部をAWS Lambdaに移したり"
+    ],
+    "decisionPoint": "「利用額は続く」＋「構成は変わるかも」＝Savings Plans。",
+    "serviceIds": [
+      "amazon-ec2",
+      "aws-savings-plans"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "ec2-purchase"
+      },
+      {
+        "type": "service",
+        "id": "aws-savings-plans"
+      }
+    ],
+    "variationGroupId": "ec2-purchase-select"
+  },
+  {
+    "id": "clf-q-buy-train-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+      },
+      {
+        "title": "Spot Instances（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html"
+      },
+      {
+        "title": "Reserved Instances for Amazon EC2 overview（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、来月の1か月間だけ、キャンペーン用のサーバーを動かします。利用者が使っている間に処理が中断されると困ります。最も適切なAmazon EC2の購入方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "オンデマンドインスタンス",
+        "correct": true,
+        "explanation": "オンデマンドインスタンスは、長期の約束なしで、起動した分だけ支払う購入方法です。EC2の都合で中断されることもありません。"
+      },
+      {
+        "id": "b",
+        "text": "スポットインスタンス",
+        "correct": false,
+        "explanation": "スポットインスタンスは、EC2が容量を必要としたときに中断されます。中断されると困る、という要件に合いません。",
+        "eliminatedBy": "処理が中断されると困ります"
+      },
+      {
+        "id": "c",
+        "text": "リザーブドインスタンス",
+        "correct": false,
+        "explanation": "リザーブドインスタンスは、1年または3年の利用を約束する購入方法です。1か月間だけの利用には合いません。",
+        "eliminatedBy": "来月の1か月間だけ"
+      },
+      {
+        "id": "d",
+        "text": "Savings Plans",
+        "correct": false,
+        "explanation": "Savings Plansも、1年または3年の利用額を約束する料金モデルです。1か月間だけの利用には合いません。",
+        "eliminatedBy": "来月の1か月間だけ"
+      }
+    ],
+    "keywords": [
+      "1か月間だけ",
+      "中断されると困ります"
+    ],
+    "decisionPoint": "「短期間」＋「中断不可」＝オンデマンド。",
+    "serviceIds": [
+      "amazon-ec2",
+      "aws-savings-plans"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "ec2-purchase"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ec2"
+      }
+    ],
+    "variationGroupId": "ec2-purchase-select"
+  }
+]

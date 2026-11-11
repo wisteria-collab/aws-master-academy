@@ -63,7 +63,9 @@
   "relatedServiceIds": [
     "amazon-s3"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "compute"
+  ],
   "importance": {
     "clf": "high",
     "saa": "high"

@@ -9,12 +9,10 @@ import { accuracy, formatRate, latestAttempts } from '../logic/stats'
 
 /** 比較グループの公開予定（Phase 4 で順に追加する） */
 const planned = [
-  'データベース（RDS・Aurora・DynamoDB・ElastiCache）',
-  'コンピューティング（EC2・Lambda・ECS・EKS・Fargate）',
-  'メッセージング（SQS・SNS・EventBridge・Kinesis）',
   'ネットワーク（ALB・NLB・GWLB・CloudFront・Route 53）',
   '可用性（Multi-AZ・Read Replica・バックアップ）',
-  'S3ストレージクラス、EC2の購入オプション ほか',
+  'S3ストレージクラス',
+  'セキュリティグループとネットワークACL ほか',
 ]
 
 export function Compare() {

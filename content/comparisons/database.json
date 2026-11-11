@@ -1,0 +1,158 @@
+{
+  "id": "database",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "title": "データベース：RDS・Aurora・DynamoDB・ElastiCache",
+  "category": "database",
+  "summary": "4つとも「データを保存して取り出す」サービスですが、データの形と得意な使い方が違います。「表の形で扱うか」「キーで素早く取り出すか」「メモリから返すか」で選びます。",
+  "items": [
+    {
+      "key": "rds",
+      "label": "Amazon RDS",
+      "oneLine": "管理人付きの台帳（マネージドなリレーショナルデータベース）",
+      "values": {
+        "role": "リレーショナルデータベースを、簡単にセットアップ、運用、拡張できるようにする",
+        "mechanism": "データベースエンジン（MySQL、MariaDB、PostgreSQL、Oracle、SQL Serverなど）を選んで作成する",
+        "data": "行と列の表の形で保存し、表どうしを関連付けて扱う",
+        "useCases": "ウェブアプリケーションやモバイルアプリのデータベース、オンプレミスのリレーショナルデータベースの移行先",
+        "availability": "マルチAZ配置で高可用性を高められる",
+        "performance": "ディスクを使うデータベース。さらに速い読み出しが必要なら、手前にElastiCacheを置く",
+        "scalability": "クラウドで簡単にスケールできる",
+        "cost": "予約（リザーブド）による割引の対象になっている",
+        "operations": "ハードウェアの用意、セットアップ、パッチ適用、バックアップが自動化される",
+        "limits": "リレーショナルデータベースのサービスであり、キーバリュー型のデータベースではない",
+        "chooseWhen": "使い慣れたエンジンのリレーショナルデータベースを、管理の手間を減らして使いたいとき",
+        "avoidWhen": "キーバリュー型のNoSQLデータベースが必要なとき、OSまで自分で管理したいとき（その場合はEC2上で動かす）"
+      },
+      "serviceId": "amazon-rds"
+    },
+    {
+      "key": "aurora",
+      "label": "Amazon Aurora",
+      "oneLine": "クラウド向けに作られた高性能な台帳（MySQL・PostgreSQL互換）",
+      "values": {
+        "role": "MySQLおよびPostgreSQLと互換性のあるリレーショナルデータベースを提供する",
+        "mechanism": "Amazon RDSによってフルマネージドで提供される。分散型で耐障害性があり、自己修復するストレージを使う",
+        "data": "行と列の表の形で保存する",
+        "useCases": "高い可用性と性能が必要な業務アプリケーション、読み取りが多いアプリケーション",
+        "availability": "データが3つのアベイラビリティゾーンにまたがって複製される。Amazon S3への継続的なバックアップがある",
+        "performance": "低遅延のリードレプリカを最大15個まで使える",
+        "scalability": "ストレージが自動的に拡張する",
+        "cost": "ストレージが自動で拡張するため、事前に大きく確保する必要がない",
+        "operations": "Amazon RDSによるフルマネージド",
+        "limits": "対応するのはMySQL互換とPostgreSQL互換",
+        "chooseWhen": "MySQLやPostgreSQLと互換性を保ちながら、3つのアベイラビリティゾーンへの複製やストレージの自動拡張が必要なとき",
+        "avoidWhen": "OracleやSQL Serverなど、ほかのエンジンをそのまま使いたいとき（その場合はAmazon RDS）"
+      },
+      "serviceId": "amazon-aurora"
+    },
+    {
+      "key": "dynamodb",
+      "label": "Amazon DynamoDB",
+      "oneLine": "番号ですぐ取り出せるコインロッカー（キーバリュー型のNoSQL）",
+      "values": {
+        "role": "キーバリュー型・ドキュメント型のデータベースを提供する",
+        "mechanism": "キーを指定してデータを読み書きする。サーバーの管理はAWSが行う",
+        "data": "キーと値の組、またはドキュメントとして保存する",
+        "useCases": "モバイル、ウェブ、ゲーム、広告技術、IoT",
+        "availability": "複数リージョンに対応する。バックアップと復元の機能がある",
+        "performance": "どんな規模でも1桁ミリ秒のパフォーマンス",
+        "scalability": "どんな規模でも同じ応答性能を保つ",
+        "cost": "予約による割引の対象になっている",
+        "operations": "フルマネージドで、サーバーの管理が不要",
+        "limits": "リレーショナルデータベースではない",
+        "chooseWhen": "規模が大きくなっても、キーを指定した読み書きを素早く行いたいとき",
+        "avoidWhen": "リレーショナルデータベースが必要なとき"
+      },
+      "serviceId": "amazon-dynamodb"
+    },
+    {
+      "key": "elasticache",
+      "label": "Amazon ElastiCache",
+      "oneLine": "よく使うものを置く机の上（インメモリキャッシュ）",
+      "values": {
+        "role": "マネージドのインメモリキャッシュを提供する",
+        "mechanism": "よく使うデータをメモリ上に置き、そこから返す。エンジンはRedis OSSとMemcached",
+        "data": "メモリ上に置く",
+        "useCases": "データベースへの問い合わせ結果のキャッシュ、何度も読まれるデータの高速な提供",
+        "availability": "マネージドサービスとして提供される",
+        "performance": "ディスクベースのデータベースより高速に、メモリから情報を取得できる",
+        "scalability": "クラウドで簡単にスケールできる",
+        "cost": "データベースへの問い合わせを減らす目的で使う",
+        "operations": "キャッシュのデプロイ、運用、スケールをAWSに任せられる",
+        "limits": "キャッシュのためのサービスであり、リレーショナルデータベースの代わりではない",
+        "chooseWhen": "同じデータが何度も読まれていて、応答を速くしたいとき",
+        "avoidWhen": "データを表の形で保存し、関連付けて扱いたいとき"
+      },
+      "serviceId": "amazon-elasticache"
+    }
+  ],
+  "figureIds": [
+    "db-types"
+  ],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "よく読まれるデータをメモリ上に置いて、応答を速くすることが目的ですか？",
+      "yes": "r-ec",
+      "no": "n2"
+    },
+    {
+      "id": "n2",
+      "question": "キーバリュー型（NoSQL）で、どんな規模でも1桁ミリ秒の応答が必要ですか？",
+      "yes": "r-ddb",
+      "no": "n3"
+    },
+    {
+      "id": "n3",
+      "question": "MySQLまたはPostgreSQLとの互換性があればよく、3つのアベイラビリティゾーンへの複製やストレージの自動拡張が必要ですか？",
+      "yes": "r-aur",
+      "no": "r-rds"
+    },
+    {
+      "id": "r-ec",
+      "resultItemKey": "elasticache",
+      "note": "データベースの手前に置いて、同じ問い合わせの結果をメモリから返します。"
+    },
+    {
+      "id": "r-ddb",
+      "resultItemKey": "dynamodb",
+      "note": "キーを指定した読み書きが中心なら、DynamoDBが向いています。"
+    },
+    {
+      "id": "r-aur",
+      "resultItemKey": "aurora",
+      "note": "MySQL・PostgreSQL互換のまま、可用性と拡張性を高められます。"
+    },
+    {
+      "id": "r-rds",
+      "resultItemKey": "rds",
+      "note": "OracleやSQL Serverなども含めて、使い慣れたエンジンを選べます。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "clf-q-db-train-01",
+    "clf-q-db-train-02",
+    "clf-q-db-train-03"
+  ]
+}

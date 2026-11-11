@@ -64,7 +64,9 @@
   "relatedServiceIds": [
     "aws-lambda"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "database"
+  ],
   "importance": {
     "clf": "high",
     "saa": "high"

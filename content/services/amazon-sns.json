@@ -61,7 +61,9 @@
     "amazon-cloudwatch",
     "aws-lambda"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "messaging"
+  ],
   "importance": {
     "clf": "mid",
     "saa": "high"

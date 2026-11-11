@@ -81,7 +81,10 @@
     "amazon-s3",
     "elastic-load-balancing"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "compute",
+    "ec2-purchase"
+  ],
   "importance": {
     "clf": "high",
     "saa": "high"

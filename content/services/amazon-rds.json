@@ -65,7 +65,9 @@
     "aws-dms",
     "amazon-ec2"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "database"
+  ],
   "importance": {
     "clf": "high",
     "saa": "high"

@@ -60,7 +60,9 @@
   "relatedServiceIds": [
     "amazon-ecs"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "compute"
+  ],
   "importance": {
     "clf": "mid",
     "saa": "mid"

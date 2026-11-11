@@ -1,0 +1,74 @@
+{
+  "id": "aws-application-migration-service",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "What Is AWS Application Migration Service?（AWS MGN ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/mgn/latest/ug/what-is-application-migration-service.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Application Migration Service",
+  "aliases": [
+    "Application Migration Service",
+    "AWS MGN",
+    "MGN"
+  ],
+  "category": "migration-transfer",
+  "summary": "サーバーをそのままAWSに移す、リフト＆シフト（リホスト）のための高度に自動化された移行サービス。",
+  "beginner": {
+    "analogy": "「引っ越し業者のおまかせパック」です。家具（サーバー）を作り替えずに、そのままの形で新居（AWS）に運んでくれます。",
+    "description": "いま動いているサーバーを、作り替えずにそのままAWSへ移すためのサービスです。移行元のサーバーの内容を、AWSの中に複製してくれます。"
+  },
+  "exam": {
+    "description": "アプリケーションのAWSへの移行を簡単にし、速め、コストを下げる、高度に自動化されたリフト＆シフト（リホスト）のソリューションです。多数の物理サーバー、仮想サーバー、クラウド上のサーバーを、互換性の問題や長い切り替え時間なしに移行できます。移行元のサーバーを、利用者のAWSアカウントに複製します。",
+    "points": [
+      "サーバーのリフト＆シフト（リホスト）＝AWS Application Migration Service。",
+      "物理・仮想・クラウドのサーバーを、AWSアカウントに複製する。",
+      "データベースの移行はAWS DMS、移行の計画のための情報収集はAWS Application Discovery Service。"
+    ]
+  },
+  "useCases": [
+    "オンプレミスのサーバーを、変更を加えずにAWSへ移行する"
+  ],
+  "mechanism": "移行元のサーバーの内容を、利用者のAWSアカウントに複製します。",
+  "pros": [
+    "作り替えずに移行できる",
+    "移行作業の多くが自動化されている"
+  ],
+  "cons": [
+    "アプリケーションのアーキテクチャを変更するサービスではない"
+  ],
+  "scenes": [
+    "データセンターの契約終了が迫っているため、多数のサーバーをそのままAWSへ移す"
+  ],
+  "similarServiceIds": [
+    "aws-dms"
+  ],
+  "relatedServiceIds": [
+    "amazon-ec2",
+    "aws-dms"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d1"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/mgn/"
+}

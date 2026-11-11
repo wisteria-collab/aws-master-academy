@@ -60,7 +60,9 @@
     "aws-lambda",
     "amazon-ec2"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "messaging"
+  ],
   "importance": {
     "clf": "mid",
     "saa": "high"

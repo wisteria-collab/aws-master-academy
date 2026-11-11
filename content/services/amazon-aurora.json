@@ -64,7 +64,9 @@
     "aws-dms",
     "amazon-s3"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "database"
+  ],
   "importance": {
     "clf": "high",
     "saa": "high"

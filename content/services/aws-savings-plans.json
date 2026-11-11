@@ -67,7 +67,9 @@
     "aws-lambda",
     "aws-organizations"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "ec2-purchase"
+  ],
   "importance": {
     "clf": "high",
     "saa": "mid"

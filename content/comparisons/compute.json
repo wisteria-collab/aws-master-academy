@@ -1,0 +1,189 @@
+{
+  "id": "compute",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon EC2 Reserved Instances Pricing（AWS公式）",
+      "url": "https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "title": "コンピューティング：EC2・Lambda・ECS・EKS・Fargate",
+  "category": "compute",
+  "summary": "どれも「プログラムを動かす場所」ですが、どこまでを自分で管理するかが違います。「サーバーを管理するか」「コンテナを使うか」「コードだけを動かすか」で選びます。",
+  "items": [
+    {
+      "key": "ec2",
+      "label": "Amazon EC2",
+      "oneLine": "自分で管理する仮想サーバー",
+      "values": {
+        "role": "サイズ変更可能なコンピューティング能力（仮想サーバー）を提供する",
+        "mechanism": "用途に合うインスタンスタイプを選んでインスタンスを起動する",
+        "data": "OSから上を利用者が自由に構成する",
+        "useCases": "ウェブサーバー、業務アプリケーション、OSの設定を細かく行いたいシステム",
+        "availability": "複数のアベイラビリティゾーンに配置して高める",
+        "performance": "負荷のかかり方に合わせて、汎用、コンピューティング最適化、メモリ最適化などのインスタンスタイプを選ぶ",
+        "scalability": "Amazon EC2 Auto Scalingで、台数を自動で増減できる",
+        "cost": "オンデマンド、リザーブドインスタンス、Savings Plans、スポットなど、購入方法を選べる",
+        "operations": "ゲストOSの更新とセキュリティパッチ、アプリケーションの管理は利用者が行う",
+        "limits": "サーバーの管理が必要",
+        "chooseWhen": "OSやソフトウェアを自分で細かく管理したいとき",
+        "avoidWhen": "サーバーの管理をしたくないとき"
+      },
+      "serviceId": "amazon-ec2"
+    },
+    {
+      "key": "lambda",
+      "label": "AWS Lambda",
+      "oneLine": "コードだけ渡せば動く（サーバーレス）",
+      "values": {
+        "role": "サーバーのプロビジョニングや管理をせずにコードを実行する",
+        "mechanism": "コードを登録しておくと、他のAWSサービスやアプリケーションからの呼び出しで実行される",
+        "data": "コードを実行する。サーバーは意識しない",
+        "useCases": "イベントをきっかけにした処理、アプリケーションのバックエンドの処理",
+        "availability": "高可用性を含めて、実行に必要なことはLambdaが行う",
+        "performance": "実行のたびに必要な分のリソースが用意される",
+        "scalability": "コードの実行とスケーリングはLambdaが行う",
+        "cost": "使用したコンピューティング時間の分だけ支払う。実行していないときは料金がかからない。Compute Savings Plansの対象",
+        "operations": "サーバーの管理が不要",
+        "limits": "OSを自分で管理することはできない",
+        "chooseWhen": "サーバーを管理せずにコードを動かしたいとき、呼び出されたときだけ動けばよいとき",
+        "avoidWhen": "OSの設定を自分で細かく行いたいとき"
+      },
+      "serviceId": "aws-lambda"
+    },
+    {
+      "key": "ecs",
+      "label": "Amazon ECS",
+      "oneLine": "AWSのコンテナ管理係（コンテナオーケストレーション）",
+      "values": {
+        "role": "Dockerコンテナを動かすための、コンテナオーケストレーションを提供する",
+        "mechanism": "起動タイプとして、サーバーレスのFargateか、利用者がサーバーを管理するEC2を選ぶ",
+        "data": "アプリケーションをコンテナにまとめて動かす",
+        "useCases": "コンテナ化したアプリケーションの運用",
+        "availability": "起動タイプや配置のしかたによる",
+        "performance": "スケーラブルで高性能なコンテナオーケストレーション",
+        "scalability": "コンテナのスケジューリングをECSが行う",
+        "cost": "起動タイプ（FargateかEC2か）によって料金のかかり方が変わる",
+        "operations": "コンテナオーケストレーションのソフトウェアを自分でインストール・運用しなくてよい",
+        "limits": "Kubernetesそのものではない",
+        "chooseWhen": "コンテナを、AWSのオーケストレーションサービスで動かしたいとき",
+        "avoidWhen": "Kubernetesの既存のツールや設定をそのまま使いたいとき（その場合はAmazon EKS）"
+      },
+      "serviceId": "amazon-ecs"
+    },
+    {
+      "key": "eks",
+      "label": "Amazon EKS",
+      "oneLine": "Kubernetesをおまかせで使う",
+      "values": {
+        "role": "フルマネージドのKubernetesを提供する",
+        "mechanism": "Kubernetesの管理用の基盤を、AWSが運用する",
+        "data": "アプリケーションをコンテナにまとめ、Kubernetesで動かす",
+        "useCases": "すでにKubernetesで動かしているアプリケーションの移行、Kubernetesを標準にしている組織",
+        "availability": "管理用の基盤が、複数のアベイラビリティゾーンにまたがって運用される",
+        "performance": "標準的なKubernetes環境として動く",
+        "scalability": "Kubernetesの仕組みでスケールする",
+        "cost": "使い方によって変わるため、公式の料金ページで確認する",
+        "operations": "Kubernetesの管理用の基盤の運用をAWSに任せられる",
+        "limits": "Kubernetesの知識が必要",
+        "chooseWhen": "Kubernetesの既存のツールやプラグインを使い続けたいとき",
+        "avoidWhen": "Kubernetesを使う理由が特にないとき"
+      },
+      "serviceId": "amazon-eks"
+    },
+    {
+      "key": "fargate",
+      "label": "AWS Fargate",
+      "oneLine": "サーバーを意識しないコンテナ実行（サーバーレス）",
+      "values": {
+        "role": "サーバーやクラスターを管理せずにコンテナを実行する",
+        "mechanism": "アプリケーションをコンテナにまとめ、必要なCPUとメモリなどを指定して起動する",
+        "data": "コンテナを実行する。サーバーは意識しない",
+        "useCases": "サーバーを管理せずに動かしたいコンテナのアプリケーション",
+        "availability": "サーバーの管理はAWSが行う",
+        "performance": "指定したCPUとメモリで動く",
+        "scalability": "仮想マシンのクラスターのスケーリングが不要",
+        "cost": "Compute Savings Plansの対象",
+        "operations": "仮想マシンのクラスターのプロビジョニング、設定、スケーリングが不要",
+        "limits": "コンテナを動かすためのもので、仮想サーバーそのものを提供するわけではない",
+        "chooseWhen": "コンテナを使いたいが、サーバーは管理したくないとき",
+        "avoidWhen": "コンテナを動かすサーバーを自分で管理したいとき（その場合はEC2の起動タイプ）"
+      },
+      "serviceId": "aws-fargate"
+    }
+  ],
+  "figureIds": [
+    "compute-options"
+  ],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "アプリケーションをコンテナにまとめて動かしますか？",
+      "yes": "n2",
+      "no": "n4"
+    },
+    {
+      "id": "n2",
+      "question": "コンテナを動かすサーバーやクラスターを、自分で管理したくないですか？",
+      "yes": "r-far",
+      "no": "n3"
+    },
+    {
+      "id": "n3",
+      "question": "Kubernetesを使いますか？",
+      "yes": "r-eks",
+      "no": "r-ecs"
+    },
+    {
+      "id": "n4",
+      "question": "サーバーを管理せずに、コードだけを動かしたいですか？",
+      "yes": "r-lam",
+      "no": "r-ec2"
+    },
+    {
+      "id": "r-far",
+      "resultItemKey": "fargate",
+      "note": "Amazon ECSのコンピューティングエンジンとして、サーバーを意識せずにコンテナを動かせます。"
+    },
+    {
+      "id": "r-eks",
+      "resultItemKey": "eks",
+      "note": "既存のKubernetesのツールやプラグインを使えます。"
+    },
+    {
+      "id": "r-ecs",
+      "resultItemKey": "ecs",
+      "note": "AWSのコンテナオーケストレーションサービスです。起動タイプでEC2を選べます。"
+    },
+    {
+      "id": "r-lam",
+      "resultItemKey": "lambda",
+      "note": "実行した時間の分だけ料金がかかります。"
+    },
+    {
+      "id": "r-ec2",
+      "resultItemKey": "ec2",
+      "note": "OSやソフトウェアを自分で自由に構成できます。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "clf-q-cmp-train-01",
+    "clf-q-cmp-train-02",
+    "clf-q-cmp-train-03"
+  ]
+}

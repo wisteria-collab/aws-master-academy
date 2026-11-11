@@ -59,7 +59,9 @@
     "aws-lambda",
     "aws-health-dashboard"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "messaging"
+  ],
   "importance": {
     "clf": "mid",
     "saa": "mid"

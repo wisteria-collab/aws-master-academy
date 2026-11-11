@@ -60,7 +60,9 @@
     "amazon-rds",
     "amazon-aurora"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "database"
+  ],
   "importance": {
     "clf": "mid",
     "saa": "high"

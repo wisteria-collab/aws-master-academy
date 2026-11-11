@@ -60,7 +60,9 @@
     "aws-fargate",
     "amazon-ec2"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "compute"
+  ],
   "importance": {
     "clf": "mid",
     "saa": "high"

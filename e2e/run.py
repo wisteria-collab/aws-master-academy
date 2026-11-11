@@ -13,7 +13,7 @@ def launch(p, viewport, mobile):
         viewport=viewport, is_mobile=mobile, has_touch=mobile, device_scale_factor=2 if mobile else 1,
         accept_downloads=True, args=['--no-sandbox'])
 
-PAGES = ['', '#/learn', '#/learn/clf', '#/learn/saa', '#/learn/clf/clf-cloud-basics', '#/learn/clf/clf-regions-azs', '#/learn/clf/clf-shared-responsibility', '#/learn/clf/clf-storage', '#/learn/clf/clf-well-architected', '#/learn/clf/clf-migration-caf', '#/learn/clf/clf-compute', '#/learn/clf/clf-iam', '#/learn/clf/clf-security-governance', '#/learn/clf/clf-security-services', '#/learn/clf/clf-global-edge', '#/learn/clf/clf-database', '#/learn/clf/clf-network', '#/learn/clf/clf-cloud-economics', '#/learn/clf/clf-pricing-models', '#/learn/clf/clf-billing-cost', '#/learn/clf/clf-support-plans', '#/learn/clf/clf-ai-analytics', '#/learn/clf/clf-other-services', '#/services/amazon-quick', '#/services/amazon-appstream-2', '#/learn/clf/clf-deploy-operate', '#/learn/clf/clf-resources-partners', '#/services/aws-cloudformation', '#/services/aws-health-dashboard', '#/services/aws-support', '#/services/aws-organizations', '#/services/amazon-vpc', '#/services/amazon-rds', '#/services/amazon-cloudfront', '#/services/aws-iam', '#/services/aws-lambda', '#/services/elastic-load-balancing', '#/services', '#/services/amazon-s3', '#/services/amazon-fsx', '#/compare', '#/compare/storage', '#/compare/storage/training', '#/designer', '#/practice', '#/practice/run?exam=clf&mode=random', '#/progress', '#/review', '#/settings', '#/nope']
+PAGES = ['', '#/learn', '#/learn/clf', '#/learn/saa', '#/learn/clf/clf-cloud-basics', '#/learn/clf/clf-regions-azs', '#/learn/clf/clf-shared-responsibility', '#/learn/clf/clf-storage', '#/learn/clf/clf-well-architected', '#/learn/clf/clf-migration-caf', '#/learn/clf/clf-compute', '#/learn/clf/clf-iam', '#/learn/clf/clf-security-governance', '#/learn/clf/clf-security-services', '#/learn/clf/clf-global-edge', '#/learn/clf/clf-database', '#/learn/clf/clf-network', '#/learn/clf/clf-cloud-economics', '#/learn/clf/clf-pricing-models', '#/learn/clf/clf-billing-cost', '#/learn/clf/clf-support-plans', '#/learn/clf/clf-ai-analytics', '#/learn/clf/clf-other-services', '#/services/amazon-quick', '#/services/amazon-appstream-2', '#/learn/clf/clf-deploy-operate', '#/learn/clf/clf-resources-partners', '#/services/aws-cloudformation', '#/services/aws-health-dashboard', '#/services/aws-support', '#/services/aws-organizations', '#/services/amazon-vpc', '#/services/amazon-rds', '#/services/amazon-cloudfront', '#/services/aws-iam', '#/services/aws-lambda', '#/services/elastic-load-balancing', '#/services', '#/services/amazon-s3', '#/services/amazon-fsx', '#/compare', '#/compare/storage', '#/compare/storage/training', '#/compare/database', '#/compare/compute', '#/compare/messaging', '#/compare/ec2-purchase', '#/compare/ec2-purchase/training', '#/services/aws-application-migration-service', '#/designer', '#/practice', '#/practice/run?exam=clf&mode=random', '#/progress', '#/review', '#/settings', '#/nope']
 
 with sync_playwright() as p:
     ctx = launch(p, {'width': 390, 'height': 844}, True)
@@ -156,10 +156,11 @@ with sync_playwright() as p:
     pick('担当者が定期的に'); submit()
     check('不正解の判定', '不正解です' in page.inner_text('main'))
     nxt()
+    pick('失われる'); submit(); nxt()
     t = page.inner_text('main')
-    check('結果表示', '1 / 2 問正解' in t and '復習リストに追加' in t)
+    check('結果表示', '2 / 3 問正解' in t and '復習リストに追加' in t)
     att = db_all('attempts'); rev = db_all('reviewItems'); lp = db_all('lessonProgress')
-    check('解答履歴を保存', len(att) == 2 and sorted(a['correct'] for a in att) == [False, True] and all(a['mode'] == 'lesson' for a in att), str(len(att)))
+    check('解答履歴を保存', len(att) == 3 and sorted(a['correct'] for a in att) == [False, True, True] and all(a['mode'] == 'lesson' for a in att), str(len(att)))
     check('間違えた問題が復習リストに', len(rev) == 1 and rev[0]['questionId'] == 'clf-q-storage-02' and rev[0]['stage'] == 0, json.dumps(rev))
     check('レッスンが完了になる', any(l['lessonId'] == 'clf-storage' and l['status'] == 'completed' for l in lp), json.dumps(lp))
     page.goto(BASE + '#/learn/clf'); page.wait_for_timeout(400)
@@ -181,7 +182,7 @@ with sync_playwright() as p:
 
     # サービス図鑑
     page.goto(BASE + '#/services'); page.wait_for_timeout(400)
-    check('図鑑に72サービス', page.locator('main ul li a').count() == 72)
+    check('図鑑に73サービス', page.locator('main ul li a').count() == 73)
     page.get_by_placeholder('サービス名で検索').fill('efs'); page.wait_for_timeout(200)
     check('検索で絞り込み', page.locator('main ul li a').count() == 1 and 'Amazon EFS' in page.inner_text('main'))
     page.locator('main ul li a').first.click(); page.wait_for_timeout(400)
@@ -216,9 +217,9 @@ with sync_playwright() as p:
     # 演習・進捗・復習
     page.goto(BASE + '#/practice'); page.wait_for_timeout(400)
     t = page.inner_text('main')
-    check('演習メニュー', all(x in t for x in ['ランダム演習', '分野別演習', 'サービス別演習', '公開中 130 問']))
+    check('演習メニュー', all(x in t for x in ['ランダム演習', '分野別演習', 'サービス別演習', '公開中 147 問']))
     page.goto(BASE + '#/practice/run?exam=clf&mode=domain&domain=clf-d1'); page.wait_for_timeout(500)
-    check('分野別演習の出題', '1 / 25' in page.inner_text('main') and '分野別演習：クラウドのコンセプト' in page.inner_text('main'))
+    check('分野別演習の出題', '1 / 26' in page.inner_text('main') and '分野別演習：クラウドのコンセプト' in page.inner_text('main'))
     page.goto(BASE + '#/progress'); page.wait_for_timeout(500)
     t = page.inner_text('main')
     check('分野別の理解度', '各問題の最新の解答で集計' in t and '100%' in t)
@@ -331,7 +332,10 @@ with sync_playwright() as p:
         page.goto(BASE + '#/practice'); page.wait_for_timeout(400)
         page.get_by_role('link', name='ランダム演習').click(); page.wait_for_timeout(600)
         stem = page.locator('article p').first.inner_text()
-        page.locator('article label').first.click(); submit()
+        page.locator('article label').first.click()
+        if page.get_by_role('button', name='解答する').is_disabled():      # 複数選択の問題が先頭に来た場合
+            page.locator('article label').nth(1).click()
+        submit()
         stem1 = page.locator('article p').first.inner_text()
         page.locator('article a').first.click(); page.wait_for_timeout(500)
         page.go_back(); page.wait_for_timeout(600)

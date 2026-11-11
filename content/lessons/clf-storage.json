@@ -9,6 +9,14 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Data persistence for Amazon EC2 instance store volumes（Amazon EC2 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-lifetime.html"
+    },
+    {
+      "title": "Storage options for your Amazon EC2 instances（Amazon EC2 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Storage.html"
     }
   ],
   "verifiedAt": "2026-11-11",
@@ -37,7 +45,7 @@
     "Windowsの業務アプリケーションの共有フォルダを、FSx for Windows File Serverに置く"
   ],
   "mechanism": {
-    "text": "Amazon S3はオブジェクトストレージです。99.999999999%（イレブンナイン）の耐久性で設計されています。アクセス頻度に合わせたストレージクラスがあり、よく使うデータにはS3 Standard、あまり使わないデータにはS3 Standard-IAやS3 One Zone-IA、アーカイブにはS3 Glacier系のクラスを使います。アクセスの傾向がわからない場合は、S3 Intelligent-Tieringが自動で最適化します。S3ライフサイクルポリシーを使うと、アプリケーションを変えずに、データをクラス間で自動的に移せます。\nAmazon EBSはブロックストレージです。EC2インスタンスで使う永続的なボリュームで、アベイラビリティゾーン内で自動的に複製されます。確保した分に対して料金がかかります。ブロックストレージには、EBSのほかにインスタンスストアもあります（コンピューティングのレッスンで扱います）。\nAmazon EFSはファイルストレージです。Linuxベースのワークロード向けで、数千のEC2インスタンスから同時に共有できます。容量は自動で増減し、複数のアベイラビリティゾーンにデータを保存します。\nAmazon FSxもファイルサービスで、Windows File Server、Lustre、NetApp ONTAP、OpenZFSの4種類をフルマネージドで提供します。\nこのほか、オンプレミスのアプリケーションからAWSのストレージを使えるようにするAWS Storage Gatewayや、複数のAWSサービスのバックアップを一元管理・自動化するAWS Backupがあります。",
+    "text": "Amazon S3はオブジェクトストレージです。99.999999999%（イレブンナイン）の耐久性で設計されています。アクセス頻度に合わせたストレージクラスがあり、よく使うデータにはS3 Standard、あまり使わないデータにはS3 Standard-IAやS3 One Zone-IA、アーカイブにはS3 Glacier系のクラスを使います。アクセスの傾向がわからない場合は、S3 Intelligent-Tieringが自動で最適化します。S3ライフサイクルポリシーを使うと、アプリケーションを変えずに、データをクラス間で自動的に移せます。\nAmazon EBSはブロックストレージです。EC2インスタンスで使う永続的なボリュームで、アベイラビリティゾーン内で自動的に複製されます。確保した分に対して料金がかかります。ブロックストレージには、EBSのほかにインスタンスストアもあります（このレッスンの最後で説明します）。\nAmazon EFSはファイルストレージです。Linuxベースのワークロード向けで、数千のEC2インスタンスから同時に共有できます。容量は自動で増減し、複数のアベイラビリティゾーンにデータを保存します。\nAmazon FSxもファイルサービスで、Windows File Server、Lustre、NetApp ONTAP、OpenZFSの4種類をフルマネージドで提供します。\nこのほか、オンプレミスのアプリケーションからAWSのストレージを使えるようにするAWS Storage Gatewayや、複数のAWSサービスのバックアップを一元管理・自動化するAWS Backupがあります。\nEC2インスタンスには、インスタンスストアという一時的なブロックストレージもあります。ホストコンピューターに物理的に取り付けられたディスクを使うもので、インスタンスを再起動してもデータは残りますが、停止、休止、終了するとデータは失われます。キャッシュや一時ファイルなど、失われてもよいデータに使い、残したいデータはAmazon EBSやAmazon S3に置きます。",
     "figureId": "storage-types"
   },
   "relatedServiceIds": [
@@ -54,16 +62,19 @@
     "ライフサイクルポリシーは、期間に応じてストレージクラス間の移動を自動化する。",
     "複数のEC2インスタンスで共有＝EFS（Linux向け）。WindowsのSMB共有＝FSx for Windows File Server。",
     "オンプレミスからAWSのストレージを使うハイブリッド構成＝AWS Storage Gateway。",
-    "複数サービスのバックアップを一元管理・自動化＝AWS Backup。"
+    "複数サービスのバックアップを一元管理・自動化＝AWS Backup。",
+    "インスタンスストア＝一時的なブロックストレージ。再起動ではデータが残るが、停止・休止・終了で失われる。残したいデータはEBSやS3へ。"
   ],
   "quizQuestionIds": [
     "clf-q-storage-01",
-    "clf-q-storage-02"
+    "clf-q-storage-02",
+    "clf-q-stor-ist-01"
   ],
   "glossaryTermIds": [
     "object-storage",
     "block-storage",
     "file-storage",
-    "availability-zone"
+    "availability-zone",
+    "instance-store"
   ]
 }

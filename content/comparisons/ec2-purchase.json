@@ -1,0 +1,203 @@
+{
+  "id": "ec2-purchase",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Amazon EC2 billing and purchasing options（Amazon EC2 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html"
+    },
+    {
+      "title": "Spot Instances（Amazon EC2 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html"
+    },
+    {
+      "title": "Reserved Instances for Amazon EC2 overview（Amazon EC2 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html"
+    },
+    {
+      "title": "Modify Reserved Instances（Amazon EC2 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html"
+    },
+    {
+      "title": "Amazon EC2 Reserved Instances Pricing（AWS公式）",
+      "url": "https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "title": "EC2の購入方法：オンデマンド・リザーブド・Savings Plans・スポット・Dedicated Hosts",
+  "category": "cost-management",
+  "summary": "同じEC2インスタンスでも、買い方によって料金が変わります。「長く使うと約束できるか」「中断されてもよいか」「専用の物理ホストが必要か」で選びます。",
+  "items": [
+    {
+      "key": "on-demand",
+      "label": "オンデマンドインスタンス",
+      "oneLine": "予約なしのタクシー",
+      "values": {
+        "role": "約束なしで、使った分だけ支払う",
+        "mechanism": "起動したインスタンスの分だけ、秒単位で支払う",
+        "data": "購入方法の違いであり、データの扱い方は変わらない",
+        "useCases": "短期間の利用、利用量を予測できないワークロード、中断できない処理",
+        "availability": "EC2の都合で中断されることはない",
+        "performance": "購入方法による性能の違いはない",
+        "scalability": "必要なときに起動し、不要になったらやめられる",
+        "cost": "割引はない。使った分だけ支払う",
+        "operations": "期間や構成を決める必要がなく、管理するものが少ない",
+        "limits": "長く使い続ける場合は、ほかの購入方法より割高になる",
+        "chooseWhen": "短期間だけ使うとき、長期の約束をしたくないとき",
+        "avoidWhen": "1年以上、同じように使い続けることがわかっているとき"
+      },
+      "serviceId": "amazon-ec2"
+    },
+    {
+      "key": "ri",
+      "label": "リザーブドインスタンス",
+      "oneLine": "路線を決めて買う定期券",
+      "values": {
+        "role": "インスタンス構成を約束して、料金を下げる",
+        "mechanism": "インスタンスタイプやリージョンを含む構成を、1年または3年約束する。3年のほうが割引が大きい",
+        "data": "購入方法の違いであり、データの扱い方は変わらない",
+        "useCases": "同じ構成で動かし続けるサーバー",
+        "availability": "ゾーンのリザーブドインスタンスは、そのアベイラビリティゾーンの容量を予約する",
+        "performance": "購入方法による性能の違いはない",
+        "scalability": "スタンダードは変更のみ可能。コンバーティブルは別の属性のものと交換できる",
+        "cost": "オンデマンドより大幅に安くなる。スタンダードのほうがコンバーティブルより割引が大きい",
+        "operations": "構成と期間を決めて購入する。購入後は取り消せない",
+        "limits": "約束した構成に合う利用にだけ割引が適用される",
+        "chooseWhen": "構成が変わらないことがわかっているとき、ゾーンを指定して容量も予約したいとき",
+        "avoidWhen": "構成が変わる可能性が高いとき（その場合はSavings Plans）"
+      },
+      "serviceId": "amazon-ec2"
+    },
+    {
+      "key": "savings-plans",
+      "label": "Savings Plans",
+      "oneLine": "「毎月これだけ使う」と約束する定額割引",
+      "values": {
+        "role": "利用額を約束して、料金を下げる",
+        "mechanism": "1時間あたりの一定の利用額（米ドル）を、1年または3年約束する",
+        "data": "購入方法の違いであり、データの扱い方は変わらない",
+        "useCases": "構成は変わるかもしれないが、一定の利用が続くワークロード",
+        "availability": "容量の予約はない",
+        "performance": "購入方法による性能の違いはない",
+        "scalability": "Compute Savings Plansは、インスタンスの種類やリージョンを変えても、FargateやLambdaに移しても適用される",
+        "cost": "オンデマンドより安くなる。AWSはリザーブドインスタンスよりもSavings Plansを推奨している",
+        "operations": "利用額と期間を決めて購入する",
+        "limits": "1年または3年の約束が必要",
+        "chooseWhen": "特定の構成は約束できないが、利用額なら約束できるとき",
+        "avoidWhen": "短期間しか使わないとき"
+      },
+      "serviceId": "aws-savings-plans"
+    },
+    {
+      "key": "spot",
+      "label": "スポットインスタンス",
+      "oneLine": "安いけれど席を譲ることがある空席待ち",
+      "values": {
+        "role": "EC2の空いている容量を、低い価格で使う",
+        "mechanism": "空いている容量を使う。EC2が容量を必要としたときは、2分前の通知のあとに中断される",
+        "data": "購入方法の違いであり、データの扱い方は変わらない",
+        "useCases": "データ分析、バッチ処理、バックグラウンド処理など、中断に耐えられる処理",
+        "availability": "EC2の都合で中断されることがある",
+        "performance": "購入方法による性能の違いはない",
+        "scalability": "空いている容量がある範囲で使える",
+        "cost": "オンデマンドより低い価格で使える",
+        "operations": "中断に備えた作りにしておく必要がある",
+        "limits": "中断されると困る処理には向かない",
+        "chooseWhen": "途中で止まってもやり直せる処理を、できるだけ安く動かしたいとき",
+        "avoidWhen": "中断されると困る処理を動かすとき"
+      },
+      "serviceId": "amazon-ec2"
+    },
+    {
+      "key": "dedicated-hosts",
+      "label": "Dedicated Hosts",
+      "oneLine": "バスを1台まるごと貸し切る",
+      "values": {
+        "role": "利用者のインスタンス専用の物理ホストを提供する",
+        "mechanism": "専用の物理ホストに対して支払う",
+        "data": "購入方法の違いであり、データの扱い方は変わらない",
+        "useCases": "ソケット単位・コア単位・VM単位の既存のライセンスの持ち込み、コンプライアンス要件への対応",
+        "availability": "購入方法による可用性の違いは、この教材の出典には記載がない",
+        "performance": "購入方法による性能の違いはない",
+        "scalability": "物理ホストの単位で用意する",
+        "cost": "既存のソフトウェアライセンスを持ち込むことで、コストを下げられる",
+        "operations": "物理ホストを意識して管理する",
+        "limits": "専用の物理ホストが必要な理由がない場合には向かない",
+        "chooseWhen": "既存のライセンスを持ち込みたいとき、専用の物理ホストが求められるとき",
+        "avoidWhen": "専用の物理ホストが必要な理由がないとき"
+      },
+      "serviceId": "amazon-ec2"
+    }
+  ],
+  "figureIds": [
+    "purchase-options"
+  ],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "既存のソフトウェアライセンスの持ち込みや、コンプライアンスのために、専用の物理ホストが必要ですか？",
+      "yes": "r-dh",
+      "no": "n2"
+    },
+    {
+      "id": "n2",
+      "question": "処理が途中で中断されても、やり直すことができますか？",
+      "yes": "r-spot",
+      "no": "n3"
+    },
+    {
+      "id": "n3",
+      "question": "1年または3年、使い続けることを約束できますか？",
+      "yes": "n4",
+      "no": "r-od"
+    },
+    {
+      "id": "n4",
+      "question": "インスタンスタイプやリージョンなどの構成は、期間中ずっと変わりませんか？",
+      "yes": "r-ri",
+      "no": "r-sp"
+    },
+    {
+      "id": "r-dh",
+      "resultItemKey": "dedicated-hosts",
+      "note": "ソケット単位・コア単位・VM単位のライセンスを持ち込めます。"
+    },
+    {
+      "id": "r-spot",
+      "resultItemKey": "spot",
+      "note": "中断の2分前に通知が届きます。"
+    },
+    {
+      "id": "r-od",
+      "resultItemKey": "on-demand",
+      "note": "約束なしで、使った分だけ支払います。"
+    },
+    {
+      "id": "r-ri",
+      "resultItemKey": "ri",
+      "note": "容量も予約したい場合は、ゾーンのリザーブドインスタンスを選びます。"
+    },
+    {
+      "id": "r-sp",
+      "resultItemKey": "savings-plans",
+      "note": "構成が変わっても、約束した利用額の範囲で割引が続きます。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "clf-q-buy-train-01",
+    "clf-q-buy-train-02",
+    "clf-q-buy-train-03",
+    "clf-q-price-07",
+    "clf-q-price-08"
+  ]
+}

@@ -58,7 +58,9 @@
     "amazon-s3",
     "aws-glue"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "messaging"
+  ],
   "importance": {
     "clf": "mid",
     "saa": "mid"
