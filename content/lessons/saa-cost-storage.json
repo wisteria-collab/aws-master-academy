@@ -1,0 +1,84 @@
+{
+  "id": "saa-cost-storage",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Using Requester Pays general purpose buckets（Amazon S3 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 11,
+  "title": "コスト最適化されたストレージの設計",
+  "domainId": "saa-d4",
+  "taskIds": [
+    "saa-4-1"
+  ],
+  "overview": "ここから第4分野「コスト最適化アーキテクチャの設計」です。配点は20%です。CLFで学んだ料金の考え方と、第3分野で学んだ各サービスの選び方を、「同じ要件を、より低いコストで満たす」という目で見直します。\n1つ目のタスクはストレージです。試験ガイドでは、アクセスの方法（リクエスタ支払いのS3バケット）、コスト管理のサービスとツール、ストレージサービスと種類（オブジェクト・ファイル・ブロック）、バックアップ戦略、ブロックストレージの種類（HDD・SSD）、データのライフサイクル、ハイブリッドストレージ（AWS DataSync、AWS Transfer Family、AWS Storage Gateway）、アクセスのパターン、ストレージの階層化が挙げられています。",
+  "beginner": {
+    "analogy": "倉庫の使い分けにたとえます。毎日使う物は、家賃は高くても、すぐ手が届く「店の棚」に置きます。たまにしか使わない物は「裏の倉庫」へ、何年も保管するだけの書類は、家賃がいちばん安い「遠くの倉庫」へ移します。物の使い方が変わったら、置き場所も変える。これがストレージのコスト最適化です。",
+    "description": "ストレージのコストは、「どれだけ置くか」だけでなく、「どこに置くか」で大きく変わります。大切なのは、データがどれくらいの頻度で使われるかを知ることと、時間がたって使われなくなったデータを、自動で安い場所へ移す仕組みを作ることです。"
+  },
+  "useCases": [
+    "時間がたつと参照されなくなるログを、自動で低コストのクラスへ移す",
+    "法令で求められる記録を、最も低いコストで長期に保管する",
+    "公開データのダウンロードの料金を、利用者の負担にする",
+    "複数のサービスのバックアップを、ポリシーで一元管理する"
+  ],
+  "mechanism": {
+    "text": "【ストレージの種類を合わせる】\nオブジェクト（Amazon S3）、ファイル（Amazon EFS、Amazon FSx）、ブロック（Amazon EBS）から、使い方に合うものを選びます。\n【S3のストレージクラス（階層化）】\nアクセスの頻度と、取り出しにかけられる時間で選びます。\n・頻繁にアクセスする：S3 Standard\n・アクセスの傾向が読めない：S3 Intelligent-Tiering（アクセスのパターンに合わせて、自動で層を移す）\n・たまにしかアクセスしない：S3 Standard-IA、S3 One Zone-IA\n・長期の保管（アーカイブ）：S3 Glacierの各クラス。S3 Glacier Deep Archiveは最も低コストで、取り出しに数時間かかります。\n【データのライフサイクル】\nS3のライフサイクルポリシーは、オブジェクトを、時間の経過に合わせて別のストレージクラスへ自動的に移します。\n【リクエスタ支払い（Requester Pays）】\n通常は、バケットの所有者が、保存とデータ転送の料金をすべて支払います。バケットをリクエスタ支払いに設定すると、リクエストとデータのダウンロードの料金を、リクエストした側が支払います。保存の料金は、常にバケットの所有者が支払います。リクエスタ支払いのバケットでは、匿名のアクセスは許可されず、すべてのリクエストに認証が必要です。大きなデータセットを共有するときに使います。\n【EBSのボリュームタイプ】\n・SSD（gp3、io2 Block Express）：小さな読み書きを数多く行う処理向け。\n・HDD（st1、sc1）：大きなデータを順番に読み書きする処理向けで、SSDより低コストです。st1は頻繁にアクセスするスループット重視の処理、sc1はアクセスの頻度が低いデータ向けです。HDDはブートボリュームには使えません。\n【バックアップとアーカイブ】\nAWS Backupは、AWSのサービス全体のバックアップを、ポリシーに基づいて一元化・自動化します。バックアップの頻度と保持期間は、利用者が要件に合わせて決めます。\n【ハイブリッドストレージ】\nオンプレミスからの移動はAWS DataSync、SFTPなどでの受け渡しはAWS Transfer Family、オンプレミスのアプリケーションから使い続けるならAWS Storage Gatewayです。\n【コストを見える化する道具】\n・AWS Cost Explorer：コストと使用量を、グラフで見て分析します。\n・AWS Budgets：予算を決めて、超えそうなときに通知を受け取ります。\n・AWS Cost and Usage Report：最も詳しい、コストと使用量のデータです。\n・コスト配分タグ：リソースにタグを付けて、部署やプロジェクトごとに費用を分けて把握します。\n・複数アカウントの請求：AWS Organizationsの一括請求で、複数のアカウントの請求をまとめます。",
+    "figureId": "storage-types"
+  },
+  "relatedServiceIds": [
+    "amazon-s3",
+    "amazon-ebs",
+    "amazon-efs",
+    "amazon-fsx",
+    "aws-backup",
+    "aws-datasync",
+    "aws-transfer-family",
+    "aws-storage-gateway",
+    "aws-cost-explorer",
+    "aws-budgets"
+  ],
+  "examPoints": [
+    "アクセスの傾向が読めない＝S3 Intelligent-Tiering。長期保管で最も低コスト＝S3 Glacier Deep Archive（取り出しに数時間）。",
+    "時間がたつと使われなくなるデータ＝ライフサイクルポリシーで、低コストのクラスへ自動で移す。",
+    "リクエスタ支払い：リクエストとダウンロードは取りに来た側、保存は所有者が支払う。匿名のアクセスは不可。",
+    "EBS：スループット重視で低コスト＝st1。アクセスが少なく最も低コスト＝sc1。HDDはブートボリュームに使えない。",
+    "バックアップをポリシーで一元管理＝AWS Backup。",
+    "コストの分析＝Cost Explorer、予算と通知＝Budgets、最も詳しいデータ＝Cost and Usage Report、部署ごとの把握＝コスト配分タグ。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-cs-01",
+    "saa-q-cs-02",
+    "saa-q-cs-03",
+    "saa-q-cs-04",
+    "saa-q-cs-05",
+    "saa-q-cs-06"
+  ],
+  "glossaryTermIds": [
+    "requester-pays",
+    "lifecycle-policy",
+    "object-storage",
+    "block-storage",
+    "file-storage",
+    "cost-allocation-tag",
+    "consolidated-billing"
+  ]
+}

@@ -2454,5 +2454,97 @@
     "plain": "「この町内は1番地から256番地まで」というように、番地の範囲をまとめて表す書き方です。",
     "example": "VPCピアリングでは、2つのVPCのIPv4のCIDRの範囲が重なっていると接続できないため、あらかじめ重ならない範囲を割り当てる。",
     "serviceIds": []
+  },
+  {
+    "id": "requester-pays",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Using Requester Pays general purpose buckets（Amazon S3 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "リクエスタ支払い（Requester Pays）",
+    "description": "Amazon S3のバケットの設定です。通常はバケットの所有者が払う「リクエスト」と「データのダウンロード」の料金を、データを取りに来た側（リクエスタ）が払うようにします。データの保存の料金は、常にバケットの所有者が払います。",
+    "plain": "「着払い」の荷物です。倉庫の保管料は持ち主が払いますが、送料は受け取る人が払います。",
+    "example": "大きな研究データを公開するとき、ダウンロードの料金を利用者の負担にする。",
+    "serviceIds": []
+  },
+  {
+    "id": "hibernation",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Hibernate your Amazon EC2 instance（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "ハイバネーション（休止）",
+    "description": "EC2インスタンスのメモリ（RAM）の内容を、EBSのルートボリュームに保存してから停止する機能です。再開すると、メモリの内容が読み込まれ、動いていた処理が続きから再開されます。",
+    "plain": "パソコンの「休止状態」です。作業中の画面をそのまま保存して電源を切り、次に開くと続きから始められます。",
+    "example": "準備に時間がかかるアプリケーションのインスタンスを、使わない時間は休止させておく。",
+    "serviceIds": []
+  },
+  {
+    "id": "nat-instance",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Compare NAT gateways and NAT instances（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html"
+      },
+      {
+        "title": "NAT instances（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "NATインスタンス",
+    "description": "EC2インスタンスを使って、自分で用意するNATの装置です。プライベートサブネットのリソースが、インターネットなどVPCの外へ通信できるようにします。ソフトウェアの更新などの管理は、利用者が行います。",
+    "plain": "自分で雇って管理する「取り次ぎ係」です。NATゲートウェイは、AWSが用意して管理してくれる取り次ぎ係です。",
+    "example": "NATの装置を、踏み台サーバーとしても使いたいときに、NATインスタンスを選ぶ。",
+    "serviceIds": []
+  },
+  {
+    "id": "acu",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Using Aurora serverless（Amazon Aurora ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "ACU（Aurora キャパシティユニット）",
+    "description": "Aurora Serverlessの容量の単位です。1 ACUは、およそ2ギビバイトのメモリと、それに見合うCPUとネットワークに相当します。Aurora Serverlessは、指定した最小と最大の範囲の中で、容量を自動的に増減します。",
+    "plain": "水道の「蛇口の開き具合」の目盛りです。使う量に合わせて、目盛りが自動で上下します。",
+    "example": "容量の範囲を0.5〜16 ACUに設定して、負荷に応じて自動で増減させる。",
+    "serviceIds": []
   }
 ]

@@ -1,0 +1,101 @@
+{
+  "id": "nat-options",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Compare NAT gateways and NAT instances（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html"
+    },
+    {
+      "title": "NAT gateway basics（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-basics.html"
+    },
+    {
+      "title": "NAT instances（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_NAT_Instance.html"
+    },
+    {
+      "title": "COST08-BP03 Implement services to reduce data transfer costs（AWS Well-Architected コスト最適化の柱）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/cost_data_transfer_implement_services.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "NATの方法：NATゲートウェイ・NATインスタンス",
+  "category": "networking",
+  "summary": "どちらも、プライベートサブネットのリソースが、VPCの外（インターネットなど）へ通信できるようにする仕組みです。外からの接続を受け付けない点も同じです。「AWSに管理を任せるか、自分でEC2インスタンスを管理するか」が違いです。AWSは、可用性と帯域に優れ、管理の手間が少ないNATゲートウェイを推奨しています。",
+  "items": [
+    {
+      "key": "natgw",
+      "label": "NATゲートウェイ",
+      "oneLine": "AWSが用意して管理してくれる取り次ぎ係",
+      "values": {
+        "role": "プライベートサブネットのインスタンスが、VPCの外のサービスに接続できるようにする。外からの接続は開始できない",
+        "mechanism": "AWSが提供するマネージドのNATの装置。パブリックサブネットに作成する",
+        "data": "送信元のIPアドレスを、NATゲートウェイのアドレスに置き換えて通信する",
+        "useCases": "プライベートサブネットからの、ソフトウェアの更新や外部サービスへのアクセス",
+        "availability": "高可用性。各アベイラビリティゾーンのNATゲートウェイは、冗長性を持って実装されている。ゾーンに依存しない構成にするには、各アベイラビリティゾーンに作成する",
+        "performance": "最大100 Gbpsまで拡張する。NATの通信の処理に最適化されている",
+        "scalability": "種類やサイズを選ぶ必要がない",
+        "cost": "NATゲートウェイの数、利用時間、通過させたデータの量に応じて課金される",
+        "operations": "AWSが管理する。利用者による保守は不要",
+        "limits": "セキュリティグループを関連付けられない。ポートフォワーディングと、踏み台サーバーとしての利用には対応しない",
+        "chooseWhen": "管理の手間をかけず、高い可用性と帯域がほしいとき（AWSの推奨）",
+        "avoidWhen": "ポートフォワーディングや、踏み台サーバーとしての利用が必要なとき"
+      }
+    },
+    {
+      "key": "natinst",
+      "label": "NATインスタンス",
+      "oneLine": "自分で雇って管理する取り次ぎ係",
+      "values": {
+        "role": "プライベートサブネットのリソースが、VPCの外の宛先と通信できるようにする。インターネットから開始された通信は受け取れない",
+        "mechanism": "利用者がEC2インスタンスで用意するNATの装置。パブリックサブネットに置く",
+        "data": "プライベートサブネットのルートテーブルで、インターネット向けの通信をNATインスタンスに向ける",
+        "useCases": "ポートフォワーディングや、踏み台サーバーを兼ねた利用",
+        "availability": "インスタンスの間のフェイルオーバーは、利用者がスクリプトで管理する",
+        "performance": "帯域は、インスタンスタイプに依存する",
+        "scalability": "予想されるワークロードに合わせて、インスタンスタイプとサイズを利用者が選ぶ",
+        "cost": "NATインスタンスの数、利用時間、インスタンスタイプとサイズに応じて課金される",
+        "operations": "利用者が管理する（ソフトウェアの更新や、OSのパッチの適用など）",
+        "limits": "可用性、帯域、管理の手間の面で、NATゲートウェイに劣る",
+        "chooseWhen": "ポートフォワーディングや踏み台サーバーとしての利用など、NATゲートウェイが対応しない使い方が必要なとき",
+        "avoidWhen": "管理の手間をかけたくないとき、高い可用性や帯域が必要なとき"
+      }
+    }
+  ],
+  "figureIds": [],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "ポートフォワーディングや、踏み台サーバーを兼ねた利用など、NATゲートウェイが対応しない使い方が必要ですか？",
+      "yes": "r-inst",
+      "no": "r-gw"
+    },
+    {
+      "id": "r-inst",
+      "resultItemKey": "natinst",
+      "note": "ソフトウェアの更新やフェイルオーバーは、自分で管理します。"
+    },
+    {
+      "id": "r-gw",
+      "resultItemKey": "natgw",
+      "note": "AWSが推奨する方法です。本番環境では、各アベイラビリティゾーンに作成します。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "saa-q-nat-train-01",
+    "saa-q-nat-train-02",
+    "saa-q-cn-02",
+    "saa-q-cn-03"
+  ]
+}

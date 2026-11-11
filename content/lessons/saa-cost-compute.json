@@ -1,0 +1,83 @@
+{
+  "id": "saa-cost-compute",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Hibernate your Amazon EC2 instance（Amazon EC2 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 12,
+  "title": "コスト最適化されたコンピューティングの設計",
+  "domainId": "saa-d4",
+  "taskIds": [
+    "saa-4-2"
+  ],
+  "overview": "2つ目のタスクはコンピューティングです。コンピューティングのコストは、「何を」「どの買い方で」「どれだけの時間」動かすかで決まります。\n試験ガイドでは、コスト管理のサービスとツール、AWSのグローバルインフラストラクチャ、購入オプション（スポットインスタンス、リザーブドインスタンス、Savings Plans）、分散コンピューティング（エッジでの処理）、ハイブリッドのコンピューティング（AWS Outposts）、インスタンスのタイプ・ファミリー・サイズ、利用効率の最適化（コンテナ、サーバーレス、マイクロサービス）、スケーリング戦略（Auto Scaling、ハイバネーション）が挙げられています。",
+  "beginner": {
+    "analogy": "移動の手段にたとえます。毎日同じ道を通うなら「定期券」（リザーブドインスタンスやSavings Plans）、たまの移動なら「その都度の切符」（オンデマンド）、時間に余裕があるなら「空席の格安チケット」（スポットインスタンス）が得です。そして、乗る人数に合わない大型バスを借りないこと（ライトサイジング）、使わない時間は車を止めておくことも大切です。",
+    "description": "コストを下げる順番は、まず「使っていないものを止める」、次に「大きさを合わせる」、そして「買い方を選ぶ」です。割引で買う前に、そもそも必要な量を減らすことを考えます。"
+  },
+  "useCases": [
+    "やり直せるバッチ処理を、スポットインスタンスで安く動かす",
+    "常に動かすサーバーに、利用の約束による割引を使う",
+    "開発環境を、使う時間だけ動かす",
+    "たまにしか動かない処理を、サーバーレスに移す"
+  ],
+  "mechanism": {
+    "text": "【購入オプションを選ぶ】\n・オンデマンド：約束なし。短期間の利用や、予測できない利用に。\n・リザーブドインスタンス：特定のインスタンス構成を、1年または3年約束して割引を受けます。\n・Savings Plans：一定の利用額を、1年または3年約束して割引を受けます。構成を変えられる柔軟さがあります。\n・スポットインスタンス：EC2の空いている容量を、低い価格で使います。EC2が容量を必要とすると中断されるため、やり直せる処理に使います。\n【大きさを合わせる（ライトサイジング）】\nインスタンスのファミリー（汎用、コンピューティング最適化、メモリ最適化など）とサイズを、ワークロードに必要な性能と容量に合わせます。\n【必要な分だけ動かす】\n・Amazon EC2 Auto Scaling：需要に合わせて、インスタンスの台数を自動的に増減します。\n・ハイバネーション（休止）：インスタンスのメモリ（RAM）の内容を、EBSのルートボリュームに保存して停止します。再開すると、メモリの内容が読み込まれ、動いていた処理が再開されます。休止して停止している間は、インスタンスの利用料金はかかりません。EBSボリュームの保存の料金（メモリの内容の分を含む）はかかります。起動してから使えるようになるまでに時間がかかるアプリケーションに向いています。ハイバネーションは、インスタンスの起動時に有効にしておく必要があり、起動のあとで有効・無効を切り替えることはできません。\n【利用効率を高める】\n・AWS Lambda：実行した分だけ支払います。たまにしか動かない短い処理に向いています。\n・AWS Fargate：サーバーを管理せずに、コンテナを動かします。\n【本番と、本番以外】\nワークロードの種類によって、必要な可用性は違います。本番環境には高い可用性が必要ですが、開発やテストの環境は、使わない時間に止めたり、構成を小さくしたりできます。\n【ロードバランサー】\nApplication Load Balancer（レイヤー7）、Network Load Balancer（レイヤー4）、Gateway Load Balancerから、用途に合うものを選びます。\n【ハイブリッド】\nAWS Outpostsは、AWSのインフラストラクチャとサービスを、オンプレミスに拡張します。\n【コストを見える化する道具】\n・AWS Cost Explorer：コストと使用量を、グラフで見て分析します。\n・AWS Budgets：予算を決めて、超えそうなときに通知を受け取ります。\n・AWS Cost and Usage Report：最も詳しい、コストと使用量のデータです。\n・コスト配分タグ：リソースにタグを付けて、部署やプロジェクトごとに費用を分けて把握します。\n・複数アカウントの請求：AWS Organizationsの一括請求で、複数のアカウントの請求をまとめます。",
+    "figureId": "purchase-options"
+  },
+  "relatedServiceIds": [
+    "amazon-ec2",
+    "aws-savings-plans",
+    "amazon-ec2-auto-scaling",
+    "aws-lambda",
+    "aws-fargate",
+    "elastic-load-balancing",
+    "aws-cost-explorer",
+    "aws-budgets"
+  ],
+  "examPoints": [
+    "中断されてもやり直せる＝スポットインスタンス。構成を約束＝リザーブドインスタンス。利用額を約束＝Savings Plans。",
+    "需要が変動する＝Auto Scalingで、必要な分だけ動かす。",
+    "ハイバネーション＝メモリの内容をEBSのルートボリュームに保存して停止。再開すると続きから。停止中はインスタンスの料金がかからない（EBSの料金はかかる）。",
+    "ハイバネーションは、起動時に有効にしておく必要がある。",
+    "たまに動く短い処理＝Lambda（実行した分だけ）。",
+    "本番と開発では、必要な可用性が違う。開発環境は、使わない時間に止める。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-cc-01",
+    "saa-q-cc-02",
+    "saa-q-cc-03",
+    "saa-q-cc-04",
+    "saa-q-cc-05",
+    "saa-q-cc-06"
+  ],
+  "glossaryTermIds": [
+    "hibernation",
+    "spot-instance",
+    "reserved-instance",
+    "savings-plans",
+    "on-demand",
+    "rightsizing",
+    "serverless",
+    "horizontal-scaling"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "saa-cost-database",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Using Aurora serverless（Amazon Aurora ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 13,
+  "title": "コスト最適化されたデータベースの設計",
+  "domainId": "saa-d4",
+  "taskIds": [
+    "saa-4-3"
+  ],
+  "overview": "3つ目のタスクはデータベースです。データベースは、止めにくく、大きくしがちなため、コストがふくらみやすい部分です。\n試験ガイドでは、コスト管理のサービスとツール、キャッシュ戦略、データの保持ポリシー、キャパシティの計画（キャパシティユニット）、接続とプロキシ、エンジンと移行（同種間・異種間）、レプリケーション（リードレプリカ）、データベースの種類とサービス（リレーショナルと非リレーショナル、Amazon Aurora、Amazon DynamoDB）が挙げられています。スキルとしては、バックアップと保持のポリシー、エンジンの選択、コスト効率のよいサービスの選択（DynamoDBとRDS、サーバーレス）、データの形に合う種類の選択（時系列、列指向）、移行が挙げられています。",
+  "beginner": {
+    "analogy": "飲食店の厨房にたとえます。いつ満席になるか分からないのに、常に最大の人数の料理人を雇っておくと、人件費がかさみます。お客さんの数に合わせて人数を変える（サーバーレス）、よく出る料理は作り置きしておく（キャッシュ）、宴会の仕込みは別の厨房で行う（分析を分ける）。こうして、同じ注文を、より少ない費用でこなします。",
+    "description": "データベースのコストを下げる考え方は3つです。①容量を需要に合わせる（サーバーレス、キャパシティモード）。②データベースに届く処理を減らす（キャッシュ、リードレプリカ）。③データの形と使い方に合う種類を選ぶ（分析はデータウェアハウスへ、時系列は時系列のデータベースへ）。"
+  },
+  "useCases": [
+    "負荷が読めないデータベースを、自動で容量が変わる構成にする",
+    "同じ読み取りの繰り返しを、キャッシュで減らす",
+    "分析の処理を、業務用のデータベースから切り離す",
+    "エンジンの異なるデータベースへ移行する"
+  ],
+  "mechanism": {
+    "text": "【容量を需要に合わせる】\n・Aurora Serverless：Auroraの、オンデマンドで自動スケーリングする構成です。アプリケーションの需要に応じて、容量が自動的に調整されます。負荷が大きく変動して予測できない環境、開発・テストの環境、多くのテナントを持つデータベースなどで特に役立ちます。ピークや平均に合わせて容量を用意しておく必要がなくなります。容量は、ACU（Aurora キャパシティユニット）という単位で表し、最小と最大の範囲を指定します。\n・Amazon DynamoDBのキャパシティモード：オンデマンドは、読み書きのリクエストごとに支払います。プロビジョンドは、読み書きのキャパシティユニットをあらかじめ定義し、Auto Scalingで調整できます。\n【データベースに届く処理を減らす】\n・キャッシュ：Amazon ElastiCacheで、よく読まれるデータをメモリから返します。\n・リードレプリカ：読み取りの処理を、複製に分散します。\n・Amazon RDS Proxy：データベースの接続をプールして共有します。\n【データの形と使い方に合う種類を選ぶ】\n・リレーショナル（Amazon RDS、Amazon Aurora）：複雑な検索やトランザクション。\n・キーバリュー（Amazon DynamoDB）：サーバーの管理が不要なNoSQLデータベース。\n・データウェアハウス（Amazon Redshift）：大量のデータへの複雑な分析。業務用のデータベースで分析まで行うと、データベースを大きくし続けることになります。\n・時系列（Amazon Timestream）：時刻とともに蓄積されるデータ。\n・列指向のフォーマット（Apache Parquetなど）：Amazon S3に置いた分析用のデータを、列指向に変換しておくと、分析に向いた形になります。\n【エンジンと移行】\n同じエンジンどうしの移行（同種間）と、異なるエンジンへの移行（異種間）があります。異種間では、AWS Schema Conversion Tool（AWS SCT）でスキーマを変換し、AWS DMSでデータを移行します。AWS DMSでは、移行中も移行元は稼働し続けます。\n【バックアップと保持】\nバックアップの頻度と保持期間は、どこまでのデータを、いつまで復元できる必要があるかという要件から決めます。AWS Backupで、ポリシーとして一元的に管理できます。\n【コストを見える化する道具】\n・AWS Cost Explorer：コストと使用量を、グラフで見て分析します。\n・AWS Budgets：予算を決めて、超えそうなときに通知を受け取ります。\n・AWS Cost and Usage Report：最も詳しい、コストと使用量のデータです。\n・コスト配分タグ：リソースにタグを付けて、部署やプロジェクトごとに費用を分けて把握します。\n・複数アカウントの請求：AWS Organizationsの一括請求で、複数のアカウントの請求をまとめます。",
+    "figureId": "db-types"
+  },
+  "relatedServiceIds": [
+    "amazon-aurora",
+    "amazon-rds",
+    "amazon-dynamodb",
+    "amazon-elasticache",
+    "amazon-rds-proxy",
+    "amazon-redshift",
+    "aws-dms",
+    "aws-backup",
+    "aws-cost-explorer"
+  ],
+  "examPoints": [
+    "負荷が変動して予測できないAurora＝Aurora Serverless（容量を自動で調整。単位はACU）。",
+    "DynamoDB：リクエストごとに支払う＝オンデマンド。あらかじめ定義する＝プロビジョンド。",
+    "同じ読み取りの繰り返し＝ElastiCacheでキャッシュ。読み取りの分散＝リードレプリカ。",
+    "大量のデータへの複雑な分析＝Redshiftに分ける。時系列＝Timestream。",
+    "異種間の移行＝SCT（スキーマ変換）＋DMS（データ移行、移行元は稼働し続ける）。",
+    "バックアップの頻度と保持期間は、復元の要件から決める。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-cd-01",
+    "saa-q-cd-02",
+    "saa-q-cd-03",
+    "saa-q-cd-04",
+    "saa-q-cd-05",
+    "saa-q-cd-06"
+  ],
+  "glossaryTermIds": [
+    "acu",
+    "capacity-mode",
+    "cache",
+    "replica",
+    "connection-pooling",
+    "data-warehouse",
+    "relational-database",
+    "nosql"
+  ]
+}
