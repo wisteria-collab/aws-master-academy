@@ -1,0 +1,69 @@
+{
+  "id": "aws-global-accelerator",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Global Accelerator",
+  "aliases": [
+    "Global Accelerator",
+    "グローバルアクセラレーター"
+  ],
+  "category": "networking",
+  "summary": "AWSのグローバルネットワークを使って、世界中の利用者に提供するアプリケーションの可用性と性能を高めるネットワークサービス。",
+  "beginner": {
+    "analogy": "空港の「優先レーン」に似ています。混雑した一般の通路ではなく、AWSが持つ専用の通路を通って、目的地まで案内されます。",
+    "description": "利用者からの通信を、AWSの世界的なネットワークに乗せて、近くにある正常な接続先まで届けるサービスです。固定のIPアドレスが入口として提供されます。"
+  },
+  "exam": {
+    "description": "世界中の利用者に提供するアプリケーションの可用性と性能を高めるネットワークサービスです。アプリケーションへの固定の入口となる静的なIPアドレスを提供し、利用者の通信をAWSのグローバルネットワーク経由で、最も近い正常なエンドポイントに届けます。",
+    "points": [
+      "AWSのグローバルネットワーク経由で通信を届け、可用性と性能を高める＝AWS Global Accelerator。",
+      "アプリケーションの固定の入口となる静的なIPアドレスを提供する。",
+      "コンテンツのコピーをキャッシュして配信するのはAmazon CloudFront。役割が違う。"
+    ]
+  },
+  "useCases": [
+    "複数のリージョンで動かすアプリケーションへの、世界中からのアクセスの改善"
+  ],
+  "mechanism": "利用者の通信は、静的なIPアドレスを入口としてAWSのグローバルネットワークに入り、最も近い正常なエンドポイントに届けられます。",
+  "pros": [
+    "固定のIPアドレスを入口にできる",
+    "正常なエンドポイントに通信を届けられる"
+  ],
+  "cons": [
+    "コンテンツをキャッシュするサービスではない"
+  ],
+  "scenes": [
+    "複数のリージョンで動かしているアプリケーションに、固定のIPアドレスでアクセスできるようにする"
+  ],
+  "similarServiceIds": [
+    "amazon-cloudfront"
+  ],
+  "relatedServiceIds": [
+    "elastic-load-balancing",
+    "amazon-ec2"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/global-accelerator/"
+}

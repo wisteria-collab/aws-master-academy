@@ -1,0 +1,84 @@
+{
+  "id": "amazon-vpc",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon VPC",
+  "aliases": [
+    "VPC",
+    "Virtual Private Cloud",
+    "ブイピーシー"
+  ],
+  "category": "networking",
+  "summary": "AWSクラウドの中に、論理的に分離された自分専用の仮想ネットワークを作るサービス。",
+  "beginner": {
+    "analogy": "AWSという大きな土地の中に、塀で囲んだ「自分の敷地」を作るようなものです。敷地の中をどう区切るか、どこに門を付けるかは自分で決められます。",
+    "description": "AWSの中に、他の利用者とは分けられた自分専用のネットワークを作れます。インターネットとやり取りする場所と、外から直接入れない場所を分けて、サーバーやデータベースを置けます。"
+  },
+  "exam": {
+    "description": "AWSクラウドの論理的に分離された区画に、利用者が定義した仮想ネットワークを作り、その中でAWSリソースを起動できます。IPアドレスの範囲の選択、サブネットの作成、ルートテーブルやネットワークゲートウェイの設定を利用者が制御します。たとえば、インターネットにアクセスできるウェブサーバー用のパブリックなサブネットと、インターネットにアクセスしないデータベース用のプライベートなサブネットを作れます。セキュリティグループとネットワークACLで、各サブネットのEC2インスタンスへのアクセスを制御します。",
+    "points": [
+      "自分専用の仮想ネットワーク＝Amazon VPC。",
+      "VPCの構成要素：サブネット、ルートテーブル、ゲートウェイ。",
+      "ウェブサーバーはインターネットとやり取りするサブネット、データベースはプライベートサブネット、という分け方が基本。",
+      "セキュリティグループはインスタンスの単位、ネットワークACLはサブネットの単位で通信を制御する。",
+      "セキュリティグループは許可ルールだけ。ネットワークACLは許可と拒否の両方のルールを持てる。",
+      "セキュリティグループは戻りの通信を自動で許可する（ステートフル）。ネットワークACLは戻りの通信も明示的に許可が必要（ステートレス）。",
+      "VPNを使って、自社のデータセンターとVPCを接続できる。"
+    ]
+  },
+  "useCases": [
+    "ウェブサーバーとデータベースを、別々のサブネットに分けて配置する",
+    "自社のデータセンターとAWSを接続して、AWSを社内ネットワークの延長として使う"
+  ],
+  "mechanism": "VPCの中に、IPアドレスの範囲であるサブネットを作り、その中にインスタンスを起動します。インターネットゲートウェイからの通信は、ルートテーブルの経路に従って適切なサブネットに届けられます。",
+  "pros": [
+    "ネットワークの構成を利用者が細かく制御できる",
+    "サブネットでアプリケーションの層を分離できる",
+    "セキュリティグループとネットワークACLで通信を制御できる"
+  ],
+  "cons": [
+    "サブネット、ルートテーブル、セキュリティグループなどの設定は利用者の責任"
+  ],
+  "scenes": [
+    "データベースをプライベートサブネットに置き、インターネットから直接アクセスできないようにする"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "amazon-ec2",
+    "aws-vpn",
+    "aws-direct-connect",
+    "amazon-inspector"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/vpc/"
+}

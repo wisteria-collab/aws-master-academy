@@ -1,0 +1,1299 @@
+[
+  {
+    "id": "clf-q-db-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、オンプレミスで運用しているMySQLのリレーショナルデータベースをAWSに移したいと考えています。パッチ適用やバックアップといった管理作業の手間を減らしたいという要件があります。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon RDS",
+        "correct": true,
+        "explanation": "Amazon RDSは、リレーショナルデータベースのマネージドサービスです。ハードウェアの用意、セットアップ、パッチ適用、バックアップといった管理作業を自動化し、エンジンとしてMySQLを選べます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon DynamoDB",
+        "correct": false,
+        "explanation": "DynamoDBはキーバリュー型・ドキュメント型のNoSQLデータベースです。フルマネージドですが、リレーショナルデータベースではないため、MySQLのデータベースの移行先としては合いません。",
+        "eliminatedBy": "MySQLのリレーショナルデータベース"
+      },
+      {
+        "id": "c",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheはインメモリのキャッシュのサービスです。データベースの前に置いて応答を速くする用途のもので、リレーショナルデータベースそのものの移行先ではありません。",
+        "eliminatedBy": "MySQLのリレーショナルデータベース"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EC2にMySQLをインストールして運用する",
+        "correct": false,
+        "explanation": "EC2上でもMySQLを動かせますが、その場合、データベースのパッチ適用やバックアップは利用者が自分で行うことになります。管理作業を減らしたいという要件に合いません。",
+        "eliminatedBy": "パッチ適用やバックアップといった管理作業の手間を減らしたい"
+      }
+    ],
+    "keywords": [
+      "リレーショナルデータベース",
+      "管理作業の手間を減らしたい"
+    ],
+    "decisionPoint": "「リレーショナル」＋「管理作業を任せたい」ならAmazon RDS（またはAurora）。EC2上で動かすと管理は自分で行います。",
+    "serviceIds": [
+      "amazon-rds"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-database"
+      },
+      {
+        "type": "service",
+        "id": "amazon-rds"
+      }
+    ],
+    "practicalNote": "実務でも、特別な理由がなければ、まずマネージドサービスを検討します。"
+  },
+  {
+    "id": "clf-q-db-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "あるゲーム会社は、プレイヤーのデータをキーバリュー型のNoSQLデータベースに保存したいと考えています。プレイヤーが急増しても、1桁ミリ秒の応答を保つ必要があります。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon DynamoDB",
+        "correct": true,
+        "explanation": "DynamoDBは、キーバリュー型・ドキュメント型のデータベースで、どんな規模でも1桁ミリ秒のパフォーマンスを発揮します。ゲームは代表的な用途の1つです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon RDS",
+        "correct": false,
+        "explanation": "RDSはリレーショナルデータベースのサービスです。問題文が求めているのは、キーバリュー型のNoSQLデータベースです。",
+        "eliminatedBy": "キーバリュー型のNoSQLデータベース"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Aurora",
+        "correct": false,
+        "explanation": "AuroraはMySQL・PostgreSQL互換のリレーショナルデータベースです。キーバリュー型のNoSQLデータベースではありません。",
+        "eliminatedBy": "キーバリュー型のNoSQLデータベース"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EBS",
+        "correct": false,
+        "explanation": "EBSは、EC2インスタンスに接続して使うブロックストレージです。データベースのサービスではありません。",
+        "eliminatedBy": "キーバリュー型のNoSQLデータベース"
+      }
+    ],
+    "keywords": [
+      "キーバリュー型のNoSQLデータベース",
+      "1桁ミリ秒"
+    ],
+    "decisionPoint": "「キーバリュー」「NoSQL」「1桁ミリ秒」はDynamoDBの手がかりです。",
+    "serviceIds": [
+      "amazon-dynamodb"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-database"
+      },
+      {
+        "type": "service",
+        "id": "amazon-dynamodb"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-db-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるウェブサイトでは、同じ内容の問い合わせがデータベースに何度も送られ、応答が遅くなっています。よく読まれるデータをメモリ上に置いて、応答を速くしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon ElastiCache",
+        "correct": true,
+        "explanation": "ElastiCacheは、マネージドのインメモリキャッシュのサービスです。低速なディスクベースのデータベースだけに頼らず、メモリから情報を取得できるようにして、ウェブアプリケーションの性能を向上させます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS DMS",
+        "correct": false,
+        "explanation": "AWS DMSは、データベースをAWSに移行するためのサービスです。応答を速くするためのキャッシュのサービスではありません。",
+        "eliminatedBy": "よく読まれるデータをメモリ上に置いて"
+      },
+      {
+        "id": "c",
+        "text": "Amazon S3",
+        "correct": false,
+        "explanation": "S3はオブジェクトストレージです。ファイルの保存に使うサービスで、データベースの問い合わせ結果をメモリ上に置くためのものではありません。",
+        "eliminatedBy": "メモリ上に置いて"
+      },
+      {
+        "id": "d",
+        "text": "Amazon RDS",
+        "correct": false,
+        "explanation": "RDSはリレーショナルデータベースのサービスです。問題文が求めているのは、データベースそのものではなく、よく読まれるデータをメモリ上に置く仕組みです。",
+        "eliminatedBy": "よく読まれるデータをメモリ上に置いて"
+      }
+    ],
+    "keywords": [
+      "メモリ上に置いて",
+      "応答を速くしたい"
+    ],
+    "decisionPoint": "「メモリ上」「キャッシュ」という言葉があればElastiCacheを考えます。",
+    "serviceIds": [
+      "amazon-elasticache"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-database"
+      },
+      {
+        "type": "service",
+        "id": "amazon-elasticache"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-db-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、PostgreSQLと互換性のあるリレーショナルデータベースを使いたいと考えています。ストレージが自動的に拡張し、データが3つのアベイラビリティゾーンにまたがって複製されることを求めています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Aurora",
+        "correct": true,
+        "explanation": "AuroraはMySQLおよびPostgreSQLと互換性のあるリレーショナルデータベースです。ストレージは自動的に拡張し、データは3つのアベイラビリティゾーンにまたがって複製されます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon DynamoDB",
+        "correct": false,
+        "explanation": "DynamoDBはNoSQLデータベースであり、PostgreSQLと互換性のあるリレーショナルデータベースではありません。",
+        "eliminatedBy": "PostgreSQLと互換性のあるリレーショナルデータベース"
+      },
+      {
+        "id": "c",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheはインメモリのキャッシュのサービスで、対応するエンジンはRedis OSSとMemcachedです。PostgreSQLと互換性のあるリレーショナルデータベースではありません。",
+        "eliminatedBy": "PostgreSQLと互換性のあるリレーショナルデータベース"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EFS",
+        "correct": false,
+        "explanation": "EFSは、複数のインスタンスで共有できるファイルストレージです。データベースのサービスではありません。",
+        "eliminatedBy": "リレーショナルデータベース"
+      }
+    ],
+    "keywords": [
+      "PostgreSQLと互換性",
+      "3つのアベイラビリティゾーンにまたがって複製"
+    ],
+    "decisionPoint": "「MySQL・PostgreSQL互換」＋「ストレージの自動拡張」「3つのAZに複製」はAuroraの特徴です。",
+    "serviceIds": [
+      "amazon-aurora"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-database"
+      },
+      {
+        "type": "service",
+        "id": "amazon-aurora"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-db-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "What is the AWS Schema Conversion Tool?（AWS SCT ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスのデータベースをAmazon RDSに移行する計画を立てています。移行の作業中も、移行元のデータベースを稼働させたままにして、アプリケーションの停止時間を最小限にしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Database Migration Service（AWS DMS）",
+        "correct": true,
+        "explanation": "AWS DMSは、データベースをAWSに移行するためのサービスです。移行中も移行元のデータベースは稼働し続けるため、アプリケーションの停止時間を最小限に抑えられます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheはインメモリのキャッシュのサービスです。データベースを移行するためのサービスではありません。",
+        "eliminatedBy": "データベースをAmazon RDSに移行する"
+      },
+      {
+        "id": "c",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontはコンテンツを配信するCDNのサービスです。データベースの移行とは関係がありません。",
+        "eliminatedBy": "データベースをAmazon RDSに移行する"
+      },
+      {
+        "id": "d",
+        "text": "AWS Schema Conversion Tool（AWS SCT）",
+        "correct": false,
+        "explanation": "AWS SCTは、既存のデータベースのスキーマ（データの構造の定義）を、別のデータベースエンジン向けに変換するツールです。移行に関係するツールですが、問題文が求めているのは、移行元を稼働させたままデータを移行する役割です。",
+        "eliminatedBy": "移行元のデータベースを稼働させたまま"
+      }
+    ],
+    "keywords": [
+      "移行する",
+      "移行元のデータベースを稼働させたまま"
+    ],
+    "decisionPoint": "データベースの移行はAWS DMS。スキーマの変換はAWS SCT。役割の違いを押さえます。",
+    "serviceIds": [
+      "aws-dms",
+      "amazon-rds"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-database"
+      },
+      {
+        "type": "service",
+        "id": "aws-dms"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-db-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Shared Responsibility Model（AWS公式）",
+        "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、データベースを動かすサーバーのOSと、データベースソフトウェアの設定を、すべて自社で管理したいと考えています。この要件に最も適した方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon EC2インスタンスにデータベースをインストールして運用する",
+        "correct": true,
+        "explanation": "EC2では、ゲストOSとその上のソフトウェアを利用者が管理します。OSやデータベースソフトウェアを自社で管理したい場合は、EC2上でデータベースを動かす方法が合います。その分、パッチ適用やバックアップも自社で行います。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon RDSを使う",
+        "correct": false,
+        "explanation": "RDSは、ハードウェアの用意、セットアップ、パッチ適用、バックアップといった管理作業をAWSに任せるためのサービスです。すべて自社で管理したいという要件とは方向が逆です。",
+        "eliminatedBy": "すべて自社で管理したい"
+      },
+      {
+        "id": "c",
+        "text": "Amazon DynamoDBを使う",
+        "correct": false,
+        "explanation": "DynamoDBはフルマネージドのサービスで、サーバーの管理はAWSが行います。OSを自社で管理したいという要件には合いません。",
+        "eliminatedBy": "サーバーのOSと、データベースソフトウェアの設定を、すべて自社で管理したい"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Auroraを使う",
+        "correct": false,
+        "explanation": "AuroraはAmazon RDSによってフルマネージドで提供されます。管理作業をAWSに任せるサービスであり、すべて自社で管理したいという要件には合いません。",
+        "eliminatedBy": "すべて自社で管理したい"
+      }
+    ],
+    "keywords": [
+      "OS",
+      "すべて自社で管理したい"
+    ],
+    "decisionPoint": "「自分で細かく管理したい」ならEC2上のデータベース、「管理を任せたい」ならマネージドデータベース、と判断します。",
+    "serviceIds": [
+      "amazon-ec2",
+      "amazon-rds"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-database"
+      },
+      {
+        "type": "lesson",
+        "id": "clf-shared-responsibility"
+      }
+    ],
+    "practicalNote": "実務では、管理の自由度と運用の手間はトレードオフです。多くの場合はマネージドサービスが選ばれます。"
+  },
+  {
+    "id": "clf-q-db-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-4",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Amazon RDSで本番用のデータベースを運用しています。1つのアベイラビリティゾーンで障害が起きてもデータベースを使い続けられるように、高可用性を高めたいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "マルチAZ配置を使う",
+        "correct": true,
+        "explanation": "Amazon RDSでは、マルチAZ配置によって高可用性を高められます。複数のアベイラビリティゾーンを使うことで、1つのゾーンの障害に備えられます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon ElastiCacheを追加する",
+        "correct": false,
+        "explanation": "ElastiCacheは、応答を速くするためのインメモリキャッシュです。性能を高める手段であり、アベイラビリティゾーンの障害に備える仕組みではありません。",
+        "eliminatedBy": "1つのアベイラビリティゾーンで障害が起きても"
+      },
+      {
+        "id": "c",
+        "text": "データベースをより大きなインスタンスに変更する",
+        "correct": false,
+        "explanation": "インスタンスを大きくすると処理能力は上がりますが、同じアベイラビリティゾーンにある限り、そのゾーンの障害の影響を受けます。",
+        "eliminatedBy": "1つのアベイラビリティゾーンで障害が起きても"
+      },
+      {
+        "id": "d",
+        "text": "Amazon CloudFrontでコンテンツを配信する",
+        "correct": false,
+        "explanation": "CloudFrontはコンテンツを利用者に近い場所から配信するサービスです。データベースの高可用性を高める仕組みではありません。",
+        "eliminatedBy": "データベースを使い続けられるように"
+      }
+    ],
+    "keywords": [
+      "1つのアベイラビリティゾーンで障害が起きても",
+      "高可用性"
+    ],
+    "decisionPoint": "高可用性は「複数のアベイラビリティゾーン」。RDSではマルチAZ配置です。",
+    "serviceIds": [
+      "amazon-rds"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-database"
+      },
+      {
+        "type": "lesson",
+        "id": "clf-regions-azs"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-net-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-5",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、Amazon VPCの中にウェブサーバーとデータベースを配置します。データベースには、インターネットから直接アクセスできないようにしたいと考えています。データベースの配置先として最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "プライベートサブネット",
+        "correct": true,
+        "explanation": "インターネットから直接アクセスされるべきでないインスタンスには、プライベートサブネットを使います。データベースをプライベートサブネットに置く構成は、VPCの基本的な使い方です。"
+      },
+      {
+        "id": "b",
+        "text": "インターネットにアクセスできるパブリックなサブネット",
+        "correct": false,
+        "explanation": "パブリックなサブネットは、インターネットとやり取りするウェブサーバーなどに使います。インターネットから直接アクセスできないようにしたい、という要件に合いません。",
+        "eliminatedBy": "インターネットから直接アクセスできないようにしたい"
+      },
+      {
+        "id": "c",
+        "text": "エッジロケーション",
+        "correct": false,
+        "explanation": "エッジロケーションは、Amazon CloudFrontがコンテンツを配信するための拠点です。VPCの中でデータベースを配置する場所ではありません。",
+        "eliminatedBy": "Amazon VPCの中に"
+      },
+      {
+        "id": "d",
+        "text": "Amazon S3バケット",
+        "correct": false,
+        "explanation": "S3バケットは、オブジェクトを保存する入れ物です。VPCの中でデータベースを配置するための場所ではありません。",
+        "eliminatedBy": "Amazon VPCの中に"
+      }
+    ],
+    "keywords": [
+      "インターネットから直接アクセスできないようにしたい"
+    ],
+    "decisionPoint": "外から直接アクセスさせたくないものはプライベートサブネットに置きます。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-network"
+      },
+      {
+        "type": "service",
+        "id": "amazon-vpc"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-net-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-5",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、特定のIPアドレスからの通信を、サブネット全体で拒否したいと考えています。拒否のルールを設定できる、最も適切な機能はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ネットワークACL",
+        "correct": true,
+        "explanation": "ネットワークACLはサブネットの単位で動作し、許可のルールと拒否のルールの両方を設定できます。特定のIPアドレスからの通信をサブネット全体で拒否する、という要件に合います。"
+      },
+      {
+        "id": "b",
+        "text": "セキュリティグループ",
+        "correct": false,
+        "explanation": "セキュリティグループはインスタンスの単位で動作し、設定できるのは許可のルールだけです。拒否のルールは設定できません。",
+        "eliminatedBy": "拒否のルールを設定できる"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Route 53",
+        "correct": false,
+        "explanation": "Route 53は、名前をIPアドレスに変換するDNSのサービスです。サブネットの通信を拒否する機能ではありません。",
+        "eliminatedBy": "サブネット全体で拒否したい"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Inspector",
+        "correct": false,
+        "explanation": "Inspectorは、ソフトウェアの脆弱性や意図しないネットワークへの露出を見つけるサービスです。問題を検出するサービスであり、通信を拒否するルールを設定する機能ではありません。",
+        "eliminatedBy": "拒否のルールを設定できる"
+      }
+    ],
+    "keywords": [
+      "サブネット全体で拒否したい",
+      "拒否のルール"
+    ],
+    "decisionPoint": "「サブネットの単位」「拒否」はネットワークACL。セキュリティグループは許可ルールだけです。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-network"
+      },
+      {
+        "type": "service",
+        "id": "amazon-vpc"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-net-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-5",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "セキュリティグループの説明として正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "インスタンスの単位で動作し、許可した通信に対する戻りの通信は自動的に許可される",
+        "correct": true,
+        "explanation": "セキュリティグループはインスタンスの単位で動作します。ステートフルであり、許可した通信に対する戻りの通信は自動的に許可されます。"
+      },
+      {
+        "id": "b",
+        "text": "サブネットの単位で動作し、ルールを番号の小さい順に評価する",
+        "correct": false,
+        "explanation": "これはネットワークACLの説明です。ネットワークACLはサブネットの単位で動作し、通信に一致するルールが見つかるまで、番号の小さい順にルールを評価します。",
+        "eliminatedBy": "セキュリティグループ"
+      },
+      {
+        "id": "c",
+        "text": "許可のルールと拒否のルールの両方を設定できる",
+        "correct": false,
+        "explanation": "これはネットワークACLの説明です。セキュリティグループに設定できるのは、許可のルールだけです。",
+        "eliminatedBy": "セキュリティグループ"
+      },
+      {
+        "id": "d",
+        "text": "戻りの通信を、明示的に許可する必要がある",
+        "correct": false,
+        "explanation": "これはネットワークACLの説明です。ネットワークACLはステートレスで、戻りの通信も明示的に許可する必要があります。セキュリティグループでは自動的に許可されます。",
+        "eliminatedBy": "セキュリティグループ"
+      }
+    ],
+    "keywords": [
+      "セキュリティグループ"
+    ],
+    "decisionPoint": "セキュリティグループ＝インスタンス単位・許可のみ・ステートフル。ネットワークACL＝サブネット単位・許可と拒否・ステートレス。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-network"
+      },
+      {
+        "type": "service",
+        "id": "amazon-vpc"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-net-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-5",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、自社のデータセンターとAWSの間で、大量のデータを日常的にやり取りしています。インターネット経由の接続よりも一貫性のある通信を得るために、専用のネットワーク接続を使いたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Direct Connect",
+        "correct": true,
+        "explanation": "Direct Connectは、自社の拠点からAWSへの専用のネットワーク接続を確立するサービスです。インターネット経由の接続より、一貫性のあるネットワーク体験を提供できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Site-to-Site VPN",
+        "correct": false,
+        "explanation": "Site-to-Site VPNは、自社のネットワークとVPCの間に暗号化されたトンネルを作るサービスです。問題文が求めている、専用のネットワーク接続ではありません。",
+        "eliminatedBy": "専用のネットワーク接続"
+      },
+      {
+        "id": "c",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontは、コンテンツを利用者に近い場所から配信するCDNです。データセンターとAWSを結ぶ接続のサービスではありません。",
+        "eliminatedBy": "自社のデータセンターとAWSの間"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Route 53",
+        "correct": false,
+        "explanation": "Route 53は、名前をIPアドレスに変換するDNSのサービスです。データセンターとAWSを結ぶ接続を提供するものではありません。",
+        "eliminatedBy": "専用のネットワーク接続"
+      }
+    ],
+    "keywords": [
+      "一貫性のある通信",
+      "専用のネットワーク接続"
+    ],
+    "decisionPoint": "「専用の接続」「インターネット経由より一貫性がある」はDirect Connectの手がかりです。",
+    "serviceIds": [
+      "aws-direct-connect",
+      "aws-vpn"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-network"
+      },
+      {
+        "type": "service",
+        "id": "aws-direct-connect"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-net-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-5",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、支社のネットワークとAmazon VPCを、暗号化されたトンネルで接続したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Site-to-Site VPN",
+        "correct": true,
+        "explanation": "Site-to-Site VPNは、自社のネットワークと、Amazon VPCまたはAWS Transit Gatewayとの間に、暗号化されたトンネルを作ります。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Direct Connect",
+        "correct": false,
+        "explanation": "Direct Connectは、自社の拠点からAWSへの専用のネットワーク接続を確立するサービスです。問題文が求めている「暗号化されたトンネル」を作るサービスは、AWS VPNです。",
+        "eliminatedBy": "暗号化されたトンネル"
+      },
+      {
+        "id": "c",
+        "text": "AWS Client VPN",
+        "correct": false,
+        "explanation": "Client VPNは、遠隔地にいる個々の利用者が安全に接続するためのものです。支社のネットワーク全体とVPCを接続する、という要件にはSite-to-Site VPNが合います。",
+        "eliminatedBy": "支社のネットワークとAmazon VPCを"
+      },
+      {
+        "id": "d",
+        "text": "AWS Global Accelerator",
+        "correct": false,
+        "explanation": "Global Acceleratorは、世界中の利用者の通信をAWSのグローバルネットワーク経由で届け、アプリケーションの可用性と性能を高めるサービスです。支社とVPCを暗号化されたトンネルで接続するものではありません。",
+        "eliminatedBy": "暗号化されたトンネルで接続"
+      }
+    ],
+    "keywords": [
+      "支社のネットワークとAmazon VPC",
+      "暗号化されたトンネル"
+    ],
+    "decisionPoint": "ネットワークどうしを暗号化されたトンネルで結ぶ＝Site-to-Site VPN。個々の利用者の接続＝Client VPN。",
+    "serviceIds": [
+      "aws-vpn",
+      "aws-direct-connect"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-network"
+      },
+      {
+        "type": "service",
+        "id": "aws-vpn"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-net-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-5",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、新しいウェブサイトのドメイン名を登録し、その名前をIPアドレスに変換して、利用者をAWS上のアプリケーションに案内したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Route 53",
+        "correct": true,
+        "explanation": "Route 53は、可用性と拡張性の高いDNSのサービスです。名前をIPアドレスに変換して利用者をアプリケーションに案内し、ドメイン名の登録もできます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontは、コンテンツを利用者に近いエッジロケーションから配信するCDNです。ドメイン名の登録や、名前をIPアドレスに変換する役割のサービスではありません。",
+        "eliminatedBy": "ドメイン名を登録し、その名前をIPアドレスに変換"
+      },
+      {
+        "id": "c",
+        "text": "Amazon VPC",
+        "correct": false,
+        "explanation": "VPCは、AWSの中に自分専用の仮想ネットワークを作るサービスです。ドメイン名の登録や名前の変換は行いません。",
+        "eliminatedBy": "ドメイン名を登録し、その名前をIPアドレスに変換"
+      },
+      {
+        "id": "d",
+        "text": "AWS Direct Connect",
+        "correct": false,
+        "explanation": "Direct Connectは、自社の拠点とAWSを専用のネットワーク接続で結ぶサービスです。ドメイン名とは関係がありません。",
+        "eliminatedBy": "ドメイン名を登録"
+      }
+    ],
+    "keywords": [
+      "ドメイン名を登録",
+      "IPアドレスに変換"
+    ],
+    "decisionPoint": "「ドメイン名」「DNS」「名前をIPアドレスに変換」はRoute 53です。",
+    "serviceIds": [
+      "amazon-route-53"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-network"
+      },
+      {
+        "type": "service",
+        "id": "amazon-route-53"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-net-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-5",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業では、在宅勤務の社員が、自宅のパソコンからAWS上のリソースに安全に接続する必要があります。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Client VPN",
+        "correct": true,
+        "explanation": "Client VPNは、遠隔地の利用者が、AWSやオンプレミスのネットワークに安全に接続できるようにするサービスです。在宅勤務の社員の接続に合います。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Direct Connect",
+        "correct": false,
+        "explanation": "Direct Connectは、データセンターやオフィスなどの自社の拠点とAWSを、専用のネットワーク接続で結ぶサービスです。個々の社員が自宅のパソコンから接続するためのものではありません。",
+        "eliminatedBy": "在宅勤務の社員が、自宅のパソコンから"
+      },
+      {
+        "id": "c",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontは、コンテンツを利用者に配信するCDNです。社員がAWS上のリソースに安全に接続するためのサービスではありません。",
+        "eliminatedBy": "安全に接続する"
+      },
+      {
+        "id": "d",
+        "text": "ネットワークACL",
+        "correct": false,
+        "explanation": "ネットワークACLは、サブネットに出入りする通信を許可または拒否する機能です。自宅のパソコンからの安全な接続そのものを提供するものではありません。",
+        "eliminatedBy": "自宅のパソコンからAWS上のリソースに安全に接続"
+      }
+    ],
+    "keywords": [
+      "在宅勤務の社員",
+      "自宅のパソコンから"
+    ],
+    "decisionPoint": "個々の利用者が遠隔地から接続する＝Client VPN。",
+    "serviceIds": [
+      "aws-vpn"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-network"
+      },
+      {
+        "type": "service",
+        "id": "aws-vpn"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-edge-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "What is Amazon CloudFront?（Amazon CloudFront デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある動画配信サービスは、東京のリージョンでコンテンツを保管しています。海外の利用者にも、低い遅延で動画を配信したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon CloudFront",
+        "correct": true,
+        "explanation": "CloudFrontは、コンテンツのコピーを世界各地のエッジロケーションにキャッシュし、利用者に近い場所から低い遅延で配信するCDNのサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Route 53",
+        "correct": false,
+        "explanation": "Route 53は、名前をIPアドレスに変換するDNSのサービスです。利用者を接続先に案内しますが、動画のコピーを利用者の近くに置いて配信するサービスではありません。",
+        "eliminatedBy": "低い遅延で動画を配信"
+      },
+      {
+        "id": "c",
+        "text": "AWS Direct Connect",
+        "correct": false,
+        "explanation": "Direct Connectは、自社の拠点とAWSを専用のネットワーク接続で結ぶサービスです。海外の一般の利用者への配信に使うものではありません。",
+        "eliminatedBy": "海外の利用者にも"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EBS",
+        "correct": false,
+        "explanation": "EBSは、EC2インスタンスに接続して使うブロックストレージです。コンテンツを世界中に配信する機能はありません。",
+        "eliminatedBy": "海外の利用者にも、低い遅延で動画を配信"
+      }
+    ],
+    "keywords": [
+      "海外の利用者",
+      "低い遅延で動画を配信"
+    ],
+    "decisionPoint": "「世界中の利用者にコンテンツを低い遅延で配信」はCloudFront（CDN）です。",
+    "serviceIds": [
+      "amazon-cloudfront"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-global-edge"
+      },
+      {
+        "type": "service",
+        "id": "amazon-cloudfront"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-edge-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is Amazon CloudFront?（Amazon CloudFront デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html"
+      },
+      {
+        "title": "How CloudFront delivers content（Amazon CloudFront デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "Amazon CloudFrontが、コンテンツのコピーをキャッシュして利用者に配信するために使う、世界各地の拠点を何と呼びますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "エッジロケーション",
+        "correct": true,
+        "explanation": "CloudFrontは、エッジロケーションと呼ばれる世界各地のデータセンターのネットワークを通じてコンテンツを配信します。POP（Point of Presence）とも呼ばれます。"
+      },
+      {
+        "id": "b",
+        "text": "アベイラビリティゾーン",
+        "correct": false,
+        "explanation": "アベイラビリティゾーンは、リージョンの中にある1つ以上のデータセンターのまとまりです。高可用性のために使うもので、CloudFrontがコンテンツをキャッシュする拠点の名前ではありません。",
+        "eliminatedBy": "Amazon CloudFrontが、コンテンツのコピーをキャッシュ"
+      },
+      {
+        "id": "c",
+        "text": "リージョン",
+        "correct": false,
+        "explanation": "リージョンは、複数のアベイラビリティゾーンが置かれた、世界の中の物理的な場所です。CloudFrontがコンテンツをキャッシュする拠点は、リージョンとは別に用意されています。",
+        "eliminatedBy": "Amazon CloudFrontが、コンテンツのコピーをキャッシュ"
+      },
+      {
+        "id": "d",
+        "text": "サブネット",
+        "correct": false,
+        "explanation": "サブネットは、VPCの中のIPアドレスの範囲です。世界各地にある配信の拠点ではありません。",
+        "eliminatedBy": "世界各地の拠点"
+      }
+    ],
+    "keywords": [
+      "Amazon CloudFront",
+      "キャッシュ",
+      "世界各地の拠点"
+    ],
+    "decisionPoint": "リージョン、アベイラビリティゾーン、エッジロケーションは、それぞれ役割が違います。",
+    "serviceIds": [
+      "amazon-cloudfront"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-global-edge"
+      },
+      {
+        "type": "lesson",
+        "id": "clf-regions-azs"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-edge-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、複数のリージョンでアプリケーションを動かしています。利用者には固定の静的なIPアドレスを入口として提供し、通信をAWSのグローバルネットワーク経由で、最も近い正常なエンドポイントに届けたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Global Accelerator",
+        "correct": true,
+        "explanation": "Global Acceleratorは、アプリケーションの固定の入口となる静的なIPアドレスを提供し、利用者の通信をAWSのグローバルネットワーク経由で、最も近い正常なエンドポイントに届けます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontは、コンテンツのコピーをエッジロケーションにキャッシュして配信するCDNです。問題文が求めているのは、静的なIPアドレスを入口にしてエンドポイントへ通信を届ける役割です。",
+        "eliminatedBy": "固定の静的なIPアドレスを入口として提供"
+      },
+      {
+        "id": "c",
+        "text": "AWS Site-to-Site VPN",
+        "correct": false,
+        "explanation": "Site-to-Site VPNは、自社のネットワークとVPCの間に暗号化されたトンネルを作るサービスです。世界中の利用者の通信をエンドポイントに届けるものではありません。",
+        "eliminatedBy": "最も近い正常なエンドポイントに届けたい"
+      },
+      {
+        "id": "d",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheは、インメモリのキャッシュのサービスです。ネットワークの経路や入口のIPアドレスを提供するものではありません。",
+        "eliminatedBy": "固定の静的なIPアドレスを入口として提供"
+      }
+    ],
+    "keywords": [
+      "静的なIPアドレス",
+      "AWSのグローバルネットワーク経由"
+    ],
+    "decisionPoint": "「静的なIPアドレス」「AWSのグローバルネットワーク経由」はGlobal Accelerator。「キャッシュして配信」はCloudFront。",
+    "serviceIds": [
+      "aws-global-accelerator",
+      "amazon-cloudfront"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-global-edge"
+      },
+      {
+        "type": "service",
+        "id": "aws-global-accelerator"
+      }
+    ]
+  }
+]

@@ -1,0 +1,76 @@
+{
+  "id": "aws-vpn",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS VPN",
+  "aliases": [
+    "VPN",
+    "Site-to-Site VPN",
+    "Client VPN",
+    "サイト間VPN"
+  ],
+  "category": "networking",
+  "summary": "自社のネットワークや遠隔地の利用者と、AWSとの間を、安全に接続するサービス。",
+  "beginner": {
+    "analogy": "外から中身が見えない「専用の地下通路」を作るようなものです。通路の中を通る人や荷物は、外からのぞかれません。",
+    "description": "会社のネットワークとAWSを、暗号化された通信でつなぐサービスです。社外にいる社員が安全にAWSや社内のネットワークに接続するための機能もあります。"
+  },
+  "exam": {
+    "description": "AWS VPNは、AWS Site-to-Site VPNとAWS Client VPNで構成されます。Site-to-Site VPNは、自社のネットワークと、Amazon VPCまたはAWS Transit Gatewayとの間に、暗号化されたトンネルを作ります。Client VPNは、遠隔地の利用者が、AWSやオンプレミスのネットワークに安全に接続できるようにします。",
+    "points": [
+      "暗号化されたトンネルでオンプレミスとAWSを接続＝AWS Site-to-Site VPN。",
+      "遠隔地の利用者（リモートワークの社員など）の接続＝AWS Client VPN。",
+      "試験ガイドでは、接続の選択肢としてAWS VPNとAWS Direct Connectが挙げられている。",
+      "「専用のネットワーク接続」はDirect Connect、「暗号化されたトンネル」はVPN。"
+    ]
+  },
+  "useCases": [
+    "自社のネットワークとVPCの接続",
+    "在宅勤務の社員からAWS上のリソースへの安全な接続"
+  ],
+  "mechanism": "Site-to-Site VPNは、自社のネットワークとVPCの間に暗号化されたトンネルを作ります。Client VPNは、利用者の端末からの安全な接続を提供します。",
+  "pros": [
+    "通信が暗号化される",
+    "拠点どうしの接続と、利用者の端末からの接続の両方に対応する"
+  ],
+  "cons": [
+    "専用のネットワーク接続ではない。一貫性のある専用の接続が必要な場合はAWS Direct Connectを検討する"
+  ],
+  "scenes": [
+    "支社のネットワークとVPCを、暗号化されたトンネルで接続する"
+  ],
+  "similarServiceIds": [
+    "aws-direct-connect"
+  ],
+  "relatedServiceIds": [
+    "amazon-vpc"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/vpn/"
+}

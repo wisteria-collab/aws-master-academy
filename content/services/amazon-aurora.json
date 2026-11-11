@@ -1,0 +1,79 @@
+{
+  "id": "amazon-aurora",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon Aurora",
+  "aliases": [
+    "Aurora",
+    "オーロラ"
+  ],
+  "category": "database",
+  "summary": "MySQLおよびPostgreSQLと互換性のある、フルマネージドのリレーショナルデータベース。",
+  "beginner": {
+    "analogy": "同じ管理人付きマンション（RDS）の中の、「クラウド向けに設計し直された高性能な部屋」のようなものです。使い方は一般的な部屋（MySQLやPostgreSQL）と同じですが、設備が強化されています。",
+    "description": "MySQLやPostgreSQLと同じ使い方ができる、AWSが作ったデータベースです。保存場所は必要に応じて自動で大きくなり、データは複数の場所に複製されるので、障害に強くなっています。"
+  },
+  "exam": {
+    "description": "MySQLおよびPostgreSQLと互換性のあるリレーショナルデータベースエンジンで、Amazon RDSによってフルマネージドで提供されます。分散型で耐障害性があり、自己修復するストレージを備え、ストレージは自動的に拡張します。低遅延のリードレプリカを最大15個まで使え、データは3つのアベイラビリティゾーンにまたがって複製されます。Amazon S3への継続的なバックアップも行われます。",
+    "points": [
+      "MySQL・PostgreSQL互換のリレーショナルデータベース＝Amazon Aurora。",
+      "Amazon RDSによってフルマネージドで提供される。",
+      "ストレージは自動的に拡張する。",
+      "データは3つのアベイラビリティゾーンにまたがって複製される。",
+      "低遅延のリードレプリカを最大15個まで使える。"
+    ]
+  },
+  "useCases": [
+    "高い可用性と性能が必要な業務アプリケーションのデータベース",
+    "読み取りが多いアプリケーションのデータベース"
+  ],
+  "mechanism": "分散型で耐障害性のあるストレージに、データを3つのアベイラビリティゾーンにまたがって複製します。ストレージは必要に応じて自動的に拡張します。",
+  "pros": [
+    "MySQL・PostgreSQLと互換性がある",
+    "ストレージが自動で拡張する",
+    "3つのアベイラビリティゾーンに複製される",
+    "リードレプリカで読み取りを分散できる"
+  ],
+  "cons": [
+    "対応するのはMySQL互換とPostgreSQL互換。それ以外のエンジンを使いたい場合はAmazon RDSの他のエンジンを選ぶ"
+  ],
+  "scenes": [
+    "PostgreSQLを使っているアプリケーションを、互換性を保ったまま、可用性の高いデータベースに移す"
+  ],
+  "similarServiceIds": [
+    "amazon-rds",
+    "amazon-dynamodb"
+  ],
+  "relatedServiceIds": [
+    "aws-dms",
+    "amazon-s3"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/rds/"
+}

@@ -1,0 +1,80 @@
+{
+  "id": "amazon-rds",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon RDS",
+  "aliases": [
+    "RDS",
+    "Relational Database Service",
+    "アールディーエス"
+  ],
+  "category": "database",
+  "summary": "リレーショナルデータベースを、簡単にセットアップ、運用、拡張できるマネージドサービス。",
+  "beginner": {
+    "analogy": "「管理人付きの賃貸マンション」に似ています。建物の点検や修理（パッチ適用やバックアップ）は管理人であるAWSが行い、住人である利用者は部屋の中の暮らし（データとアプリケーション）に集中できます。",
+    "description": "表の形でデータを保存するデータベースを、AWSが面倒を見てくれる形で使えるサービスです。機械の用意、初期設定、更新プログラムの適用、バックアップといった手間のかかる作業を自動化してくれます。"
+  },
+  "exam": {
+    "description": "クラウドでリレーショナルデータベースを簡単にセットアップ、運用、スケールできるサービスです。ハードウェアのプロビジョニング、データベースのセットアップ、パッチ適用、バックアップといった時間のかかる管理作業を自動化します。MySQL、MariaDB、PostgreSQL、Oracle、SQL Serverなどのデータベースエンジンを選べます。マルチAZ配置で高可用性を高められます。",
+    "points": [
+      "マネージドなリレーショナルデータベース＝Amazon RDS。",
+      "ハードウェアの用意、セットアップ、パッチ適用、バックアップといった管理作業を自動化する。",
+      "エンジンはMySQL、MariaDB、PostgreSQL、Oracle、SQL Serverなどから選ぶ。",
+      "高可用性はマルチAZ配置で高める。",
+      "AWS DMSを使って、既存のデータベースをRDSに移行したり複製したりできる。",
+      "試験ガイドでは、EC2上でデータベースを動かす場合と、AWSのマネージドデータベースを使う場合の使い分けが問われる。"
+    ]
+  },
+  "useCases": [
+    "ウェブアプリケーションやモバイルアプリのデータベース",
+    "オンプレミスで使っていたリレーショナルデータベースの移行先"
+  ],
+  "mechanism": "利用者はデータベースエンジンを選んでデータベースを作成します。ハードウェアの用意、パッチ適用、バックアップなどはRDSが自動化します。",
+  "pros": [
+    "管理作業を自動化できる",
+    "使い慣れたデータベースエンジンを選べる",
+    "マルチAZ配置で高可用性を高められる"
+  ],
+  "cons": [
+    "データの中身や、誰にアクセスを許可するかは利用者が管理する"
+  ],
+  "scenes": [
+    "オンプレミスのMySQLデータベースを、運用の手間を減らすためにRDSへ移行する"
+  ],
+  "similarServiceIds": [
+    "amazon-aurora",
+    "amazon-dynamodb"
+  ],
+  "relatedServiceIds": [
+    "aws-dms",
+    "amazon-ec2"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/rds/"
+}

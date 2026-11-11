@@ -1,0 +1,84 @@
+{
+  "id": "clf-database",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "What is the AWS Schema Conversion Tool?（AWS SCT ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 7,
+  "title": "データベースサービス",
+  "domainId": "clf-d3",
+  "taskIds": [
+    "clf-3-4"
+  ],
+  "overview": "データベースは、アプリケーションのデータを整理して保存し、必要なときに取り出すための仕組みです。\nAWSには、目的の異なる複数のデータベースサービスがあります。CLFの試験ガイドでは、リレーショナルデータベース（Amazon RDS、Amazon Aurora）、NoSQLデータベース（Amazon DynamoDB）、メモリベースのデータベース（Amazon ElastiCache）、そしてデータベースの移行ツール（AWS DMS、AWS SCT）が挙げられています。\nまた、データベースをAmazon EC2の上で自分で動かすか、AWSのマネージドデータベースを使うかを判断できることも求められます。",
+  "beginner": {
+    "analogy": "データの保存のしかたを、身近な物にたとえます。リレーショナルデータベースは、行と列で整理された「台帳」です。NoSQLのキーバリュー型データベースは、番号を伝えるとすぐ中身が出てくる「コインロッカー」です。インメモリのキャッシュは、よく使う書類を置いておく「机の上」です。",
+    "description": "どのデータベースを選ぶかは、「どんな形のデータを」「どんな速さで」扱いたいかで決まります。そして、AWSのマネージドデータベースを使えば、機械の用意、更新プログラムの適用、バックアップといった手間のかかる作業をAWSに任せられます。"
+  },
+  "useCases": [
+    "ネットショップの顧客、商品、注文のデータをリレーショナルデータベースで管理する",
+    "ゲームのプレイヤーデータを、キーバリュー型のデータベースで素早く読み書きする",
+    "よく読まれるデータをキャッシュして、ウェブサイトの応答を速くする",
+    "オンプレミスのデータベースを、停止時間を抑えながらAWSに移行する"
+  ],
+  "mechanism": {
+    "text": "【リレーショナルデータベース】\nAmazon RDSは、リレーショナルデータベースを簡単にセットアップ、運用、拡張できるマネージドサービスです。ハードウェアの用意、セットアップ、パッチ適用、バックアップを自動化します。MySQL、MariaDB、PostgreSQL、Oracle、SQL Serverなどのエンジンを選べ、マルチAZ配置で高可用性を高められます。\nAmazon Auroraは、MySQLおよびPostgreSQLと互換性のあるリレーショナルデータベースです。ストレージは自動的に拡張し、データは3つのアベイラビリティゾーンにまたがって複製されます。\n【NoSQLデータベース】\nAmazon DynamoDBは、キーバリュー型・ドキュメント型のデータベースです。どんな規模でも1桁ミリ秒のパフォーマンスを発揮する、フルマネージドのサービスです。\n【メモリベースのデータベース】\nAmazon ElastiCacheは、マネージドのインメモリキャッシュです。ディスクベースのデータベースより高速に、メモリから情報を取得できます。\n【移行ツール】\nAWS Database Migration Service（AWS DMS）は、データベースをAWSに移行するサービスです。移行中も移行元のデータベースは稼働し続けます。\nAWS Schema Conversion Tool（AWS SCT）は、既存のデータベースのスキーマを、あるデータベースエンジンから別のエンジン向けに変換するツールです。\n【EC2上のデータベースか、マネージドデータベースか】\nEC2インスタンスにデータベースをインストールして動かすこともできます。この場合、OSやデータベースソフトウェアを自分で管理できますが、パッチ適用やバックアップも自分で行います。マネージドデータベースでは、こうした管理作業をAWSに任せられます。",
+    "figureId": "db-types"
+  },
+  "relatedServiceIds": [
+    "amazon-rds",
+    "amazon-aurora",
+    "amazon-dynamodb",
+    "amazon-elasticache",
+    "aws-dms",
+    "amazon-ec2"
+  ],
+  "examPoints": [
+    "リレーショナル＝Amazon RDS、Amazon Aurora。NoSQL（キーバリュー）＝Amazon DynamoDB。メモリベース＝Amazon ElastiCache。",
+    "RDSは管理作業（ハードウェアの用意、セットアップ、パッチ適用、バックアップ）を自動化する。",
+    "AuroraはMySQL・PostgreSQL互換。ストレージが自動で拡張し、3つのアベイラビリティゾーンに複製される。",
+    "DynamoDBは、どんな規模でも1桁ミリ秒。フルマネージド。",
+    "ElastiCacheは、メモリからデータを返して応答を速くする。エンジンはRedis OSSとMemcached。",
+    "データベースの移行＝AWS DMS（移行中も移行元は稼働）。スキーマの変換＝AWS SCT。",
+    "「管理を任せたい」ならマネージドデータベース、「OSやソフトウェアを自分で管理したい」ならEC2上のデータベース。",
+    "RDSの高可用性は、マルチAZ配置で高める。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-db-01",
+    "clf-q-db-02",
+    "clf-q-db-03",
+    "clf-q-db-04",
+    "clf-q-db-05",
+    "clf-q-db-06",
+    "clf-q-db-07"
+  ],
+  "glossaryTermIds": [
+    "relational-database",
+    "nosql",
+    "in-memory",
+    "cache",
+    "replica",
+    "fully-managed",
+    "high-availability",
+    "availability-zone"
+  ]
+}

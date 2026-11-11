@@ -652,5 +652,309 @@
     "plain": "飲食店が、衛生に関する決まりを守って営業することに似ています。決まりは業種や地域によって違います。",
     "example": "AWS Artifactから、AWSのセキュリティとコンプライアンスに関するレポートを入手して、監査の資料にする。",
     "serviceIds": []
+  },
+  {
+    "id": "relational-database",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "リレーショナルデータベース",
+    "description": "データを、行と列からなる「表」の形で整理して保存するデータベースです。Amazon RDSやAmazon Auroraがこの種類です。",
+    "plain": "表計算ソフトの表を、何枚も関連付けて使うイメージです。「顧客の表」と「注文の表」を、顧客番号でつなげて調べられます。",
+    "example": "ネットショップで、顧客、商品、注文の情報をそれぞれ表にして保存し、組み合わせて検索する。",
+    "serviceIds": []
+  },
+  {
+    "id": "nosql",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "NoSQLデータベース",
+    "description": "表の形にとらわれずにデータを保存するデータベースの総称です。キーと値の組で保存するAmazon DynamoDBが代表例です。",
+    "plain": "ロッカーに似ています。「ロッカー番号（キー）」を伝えると、「中の荷物（値）」をすぐに取り出せます。",
+    "example": "ゲームのプレイヤーIDをキーにして、スコアや持ち物のデータを素早く読み書きする。",
+    "serviceIds": []
+  },
+  {
+    "id": "in-memory",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "インメモリ",
+    "description": "データを、ディスクではなくメモリ上に置いて扱う方式です。ディスクを使うデータベースより速く読み出せます。",
+    "plain": "よく使う書類を、書庫（ディスク）ではなく机の上（メモリ）に置いておくイメージです。すぐ手に取れます。",
+    "example": "何度も読まれる商品ランキングを、Amazon ElastiCacheに置いておき、素早く返す。",
+    "serviceIds": []
+  },
+  {
+    "id": "cache",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is Amazon CloudFront?（Amazon CloudFront デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "キャッシュ",
+    "description": "一度取り出したデータのコピーを、すぐ使える場所に一時的に置いておく仕組みです。次に同じデータが必要になったときに、素早く返せます。",
+    "plain": "よく注文される料理を、あらかじめ作って手元に置いておくイメージです。注文のたびに一から作るより早く出せます。",
+    "example": "Amazon CloudFrontが、画像や動画のコピーを利用者に近いエッジロケーションに置いておく。",
+    "serviceIds": []
+  },
+  {
+    "id": "subnet",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "サブネット",
+    "description": "VPCの中の、IPアドレスの範囲です。インスタンスは、VPC内のいずれかのサブネットの中に起動します。",
+    "plain": "建物（VPC）の中の「部屋」のようなものです。来客が入れる受付の部屋と、関係者しか入れない奥の部屋に分けられます。",
+    "example": "ウェブサーバーはインターネットとやり取りするサブネットに、データベースはインターネットから直接アクセスされないプライベートサブネットに置く。",
+    "serviceIds": []
+  },
+  {
+    "id": "network-acl",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "ネットワークACL",
+    "description": "サブネットの単位で、通信を許可または拒否するルールを設定する仕組みです。戻りの通信も明示的に許可する必要があります（ステートレス）。",
+    "plain": "建物のフロアの入口にいる警備員のようなものです。フロアに出入りする人を、入るときも出るときも、名簿（ルール）の順番に照らして確認します。",
+    "example": "特定のIPアドレスからの通信を、サブネット全体で拒否する。",
+    "serviceIds": []
+  },
+  {
+    "id": "dns",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "DNS",
+    "description": "「example.com」のような名前を、コンピューターどうしが通信に使うIPアドレスに変換する仕組みです。",
+    "plain": "電話帳に似ています。相手の名前から電話番号を調べるように、サイトの名前から接続先の番号（IPアドレス）を調べます。",
+    "example": "Amazon Route 53が、ウェブサイトの名前をIPアドレスに変換し、利用者をAWS上のアプリケーションに案内する。",
+    "serviceIds": []
+  },
+  {
+    "id": "cdn",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "What is Amazon CloudFront?（Amazon CloudFront デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "CDN",
+    "description": "コンテンツ配信ネットワークのことです。世界各地の拠点にコンテンツのコピーを置き、利用者に近い拠点から配信します。",
+    "plain": "全国チェーンの店舗に商品をあらかじめ配っておくイメージです。遠くの本社倉庫から毎回送るより、近くの店舗で渡すほうが早く届きます。",
+    "example": "Amazon CloudFrontで、動画や画像を世界中の利用者に低い遅延で配信する。",
+    "serviceIds": []
+  },
+  {
+    "id": "edge-location",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is Amazon CloudFront?（Amazon CloudFront デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html"
+      },
+      {
+        "title": "How CloudFront delivers content（Amazon CloudFront デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "エッジロケーション",
+    "description": "Amazon CloudFrontがコンテンツを配信するために使う、世界各地のデータセンターです。POP（Point of Presence）とも呼ばれます。",
+    "plain": "本社（リージョン）とは別に、街なかにたくさんある「受け取り窓口」のようなものです。利用者は近くの窓口でコンテンツを受け取れます。",
+    "example": "東京のリージョンにある画像のコピーを、海外のエッジロケーションに置き、現地の利用者に素早く届ける。",
+    "serviceIds": []
+  },
+  {
+    "id": "latency",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is Amazon CloudFront?（Amazon CloudFront デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "遅延",
+    "description": "通信を送ってから応答が返ってくるまでにかかる時間です。レイテンシーとも呼びます。短いほど快適に使えます。",
+    "plain": "遠くの人に手紙を送ると、返事が届くまで時間がかかるのと同じです。相手が近くにいるほど、やり取りは早くなります。",
+    "example": "利用者に近い場所からコンテンツを配信して、遅延を小さくする。",
+    "serviceIds": []
+  },
+  {
+    "id": "vpn",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "VPN",
+    "description": "自社のネットワークとAWSなどの間を、暗号化されたトンネルで安全につなぐ仕組みです。",
+    "plain": "外から中身が見えない「専用の地下通路」を通って行き来するイメージです。",
+    "example": "AWS Site-to-Site VPNで、会社のネットワークとVPCの間に暗号化されたトンネルを作る。",
+    "serviceIds": []
+  },
+  {
+    "id": "replica",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "レプリカ",
+    "description": "データベースなどの複製のことです。読み取りを分散したり、障害に備えたりするために使います。",
+    "plain": "同じ内容のノートのコピーを何冊か用意して、大勢が同時に読めるようにするイメージです。",
+    "example": "Amazon Auroraで、読み取り用のリードレプリカを追加して、読み取りの負荷を分散する。",
+    "serviceIds": []
   }
 ]

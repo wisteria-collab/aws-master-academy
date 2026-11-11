@@ -1,0 +1,84 @@
+{
+  "id": "clf-network",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 8,
+  "title": "ネットワークサービス",
+  "domainId": "clf-d3",
+  "taskIds": [
+    "clf-3-5"
+  ],
+  "overview": "AWSの上にサーバーやデータベースを置くときは、それらをつなぐ「ネットワーク」が必要です。その土台になるのがAmazon VPCです。\nCLFの試験ガイドでは、VPCの構成要素（サブネット、ゲートウェイなど）、VPCのセキュリティ（ネットワークACL、セキュリティグループ、Amazon Inspector）、Amazon Route 53の目的、そしてオンプレミスとAWSを接続する方法（AWS VPN、AWS Direct Connect）が挙げられています。",
+  "beginner": {
+    "analogy": "VPCは、AWSという大きな土地の中に作る「塀で囲んだ自分の敷地」です。サブネットは、敷地の中の「部屋」です。来客を迎える受付の部屋（インターネットとやり取りするサブネット）と、関係者だけが入れる奥の部屋（プライベートサブネット）に分けます。セキュリティグループは「各部屋のドアの鍵」、ネットワークACLは「フロアの入口にいる警備員」です。",
+    "description": "インターネットから見える場所には、見せる必要のあるもの（ウェブサーバーなど）だけを置きます。大切なデータベースは、外から直接入れない場所に置きます。そして、通ってよい通信だけを通すように、2種類の仕組み（セキュリティグループとネットワークACL）で守ります。"
+  },
+  "useCases": [
+    "ウェブサーバーとデータベースを、別々のサブネットに分けて配置する",
+    "自社のデータセンターとAWSを接続する",
+    "ウェブサイトのドメイン名を登録し、利用者をアプリケーションに案内する",
+    "在宅勤務の社員が、AWS上のリソースに安全に接続する"
+  ],
+  "mechanism": {
+    "text": "【Amazon VPC】\nAWSクラウドの中の、論理的に分離された自分専用の仮想ネットワークです。IPアドレスの範囲、サブネット、ルートテーブル、ネットワークゲートウェイを利用者が設定します。\nサブネットは、VPCの中のIPアドレスの範囲です。インターネットから直接アクセスされるべきでないインスタンスは、プライベートサブネットに置きます。インターネットゲートウェイからの通信は、ルートテーブルの経路に従って、適切なサブネットに届けられます。\n【VPCのセキュリティ】\nセキュリティグループとネットワークACLには、次の違いがあります。\n・動作する単位：セキュリティグループはインスタンス、ネットワークACLはサブネット。\n・ルールの種類：セキュリティグループは許可のみ、ネットワークACLは許可と拒否。\n・ルールの評価：セキュリティグループはすべてのルールを評価して判断、ネットワークACLは番号の小さい順に評価して、一致したところで決まる。\n・戻りの通信：セキュリティグループは自動的に許可（ステートフル）、ネットワークACLは明示的に許可が必要（ステートレス）。\nAmazon Inspectorは、意図しないネットワークへの露出や脆弱性を見つけるサービスです。\n【Amazon Route 53】\nDNSのサービスです。「www.example.com」のような名前をIPアドレスに変換し、利用者をアプリケーションに案内します。ドメイン名の登録や、ヘルスチェックもできます。\n【オンプレミスとの接続】\nAWS Site-to-Site VPNは、自社のネットワークとVPCの間に、暗号化されたトンネルを作ります。AWS Client VPNは、遠隔地の利用者が安全に接続できるようにします。\nAWS Direct Connectは、自社の拠点からAWSへの専用のネットワーク接続を確立します。インターネット経由の接続より、一貫性のあるネットワーク体験を提供できます。",
+    "figureId": "vpc-structure"
+  },
+  "relatedServiceIds": [
+    "amazon-vpc",
+    "amazon-route-53",
+    "aws-vpn",
+    "aws-direct-connect",
+    "amazon-inspector",
+    "amazon-ec2"
+  ],
+  "examPoints": [
+    "VPC＝AWSの中の、論理的に分離された自分専用の仮想ネットワーク。",
+    "データベースなど、インターネットから直接アクセスさせたくないものはプライベートサブネットに置く。",
+    "セキュリティグループ＝インスタンス単位・許可ルールのみ・ステートフル（戻りの通信は自動で許可）。",
+    "ネットワークACL＝サブネット単位・許可と拒否のルール・ステートレス（戻りの通信も明示的に許可）。",
+    "「特定の通信を拒否したい」という要件はネットワークACL。セキュリティグループには拒否のルールがない。",
+    "Route 53＝DNS。名前をIPアドレスに変換する。ドメイン名の登録もできる。",
+    "暗号化されたトンネル＝AWS VPN（拠点どうしはSite-to-Site VPN、個々の利用者はClient VPN）。",
+    "専用のネットワーク接続・一貫性のある通信＝AWS Direct Connect。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-net-01",
+    "clf-q-net-02",
+    "clf-q-net-03",
+    "clf-q-net-04",
+    "clf-q-net-05",
+    "clf-q-net-06",
+    "clf-q-net-07"
+  ],
+  "glossaryTermIds": [
+    "subnet",
+    "security-group",
+    "network-acl",
+    "dns",
+    "vpn",
+    "on-premises",
+    "vulnerability",
+    "encryption"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "amazon-cloudfront",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "What is Amazon CloudFront?（Amazon CloudFront デベロッパーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon CloudFront",
+  "aliases": [
+    "CloudFront",
+    "クラウドフロント"
+  ],
+  "category": "networking",
+  "summary": "データ、動画、アプリケーション、APIを、低い遅延と高い転送速度で世界中の利用者に配信するCDNサービス。",
+  "beginner": {
+    "analogy": "全国チェーンの店舗網に似ています。商品（コンテンツ）のコピーを各地の店舗（エッジロケーション）に置いておき、利用者は一番近い店舗で受け取ります。",
+    "description": "ウェブサイトの画像や動画のコピーを、世界各地の拠点に置いておくサービスです。利用者は近くの拠点から受け取れるので、遠くのサーバーまで取りに行くより早く表示されます。"
+  },
+  "exam": {
+    "description": "データ、動画、アプリケーション、APIを、低い遅延と高い転送速度で世界中の顧客に安全に配信する、高速なコンテンツ配信ネットワーク（CDN）サービスです。エッジロケーションと呼ばれる世界各地のデータセンターのネットワークを通じてコンテンツを配信し、利用者のリクエストは、遅延が最も小さいエッジロケーションに振り分けられます。コンテンツの元の置き場所（オリジン）には、Amazon S3、Elastic Load Balancing、Amazon EC2などを指定できます。AWS Shieldと連携してDDoS攻撃を緩和します。",
+    "points": [
+      "CDN（コンテンツ配信ネットワーク）＝Amazon CloudFront。",
+      "エッジロケーションにコンテンツのコピーをキャッシュし、利用者に近い場所から配信する。",
+      "利点は「低い遅延」と「高い転送速度」。",
+      "オリジン（元の置き場所）にはAmazon S3、Elastic Load Balancing、Amazon EC2などを指定できる。",
+      "AWS Shieldと連携して、DDoS攻撃を緩和する。"
+    ]
+  },
+  "useCases": [
+    "世界中の利用者への画像や動画の配信",
+    "ウェブサイトの表示の高速化"
+  ],
+  "mechanism": "利用者がコンテンツをリクエストすると、遅延が最も小さいエッジロケーションに振り分けられます。そこにコピーがあればすぐに配信し、なければオリジンから取得して配信します。",
+  "pros": [
+    "利用者に近い場所から配信できる",
+    "世界中の利用者に低い遅延で届けられる",
+    "AWS Shieldと連携して保護できる"
+  ],
+  "cons": [
+    "コンテンツの元の置き場所（オリジン）は別に用意する"
+  ],
+  "scenes": [
+    "日本のリージョンで動かしている動画サイトを、海外の利用者にも快適に見られるようにする"
+  ],
+  "similarServiceIds": [
+    "aws-global-accelerator"
+  ],
+  "relatedServiceIds": [
+    "amazon-s3",
+    "elastic-load-balancing",
+    "aws-shield",
+    "aws-waf",
+    "amazon-route-53"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/cloudfront/"
+}

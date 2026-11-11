@@ -206,6 +206,82 @@ function IamElements() {
   )
 }
 
+function EdgeDelivery() {
+  const user = (x: number, label: string) => (
+    <g>
+      <Box x={x} y={150} w={100} h={34} r={17} fill="#fff" />
+      <T x={x + 50} y={172} size={12}>{label}</T>
+      <line x1={x + 50} y1={148} x2={x + 50} y2={128} stroke={line} strokeWidth="2" markerEnd="url(#edge-arrow)" />
+      <Box x={x} y={84} w={100} h={42} fill={tint} stroke={orange} />
+      <T x={x + 50} y={102} size={12} bold>エッジ</T>
+      <T x={x + 50} y={118} size={12}>ロケーション</T>
+      <line x1={x + 50} y1={82} x2={180} y2={52} stroke={line} strokeWidth="1.5" strokeDasharray="4 3" />
+    </g>
+  )
+  return (
+    <Frame title="コンテンツのコピーを、利用者に近いエッジロケーションから届ける" height={190}>
+      <defs>
+        <marker id="edge-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 0L10 5L0 10z" fill={line} />
+        </marker>
+      </defs>
+      <Box x={90} y={6} w={180} h={44} fill={soft} />
+      <T x={180} y={25} bold>リージョン（オリジン）</T>
+      <T x={180} y={42} size={12}>元のコンテンツの置き場所</T>
+      {user(6, '利用者（日本）')}
+      {user(130, '利用者（欧州）')}
+      {user(254, '利用者（米国）')}
+    </Frame>
+  )
+}
+
+function DbTypes() {
+  const row = (y: number, kind: string, like: string, svc: string) => (
+    <g>
+      <Box x={6} y={y} w={348} h={54} />
+      <rect x={6} y={y} width={112} height={54} rx={8} fill={tint} stroke={orange} strokeWidth="1.5" />
+      <T x={62} y={y + 24} size={12} bold>{kind}</T>
+      <T x={62} y={y + 42} size={12}>{like}</T>
+      <T x={128} y={y + 32} size={13} anchor="start">{svc}</T>
+    </g>
+  )
+  return (
+    <Frame title="データベースの種類と、対応するAWSのサービス" height={190}>
+      {row(6, 'リレーショナル', '台帳', 'Amazon RDS、Amazon Aurora')}
+      {row(68, 'NoSQL', 'コインロッカー', 'Amazon DynamoDB')}
+      {row(130, 'メモリベース', '机の上', 'Amazon ElastiCache')}
+    </Frame>
+  )
+}
+
+function VpcStructure() {
+  const subnet = (x: number, name: string, a: string, inst: string) => (
+    <g>
+      <Box x={x} y={84} w={156} h={112} fill={tint} stroke={orange} />
+      <T x={x + 78} y={103} size={12} bold>{name}</T>
+      <T x={x + 78} y={119} size={11}>{a}</T>
+      <rect x={x + 22} y={130} width={112} height={54} rx={8} fill="none" stroke={line} strokeWidth="1.5" strokeDasharray="4 3" />
+      <Box x={x + 30} y={138} w={96} h={26} fill="#fff" r={6} />
+      <T x={x + 78} y={156} size={12}>{inst}</T>
+      <T x={x + 78} y={179} size={10}>セキュリティグループ</T>
+    </g>
+  )
+  return (
+    <Frame title="VPCをサブネットに分け、2種類の仕組みで通信を制御する" height={236}>
+      <Box x={110} y={4} w={140} h={28} r={14} fill={soft} />
+      <T x={180} y={23} size={12}>インターネット</T>
+      <line x1={180} y1={32} x2={180} y2={44} stroke={line} strokeWidth="2" />
+      <Box x={4} y={44} w={352} h={188} fill="#fff" stroke={navy} />
+      <T x={14} y={62} size={12} bold anchor="start">VPC</T>
+      <Box x={104} y={50} w={152} h={24} r={6} fill={soft} />
+      <T x={180} y={67} size={11}>インターネットゲートウェイ</T>
+      {subnet(14, 'パブリックなサブネット', 'インターネットとやり取り', 'ウェブサーバー')}
+      {subnet(190, 'プライベートサブネット', '外から直接入れない', 'データベース')}
+      <T x={180} y={220} size={11}>サブネットの出入口：ネットワークACL</T>
+    </Frame>
+  )
+}
+
 const registry: Record<FigureId, () => ReactNode> = {
   'region-az': RegionAz,
   'shared-responsibility': SharedResponsibility,
@@ -213,6 +289,9 @@ const registry: Record<FigureId, () => ReactNode> = {
   'wa-pillars': WaPillars,
   'compute-options': ComputeOptions,
   'iam-elements': IamElements,
+  'edge-delivery': EdgeDelivery,
+  'db-types': DbTypes,
+  'vpc-structure': VpcStructure,
 }
 
 export function Figure({ id }: { id: string }) {
