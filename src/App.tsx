@@ -8,6 +8,8 @@ import { StorageHealthProvider } from './hooks/useStorageHealth'
 import { ChallengePage } from './pages/ChallengePage'
 import { ComingSoon } from './pages/ComingSoon'
 import { Designer } from './pages/Designer'
+import { ExamResult } from './pages/ExamResult'
+import { ExamRun } from './pages/ExamRun'
 import { DiagramEditor } from './pages/DiagramEditor'
 import { DiagramTemplatePage } from './pages/DiagramTemplatePage'
 import { Compare } from './pages/Compare'
@@ -66,7 +68,9 @@ export default function App() {
             <Route path="designer/*" element={<ComingSoon kind="designer" />} />
             <Route path="practice" element={<Practice />} />
             <Route path="practice/run" element={<PracticeRun />} />
-            <Route path="exam/*" element={<ComingSoon kind="practice" />} />
+            <Route path="exam/run/:attemptId" element={<ExamRun />} />
+            <Route path="exam/result/:attemptId" element={<ExamResult />} />
+            <Route path="exam/*" element={<Practice />} />
             <Route path="progress" element={<Progress />} />
             <Route path="review" element={<Review />} />
             <Route path="settings" element={<Settings />} />

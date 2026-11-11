@@ -1,10 +1,12 @@
+import { toLocalDate } from '../logic/dates'
 import { usePageTitle } from '../components/Navigation'
 import { Link } from 'react-router-dom'
 import { RecordTabs } from '../components/RecordTabs'
-import { Card, CardTitle, EmptyState, PageHeader, ProgressBar, Stat } from '../components/ui'
+import { Badge, Card, CardTitle, EmptyState, PageHeader, ProgressBar, Stat } from '../components/ui'
 import { content, getExamSpec } from '../content'
 import { useProgressSummary, type CourseProgress } from '../hooks/useProgressSummary'
 import { formatDuration } from '../logic/dates'
+import { scoreExam } from '../logic/exam'
 import { accuracyBy, formatRate } from '../logic/stats'
 
 function CourseRow({ p }: { p: CourseProgress }) {
@@ -177,7 +179,29 @@ export function Progress() {
               成績はアプリ独自の正答率で表示します。本番のスケールドスコアとは異なり、合格点とは直接対応しません。
             </EmptyState>
           ) : (
-            <p className="text-base">受験回数：{s.finishedExams.length}回</p>
+            <>
+              <p className="text-base">受験回数：{s.finishedExams.length}回。成績は、アプリ独自の正答率です（本番のスコアや合格点とは、直接対応しません）。</p>
+              <ul className="mt-2 flex flex-col gap-2" aria-label="模擬試験の成績">
+                {[...s.finishedExams]
+                  .sort((a, b) => (b.finishedAt ?? '').localeCompare(a.finishedAt ?? ''))
+                  .slice(0, 10)
+                  .map((e) => {
+                    const spec = getExamSpec(e.exam)
+                    const sc = scoreExam(e, content.questions.filter((q) => q.exam === e.exam), spec?.domains.map((d) => d.id) ?? [])
+                    return (
+                      <li key={e.id}>
+                        <Link to={`/exam/result/${e.id}`} className="flex min-h-12 items-center gap-3 rounded-xl border border-navy-100 p-3 transition-colors hover:border-brand-500">
+                          <span className="min-w-0 flex-1 text-base">
+                            <span className="font-bold">{spec?.code}</span>
+                            <span className="ml-2 text-navy-700">{toLocalDate(new Date(e.finishedAt ?? e.updatedAt)).replaceAll('-', '/')}</span>
+                          </span>
+                          <Badge tone="good">正答率 {formatRate(sc.rate)}</Badge>
+                        </Link>
+                      </li>
+                    )
+                  })}
+              </ul>
+            </>
           )}
         </Card>
 

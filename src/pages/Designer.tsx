@@ -1,3 +1,4 @@
+import { toLocalDate } from '../logic/dates'
 import { Link, useNavigate } from 'react-router-dom'
 import { ChevronIcon } from '../components/icons'
 import { usePageTitle } from '../components/Navigation'
@@ -76,7 +77,7 @@ export function Designer() {
                   <span className="min-w-0 flex-1">
                     <span className="block text-lg font-bold">{d.name}</span>
                     <span className="mt-1 block text-sm text-navy-700">
-                      箱 {d.nodes.length}個・線 {d.edges.length}本・更新 {d.updatedAt.slice(0, 10).replaceAll('-', '/')}
+                      箱 {d.nodes.length}個・線 {d.edges.length}本・更新 {toLocalDate(new Date(d.updatedAt)).replaceAll('-', '/')}
                     </span>
                   </span>
                   <ChevronIcon className="h-5 w-5 shrink-0 text-navy-600" />
