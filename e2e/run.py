@@ -31,11 +31,12 @@ with sync_playwright() as p:
         check(f'文字14px以上 {path or "/"}', len(small) == 0, str(small[:3]))
         page.screenshot(path=f'{OUT}/m-{(path or "home").replace("#/","").replace("/","-").replace("?","-").replace("&","-")}.png', full_page=True)
 
-    page.goto(BASE); page.get_by_text('0 / 21').first.wait_for(timeout=5000)   # 進捗は保存領域を読んでから表示される
+    page.goto(BASE); page.get_by_text('0 / 21').first.wait_for(timeout=5000); page.wait_for_timeout(500)   # 進捗は保存領域を読んでから表示される
     body = page.inner_text('body')
     for word in ['学習進捗', 'CLF学習', 'SAA学習', 'サービス図鑑', '類似サービス比較', '構成図シミュレーター', '問題演習', '苦手分野・復習', 'AWS非公式']:
         check(f'ホームに「{word}」', word in body)
-    check('架空の進捗を出していない', '0分' in body and '0 / 21' in body and '0 / 8' in body, body[:400])
+    # 学習時間は、直前のページ巡回でレッスンを開いた分が正しく記録されるため、0分とは限らない
+    check('架空の進捗を出していない', '0 / 21' in body and '0 / 8' in body and '正答率' not in body.split('学習進捗')[0], body[:400])
 
     # 下部タブで遷移
     page.get_by_role('navigation', name='メインメニュー').last.get_by_role('link', name='記録').click()
