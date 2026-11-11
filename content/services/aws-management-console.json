@@ -1,0 +1,74 @@
+{
+  "id": "aws-management-console",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "What is the AWS Command Line Interface?（AWS CLI ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWSマネジメントコンソール",
+  "aliases": [
+    "Management Console",
+    "マネコン",
+    "コンソール"
+  ],
+  "category": "management-governance",
+  "summary": "ブラウザからAWSのサービスを操作するための画面。",
+  "beginner": {
+    "analogy": "家電の「リモコン」や、スマートフォンの「設定画面」のようなものです。ボタンやメニューを見ながら操作できます。",
+    "description": "ウェブブラウザでAWSにサインインして、画面を見ながらサービスを操作する方法です。初めての人にもわかりやすい操作方法です。"
+  },
+  "exam": {
+    "description": "ブラウザベースでAWSのサービスにアクセスし、管理するための画面です。試験ガイドでは、AWSのサービスにアクセスする方法として、プログラムによるアクセス（API、SDK、CLI）、AWSマネジメントコンソール、IaC（コードとしてのインフラストラクチャ）が挙げられています。",
+    "points": [
+      "ブラウザの画面で操作する＝AWSマネジメントコンソール。",
+      "画面を見ながらの一度きりの操作や、状況の確認に向く。",
+      "同じ操作を繰り返すなら、AWS CLIのスクリプトやIaC（AWS CloudFormation）を検討する。"
+    ]
+  },
+  "useCases": [
+    "設定内容を画面で確認する",
+    "初めて使うサービスを試してみる"
+  ],
+  "mechanism": "ブラウザでサインインし、画面のメニューからサービスを選んで操作します。",
+  "pros": [
+    "画面を見ながら操作できる",
+    "ツールのインストールが不要"
+  ],
+  "cons": [
+    "手作業のため、同じ操作を何度も正確に繰り返す用途には向かない"
+  ],
+  "scenes": [
+    "新しく作ったリソースの設定を、画面で確認する"
+  ],
+  "similarServiceIds": [
+    "aws-cli"
+  ],
+  "relatedServiceIds": [
+    "aws-cloudformation"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/awsconsolehelpdocs/"
+}

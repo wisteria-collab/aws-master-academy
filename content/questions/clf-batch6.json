@@ -1,0 +1,735 @@
+[
+  {
+    "id": "clf-q-deploy-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is CloudFormation?（AWS CloudFormation ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、同じ構成のシステムを、検証用と本番用の2つの環境に、手作業のミスなく繰り返し作りたいと考えています。構成をテンプレートに記述して作成する方法として、最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS CloudFormation",
+        "correct": true,
+        "explanation": "CloudFormationは、AWSリソースとその設定をテンプレートに記述し、そのとおりにリソースを作成するサービスです。同じテンプレートを使えば、同じ構成を繰り返し作れます。"
+      },
+      {
+        "id": "b",
+        "text": "AWSマネジメントコンソール",
+        "correct": false,
+        "explanation": "コンソールは、ブラウザの画面で操作する方法です。手作業になるため、同じ構成をミスなく繰り返し作る、という要件には向きません。",
+        "eliminatedBy": "手作業のミスなく繰り返し作りたい"
+      },
+      {
+        "id": "c",
+        "text": "AWS Health Dashboard",
+        "correct": false,
+        "explanation": "Health Dashboardは、AWSのサービスの状態や、アカウントに影響するイベントを確認するものです。リソースを作成するサービスではありません。",
+        "eliminatedBy": "構成をテンプレートに記述して作成する"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Route 53",
+        "correct": false,
+        "explanation": "Route 53はDNSのサービスです。システムの構成をテンプレートから作成するサービスではありません。",
+        "eliminatedBy": "構成をテンプレートに記述して作成する"
+      }
+    ],
+    "keywords": [
+      "繰り返し作りたい",
+      "テンプレートに記述"
+    ],
+    "decisionPoint": "「テンプレート」「繰り返し」「同じ構成」はIaC、つまりCloudFormationです。",
+    "serviceIds": [
+      "aws-cloudformation"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-deploy-operate"
+      },
+      {
+        "type": "service",
+        "id": "aws-cloudformation"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-deploy-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is the AWS Command Line Interface?（AWS CLI ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html"
+      },
+      {
+        "title": "AWS Command Line Interface（AWS公式）",
+        "url": "https://aws.amazon.com/cli/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある運用担当者は、毎晩行っているAWSの操作を、コマンドをまとめたスクリプトで自動化したいと考えています。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS CLI",
+        "correct": true,
+        "explanation": "AWS CLIは、コマンドラインからAWSのサービスを操作し、スクリプトで自動化できる統合ツールです。"
+      },
+      {
+        "id": "b",
+        "text": "AWSマネジメントコンソール",
+        "correct": false,
+        "explanation": "コンソールはブラウザの画面で操作する方法です。コマンドをまとめたスクリプトで自動化する方法ではありません。",
+        "eliminatedBy": "コマンドをまとめたスクリプトで自動化"
+      },
+      {
+        "id": "c",
+        "text": "AWS Marketplace",
+        "correct": false,
+        "explanation": "Marketplaceは、サードパーティのソフトウェアなどを購入するためのカタログです。AWSの操作を自動化するツールではありません。",
+        "eliminatedBy": "スクリプトで自動化"
+      },
+      {
+        "id": "d",
+        "text": "AWS Pricing Calculator",
+        "correct": false,
+        "explanation": "Pricing Calculatorは、コストを見積もるためのツールです。AWSの操作を自動化するものではありません。",
+        "eliminatedBy": "AWSの操作を"
+      }
+    ],
+    "keywords": [
+      "コマンドをまとめたスクリプトで自動化"
+    ],
+    "decisionPoint": "「コマンド」「スクリプト」＝AWS CLI。",
+    "serviceIds": [
+      "aws-cli"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-deploy-operate"
+      },
+      {
+        "type": "service",
+        "id": "aws-cli"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-deploy-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is the AWS Command Line Interface?（AWS CLI ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある開発者は、自分が作っているアプリケーションのプログラムの中から、Amazon S3にファイルを保存する処理を呼び出したいと考えています。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS SDK",
+        "correct": true,
+        "explanation": "AWS SDKは、アプリケーションのプログラムからAWSのサービスを利用するためのものです。プログラムの中からS3の操作を呼び出せます。"
+      },
+      {
+        "id": "b",
+        "text": "AWSマネジメントコンソール",
+        "correct": false,
+        "explanation": "コンソールは、人がブラウザの画面で操作する方法です。アプリケーションのプログラムの中から呼び出すものではありません。",
+        "eliminatedBy": "アプリケーションのプログラムの中から"
+      },
+      {
+        "id": "c",
+        "text": "AWS Health Dashboard",
+        "correct": false,
+        "explanation": "Health Dashboardは、サービスの状態やイベントを確認するものです。プログラムからS3にファイルを保存するためのものではありません。",
+        "eliminatedBy": "Amazon S3にファイルを保存する処理を呼び出したい"
+      },
+      {
+        "id": "d",
+        "text": "AWS Budgets",
+        "correct": false,
+        "explanation": "Budgetsは、予算を設定してアラートを受け取るサービスです。プログラムからAWSのサービスを利用するためのものではありません。",
+        "eliminatedBy": "プログラムの中から"
+      }
+    ],
+    "keywords": [
+      "アプリケーションのプログラムの中から"
+    ],
+    "decisionPoint": "プログラムの中から使う＝SDK。コマンドで使う＝CLI。画面で使う＝コンソール。",
+    "serviceIds": [
+      "amazon-s3"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-deploy-operate"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-deploy-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Types of cloud computing（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/types-of-cloud-computing.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、社内のデータセンターにあるシステムを残したまま、新しいシステムをAWS上に作り、両者を接続して使うことにしました。このデプロイモデルを何と呼びますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ハイブリッド",
+        "correct": true,
+        "explanation": "ハイブリッドは、クラウド上のリソースと、クラウドではない既存のリソースを接続して使う形です。データセンターのシステムとAWS上のシステムを接続する構成は、これに当たります。"
+      },
+      {
+        "id": "b",
+        "text": "クラウド",
+        "correct": false,
+        "explanation": "クラウドのデプロイモデルは、アプリケーション全体をクラウド上で動かす形です。問題文では、社内のデータセンターにあるシステムも残して使い続けます。",
+        "eliminatedBy": "社内のデータセンターにあるシステムを残したまま"
+      },
+      {
+        "id": "c",
+        "text": "オンプレミス",
+        "correct": false,
+        "explanation": "オンプレミスのデプロイモデルは、リソースを自社の施設の中に配置する形です。問題文では、新しいシステムをAWS上に作っています。",
+        "eliminatedBy": "新しいシステムをAWS上に作り"
+      },
+      {
+        "id": "d",
+        "text": "エッジロケーション",
+        "correct": false,
+        "explanation": "エッジロケーションは、Amazon CloudFrontがコンテンツを配信するための拠点です。デプロイモデルの名前ではありません。",
+        "eliminatedBy": "このデプロイモデルを何と呼びますか"
+      }
+    ],
+    "keywords": [
+      "データセンターにあるシステムを残したまま",
+      "AWS上に作り",
+      "両者を接続"
+    ],
+    "decisionPoint": "「オンプレミスとクラウドを接続して両方使う」＝ハイブリッド。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-deploy-operate"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-deploy-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is the AWS Command Line Interface?（AWS CLI ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html"
+      },
+      {
+        "title": "What is CloudFormation?（AWS CloudFormation ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d3",
+    "taskId": "clf-3-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある担当者は、作成済みのAmazon EC2インスタンスの設定を、一度だけ画面で確認したいと考えています。ツールのインストールやテンプレートの作成はしたくありません。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWSマネジメントコンソールを使う",
+        "correct": true,
+        "explanation": "コンソールは、ブラウザからAWSのサービスを操作・確認する画面です。一度きりの確認であれば、画面で見るのが手軽です。"
+      },
+      {
+        "id": "b",
+        "text": "AWS CloudFormationのテンプレートを作成する",
+        "correct": false,
+        "explanation": "CloudFormationは、構成をテンプレートに記述して繰り返し作成するためのサービスです。一度だけ設定を確認するという目的には合わず、テンプレートの作成も必要になります。",
+        "eliminatedBy": "テンプレートの作成はしたくありません"
+      },
+      {
+        "id": "c",
+        "text": "AWS CLIをインストールしてスクリプトを作成する",
+        "correct": false,
+        "explanation": "AWS CLIでも設定は確認できますが、ツールのインストールが必要です。一度だけ画面で確認したい、という要件には合いません。",
+        "eliminatedBy": "ツールのインストール"
+      },
+      {
+        "id": "d",
+        "text": "AWS SDKを使ってプログラムを作成する",
+        "correct": false,
+        "explanation": "AWS SDKは、アプリケーションのプログラムからAWSを利用するためのものです。一度だけの確認のためにプログラムを作る必要はありません。",
+        "eliminatedBy": "一度だけ画面で確認したい"
+      }
+    ],
+    "keywords": [
+      "一度だけ画面で確認したい",
+      "ツールのインストールやテンプレートの作成はしたくありません"
+    ],
+    "decisionPoint": "一度きりの操作や確認はコンソール、繰り返す操作はCLIやIaC、と使い分けます。",
+    "serviceIds": [
+      "aws-management-console"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-deploy-operate"
+      },
+      {
+        "type": "service",
+        "id": "aws-management-console"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-res-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Concepts for AWS Health（AWS Health ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/health/latest/ug/aws-health-concepts-and-terms.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、AWSのサービスで起きているイベントのうち、自社のアカウントのリソースに影響するものや、予定されている変更を確認したいと考えています。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Health Dashboard",
+        "correct": true,
+        "explanation": "Health Dashboardでは、アカウントに限らないパブリックイベントに加えて、自分のアカウントに固有のイベントを確認できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Trusted Advisor",
+        "correct": false,
+        "explanation": "Trusted Advisorは、環境を調べて、コスト最適化やセキュリティなどの推奨事項を示すサービスです。AWSのサービスで起きているイベントを知らせるものではありません。",
+        "eliminatedBy": "AWSのサービスで起きているイベント"
+      },
+      {
+        "id": "c",
+        "text": "AWS Cost Explorer",
+        "correct": false,
+        "explanation": "Cost Explorerは、コストと使用量を分析するツールです。サービスのイベントを確認するものではありません。",
+        "eliminatedBy": "イベントのうち、自社のアカウントのリソースに影響するもの"
+      },
+      {
+        "id": "d",
+        "text": "AWS Marketplace",
+        "correct": false,
+        "explanation": "Marketplaceは、サードパーティのソフトウェアなどを購入するためのカタログです。サービスのイベントとは関係がありません。",
+        "eliminatedBy": "AWSのサービスで起きているイベント"
+      }
+    ],
+    "keywords": [
+      "AWSのサービスで起きているイベント",
+      "自社のアカウントのリソースに影響するもの"
+    ],
+    "decisionPoint": "「AWS側のイベントが自分に影響するか」＝Health Dashboard。",
+    "serviceIds": [
+      "aws-health-dashboard"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-resources-partners"
+      },
+      {
+        "type": "service",
+        "id": "aws-health-dashboard"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-res-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "How do I report abuse of AWS resources?（AWS re:Post ナレッジセンター）",
+        "url": "https://repost.aws/knowledge-center/report-aws-abuse"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある人が、AWSのリソースから送信されたと思われる迷惑メールを大量に受け取りました。AWSのリソースが不正に使われている疑いを報告したい場合、報告先として最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Trust & Safetyチーム",
+        "correct": true,
+        "explanation": "AWSのリソースが不正な目的で使われている疑いがある場合は、AWS Trust & Safetyチームに報告します。AWSの利用者でなくても報告できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Supportに技術的なサポートケースを起票する",
+        "correct": false,
+        "explanation": "AWS Supportは、不正利用の報告には対応できないと案内されています。不正利用の報告は、Trust & Safetyチームが扱います。",
+        "eliminatedBy": "不正に使われている疑いを報告したい"
+      },
+      {
+        "id": "c",
+        "text": "AWS Health Dashboard",
+        "correct": false,
+        "explanation": "Health Dashboardは、AWSのサービスの状態やイベントを確認するものです。不正利用を報告する窓口ではありません。",
+        "eliminatedBy": "報告先として"
+      },
+      {
+        "id": "d",
+        "text": "AWS Marketplace",
+        "correct": false,
+        "explanation": "Marketplaceは、サードパーティのソフトウェアなどを購入するためのカタログです。不正利用の報告先ではありません。",
+        "eliminatedBy": "報告先として"
+      }
+    ],
+    "keywords": [
+      "不正に使われている疑いを報告したい"
+    ],
+    "decisionPoint": "AWSリソースの不正利用の報告＝Trust & Safetyチーム。AWS Supportではありません。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-resources-partners"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-res-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is AWS Marketplace?（AWS Marketplace ガイド）",
+        "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、他社が提供するセキュリティソフトウェアを探して購入し、AWS上にデプロイしたいと考えています。料金はAWSの請求にまとめたいと考えています。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Marketplace",
+        "correct": true,
+        "explanation": "Marketplaceは、サードパーティのソフトウェア、データ、サービスを検索、購入、デプロイ、管理できる、厳選されたデジタルカタログです。料金はAWSの請求に含まれます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "Artifactは、AWSのセキュリティとコンプライアンスに関するレポートを入手するためのサービスです。他社のソフトウェアを購入する場所ではありません。",
+        "eliminatedBy": "他社が提供するセキュリティソフトウェアを探して購入"
+      },
+      {
+        "id": "c",
+        "text": "AWS Trusted Advisor",
+        "correct": false,
+        "explanation": "Trusted Advisorは、環境を調べて推奨事項を示すサービスです。ソフトウェアを購入する場所ではありません。",
+        "eliminatedBy": "探して購入"
+      },
+      {
+        "id": "d",
+        "text": "AWS Organizations",
+        "correct": false,
+        "explanation": "Organizationsは、複数のアカウントをまとめ、請求を一括にできるサービスです。他社のソフトウェアを探して購入するカタログではありません。",
+        "eliminatedBy": "他社が提供するセキュリティソフトウェアを探して購入"
+      }
+    ],
+    "keywords": [
+      "他社が提供する",
+      "探して購入",
+      "AWSの請求にまとめたい"
+    ],
+    "decisionPoint": "「サードパーティのソフトウェアを探して購入」＝Marketplace。",
+    "serviceIds": [
+      "aws-marketplace"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-resources-partners"
+      },
+      {
+        "type": "service",
+        "id": "aws-marketplace"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-res-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "About AWS re:Post（AWS公式）",
+        "url": "https://repost.aws/about"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある開発者は、AWSの使い方について技術的な疑問があります。AWSが管理するナレッジの場で、よくある質問をまとめた公式の記事を読んだり、コミュニティに質問したりしたいと考えています。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS re:Post",
+        "correct": true,
+        "explanation": "re:Postは、AWSが管理するナレッジハブです。よくある技術的な質問やアカウントの質問を扱うAWS公式のナレッジセンターの記事があり、コミュニティに質問することもできます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "Artifactは、AWSのセキュリティとコンプライアンスに関するレポートを入手するためのサービスです。技術的な疑問を質問する場ではありません。",
+        "eliminatedBy": "コミュニティに質問したり"
+      },
+      {
+        "id": "c",
+        "text": "AWS Budgets",
+        "correct": false,
+        "explanation": "Budgetsは、予算を設定してアラートを受け取るサービスです。技術的な疑問を解決する場ではありません。",
+        "eliminatedBy": "技術的な疑問"
+      },
+      {
+        "id": "d",
+        "text": "AWS Health Dashboard",
+        "correct": false,
+        "explanation": "Health Dashboardは、AWSのサービスの状態やイベントを確認するものです。記事を読んだり質問したりする場ではありません。",
+        "eliminatedBy": "コミュニティに質問したり"
+      }
+    ],
+    "keywords": [
+      "よくある質問をまとめた公式の記事",
+      "コミュニティに質問"
+    ],
+    "decisionPoint": "コミュニティへの質問と、ナレッジセンターの記事＝re:Post。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-resources-partners"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-res-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS Prescriptive Guidance（AWS公式）",
+        "url": "https://aws.amazon.com/prescriptive-guidance/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、クラウドへの移行とモダナイゼーションを進めるにあたり、AWSの専門家がまとめた、実績のある戦略、ガイド、パターンを参考にしたいと考えています。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Prescriptive Guidance",
+        "correct": true,
+        "explanation": "Prescriptive Guidanceは、クラウドへの移行、モダナイゼーション、最適化のプロジェクトを加速するための、実績のある戦略、ガイド、パターンを提供します。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Health Dashboard",
+        "correct": false,
+        "explanation": "Health Dashboardは、AWSのサービスの状態やイベントを確認するものです。移行の戦略やパターンをまとめた資料ではありません。",
+        "eliminatedBy": "戦略、ガイド、パターンを参考にしたい"
+      },
+      {
+        "id": "c",
+        "text": "AWS Pricing Calculator",
+        "correct": false,
+        "explanation": "Pricing Calculatorは、コストを見積もるためのツールです。移行の戦略やパターンを提供するものではありません。",
+        "eliminatedBy": "戦略、ガイド、パターン"
+      },
+      {
+        "id": "d",
+        "text": "AWS Trust & Safetyチーム",
+        "correct": false,
+        "explanation": "Trust & Safetyチームは、AWSリソースの不正利用の報告を扱うチームです。移行の進め方の資料を提供するものではありません。",
+        "eliminatedBy": "移行とモダナイゼーションを進めるにあたり"
+      }
+    ],
+    "keywords": [
+      "移行とモダナイゼーション",
+      "戦略、ガイド、パターン"
+    ],
+    "decisionPoint": "「戦略、ガイド、パターン」＝Prescriptive Guidance。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-resources-partners"
+      },
+      {
+        "type": "lesson",
+        "id": "clf-migration-caf"
+      }
+    ]
+  }
+]

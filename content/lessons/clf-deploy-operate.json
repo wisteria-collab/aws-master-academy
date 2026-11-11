@@ -1,0 +1,86 @@
+{
+  "id": "clf-deploy-operate",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "What is the AWS Command Line Interface?（AWS CLI ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html"
+    },
+    {
+      "title": "AWS Command Line Interface（AWS公式）",
+      "url": "https://aws.amazon.com/cli/"
+    },
+    {
+      "title": "What is CloudFormation?（AWS CloudFormation ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html"
+    },
+    {
+      "title": "Types of cloud computing（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/types-of-cloud-computing.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 9,
+  "title": "AWSへのアクセス方法とデプロイモデル",
+  "domainId": "clf-d3",
+  "taskIds": [
+    "clf-3-1"
+  ],
+  "overview": "AWSのサービスを操作する方法は1つではありません。画面で操作する方法、コマンドやプログラムから操作する方法、構成をファイルに書いて作る方法があります。\nCLFの試験ガイドでは、プログラムによるアクセス（API、SDK、CLI）、AWSマネジメントコンソール、IaC（コードとしてのインフラストラクチャ）の中から、場面に合った方法を選べることが求められます。また、一度きりの操作か、繰り返し可能なプロセスかを見きわめること、デプロイモデル（クラウド、ハイブリッド、オンプレミス）を見分けることも挙げられています。",
+  "beginner": {
+    "analogy": "料理にたとえます。AWSマネジメントコンソールは、「自分でキッチンに立って作る」方法です。AWS CLIは、「手順をメモに書いて、そのとおりに作ってもらう」方法です。AWS SDKは、「別の料理のレシピの途中に、この料理の手順を組み込む」方法です。IaCは、「完成形を書いたレシピを渡して、まるごと作ってもらう」方法です。",
+    "description": "1回だけの作業なら、画面で操作するのが手軽です。でも、同じ作業を何度も繰り返すなら、手順をファイルに書いておいたほうが、速くて間違いがありません。「何回やるか」が、方法を選ぶ大きな手がかりです。"
+  },
+  "useCases": [
+    "初めてのサービスを、画面で試してみる",
+    "毎晩の決まった操作を、スクリプトで自動化する",
+    "検証用と本番用の環境を、同じ構成で作る",
+    "オンプレミスのシステムとAWS上のシステムを接続して使う"
+  ],
+  "mechanism": {
+    "text": "【AWSにアクセスする方法】\n・AWSマネジメントコンソール：ブラウザの画面で操作します。\n・AWS CLI：コマンドラインからAWSのサービスを操作する統合ツールです。スクリプトで自動化できます。\n・AWS SDK：アプリケーションのプログラムからAWSのサービスを利用します。\n・IaC（AWS CloudFormationなど）：リソースの構成をテンプレートに記述し、そのとおりに作成します。\nどの方法でも、最終的にはAWSのAPIが呼び出されます。\n【一度きりの操作と、繰り返し可能なプロセス】\n一度きりの操作や確認には、コンソールが手軽です。同じ操作を繰り返す場合や、複数の環境に同じ構成を作る場合は、スクリプトやテンプレートを使うと、予測どおりに繰り返せます。\nAWS CloudFormationでは、テンプレートからスタックを作成すると、記述されたリソースがまとめて作成されます。テンプレートはテキストファイルなので、変更を追跡でき、同じ構成を素早く複製できます。\n【デプロイモデル】\n・クラウド：アプリケーション全体をクラウド上で動かします。\n・ハイブリッド：クラウド上のリソースと、クラウドではない既存のリソースを接続して使います。\n・オンプレミス：リソースを自社の施設の中に配置します。",
+    "figureId": "access-methods"
+  },
+  "relatedServiceIds": [
+    "aws-management-console",
+    "aws-cli",
+    "aws-cloudformation",
+    "aws-direct-connect",
+    "aws-vpn"
+  ],
+  "examPoints": [
+    "画面で操作＝AWSマネジメントコンソール。コマンドで操作＝AWS CLI。プログラムから利用＝AWS SDK。",
+    "構成をテンプレートに書いて作る＝IaC（AWS CloudFormation）。",
+    "一度きりの操作はコンソール、繰り返す操作はスクリプトやIaC。",
+    "CloudFormationは、テンプレートからスタックを作成し、リソースをまとめて管理する。",
+    "デプロイモデル：クラウド（すべてクラウド）、ハイブリッド（クラウドと既存の環境を接続）、オンプレミス（自社の施設内）。",
+    "ハイブリッドの接続には、AWS VPNやAWS Direct Connectを使う。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-deploy-01",
+    "clf-q-deploy-02",
+    "clf-q-deploy-03",
+    "clf-q-deploy-04",
+    "clf-q-deploy-05"
+  ],
+  "glossaryTermIds": [
+    "api",
+    "cli",
+    "sdk",
+    "iac",
+    "template",
+    "hybrid",
+    "on-premises"
+  ]
+}

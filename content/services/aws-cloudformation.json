@@ -1,0 +1,77 @@
+{
+  "id": "aws-cloudformation",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "What is CloudFormation?（AWS CloudFormation ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS CloudFormation",
+  "aliases": [
+    "CloudFormation",
+    "クラウドフォーメーション"
+  ],
+  "category": "management-governance",
+  "summary": "AWSリソースの構成をテンプレートに記述し、そのとおりにまとめて作成・管理するIaC（コードとしてのインフラストラクチャ）のサービス。",
+  "beginner": {
+    "analogy": "家の「設計図」と、それを見て家を建ててくれる「大工さん」に似ています。設計図（テンプレート）を渡せば、何軒でも同じ家を建ててくれます。",
+    "description": "作りたいサーバーやデータベースなどを、テキストファイル（テンプレート）に書いておくと、そのとおりに自動で作ってくれるサービスです。同じ構成を、何度でも同じように作れます。"
+  },
+  "exam": {
+    "description": "AWSリソースとその設定をテンプレートに記述し、そのテンプレートからスタックを作成すると、CloudFormationがリソースをプロビジョニングします。リソースの集まりを、スタックという1つの単位として管理でき、スタックを削除すると中のリソースもまとめて削除されます。テンプレートはテキストファイルなので、差分を追うことでインフラストラクチャの変更を追跡できます。テンプレートを使い回すことで、インフラストラクチャを素早く複製できます。",
+    "points": [
+      "IaC（コードとしてのインフラストラクチャ）＝AWS CloudFormation。",
+      "テンプレートにリソースを記述し、スタックとしてまとめて作成・管理・削除する。",
+      "同じ構成を、繰り返し、予測どおりに作れる。複数の環境やリージョンへの複製に向く。",
+      "テンプレートはテキストファイルなので、変更の履歴を追跡できる。",
+      "「繰り返し可能なプロセス」が求められたらIaC、「一度きりの操作」ならコンソールでもよい。"
+    ]
+  },
+  "useCases": [
+    "検証用と本番用の環境を、同じ構成で作る",
+    "同じシステムを、別のリージョンにも複製する"
+  ],
+  "mechanism": "利用者がテンプレートを用意し、そこからスタックを作成します。CloudFormationが、テンプレートに書かれたリソースを作成・設定します。",
+  "pros": [
+    "同じ構成を繰り返し作れる",
+    "リソースをまとめて1つの単位で管理できる",
+    "変更をテキストの差分として追跡できる"
+  ],
+  "cons": [
+    "テンプレートを書く必要がある"
+  ],
+  "scenes": [
+    "手作業での設定ミスをなくすために、環境の構築をテンプレートにまとめる"
+  ],
+  "similarServiceIds": [
+    "aws-elastic-beanstalk"
+  ],
+  "relatedServiceIds": [
+    "aws-cli",
+    "aws-management-console"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/cloudformation/"
+}

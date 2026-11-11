@@ -19,7 +19,7 @@
     }
   ],
   "course": "clf",
-  "order": 16,
+  "order": 18,
   "title": "AWS Well-Architected Framework",
   "domainId": "clf-d1",
   "taskIds": [

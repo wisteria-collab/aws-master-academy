@@ -1,0 +1,87 @@
+{
+  "id": "clf-resources-partners",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "About AWS re:Post（AWS公式）",
+      "url": "https://repost.aws/about"
+    },
+    {
+      "title": "AWS Prescriptive Guidance（AWS公式）",
+      "url": "https://aws.amazon.com/prescriptive-guidance/"
+    },
+    {
+      "title": "Concepts for AWS Health（AWS Health ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/health/latest/ug/aws-health-concepts-and-terms.html"
+    },
+    {
+      "title": "How do I report abuse of AWS resources?（AWS re:Post ナレッジセンター）",
+      "url": "https://repost.aws/knowledge-center/report-aws-abuse"
+    },
+    {
+      "title": "What is AWS Marketplace?（AWS Marketplace ガイド）",
+      "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "course": "clf",
+  "order": 17,
+  "title": "技術リソースとAWSパートナー",
+  "domainId": "clf-d4",
+  "taskIds": [
+    "clf-4-3"
+  ],
+  "overview": "AWSには、サポートプランのほかにも、困ったときに頼れる情報源や窓口、そして支援してくれるパートナー企業があります。\nCLFの試験ガイドでは、技術リソース（AWS Prescriptive Guidance、AWSナレッジセンター、AWS re:Post）、AWS Health DashboardとAWS Health API、不正利用を報告するAWS Trust & Safetyチーム、AWSパートナーとAWS Marketplace、技術支援の選択肢（AWSプロフェッショナルサービス、AWSソリューションアーキテクト）が挙げられています。\n「何をしたいときに、どこを見るか」で整理します。",
+  "beginner": {
+    "analogy": "街の施設にたとえます。AWS re:Postは、質問できる「掲示板と図書館」です。AWS Prescriptive Guidanceは、専門家が書いた「手引き書」です。AWS Health Dashboardは、交通機関の「運行情報」です。AWS Trust & Safetyチームは、迷惑行為を届け出る「通報窓口」です。AWS Marketplaceは、他社の製品が並ぶ「ショッピングモール」です。AWSパートナーは、頼れる「専門業者」です。",
+    "description": "困りごとの種類によって、頼る先が変わります。「調べたい」「AWS側の状況を知りたい」「不正を報告したい」「他社の製品を買いたい」「誰かに手伝ってほしい」の5つに分けて覚えると、迷いません。"
+  },
+  "useCases": [
+    "技術的な疑問を、公式の記事やコミュニティで解決する",
+    "AWS側のイベントが、自社に影響しているかを確認する",
+    "AWSのリソースの不正利用を報告する",
+    "他社製のソフトウェアを購入して、AWS上で使う",
+    "移行の進め方について、専門の企業に支援を依頼する"
+  ],
+  "mechanism": {
+    "text": "【調べたい：技術リソース】\n・AWS re:Post：AWSが管理するナレッジハブです。コミュニティに質問できます。\n・AWSナレッジセンター：よくある技術的な質問やアカウントの質問を扱う、AWS公式の記事や動画です。re:Postの中にあります。\n・AWS Prescriptive Guidance：クラウドへの移行、モダナイゼーション、最適化を進めるための、実績のある戦略、ガイド、パターンです。\nこのほか、AWSのドキュメント、ホワイトペーパー、ブログも、公式のウェブサイトで公開されています。\n【AWS側の状況を知りたい：AWS Health Dashboard】\nAWS Healthのイベントを確認できます。アカウントに限らない「パブリックイベント」と、自分のアカウントに固有の「アカウント固有のイベント」があります。AWS Health APIを使うと、プログラムからイベントの情報を取得できます。\n環境を調べて推奨事項を示すAWS Trusted Advisorとあわせて、環境の管理と監視に役立ちます。\n【不正を報告したい：AWS Trust & Safetyチーム】\nAWSのリソースが不正な目的で使われている疑いがあるときは、AWS Trust & Safetyチームに報告します。AWS Supportは、不正利用の報告には対応できないと案内されています。\n【他社の製品を買いたい：AWS Marketplace】\nサードパーティのソフトウェア、データ、サービスを、検索、購入、デプロイ、管理できる、厳選されたデジタルカタログです。料金はAWSの請求に含まれます。\n【誰かに手伝ってほしい：AWSパートナーと技術支援】\nAWSパートナーには、独立系ソフトウェアベンダー（ISV）やシステムインテグレーター（SI）が含まれます。試験ガイドでは、パートナーになる利点として、パートナー向けのトレーニングと認定、パートナー向けのイベント、パートナー向けのボリューム割引が挙げられています。\nAWS自身が提供する技術支援の選択肢として、AWSプロフェッショナルサービスと、AWSソリューションアーキテクトが挙げられています。"
+  },
+  "relatedServiceIds": [
+    "aws-health-dashboard",
+    "aws-marketplace",
+    "aws-trusted-advisor",
+    "aws-support"
+  ],
+  "examPoints": [
+    "コミュニティへの質問と、公式のナレッジセンターの記事＝AWS re:Post。",
+    "移行やモダナイゼーションの戦略、ガイド、パターン＝AWS Prescriptive Guidance。",
+    "AWSのサービスの状態と、自分のアカウントに影響するイベント＝AWS Health Dashboard（プログラムからはAWS Health API）。",
+    "AWSリソースの不正利用の報告＝AWS Trust & Safetyチーム。AWS Supportではない。",
+    "サードパーティのソフトウェアなどの購入＝AWS Marketplace。料金はAWSの請求に含まれる。",
+    "AWSパートナー＝独立系ソフトウェアベンダー（ISV）、システムインテグレーター（SI）など。",
+    "パートナーになる利点：トレーニングと認定、イベント、ボリューム割引。",
+    "AWSによる技術支援：AWSプロフェッショナルサービス、AWSソリューションアーキテクト。"
+  ],
+  "quizQuestionIds": [
+    "clf-q-res-01",
+    "clf-q-res-02",
+    "clf-q-res-03",
+    "clf-q-res-04",
+    "clf-q-res-05"
+  ],
+  "glossaryTermIds": [
+    "isv",
+    "system-integrator",
+    "api"
+  ]
+}

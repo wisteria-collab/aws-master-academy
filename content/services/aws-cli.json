@@ -1,0 +1,79 @@
+{
+  "id": "aws-cli",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "What is the AWS Command Line Interface?（AWS CLI ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html"
+    },
+    {
+      "title": "AWS Command Line Interface（AWS公式）",
+      "url": "https://aws.amazon.com/cli/"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS CLI",
+  "aliases": [
+    "CLI",
+    "AWS Command Line Interface",
+    "コマンドラインインターフェイス"
+  ],
+  "category": "management-governance",
+  "summary": "コマンドラインからAWSのサービスを操作し、スクリプトで自動化できる統合ツール。",
+  "beginner": {
+    "analogy": "画面のボタンを1つずつ押す代わりに、「指示書」を書いて渡すようなものです。指示書を残しておけば、同じ作業を何度でも同じように実行できます。",
+    "description": "文字のコマンドを入力して、AWSを操作するためのツールです。コマンドをファイルにまとめておけば、作業を自動化できます。"
+  },
+  "exam": {
+    "description": "AWSのサービスを管理するための統合ツールです。1つのツールをダウンロードして設定するだけで、複数のAWSのサービスをコマンドラインから操作し、スクリプトで自動化できます。ブラウザベースのAWSマネジメントコンソールが提供する機能と同等の機能を、コマンドで実行できます。",
+    "points": [
+      "コマンドラインからの操作と、スクリプトによる自動化＝AWS CLI。",
+      "プログラムによるアクセス（API、SDK、CLI）の1つ。",
+      "アプリケーションのプログラムの中からAWSを利用するのはAWS SDK。",
+      "画面で操作するのはAWSマネジメントコンソール。"
+    ]
+  },
+  "useCases": [
+    "決まった操作を、スクリプトで繰り返し実行する",
+    "多数のリソースを、まとめて操作する"
+  ],
+  "mechanism": "利用者がコマンドを入力すると、AWS CLIがAWSのサービスのAPIを呼び出します。",
+  "pros": [
+    "複数のサービスを1つのツールで操作できる",
+    "スクリプトで自動化できる"
+  ],
+  "cons": [
+    "コマンドを覚える必要がある"
+  ],
+  "scenes": [
+    "毎日決まった時刻に行う操作を、スクリプトにして自動化する"
+  ],
+  "similarServiceIds": [
+    "aws-management-console"
+  ],
+  "relatedServiceIds": [
+    "aws-cloudformation"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/cli/"
+}

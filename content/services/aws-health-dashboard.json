@@ -1,0 +1,77 @@
+{
+  "id": "aws-health-dashboard",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Concepts for AWS Health（AWS Health ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/health/latest/ug/aws-health-concepts-and-terms.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Health Dashboard",
+  "aliases": [
+    "Health Dashboard",
+    "AWS Health",
+    "ヘルスダッシュボード"
+  ],
+  "category": "management-governance",
+  "summary": "AWSのサービスの状態と、自分のアカウントに影響するイベントを確認できるダッシュボード。",
+  "beginner": {
+    "analogy": "鉄道の「運行情報」に似ています。全路線の運行状況に加えて、自分がいつも使う路線の遅れや工事の予定を知らせてくれます。",
+    "description": "AWSのサービスで障害が起きていないか、自分のアカウントに影響する出来事や予定された変更がないかを確認できる画面です。"
+  },
+  "exam": {
+    "description": "AWS Health Dashboardでは、AWS Healthのイベントを確認できます。イベントには、特定のアカウントに限らない「パブリックイベント」と、自分のアカウントや組織内のアカウントに固有の「アカウント固有のイベント」があります。アカウントを持っていれば、両方を確認できます。アカウント固有のイベントは、AWS Health Dashboard、AWS Health API、Amazon EventBridgeなどを通じて把握できます。アカウントがなくても、サービス全体の状態（Service health）のページでパブリックイベントを確認できます。",
+    "points": [
+      "AWSのサービスの状態と、自分のアカウントに影響するイベントの確認＝AWS Health Dashboard。",
+      "パブリックイベント（アカウントに限らない）と、アカウント固有のイベントがある。",
+      "サービス全体の状態のページは、サインインしなくても見られる。",
+      "AWS Health APIを使うと、プログラムからイベントの情報を取得できる。",
+      "環境を調べて推奨事項を示すのはAWS Trusted Advisor。役割が違う。"
+    ]
+  },
+  "useCases": [
+    "AWS側の障害が、自分のリソースに影響しているかを確認する",
+    "予定されている変更を事前に把握する"
+  ],
+  "mechanism": "サインインすると、自分のアカウントに関係するイベントと、パブリックイベントが表示されます。",
+  "pros": [
+    "自分のアカウントへの影響がわかる",
+    "サービス全体の状態も確認できる"
+  ],
+  "cons": [
+    "自分のアプリケーションの性能などを監視するサービスではない（それはAmazon CloudWatch）"
+  ],
+  "scenes": [
+    "システムの調子が悪いときに、AWS側でイベントが起きていないかを確認する"
+  ],
+  "similarServiceIds": [
+    "aws-trusted-advisor"
+  ],
+  "relatedServiceIds": [
+    "amazon-cloudwatch",
+    "aws-support"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "high",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d4"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/health/"
+}

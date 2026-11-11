@@ -1,0 +1,71 @@
+{
+  "id": "aws-marketplace",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "What is AWS Marketplace?（AWS Marketplace ガイド）",
+      "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "AWS Marketplace",
+  "aliases": [
+    "Marketplace",
+    "マーケットプレイス"
+  ],
+  "category": "management-governance",
+  "summary": "サードパーティのソフトウェア、データ、サービスを、検索、購入、デプロイ、管理できる厳選されたデジタルカタログ。",
+  "beginner": {
+    "analogy": "スマートフォンの「アプリストア」に似ています。いろいろな会社が作ったソフトウェアを探して入手でき、料金はいつもの請求にまとめられます。",
+    "description": "AWS以外の会社が提供するソフトウェアなどを探して購入し、AWS上で使い始められる場所です。料金はAWSの請求にまとめられます。"
+  },
+  "exam": {
+    "description": "顧客がサードパーティのソフトウェア、データ、サービスを検索、購入、デプロイ、管理できる、厳選されたデジタルカタログです。販売者には、独立系ソフトウェアベンダー（ISV）などがいます。製品の料金は購入者のAWSの請求に含まれます。試験ガイドでは、AWS Marketplaceが提供する主な内容として、コスト管理、ガバナンス、エンタイトルメント（利用権の管理）が挙げられています。",
+    "points": [
+      "サードパーティのソフトウェアなどを探して購入・デプロイ＝AWS Marketplace。",
+      "販売者は独立系ソフトウェアベンダー（ISV）など。",
+      "料金はAWSの請求にまとめられる。",
+      "AWSアカウントがあれば、購入者として利用できる。"
+    ]
+  },
+  "useCases": [
+    "他社製のセキュリティソフトウェアを、AWS上ですぐに使い始める"
+  ],
+  "mechanism": "購入者がカタログから製品を選んで購入（サブスクライブ）します。料金はAWSの請求に含まれます。",
+  "pros": [
+    "必要なソフトウェアを素早く見つけて導入できる",
+    "請求がAWSにまとまる"
+  ],
+  "cons": [
+    "製品の利用条件は、購入者と販売者の間の契約で決まる"
+  ],
+  "scenes": [
+    "使い慣れた他社製のソフトウェアを、AWS上のシステムにも導入する"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "aws-support"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "low"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d4"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/marketplace/"
+}

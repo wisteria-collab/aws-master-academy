@@ -1258,5 +1258,209 @@
     "plain": "かかりつけの「担当コンシェルジュ」のようなものです。こちらの事情を知ったうえで相談に乗ってくれます。",
     "example": "AWS Enterprise Supportでは、指名されたテクニカルアカウントマネージャー（TAM）が付く。",
     "serviceIds": []
+  },
+  {
+    "id": "api",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is the AWS Command Line Interface?（AWS CLI ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "API",
+    "description": "プログラムから、サービスの機能を呼び出すための窓口です。AWSの操作は、最終的にAWSのAPIを通じて行われます。",
+    "plain": "レストランの「注文票」のようなものです。決まった書き方で注文を出すと、厨房（AWS）がそのとおりに動いてくれます。",
+    "example": "AWSマネジメントコンソールでの操作も、AWS CLIのコマンドも、裏側ではAWSのAPIを呼び出している。",
+    "serviceIds": []
+  },
+  {
+    "id": "cli",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is the AWS Command Line Interface?（AWS CLI ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html"
+      },
+      {
+        "title": "AWS Command Line Interface（AWS公式）",
+        "url": "https://aws.amazon.com/cli/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "CLI",
+    "description": "コマンドラインインターフェイスの略で、文字のコマンドを入力して操作する方法です。AWS CLIは、コマンドでAWSのサービスを操作するツールです。",
+    "plain": "画面のボタンを押す代わりに、「これをして」と文章で指示を出すイメージです。同じ指示を紙に書いておけば、何度でも同じように実行できます。",
+    "example": "AWS CLIのコマンドをスクリプトにまとめ、毎晩決まった操作を自動で実行する。",
+    "serviceIds": []
+  },
+  {
+    "id": "sdk",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is the AWS Command Line Interface?（AWS CLI ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "SDK",
+    "description": "ソフトウェア開発キットの略です。AWS SDKを使うと、アプリケーションのプログラムからAWSのサービスを利用できます。",
+    "plain": "料理のレシピに「ここで宅配を頼む」と書き込んでおくイメージです。プログラム自身が、必要なときにAWSに依頼を出します。",
+    "example": "ウェブアプリケーションのプログラムから、AWS SDKを使って画像をAmazon S3に保存する。",
+    "serviceIds": []
+  },
+  {
+    "id": "iac",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is CloudFormation?（AWS CloudFormation ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "IaC",
+    "description": "Infrastructure as Code（コードとしてのインフラストラクチャ）の略で、サーバーやネットワークなどの構成を、テキストファイルに書いて管理する方法です。",
+    "plain": "家を建てるときの「設計図」のようなものです。設計図があれば、同じ家を何軒でも、間違いなく建てられます。",
+    "example": "AWS CloudFormationのテンプレートに構成を書いておき、検証用と本番用の環境を同じ内容で作る。",
+    "serviceIds": []
+  },
+  {
+    "id": "template",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is CloudFormation?（AWS CloudFormation ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "テンプレート",
+    "description": "AWS CloudFormationで、作りたいAWSリソースとその設定を記述したテキストファイルです。",
+    "plain": "料理の「レシピ」のようなものです。レシピどおりに作れば、誰が作っても同じ料理ができます。",
+    "example": "テンプレートに、ロードバランサー、Auto Scalingグループ、データベースを記述し、まとめて作成する。",
+    "serviceIds": []
+  },
+  {
+    "id": "hybrid",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Types of cloud computing（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/types-of-cloud-computing.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "ハイブリッド",
+    "description": "クラウド上のリソースと、クラウドではない既存のリソース（オンプレミスなど）を接続して使う形です。",
+    "plain": "自宅の本棚（オンプレミス）と、貸倉庫（クラウド）の両方を使い分けるイメージです。",
+    "example": "社内のデータセンターにあるシステムと、AWS上のシステムを接続して、両方を使い続ける。",
+    "serviceIds": []
+  },
+  {
+    "id": "isv",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is AWS Marketplace?（AWS Marketplace ガイド）",
+        "url": "https://docs.aws.amazon.com/marketplace/latest/buyerguide/what-is-marketplace.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "独立系ソフトウェアベンダー",
+    "description": "自社のソフトウェア製品を開発して販売する企業です。ISVと略します。AWSパートナーの一種です。",
+    "plain": "ショッピングモール（AWS Marketplace）に出店している「専門店」のようなものです。",
+    "example": "独立系ソフトウェアベンダーが、自社のセキュリティソフトウェアをAWS Marketplaceで販売する。",
+    "serviceIds": []
+  },
+  {
+    "id": "system-integrator",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "term": "システムインテグレーター",
+    "description": "顧客のシステムの設計や構築、移行などを支援する企業です。SIと略します。AWSパートナーの一種です。",
+    "plain": "家を建てるときの「工務店」のようなものです。材料（AWSのサービス）を組み合わせて、注文に合った家を建ててくれます。",
+    "example": "AWSへの移行の経験が少ない企業が、システムインテグレーターに移行の支援を依頼する。",
+    "serviceIds": []
   }
 ]

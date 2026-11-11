@@ -323,6 +323,33 @@ function CostTools() {
   )
 }
 
+function AccessMethods() {
+  const item = (y: number, name: string, a: string) => (
+    <g>
+      <Box x={6} y={y} w={216} h={44} />
+      <T x={16} y={y + 19} size={12} bold anchor="start">{name}</T>
+      <T x={16} y={y + 36} size={11} anchor="start">{a}</T>
+      <line x1={222} y1={y + 22} x2={252} y2={y + 22} stroke={line} strokeWidth="2" markerEnd="url(#acc-arrow)" />
+    </g>
+  )
+  return (
+    <Frame title="どの方法でも、最終的にはAWSのAPIが呼び出される" height={206}>
+      <defs>
+        <marker id="acc-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0 0L10 5L0 10z" fill={line} />
+        </marker>
+      </defs>
+      {item(4, 'マネジメントコンソール', '画面で操作')}
+      {item(54, 'AWS CLI', 'コマンドで操作・自動化')}
+      {item(104, 'AWS SDK', 'プログラムから利用')}
+      {item(154, 'IaC（CloudFormation）', 'テンプレートから作成')}
+      <Box x={256} y={4} w={98} h={194} fill={tint} stroke={orange} />
+      <T x={305} y={96} bold>AWSの</T>
+      <T x={305} y={116} bold>API</T>
+    </Frame>
+  )
+}
+
 const registry: Record<FigureId, () => ReactNode> = {
   'region-az': RegionAz,
   'shared-responsibility': SharedResponsibility,
@@ -335,6 +362,7 @@ const registry: Record<FigureId, () => ReactNode> = {
   'vpc-structure': VpcStructure,
   'purchase-options': PurchaseOptions,
   'cost-tools': CostTools,
+  'access-methods': AccessMethods,
 }
 
 export function Figure({ id }: { id: string }) {
