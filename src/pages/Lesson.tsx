@@ -1,3 +1,4 @@
+import { BackLink, usePageTitle } from '../components/Navigation'
 import { useCallback, useEffect, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { guideLabel } from '../components/QuestionCard'
@@ -28,6 +29,7 @@ export function Lesson() {
   const lesson = content.lessons.find((l) => l.id === lessonId && l.course === exam)
   const progress = useStore('lessonProgress')
   useStudyTimer('learn')
+  usePageTitle(lesson ? `レッスン「${lesson.title}」` : 'レッスン')
 
   const current = progress.data.find((p) => p.lessonId === lessonId)
   const loaded = !progress.loading
@@ -67,9 +69,7 @@ export function Lesson() {
   return (
     <div className="flex flex-col gap-5">
       <header>
-        <Link to={`/learn/${lesson.course}`} className="text-base font-semibold text-navy-700 underline">
-          ← {spec?.code} コース
-        </Link>
+        <BackLink fallback={`/learn/${lesson.course}`} fallbackLabel={`${spec?.code} コース`} />
         <h1 className="mt-2 text-2xl font-bold">{lesson.title}</h1>
         <div className="mt-2 flex flex-wrap items-center gap-2">
           {domain && <Badge>{domain.title}</Badge>}
@@ -163,6 +163,8 @@ export function Lesson() {
           }
         />
       </section>
+
+      <BackLink fallback={`/learn/${lesson.course}`} fallbackLabel={`${spec?.code} コース`} />
 
       <SourceList sources={lesson.sources} verifiedAt={lesson.verifiedAt} uncertainNote={lesson.uncertainNote} guide={guideLabel(lesson.basedOnGuide)} />
     </div>

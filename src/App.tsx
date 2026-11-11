@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
-import { HashRouter, Link, Route, Routes, useLocation } from 'react-router-dom'
+import { HashRouter, Link, Route, Routes } from 'react-router-dom'
+import { GlossaryProvider } from './components/Glossary'
+import { NavigationProvider } from './components/Navigation'
 import { Layout } from './components/Layout'
 import { Notice } from './components/ui'
 import { StorageHealthProvider } from './hooks/useStorageHealth'
@@ -19,14 +21,6 @@ import { Services } from './pages/Services'
 import { Settings } from './pages/Settings'
 import { Training } from './pages/Training'
 import { useSettings } from './storage/settings'
-
-function ScrollToTop() {
-  const { pathname } = useLocation()
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
-  return null
-}
 
 function NotFound() {
   return (
@@ -48,7 +42,8 @@ export default function App() {
     <StorageHealthProvider>
       {/* GitHub Pages では再読み込みで404にならないよう、ハッシュ方式のURLを使う */}
       <HashRouter>
-        <ScrollToTop />
+        <NavigationProvider>
+          <GlossaryProvider>
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />
@@ -70,6 +65,8 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
+          </GlossaryProvider>
+        </NavigationProvider>
       </HashRouter>
     </StorageHealthProvider>
   )

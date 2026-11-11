@@ -1,4 +1,6 @@
-import { useEffect, useState, type ReactNode } from 'react'
+import { BackLink, usePageTitle } from '../components/Navigation'
+import { useSessionState } from '../hooks/useSessionState'
+import { useEffect, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { guideLabel } from '../components/QuestionCard'
 import { SourceList } from '../components/SourceList'
@@ -29,7 +31,8 @@ const List = ({ items }: { items: string[] }) => (
 export function ServiceDetail() {
   const { serviceId = '' } = useParams()
   const service = content.services.find((s) => s.id === serviceId)
-  const [tab, setTab] = useState<'beginner' | 'exam'>('beginner')
+  const [tab, setTab] = useSessionState<'beginner' | 'exam'>('tab', 'beginner')
+  usePageTitle(service ? `図鑑「${service.name}」` : 'サービス図鑑')
   const progress = useStore('serviceProgress')
   const favorite = useFavorite('service', serviceId)
   useStudyTimer('services')
@@ -79,9 +82,7 @@ export function ServiceDetail() {
   return (
     <div className="flex flex-col gap-5">
       <header>
-        <Link to="/services" className="text-base font-semibold text-navy-700 underline">
-          ← サービス図鑑
-        </Link>
+        <BackLink fallback="/services" fallbackLabel="サービス図鑑" />
         <h1 className="mt-2 text-2xl font-bold">{service.name}</h1>
         <p className="mt-1 text-base leading-relaxed text-navy-700">{service.summary}</p>
         <div className="mt-2 flex flex-wrap gap-2">
@@ -196,6 +197,8 @@ export function ServiceDetail() {
           公式ドキュメントを開く
         </a>
       </div>
+
+      <BackLink fallback="/services" fallbackLabel="サービス図鑑" />
 
       <SourceList sources={service.sources} verifiedAt={service.verifiedAt} uncertainNote={service.uncertainNote} guide={guideLabel(service.basedOnGuide)} />
     </div>

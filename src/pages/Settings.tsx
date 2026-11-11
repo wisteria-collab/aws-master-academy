@@ -1,3 +1,4 @@
+import { usePageTitle } from '../components/Navigation'
 import { useEffect, useRef, useState } from 'react'
 import { RecordTabs } from '../components/RecordTabs'
 import { SourceList } from '../components/SourceList'
@@ -340,6 +341,7 @@ function DangerSection() {
 }
 
 export function Settings() {
+  usePageTitle('設定・バックアップ')
   return (
     <div>
       <PageHeader title="設定・バックアップ" />

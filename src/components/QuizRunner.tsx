@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useSessionState } from '../hooks/useSessionState'
 import type { Question } from '../content/schema'
 import { newId, recordAnswer } from '../logic/answers'
 import { storage, type Attempt } from '../storage'
@@ -14,14 +15,24 @@ interface Props {
   after?: ReactNode
 }
 
+interface Progress {
+  round: number
+  index: number
+  results: boolean[]
+  completed: boolean
+  /** 表示中の問題の、選択と解答済みの状態 */
+  current: { selected: string[]; submitted: boolean } | null
+}
+const emptyProgress: Progress = { round: 0, index: 0, results: [], completed: false, current: null }
+
 /** 問題を1問ずつ出題し、解答を記録して、最後に結果を表示する */
 export function QuizRunner({ questions, mode, onComplete, after }: Props) {
-  const [round, setRound] = useState(0)
-  const [index, setIndex] = useState(0)
-  const [results, setResults] = useState<boolean[]>([])
+  // 途中経過は履歴の1件ごとに覚えておく。比較画面などへ移動して戻っても、続きから再開できる
+  const [saved, setSaved] = useSessionState<Progress>(`quiz:${mode}:${questions.map((q) => q.id).join(',')}`, emptyProgress)
+  const { round, index, results } = saved
   const [saveError, setSaveError] = useState(false)
   const sessionId = useRef(newId())
-  const completed = useRef(false)
+  const completed = useRef(saved.completed)
   const top = useRef<HTMLDivElement>(null)
 
   const answered = results.length > index
@@ -30,28 +41,27 @@ export function QuizRunner({ questions, mode, onComplete, after }: Props) {
   useEffect(() => {
     if (finished && !completed.current && questions.length > 0) {
       completed.current = true
+      setSaved((p) => ({ ...p, completed: true }))
       onComplete?.({ total: questions.length, correct: results.filter(Boolean).length })
     }
-  }, [finished, onComplete, questions.length, results])
+  }, [finished, onComplete, questions.length, results, setSaved])
 
   const handleAnswer = (question: Question, r: AnswerResult) => {
-    setResults((cur) => [...cur, r.correct])
+    setSaved((p) => ({ ...p, results: [...p.results, r.correct] }))
     recordAnswer(storage, { question, selected: r.selected, mode, sessionId: sessionId.current, elapsedMs: r.elapsedMs }).catch(() =>
       setSaveError(true),
     )
   }
 
   const next = () => {
-    setIndex((i) => i + 1)
+    setSaved((p) => ({ ...p, index: p.index + 1, current: null }))
     top.current?.scrollIntoView({ block: 'start' })
   }
 
   const restart = () => {
     sessionId.current = newId()
     completed.current = false
-    setResults([])
-    setIndex(0)
-    setRound((r) => r + 1)
+    setSaved((p) => ({ ...emptyProgress, round: p.round + 1 }))
   }
 
   if (questions.length === 0) return null
@@ -98,6 +108,8 @@ export function QuizRunner({ questions, mode, onComplete, after }: Props) {
         key={`${round}-${question.id}`}
         question={question}
         number={`${index + 1} / ${questions.length}`}
+        initial={saved.current ?? undefined}
+        onStateChange={(current) => setSaved((p) => ({ ...p, current }))}
         onAnswer={(r) => handleAnswer(question, r)}
         footer={
           answered ? (

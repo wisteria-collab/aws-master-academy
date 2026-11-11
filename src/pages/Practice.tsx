@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { usePageTitle } from '../components/Navigation'
+import { useSessionState } from '../hooks/useSessionState'
 import { Link } from 'react-router-dom'
 import { ChevronIcon } from '../components/icons'
 import { Badge, Button, Card, CardTitle, EmptyState, PageHeader } from '../components/ui'
@@ -23,7 +24,8 @@ function Row({ to, title, note, count }: { to: string; title: string; note?: str
 }
 
 export function Practice() {
-  const [exam, setExam] = useState<ExamId>('clf')
+  const [exam, setExam] = useSessionState<ExamId>('exam', 'clf')
+  usePageTitle('問題演習')
   const summary = useProgressSummary()
   const spec = getExamSpec(exam)
   const questions = content.questions.filter((q) => q.exam === exam)

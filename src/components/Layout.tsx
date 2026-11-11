@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { appInfo } from '../config/app'
+import { useEntryId } from '../hooks/useEntryId'
 import { BookIcon, ChartIcon, CompareIcon, HomeIcon, PencilIcon } from './icons'
 
 interface NavItem {
@@ -27,6 +28,7 @@ function useActive() {
 
 export function Layout() {
   const isActive = useActive()
+  const entryId = useEntryId()
   return (
     <div className="min-h-dvh lg:pl-60">
       {/* PC：左サイドバー */}
@@ -64,7 +66,8 @@ export function Layout() {
       </header>
 
       <main className="mx-auto w-full max-w-4xl px-4 pt-5 pb-28 sm:px-6 lg:pb-10">
-        <Outlet />
+        {/* 履歴の1件ごとに画面を作り直し、その画面の状態（検索条件や解答の途中経過）を復元する */}
+        <Outlet key={entryId} />
         <footer className="mt-10 border-t border-navy-100 pt-4 text-sm leading-relaxed text-navy-700">
           <p>{appInfo.disclaimer}</p>
           <p className="mt-1">

@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react'
+import { BackLink, usePageTitle } from '../components/Navigation'
+import { useSessionState } from '../hooks/useSessionState'
+import { useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { QuizRunner } from '../components/QuizRunner'
 import { EmptyState, PageHeader } from '../components/ui'
@@ -29,19 +31,22 @@ export function PracticeRun() {
   const [params] = useSearchParams()
   const raw = params.get('mode')
   const mode: Mode = raw === 'domain' || raw === 'service' || raw === 'review' ? raw : 'random'
-  const [questions, setQuestions] = useState<Question[] | null>(null)
+  // 出題した問題の並びを覚えておき、他の画面から戻ったときに同じ問題の続きから再開する
+  const [ids, setIds] = useSessionState<string[] | null>('questions', null)
+  const questions: Question[] | null = ids === null ? null : ids.map((id) => content.questions.find((q) => q.id === id)).filter((q) => q !== undefined)
   useStudyTimer(mode === 'review' ? 'review' : 'practice')
 
   const key = params.toString()
   useEffect(() => {
+    if (ids !== null) return
     let alive = true
-    setQuestions(null)
     pick(mode, new URLSearchParams(key))
-      .then((q) => alive && setQuestions(q))
-      .catch(() => alive && setQuestions([]))
+      .then((q) => alive && setIds(q.map((x) => x.id)))
+      .catch(() => alive && setIds([]))
     return () => {
       alive = false
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode, key])
 
   const exam = params.get('exam')
@@ -56,12 +61,11 @@ export function PracticeRun() {
           : 'ランダム演習'
   const attemptMode: Attempt['mode'] = mode
   const back = mode === 'review' ? '/review' : '/practice'
+  usePageTitle(title)
 
   return (
     <div>
-      <Link to={back} className="text-base font-semibold text-navy-700 underline">
-        ← {mode === 'review' ? '復習' : '問題演習'}
-      </Link>
+      <BackLink fallback={back} fallbackLabel={mode === 'review' ? '復習' : '問題演習'} />
       <div className="mt-2">
         <PageHeader title={title} />
       </div>

@@ -1,4 +1,6 @@
-import { useMemo, useState } from 'react'
+import { BackLink, usePageTitle } from '../components/Navigation'
+import { useSessionState } from '../hooks/useSessionState'
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { SearchIcon } from '../components/icons'
 import { Badge, EmptyState, PageHeader } from '../components/ui'
@@ -10,9 +12,10 @@ import { useStudyTimer } from '../hooks/useStudyTimer'
 type StatusFilter = 'all' | 'unlearned' | 'learned' | 'favorite'
 
 export function Services() {
-  const [query, setQuery] = useState('')
-  const [category, setCategory] = useState('all')
-  const [status, setStatus] = useState<StatusFilter>('all')
+  const [query, setQuery] = useSessionState('query', '')
+  const [category, setCategory] = useSessionState('category', 'all')
+  const [status, setStatus] = useSessionState<StatusFilter>('status', 'all')
+  usePageTitle('サービス図鑑')
   const progress = useStore('serviceProgress')
   const favorites = useStore('favorites')
   useStudyTimer('services')
@@ -39,6 +42,9 @@ export function Services() {
 
   return (
     <div>
+      <div className="mb-3">
+        <BackLink fallback="/learn" fallbackLabel="学ぶ" />
+      </div>
       <PageHeader title="サービス図鑑" lead={`AWS公式情報と照合できた ${content.services.length} サービスを公開中です（学習済み ${learned.size}）。`} />
 
       <div className="mb-4 flex flex-col gap-2">

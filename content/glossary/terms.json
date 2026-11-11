@@ -17,6 +17,8 @@
     ],
     "term": "オンプレミス",
     "description": "自社で建物・サーバー・ネットワーク機器を用意し、自分たちで運用する形態です。クラウドと対比して使われます。",
+    "plain": "「持ち家」のようなものです。建物も設備も自分のものなので自由に使えますが、買うお金も、修理や管理の手間も自分で負担します。",
+    "example": "会社のサーバールームにサーバーを置き、故障したときの対応や古くなった機器の入れ替えを社員が行う。",
     "serviceIds": []
   },
   {
@@ -26,6 +28,10 @@
       {
         "title": "Six advantages of cloud computing（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       }
     ],
     "verifiedAt": "2026-11-11",
@@ -36,7 +42,9 @@
       }
     ],
     "term": "従量課金",
-    "description": "使った分だけ料金を支払う方式です。水道や電気の料金と同じ考え方です。",
+    "description": "使った分だけ料金を支払う方式です。",
+    "plain": "水道や電気の料金と同じ考え方です。使わなければ料金は増えず、たくさん使えばその分だけ増えます。",
+    "example": "Amazon EC2は、実際に使用した分だけ料金を支払う。使う量が減れば、支払う料金も減る。",
     "serviceIds": []
   },
   {
@@ -50,6 +58,10 @@
       {
         "title": "Global infrastructure（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/global-infrastructure.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
     "verifiedAt": "2026-11-11",
@@ -61,6 +73,8 @@
     ],
     "term": "リージョン",
     "description": "AWSがデータセンター群を置いている世界各地の地域です。1つのリージョンの中に、複数のアベイラビリティゾーンがあります。",
+    "plain": "AWSの拠点がある「都市圏」のようなものです。世界のあちこちにあり、どこを使うかは利用者が選びます。",
+    "example": "日本の利用者向けのサービスを、東京リージョンで動かす。利用者に近い場所を選ぶと、通信の遅延を小さくできる。",
     "serviceIds": []
   },
   {
@@ -85,6 +99,8 @@
     ],
     "term": "アベイラビリティゾーン",
     "description": "リージョンの中にある、1つ以上のデータセンターのまとまりです。AZと略します。電源やネットワークが他のAZから独立しています。",
+    "plain": "リージョンという都市圏の中で、互いに離れた場所に建っている「建物のグループ」です。1つが停電しても、他は影響を受けにくくなっています。",
+    "example": "ウェブサーバーを2つのアベイラビリティゾーンに1台ずつ置く。片方のゾーンで障害が起きても、もう片方でサービスを続けられる。",
     "serviceIds": []
   },
   {
@@ -109,6 +125,8 @@
     ],
     "term": "高可用性",
     "description": "一部が故障しても、システム全体としては止まらずに使い続けられる性質です。",
+    "plain": "「止まりにくさ」のことです。予備を別の場所に用意しておき、1つがだめになっても残りで動かし続けます。",
+    "example": "サーバーを複数のアベイラビリティゾーンに分けて配置し、1つのデータセンターの障害でサービス全体が止まらないようにする。",
     "serviceIds": []
   },
   {
@@ -133,6 +151,8 @@
     ],
     "term": "弾力性",
     "description": "必要なときにリソースを増やし、不要になったら減らせる性質です。",
+    "plain": "ゴムのように伸び縮みできる、ということです。忙しいときだけ大きくして、暇になったら元に戻せます。",
+    "example": "オンラインショップが、セールの期間だけサーバーの台数を増やし、終わったら元の台数に減らす。",
     "serviceIds": []
   },
   {
@@ -153,6 +173,8 @@
     ],
     "term": "オブジェクトストレージ",
     "description": "ファイルを「オブジェクト」という単位でまるごと保存する方式です。フォルダの階層ではなく、名前（キー）で出し入れします。",
+    "plain": "荷物に名札を付けて預ける「倉庫」のようなものです。名札を伝えれば、預けた荷物をそのまま取り出せます。",
+    "example": "Amazon S3がオブジェクトストレージ。ウェブサイトの画像、バックアップ、アーカイブなどの保存に使う。",
     "serviceIds": []
   },
   {
@@ -173,6 +195,8 @@
     ],
     "term": "ブロックストレージ",
     "description": "データを固定サイズの「ブロック」に分けて保存する方式です。サーバーに接続するディスクとして使います。",
+    "plain": "パソコンに取り付けるハードディスクやSSDのようなものです。つないだサーバーからは、普通のディスクとして見えます。",
+    "example": "Amazon EBSがブロックストレージ。EC2インスタンスに接続して、OSやデータベースのデータを置く。",
     "serviceIds": []
   },
   {
@@ -182,6 +206,10 @@
       {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
     "verifiedAt": "2026-11-11",
@@ -192,7 +220,9 @@
       }
     ],
     "term": "ファイルストレージ",
-    "description": "フォルダとファイルの階層でデータを管理し、複数のサーバーから共有できる方式です。社内の共有フォルダに近いものです。",
+    "description": "フォルダとファイルの階層でデータを管理し、複数のサーバーから共有できる方式です。",
+    "plain": "社内の「共有フォルダ」に近いものです。何人（何台）もが同じフォルダを同時に開いて、ファイルを読み書きできます。",
+    "example": "Amazon EFSやAmazon FSxがファイルストレージ。複数のウェブサーバーが同じ画像フォルダを共有する。",
     "serviceIds": []
   },
   {
@@ -213,6 +243,8 @@
     ],
     "term": "ゲストOS",
     "description": "仮想サーバー（EC2インスタンス）の中で動かすOSです。WindowsやLinuxなど、利用者が選んで管理します。",
+    "plain": "借りたパソコンに、自分で入れて使うOSのことです。パソコン本体は貸し主のものですが、OSの更新は使う人の役目です。",
+    "example": "EC2インスタンスで動かしているLinuxに、セキュリティパッチを適用する。これは利用者の責任になる。",
     "serviceIds": []
   },
   {
@@ -233,6 +265,8 @@
     ],
     "term": "セキュリティグループ",
     "description": "EC2インスタンスごとに設定する、AWSが提供するファイアウォールです。どの通信を通すかを利用者が決めます。",
+    "plain": "サーバーの入口に立つ「門番」のようなものです。通してよい通信をあらかじめ伝えておくと、それ以外は通しません。",
+    "example": "ウェブサーバーに、ウェブサイトの閲覧に必要な通信だけを通す設定をする。この設定は利用者の責任になる。",
     "serviceIds": []
   },
   {
@@ -253,6 +287,8 @@
     ],
     "term": "IaaS",
     "description": "Infrastructure as a Service の略です。サーバーやネットワークなどの基盤を借り、OSから上は利用者が管理する形態です。",
+    "plain": "建物の骨組みだけを借りて、内装や家具は自分で用意するイメージです。自由度が高い分、自分で管理する範囲も広くなります。",
+    "example": "Amazon EC2はIaaSに分類される。ゲストOSの更新、アプリケーション、セキュリティグループの設定は利用者が行う。",
     "serviceIds": []
   }
 ]

@@ -1,3 +1,4 @@
+import { usePageTitle } from '../components/Navigation'
 import { Link } from 'react-router-dom'
 import { BookIcon, CompareIcon, DiagramIcon, PencilIcon, RefreshIcon, SearchIcon } from '../components/icons'
 import { Badge, Button, Card, CardTitle, LinkRow, Notice, ProgressBar, Stat } from '../components/ui'
@@ -52,6 +53,7 @@ export function Home() {
   const s = useProgressSummary()
   const health = useStorageHealth()
   const settings = useSettings()
+  usePageTitle('ホーム')
 
   const backupOverdue =
     s.hasAnyRecord &&

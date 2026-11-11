@@ -1,3 +1,4 @@
+import { usePageTitle } from '../components/Navigation'
 import { BookIcon, DiagramIcon, SearchIcon } from '../components/icons'
 import { Badge, LinkRow, PageHeader } from '../components/ui'
 import { features } from '../config/app'
@@ -5,6 +6,7 @@ import { plannedLessons } from '../config/labels'
 import { content } from '../content'
 
 export function LearnHub() {
+  usePageTitle('学ぶ')
   const soon = (phase: number) => <Badge>準備中・Phase {phase}</Badge>
   const open = <Badge tone="good">一部公開中</Badge>
   const clfLessons = content.lessons.filter((l) => l.course === 'clf').length

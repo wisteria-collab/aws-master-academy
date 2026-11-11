@@ -1,3 +1,4 @@
+import { BackLink, usePageTitle } from '../components/Navigation'
 import { Link, useParams } from 'react-router-dom'
 import { ChevronIcon } from '../components/icons'
 import { SourceList } from '../components/SourceList'
@@ -17,6 +18,7 @@ export function ExamOverview() {
   const spec = exam ? getExamSpec(exam) : undefined
   const progress = useStore('lessonProgress')
   useStudyTimer('learn')
+  usePageTitle(spec ? `${spec.code} コース` : 'コース')
 
   if (!exam || !spec) {
     return (
@@ -35,6 +37,7 @@ export function ExamOverview() {
 
   return (
     <div className="flex flex-col gap-5">
+      <BackLink fallback="/learn" fallbackLabel="学ぶ" />
       <PageHeader title={`${spec.code} コース`} lead={spec.nameJa} />
 
       <Card>

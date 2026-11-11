@@ -1,3 +1,4 @@
+import { usePageTitle } from '../components/Navigation'
 import { Link } from 'react-router-dom'
 import { RecordTabs } from '../components/RecordTabs'
 import { Card, CardTitle, EmptyState, PageHeader, ProgressBar, Stat } from '../components/ui'
@@ -31,6 +32,7 @@ const weekday = ['日', '月', '火', '水', '木', '金', '土']
 
 export function Progress() {
   const s = useProgressSummary()
+  usePageTitle('記録')
   const max = Math.max(...s.study.week.map((d) => d.seconds), 1)
 
   const questionById = new Map(content.questions.map((q) => [q.id, q]))

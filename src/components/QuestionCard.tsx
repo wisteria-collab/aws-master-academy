@@ -49,11 +49,14 @@ interface Props {
   onAnswer: (result: AnswerResult) => void
   /** 解説の下に表示する「次へ」などのボタン */
   footer?: ReactNode
+  /** 他の画面から戻ったときに復元する、選択と解答済みの状態 */
+  initial?: { selected: string[]; submitted: boolean }
+  onStateChange?: (state: { selected: string[]; submitted: boolean }) => void
 }
 
-export function QuestionCard({ question, number, onAnswer, footer }: Props) {
-  const [selected, setSelected] = useState<string[]>([])
-  const [submitted, setSubmitted] = useState(false)
+export function QuestionCard({ question, number, onAnswer, footer, initial, onStateChange }: Props) {
+  const [selected, setSelected] = useState<string[]>(initial?.selected ?? [])
+  const [submitted, setSubmitted] = useState(initial?.submitted ?? false)
   const startedAt = useRef(Date.now())
   const multiple = question.select === 'multiple'
   const correctCount = question.choices.filter((c) => c.correct).length
@@ -61,11 +64,14 @@ export function QuestionCard({ question, number, onAnswer, footer }: Props) {
 
   const toggle = (id: string) => {
     if (submitted) return
-    setSelected((cur) => (multiple ? (cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id]) : [id]))
+    const next = multiple ? (selected.includes(id) ? selected.filter((x) => x !== id) : [...selected, id]) : [id]
+    setSelected(next)
+    onStateChange?.({ selected: next, submitted: false })
   }
 
   const submit = () => {
     setSubmitted(true)
+    onStateChange?.({ selected, submitted: true })
     onAnswer({ selected, correct: grade(question, selected), elapsedMs: Date.now() - startedAt.current })
   }
 

@@ -1,3 +1,4 @@
+import { usePageTitle } from '../components/Navigation'
 import { Link } from 'react-router-dom'
 import { ChevronIcon } from '../components/icons'
 import { Badge, Card, PageHeader } from '../components/ui'
@@ -18,6 +19,7 @@ const planned = [
 
 export function Compare() {
   const attempts = useStore('attempts')
+  usePageTitle('類似サービス比較')
   return (
     <div className="flex flex-col gap-5">
       <PageHeader title="類似サービス比較" lead="似たサービスを比べて違いを理解し、要件から選ぶ練習をします。" />

@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { BackLink, usePageTitle } from '../components/Navigation'
+import { useSessionState } from '../hooks/useSessionState'
 import { Link, useParams } from 'react-router-dom'
 import { guideLabel } from '../components/QuestionCard'
 import { SourceList } from '../components/SourceList'
@@ -13,7 +14,7 @@ const cols: Record<number, string> = { 2: 'lg:grid-cols-2', 3: 'lg:grid-cols-3',
 /** 質問に「はい／いいえ」で答えていくと、適したサービスにたどり着く */
 function DecisionFlow({ group }: { group: ComparisonGroup }) {
   const start = group.decisionFlow[0]?.id
-  const [path, setPath] = useState<{ id: string; answer?: 'yes' | 'no' }[]>(start ? [{ id: start }] : [])
+  const [path, setPath] = useSessionState<{ id: string; answer?: 'yes' | 'no' }[]>('flow', start ? [{ id: start }] : [])
   if (!start) return null
   const node = (id: string) => group.decisionFlow.find((n) => n.id === id)
   const answer = (index: number, a: 'yes' | 'no') => {
@@ -70,6 +71,7 @@ export function CompareDetail() {
   const { groupId } = useParams()
   const group = content.comparisons.find((g) => g.id === groupId)
   useStudyTimer('compare')
+  usePageTitle(group ? `比較「${group.title}」` : '類似サービス比較')
 
   if (!group) {
     return (
@@ -84,9 +86,7 @@ export function CompareDetail() {
   return (
     <div className="flex flex-col gap-5">
       <header>
-        <Link to="/compare" className="text-base font-semibold text-navy-700 underline">
-          ← 類似サービス比較
-        </Link>
+        <BackLink fallback="/compare" fallbackLabel="類似サービス比較" />
         <h1 className="mt-2 text-2xl font-bold">{group.title}</h1>
         <p className="mt-1 text-base leading-relaxed text-navy-700">{group.summary}</p>
       </header>
@@ -147,6 +147,8 @@ export function CompareDetail() {
           </Card>
         ))}
       </section>
+
+      <BackLink fallback="/compare" fallbackLabel="類似サービス比較" />
 
       <SourceList sources={group.sources} verifiedAt={group.verifiedAt} uncertainNote={group.uncertainNote} guide={guideLabel(group.basedOnGuide)} />
     </div>

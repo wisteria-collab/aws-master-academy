@@ -1,3 +1,4 @@
+import { usePageTitle } from '../components/Navigation'
 import { Link } from 'react-router-dom'
 import { RecordTabs } from '../components/RecordTabs'
 import { Card, CardTitle, EmptyState, PageHeader, Stat } from '../components/ui'
@@ -7,6 +8,7 @@ import { useProgressSummary } from '../hooks/useProgressSummary'
 
 export function Review() {
   const s = useProgressSummary()
+  usePageTitle('復習')
   const [first, ...rest] = learningConfig.reviewIntervalsDays
 
   return (

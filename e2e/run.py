@@ -135,8 +135,9 @@ with sync_playwright() as p:
     check('レッスンの7ブロック', all(x in t for x in ['概要', 'かんたんに言うと', '具体的な利用場面', '仕組み', '関連するAWSサービス', '試験で重要なポイント', '確認問題']))
     check('図解を表示', page.locator('main svg[role=img]').count() >= 1)
     check('たとえを表示', 'たとえると' in t)
-    page.get_by_role('button', name='オブジェクトストレージ').first.click(); page.wait_for_timeout(150)
-    check('用語をタップで説明', '用語：オブジェクトストレージ' in page.inner_text('main'))
+    page.get_by_role('button', name='オブジェクトストレージ').first.click(); page.wait_for_timeout(200)
+    check('用語をタップで説明', page.get_by_test_id('glossary-popover').is_visible())
+    page.get_by_role('button', name='説明を閉じる').click(); page.wait_for_timeout(150)
     check('解答前は解説を出さない', '正解です' not in t and 'この選択肢を外す根拠' not in t)
     check('未選択では解答できない', page.get_by_role('button', name='解答する').is_disabled())
     pick('Amazon S3'); submit()
@@ -220,20 +221,134 @@ with sync_playwright() as p:
     page.goto(BASE + '#/review'); page.wait_for_timeout(400)
     t = page.inner_text('main')
     check('復習予定1問・今日は0問', '今日の復習はありません' in t and '★ Amazon EFS' in t)
+
+    # ================= 操作性の改善：用語ポップアップ・元の場所に戻る =================
+    def ux_checks(tag, vw):
+        sy = lambda: page.evaluate('Math.round(window.scrollY)')
+        pop = page.get_by_test_id('glossary-popover')
+        page.goto(BASE + '#/learn/clf/clf-storage'); page.wait_for_timeout(500)
+        terms = page.locator('main button[aria-haspopup=dialog]')
+        n = terms.count()
+        check(f'[{tag}] タップできる用語が区別されている', n >= 3 and page.evaluate("""() => { const b = document.querySelector('main button[aria-haspopup=dialog]'); const c = getComputedStyle(b); return c.textDecorationLine.includes('underline') && c.backgroundColor !== 'rgba(0, 0, 0, 0)' }"""))
+        ok_in, ok_near, ok_scroll, ok_content = True, True, True, True
+        for i in range(n):
+            t = terms.nth(i); t.scroll_into_view_if_needed(); page.wait_for_timeout(80)
+            y0 = sy(); t.evaluate('el => el.click()'); page.wait_for_timeout(180)
+            b = pop.bounding_box(); a = t.bounding_box()
+            ok_in = ok_in and b is not None and b['x'] >= 0 and b['x'] + b['width'] <= vw + 0.5
+            ok_near = ok_near and b is not None and (abs(b['y'] - (a['y'] + a['height'])) <= 12 or abs((b['y'] + b['height']) - a['y']) <= 12)
+            txt = pop.inner_text()
+            ok_content = ok_content and all(x in txt for x in ['意味', 'かんたんに言うと', '具体例']) and t.inner_text() in txt
+            ok_scroll = ok_scroll and sy() == y0
+            if i == 0: page.screenshot(path=f'{OUT}/{tag}-glossary-popover.png')
+            page.get_by_role('button', name='説明を閉じる').evaluate('el => el.click()'); page.wait_for_timeout(100)
+            ok_scroll = ok_scroll and sy() == y0 and pop.count() == 0
+        check(f'[{tag}] ポップアップが画面からはみ出さない（全{n}語）', ok_in)
+        check(f'[{tag}] ポップアップが用語のすぐ近くに出る', ok_near)
+        check(f'[{tag}] 意味・初心者向け説明・具体例を表示', ok_content)
+        check(f'[{tag}] 開閉してもスクロール位置が変わらない', ok_scroll)
+        # 実際のタップ操作でも確認する（用語を画面の中ほどに置く）
+        t = terms.nth(0)
+        page.evaluate("(el) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 200)", t.element_handle()); page.wait_for_timeout(200)
+        y0 = sy(); bb = t.bounding_box()
+        (page.mouse.click if vw > 1000 else page.touchscreen.tap)(bb['x'] + bb['width'] / 2, bb['y'] + bb['height'] / 2); page.wait_for_timeout(200)
+        opened = pop.count() == 1 and sy() == y0
+        cb = page.get_by_role('button', name='説明を閉じる').bounding_box()
+        (page.mouse.click if vw > 1000 else page.touchscreen.tap)(cb['x'] + cb['width'] / 2, cb['y'] + cb['height'] / 2); page.wait_for_timeout(200)
+        check(f'[{tag}] 実際のタップで開閉でき、位置が変わらない', opened and pop.count() == 0 and sy() == y0, f'{sy()} vs {y0}')
+        w = page.evaluate('[document.documentElement.scrollWidth, window.innerWidth]')
+        check(f'[{tag}] ポップアップ表示で横スクロールが出ない', w[0] <= w[1], str(w))
+        # 画面の下端近くの用語では、上側に表示する
+        t = terms.nth(n - 1)
+        page.evaluate("(el) => { const r = el.getBoundingClientRect(); window.scrollBy(0, r.bottom - window.innerHeight + 90) }", t.element_handle()); page.wait_for_timeout(150)
+        y0 = sy(); t.click(); page.wait_for_timeout(200)
+        b = pop.bounding_box(); a = t.bounding_box(); vh = page.evaluate('window.innerHeight')
+        check(f'[{tag}] 下端近くでは上側に出て画面内に収まる', b['y'] + b['height'] <= a['y'] + 1 and b['y'] >= 0 and b['y'] + b['height'] <= vh, json.dumps(b))
+        # ウィンドウの外をタップして閉じる
+        page.mouse.click(5, 300) if vw > 1000 else page.touchscreen.tap(8, 200)
+        page.wait_for_timeout(150)
+        check(f'[{tag}] 外側のタップで閉じ、位置も変わらない', pop.count() == 0 and sy() == y0)
+        t.click(); page.wait_for_timeout(150); page.keyboard.press('Escape'); page.wait_for_timeout(120)
+        check(f'[{tag}] Escキーで閉じる', pop.count() == 0 and sy() == y0)
+
+        # --- 講義 → 比較 → 元の位置に戻る ---
+        page.goto(BASE + '#/learn/clf'); page.wait_for_timeout(400)
+        page.get_by_role('link', name='ストレージサービス').click(); page.wait_for_timeout(500)
+        page.locator('label', has_text='Amazon EBS').first.click()          # 確認問題で選択だけしておく
+        link = page.get_by_role('link', name='比べて理解する：ストレージ：S3・EBS・EFS・FSx')
+        page.evaluate("(el) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 300)", link.element_handle()); page.wait_for_timeout(300)
+        y_lesson = sy()
+        link.click(); page.wait_for_timeout(500)
+        check(f'[{tag}] 移動先は先頭から表示', sy() == 0 and '#/compare/storage' in page.url)
+        back = page.get_by_test_id('back').first
+        check(f'[{tag}] 戻るボタンに元の画面名', 'レッスン「ストレージサービス」' in back.inner_text(), back.inner_text())
+        page.get_by_role('button', name='はい').first.click(); page.wait_for_timeout(150)
+        page.evaluate('window.scrollTo(0, 900)'); page.wait_for_timeout(300)
+        y_compare = sy()
+        page.evaluate('window.scrollTo(0, 0)'); page.wait_for_timeout(250)
+        page.evaluate(f'window.scrollTo(0, {y_compare})'); page.wait_for_timeout(300)
+        page.get_by_test_id('back').last.click(); page.wait_for_timeout(600)      # ページ下部の戻るボタン
+        check(f'[{tag}] 戻るボタンで講義に戻る', page.url.endswith('#/learn/clf/clf-storage'), page.url)
+        check(f'[{tag}] 講義の元のスクロール位置に戻る', abs(sy() - y_lesson) <= 3, f'{sy()} vs {y_lesson}')
+        check(f'[{tag}] 確認問題の選択が残っている', page.locator('label', has_text='Amazon EBS').first.locator('input').is_checked())
+        check(f'[{tag}] 講義に戻ったあとの戻るボタンはコース', 'CLF-C02 コース' in page.get_by_test_id('back').first.inner_text())
+        page.go_forward(); page.wait_for_timeout(600)
+        check(f'[{tag}] ブラウザの「進む」で比較の位置と状態が戻る', abs(sy() - y_compare) <= 3 and page.get_by_role('button', name='はい').first.get_attribute('aria-pressed') == 'true', f'{sy()} vs {y_compare}')
+        page.go_back(); page.wait_for_timeout(600)
+        check(f'[{tag}] ブラウザの「戻る」で講義の位置に戻る', page.url.endswith('#/learn/clf/clf-storage') and abs(sy() - y_lesson) <= 3, f'{sy()} vs {y_lesson}')
+        page.reload(); page.wait_for_timeout(700)
+        check(f'[{tag}] 再読み込みしても位置と選択を維持', abs(sy() - y_lesson) <= 3 and page.locator('label', has_text='Amazon EBS').first.locator('input').is_checked(), f'{sy()} vs {y_lesson}')
+
+        # --- 解答済みの状態で関連ページへ行って戻る（解答が二重に記録されない） ---
+        n0 = len(db_all('attempts'))
+        page.get_by_role('button', name='解答する').click(); page.wait_for_timeout(300)
+        page.locator('article a', has_text='Amazon S3').first.click(); page.wait_for_timeout(500)
+        check(f'[{tag}] 解説から図鑑へ移動', '#/services/amazon-s3' in page.url and 'レッスン「ストレージサービス」' in page.get_by_test_id('back').first.inner_text())
+        page.get_by_test_id('back').first.click(); page.wait_for_timeout(600)
+        t2 = page.inner_text('main')
+        check(f'[{tag}] 戻ると解説が表示されたまま', '不正解です' in t2 and '判断のポイント' in t2 and '次の問題へ' in t2)
+        check(f'[{tag}] 解答は1回だけ記録', len(db_all('attempts')) == n0 + 1, f'{len(db_all("attempts"))} vs {n0}')
+
+        # --- 図鑑：検索条件を維持 ---
+        page.goto(BASE + '#/services'); page.wait_for_timeout(400)
+        page.get_by_placeholder('サービス名で検索').fill('fsx'); page.wait_for_timeout(200)
+        page.locator('main ul li a').first.click(); page.wait_for_timeout(400)
+        page.get_by_role('tab', name='試験対策').click(); page.wait_for_timeout(100)
+        page.get_by_test_id('back').first.click(); page.wait_for_timeout(500)
+        check(f'[{tag}] 図鑑の検索条件を維持', page.get_by_placeholder('サービス名で検索').input_value() == 'fsx' and page.locator('main ul li a').count() == 1)
+        page.go_forward(); page.wait_for_timeout(500)
+        check(f'[{tag}] 図鑑のタブ選択を維持', page.get_by_role('tab', name='試験対策').get_attribute('aria-selected') == 'true')
+
+        # --- 演習：出題の並びと進み具合を維持 ---
+        page.goto(BASE + '#/practice'); page.wait_for_timeout(400)
+        page.get_by_role('link', name='ランダム演習').click(); page.wait_for_timeout(600)
+        stem = page.locator('article p').first.inner_text()
+        page.locator('article label').first.click(); submit()
+        stem1 = page.locator('article p').first.inner_text()
+        page.locator('article a').first.click(); page.wait_for_timeout(500)
+        page.go_back(); page.wait_for_timeout(600)
+        check(f'[{tag}] 演習に戻ると同じ問題の解説が残る', page.locator('article p').first.inner_text() == stem1 == stem and '1 / 10' in page.inner_text('main') and '判断のポイント' in page.inner_text('main'))
+        check(f'[{tag}] 用語ポップアップは画面移動で閉じている', pop.count() == 0)
+
+    ux_checks('m', 390)
+
     # 復習日が来た状態にして、復習の流れを確認する
-    page.evaluate("""() => new Promise(r => { const q = indexedDB.open('aws-master-academy'); q.onsuccess = () => { const st = q.result.transaction('reviewItems','readwrite').objectStore('reviewItems'); const g = st.getAll(); g.onsuccess = () => { const it = g.result[0]; const d = new Date(); const p = n => String(n).padStart(2,'0'); it.dueDate = `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`; st.put(it).onsuccess = () => r(true) } } })""")
-    page.reload(); page.wait_for_timeout(500)
-    page.get_by_role('link', name='復習を始める（1問）').click(); page.wait_for_timeout(500)
+    page.evaluate("""() => new Promise(r => { const q = indexedDB.open('aws-master-academy'); q.onsuccess = () => { const st = q.result.transaction('reviewItems','readwrite').objectStore('reviewItems'); const g = st.getAll(); g.onsuccess = () => { const it = g.result.find(x => x.questionId === 'clf-q-storage-02'); const d = new Date(); const p = n => String(n).padStart(2,'0'); it.dueDate = `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`; st.put(it).onsuccess = () => r(true) } } })""")
+    page.goto(BASE + '#/review'); page.wait_for_timeout(300); page.reload(); page.wait_for_timeout(500)
+    page.locator('a', has_text='復習を始める').click(); page.wait_for_timeout(500)
+    n_before_backup = None
     pick('S3ライフサイクルポリシー'); submit()
     rev = db_all('reviewItems')
-    check('復習で正解すると次の段階へ', len(rev) == 1 and rev[0]['stage'] == 1, json.dumps(rev))
+    target = [r for r in rev if r['questionId'] == 'clf-q-storage-02']
+    check('復習で正解すると次の段階へ', len(target) == 1 and target[0]['stage'] == 1, json.dumps(rev))
     page.reload(); page.wait_for_timeout(500)
     # バックアップに新しいデータが入る
     page.goto(BASE + '#/settings'); page.wait_for_timeout(500)
     with page.expect_download() as d2:
         page.get_by_role('button', name='バックアップを書き出す').click()
     dl2 = d2.value; page.wait_for_timeout(500); b2 = json.load(open(dl2.path()))['stores']
-    check('バックアップに解答・進捗・復習・お気に入り', len(b2['attempts']) == 10 and sum(1 for l in b2['lessonProgress'] if l['status'] == 'completed') == 2 and len(b2['reviewItems']) == 1 and len(b2['favorites']) == 1 and len(b2['serviceProgress']) >= 1, str({k: len(v) for k, v in b2.items()}))
+    check('バックアップに解答・進捗・復習・お気に入り', len(b2['attempts']) == len(db_all('attempts')) >= 10 and sum(1 for l in b2['lessonProgress'] if l['status'] == 'completed') == 2 and len(b2['reviewItems']) >= 1 and len(b2['favorites']) == 1 and len(b2['serviceProgress']) >= 1, str({k: len(v) for k, v in b2.items()}))
+    att_before_restart = len(db_all('attempts'))
     ctx.close()
 
     # 再起動後もPhase 3のデータが残る
@@ -244,7 +359,7 @@ with sync_playwright() as p:
     page.goto(BASE + '#/learn/clf'); page.wait_for_timeout(500)
     check('再起動後もレッスン進捗が残る', '2 / 4 完了' in page.inner_text('main'))
     att = page.evaluate("""() => new Promise(r => { const q = indexedDB.open('aws-master-academy'); q.onsuccess = () => { const g = q.result.transaction('attempts').objectStore('attempts').count(); g.onsuccess = () => r(g.result) } })""")
-    check('再起動後も解答履歴が残る', att == 10, str(att))
+    check('再起動後も解答履歴が残る', att == att_before_restart, f'{att} vs {att_before_restart}')
     ctx.close()
 
     # 10. PC表示
@@ -260,6 +375,7 @@ with sync_playwright() as p:
         w = page.evaluate('[document.documentElement.scrollWidth, window.innerWidth]'); check(f'PC横はみ出しなし {dp}', w[0] <= w[1])
         page.screenshot(path=f'{OUT}/d-{dp.replace("#/","").replace("/","-")}.png', full_page=True)
     w = page.evaluate('[document.documentElement.scrollWidth, window.innerWidth]'); check('PC横はみ出しなし', w[0] <= w[1])
+    ux_checks('d', 1280)
     ctx.close()
 
     check('コンソールエラーなし', len(errors) == 0, str(errors[:3]))

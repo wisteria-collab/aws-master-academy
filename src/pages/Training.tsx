@@ -1,3 +1,4 @@
+import { BackLink, usePageTitle } from '../components/Navigation'
 import { Link, useParams } from 'react-router-dom'
 import { QuizRunner } from '../components/QuizRunner'
 import { Notice, PageHeader } from '../components/ui'
@@ -9,6 +10,7 @@ export function Training() {
   const { groupId } = useParams()
   const group = content.comparisons.find((g) => g.id === groupId)
   useStudyTimer('compare')
+  usePageTitle(group ? `選択トレーニング「${group.title}」` : '選択トレーニング')
 
   if (!group) {
     return (
@@ -23,9 +25,7 @@ export function Training() {
 
   return (
     <div>
-      <Link to={`/compare/${group.id}`} className="text-base font-semibold text-navy-700 underline">
-        ← {group.title}
-      </Link>
+      <BackLink fallback={`/compare/${group.id}`} fallbackLabel="比較表" />
       <div className="mt-2">
         <PageHeader title="選択トレーニング" lead="同じサービス群で、条件を少しずつ変えた問題が続きます。どの条件で正解が変わるかに注目してください。" />
       </div>

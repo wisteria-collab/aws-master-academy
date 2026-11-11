@@ -333,7 +333,12 @@ export const glossaryTermSchema = z
     ...metaShape,
     term: nonEmpty,
     reading: nonEmpty.optional(),
+    /** 用語の意味 */
     description: nonEmpty,
+    /** 初心者向けの説明（たとえ） */
+    plain: nonEmpty,
+    /** 具体例 */
+    example: nonEmpty,
     serviceIds: z.array(idSchema).default([]),
   })
   .superRefine(checkMeta)

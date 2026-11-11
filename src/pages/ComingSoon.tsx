@@ -1,3 +1,4 @@
+import { usePageTitle } from '../components/Navigation'
 import { Link } from 'react-router-dom'
 import { Card, PageHeader } from '../components/ui'
 import { features, type FeatureKey } from '../config/app'
@@ -43,6 +44,7 @@ const plans: Record<string, { feature: FeatureKey; lead: string; items: string[]
 export function ComingSoon({ kind }: { kind: keyof typeof plans }) {
   const plan = plans[kind]
   const f = features[plan.feature]
+  usePageTitle(f.label)
   return (
     <div>
       <PageHeader title={f.label} lead={plan.lead} />
