@@ -1,0 +1,79 @@
+{
+  "id": "aws-compute-optimizer",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "What is AWS Compute Optimizer?（AWS Compute Optimizer ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS Compute Optimizer",
+  "aliases": [
+    "Compute Optimizer",
+    "コンピュートオプティマイザー"
+  ],
+  "category": "cost-management",
+  "summary": "リソースの設定と使われ方を分析して、ちょうどよい大きさ（ライトサイジング）を提案するサービス。",
+  "beginner": {
+    "analogy": "服のサイズを見てくれる「仕立て屋」です。ふだんの着方を見て、「この服は大きすぎます」「このサイズが合います」と教えてくれます。",
+    "description": "いま使っているサーバーなどが、大きすぎないか、小さすぎないかを、実際の使われ方から調べて、合う大きさを提案してくれるサービスです。"
+  },
+  "exam": {
+    "description": "AWSのリソースの設定と使用率のメトリクスを分析して、ライトサイジングの推奨を提供し、使われていない（アイドルな）リソースを見つけるサービスです。利用するには、オプトイン（利用の申し込み）が必要です。オプトインすると、Amazon CloudWatchの直近14日間のメトリクスなどを分析します。対象には、Amazon EC2インスタンス、EC2 Auto Scalingグループ、Amazon EBSボリューム、AWS Lambda関数、AWS Fargate上のAmazon ECSサービス、Amazon AuroraとAmazon RDSのデータベースなどがあります。",
+    "points": [
+      "使用率のメトリクスを分析して、ライトサイジングの推奨を出す＝Compute Optimizer。",
+      "使われていない（アイドルな）リソースも見つける。",
+      "利用にはオプトインが必要。CloudWatchのメトリクスを分析する。"
+    ]
+  },
+  "useCases": [
+    "大きすぎるEC2インスタンスを見つけて、合うサイズに変える",
+    "Lambda関数のメモリの設定を見直す",
+    "使われていないリソースを見つける"
+  ],
+  "mechanism": "CloudWatchに集まっている使用率のメトリクス（CPU、メモリ、ネットワーク、ディスクなど）と、リソースの設定を分析して、推奨を出します。",
+  "pros": [
+    "実際の使われ方に基づいて提案される",
+    "複数のリージョンやアカウントの結果をまとめて見られる"
+  ],
+  "cons": [
+    "オプトインが必要",
+    "推奨を採用するかどうかは、利用者が判断する"
+  ],
+  "scenes": [
+    "余裕を見て大きめに作ったインスタンスが、実際にはほとんど使われていないことを見つけて、サイズを下げる。"
+  ],
+  "similarServiceIds": [
+    "aws-trusted-advisor",
+    "aws-cost-explorer"
+  ],
+  "relatedServiceIds": [
+    "amazon-ec2",
+    "aws-lambda",
+    "amazon-ebs",
+    "amazon-cloudwatch"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d4"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html"
+}

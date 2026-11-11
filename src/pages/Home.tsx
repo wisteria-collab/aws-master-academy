@@ -144,6 +144,7 @@ export function Home() {
         </Link>
 
         <div className="grid gap-3 sm:grid-cols-2">
+          <LinkRow to="/guide" title="使い方" note="おすすめの学習の進め方" icon={<BookIcon />} />
           <LinkRow
             to="/learn/clf"
             title="CLF学習"

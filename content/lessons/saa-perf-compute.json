@@ -9,9 +9,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Configure Lambda function memory（AWS Lambda デベロッパーガイド）",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -37,7 +41,7 @@
     "既存のSparkの処理を、AWSで動かす"
   ],
   "mechanism": {
-    "text": "【インスタンスタイプを選ぶ】\nEC2のインスタンスタイプは、用途別に最適化されています。汎用、コンピューティング最適化、メモリ最適化、ストレージ最適化、高速コンピューティングの中から、ワークロードの性質に合うものを選びます。\n【スケーリング】\nAmazon EC2 Auto Scalingは、定義した条件に従って、EC2インスタンスを自動的に追加・削除します。\n・動的スケーリング：需要の変化に反応して増減します。\n・予測スケーリング：予測された需要に基づいて、適切な数のインスタンスを自動的にスケジュールします。\n2つを併用すると、より速くスケールできます。\nAWS Auto Scalingは、アプリケーションを監視し、複数のサービスにまたがる複数のリソースのキャパシティを自動的に調整します。\n【独立にスケールさせる】\n層と層の間にキュー（Amazon SQS）を置いて疎結合にすると、それぞれの層を独立にスケールさせられます。\n【用途に合ったコンピューティング】\n・AWS Lambda：サーバーを管理せずにコードを実行します。実行した時間の分だけ支払います。\n・AWS Fargate：サーバーを管理せずにコンテナを実行します。\n・Amazon ECS、Amazon EKS：コンテナのオーケストレーションを行います。\n・AWS Batch：数十万件のバッチ計算のジョブを実行します。ジョブに合わせて、最適な量と種類のリソースを動的に用意します。\n・Amazon EMR：Apache Sparkなどのオープンソースのツールで、ビッグデータを処理します。\n【エッジ】\nAmazon CloudFrontは、コンテンツを利用者に近いエッジロケーションから配信します。\n【この教材でまだ扱っていない項目】\n試験ガイドには、Lambdaのメモリの選択も挙げられています。公式情報の確認ができしだい追加します。",
+    "text": "【インスタンスタイプを選ぶ】\nEC2のインスタンスタイプは、用途別に最適化されています。汎用、コンピューティング最適化、メモリ最適化、ストレージ最適化、高速コンピューティングの中から、ワークロードの性質に合うものを選びます。\n【スケーリング】\nAmazon EC2 Auto Scalingは、定義した条件に従って、EC2インスタンスを自動的に追加・削除します。\n・動的スケーリング：需要の変化に反応して増減します。\n・予測スケーリング：予測された需要に基づいて、適切な数のインスタンスを自動的にスケジュールします。\n2つを併用すると、より速くスケールできます。\nAWS Auto Scalingは、アプリケーションを監視し、複数のサービスにまたがる複数のリソースのキャパシティを自動的に調整します。\n【独立にスケールさせる】\n層と層の間にキュー（Amazon SQS）を置いて疎結合にすると、それぞれの層を独立にスケールさせられます。\n【用途に合ったコンピューティング】\n・AWS Lambda：サーバーを管理せずにコードを実行します。実行した時間の分だけ支払います。\n・AWS Fargate：サーバーを管理せずにコンテナを実行します。\n・Amazon ECS、Amazon EKS：コンテナのオーケストレーションを行います。\n・AWS Batch：数十万件のバッチ計算のジョブを実行します。ジョブに合わせて、最適な量と種類のリソースを動的に用意します。\n・Amazon EMR：Apache Sparkなどのオープンソースのツールで、ビッグデータを処理します。\n【エッジ】\nAmazon CloudFrontは、コンテンツを利用者に近いエッジロケーションから配信します。\n【Lambdaのメモリの選択】\nLambda関数のメモリは、128 MBから10,240 MBまで、1 MB単位で設定できます。Lambdaは、設定したメモリの量に比例して、CPUの能力を割り当てます。メモリは、関数の性能を調整する主な手段です。CPU、ネットワーク、メモリが足かせになっている関数は、メモリの設定を増やすと、性能が大きく上がることがあります。適切な設定は、Amazon CloudWatchで関数を監視して決めます。",
     "figureId": "compute-options"
   },
   "relatedServiceIds": [
@@ -57,13 +61,15 @@
     "層の間にキューを置くと、各層を独立にスケールさせられる。",
     "大量のバッチ計算のジョブ＝AWS Batch。Spark・Hadoopなどのビッグデータ処理＝Amazon EMR。",
     "サーバーを管理しない：コードならLambda、コンテナならFargate。",
-    "複数のサービスのリソースをまとめて自動調整＝AWS Auto Scaling。"
+    "複数のサービスのリソースをまとめて自動調整＝AWS Auto Scaling。",
+    "LambdaのCPUは、メモリの設定に比例して割り当てられる。処理が遅いときは、メモリを増やすことを検討する。"
   ],
   "quizQuestionIds": [
     "saa-q-pc-01",
     "saa-q-pc-02",
     "saa-q-pc-03",
-    "saa-q-pc-04"
+    "saa-q-pc-04",
+    "saa-q-pc-05"
   ],
   "glossaryTermIds": [
     "instance",

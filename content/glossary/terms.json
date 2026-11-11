@@ -2546,5 +2546,79 @@
     "plain": "水道の「蛇口の開き具合」の目盛りです。使う量に合わせて、目盛りが自動で上下します。",
     "example": "容量の範囲を0.5〜16 ACUに設定して、負荷に応じて自動で増減させる。",
     "serviceIds": []
+  },
+  {
+    "id": "explicit-deny",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Policy evaluation logic（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html"
+      },
+      {
+        "title": "How IAM works（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "明示的な拒否",
+    "description": "ポリシーの中で、はっきり「拒否する」（Deny）と書かれていることです。どれか1つのポリシーに明示的な拒否があれば、ほかのポリシーで許可されていても、リクエストは拒否されます。何も書かれていないために拒否されることは、「暗黙の拒否」といいます。",
+    "plain": "「立入禁止」の貼り紙です。別の人が「入ってよい」と言っていても、貼り紙があれば入れません。貼り紙も許可もない部屋は、最初から入れません（暗黙の拒否）。",
+    "example": "ログ用のバケットへの操作を、明示的な拒否で禁止する。",
+    "serviceIds": []
+  },
+  {
+    "id": "service-quota",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is Service Quotas?（Service Quotas ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html"
+      },
+      {
+        "title": "Amazon EC2 service quotas（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "サービスクォータ",
+    "description": "AWSアカウントの中で使えるリソースや操作の、最大値です（上限とも呼びます）。サービスごとに既定値が決まっていて、多くはリージョンごとに適用されます。調整できるクォータは、Service Quotasで引き上げを申請できます。",
+    "plain": "食べ放題の店の「1回に取れる皿の数」のような決まりです。足りなければ、店にお願いして増やしてもらいます。ただし、お願いしてから認められるまでに、時間がかかります。",
+    "example": "大きなイベントの前に、EC2のvCPU数のクォータの引き上げを、前もって申請しておく。",
+    "serviceIds": []
+  },
+  {
+    "id": "immutable-infrastructure",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "REL08-BP04 Deploy using immutable infrastructure（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/rel_tracking_change_management_immutable_infrastructure.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "イミュータブルインフラストラクチャ",
+    "description": "動いている本番のサーバーなどに、更新・パッチ・設定の変更を「その場で」加えない、という考え方です。変更が必要なときは、変更を含んだ新しいインフラストラクチャを作って、そちらに切り替えます。",
+    "plain": "使っている家を少しずつ直すのではなく、新しい家を建てて引っ越す方法です。新しい家に問題があれば、元の家にすぐ戻れます。",
+    "example": "新しい版のサーバー群を並行して用意し、問題がなければ通信を新しい側へ移す。",
+    "serviceIds": []
   }
 ]

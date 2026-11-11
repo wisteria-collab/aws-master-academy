@@ -21,9 +21,21 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Compare NAT gateways and NAT instances（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html"
+    },
+    {
+      "title": "NAT gateway basics（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-basics.html"
+    },
+    {
+      "title": "COST08-BP03 Implement services to reduce data transfer costs（AWS Well-Architected コスト最適化の柱）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/cost_data_transfer_implement_services.html"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -66,7 +78,7 @@
         "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
         "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
         "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
-        "cost": "料金は公式の料金ページで確認する（ゲートウェイエンドポイントは追加料金なし）",
+        "cost": "時間あたりの料金と、処理したデータ量（GBあたり）の料金がかかる",
         "operations": "サービスごとにエンドポイントを作成する",
         "limits": "S3とDynamoDBだけなら、追加料金のないゲートウェイエンドポイントも選べる",
         "chooseWhen": "S3とDynamoDB以外のAWSサービスに、インターネットを通らずに接続したいとき",
@@ -83,10 +95,10 @@
         "mechanism": "パブリックサブネットに置き、プライベートサブネットからの通信をそこへ向ける",
         "data": "通信はインターネットに出る",
         "useCases": "プライベートサブネットのサーバーが、インターネットからソフトウェアの更新をダウンロードする",
-        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
-        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
-        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
-        "cost": "料金は公式の料金ページで確認する",
+        "availability": "各アベイラビリティゾーンのNATゲートウェイは、冗長性を持って実装されている。ゾーンに依存しない構成にするには、アベイラビリティゾーンごとに作成する",
+        "performance": "5 Gbpsの帯域に対応し、自動的に最大100 Gbpsまで拡張する",
+        "scalability": "種類やサイズを選ぶ必要がなく、自動的に拡張する",
+        "cost": "NATゲートウェイの数、利用時間、通過させたデータの量に応じて課金される",
         "operations": "パブリックサブネットへの配置と、ルートテーブルの設定が必要",
         "limits": "通信がインターネットを通る",
         "chooseWhen": "インターネット上の接続先にアクセスする必要があるとき",

@@ -9,6 +9,7 @@ import { ChallengePage } from './pages/ChallengePage'
 import { ComingSoon } from './pages/ComingSoon'
 import { Designer } from './pages/Designer'
 import { ExamResult } from './pages/ExamResult'
+import { Guide } from './pages/Guide'
 import { ExamRun } from './pages/ExamRun'
 import { DiagramEditor } from './pages/DiagramEditor'
 import { DiagramTemplatePage } from './pages/DiagramTemplatePage'
@@ -74,6 +75,7 @@ export default function App() {
             <Route path="progress" element={<Progress />} />
             <Route path="review" element={<Review />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="guide" element={<Guide />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

@@ -1,7 +1,7 @@
 # AWS Master Academy
 
 AWS認定 CLF-C02 / SAA-C03 の学習アプリです（AWS非公式）。
-現在は **Phase 6 完了**（CLFのレッスン21本、SAAのレッスン14本、サービス93件、比較グループ15件、問題277問）まで公開しています。
+現在は **Phase 7 完了**（CLFのレッスン21本、SAAのレッスン14本、サービス94件、比較グループ15件、問題283問）まで公開しています。
 
 ## GitHub Pages で公開する手順
 
@@ -34,6 +34,7 @@ npm run build      # 検証 + 型チェック + ビルド（dist/ に出力）
 | `src/pages/`, `src/components/` | 画面 |
 | `scripts/validate-content.ts` | 教材の検証スクリプト |
 | `e2e/run.py` | ブラウザでの動作確認（Playwright） |
+| `e2e/quality.py` | 仕上げの確認（SAA模擬試験、時間切れの自動採点、アクセシビリティの自動検査） |
 
 ## 教材を追加するとき
 

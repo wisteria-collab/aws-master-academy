@@ -122,7 +122,7 @@ export function DiagramView({ diagram, title, selectedId, onSelect, selectedEdge
 
   return (
     <figure className="mx-auto w-full max-w-md">
-      <svg ref={svgRef} viewBox={`0 0 360 ${height}`} role="img" aria-label={title} className="h-auto w-full select-none" fontFamily="inherit" onClick={onBackground}>
+      <svg ref={svgRef} viewBox={`0 0 360 ${height}`} role={onSelect ? 'group' : 'img'} aria-label={title} className="h-auto w-full select-none" fontFamily="inherit" onClick={onBackground}>
         <defs>
           <marker id="dg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0 0 L10 5 L0 10 z" fill={line} />

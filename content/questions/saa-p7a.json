@@ -1,0 +1,440 @@
+[
+  {
+    "id": "saa-q-acc-14",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Policy evaluation logic（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html"
+      },
+      {
+        "title": "How IAM works（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるIAMユーザーには、Amazon S3のすべての操作を許可するポリシーが付いています。一方、ログ用のバケットに付けたバケットポリシーには、このユーザーによる操作を明示的に拒否（Deny）する記述があります。このユーザーがログ用のバケットを操作しようとすると、どうなりますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "拒否される。どのポリシーでも、明示的な拒否は、すべての許可に優先する",
+        "correct": true,
+        "explanation": "どれか1つのポリシーに明示的な拒否があれば、ほかのポリシーで許可されていても、リクエストは拒否されます。"
+      },
+      {
+        "id": "b",
+        "text": "許可される。アイデンティティベースのポリシーは、リソースベースのポリシーより優先される",
+        "correct": false,
+        "explanation": "ポリシーの種類による優先順位で決まるのではありません。明示的な拒否が、すべての許可に優先します。",
+        "eliminatedBy": "明示的に拒否（Deny）する記述"
+      },
+      {
+        "id": "c",
+        "text": "許可される。許可と拒否の両方があるときは、許可が優先される",
+        "correct": false,
+        "explanation": "優先されるのは、明示的な拒否です。許可があっても、明示的な拒否があれば拒否されます。",
+        "eliminatedBy": "明示的に拒否（Deny）する記述"
+      },
+      {
+        "id": "d",
+        "text": "あとから作成されたポリシーの内容に従う",
+        "correct": false,
+        "explanation": "ポリシーを作成した順序は、評価の結果に関係しません。明示的な拒否が、すべての許可に優先します。",
+        "eliminatedBy": "明示的に拒否（Deny）する記述"
+      }
+    ],
+    "keywords": [
+      "すべての操作を許可するポリシー",
+      "明示的に拒否（Deny）"
+    ],
+    "decisionPoint": "明示的な拒否は、すべての許可に優先する。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-acc-15",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "How IAM works（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html"
+      },
+      {
+        "title": "Policy evaluation logic（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "新しく作成したIAMユーザーに、ポリシーを1つも付けていません。SCPなどのほかのポリシーも設定していません。このユーザーがAmazon EC2インスタンスを起動しようとすると、どうなりますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "拒否される。既定では、すべてのリクエストは拒否される（暗黙の拒否）",
+        "correct": true,
+        "explanation": "既定では、すべてのリクエストは拒否されます。アイデンティティベースまたはリソースベースのポリシーに明示的な許可があって、はじめて許可されます。"
+      },
+      {
+        "id": "b",
+        "text": "許可される。拒否するポリシーがなければ、すべての操作ができる",
+        "correct": false,
+        "explanation": "既定は「許可」ではなく「拒否」です。許可するポリシーがなければ、操作はできません。",
+        "eliminatedBy": "ポリシーを1つも付けていません"
+      },
+      {
+        "id": "c",
+        "text": "許可される。IAMユーザーは、作成された時点で、ルートユーザーと同じ権限を持つ",
+        "correct": false,
+        "explanation": "IAMユーザーは、作成された時点では権限を持ちません。必要な権限を、ポリシーで与えます。",
+        "eliminatedBy": "新しく作成したIAMユーザー"
+      },
+      {
+        "id": "d",
+        "text": "EC2インスタンスの起動だけは、ポリシーがなくても許可される",
+        "correct": false,
+        "explanation": "特定の操作だけが、ポリシーなしで許可されることはありません。既定では、すべてのリクエストが拒否されます。",
+        "eliminatedBy": "ポリシーを1つも付けていません"
+      }
+    ],
+    "keywords": [
+      "ポリシーを1つも付けていません"
+    ],
+    "decisionPoint": "既定はすべて拒否（暗黙の拒否）。明示的な許可で、はじめて許可される。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-pc-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Configure Lambda function memory（AWS Lambda デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業のAWS Lambda関数は、画像の変換のような、CPUを多く使う処理を行っています。現在のメモリの設定は128 MBで、処理に時間がかかっています。関数のコードを変えずに、処理を速くする方法として、最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "関数のメモリの設定を増やす",
+        "correct": true,
+        "explanation": "Lambdaは、設定したメモリの量に比例して、CPUの能力を割り当てます。メモリを増やすとCPUも増えるため、CPUが足かせになっている関数は、性能が大きく上がることがあります。"
+      },
+      {
+        "id": "b",
+        "text": "関数のタイムアウトの設定を延ばす",
+        "correct": false,
+        "explanation": "タイムアウトを延ばすと、時間切れにはなりにくくなりますが、処理そのものは速くなりません。",
+        "eliminatedBy": "処理を速くする方法"
+      },
+      {
+        "id": "c",
+        "text": "関数のメモリの設定を、さらに小さくする",
+        "correct": false,
+        "explanation": "メモリを小さくすると、割り当てられるCPUの能力も小さくなります。128 MBは、設定できる最小の値です。",
+        "eliminatedBy": "処理を速くする方法"
+      },
+      {
+        "id": "d",
+        "text": "CPUの設定だけを、メモリとは別に増やす",
+        "correct": false,
+        "explanation": "Lambdaでは、CPUは、設定したメモリの量に比例して割り当てられます。CPUだけを別に設定することはできません。",
+        "eliminatedBy": "現在のメモリの設定は128 MB"
+      }
+    ],
+    "keywords": [
+      "AWS Lambda関数",
+      "CPUを多く使う処理",
+      "128 MB"
+    ],
+    "decisionPoint": "LambdaのCPUは、メモリの設定に比例する。CPUが足りないときは、メモリを増やす。",
+    "serviceIds": [
+      "aws-lambda"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-compute"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-cc-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is AWS Compute Optimizer?（AWS Compute Optimizer ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d4",
+    "taskId": "saa-4-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、多数のEC2インスタンスを、余裕を見て大きめのサイズで作成しました。実際の使用率のメトリクスを分析して、大きすぎるインスタンスを見つけ、合うサイズの推奨を受け取りたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Compute Optimizer",
+        "correct": true,
+        "explanation": "Compute Optimizerは、リソースの設定と使用率のメトリクスを分析して、ライトサイジングの推奨を提供し、使われていないリソースを見つけます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Budgets",
+        "correct": false,
+        "explanation": "Budgetsは、予算を決めて、超えそうなときに通知を受け取るサービスです。インスタンスのサイズの推奨を出すものではありません。",
+        "eliminatedBy": "合うサイズの推奨を受け取りたい"
+      },
+      {
+        "id": "c",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "Artifactは、AWSのコンプライアンスのレポートを入手するサービスです。使用率を分析するものではありません。",
+        "eliminatedBy": "使用率のメトリクスを分析"
+      },
+      {
+        "id": "d",
+        "text": "AWS Backup",
+        "correct": false,
+        "explanation": "AWS Backupは、バックアップを一元化・自動化するサービスです。インスタンスのサイズとは関係がありません。",
+        "eliminatedBy": "大きすぎるインスタンスを見つけ"
+      }
+    ],
+    "keywords": [
+      "使用率のメトリクスを分析",
+      "合うサイズの推奨"
+    ],
+    "decisionPoint": "使用率を分析してライトサイジングを推奨＝Compute Optimizer。",
+    "serviceIds": [
+      "aws-compute-optimizer"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-cost-compute"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-16",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is Service Quotas?（Service Quotas ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html"
+      },
+      {
+        "title": "Amazon EC2 service quotas（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、大きな販売イベントに備えて、ふだんの数倍のEC2インスタンスを起動する計画です。ところが、テストで多数のインスタンスを起動しようとしたところ、オンデマンドインスタンスのvCPU数の上限に達して、リクエストが失敗しました。イベントの当日に同じことが起きないようにする方法として、最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Service Quotasで、必要なクォータの引き上げを、前もって申請しておく",
+        "correct": true,
+        "explanation": "クォータは、アカウントの中で使えるリソースなどの最大値で、超えようとするとリクエストは失敗します。調整できるクォータは、Service Quotasで引き上げを申請できます。審査と承認には時間がかかるため、必要になる前に申請します。"
+      },
+      {
+        "id": "b",
+        "text": "イベントの当日に、リクエストが失敗してから、引き上げを申請する",
+        "correct": false,
+        "explanation": "引き上げの申請は、審査と承認に時間がかかります。当日に申請したのでは、間に合わないおそれがあります。",
+        "eliminatedBy": "イベントの当日に同じことが起きないようにする"
+      },
+      {
+        "id": "c",
+        "text": "より大きなインスタンスタイプに変更して、台数を減らす",
+        "correct": false,
+        "explanation": "この上限は、インスタンスの台数ではなく、vCPUの数で決まっています。大きなインスタンスはvCPUも多いため、上限の問題は解決しません。",
+        "eliminatedBy": "vCPU数の上限に達して"
+      },
+      {
+        "id": "d",
+        "text": "インスタンスに付けるIAMロールの権限を増やす",
+        "correct": false,
+        "explanation": "失敗の原因は、権限ではなく、クォータ（上限）です。権限を増やしても、上限は変わりません。",
+        "eliminatedBy": "上限に達して、リクエストが失敗しました"
+      }
+    ],
+    "keywords": [
+      "vCPU数の上限に達して",
+      "リクエストが失敗",
+      "イベントの当日"
+    ],
+    "decisionPoint": "クォータを超えるとリクエストは失敗する。Service Quotasで、前もって引き上げを申請する。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-17",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "REL08-BP04 Deploy using immutable infrastructure（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/rel_tracking_change_management_immutable_infrastructure.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、本番のサーバーに担当者がログインして、パッチの適用や設定の変更を直接行ってきました。その結果、サーバーごとに設定が少しずつ違ってしまい、障害の原因になっています。変更を加えるときは、変更を含んだ新しいサーバー群を並行して用意し、検証してから通信を切り替え、問題があれば元に戻せるようにしたいと考えています。この考え方を何と呼びますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "イミュータブルインフラストラクチャ",
+        "correct": true,
+        "explanation": "イミュータブルインフラストラクチャは、本番のワークロードに、更新・パッチ・設定の変更を「その場で」行わない考え方です。変更が必要なときは、新しいインフラストラクチャに構築してデプロイします。前の版は変更されないため、問題があればすぐに戻せます。"
+      },
+      {
+        "id": "b",
+        "text": "垂直スケーリング",
+        "correct": false,
+        "explanation": "垂直スケーリングは、1台の大きさ（インスタンスタイプ）を変えることです。変更の加え方についての考え方ではありません。",
+        "eliminatedBy": "新しいサーバー群を並行して用意し"
+      },
+      {
+        "id": "c",
+        "text": "バックアップ＆リストア",
+        "correct": false,
+        "explanation": "バックアップ＆リストアは、災害対策の戦略の1つです。本番への変更の加え方についての考え方ではありません。",
+        "eliminatedBy": "変更を加えるときは"
+      },
+      {
+        "id": "d",
+        "text": "パイロットライト",
+        "correct": false,
+        "explanation": "パイロットライトは、災害対策の戦略の1つです。パッチや設定の変更の加え方とは関係がありません。",
+        "eliminatedBy": "変更を加えるときは"
+      }
+    ],
+    "keywords": [
+      "サーバーごとに設定が少しずつ違って",
+      "新しいサーバー群を並行して用意",
+      "問題があれば元に戻せる"
+    ],
+    "decisionPoint": "その場で変更しない。新しいものを作って切り替える＝イミュータブルインフラストラクチャ。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      }
+    ]
+  }
+]

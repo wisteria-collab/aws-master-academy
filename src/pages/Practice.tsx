@@ -26,7 +26,11 @@ function Row({ to, title, note, count }: { to: string; title: string; note?: str
     </>
   )
   const cls = 'flex min-h-14 items-center gap-3 rounded-xl border border-navy-100 p-3'
-  return disabled ? <div className={`${cls} opacity-50`}>{inner}</div> : <Link to={to} className={`${cls} transition-colors hover:border-brand-500`}>{inner}</Link>
+  return disabled ? (
+    <div className={`${cls} bg-navy-50 text-navy-700`} aria-disabled="true">
+      {inner}
+    </div>
+  ) : <Link to={to} className={`${cls} transition-colors hover:border-brand-500`}>{inner}</Link>
 }
 
 export function Practice() {
@@ -61,7 +65,7 @@ export function Practice() {
 
   return (
     <div className="flex flex-col gap-5">
-      <PageHeader title="問題演習" lead="解答すると、正解の理由と、他の選択肢がなぜ不適切かを表示します。" />
+      <PageHeader title="問題演習" lead="解答すると、正解の理由と、他の選択肢がなぜ不適切かを表示します。模擬試験は、採点のあとにまとめて表示します。" />
 
       <div className="flex gap-2" role="group" aria-label="試験の選択">
         {(['clf', 'saa'] as const).map((e) => (
