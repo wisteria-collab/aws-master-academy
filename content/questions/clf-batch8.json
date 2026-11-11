@@ -1,0 +1,1625 @@
+[
+  {
+    "id": "clf-q-cloud-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Six advantages of cloud computing（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、新しいサービスの利用者数を予測できません。オンプレミスでは、サーバーを多く買いすぎて余らせるか、少なすぎて足りなくなるおそれがあります。AWSでは、必要な容量を事前に見積もらなくても、必要に応じて増減できます。これは、クラウドのどの利点を表していますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "キャパシティの推測が不要になる",
+        "correct": true,
+        "explanation": "必要な容量を事前に見積もらなくても、数分で増減できるという利点です。余らせることも、足りなくなることも避けられます。"
+      },
+      {
+        "id": "b",
+        "text": "固定費を変動費に変えられる",
+        "correct": false,
+        "explanation": "先に設備へ投資する代わりに、使った分だけ支払えるという利点です。費用の支払い方の話であり、問題文の内容とは異なります。",
+        "eliminatedBy": "必要な容量を事前に見積もらなくても、必要に応じて増減できます"
+      },
+      {
+        "id": "c",
+        "text": "大きな規模の経済のメリットを受けられる",
+        "correct": false,
+        "explanation": "多くの顧客の利用が集約されることで、AWSが低い価格を提供できるという利点です。価格が低くなる理由の話であり、問題文の内容とは異なります。",
+        "eliminatedBy": "必要な容量を事前に見積もらなくても、必要に応じて増減できます"
+      },
+      {
+        "id": "d",
+        "text": "数分で世界中に展開できる",
+        "correct": false,
+        "explanation": "世界中の複数のリージョンにアプリケーションを展開できるという利点です。展開する場所の話であり、問題文の内容とは異なります。",
+        "eliminatedBy": "必要な容量を事前に見積もらなくても、必要に応じて増減できます"
+      }
+    ],
+    "keywords": [
+      "利用者数を予測できません",
+      "必要な容量を事前に見積もらなくても"
+    ],
+    "decisionPoint": "「容量の見積もりがいらない」＝キャパシティの推測が不要になる。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-cloud-basics"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-cloud-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Six advantages of cloud computing（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある開発チームは、新しいアイデアを試すためのサーバーを必要としています。オンプレミスでは用意に数週間かかっていましたが、AWSでは数分で用意でき、うまくいかなければすぐにやめられます。これは、クラウドのどの利点を表していますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "スピードと俊敏性が向上する",
+        "correct": true,
+        "explanation": "新しいITリソースを、数週間ではなく数分で用意できるという利点です。試すためのコストと時間が大きく下がります。"
+      },
+      {
+        "id": "b",
+        "text": "大きな規模の経済のメリットを受けられる",
+        "correct": false,
+        "explanation": "多くの顧客の利用が集約されることで、AWSが低い価格を提供できるという利点です。価格が低くなる理由の話であり、問題文の内容とは異なります。",
+        "eliminatedBy": "数週間かかっていましたが、AWSでは数分で用意でき"
+      },
+      {
+        "id": "c",
+        "text": "キャパシティの推測が不要になる",
+        "correct": false,
+        "explanation": "必要な容量を事前に見積もらなくても、必要に応じて増減できるという利点です。容量の見積もりの話であり、問題文の内容とは異なります。",
+        "eliminatedBy": "数週間かかっていましたが、AWSでは数分で用意でき"
+      },
+      {
+        "id": "d",
+        "text": "数分で世界中に展開できる",
+        "correct": false,
+        "explanation": "世界中の複数のリージョンにアプリケーションを展開できるという利点です。展開する場所の話であり、問題文の内容とは異なります。",
+        "eliminatedBy": "数週間かかっていましたが、AWSでは数分で用意でき"
+      }
+    ],
+    "keywords": [
+      "数週間かかっていました",
+      "数分で用意でき"
+    ],
+    "decisionPoint": "「数週間→数分」「試しやすい」＝スピードと俊敏性。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-cloud-basics"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-cloud-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Six advantages of cloud computing（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "日本で事業を行っている企業が、ヨーロッパと北米の利用者にもサービスを提供することにしました。AWSを使えば、現地にデータセンターを建てることなく、複数のリージョンにアプリケーションを短時間で展開し、利用者の近くから低い遅延で提供できます。これは、クラウドのどの利点を表していますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "数分で世界中に展開できる",
+        "correct": true,
+        "explanation": "世界中の複数のリージョンにアプリケーションを簡単に展開し、利用者に低い遅延で提供できるという利点です。"
+      },
+      {
+        "id": "b",
+        "text": "固定費を変動費に変えられる",
+        "correct": false,
+        "explanation": "先に設備へ投資する代わりに、使った分だけ支払えるという利点です。費用の支払い方の話であり、問題文の内容とは異なります。",
+        "eliminatedBy": "複数のリージョンにアプリケーションを短時間で展開"
+      },
+      {
+        "id": "c",
+        "text": "大きな規模の経済のメリットを受けられる",
+        "correct": false,
+        "explanation": "多くの顧客の利用が集約されることで、AWSが低い価格を提供できるという利点です。価格が低くなる理由の話であり、問題文の内容とは異なります。",
+        "eliminatedBy": "複数のリージョンにアプリケーションを短時間で展開"
+      },
+      {
+        "id": "d",
+        "text": "キャパシティの推測が不要になる",
+        "correct": false,
+        "explanation": "必要な容量を事前に見積もらなくても、必要に応じて増減できるという利点です。容量の見積もりの話であり、問題文の内容とは異なります。",
+        "eliminatedBy": "複数のリージョンにアプリケーションを短時間で展開"
+      }
+    ],
+    "keywords": [
+      "ヨーロッパと北米の利用者",
+      "複数のリージョンにアプリケーションを短時間で展開"
+    ],
+    "decisionPoint": "「複数のリージョンへ」「世界の利用者に低遅延で」＝数分で世界中に展開できる。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-cloud-basics"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-cloud-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Six advantages of cloud computing（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業の情報システム部門は、サーバーの設置、配線、電源の管理といった作業に多くの時間を使っています。AWSに移行すれば、こうした作業から解放され、自社の顧客のための仕事に集中できます。これは、クラウドのどの利点を表していますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "データセンターの運用と保守への投資が不要になる",
+        "correct": true,
+        "explanation": "サーバーの設置や電源の管理といった、インフラストラクチャの重労働に時間を使う代わりに、自社の顧客に集中できるという利点です。"
+      },
+      {
+        "id": "b",
+        "text": "大きな規模の経済のメリットを受けられる",
+        "correct": false,
+        "explanation": "多くの顧客の利用が集約されることで、AWSが低い価格を提供できるという利点です。価格が低くなる理由の話であり、問題文の内容とは異なります。",
+        "eliminatedBy": "サーバーの設置、配線、電源の管理といった作業"
+      },
+      {
+        "id": "c",
+        "text": "キャパシティの推測が不要になる",
+        "correct": false,
+        "explanation": "必要な容量を事前に見積もらなくても、必要に応じて増減できるという利点です。容量の見積もりの話であり、問題文の内容とは異なります。",
+        "eliminatedBy": "サーバーの設置、配線、電源の管理といった作業"
+      },
+      {
+        "id": "d",
+        "text": "数分で世界中に展開できる",
+        "correct": false,
+        "explanation": "世界中の複数のリージョンにアプリケーションを展開できるという利点です。展開する場所の話であり、問題文の内容とは異なります。",
+        "eliminatedBy": "サーバーの設置、配線、電源の管理といった作業"
+      }
+    ],
+    "keywords": [
+      "サーバーの設置、配線、電源の管理",
+      "自社の顧客のための仕事に集中"
+    ],
+    "decisionPoint": "「設置や電源管理から解放」「顧客に集中」＝データセンターの運用と保守への投資が不要になる。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-cloud-basics"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-wa-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Definitions - AWS Well-Architected Framework（AWS公式）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/definitions.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "AWS Well-Architected Frameworkの柱のうち、ワークロードを効果的に運用し、運用の状況を把握して、プロセスや手順を継続的に改善することに焦点を当てたものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "運用上の優秀性",
+        "correct": true,
+        "explanation": "運用上の優秀性の柱は、開発を支援し、ワークロードを効果的に運用し、運用の状況を把握して、プロセスや手順を継続的に改善する能力を扱います。"
+      },
+      {
+        "id": "b",
+        "text": "信頼性",
+        "correct": false,
+        "explanation": "ワークロードが意図した機能を、期待されるときに正しく一貫して実行する能力に関する柱です。問題文の内容とは異なります。",
+        "eliminatedBy": "プロセスや手順を継続的に改善する"
+      },
+      {
+        "id": "c",
+        "text": "パフォーマンス効率",
+        "correct": false,
+        "explanation": "コンピューティングリソースを効率的に使ってシステムの要件を満たす能力に関する柱です。問題文の内容とは異なります。",
+        "eliminatedBy": "プロセスや手順を継続的に改善する"
+      },
+      {
+        "id": "d",
+        "text": "コスト最適化",
+        "correct": false,
+        "explanation": "最も低い価格でビジネス価値を提供できるようにシステムを運用する能力に関する柱です。問題文の内容とは異なります。",
+        "eliminatedBy": "プロセスや手順を継続的に改善する"
+      }
+    ],
+    "keywords": [
+      "効果的に運用",
+      "プロセスや手順を継続的に改善する"
+    ],
+    "decisionPoint": "「運用」「プロセスや手順の継続的な改善」＝運用上の優秀性。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-well-architected"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-wa-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Definitions - AWS Well-Architected Framework（AWS公式）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/definitions.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "AWS Well-Architected Frameworkの柱のうち、コンピューティングリソースを効率的に使ってシステムの要件を満たし、需要の変化や技術の進歩に合わせてその効率を維持することに焦点を当てたものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "パフォーマンス効率",
+        "correct": true,
+        "explanation": "パフォーマンス効率の柱は、コンピューティングリソースを効率的に使ってシステムの要件を満たし、需要の変化や技術の進歩に合わせてその効率を維持する能力を扱います。"
+      },
+      {
+        "id": "b",
+        "text": "持続可能性",
+        "correct": false,
+        "explanation": "エネルギー消費を減らし、環境への影響を継続的に改善する能力に関する柱です。問題文の内容とは異なります。",
+        "eliminatedBy": "コンピューティングリソースを効率的に使ってシステムの要件を満たし"
+      },
+      {
+        "id": "c",
+        "text": "コスト最適化",
+        "correct": false,
+        "explanation": "最も低い価格でビジネス価値を提供できるようにシステムを運用する能力に関する柱です。問題文の内容とは異なります。",
+        "eliminatedBy": "コンピューティングリソースを効率的に使ってシステムの要件を満たし"
+      },
+      {
+        "id": "d",
+        "text": "信頼性",
+        "correct": false,
+        "explanation": "ワークロードが意図した機能を、期待されるときに正しく一貫して実行する能力に関する柱です。問題文の内容とは異なります。",
+        "eliminatedBy": "コンピューティングリソースを効率的に使ってシステムの要件を満たし"
+      }
+    ],
+    "keywords": [
+      "コンピューティングリソースを効率的に使って",
+      "需要の変化や技術の進歩"
+    ],
+    "decisionPoint": "「リソースを効率的に使って要件を満たす」＝パフォーマンス効率。エネルギーや環境の話なら持続可能性。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-well-architected"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-wa-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Definitions - AWS Well-Architected Framework（AWS公式）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/definitions.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "AWS Well-Architected Frameworkの柱のうち、クラウドの技術を活用して、データ、システム、資産を保護することに焦点を当てたものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "セキュリティ",
+        "correct": true,
+        "explanation": "セキュリティの柱は、クラウドの技術を活用して、データ、システム、資産を保護することを扱います。"
+      },
+      {
+        "id": "b",
+        "text": "信頼性",
+        "correct": false,
+        "explanation": "ワークロードが意図した機能を、期待されるときに正しく一貫して実行する能力に関する柱です。問題文の内容とは異なります。",
+        "eliminatedBy": "データ、システム、資産を保護する"
+      },
+      {
+        "id": "c",
+        "text": "運用上の優秀性",
+        "correct": false,
+        "explanation": "ワークロードを効果的に運用し、プロセスや手順を継続的に改善する能力に関する柱です。問題文の内容とは異なります。",
+        "eliminatedBy": "データ、システム、資産を保護する"
+      },
+      {
+        "id": "d",
+        "text": "パフォーマンス効率",
+        "correct": false,
+        "explanation": "コンピューティングリソースを効率的に使ってシステムの要件を満たす能力に関する柱です。問題文の内容とは異なります。",
+        "eliminatedBy": "データ、システム、資産を保護する"
+      }
+    ],
+    "keywords": [
+      "データ、システム、資産を保護する"
+    ],
+    "decisionPoint": "「保護する」＝セキュリティ。「正しく一貫して動く」＝信頼性。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-well-architected"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-wa-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Definitions - AWS Well-Architected Framework（AWS公式）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/definitions.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "AWS Well-Architected Frameworkでは、ビジネスの状況に応じて、柱どうしの間でトレードオフを行うことがあります。柱のトレードオフについての説明として正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "セキュリティと運用上の優秀性は、通常ほかの柱と引き換えにしない",
+        "correct": true,
+        "explanation": "柱どうしはビジネスの状況に応じてトレードオフになりますが、セキュリティと運用上の優秀性は、通常ほかの柱と引き換えにしません。"
+      },
+      {
+        "id": "b",
+        "text": "コスト最適化は、どんな場合でもほかのすべての柱より優先する",
+        "correct": false,
+        "explanation": "重要なシステムでは、コストが増えても信頼性を優先することがあります。コスト最適化が常に最優先というわけではありません。",
+        "eliminatedBy": "ビジネスの状況に応じて"
+      },
+      {
+        "id": "c",
+        "text": "開発用の環境でも、信頼性は本番環境と必ず同じ水準にしなければならない",
+        "correct": false,
+        "explanation": "開発用の環境では、信頼性を下げて、コストや持続可能性を優先することがあります。必ず同じ水準にするわけではありません。",
+        "eliminatedBy": "ビジネスの状況に応じて"
+      },
+      {
+        "id": "d",
+        "text": "柱どうしは独立しており、トレードオフは起こらない",
+        "correct": false,
+        "explanation": "柱どうしは、ビジネスの状況に応じてトレードオフになります。トレードオフが起こらないという説明は誤りです。",
+        "eliminatedBy": "柱どうしの間でトレードオフを行うことがあります"
+      }
+    ],
+    "keywords": [
+      "トレードオフ"
+    ],
+    "decisionPoint": "トレードオフはあるが、セキュリティと運用上の優秀性は通常引き換えにしない。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-well-architected"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-caf-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Foundational capabilities - An Overview of the AWS Cloud Adoption Framework（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html"
+      },
+      {
+        "title": "AWS Cloud Adoption Framework: People Perspective（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-caf-people-perspective/aws-caf-people-perspective.pdf"
+      },
+      {
+        "title": "About the migration strategies - AWS Prescriptive Guidance（AWS公式）",
+        "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "AWSクラウド導入フレームワーク（AWS CAF）のパースペクティブのうち、クラウドの取り組みを統制し、組織の利益を最大化しながら、変革に伴うリスクを最小化することに焦点を当てたものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ガバナンス",
+        "correct": true,
+        "explanation": "ガバナンスのパースペクティブは、クラウドの取り組みを統制し、組織の利益を最大化しながら、変革に伴うリスクを最小化することを扱います。"
+      },
+      {
+        "id": "b",
+        "text": "ピープル",
+        "correct": false,
+        "explanation": "ピープルは、技術とビジネスの橋渡しをし、文化、組織構造、リーダーシップ、人材に焦点を当てるパースペクティブです。取り組みの統制やリスクの最小化を扱うものではありません。",
+        "eliminatedBy": "統制し、組織の利益を最大化しながら、変革に伴うリスクを最小化"
+      },
+      {
+        "id": "c",
+        "text": "プラットフォーム",
+        "correct": false,
+        "explanation": "プラットフォームは、スケーラブルなハイブリッドクラウド基盤を構築し、既存のワークロードを最新化することに焦点を当てる、技術のパースペクティブです。",
+        "eliminatedBy": "統制し、組織の利益を最大化しながら、変革に伴うリスクを最小化"
+      },
+      {
+        "id": "d",
+        "text": "オペレーション",
+        "correct": false,
+        "explanation": "オペレーションは、クラウドサービスを、ビジネスのニーズを満たすレベルで提供することに焦点を当てるパースペクティブです。",
+        "eliminatedBy": "変革に伴うリスクを最小化"
+      }
+    ],
+    "keywords": [
+      "統制し",
+      "リスクを最小化"
+    ],
+    "decisionPoint": "「統制」「リスクの最小化」＝ガバナンス。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-migration-caf"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-caf-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Foundational capabilities - An Overview of the AWS Cloud Adoption Framework（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html"
+      },
+      {
+        "title": "AWS Cloud Adoption Framework: People Perspective（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-caf-people-perspective/aws-caf-people-perspective.pdf"
+      },
+      {
+        "title": "About the migration strategies - AWS Prescriptive Guidance（AWS公式）",
+        "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "AWSクラウド導入フレームワーク（AWS CAF）のパースペクティブのうち、スケーラブルなハイブリッドクラウド基盤を構築し、既存のワークロードを最新化することに焦点を当てたものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "プラットフォーム",
+        "correct": true,
+        "explanation": "プラットフォームのパースペクティブは、スケーラブルなハイブリッドクラウド基盤を構築し、既存のワークロードを最新化することを扱います。技術の能力に焦点を当てる3つのうちの1つです。"
+      },
+      {
+        "id": "b",
+        "text": "ビジネス",
+        "correct": false,
+        "explanation": "ビジネスは、クラウドへの投資がビジネスの成果を加速させるようにすることに焦点を当てるパースペクティブです。基盤の構築を扱うものではありません。",
+        "eliminatedBy": "クラウド基盤を構築し"
+      },
+      {
+        "id": "c",
+        "text": "セキュリティ",
+        "correct": false,
+        "explanation": "セキュリティは、データとワークロードの機密性、完全性、可用性を実現することに焦点を当てるパースペクティブです。",
+        "eliminatedBy": "基盤を構築し、既存のワークロードを最新化"
+      },
+      {
+        "id": "d",
+        "text": "ガバナンス",
+        "correct": false,
+        "explanation": "ガバナンスは、クラウドの取り組みを統制し、リスクを最小化することに焦点を当てるパースペクティブです。",
+        "eliminatedBy": "基盤を構築し、既存のワークロードを最新化"
+      }
+    ],
+    "keywords": [
+      "ハイブリッドクラウド基盤を構築",
+      "ワークロードを最新化"
+    ],
+    "decisionPoint": "「基盤の構築」「ワークロードの最新化」＝プラットフォーム。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-migration-caf"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-mig-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Foundational capabilities - An Overview of the AWS Cloud Adoption Framework（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html"
+      },
+      {
+        "title": "AWS Cloud Adoption Framework: People Perspective（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-caf-people-perspective/aws-caf-people-perspective.pdf"
+      },
+      {
+        "title": "About the migration strategies - AWS Prescriptive Guidance（AWS公式）",
+        "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスで運用している顧客管理システムを、AWSへの移行を機に、同じ役割を持つSaaS製品に置き換えることにしました。この移行戦略を何と呼びますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "リパーチェス",
+        "correct": true,
+        "explanation": "リパーチェスは、別のバージョンや製品（SaaSなど）に置き換える移行戦略です。"
+      },
+      {
+        "id": "b",
+        "text": "リホスト",
+        "correct": false,
+        "explanation": "リホストは、変更を加えずにそのまま移す戦略です。別の製品に置き換えるわけではありません。",
+        "eliminatedBy": "SaaS製品に置き換える"
+      },
+      {
+        "id": "c",
+        "text": "リタイア",
+        "correct": false,
+        "explanation": "リタイアは、不要なアプリケーションを廃止する戦略です。問題文では、同じ役割を持つ別の製品を使い続けます。",
+        "eliminatedBy": "同じ役割を持つSaaS製品に置き換える"
+      },
+      {
+        "id": "d",
+        "text": "リファクタリング",
+        "correct": false,
+        "explanation": "リファクタリングは、クラウドネイティブな機能を活用するために、アーキテクチャを変更する戦略です。既製のSaaS製品に置き換えることではありません。",
+        "eliminatedBy": "SaaS製品に置き換える"
+      }
+    ],
+    "keywords": [
+      "SaaS製品に置き換える"
+    ],
+    "decisionPoint": "「別の製品（SaaSなど）に置き換える」＝リパーチェス。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-migration-caf"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-mig-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Foundational capabilities - An Overview of the AWS Cloud Adoption Framework（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/overview-aws-cloud-adoption-framework/foundational-capabilities.html"
+      },
+      {
+        "title": "AWS Cloud Adoption Framework: People Perspective（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-caf-people-perspective/aws-caf-people-perspective.pdf"
+      },
+      {
+        "title": "About the migration strategies - AWS Prescriptive Guidance（AWS公式）",
+        "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d1",
+    "taskId": "clf-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業が移行の準備としてアプリケーションを棚卸ししたところ、もう誰も使っていないアプリケーションが見つかりました。このアプリケーションは移行せずに廃止することにしました。この移行戦略を何と呼びますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "リタイア",
+        "correct": true,
+        "explanation": "リタイアは、不要なアプリケーションを廃止する移行戦略です。"
+      },
+      {
+        "id": "b",
+        "text": "リテイン",
+        "correct": false,
+        "explanation": "リテインは、アプリケーションを移行元の環境に残す（今は移行しない）戦略です。問題文では、残すのではなく廃止します。",
+        "eliminatedBy": "移行せずに廃止する"
+      },
+      {
+        "id": "c",
+        "text": "リホスト",
+        "correct": false,
+        "explanation": "リホストは、変更を加えずにそのまま移す戦略です。問題文では移行しません。",
+        "eliminatedBy": "移行せずに廃止する"
+      },
+      {
+        "id": "d",
+        "text": "リプラットフォーム",
+        "correct": false,
+        "explanation": "リプラットフォームは、移す際にある程度の最適化を加える戦略です。問題文では移行しません。",
+        "eliminatedBy": "移行せずに廃止する"
+      }
+    ],
+    "keywords": [
+      "もう誰も使っていない",
+      "廃止する"
+    ],
+    "decisionPoint": "「廃止」＝リタイア。「残す」＝リテイン。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-migration-caf"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-shared-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Shared Responsibility Model（AWS公式）",
+        "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-1",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "責任共有モデルでは、統制（コントロール）をいくつかの種類に分けています。利用者がAWSからそのまま継承する「継承される統制」に当たるものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "物理的・環境的な統制",
+        "correct": true,
+        "explanation": "物理的・環境的な統制は、利用者がAWSからそのまま継承する統制です。データセンターの物理的な保護などはAWSが行います。"
+      },
+      {
+        "id": "b",
+        "text": "ゲストOSへのパッチの適用",
+        "correct": false,
+        "explanation": "ゲストOSのパッチ適用は、利用者が行うものです。パッチ管理は、AWSが基盤を、利用者がゲストOSとアプリケーションを担当する「共有される統制」に当たります。",
+        "eliminatedBy": "AWSからそのまま継承する"
+      },
+      {
+        "id": "c",
+        "text": "自社の従業員への意識向上とトレーニング",
+        "correct": false,
+        "explanation": "意識向上とトレーニングは、AWSと利用者がそれぞれ自社の従業員に対して行う「共有される統制」です。AWSからそのまま継承するものではありません。",
+        "eliminatedBy": "AWSからそのまま継承する"
+      },
+      {
+        "id": "d",
+        "text": "IAMによるアクセス権限の設定",
+        "correct": false,
+        "explanation": "IAMによる適切な権限の設定は、利用者の責任です。AWSから継承するものではありません。",
+        "eliminatedBy": "AWSからそのまま継承する"
+      }
+    ],
+    "keywords": [
+      "継承される統制"
+    ],
+    "decisionPoint": "継承される統制＝物理的・環境的な統制。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-shared-responsibility"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-shared-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Shared Responsibility Model（AWS公式）",
+        "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業がAmazon EC2を利用しています。責任共有モデルの「共有される統制」の1つであるパッチ管理について、正しい説明はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWSは基盤のパッチ適用に責任を持ち、利用者はゲストOSとアプリケーションのパッチ適用に責任を持つ",
+        "correct": true,
+        "explanation": "パッチ管理は共有される統制です。AWSは基盤の部分を、利用者はゲストOSとアプリケーションを、それぞれ担当します。"
+      },
+      {
+        "id": "b",
+        "text": "AWSが、ゲストOSとアプリケーションも含めてすべてのパッチ適用に責任を持つ",
+        "correct": false,
+        "explanation": "EC2では、ゲストOSの管理（更新とセキュリティパッチを含む）と、インストールしたアプリケーションは利用者の責任です。",
+        "eliminatedBy": "Amazon EC2を利用しています"
+      },
+      {
+        "id": "c",
+        "text": "利用者が、データセンターの設備も含めてすべてのパッチ適用に責任を持つ",
+        "correct": false,
+        "explanation": "基盤の部分はAWSが担当します。利用者がすべてを担当するわけではありません。",
+        "eliminatedBy": "共有される統制"
+      },
+      {
+        "id": "d",
+        "text": "パッチ管理は、AWSにも利用者にも責任がない",
+        "correct": false,
+        "explanation": "パッチ管理は、AWSと利用者の両方に当てはまる、共有される統制です。",
+        "eliminatedBy": "共有される統制"
+      }
+    ],
+    "keywords": [
+      "共有される統制",
+      "パッチ管理"
+    ],
+    "decisionPoint": "パッチ管理は「対象を分けてそれぞれが行う」。AWS＝基盤、利用者＝ゲストOSとアプリケーション。",
+    "serviceIds": [
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-shared-responsibility"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ec2"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-shared-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Shared Responsibility Model（AWS公式）",
+        "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Amazon DynamoDBにデータを保存しています。責任共有モデルにおいて、このサービスでAWSが運用するものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "基盤の層、OS、プラットフォーム",
+        "correct": true,
+        "explanation": "DynamoDBのような抽象化されたサービスでは、AWSが基盤の層、OS、プラットフォームを運用します。"
+      },
+      {
+        "id": "b",
+        "text": "保存するデータの暗号化のオプションの選択",
+        "correct": false,
+        "explanation": "データの管理（暗号化のオプションの選択を含む）は、利用者の責任です。AWSが運用するものではありません。",
+        "eliminatedBy": "AWSが運用するもの"
+      },
+      {
+        "id": "c",
+        "text": "データの分類",
+        "correct": false,
+        "explanation": "データなどの資産の分類は、利用者の責任です。AWSが運用するものではありません。",
+        "eliminatedBy": "AWSが運用するもの"
+      },
+      {
+        "id": "d",
+        "text": "IAMによるアクセス権限の設定",
+        "correct": false,
+        "explanation": "IAMによる適切な権限の設定は、利用者の責任です。AWSが運用するものではありません。",
+        "eliminatedBy": "AWSが運用するもの"
+      }
+    ],
+    "keywords": [
+      "Amazon DynamoDB",
+      "AWSが運用するもの"
+    ],
+    "decisionPoint": "抽象化されたサービスでは、OSやプラットフォームまでAWS。データと権限設定は利用者。",
+    "serviceIds": [
+      "amazon-dynamodb"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-shared-responsibility"
+      },
+      {
+        "type": "service",
+        "id": "amazon-dynamodb"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-shared-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Shared Responsibility Model（AWS公式）",
+        "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-1",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "責任共有モデルにおいて、従業員への意識向上とトレーニングの責任についての説明として正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWSと利用者が、それぞれ自社の従業員に対して行う",
+        "correct": true,
+        "explanation": "意識向上とトレーニングは、共有される統制です。AWSはAWSの従業員を、利用者は自社の従業員を、それぞれ教育します。"
+      },
+      {
+        "id": "b",
+        "text": "AWSが、利用者の従業員の教育も含めてすべて行う",
+        "correct": false,
+        "explanation": "AWSが教育するのはAWSの従業員です。利用者の従業員の教育は、利用者が行います。",
+        "eliminatedBy": "従業員への意識向上とトレーニング"
+      },
+      {
+        "id": "c",
+        "text": "利用者が、AWSの従業員の教育も含めてすべて行う",
+        "correct": false,
+        "explanation": "AWSの従業員の教育は、AWSが行います。",
+        "eliminatedBy": "従業員への意識向上とトレーニング"
+      },
+      {
+        "id": "d",
+        "text": "クラウドを利用する場合、意識向上とトレーニングは不要になる",
+        "correct": false,
+        "explanation": "意識向上とトレーニングは、AWSと利用者の両方に当てはまる統制であり、不要にはなりません。",
+        "eliminatedBy": "責任共有モデルにおいて"
+      }
+    ],
+    "keywords": [
+      "意識向上とトレーニング"
+    ],
+    "decisionPoint": "共有される統制：パッチ管理、構成管理、意識向上とトレーニング。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-shared-responsibility"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-gov-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、保存するデータの暗号化に使う暗号鍵を作成し、誰がその鍵を使えるかを一元的に管理したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS KMS",
+        "correct": true,
+        "explanation": "AWS KMSは、暗号鍵を作成し、どのユーザーやサービスがその鍵を使えるかを制御するサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Certificate Manager",
+        "correct": false,
+        "explanation": "Certificate Managerは、SSL/TLS証明書を管理するサービスです。通信の暗号化（転送時の暗号化）のための証明書を扱うもので、暗号鍵を管理するサービスではありません。",
+        "eliminatedBy": "暗号鍵を作成し"
+      },
+      {
+        "id": "c",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "Artifactは、AWSのコンプライアンスに関するレポートを入手するためのサービスです。暗号鍵の管理は行いません。",
+        "eliminatedBy": "暗号鍵を作成し、誰がその鍵を使えるかを一元的に管理"
+      },
+      {
+        "id": "d",
+        "text": "AWS CloudTrail",
+        "correct": false,
+        "explanation": "CloudTrailは、APIの操作履歴を記録するサービスです。暗号鍵を作成して管理するサービスではありません。",
+        "eliminatedBy": "暗号鍵を作成し"
+      }
+    ],
+    "keywords": [
+      "暗号鍵を作成",
+      "鍵を使えるかを一元的に管理"
+    ],
+    "decisionPoint": "暗号鍵の管理＝KMS。証明書の管理＝Certificate Manager。",
+    "serviceIds": [
+      "aws-kms"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-governance"
+      },
+      {
+        "type": "service",
+        "id": "aws-kms"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-gov-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ストレージやデータベースに保存してあるデータを暗号化して保護することを何と呼びますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "保存時の暗号化",
+        "correct": true,
+        "explanation": "保存してあるデータを暗号化することを、保存時の暗号化と呼びます。"
+      },
+      {
+        "id": "b",
+        "text": "転送時の暗号化",
+        "correct": false,
+        "explanation": "転送時の暗号化は、通信の途中のデータを暗号化することです。保存してあるデータの暗号化ではありません。",
+        "eliminatedBy": "保存してあるデータ"
+      },
+      {
+        "id": "c",
+        "text": "多要素認証",
+        "correct": false,
+        "explanation": "多要素認証は、パスワードに加えて別の要素も確認する認証の方法です。データの暗号化のことではありません。",
+        "eliminatedBy": "データを暗号化して保護する"
+      },
+      {
+        "id": "d",
+        "text": "最小権限",
+        "correct": false,
+        "explanation": "最小権限は、作業に必要な権限だけを与えるという考え方です。データの暗号化のことではありません。",
+        "eliminatedBy": "データを暗号化して保護する"
+      }
+    ],
+    "keywords": [
+      "保存してあるデータを暗号化"
+    ],
+    "decisionPoint": "保存してあるデータ＝保存時の暗号化。通信の途中＝転送時の暗号化。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-governance"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-iam-07",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Root user best practices for your AWS account（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html"
+      },
+      {
+        "title": "Tasks that require root user credentials（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-tasks.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "IAMのポリシーのうち、多くの一般的な用途向けにAWSがあらかじめ用意しているものを何と呼びますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS管理ポリシー",
+        "correct": true,
+        "explanation": "AWS管理ポリシーは、多くの一般的な用途向けにAWSが用意したポリシーです。まずこれから始め、用途に合わせて権限をさらに絞っていくことが推奨されています。"
+      },
+      {
+        "id": "b",
+        "text": "カスタマー管理ポリシー",
+        "correct": false,
+        "explanation": "カスタマー管理ポリシーは、利用者が自分の用途に合わせて作るポリシーです。AWSがあらかじめ用意しているものではありません。",
+        "eliminatedBy": "AWSがあらかじめ用意しているもの"
+      },
+      {
+        "id": "c",
+        "text": "ルートユーザー",
+        "correct": false,
+        "explanation": "ルートユーザーは、アカウントを作成したときからある特別なユーザーです。ポリシーの種類ではありません。",
+        "eliminatedBy": "IAMのポリシーのうち"
+      },
+      {
+        "id": "d",
+        "text": "セキュリティグループ",
+        "correct": false,
+        "explanation": "セキュリティグループは、インスタンスへの通信を制御する仕組みです。IAMのポリシーの種類ではありません。",
+        "eliminatedBy": "IAMのポリシーのうち"
+      }
+    ],
+    "keywords": [
+      "AWSがあらかじめ用意しているもの"
+    ],
+    "decisionPoint": "AWSが用意＝AWS管理ポリシー。利用者が作る＝カスタマー管理ポリシー。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-iam"
+      },
+      {
+        "type": "service",
+        "id": "aws-iam"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-iam-08",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "Root user best practices for your AWS account（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html"
+      },
+      {
+        "title": "Tasks that require root user credentials（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-tasks.html"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "AWSアカウントのルートユーザーを保護する方法として、推奨されているものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ルートユーザーのアクセスキーを作成しない",
+        "correct": true,
+        "explanation": "ルートユーザーのアクセスキーは作らないことが推奨されています。あわせて、強力なパスワード、MFAの設定、認証情報を共有しないことも推奨されています。"
+      },
+      {
+        "id": "b",
+        "text": "ルートユーザーの認証情報を、管理者のチームで共有する",
+        "correct": false,
+        "explanation": "ルートユーザーの認証情報は、共有しないことが推奨されています。",
+        "eliminatedBy": "ルートユーザーを保護する方法"
+      },
+      {
+        "id": "c",
+        "text": "日常の管理作業を、すべてルートユーザーで行う",
+        "correct": false,
+        "explanation": "ルートユーザーは、ルートユーザーの認証情報が必要な作業にだけ使うことが推奨されています。",
+        "eliminatedBy": "ルートユーザーを保護する方法"
+      },
+      {
+        "id": "d",
+        "text": "ルートユーザーの多要素認証（MFA）を無効にする",
+        "correct": false,
+        "explanation": "ルートユーザーにはMFAを設定することが推奨されています。無効にするのは逆の対応です。",
+        "eliminatedBy": "ルートユーザーを保護する方法"
+      }
+    ],
+    "keywords": [
+      "ルートユーザーを保護する方法"
+    ],
+    "decisionPoint": "ルートユーザー：MFAを設定、アクセスキーを作らない、共有しない、日常的に使わない。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-iam"
+      },
+      {
+        "type": "service",
+        "id": "aws-iam"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-sec-08",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、複数のセキュリティサービスを使っています。それぞれのサービスの検出結果を1か所に集約して、まとめて確認したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Security Hub",
+        "correct": true,
+        "explanation": "Security Hubは、セキュリティの検出結果を集約して確認するためのサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon Inspector",
+        "correct": false,
+        "explanation": "Inspectorは、ソフトウェアの脆弱性をスキャンするサービスです。脆弱性を見つける側のサービスであり、複数のサービスの検出結果を集約するものではありません。",
+        "eliminatedBy": "検出結果を1か所に集約"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Macie",
+        "correct": false,
+        "explanation": "Macieは、S3の機密データを発見するサービスです。複数のサービスの検出結果を集約するものではありません。",
+        "eliminatedBy": "検出結果を1か所に集約"
+      },
+      {
+        "id": "d",
+        "text": "AWS Shield",
+        "correct": false,
+        "explanation": "Shieldは、DDoS攻撃から保護するサービスです。検出結果を集約するサービスではありません。",
+        "eliminatedBy": "検出結果を1か所に集約"
+      }
+    ],
+    "keywords": [
+      "検出結果を1か所に集約"
+    ],
+    "decisionPoint": "「検出結果の集約」＝Security Hub。",
+    "serviceIds": [
+      "aws-security-hub"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-services"
+      },
+      {
+        "type": "service",
+        "id": "aws-security-hub"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-sec-09",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、AWSが提供するセキュリティサービスに加えて、サードパーティーのセキュリティ製品もAWS上で利用したいと考えています。これらの製品を入手できる場所はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Marketplace",
+        "correct": true,
+        "explanation": "サードパーティーのセキュリティ製品は、AWS Marketplaceで入手できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "Artifactは、AWSのコンプライアンスに関するレポートを入手するためのサービスです。サードパーティーの製品を入手する場所ではありません。",
+        "eliminatedBy": "サードパーティーのセキュリティ製品"
+      },
+      {
+        "id": "c",
+        "text": "AWS Trusted Advisor",
+        "correct": false,
+        "explanation": "Trusted Advisorは、ベストプラクティスに基づく推奨事項を示すサービスです。製品を入手する場所ではありません。",
+        "eliminatedBy": "製品を入手できる場所"
+      },
+      {
+        "id": "d",
+        "text": "AWS IAM Identity Center",
+        "correct": false,
+        "explanation": "IAM Identity Centerは、複数のアカウントやアプリケーションへのサインインを一元管理するサービスです。製品を入手する場所ではありません。",
+        "eliminatedBy": "製品を入手できる場所"
+      }
+    ],
+    "keywords": [
+      "サードパーティーのセキュリティ製品",
+      "入手できる場所"
+    ],
+    "decisionPoint": "サードパーティー製品の入手＝AWS Marketplace。",
+    "serviceIds": [
+      "aws-marketplace"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-security-services"
+      },
+      {
+        "type": "service",
+        "id": "aws-marketplace"
+      }
+    ]
+  }
+]

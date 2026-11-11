@@ -51,7 +51,11 @@
   "quizQuestionIds": [
     "clf-q-wa-01",
     "clf-q-wa-02",
-    "clf-q-wa-03"
+    "clf-q-wa-03",
+    "clf-q-wa-04",
+    "clf-q-wa-05",
+    "clf-q-wa-06",
+    "clf-q-wa-07"
   ],
   "glossaryTermIds": [
     "workload"

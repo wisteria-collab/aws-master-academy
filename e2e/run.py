@@ -175,11 +175,13 @@ with sync_playwright() as p:
     pick('IAMを使って適切なアクセス権限'); submit()
     check('複数選択の正解判定', '正解です' in page.inner_text('main') and '不正解です' not in page.inner_text('main'))
     nxt()
-    check('責任共有レッスン全問正解', '3 / 3 問正解' in page.inner_text('main'))
+    for ans in ['物理的・環境的な統制', 'AWSは基盤のパッチ適用に責任を持ち', '基盤の層、OS、プラットフォーム', 'それぞれ自社の従業員に対して行う']:
+        pick(ans); submit(); nxt()
+    check('責任共有レッスン全問正解', '7 / 7 問正解' in page.inner_text('main'))
 
     # サービス図鑑
     page.goto(BASE + '#/services'); page.wait_for_timeout(400)
-    check('図鑑に71サービス', page.locator('main ul li a').count() == 71)
+    check('図鑑に72サービス', page.locator('main ul li a').count() == 72)
     page.get_by_placeholder('サービス名で検索').fill('efs'); page.wait_for_timeout(200)
     check('検索で絞り込み', page.locator('main ul li a').count() == 1 and 'Amazon EFS' in page.inner_text('main'))
     page.locator('main ul li a').first.click(); page.wait_for_timeout(400)
@@ -214,9 +216,9 @@ with sync_playwright() as p:
     # 演習・進捗・復習
     page.goto(BASE + '#/practice'); page.wait_for_timeout(400)
     t = page.inner_text('main')
-    check('演習メニュー', all(x in t for x in ['ランダム演習', '分野別演習', 'サービス別演習', '公開中 108 問']))
+    check('演習メニュー', all(x in t for x in ['ランダム演習', '分野別演習', 'サービス別演習', '公開中 130 問']))
     page.goto(BASE + '#/practice/run?exam=clf&mode=domain&domain=clf-d1'); page.wait_for_timeout(500)
-    check('分野別演習の出題', '1 / 13' in page.inner_text('main') and '分野別演習：クラウドのコンセプト' in page.inner_text('main'))
+    check('分野別演習の出題', '1 / 25' in page.inner_text('main') and '分野別演習：クラウドのコンセプト' in page.inner_text('main'))
     page.goto(BASE + '#/progress'); page.wait_for_timeout(500)
     t = page.inner_text('main')
     check('分野別の理解度', '各問題の最新の解答で集計' in t and '100%' in t)

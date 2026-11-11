@@ -52,6 +52,7 @@
     "aws-x-ray",
     "amazon-workspaces",
     "amazon-appstream-2",
+    "amazon-workspaces-secure-browser",
     "aws-amplify",
     "aws-iot-core"
   ],

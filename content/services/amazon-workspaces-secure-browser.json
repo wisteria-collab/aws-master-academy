@@ -1,0 +1,76 @@
+{
+  "id": "amazon-workspaces-secure-browser",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "clf",
+      "version": "1.3"
+    }
+  ],
+  "name": "Amazon WorkSpaces Secure Browser",
+  "aliases": [
+    "WorkSpaces Secure Browser",
+    "Amazon WorkSpaces Web",
+    "WorkSpaces Web"
+  ],
+  "category": "end-user-computing",
+  "summary": "社内のウェブサイトやSaaSアプリケーションへの安全なアクセスを、既存のウェブブラウザから行えるようにするフルマネージドのサービス。",
+  "beginner": {
+    "analogy": "会社の中のサイトを見るための「安全な専用の窓」です。いつものブラウザからその窓を開くと、社内のサイトやウェブアプリを安全に使えます。",
+    "description": "社員が、いつも使っているウェブブラウザから、社内のウェブサイトやウェブアプリケーションに安全にアクセスできるようにするサービスです。特別な機器や専用のソフトウェアを用意する必要がありません。"
+  },
+  "exam": {
+    "description": "社内のウェブサイトやSaaSアプリケーションへの安全なアクセスを、既存のウェブブラウザから行えるようにするために作られた、低コストでフルマネージドのワークスペースです。アプライアンスや専用のクライアントソフトウェアを管理する負担がありません。",
+    "points": [
+      "ブラウザからの、社内サイトやSaaSアプリケーションへの安全なアクセス＝Amazon WorkSpaces Secure Browser。",
+      "デスクトップ全体を提供するのはAmazon WorkSpaces、アプリケーションをストリーミングするのはAmazon AppStream 2.0。",
+      "試験ガイドでは、エンドユーザーコンピューティングのサービスとして挙げられている。"
+    ]
+  },
+  "useCases": [
+    "社員が、社内のウェブサイトやSaaSアプリケーションに安全にアクセスする"
+  ],
+  "mechanism": "利用者は、既存のウェブブラウザから、社内のウェブサイトやSaaSアプリケーションにアクセスします。",
+  "pros": [
+    "専用の機器やクライアントソフトウェアが不要",
+    "フルマネージド"
+  ],
+  "cons": [
+    "対象はウェブサイトやウェブアプリケーション。デスクトップ全体が必要な場合はAmazon WorkSpacesを使う"
+  ],
+  "scenes": [
+    "委託先の担当者に、社内のウェブシステムだけを安全に使ってもらう"
+  ],
+  "similarServiceIds": [
+    "amazon-workspaces",
+    "amazon-appstream-2"
+  ],
+  "relatedServiceIds": [
+    "amazon-workspaces",
+    "amazon-appstream-2"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "low"
+  },
+  "examDomains": [
+    {
+      "exam": "clf",
+      "domainId": "clf-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/workspaces-web/",
+  "uncertainNote": "試験ガイド（バージョン1.3）ではAmazon WorkSpaces Secure Browser、AWSのホワイトペーパーではAmazon WorkSpaces Webという名前が使われています。説明はホワイトペーパーのAmazon WorkSpaces Webの記述に基づいています。"
+}

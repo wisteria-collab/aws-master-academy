@@ -54,7 +54,11 @@
   ],
   "quizQuestionIds": [
     "clf-q-cloud-01",
-    "clf-q-cloud-02"
+    "clf-q-cloud-02",
+    "clf-q-cloud-03",
+    "clf-q-cloud-04",
+    "clf-q-cloud-05",
+    "clf-q-cloud-06"
   ],
   "glossaryTermIds": [
     "on-premises",

@@ -55,7 +55,11 @@
   "quizQuestionIds": [
     "clf-q-shared-01",
     "clf-q-shared-02",
-    "clf-q-shared-03"
+    "clf-q-shared-03",
+    "clf-q-shared-04",
+    "clf-q-shared-05",
+    "clf-q-shared-06",
+    "clf-q-shared-07"
   ],
   "glossaryTermIds": [
     "guest-os",
