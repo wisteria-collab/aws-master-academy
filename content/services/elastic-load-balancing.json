@@ -64,7 +64,9 @@
     "amazon-ec2-auto-scaling",
     "amazon-ecs"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "load-balancers"
+  ],
   "importance": {
     "clf": "mid",
     "saa": "high"

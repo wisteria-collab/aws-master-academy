@@ -1,0 +1,120 @@
+{
+  "id": "load-balancers",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "ロードバランサーの種類：ALB・NLB・GWLB",
+  "category": "networking",
+  "summary": "3つともElastic Load Balancingのロードバランサーですが、扱う通信の種類が違います。「HTTP/HTTPSで中身を見て振り分ける」「TCPで非常に高い性能が必要」「他社製のネットワーク機器を並べる」で選びます。",
+  "items": [
+    {
+      "key": "alb",
+      "label": "Application Load Balancer",
+      "oneLine": "中身を見て案内する受付（レイヤー7）",
+      "values": {
+        "role": "HTTPとHTTPSの通信を負荷分散する",
+        "mechanism": "個々のリクエストのレベル（レイヤー7）で動作し、リクエストの内容に基づいてVPC内のターゲットに振り分ける",
+        "data": "リクエストの内容を見て振り分ける",
+        "useCases": "ウェブアプリケーション、マイクロサービスやコンテナを使った構成",
+        "availability": "高可用性と自動スケーリングの機能を備える",
+        "performance": "高度なリクエストのルーティングを提供する",
+        "scalability": "自動的にスケールする",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "マネージドサービスとして提供される",
+        "limits": "HTTPとHTTPSの通信に最適化されている",
+        "chooseWhen": "HTTP/HTTPSのウェブアプリケーションで、リクエストの内容に応じて振り分けたいとき",
+        "avoidWhen": "TCPの通信で、極めて高い性能が必要なとき（その場合はNLB）"
+      },
+      "serviceId": "elastic-load-balancing"
+    },
+    {
+      "key": "nlb",
+      "label": "Network Load Balancer",
+      "oneLine": "とにかく速い交通整理（レイヤー4）",
+      "values": {
+        "role": "TCPの通信を、極めて高い性能で負荷分散する",
+        "mechanism": "接続のレベル（レイヤー4）で動作し、VPC内のターゲットに振り分ける",
+        "data": "接続の単位で振り分ける",
+        "useCases": "極めて高い性能が求められるTCPの通信",
+        "availability": "高可用性と自動スケーリングの機能を備える",
+        "performance": "超低遅延を保ちながら、毎秒数百万件のリクエストを処理できる",
+        "scalability": "自動的にスケールする",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "マネージドサービスとして提供される",
+        "limits": "リクエストの内容に基づく振り分けは行わない",
+        "chooseWhen": "TCPの通信で、極めて高い性能と低い遅延が必要なとき",
+        "avoidWhen": "HTTPのリクエストの内容に応じて振り分けたいとき（その場合はALB）"
+      },
+      "serviceId": "elastic-load-balancing"
+    },
+    {
+      "key": "gwlb",
+      "label": "Gateway Load Balancer",
+      "oneLine": "他社製の検問機器を並べる係",
+      "values": {
+        "role": "サードパーティの仮想ネットワークアプライアンスを、デプロイ、スケール、実行しやすくする",
+        "mechanism": "サードパーティのアプライアンスの集まりに対して、負荷分散と自動スケーリングを提供する",
+        "data": "通信の送信元と送信先に対して透過的に動作する",
+        "useCases": "他社製のファイアウォールなどのネットワーク機器を、通信の経路に入れる",
+        "availability": "アプライアンスの集まりに負荷分散を提供する",
+        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "アプライアンスの自動スケーリングを提供する",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "アプライアンスの展開と拡張がしやすくなる",
+        "limits": "ウェブアプリケーションのサーバーへの振り分けが目的ではない",
+        "chooseWhen": "他社製の仮想ネットワークアプライアンスを使いたいとき",
+        "avoidWhen": "通常のウェブアプリケーションの負荷分散をしたいとき"
+      },
+      "serviceId": "elastic-load-balancing"
+    }
+  ],
+  "figureIds": [],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "他社製の仮想ネットワークアプライアンス（ファイアウォールなど）に通信を通したいですか？",
+      "yes": "r-gwlb",
+      "no": "n2"
+    },
+    {
+      "id": "n2",
+      "question": "HTTP/HTTPSの通信で、リクエストの内容に基づいて振り分けたいですか？",
+      "yes": "r-alb",
+      "no": "r-nlb"
+    },
+    {
+      "id": "r-gwlb",
+      "resultItemKey": "gwlb",
+      "note": "送信元と送信先からは透過的に見えます。"
+    },
+    {
+      "id": "r-alb",
+      "resultItemKey": "alb",
+      "note": "レイヤー7で動作します。マイクロサービスやコンテナの構成に向いています。"
+    },
+    {
+      "id": "r-nlb",
+      "resultItemKey": "nlb",
+      "note": "レイヤー4で動作し、極めて高い性能を発揮します。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "saa-q-lb-train-01",
+    "saa-q-lb-train-02"
+  ]
+}

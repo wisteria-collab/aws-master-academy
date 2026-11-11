@@ -1,0 +1,73 @@
+{
+  "id": "aws-elastic-disaster-recovery",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS Elastic Disaster Recovery",
+  "aliases": [
+    "Elastic Disaster Recovery",
+    "DRS",
+    "エラスティックディザスタリカバリ"
+  ],
+  "category": "storage",
+  "summary": "サーバーで動くアプリケーションやデータベースを、災害に備えてAWSに複製しておくサービス。",
+  "beginner": {
+    "analogy": "「避難先に、すぐ使える家財一式を用意しておく」イメージです。普段は電源を切ったまま置いておき、いざというときに使い始めます。",
+    "description": "障害や災害に備えて、いま動いているサーバーの内容をAWSに複製しておき、いざというときにAWS側で動かせるようにするサービスです。"
+  },
+  "exam": {
+    "description": "Elastic Disaster Recoveryは、パイロットライトの戦略を使います。データのコピーと、「電源を切った」状態のリソースを、ステージング領域として使うAmazon VPCの中に保持します。あらゆる移行元の、サーバーで動くアプリケーションとデータベースに対応します。",
+    "points": [
+      "サーバーの災害対策（DR）のための複製＝AWS Elastic Disaster Recovery。",
+      "パイロットライトの戦略を使う。",
+      "バックアップの一元管理はAWS Backup。"
+    ]
+  },
+  "useCases": [
+    "オンプレミスや別のリージョンのサーバーの災害対策"
+  ],
+  "mechanism": "移行元のサーバーのデータを継続的に複製し、復旧用のリソースは電源を切った状態で保持します。",
+  "pros": [
+    "復旧用の環境を常時動かさなくてよい"
+  ],
+  "cons": [
+    "復旧のときに、リソースを起動する作業が入る"
+  ],
+  "scenes": [
+    "オンプレミスの業務サーバーが被災したときに、AWS側で業務を再開できるようにしておく"
+  ],
+  "similarServiceIds": [
+    "aws-backup"
+  ],
+  "relatedServiceIds": [
+    "aws-backup",
+    "amazon-ec2"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/drs/"
+}

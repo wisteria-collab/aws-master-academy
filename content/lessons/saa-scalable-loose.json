@@ -1,0 +1,93 @@
+{
+  "id": "saa-scalable-loose",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Amazon RDS Read Replicas（AWS公式）",
+      "url": "https://aws.amazon.com/rds/features/read-replicas/"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 4,
+  "title": "スケーラブルで疎結合なアーキテクチャの設計",
+  "domainId": "saa-d2",
+  "taskIds": [
+    "saa-2-1"
+  ],
+  "overview": "第2分野のテーマは「弾力性（レジリエンス）」、つまり負荷の変化や障害に強い設計です。最初のタスクは、スケーラブル（規模を変えられる）で、疎結合（部品どうしが影響し合いにくい）な設計です。\n試験ガイドでは、多層アーキテクチャ、マイクロサービス、イベント駆動型アーキテクチャ、水平スケーリングと垂直スケーリング、ロードバランシング、キューとメッセージング、キャッシュ、サーバーレス、コンテナ、リードレプリカ、ワークフローのオーケストレーション（AWS Step Functions）、APIの作成と管理（Amazon API Gateway）が挙げられています。\n個々のサービスの多くは、CLFコースで学んだものです。ここでは、それらを「どう組み合わせるか」に注目します。",
+  "beginner": {
+    "analogy": "レストランにたとえます。お客さんが増えたら、レジの台数を増やすのが「水平スケーリング」、レジ係をベテランに替えるのが「垂直スケーリング」です。注文を伝票にして厨房との間のレールに挟むのが「キューによる疎結合」です。ホール係が厨房に直接どなり込む店は、厨房が止まるとホールも止まります。伝票のレールがあれば、ホールは注文を取り続けられます。",
+    "description": "大きな1つのかたまりで作ったシステムは、一部が混んだり壊れたりすると、全体が止まります。部品に分け、間に「ためておく場所」や「取り次ぐ係」を置くと、混んでいる部分だけを増やしたり、壊れた部分だけを直したりできます。"
+  },
+  "useCases": [
+    "アクセスの増減に合わせて、サーバーの台数を自動で変える",
+    "注文の受け付けと、時間のかかる処理を、キューで分ける",
+    "読み取りの多いデータベースの処理能力を増やす",
+    "サーバーを管理せずに、APIのバックエンドを作る",
+    "複数の処理を、決まった順番で実行する"
+  ],
+  "mechanism": {
+    "text": "【多層アーキテクチャ】\nウェブ、アプリケーション、データベースといった層に分け、それぞれを別々に拡張・保護します。\n【スケーリング】\n・水平スケーリング：台数を増減します。Amazon EC2 Auto Scalingは、定義した条件に従ってインスタンスを自動的に追加・削除します。リードレプリカは、読み取りの多いワークロードで、1つのDBインスタンスの容量の制約を超えてスケールアウトできるようにします。\n・垂直スケーリング：1台の大きさ（インスタンスタイプ）を変えます。\n水平スケーリングをしやすくするには、サーバーが利用者ごとの状態を持たない「ステートレス」な作りにします。\n【ロードバランシング】\nElastic Load Balancingは、通信を複数のターゲットに分散します。Application Load BalancerはHTTP/HTTPS（レイヤー7）、Network Load BalancerはTCP（レイヤー4）、Gateway Load Balancerはサードパーティの仮想ネットワークアプライアンス向けです。\n【疎結合】\n・Amazon SQS：キューにためて、受け取る側のペースで処理します。\n・Amazon SNS：1つのメッセージを、複数の購読者に配信します（パブリッシュ／サブスクライブ）。\n・Amazon EventBridge：イベントをターゲットに届けます（イベント駆動）。\n・AWS Step Functions：複数の部品を、視覚的なワークフローで連携させます。\n【APIとサーバーレス】\nAmazon API Gatewayは、バックエンドへの「正面玄関」となるAPIを作成・公開します。AWS Lambda（コードの実行）やAWS Fargate（コンテナの実行）と組み合わせると、サーバーを管理しない構成にできます。\n【コンテナ】\nAmazon ECSとAmazon EKSが、コンテナのオーケストレーションを行います。\n【キャッシュとエッジ】\nAmazon ElastiCacheは、よく読まれるデータをメモリから返します。Amazon CloudFrontは、コンテンツをエッジロケーションにキャッシュして配信します。\n【用途に合ったマネージドサービス】\nAWS Transfer Familyは、SFTP・FTPS・FTPによるファイル転送を、Amazon S3やAmazon EFSとの間で直接行えるようにします。"
+  },
+  "relatedServiceIds": [
+    "amazon-ec2-auto-scaling",
+    "elastic-load-balancing",
+    "amazon-sqs",
+    "amazon-sns",
+    "amazon-eventbridge",
+    "aws-step-functions",
+    "amazon-api-gateway",
+    "aws-lambda",
+    "aws-fargate",
+    "amazon-elasticache",
+    "amazon-cloudfront",
+    "aws-transfer-family"
+  ],
+  "examPoints": [
+    "直接呼び出しをやめて、間にキュー（SQS）を置く＝疎結合。受け取る側が混んでも、送る側は止まらない。",
+    "台数の増減＝水平スケーリング（Auto Scaling、リードレプリカ）。1台の大きさの変更＝垂直スケーリング。",
+    "読み取りの多いデータベース＝リードレプリカ。高可用性が目的ならマルチAZ配置。",
+    "ALB＝HTTP/HTTPS・レイヤー7・内容で振り分け。NLB＝TCP・レイヤー4・極めて高い性能。GWLB＝サードパーティのアプライアンス。",
+    "サーバーレスのAPI＝API Gateway＋Lambda。",
+    "処理の順番の管理＝Step Functions。いっせい配信＝SNS。イベント駆動＝EventBridge。",
+    "キャッシュ：データベースの手前にElastiCache、利用者の手前にCloudFront。",
+    "SFTPなどでS3・EFSへ＝Transfer Family。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-sc-01",
+    "saa-q-sc-02",
+    "saa-q-sc-03",
+    "saa-q-sc-04",
+    "saa-q-sc-05",
+    "saa-q-sc-06",
+    "saa-q-lb-train-01",
+    "saa-q-lb-train-02"
+  ],
+  "glossaryTermIds": [
+    "horizontal-scaling",
+    "vertical-scaling",
+    "stateless",
+    "decoupling",
+    "message-queue",
+    "pub-sub",
+    "load-balancer",
+    "cache",
+    "serverless",
+    "replica"
+  ]
+}

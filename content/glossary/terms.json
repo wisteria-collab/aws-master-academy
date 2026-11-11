@@ -1952,5 +1952,221 @@
     "plain": "新しく入居する前に、水道・電気・防犯設備が整えられた「分譲地」のようなものです。",
     "example": "AWS Control Towerでランディングゾーンを設定し、新しいアカウントを同じルールのもとで追加する。",
     "serviceIds": []
+  },
+  {
+    "id": "horizontal-scaling",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "水平スケーリング",
+    "description": "サーバーなどの「台数」を増やしたり減らしたりして、処理能力を調整することです。スケールアウト／スケールインとも呼びます。",
+    "plain": "レジが混んできたら、開けるレジの「数」を増やすイメージです。",
+    "example": "Amazon EC2 Auto Scalingで、アクセスが増えたらインスタンスの台数を増やす。リードレプリカを追加して、読み取りの処理能力を増やす。",
+    "serviceIds": []
+  },
+  {
+    "id": "vertical-scaling",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "垂直スケーリング",
+    "description": "1台のサーバーの「大きさ」（CPUやメモリ）を変えて、処理能力を調整することです。スケールアップ／スケールダウンとも呼びます。",
+    "plain": "レジの台数はそのままで、レジ係をベテランに交代して1台あたりの処理を速くするイメージです。",
+    "example": "EC2インスタンスを、より大きなインスタンスタイプに変更する。",
+    "serviceIds": []
+  },
+  {
+    "id": "stateless",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "ステートレス",
+    "description": "サーバーが、利用者ごとの途中経過（状態）を自分の中に持たない作りのことです。どのサーバーが処理しても同じ結果になります。",
+    "plain": "どの窓口に並んでも同じ手続きができる役所のようなものです。「前回の担当者でないとわからない」ということがありません。",
+    "example": "ログイン中の情報をサーバーの中ではなく外部のデータストアに置き、どのインスタンスでもリクエストを処理できるようにする。",
+    "serviceIds": []
+  },
+  {
+    "id": "failover",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "フェイルオーバー",
+    "description": "使っているシステムに障害が起きたとき、待機しているシステムに切り替えることです。",
+    "plain": "停電したときに、自動で「非常用の電源」に切り替わるイメージです。",
+    "example": "Amazon RDSのマルチAZ配置で、プライマリに問題が起きると、スタンバイに自動でフェイルオーバーする。",
+    "serviceIds": []
+  },
+  {
+    "id": "rto",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "RTO",
+    "description": "目標復旧時間（Recovery Time Objective）の略で、障害が起きてから復旧するまでにかけてよい時間の目標です。",
+    "plain": "「お店が止まってから、何時間以内に再開しなければならないか」という目標です。",
+    "example": "RTOが数分のシステムには、ウォームスタンバイのように、すでに動いている環境を用意しておく。",
+    "serviceIds": []
+  },
+  {
+    "id": "rpo",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "RPO",
+    "description": "目標復旧時点（Recovery Point Objective）の略で、障害のときに、どの時点までのデータを復旧できればよいかという目標です。失ってもよいデータの量を、時間で表します。",
+    "plain": "「最後に保存したところまで戻ってもよいのは、何分前までか」という目標です。",
+    "example": "バックアップの頻度が、達成できる復旧時点を決める。1日1回のバックアップなら、最大で1日分のデータを失う可能性がある。",
+    "serviceIds": []
+  },
+  {
+    "id": "single-point-of-failure",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "単一障害点",
+    "description": "そこが止まると、システム全体が止まってしまう部分のことです。",
+    "plain": "1本しかない橋のようなものです。その橋が通れなくなると、向こう岸には行けなくなります。",
+    "example": "1台だけのサーバー、1つのアベイラビリティゾーンだけに置いたデータベース。複数のアベイラビリティゾーンに分けて置くことで取り除く。",
+    "serviceIds": []
+  },
+  {
+    "id": "sync-async-replication",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "同期レプリケーションと非同期レプリケーション",
+    "description": "データの複製のしかたです。同期は、複製先にも書き込めたことを確かめてから完了とします。非同期は、複製先への反映を待たずに完了とするため、反映が少し遅れることがあります。",
+    "plain": "同期は「相手が受け取ったのを確認してから次に進む」手渡し、非同期は「ポストに入れたら次に進む」郵送のようなものです。",
+    "example": "Amazon RDSのマルチAZ配置は同期、リードレプリカは非同期でレプリケーションする。",
+    "serviceIds": []
   }
 ]

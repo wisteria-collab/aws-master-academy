@@ -11,6 +11,9 @@ import { useStudyTimer } from '../hooks/useStudyTimer'
 
 type StatusFilter = 'all' | 'unlearned' | 'learned' | 'favorite'
 
+const nameHit = (s: { name: string; aliases: string[] }, q: string) =>
+  q && [s.name, ...s.aliases].some((t) => t.toLowerCase().includes(q)) ? 1 : 0
+
 export function Services() {
   const [query, setQuery] = useSessionState('query', '')
   const [category, setCategory] = useSessionState('category', 'all')
@@ -35,7 +38,8 @@ export function Services() {
         return true
       })
       .filter((s) => !q || [s.name, ...s.aliases, s.summary].some((t) => t.toLowerCase().includes(q)))
-      .sort((a, b) => a.name.localeCompare(b.name))
+      // 名前や別名が一致するサービスを先に、説明文だけが一致するサービスを後に並べる
+      .sort((a, b) => nameHit(b, q) - nameHit(a, q) || a.name.localeCompare(b.name))
   }, [query, category, status, learned, favs])
 
   const selectClass = 'min-h-11 rounded-xl border border-navy-600 bg-white px-3 text-base'

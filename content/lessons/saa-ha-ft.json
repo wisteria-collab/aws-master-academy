@@ -1,0 +1,102 @@
+{
+  "id": "saa-ha-ft",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Amazon RDS Read Replicas（AWS公式）",
+      "url": "https://aws.amazon.com/rds/features/read-replicas/"
+    },
+    {
+      "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+    },
+    {
+      "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+    },
+    {
+      "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 5,
+  "title": "高可用性と耐障害性のあるアーキテクチャの設計",
+  "domainId": "saa-d2",
+  "taskIds": [
+    "saa-2-2"
+  ],
+  "overview": "2つ目のタスクは、障害が起きても止まらない、または早く復旧できる設計です。CLFでは「複数のアベイラビリティゾーンを使うと高可用性になる」と学びました。SAAでは、どの部品をどう冗長にするか、災害にどこまで備えるかを、要件から判断します。\n試験ガイドでは、単一障害点の解消、アベイラビリティゾーンやリージョンをまたぐ構成、フェイルオーバーの戦略、災害対策（DR）の戦略（バックアップ＆リストア、パイロットライト、ウォームスタンバイ、アクティブ／アクティブ）、RPOとRTO、データの耐久性と可用性を確保する方法（バックアップなど）が挙げられています。",
+  "beginner": {
+    "analogy": "お店の営業にたとえます。高可用性は、「店員が1人休んでも店を開け続けられる」ことです。災害対策は、「店が火事になっても、別の場所で営業を再開できる」ことです。RTOは「何時間以内に再開しなければならないか」、RPOは「帳簿をどの時点まで復元できればよいか」です。早く完全に再開したいほど、準備にお金がかかります。",
+    "description": "障害への備えは、「1つ壊れても大丈夫」を積み重ねることです。1台より複数台、1つのアベイラビリティゾーンより複数、1つのリージョンより複数、と範囲を広げるほど強くなりますが、費用も増えます。必要な復旧の速さから逆算して選びます。"
+  },
+  "useCases": [
+    "1台だけのサーバーを、複数のアベイラビリティゾーンに分散する",
+    "データベースを、アベイラビリティゾーンの障害に備えさせる",
+    "リージョンの障害のときに、別のリージョンへ切り替える",
+    "復旧の目標に合った災害対策の方式を選ぶ"
+  ],
+  "mechanism": {
+    "text": "【単一障害点をなくす】\nそこが止まると全体が止まる部分（単一障害点）を、冗長化します。EC2インスタンスは複数のアベイラビリティゾーンに配置し、Elastic Load Balancingで通信を分散します。Elastic Load Balancingは、複数のアベイラビリティゾーンにまたがって負荷を処理できます。\n【データベースの高可用性】\n・マルチAZ配置：別のアベイラビリティゾーンに、同期のスタンバイを自動的に維持します。主な目的は高可用性で、問題が検出されると自動でフェイルオーバーします。\n・リードレプリカ：非同期で複製します。主な目的は読み取りのスケーリングで、昇格は手動です（Aurora以外）。\n・マルチリージョン配置：主な目的は、災害対策と、利用者に近い場所での性能です。\n【リージョンをまたぐ切り替え】\nAmazon Route 53は、ヘルスチェックによる自動のDNSフェイルオーバーに対応します。AWS Global Acceleratorは、通信を正常なエンドポイントに届けます。\n【災害対策（DR）の4つの戦略】\n・バックアップ＆リストア：バックアップだけを置く。目安はRPOが数時間、RTOが24時間以内。費用と複雑さが最も低い。\n・パイロットライト：データの複製に必要なリソースだけを常に動かし、残りは電源を切っておく。目安はRPOが数分、RTOが数十分。\n・ウォームスタンバイ：縮小版の環境を常に動かす。目安はRPOが数秒、RTOが数分。\n・マルチサイト アクティブ／アクティブ：複数のリージョンで同時に動かす。RPOはほぼゼロ、RTOはゼロに近い。最も費用がかかり、最も複雑。\nパイロットライトは、追加の操作をしないとリクエストを処理できません。ウォームスタンバイは、縮小した規模ならすぐに処理できます。\n【データの耐久性と可用性】\n・AWS Backup：バックアップを一元管理し、別のリージョンへのコピーにも対応します。\n・Amazon S3のレプリケーション：オブジェクトを別のリージョンへ非同期で複製します。複製だけでは、データの破損や誤操作からは保護できないことがあるため、バージョニングもあわせて有効にすることが推奨されています。\n・Amazon Auroraグローバルデータベース：リージョンをまたぐ継続的な非同期の複製を行い、セカンダリのリージョンを昇格できます。\n・Amazon DynamoDBグローバルテーブル：複数のリージョンで書き込めます。\n・AWS Elastic Disaster Recovery：サーバーで動くアプリケーションやデータベースを、パイロットライトの戦略で複製します。\n【この教材でまだ扱っていない項目】\n試験ガイドには、Amazon RDS Proxy、サービスクォータとスロットリング、イミュータブルインフラストラクチャも挙げられています。これらは公式情報の確認ができしだい追加します。"
+  },
+  "relatedServiceIds": [
+    "elastic-load-balancing",
+    "amazon-rds",
+    "amazon-aurora",
+    "amazon-route-53",
+    "aws-global-accelerator",
+    "aws-backup",
+    "amazon-s3",
+    "amazon-dynamodb",
+    "aws-elastic-disaster-recovery"
+  ],
+  "examPoints": [
+    "単一障害点をなくす基本＝複数のアベイラビリティゾーンに配置＋ロードバランサー。",
+    "マルチAZ配置＝高可用性・同期・自動フェイルオーバー。リードレプリカ＝読み取りのスケーリング・非同期・手動で昇格。",
+    "リージョンをまたぐ自動の切り替え＝Route 53のヘルスチェックとフェイルオーバー。",
+    "DRの4戦略：バックアップ＆リストア＜パイロットライト＜ウォームスタンバイ＜マルチサイト。右へ行くほど復旧が速く、費用が高い。",
+    "パイロットライト＝中核だけ稼働、残りは電源オフ。ウォームスタンバイ＝縮小版がすべて稼働。",
+    "RTO＝復旧までの時間の目標。RPO＝どの時点のデータまで戻せればよいかの目標。",
+    "複製（レプリケーション）は、誤操作や破損も複製する。バージョニングやバックアップを組み合わせる。",
+    "リージョンをまたぐデータベース：リレーショナル＝Auroraグローバルデータベース、NoSQL＝DynamoDBグローバルテーブル。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-ha-01",
+    "saa-q-ha-02",
+    "saa-q-ha-03",
+    "saa-q-ha-04",
+    "saa-q-ha-05",
+    "saa-q-ha-06",
+    "saa-q-rds-train-01",
+    "saa-q-dr-train-01",
+    "saa-q-dr-train-02"
+  ],
+  "glossaryTermIds": [
+    "high-availability",
+    "single-point-of-failure",
+    "failover",
+    "rto",
+    "rpo",
+    "sync-async-replication",
+    "replica",
+    "availability-zone",
+    "region"
+  ],
+  "uncertainNote": "試験ガイドに挙げられているAmazon RDS Proxy、サービスクォータとスロットリング、イミュータブルインフラストラクチャは、公式情報での確認がまだのため、このレッスンでは扱っていません。"
+}

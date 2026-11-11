@@ -1,0 +1,1316 @@
+[
+  {
+    "id": "saa-q-sc-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるネットショップでは、ウェブサーバーが注文を受け取ると、そのまま在庫管理のサーバーを直接呼び出しています。セールのときに在庫管理のサーバーが処理しきれなくなり、注文が失われました。2つのサーバーを疎結合にして、在庫管理の処理が追いつかないときにも注文を失わないようにするには、どうすればよいですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ウェブサーバーが注文をAmazon SQSのキューに入れ、在庫管理のサーバーがキューから取り出して処理する",
+        "correct": true,
+        "explanation": "SQSのキューを間に置くと、受け取る側が自分のペースでメッセージを取り出して処理できます。処理が追いつかない間も、メッセージはキューにたまるため失われません。"
+      },
+      {
+        "id": "b",
+        "text": "在庫管理のサーバーを、より大きなインスタンスタイプに変更する",
+        "correct": false,
+        "explanation": "インスタンスを大きくすると処理能力は上がりますが、2つのサーバーが直接つながったままです。それを超える注文が来れば、同じ問題が起きます。",
+        "eliminatedBy": "2つのサーバーを疎結合にして"
+      },
+      {
+        "id": "c",
+        "text": "ウェブサーバーの前にAmazon CloudFrontを置く",
+        "correct": false,
+        "explanation": "CloudFrontはコンテンツをキャッシュして配信するサービスです。ウェブサーバーと在庫管理のサーバーの間を疎結合にするものではありません。",
+        "eliminatedBy": "2つのサーバーを疎結合にして"
+      },
+      {
+        "id": "d",
+        "text": "在庫管理のサーバーに、AWS Shieldを適用する",
+        "correct": false,
+        "explanation": "ShieldはDDoS攻撃から保護するサービスです。正当な注文の処理が追いつかない問題を解決するものではありません。",
+        "eliminatedBy": "注文を失わないようにする"
+      }
+    ],
+    "keywords": [
+      "直接呼び出しています",
+      "疎結合",
+      "注文を失わない"
+    ],
+    "decisionPoint": "直接呼び出しをやめ、間にキュー（SQS）を置くのが疎結合の基本です。",
+    "serviceIds": [
+      "amazon-sqs"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      },
+      {
+        "type": "comparison",
+        "id": "messaging"
+      },
+      {
+        "type": "service",
+        "id": "amazon-sqs"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるウェブアプリケーションは、複数のアベイラビリティゾーンのEC2インスタンスで動いています。アクセスが増える時間帯にはインスタンスの台数を自動で増やし、減る時間帯には減らしたいと考えています。また、増えたインスタンスにも通信を振り分ける必要があります。最も適切な組み合わせはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon EC2 Auto ScalingとElastic Load Balancing",
+        "correct": true,
+        "explanation": "EC2 Auto Scalingは、定義した条件に従ってインスタンスを自動的に追加・削除します。Elastic Load Balancingは、受信した通信を複数のターゲットに自動的に分散します。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon CloudFrontとAmazon Route 53",
+        "correct": false,
+        "explanation": "CloudFrontはコンテンツの配信、Route 53はDNSのサービスです。インスタンスの台数を自動で増減するものではありません。",
+        "eliminatedBy": "インスタンスの台数を自動で増やし"
+      },
+      {
+        "id": "c",
+        "text": "AWS BackupとAmazon S3",
+        "correct": false,
+        "explanation": "AWS Backupはバックアップ、S3はオブジェクトストレージです。台数の増減や通信の振り分けは行いません。",
+        "eliminatedBy": "インスタンスの台数を自動で増やし"
+      },
+      {
+        "id": "d",
+        "text": "より大きなインスタンスタイプへの変更とAWS Direct Connect",
+        "correct": false,
+        "explanation": "インスタンスタイプの変更は、台数ではなく1台の大きさを変える垂直スケーリングです。Direct Connectは、通信を複数のインスタンスに振り分けるものではありません。",
+        "eliminatedBy": "台数を自動で増やし、減る時間帯には減らしたい"
+      }
+    ],
+    "keywords": [
+      "台数を自動で増やし",
+      "通信を振り分ける"
+    ],
+    "decisionPoint": "台数の増減＝Auto Scaling、振り分け＝ELB。2つは組み合わせて使います。",
+    "serviceIds": [
+      "amazon-ec2-auto-scaling",
+      "elastic-load-balancing"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ec2-auto-scaling"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるニュースサイトは、Amazon RDSのデータベースを使っています。記事を読む処理（読み取り）が非常に多く、データベースの負荷が高くなっています。書き込みは少量です。読み取りの処理能力を増やすために、最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "リードレプリカを作成し、読み取りをリードレプリカに振り向ける",
+        "correct": true,
+        "explanation": "リードレプリカの主な目的は、読み取りのスケーリングです。読み取りの多いワークロードで、1つのDBインスタンスの容量の制約を超えてスケールアウトできます。"
+      },
+      {
+        "id": "b",
+        "text": "マルチAZ配置を有効にする",
+        "correct": false,
+        "explanation": "マルチAZ配置の主な目的は高可用性です。Aurora以外では、アクティブなのはプライマリだけで、スタンバイは読み取りには使えません。",
+        "eliminatedBy": "読み取りの処理能力を増やす"
+      },
+      {
+        "id": "c",
+        "text": "AWS Backupでバックアップの頻度を上げる",
+        "correct": false,
+        "explanation": "バックアップはデータを保護するためのものです。読み取りの処理能力は増えません。",
+        "eliminatedBy": "読み取りの処理能力を増やす"
+      },
+      {
+        "id": "d",
+        "text": "データベースを1つのアベイラビリティゾーンに集約する",
+        "correct": false,
+        "explanation": "アベイラビリティゾーンを集約しても、読み取りの処理能力は増えません。可用性も下がります。",
+        "eliminatedBy": "読み取りの処理能力を増やす"
+      }
+    ],
+    "keywords": [
+      "読み取り）が非常に多く",
+      "読み取りの処理能力を増やす"
+    ],
+    "decisionPoint": "読み取りのスケーリング＝リードレプリカ。高可用性＝マルチAZ。目的が違います。",
+    "serviceIds": [
+      "amazon-rds"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      },
+      {
+        "type": "comparison",
+        "id": "rds-ha"
+      },
+      {
+        "type": "service",
+        "id": "amazon-rds"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、注文の処理を、在庫確認、決済、発送依頼という複数のAWS Lambda関数に分けています。これらを決まった順番で実行し、処理の流れを視覚的に確認できるようにしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Step Functions",
+        "correct": true,
+        "explanation": "Step Functionsは、分散アプリケーションやマイクロサービスの構成要素を、視覚的なワークフローを使って連携させるフルマネージドのサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon SNS",
+        "correct": false,
+        "explanation": "SNSは、メッセージを購読者にいっせいに配信するサービスです。複数の処理を決まった順番で実行する流れを管理するものではありません。",
+        "eliminatedBy": "決まった順番で実行し"
+      },
+      {
+        "id": "c",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheはインメモリのキャッシュです。処理の順番を管理するものではありません。",
+        "eliminatedBy": "決まった順番で実行し"
+      },
+      {
+        "id": "d",
+        "text": "AWS Transfer Family",
+        "correct": false,
+        "explanation": "Transfer Familyは、SFTPなどによるファイル転送のサービスです。Lambda関数の実行の流れを管理するものではありません。",
+        "eliminatedBy": "複数のAWS Lambda関数"
+      }
+    ],
+    "keywords": [
+      "決まった順番で実行",
+      "処理の流れを視覚的に確認"
+    ],
+    "decisionPoint": "処理の順番の管理（ワークフロー）＝Step Functions。",
+    "serviceIds": [
+      "aws-step-functions"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      },
+      {
+        "type": "service",
+        "id": "aws-step-functions"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、モバイルアプリのバックエンドを、サーバーを管理せずに作りたいと考えています。アプリからのリクエストを受け付けるAPIを公開し、リクエストに応じてコードを実行します。最も適切な組み合わせはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon API GatewayとAWS Lambda",
+        "correct": true,
+        "explanation": "API Gatewayは、バックエンドへの「正面玄関」となるAPIを作成・公開できるフルマネージドのサービスです。Lambdaは、サーバーを管理せずにコードを実行できます。"
+      },
+      {
+        "id": "b",
+        "text": "Elastic Load BalancingとAmazon EC2",
+        "correct": false,
+        "explanation": "EC2は仮想サーバーで、ゲストOSなどの管理が必要です。サーバーを管理せずに作りたい、という要件に合いません。",
+        "eliminatedBy": "サーバーを管理せずに作りたい"
+      },
+      {
+        "id": "c",
+        "text": "Amazon CloudFrontとAmazon EBS",
+        "correct": false,
+        "explanation": "CloudFrontはコンテンツの配信、EBSはブロックストレージです。APIを公開してコードを実行する構成にはなりません。",
+        "eliminatedBy": "APIを公開し、リクエストに応じてコードを実行"
+      },
+      {
+        "id": "d",
+        "text": "AWS DataSyncとAmazon EFS",
+        "correct": false,
+        "explanation": "DataSyncはデータの転送、EFSはファイルストレージです。APIのバックエンドを作るものではありません。",
+        "eliminatedBy": "APIを公開し、リクエストに応じてコードを実行"
+      }
+    ],
+    "keywords": [
+      "サーバーを管理せずに",
+      "APIを公開",
+      "コードを実行"
+    ],
+    "decisionPoint": "サーバーレスのAPI＝API Gateway＋Lambda。",
+    "serviceIds": [
+      "amazon-api-gateway",
+      "aws-lambda"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      },
+      {
+        "type": "service",
+        "id": "amazon-api-gateway"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sc-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、取引先から毎日SFTPでファイルを受け取っています。取引先の送り方は変えずに、受け取ったファイルを直接Amazon S3に保存し、SFTPサーバーの運用をやめたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Transfer Family",
+        "correct": true,
+        "explanation": "Transfer Familyは、SFTP、FTPS、FTPによるファイル転送を、Amazon S3やAmazon EFSとの間で直接行えるフルマネージドのサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS DataSync",
+        "correct": false,
+        "explanation": "DataSyncは、オンプレミスのストレージとS3やEFSの間のデータ移動を自動化するサービスです。取引先がSFTPで送ってくるファイルを受け取る窓口にはなりません。",
+        "eliminatedBy": "取引先から毎日SFTPでファイルを受け取っています"
+      },
+      {
+        "id": "c",
+        "text": "AWS Database Migration Service（AWS DMS）",
+        "correct": false,
+        "explanation": "AWS DMSはデータベースを移行するサービスです。SFTPによるファイルの受け取りとは関係がありません。",
+        "eliminatedBy": "SFTPでファイルを受け取っています"
+      },
+      {
+        "id": "d",
+        "text": "Amazon SQS",
+        "correct": false,
+        "explanation": "SQSはメッセージキューのサービスです。SFTPでファイルを受け取るものではありません。",
+        "eliminatedBy": "SFTPでファイルを受け取っています"
+      }
+    ],
+    "keywords": [
+      "SFTP",
+      "送り方は変えずに",
+      "直接Amazon S3に保存"
+    ],
+    "decisionPoint": "SFTP／FTPS／FTPでS3・EFSへ＝Transfer Family。",
+    "serviceIds": [
+      "aws-transfer-family"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      },
+      {
+        "type": "service",
+        "id": "aws-transfer-family"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+      },
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、本番用のAmazon RDS for MySQLのデータベースを、1つのアベイラビリティゾーンで運用しています。そのアベイラビリティゾーンに障害が起きた場合にも、自動的に切り替わってデータベースを使い続けられるようにしたいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "マルチAZ配置にする",
+        "correct": true,
+        "explanation": "マルチAZ配置は、別のアベイラビリティゾーンに同期のスタンバイレプリカを自動的に維持します。問題が検出されると、スタンバイに自動でフェイルオーバーします。"
+      },
+      {
+        "id": "b",
+        "text": "同じアベイラビリティゾーンにリードレプリカを作成する",
+        "correct": false,
+        "explanation": "リードレプリカの主な目的は読み取りのスケーリングで、昇格は手動です。同じアベイラビリティゾーンに置いた場合、そのゾーンの障害の影響も受けます。",
+        "eliminatedBy": "自動的に切り替わって"
+      },
+      {
+        "id": "c",
+        "text": "DBインスタンスを、より大きなインスタンスタイプに変更する",
+        "correct": false,
+        "explanation": "インスタンスを大きくしても、同じアベイラビリティゾーンにある限り、そのゾーンの障害の影響を受けます。",
+        "eliminatedBy": "そのアベイラビリティゾーンに障害が起きた場合にも"
+      },
+      {
+        "id": "d",
+        "text": "Amazon ElastiCacheを追加する",
+        "correct": false,
+        "explanation": "ElastiCacheは応答を速くするためのキャッシュです。データベースを別のアベイラビリティゾーンに自動で切り替える仕組みではありません。",
+        "eliminatedBy": "自動的に切り替わって"
+      }
+    ],
+    "keywords": [
+      "アベイラビリティゾーンに障害",
+      "自動的に切り替わって"
+    ],
+    "decisionPoint": "AZ障害への備え＋自動フェイルオーバー＝マルチAZ配置。",
+    "serviceIds": [
+      "amazon-rds"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "comparison",
+        "id": "rds-ha"
+      },
+      {
+        "type": "service",
+        "id": "amazon-rds"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、災害対策（DR）の方式を検討しています。別のリージョンに、本番環境を縮小した構成を常に動かしておき、災害のときには、その構成の規模を拡大するだけで本番の通信を処理できるようにしたいと考えています。この方式を何と呼びますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ウォームスタンバイ",
+        "correct": true,
+        "explanation": "ウォームスタンバイは、縮小されているが完全に機能する本番環境のコピーを、別のリージョンに常に動かしておく方式です。すべてがすでにデプロイされて動いているため、規模を拡大するだけで済みます。"
+      },
+      {
+        "id": "b",
+        "text": "バックアップ＆リストア",
+        "correct": false,
+        "explanation": "バックアップ＆リストアでは、復旧先にあるのはバックアップだけです。復旧のときに、インフラストラクチャやアプリケーションを再びデプロイする必要があります。",
+        "eliminatedBy": "縮小した構成を常に動かしておき"
+      },
+      {
+        "id": "c",
+        "text": "パイロットライト",
+        "correct": false,
+        "explanation": "パイロットライトでは、データの複製などの中核の部分だけが常に動いており、アプリケーションサーバーなどは電源を切った状態です。追加の操作をしないとリクエストを処理できません。",
+        "eliminatedBy": "規模を拡大するだけで本番の通信を処理できる"
+      },
+      {
+        "id": "d",
+        "text": "マルチサイト アクティブ／アクティブ",
+        "correct": false,
+        "explanation": "マルチサイト アクティブ／アクティブは、複数のリージョンで同時にワークロードを動かし、すべてのリージョンが通信を処理する方式です。縮小した構成で待機する方式ではありません。",
+        "eliminatedBy": "縮小した構成を常に動かしておき"
+      }
+    ],
+    "keywords": [
+      "縮小した構成を常に動かしておき",
+      "規模を拡大するだけ"
+    ],
+    "decisionPoint": "縮小版が常に稼働＝ウォームスタンバイ。中核だけ稼働で残りは停止＝パイロットライト。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "comparison",
+        "id": "dr-strategies"
+      }
+    ],
+    "variationGroupId": "dr-strategies-select"
+  },
+  {
+    "id": "saa-q-ha-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業のウェブアプリケーションは、1つのアベイラビリティゾーンにある1台のEC2インスタンスで動いています。単一障害点をなくし、1つのアベイラビリティゾーンに障害が起きてもサービスを続けられるようにするには、どうすればよいですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "複数のアベイラビリティゾーンにEC2インスタンスを配置し、Elastic Load Balancingで通信を分散する",
+        "correct": true,
+        "explanation": "Elastic Load Balancingは、複数のアベイラビリティゾーンにまたがって、通信を複数のターゲットに分散できます。インスタンスを複数のゾーンに置くことで、1つのゾーンの障害に備えられます。"
+      },
+      {
+        "id": "b",
+        "text": "EC2インスタンスを、より大きなインスタンスタイプに変更する",
+        "correct": false,
+        "explanation": "1台を大きくしても、その1台とそのアベイラビリティゾーンが単一障害点であることは変わりません。",
+        "eliminatedBy": "単一障害点をなくし"
+      },
+      {
+        "id": "c",
+        "text": "同じアベイラビリティゾーンに、EC2インスタンスをもう1台追加する",
+        "correct": false,
+        "explanation": "同じアベイラビリティゾーンに追加しても、そのゾーンの障害が起きると、両方のインスタンスが影響を受けます。",
+        "eliminatedBy": "1つのアベイラビリティゾーンに障害が起きても"
+      },
+      {
+        "id": "d",
+        "text": "EC2インスタンスのEBSボリュームの容量を増やす",
+        "correct": false,
+        "explanation": "ストレージの容量を増やしても、可用性は変わりません。",
+        "eliminatedBy": "単一障害点をなくし"
+      }
+    ],
+    "keywords": [
+      "単一障害点をなくし",
+      "1つのアベイラビリティゾーンに障害が起きても"
+    ],
+    "decisionPoint": "単一障害点をなくす基本＝複数のAZに配置＋ロードバランサー。",
+    "serviceIds": [
+      "elastic-load-balancing",
+      "amazon-ec2"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "service",
+        "id": "elastic-load-balancing"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、2つのリージョンでウェブアプリケーションを動かしています。主に使うリージョンのアプリケーションが正常でなくなったときに、利用者を自動的にもう一方のリージョンへ案内したいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Route 53のヘルスチェックとフェイルオーバーを使う",
+        "correct": true,
+        "explanation": "Route 53は、ヘルスチェックでアプリケーションの状態を監視し、DNSによる自動のフェイルオーバーで、正常なエンドポイントに利用者を案内できます。"
+      },
+      {
+        "id": "b",
+        "text": "セキュリティグループのルールを変更する",
+        "correct": false,
+        "explanation": "セキュリティグループは、インスタンスへの通信を許可する仕組みです。利用者を別のリージョンへ案内する機能はありません。",
+        "eliminatedBy": "利用者を自動的にもう一方のリージョンへ案内"
+      },
+      {
+        "id": "c",
+        "text": "Amazon EBSのスナップショットを取得する",
+        "correct": false,
+        "explanation": "スナップショットはデータを保護するためのものです。利用者の案内先を切り替えるものではありません。",
+        "eliminatedBy": "利用者を自動的にもう一方のリージョンへ案内"
+      },
+      {
+        "id": "d",
+        "text": "AWS Step Functionsでワークフローを作成する",
+        "correct": false,
+        "explanation": "Step Functionsは、処理の順番を管理するサービスです。利用者の通信をリージョンの間で切り替えるものではありません。",
+        "eliminatedBy": "正常でなくなったときに、利用者を自動的に"
+      }
+    ],
+    "keywords": [
+      "2つのリージョン",
+      "正常でなくなったときに",
+      "自動的にもう一方のリージョンへ案内"
+    ],
+    "decisionPoint": "リージョンをまたぐ自動の切り替え＝Route 53のヘルスチェックとフェイルオーバー。",
+    "serviceIds": [
+      "amazon-route-53"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "service",
+        "id": "amazon-route-53"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-05",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "advanced",
+    "stem": "ある企業は、Amazon S3のデータを、災害に備えて別のリージョンにも複製しています。ところが、誤ってオブジェクトを上書きしてしまった場合には、上書きされた内容がそのまま複製されてしまうことに気づきました。このような誤操作やデータの破損にも備えるために、あわせて有効にすることが推奨されているものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "S3のバージョニング",
+        "correct": true,
+        "explanation": "継続的なレプリケーションは、データの破損や悪意のある攻撃のような災害からは保護できないことがあります。そのため、S3のオブジェクトのバージョニングもあわせて有効にすることが推奨されています。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontはコンテンツを配信するサービスです。上書きされる前のオブジェクトを残しておく機能ではありません。",
+        "eliminatedBy": "誤ってオブジェクトを上書きしてしまった場合"
+      },
+      {
+        "id": "c",
+        "text": "AWS Global Accelerator",
+        "correct": false,
+        "explanation": "Global Acceleratorは、通信を正常なエンドポイントに届けるサービスです。データの誤操作に備えるものではありません。",
+        "eliminatedBy": "誤操作やデータの破損にも備える"
+      },
+      {
+        "id": "d",
+        "text": "Amazon EC2 Auto Scaling",
+        "correct": false,
+        "explanation": "Auto Scalingは、インスタンスの台数を自動で増減するものです。S3のデータを保護するものではありません。",
+        "eliminatedBy": "Amazon S3のデータ"
+      }
+    ],
+    "keywords": [
+      "別のリージョンにも複製",
+      "誤ってオブジェクトを上書き",
+      "データの破損"
+    ],
+    "decisionPoint": "複製だけでは、誤操作や破損も複製される。バージョニング（やバックアップ）を組み合わせます。",
+    "serviceIds": [
+      "amazon-s3"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "service",
+        "id": "amazon-s3"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ha-06",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、複数のリージョンでリレーショナルデータベースを使う必要があります。リージョンをまたいで継続的にデータを複製し、主に使うリージョンが完全に停止した場合には、別のリージョンを短時間で読み書きできるように昇格させたいと考えています。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Auroraグローバルデータベース",
+        "correct": true,
+        "explanation": "Auroraグローバルデータベースは、リージョンをまたぐ継続的な非同期のデータ複製を提供します。リージョン全体が停止した場合でも、セカンダリのリージョンを昇格させて、読み書きを引き継がせることができます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon RDSのマルチAZ配置",
+        "correct": false,
+        "explanation": "マルチAZ配置は、1つのリージョンの中で、複数のアベイラビリティゾーンにまたがる構成です。リージョン全体の停止には対応しません。",
+        "eliminatedBy": "主に使うリージョンが完全に停止した場合"
+      },
+      {
+        "id": "c",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheはインメモリのキャッシュです。リレーショナルデータベースをリージョンの間で複製するものではありません。",
+        "eliminatedBy": "リレーショナルデータベース"
+      },
+      {
+        "id": "d",
+        "text": "Amazon DynamoDBグローバルテーブル",
+        "correct": false,
+        "explanation": "DynamoDBグローバルテーブルも複数のリージョンで使えますが、DynamoDBはNoSQLデータベースです。問題文はリレーショナルデータベースを求めています。",
+        "eliminatedBy": "リレーショナルデータベースを使う必要があります"
+      }
+    ],
+    "keywords": [
+      "複数のリージョン",
+      "リレーショナルデータベース",
+      "別のリージョンを短時間で読み書きできるように昇格"
+    ],
+    "decisionPoint": "リージョンをまたぐリレーショナルDB＝Auroraグローバルデータベース。NoSQLならDynamoDBグローバルテーブル。",
+    "serviceIds": [
+      "amazon-aurora"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "service",
+        "id": "amazon-aurora"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-rds-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Read Replicas（AWS公式）",
+        "url": "https://aws.amazon.com/rds/features/read-replicas/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Amazon RDSのリードレプリカを作成しています。担当者は「リードレプリカがあるので、プライマリのDBインスタンスに障害が起きても、自動的に切り替わるはずだ」と考えています。Aurora以外のRDSについて、この考えに対する説明として正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "リードレプリカの昇格は手動であり、自動のフェイルオーバーにはマルチAZ配置を使う",
+        "correct": true,
+        "explanation": "リードレプリカの主な目的は読み取りのスケーリングで、スタンドアロンのDBインスタンスへの昇格は手動です。自動のフェイルオーバーは、マルチAZ配置が提供します。"
+      },
+      {
+        "id": "b",
+        "text": "正しい。リードレプリカは、問題が検出されると自動的にプライマリに昇格する",
+        "correct": false,
+        "explanation": "Aurora以外のRDSでは、リードレプリカの昇格は手動です。自動でフェイルオーバーするのはマルチAZ配置のスタンバイです。",
+        "eliminatedBy": "自動的に切り替わるはずだ"
+      },
+      {
+        "id": "c",
+        "text": "リードレプリカは同期レプリケーションなので、データが失われることはない",
+        "correct": false,
+        "explanation": "リードレプリカは非同期レプリケーションです。同期レプリケーションなのはマルチAZ配置です。",
+        "eliminatedBy": "リードレプリカを作成しています"
+      },
+      {
+        "id": "d",
+        "text": "リードレプリカは、読み取りにも書き込みにも使えない",
+        "correct": false,
+        "explanation": "リードレプリカは、読み取りを処理するためのものです。読み取りには使えます。",
+        "eliminatedBy": "リードレプリカ"
+      }
+    ],
+    "keywords": [
+      "リードレプリカ",
+      "自動的に切り替わるはずだ"
+    ],
+    "decisionPoint": "自動フェイルオーバー＝マルチAZ。リードレプリカは読み取り用で、昇格は手動。",
+    "serviceIds": [
+      "amazon-rds"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "rds-ha"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      }
+    ],
+    "variationGroupId": "rds-ha-select"
+  },
+  {
+    "id": "saa-q-lb-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、コンテナで動く複数のマイクロサービスを公開しています。HTTPSのリクエストの内容に基づいて、それぞれのリクエストを適切なマイクロサービスに振り分けたいと考えています。最も適切なロードバランサーはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Application Load Balancer",
+        "correct": true,
+        "explanation": "Application Load Balancerは、HTTPとHTTPSの通信に最適で、個々のリクエストのレベル（レイヤー7）で動作し、リクエストの内容に基づいて振り分けます。マイクロサービスやコンテナの構成に向いています。"
+      },
+      {
+        "id": "b",
+        "text": "Network Load Balancer",
+        "correct": false,
+        "explanation": "Network Load Balancerは、接続のレベル（レイヤー4）で動作します。リクエストの内容に基づいて振り分ける用途にはApplication Load Balancerが合います。",
+        "eliminatedBy": "リクエストの内容に基づいて"
+      },
+      {
+        "id": "c",
+        "text": "Gateway Load Balancer",
+        "correct": false,
+        "explanation": "Gateway Load Balancerは、サードパーティの仮想ネットワークアプライアンスを展開するためのものです。マイクロサービスへのリクエストの振り分けが目的ではありません。",
+        "eliminatedBy": "適切なマイクロサービスに振り分けたい"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Route 53",
+        "correct": false,
+        "explanation": "Route 53はDNSのサービスです。名前をIPアドレスに変換しますが、HTTPSのリクエストの内容を見て振り分けるロードバランサーではありません。",
+        "eliminatedBy": "最も適切なロードバランサー"
+      }
+    ],
+    "keywords": [
+      "HTTPSのリクエストの内容に基づいて",
+      "マイクロサービス"
+    ],
+    "decisionPoint": "HTTP/HTTPS＋内容で振り分け＝ALB（レイヤー7）。",
+    "serviceIds": [
+      "elastic-load-balancing"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "load-balancers"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      }
+    ],
+    "variationGroupId": "load-balancers-select"
+  },
+  {
+    "id": "saa-q-lb-train-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるオンラインゲームの会社は、TCPの通信を使うゲームサーバーを運用しています。毎秒数百万件のリクエストを、超低遅延で処理できるロードバランサーが必要です。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Network Load Balancer",
+        "correct": true,
+        "explanation": "Network Load Balancerは、極めて高い性能が求められるTCPの通信に最適です。接続のレベル（レイヤー4）で動作し、超低遅延を保ちながら、毎秒数百万件のリクエストを処理できます。"
+      },
+      {
+        "id": "b",
+        "text": "Application Load Balancer",
+        "correct": false,
+        "explanation": "Application Load Balancerは、HTTPとHTTPSの通信に最適なロードバランサーです。極めて高い性能が求められるTCPの通信にはNetwork Load Balancerが合います。",
+        "eliminatedBy": "TCPの通信を使う"
+      },
+      {
+        "id": "c",
+        "text": "Gateway Load Balancer",
+        "correct": false,
+        "explanation": "Gateway Load Balancerは、サードパーティの仮想ネットワークアプライアンスのためのものです。ゲームサーバーへの通信の分散が目的ではありません。",
+        "eliminatedBy": "ゲームサーバーを運用しています"
+      },
+      {
+        "id": "d",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontはコンテンツをキャッシュして配信するCDNです。ロードバランサーではありません。",
+        "eliminatedBy": "ロードバランサーが必要です"
+      }
+    ],
+    "keywords": [
+      "TCPの通信",
+      "毎秒数百万件",
+      "超低遅延"
+    ],
+    "decisionPoint": "TCP＋極めて高い性能・低遅延＝NLB（レイヤー4）。",
+    "serviceIds": [
+      "elastic-load-balancing"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "load-balancers"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-scalable-loose"
+      }
+    ],
+    "variationGroupId": "load-balancers-select"
+  },
+  {
+    "id": "saa-q-dr-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、社内向けの集計システムの災害対策を検討しています。このシステムは、災害のときに丸1日程度止まっても業務に大きな支障はありません。費用と複雑さをできるだけ抑えたいと考えています。最も適切な戦略はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "バックアップ＆リストア",
+        "correct": true,
+        "explanation": "バックアップ＆リストアは、コストと複雑さが最も低い方式です。復旧に時間がかかりますが、丸1日程度止まってもよいシステムなら要件を満たせます。"
+      },
+      {
+        "id": "b",
+        "text": "ウォームスタンバイ",
+        "correct": false,
+        "explanation": "ウォームスタンバイは、縮小した環境を常に動かしておく方式です。数分での復旧が必要な場合に向きますが、その分の費用がかかります。",
+        "eliminatedBy": "費用と複雑さをできるだけ抑えたい"
+      },
+      {
+        "id": "c",
+        "text": "マルチサイト アクティブ／アクティブ",
+        "correct": false,
+        "explanation": "マルチサイト アクティブ／アクティブは、最も費用がかかり、最も複雑な方式です。",
+        "eliminatedBy": "費用と複雑さをできるだけ抑えたい"
+      },
+      {
+        "id": "d",
+        "text": "パイロットライト",
+        "correct": false,
+        "explanation": "パイロットライトは、データベースなどの中核のリソースを常に動かしておく方式です。丸1日程度止まってもよいシステムには、より費用の低いバックアップ＆リストアで足ります。",
+        "eliminatedBy": "丸1日程度止まっても業務に大きな支障はありません"
+      }
+    ],
+    "keywords": [
+      "丸1日程度止まっても",
+      "費用と複雑さをできるだけ抑えたい"
+    ],
+    "decisionPoint": "復旧が遅くてよい＋費用最小＝バックアップ＆リストア。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "dr-strategies"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      }
+    ],
+    "variationGroupId": "dr-strategies-select"
+  },
+  {
+    "id": "saa-q-dr-train-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、災害対策として、別のリージョンにデータを継続的に複製しています。データベースは常に動かしていますが、アプリケーションサーバーは設定を済ませたうえで電源を切った状態にしてあり、災害のときに起動します。この戦略を何と呼びますか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "パイロットライト",
+        "correct": true,
+        "explanation": "パイロットライトでは、データベースなど、データの複製に必要なリソースは常に動かし、アプリケーションサーバーなどは電源を切った状態にしておきます。"
+      },
+      {
+        "id": "b",
+        "text": "ウォームスタンバイ",
+        "correct": false,
+        "explanation": "ウォームスタンバイでは、縮小した規模のワークロード全体が常に動いています。アプリケーションサーバーの電源を切っておく方式ではありません。",
+        "eliminatedBy": "アプリケーションサーバーは設定を済ませたうえで電源を切った状態"
+      },
+      {
+        "id": "c",
+        "text": "バックアップ＆リストア",
+        "correct": false,
+        "explanation": "バックアップ＆リストアでは、復旧先にあるのはバックアップだけです。データベースを常に動かしておく方式ではありません。",
+        "eliminatedBy": "データベースは常に動かしています"
+      },
+      {
+        "id": "d",
+        "text": "マルチサイト アクティブ／アクティブ",
+        "correct": false,
+        "explanation": "マルチサイト アクティブ／アクティブでは、すべてのリージョンでワークロードが動き、通信を処理します。電源を切って待機させる方式ではありません。",
+        "eliminatedBy": "電源を切った状態にしてあり"
+      }
+    ],
+    "keywords": [
+      "データベースは常に動かしています",
+      "アプリケーションサーバーは",
+      "電源を切った状態"
+    ],
+    "decisionPoint": "中核（データ）だけ稼働＝パイロットライト。全体が縮小版で稼働＝ウォームスタンバイ。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "dr-strategies"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      }
+    ],
+    "variationGroupId": "dr-strategies-select"
+  }
+]

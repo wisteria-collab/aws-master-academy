@@ -65,7 +65,8 @@
     "amazon-s3"
   ],
   "comparisonGroupIds": [
-    "database"
+    "database",
+    "rds-ha"
   ],
   "importance": {
     "clf": "high",

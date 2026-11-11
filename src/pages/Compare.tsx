@@ -9,10 +9,8 @@ import { accuracy, formatRate, latestAttempts } from '../logic/stats'
 
 /** 比較グループの公開予定（Phase 4 で順に追加する） */
 const planned = [
-  'ネットワーク（ALB・NLB・GWLB・CloudFront・Route 53）',
-  '可用性（Multi-AZ・Read Replica・バックアップ）',
   'S3ストレージクラス',
-  'ロードバランサーの種類 ほか',
+  'ネットワークの接続（VPCピアリング・Transit Gateway・VPN・Direct Connect）ほか',
 ]
 
 export function Compare() {

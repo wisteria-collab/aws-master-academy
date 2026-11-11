@@ -1,0 +1,75 @@
+{
+  "id": "aws-step-functions",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS Step Functions",
+  "aliases": [
+    "Step Functions",
+    "ステップファンクションズ"
+  ],
+  "category": "application-integration",
+  "summary": "分散アプリケーションやマイクロサービスの部品を、視覚的なワークフローで連携させるフルマネージドのサービス。",
+  "beginner": {
+    "analogy": "料理の「段取り表」です。「Aが終わったらB、失敗したらC」という手順を表にしておくと、そのとおりに進めてくれます。",
+    "description": "いくつもの処理を、決めた順番どおりに実行してくれるサービスです。処理の流れを図で確認できます。"
+  },
+  "exam": {
+    "description": "分散アプリケーションやマイクロサービスの構成要素を、視覚的なワークフローを使って簡単に連携させられるフルマネージドのサービスです。それぞれが1つの機能を担う個別の部品からアプリケーションを組み立てることで、スケールしやすく、変更しやすくなります。",
+    "points": [
+      "ワークフローのオーケストレーション（処理の順番の管理）＝AWS Step Functions。",
+      "複数の処理を、順番や分岐を決めて連携させる。",
+      "処理の間でメッセージを受け渡すだけならAmazon SQSやAmazon SNS。"
+    ]
+  },
+  "useCases": [
+    "複数のLambda関数を、決まった順番で実行する"
+  ],
+  "mechanism": "処理の流れをワークフローとして定義すると、Step Functionsがその流れに沿って各部品を実行します。",
+  "pros": [
+    "処理の流れを視覚的に確認できる",
+    "部品を組み合わせて作れる"
+  ],
+  "cons": [
+    "単純な通知やキューにはSNSやSQSが合う"
+  ],
+  "scenes": [
+    "注文の処理で、在庫確認、決済、発送依頼を順番に実行する"
+  ],
+  "similarServiceIds": [
+    "amazon-eventbridge",
+    "amazon-sqs"
+  ],
+  "relatedServiceIds": [
+    "aws-lambda",
+    "amazon-sqs",
+    "amazon-sns"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/step-functions/"
+}

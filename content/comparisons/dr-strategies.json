@@ -1,0 +1,152 @@
+{
+  "id": "dr-strategies",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+    },
+    {
+      "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "災害対策（DR）の戦略：バックアップ＆リストア・パイロットライト・ウォームスタンバイ・マルチサイト",
+  "category": "management-governance",
+  "summary": "4つとも「災害が起きたときに別の場所で復旧する」方法ですが、復旧の速さと費用が違います。「どれだけ早く復旧する必要があるか（RTO）」「どの時点のデータまで必要か（RPO）」と費用のバランスで選びます。",
+  "items": [
+    {
+      "key": "backup-restore",
+      "label": "バックアップ＆リストア",
+      "oneLine": "控えだけを遠くに置いておく",
+      "values": {
+        "role": "データをバックアップし、復旧先のリージョンで復元する",
+        "mechanism": "復旧のときに、インフラストラクチャ、設定、アプリケーションのコードを再びデプロイする",
+        "data": "復旧先にあるのはバックアップだけ",
+        "useCases": "復旧に時間がかかってもよいワークロード",
+        "availability": "復旧まで、復旧先では何も動いていない",
+        "performance": "目安は、RPOが数時間、RTOが24時間以内",
+        "scalability": "復旧のときに必要な規模で構築する",
+        "cost": "コストと複雑さが低い",
+        "operations": "IaCを使わないと、復元が複雑になり、復旧時間が長くなる",
+        "limits": "復旧に最も時間がかかる",
+        "chooseWhen": "復旧時間が長くてもよく、費用を抑えたいとき",
+        "avoidWhen": "数分から数十分での復旧が必要なとき"
+      }
+    },
+    {
+      "key": "pilot-light",
+      "label": "パイロットライト",
+      "oneLine": "種火だけを点けておく",
+      "values": {
+        "role": "データを別のリージョンに複製し、中核となるインフラストラクチャのコピーを用意しておく",
+        "mechanism": "データベースなど、データの複製に必要なリソースは常に動かす。アプリケーションサーバーなどは電源を切った状態にしておく",
+        "data": "データは継続的に複製される",
+        "useCases": "復旧時間を短くしたいが、待機の費用は抑えたいワークロード",
+        "availability": "追加の操作をしないと、リクエストを処理できない",
+        "performance": "目安は、RPOが数分、RTOが数十分",
+        "scalability": "復旧のときに、サーバーの電源を入れ、規模を拡大する",
+        "cost": "動かしておくリソースを最小限にして、継続的な費用を抑える",
+        "operations": "復旧のときに、電源を入れる、追加のインフラストラクチャをデプロイする、規模を拡大するという作業がある",
+        "limits": "すぐには通信を処理できない",
+        "chooseWhen": "データは常に最新に近い状態で持ち、費用は抑えたいとき",
+        "avoidWhen": "災害の直後から、すぐに通信を処理する必要があるとき"
+      }
+    },
+    {
+      "key": "warm-standby",
+      "label": "ウォームスタンバイ",
+      "oneLine": "小さな店を常に開けておく",
+      "values": {
+        "role": "縮小されているが完全に機能する本番環境のコピーを、別のリージョンで動かしておく",
+        "mechanism": "ワークロードが、別のリージョンで常に動いている",
+        "data": "データは継続的に複製される",
+        "useCases": "数分での復旧が求められる、業務上重要なワークロード",
+        "availability": "縮小した規模であれば、すぐに通信を処理できる",
+        "performance": "目安は、RPOが数秒、RTOが数分",
+        "scalability": "復旧のときは、規模を拡大するだけでよい",
+        "cost": "マルチサイトより経済的だが、常に動かしている分の費用がかかる",
+        "operations": "マルチサイトより運用が複雑でない",
+        "limits": "本番と同じ量の通信を処理するには、規模の拡大が必要",
+        "chooseWhen": "短い時間で復旧したいが、マルチサイトほどの費用はかけられないとき",
+        "avoidWhen": "費用を最小限にしたいとき"
+      }
+    },
+    {
+      "key": "multi-site",
+      "label": "マルチサイト アクティブ／アクティブ",
+      "oneLine": "複数の店で同時に営業する",
+      "values": {
+        "role": "複数のリージョンで、ワークロードを同時に動かす",
+        "mechanism": "デプロイされたすべてのリージョンが、通信を処理する",
+        "data": "リージョンの間でデータを同期する必要がある",
+        "useCases": "停止が許されない、最も重要なワークロード",
+        "availability": "フェイルオーバーという考え方がない。すべてのリージョンが動いている",
+        "performance": "目安は、RPOがほぼゼロ、RTOがゼロに近い",
+        "scalability": "すべてのリージョンが本番の規模で動く",
+        "cost": "最も費用がかかる",
+        "operations": "最も複雑",
+        "limits": "費用と複雑さが最も大きい",
+        "chooseWhen": "ほぼ停止なしでの継続が必要なとき",
+        "avoidWhen": "費用や運用の複雑さを抑えたいとき"
+      }
+    }
+  ],
+  "figureIds": [],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "災害のときも、ほぼ停止なしでサービスを続ける必要がありますか？",
+      "yes": "r-ms",
+      "no": "n2"
+    },
+    {
+      "id": "n2",
+      "question": "数分以内に復旧する必要がありますか？",
+      "yes": "r-ws",
+      "no": "n3"
+    },
+    {
+      "id": "n3",
+      "question": "数十分程度で復旧する必要がありますか？",
+      "yes": "r-pl",
+      "no": "r-br"
+    },
+    {
+      "id": "r-ms",
+      "resultItemKey": "multi-site",
+      "note": "最も費用がかかり、最も複雑です。"
+    },
+    {
+      "id": "r-ws",
+      "resultItemKey": "warm-standby",
+      "note": "縮小版が常に動いているので、規模を拡大するだけで済みます。"
+    },
+    {
+      "id": "r-pl",
+      "resultItemKey": "pilot-light",
+      "note": "中核だけを動かしておき、復旧のときに残りを起動します。"
+    },
+    {
+      "id": "r-br",
+      "resultItemKey": "backup-restore",
+      "note": "費用と複雑さが最も低い方式です。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "saa-q-ha-02",
+    "saa-q-dr-train-01",
+    "saa-q-dr-train-02"
+  ]
+}

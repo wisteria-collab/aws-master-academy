@@ -1,0 +1,74 @@
+{
+  "id": "aws-transfer-family",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS Transfer Family",
+  "aliases": [
+    "Transfer Family",
+    "SFTP",
+    "トランスファーファミリー"
+  ],
+  "category": "migration-transfer",
+  "summary": "SFTP、FTPS、FTPによるファイル転送を、Amazon S3やAmazon EFSに直接出し入れできるフルマネージドのサービス。",
+  "beginner": {
+    "analogy": "取引先からの荷物を受け取る「専用の搬入口」です。相手はこれまでと同じ送り方（SFTPなど）のまま、荷物は直接AWSの倉庫に入ります。",
+    "description": "SFTPなどの昔からあるファイル転送の方法で、Amazon S3やAmazon EFSにファイルを出し入れできるようにするサービスです。"
+  },
+  "exam": {
+    "description": "Amazon S3またはAmazon EFSとの間で直接ファイルを転送するための、フルマネージドのサポートを提供します。SFTP、FTPS、FTPに対応し、既存の認証システムと統合することで、ファイル転送のワークフローをAWSに移行しやすくします。",
+    "points": [
+      "SFTP・FTPS・FTPでS3やEFSにファイルを転送＝AWS Transfer Family。",
+      "「取引先がSFTPを使い続ける」という条件が手がかり。",
+      "オンプレミスのストレージとS3・EFSの間のデータ移動の自動化はAWS DataSync。"
+    ]
+  },
+  "useCases": [
+    "取引先とのSFTPによるファイル交換を、サーバーを運用せずに続ける"
+  ],
+  "mechanism": "SFTPなどのエンドポイントを用意し、転送されたファイルをS3やEFSに保存します。",
+  "pros": [
+    "ファイル転送用のサーバーを運用しなくてよい",
+    "既存の転送の方法を変えなくてよい"
+  ],
+  "cons": [
+    "大量のデータの移行にはAWS DataSyncなどが合う"
+  ],
+  "scenes": [
+    "取引先はSFTPのまま、受け取ったファイルをS3に保存する"
+  ],
+  "similarServiceIds": [
+    "aws-datasync"
+  ],
+  "relatedServiceIds": [
+    "amazon-s3",
+    "amazon-efs"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/transfer/"
+}

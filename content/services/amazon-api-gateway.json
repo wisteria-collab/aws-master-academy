@@ -1,0 +1,72 @@
+{
+  "id": "amazon-api-gateway",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "Amazon API Gateway",
+  "aliases": [
+    "API Gateway",
+    "エーピーアイゲートウェイ"
+  ],
+  "category": "networking",
+  "summary": "あらゆる規模のAPIを、作成、公開、保守、監視、保護できるフルマネージドのサービス。",
+  "beginner": {
+    "analogy": "お店の「正面玄関と受付」です。お客さん（アプリ）からの注文を受け付けて、奥の担当（バックエンド）に取り次ぎます。",
+    "description": "アプリから呼び出す窓口（API）を作って公開するためのサービスです。窓口の裏側には、AWS LambdaやAmazon EC2などをつなげます。"
+  },
+  "exam": {
+    "description": "開発者が、あらゆる規模のAPIを簡単に作成、公開、保守、監視、保護できるフルマネージドのサービスです。Amazon EC2で動くワークロード、AWS Lambdaで動くコード、任意のウェブアプリケーションなど、バックエンドのサービスのデータやビジネスロジック、機能に、アプリケーションがアクセスするための「正面玄関」となるAPIを作成できます。",
+    "points": [
+      "APIの作成・公開・管理＝Amazon API Gateway。",
+      "バックエンドへの「正面玄関」。裏側にLambdaやEC2などを置く。",
+      "Lambdaと組み合わせた、サーバーレスの構成でよく使う。"
+    ]
+  },
+  "useCases": [
+    "モバイルアプリやウェブアプリのバックエンドのAPI"
+  ],
+  "mechanism": "APIを作成して公開し、受け取ったリクエストをバックエンドのサービスに渡します。",
+  "pros": [
+    "APIの基盤を自分で運用しなくてよい",
+    "あらゆる規模に対応する"
+  ],
+  "cons": [
+    "APIではない通常のウェブ配信の高速化はAmazon CloudFront"
+  ],
+  "scenes": [
+    "サーバーを管理せずに、Lambdaの処理を呼び出すAPIを公開する"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "aws-lambda",
+    "amazon-ec2",
+    "amazon-cognito"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d2"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/apigateway/"
+}
