@@ -1,0 +1,124 @@
+{
+  "id": "saa-c03",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "AWS Certified Solutions Architect - Associate (SAA-C03) Exam Guide（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "AWS Certified Solutions Architect - Associate（AWS公式 認定ページ）",
+      "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "exam": "saa",
+  "code": "SAA-C03",
+  "name": "AWS Certified Solutions Architect - Associate",
+  "nameJa": "AWS 認定ソリューションアーキテクト – アソシエイト",
+  "guideVersion": "1.1",
+  "guideDate": "2026-10-29",
+  "questionCount": 65,
+  "scoredCount": 50,
+  "unscoredCount": 15,
+  "durationMinutes": 130,
+  "passingScore": 720,
+  "scoreMin": 100,
+  "scoreMax": 1000,
+  "questionTypes": [
+    "択一：正解1つと不正解3つの4択",
+    "複数選択：5つ以上の選択肢から正解を2つ以上選ぶ"
+  ],
+  "domains": [
+    {
+      "id": "saa-d1",
+      "title": "セキュアなアーキテクチャの設計",
+      "weight": 30,
+      "tasks": [
+        {
+          "id": "saa-1-1",
+          "title": "AWSリソースへの安全なアクセスを設計する"
+        },
+        {
+          "id": "saa-1-2",
+          "title": "安全なワークロードとアプリケーションを設計する"
+        },
+        {
+          "id": "saa-1-3",
+          "title": "適切なデータセキュリティ管理を判断する"
+        }
+      ]
+    },
+    {
+      "id": "saa-d2",
+      "title": "弾力性に優れたアーキテクチャの設計",
+      "weight": 26,
+      "tasks": [
+        {
+          "id": "saa-2-1",
+          "title": "スケーラブルで疎結合なアーキテクチャを設計する"
+        },
+        {
+          "id": "saa-2-2",
+          "title": "高可用性・耐障害性のあるアーキテクチャを設計する"
+        }
+      ]
+    },
+    {
+      "id": "saa-d3",
+      "title": "高パフォーマンスなアーキテクチャの設計",
+      "weight": 24,
+      "tasks": [
+        {
+          "id": "saa-3-1",
+          "title": "高パフォーマンスでスケーラブルなストレージを判断する"
+        },
+        {
+          "id": "saa-3-2",
+          "title": "高パフォーマンスで伸縮性のあるコンピューティングを設計する"
+        },
+        {
+          "id": "saa-3-3",
+          "title": "高パフォーマンスなデータベースを判断する"
+        },
+        {
+          "id": "saa-3-4",
+          "title": "高パフォーマンスでスケーラブルなネットワークを判断する"
+        },
+        {
+          "id": "saa-3-5",
+          "title": "高パフォーマンスなデータ取り込みと変換を判断する"
+        }
+      ]
+    },
+    {
+      "id": "saa-d4",
+      "title": "コスト最適化アーキテクチャの設計",
+      "weight": 20,
+      "tasks": [
+        {
+          "id": "saa-4-1",
+          "title": "コスト最適化されたストレージを設計する"
+        },
+        {
+          "id": "saa-4-2",
+          "title": "コスト最適化されたコンピューティングを設計する"
+        },
+        {
+          "id": "saa-4-3",
+          "title": "コスト最適化されたデータベースを設計する"
+        },
+        {
+          "id": "saa-4-4",
+          "title": "コスト最適化されたネットワークを設計する"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "65問のうち15問は採点対象外で、どの問題が対象外かは試験中に示されません。",
+    "合否は試験全体の点数で決まり、分野ごとの合格点はありません。",
+    "未回答は不正解として扱われ、誤答による減点はありません。",
+    "分野名とタスク名は公式ガイド（英語）をこのアプリで日本語に訳したものです。"
+  ]
+}
