@@ -1,0 +1,182 @@
+{
+  "id": "ch-video-queue",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Amazon RDS Read Replicas（AWS公式）",
+      "url": "https://aws.amazon.com/rds/features/read-replicas/"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "依頼が集中しても受け付けを止めない",
+  "order": 3,
+  "scenario": "ある動画サービスでは、利用者が動画の変換を依頼すると、ウェブサーバーが、変換用のサーバーを直接呼び出しています。新機能の公開日に依頼が集中し、変換用のサーバーが追いつかなくなって、依頼の受け付けまで止まってしまいました。変換には数分かかります。変換した動画は、ファイルとして保存します。",
+  "requirements": [
+    "変換が追いつかなくても、依頼の受け付けは止めない",
+    "受け付けた依頼を、失わない",
+    "変換を行うサーバーは、受け付けのサーバーと分ける",
+    "変換した動画を、ファイルとして保存する"
+  ],
+  "hints": [
+    "2つのサーバーの間に、依頼を「ためておく場所」を置きます。",
+    "受け付けのサーバーと、変換のサーバーを、別々の箱として置きます。"
+  ],
+  "modelAnswer": {
+    "nodes": [
+      {
+        "id": "user",
+        "kind": "actor",
+        "label": "利用者",
+        "x": 136,
+        "y": 8,
+        "width": 88,
+        "height": 36
+      },
+      {
+        "id": "web",
+        "kind": "service",
+        "label": "EC2（ウェブ層）",
+        "x": 124,
+        "y": 84,
+        "serviceId": "amazon-ec2",
+        "width": 112
+      },
+      {
+        "id": "sqs",
+        "kind": "service",
+        "label": "Amazon SQS",
+        "x": 128,
+        "y": 170,
+        "serviceId": "amazon-sqs"
+      },
+      {
+        "id": "wrk",
+        "kind": "service",
+        "label": "EC2（処理層）",
+        "x": 124,
+        "y": 256,
+        "serviceId": "amazon-ec2-auto-scaling",
+        "width": 112
+      },
+      {
+        "id": "s3",
+        "kind": "service",
+        "label": "Amazon S3",
+        "x": 128,
+        "y": 342,
+        "serviceId": "amazon-s3"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "user",
+        "to": "web",
+        "label": "依頼"
+      },
+      {
+        "id": "e2",
+        "from": "web",
+        "to": "sqs",
+        "label": "メッセージを入れる"
+      },
+      {
+        "id": "e3",
+        "from": "wrk",
+        "to": "sqs",
+        "label": "取り出す"
+      },
+      {
+        "id": "e4",
+        "from": "wrk",
+        "to": "s3",
+        "label": "結果を保存"
+      }
+    ]
+  },
+  "modelExplanation": "ウェブ層と処理層の間に、Amazon SQSのキューを置きます。ウェブ層は、依頼をキューに入れたら、すぐに次の依頼を受け付けられます。処理が追いつかない依頼はキューにたまり、処理層を増やすことで消化できます。変換した動画は、Amazon S3に保存します。",
+  "relatedTemplateIds": [
+    "tpl-decoupled-queue"
+  ],
+  "checklist": [
+    {
+      "id": "c1",
+      "label": "Amazon SQSのキューを使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-sqs"
+        ]
+      },
+      "reason": "キューを間に置くと、受け取る側が自分のペースで取り出して処理できます。処理が追いつかない間も、メッセージはキューにたまります。"
+    },
+    {
+      "id": "c2",
+      "label": "サーバー（EC2）の箱が、2つ以上ある",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-ec2",
+          "amazon-ec2-auto-scaling"
+        ],
+        "min": 2
+      },
+      "reason": "受け付けの層と、変換の層を分けると、それぞれが独立してスケールできます。"
+    },
+    {
+      "id": "c3",
+      "label": "サーバーとキューが、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "amazon-ec2",
+          "amazon-ec2-auto-scaling"
+        ],
+        "to": [
+          "amazon-sqs"
+        ]
+      },
+      "reason": "受け付けのサーバーがキューに入れ、変換のサーバーがキューから取り出します。"
+    },
+    {
+      "id": "c4",
+      "label": "保存先として、Amazon S3を使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-s3"
+        ]
+      },
+      "reason": "変換した動画のファイルは、オブジェクトストレージのS3に保存できます。"
+    },
+    {
+      "id": "c5",
+      "label": "サーバーとS3が、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "amazon-ec2",
+          "amazon-ec2-auto-scaling"
+        ],
+        "to": [
+          "amazon-s3"
+        ]
+      },
+      "reason": "変換のサーバーが、結果をS3に保存します。"
+    }
+  ]
+}

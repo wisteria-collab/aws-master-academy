@@ -327,7 +327,11 @@ export const designChallengeSchema = z
     requirements: z.array(nonEmpty).min(1),
     modelAnswer: diagramBodySchema,
     modelExplanation: nonEmpty,
-    /** 観点別チェックリスト。判定ルールの種類は Phase 5 で確定する */
+    order: z.number().int().nonnegative(),
+    /** 考えるときのヒント */
+    hints: z.array(nonEmpty).optional(),
+    relatedTemplateIds: z.array(idSchema).optional(),
+    /** 観点別チェックリスト。判定ルールの種類は logic/challenge.ts の ruleSchema で定める */
     checklist: z
       .array(z.object({ id: idSchema, label: nonEmpty, rule: z.looseObject({ type: nonEmpty }), reason: nonEmpty }))
       .min(1),

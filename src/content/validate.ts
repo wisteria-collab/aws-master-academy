@@ -1,3 +1,4 @@
+import { ruleSchema, ruleServiceIds } from '../logic/challenge'
 /**
  * 教材データの検証。アプリの読み込み時と、検証スクリプトの両方から使う。
  * - 形式が正しいか
@@ -225,6 +226,16 @@ export function validateContent(
         const v = e.value as unknown as ContentBundle['challenges'][number]
         v.modelAnswer.nodes.forEach((n) => ref(e, 'services', n.serviceId, '模範解答のサービス'))
         checkDiagram(e, v.modelAnswer)
+        for (const c of v.checklist) {
+          const rule = ruleSchema.safeParse(c.rule)
+          if (!rule.success) {
+            issues.push({ level: 'error', file: e.file, id: e.value.id, message: `講評の観点 ${c.id} のルールが正しくない` })
+            broken.add(`${e.kind}:${e.value.id}`)
+          } else {
+            ruleServiceIds(rule.data).forEach((id) => ref(e, 'services', id, '講評の観点のサービス'))
+          }
+        }
+        ;(v.relatedTemplateIds ?? []).forEach((id) => ref(e, 'diagrams', id, '関連するお手本構成'))
         break
       }
       case 'glossary': {

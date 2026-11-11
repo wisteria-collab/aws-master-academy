@@ -1,7 +1,7 @@
 export const appInfo = {
   name: 'AWS Master Academy',
-  version: '0.5.1',
-  phase: 'Phase 5 第2弾（構成図：自分で作る）',
+  version: '0.5.2',
+  phase: 'Phase 5 完了（構成図シミュレーター）',
   disclaimer:
     'AWS非公式の学習用アプリです。Amazon Web Services、AWS は、Amazon.com, Inc. またはその関連会社の商標です。',
 } as const
@@ -12,7 +12,7 @@ export const features = {
   saa: { ready: true, partial: false, phase: 4, label: 'SAA学習', to: '/learn/saa' },
   services: { ready: true, partial: true, phase: 3, label: 'サービス図鑑', to: '/services' },
   compare: { ready: true, partial: true, phase: 4, label: '類似サービス比較', to: '/compare' },
-  designer: { ready: true, partial: true, phase: 5, label: '構成図シミュレーター', to: '/designer' },
+  designer: { ready: true, partial: false, phase: 5, label: '構成図シミュレーター', to: '/designer' },
   practice: { ready: true, partial: true, phase: 6, label: '問題演習', to: '/practice' },
   review: { ready: true, partial: false, phase: 2, label: '苦手分野・復習', to: '/review' },
   progress: { ready: true, partial: false, phase: 2, label: '学習進捗', to: '/progress' },

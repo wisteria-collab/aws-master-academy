@@ -1,0 +1,180 @@
+{
+  "id": "tpl-dr-warm-standby",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Amazon RDS Read Replicas（AWS公式）",
+      "url": "https://aws.amazon.com/rds/features/read-replicas/"
+    },
+    {
+      "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+    },
+    {
+      "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+    },
+    {
+      "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "災害対策（ウォームスタンバイ）",
+  "order": 8,
+  "summary": "別のリージョンに、本番を縮小した環境を常に動かしておく、災害対策の構成です。災害のときは、利用者の案内先を切り替えて、規模を広げます。",
+  "diagram": {
+    "nodes": [
+      {
+        "id": "user",
+        "kind": "actor",
+        "label": "利用者",
+        "x": 136,
+        "y": 8,
+        "note": "アプリケーションの利用者です。ふだんはリージョンAに案内されます。",
+        "width": 88,
+        "height": 36
+      },
+      {
+        "id": "r53",
+        "kind": "service",
+        "label": "Amazon Route 53",
+        "x": 128,
+        "y": 74,
+        "serviceId": "amazon-route-53",
+        "note": "利用者を案内するDNSです。ヘルスチェックで本番の異常を検知すると、案内先を自動で切り替えます（DNSフェイルオーバー）。"
+      },
+      {
+        "id": "ra",
+        "kind": "group",
+        "label": "リージョンA（本番）",
+        "x": 8,
+        "y": 152,
+        "width": 166,
+        "height": 224
+      },
+      {
+        "id": "rb",
+        "kind": "group",
+        "label": "リージョンB（縮小版）",
+        "x": 186,
+        "y": 152,
+        "width": 166,
+        "height": 224
+      },
+      {
+        "id": "ea",
+        "kind": "service",
+        "label": "EC2（本番の規模）",
+        "x": 35,
+        "y": 184,
+        "serviceId": "amazon-ec2-auto-scaling",
+        "note": "ふだんのリクエストを処理する、本番のサーバーです。",
+        "width": 112,
+        "height": 44,
+        "parentId": "ra"
+      },
+      {
+        "id": "eb",
+        "kind": "service",
+        "label": "EC2（縮小した規模）",
+        "x": 213,
+        "y": 184,
+        "serviceId": "amazon-ec2-auto-scaling",
+        "note": "本番より少ない台数で、常に動いています。縮小した規模なら、すぐにリクエストを処理できます。災害のときは、台数を増やします。",
+        "width": 112,
+        "height": 44,
+        "parentId": "rb"
+      },
+      {
+        "id": "aa",
+        "kind": "service",
+        "label": "Aurora プライマリ",
+        "x": 35,
+        "y": 306,
+        "serviceId": "amazon-aurora",
+        "note": "ふだん読み書きを受け付けるデータベースです。",
+        "width": 112,
+        "height": 44,
+        "parentId": "ra"
+      },
+      {
+        "id": "ab",
+        "kind": "service",
+        "label": "Aurora セカンダリ",
+        "x": 213,
+        "y": 306,
+        "serviceId": "amazon-aurora",
+        "note": "Auroraグローバルデータベースの、別のリージョンの複製です。災害のときは、昇格させて使います。",
+        "width": 112,
+        "height": 44,
+        "parentId": "rb"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "user",
+        "to": "r53"
+      },
+      {
+        "id": "e2",
+        "from": "r53",
+        "to": "ea",
+        "label": "通常"
+      },
+      {
+        "id": "e3",
+        "from": "r53",
+        "to": "eb",
+        "label": "障害時"
+      },
+      {
+        "id": "e4",
+        "from": "ea",
+        "to": "aa"
+      },
+      {
+        "id": "e5",
+        "from": "eb",
+        "to": "ab"
+      },
+      {
+        "id": "e6",
+        "from": "aa",
+        "to": "ab",
+        "label": "非同期の複製"
+      }
+    ]
+  },
+  "flow": [
+    "ふだんは、Route 53が、利用者をリージョンAに案内します。",
+    "データベースの内容は、リージョンBへ、継続的に非同期で複製されます。",
+    "リージョンAに障害が起きると、Route 53が、案内先をリージョンBに切り替えます。",
+    "リージョンBで、データベースを昇格させ、サーバーの台数を増やして、本番の規模にします。"
+  ],
+  "explanation": "【4つの戦略の中での位置】\n災害対策の戦略は、費用と復旧の速さの釣り合いで選びます。\n・バックアップ＆リストア：目安はRPOが数時間、RTOが24時間以内。費用と複雑さが最も低い。\n・パイロットライト：目安はRPOが数分、RTOが数十分。追加の操作をしないと、リクエストを処理できません。\n・ウォームスタンバイ：目安はRPOが数秒、RTOが数分。縮小版の環境を、常に動かしています。\n・マルチサイト アクティブ／アクティブ：RPOはほぼゼロ、RTOはゼロに近い。最も費用がかかり、最も複雑。\n【切り替えの仕組み】\nAmazon Route 53は、ヘルスチェックによる自動のDNSフェイルオーバーに対応します。\n【データの複製】\nAmazon Auroraグローバルデータベースは、リージョンをまたぐ継続的な非同期の複製を行い、セカンダリのリージョンを昇格できます。",
+  "points": [
+    "ウォームスタンバイ＝縮小版を常に動かす。縮小した規模なら、すぐに処理できる。",
+    "パイロットライトは、追加の操作をしないとリクエストを処理できない。ここが、ウォームスタンバイとの違い。",
+    "リージョンをまたぐ切り替え＝Route 53のヘルスチェックとフェイルオーバー。",
+    "リージョンをまたぐリレーショナルデータベースの複製＝Auroraグローバルデータベース。"
+  ],
+  "relatedLessonIds": [
+    "saa-ha-ft"
+  ]
+}

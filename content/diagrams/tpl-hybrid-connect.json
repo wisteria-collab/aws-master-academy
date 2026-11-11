@@ -1,0 +1,217 @@
+{
+  "id": "tpl-hybrid-connect",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "VPC peering（AWSホワイトペーパー Amazon VPC Connectivity Options）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/vpc-peering.html"
+    },
+    {
+      "title": "How VPC peering connections work（Amazon VPC ピアリングガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html"
+    },
+    {
+      "title": "What is VPC peering?（Amazon VPC ピアリングガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/Welcome.html"
+    },
+    {
+      "title": "Communicating across VPCs and AWS Regions（AWS Prescriptive Guidance）",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/secure-outbound-network-traffic/vpc-region-communication.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Disaster recovery options in the cloud（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Compare NAT gateways and NAT instances（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html"
+    },
+    {
+      "title": "NAT gateway basics（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-basics.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html"
+    },
+    {
+      "title": "COST08-BP03 Implement services to reduce data transfer costs（AWS Well-Architected コスト最適化の柱）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/cost_data_transfer_implement_services.html"
+    },
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+    },
+    {
+      "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "オンプレミスと複数のVPCの接続",
+  "order": 6,
+  "summary": "社内のデータセンター（オンプレミス）と、複数のVPCを、中央のハブでつなぐ構成です。オンプレミスとの間は、専用の接続か、VPNで結びます。",
+  "diagram": {
+    "nodes": [
+      {
+        "id": "onp",
+        "kind": "group",
+        "label": "オンプレミス",
+        "x": 88,
+        "y": 8,
+        "width": 184,
+        "height": 76
+      },
+      {
+        "id": "srv",
+        "kind": "actor",
+        "label": "社内のサーバー",
+        "x": 120,
+        "y": 32,
+        "note": "自社のデータセンターにあるサーバーです。",
+        "width": 120,
+        "height": 40,
+        "parentId": "onp"
+      },
+      {
+        "id": "dx",
+        "kind": "service",
+        "label": "AWS Direct Connect",
+        "x": 24,
+        "y": 124,
+        "serviceId": "aws-direct-connect",
+        "note": "オンプレミスとAWSを結ぶ、専用のネットワーク接続です。インターネットを経由しないため、一貫性のある通信を提供できます。",
+        "width": 120
+      },
+      {
+        "id": "vpn",
+        "kind": "service",
+        "label": "Site-to-Site VPN",
+        "x": 216,
+        "y": 124,
+        "serviceId": "aws-vpn",
+        "note": "インターネットを経由して、暗号化されたトンネルで接続します。既存のインターネット回線を使えます。",
+        "width": 120
+      },
+      {
+        "id": "tgw",
+        "kind": "service",
+        "label": "AWS Transit Gateway",
+        "x": 120,
+        "y": 210,
+        "serviceId": "aws-transit-gateway",
+        "note": "VPCやオンプレミスのネットワークをつなぐ、中央のハブです。VPCが増えても、ハブに接続するだけで済みます。",
+        "width": 120
+      },
+      {
+        "id": "va",
+        "kind": "group",
+        "label": "VPC A",
+        "x": 16,
+        "y": 288,
+        "width": 156,
+        "height": 96
+      },
+      {
+        "id": "vb",
+        "kind": "group",
+        "label": "VPC B",
+        "x": 188,
+        "y": 288,
+        "width": 156,
+        "height": 96
+      },
+      {
+        "id": "ea",
+        "kind": "service",
+        "label": "Amazon EC2",
+        "x": 42,
+        "y": 318,
+        "serviceId": "amazon-ec2",
+        "note": "VPC Aで動くサーバーです。",
+        "width": 104,
+        "height": 44,
+        "parentId": "va"
+      },
+      {
+        "id": "eb",
+        "kind": "service",
+        "label": "Amazon EC2",
+        "x": 214,
+        "y": 318,
+        "serviceId": "amazon-ec2",
+        "note": "VPC Bで動くサーバーです。",
+        "width": 104,
+        "height": 44,
+        "parentId": "vb"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "srv",
+        "to": "dx",
+        "label": "専用の接続"
+      },
+      {
+        "id": "e2",
+        "from": "srv",
+        "to": "vpn",
+        "label": "暗号化"
+      },
+      {
+        "id": "e3",
+        "from": "dx",
+        "to": "tgw"
+      },
+      {
+        "id": "e4",
+        "from": "vpn",
+        "to": "tgw"
+      },
+      {
+        "id": "e5",
+        "from": "tgw",
+        "to": "ea"
+      },
+      {
+        "id": "e6",
+        "from": "tgw",
+        "to": "eb"
+      }
+    ]
+  },
+  "flow": [
+    "オンプレミスからの通信は、Direct Connect（専用の接続）か、Site-to-Site VPN（暗号化されたトンネル）でAWSに届きます。",
+    "Transit Gatewayが、通信を宛先のVPCへ届けます。",
+    "VPCどうしの通信も、Transit Gatewayを経由します。"
+  ],
+  "explanation": "【ハブでつなぐ】\nAWS Transit Gatewayは、多数のVPCとオンプレミスのネットワークを、中央のハブで接続します。VPCピアリングは1対1の接続で、推移的なルーティングに対応しないため、VPCが多いと接続の管理が複雑になります。\n【オンプレミスとの接続の選び方】\n・AWS Direct Connect：専用のネットワーク接続です。大量のデータを継続的に、一貫した品質で送りたいときに選びます。\n・AWS Site-to-Site VPN：既存のインターネット回線を使い、暗号化されたトンネルで接続します。",
+  "points": [
+    "多数のVPC＋オンプレミス＝Transit Gateway（ハブ）。2つのVPCだけならVPCピアリング。",
+    "専用の接続・一貫した品質＝Direct Connect。既存のインターネット回線で暗号化＝Site-to-Site VPN。",
+    "VPCどうしをつなぐには、IPアドレスの範囲（CIDR）が重ならないように設計しておく。"
+  ],
+  "relatedLessonIds": [
+    "saa-perf-network",
+    "saa-cost-network"
+  ]
+}

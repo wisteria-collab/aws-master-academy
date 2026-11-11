@@ -1,0 +1,216 @@
+{
+  "id": "ch-serverless-api",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Amazon RDS Read Replicas（AWS公式）",
+      "url": "https://aws.amazon.com/rds/features/read-replicas/"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+    },
+    {
+      "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+    },
+    {
+      "title": "Hibernate your Amazon EC2 instance（Amazon EC2 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "小さなチームで作るアプリのバックエンド",
+  "order": 4,
+  "scenario": "3人のチームが、スマートフォン向けの家計簿アプリを作っています。利用者は会員登録をして、サインインしてから使います。利用は朝と夜に集中し、昼間はほとんど使われません。チームには、サーバーを管理できる担当者がいません。",
+  "requirements": [
+    "サーバーを管理しない",
+    "使われていない時間に、待機しているサーバーの料金を払わない",
+    "利用者の会員登録とサインインができる",
+    "アプリからのリクエストを受け付けて、データを保存できる"
+  ],
+  "hints": [
+    "コードを「実行した分だけ」支払うサービスがあります。",
+    "アプリからのリクエストを受け付ける「正面玄関」が必要です。"
+  ],
+  "modelAnswer": {
+    "nodes": [
+      {
+        "id": "user",
+        "kind": "actor",
+        "label": "利用者",
+        "x": 136,
+        "y": 8,
+        "width": 88,
+        "height": 36
+      },
+      {
+        "id": "cog",
+        "kind": "service",
+        "label": "Amazon Cognito",
+        "x": 12,
+        "y": 96,
+        "serviceId": "amazon-cognito"
+      },
+      {
+        "id": "api",
+        "kind": "service",
+        "label": "Amazon API Gateway",
+        "x": 236,
+        "y": 96,
+        "serviceId": "amazon-api-gateway",
+        "width": 112
+      },
+      {
+        "id": "fn",
+        "kind": "service",
+        "label": "AWS Lambda",
+        "x": 240,
+        "y": 182,
+        "serviceId": "aws-lambda"
+      },
+      {
+        "id": "ddb",
+        "kind": "service",
+        "label": "Amazon DynamoDB",
+        "x": 240,
+        "y": 268,
+        "serviceId": "amazon-dynamodb"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "user",
+        "to": "cog",
+        "label": "①サインイン"
+      },
+      {
+        "id": "e2",
+        "from": "user",
+        "to": "api",
+        "label": "②リクエスト"
+      },
+      {
+        "id": "e3",
+        "from": "api",
+        "to": "fn",
+        "label": "③実行"
+      },
+      {
+        "id": "e4",
+        "from": "fn",
+        "to": "ddb",
+        "label": "④読み書き"
+      }
+    ]
+  },
+  "modelExplanation": "Amazon API Gatewayが、アプリからのリクエストを受け付ける「正面玄関」になります。AWS Lambdaが、サーバーを管理せずにコードを実行し、実行した分だけ支払います。データは、サーバーの管理が不要なAmazon DynamoDBに保存します。会員登録とサインインは、Amazon Cognitoが受け持ちます。",
+  "relatedTemplateIds": [
+    "tpl-serverless-api"
+  ],
+  "checklist": [
+    {
+      "id": "c1",
+      "label": "リクエストの入口として、Amazon API Gatewayを使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-api-gateway"
+        ]
+      },
+      "reason": "API Gatewayは、バックエンドへの「正面玄関」となるAPIを作成・公開します。"
+    },
+    {
+      "id": "c2",
+      "label": "処理に、AWS Lambdaを使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "aws-lambda"
+        ]
+      },
+      "reason": "Lambdaは、サーバーを管理せずにコードを実行でき、実行した分だけ支払います。使われていない時間の料金がかかりません。"
+    },
+    {
+      "id": "c3",
+      "label": "API GatewayとLambdaが、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "amazon-api-gateway"
+        ],
+        "to": [
+          "aws-lambda"
+        ]
+      },
+      "reason": "API Gatewayが受け付けたリクエストを、Lambdaのコードが処理します。"
+    },
+    {
+      "id": "c4",
+      "label": "データの保存に、Amazon DynamoDBを使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-dynamodb"
+        ]
+      },
+      "reason": "DynamoDBは、サーバーの管理が不要なNoSQLデータベースです。"
+    },
+    {
+      "id": "c5",
+      "label": "LambdaとDynamoDBが、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "aws-lambda"
+        ],
+        "to": [
+          "amazon-dynamodb"
+        ]
+      },
+      "reason": "Lambdaのコードが、データを読み書きします。"
+    },
+    {
+      "id": "c6",
+      "label": "会員登録とサインインに、Amazon Cognitoを使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-cognito"
+        ]
+      },
+      "reason": "Cognitoで、アプリにサインアップとサインインの機能を追加できます。"
+    },
+    {
+      "id": "c7",
+      "label": "EC2インスタンスを使っていない",
+      "rule": {
+        "type": "notService",
+        "serviceIds": [
+          "amazon-ec2",
+          "amazon-ec2-auto-scaling"
+        ]
+      },
+      "reason": "EC2インスタンスを使うと、サーバーの管理と、待機している時間の料金が発生します。"
+    }
+  ]
+}

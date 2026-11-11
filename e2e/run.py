@@ -14,7 +14,7 @@ def launch(p, viewport, mobile):
         viewport=viewport, is_mobile=mobile, has_touch=mobile, device_scale_factor=2 if mobile else 1,
         accept_downloads=True, args=['--no-sandbox'])
 
-PAGES = ['', '#/learn', '#/learn/clf', '#/learn/saa', '#/learn/clf/clf-cloud-basics', '#/learn/clf/clf-regions-azs', '#/learn/clf/clf-shared-responsibility', '#/learn/clf/clf-storage', '#/learn/clf/clf-well-architected', '#/learn/clf/clf-migration-caf', '#/learn/clf/clf-compute', '#/learn/clf/clf-iam', '#/learn/clf/clf-security-governance', '#/learn/clf/clf-security-services', '#/learn/clf/clf-global-edge', '#/learn/clf/clf-database', '#/learn/clf/clf-network', '#/learn/clf/clf-cloud-economics', '#/learn/clf/clf-pricing-models', '#/learn/clf/clf-billing-cost', '#/learn/clf/clf-support-plans', '#/learn/clf/clf-ai-analytics', '#/learn/clf/clf-other-services', '#/services/amazon-quick', '#/services/amazon-appstream-2', '#/learn/clf/clf-deploy-operate', '#/learn/clf/clf-resources-partners', '#/services/aws-cloudformation', '#/services/aws-health-dashboard', '#/services/aws-support', '#/services/aws-organizations', '#/services/amazon-vpc', '#/services/amazon-rds', '#/services/amazon-cloudfront', '#/services/aws-iam', '#/services/aws-lambda', '#/services/elastic-load-balancing', '#/services', '#/services/amazon-s3', '#/services/amazon-fsx', '#/compare', '#/compare/storage', '#/compare/storage/training', '#/compare/database', '#/compare/compute', '#/compare/messaging', '#/compare/ec2-purchase', '#/compare/ec2-purchase/training', '#/compare/sg-nacl', '#/compare/vpc-endpoints', '#/compare/sg-nacl/training', '#/learn/saa/saa-secure-access', '#/learn/saa/saa-secure-workloads', '#/learn/saa/saa-data-security', '#/designer/templates/tpl-static-website', '#/designer/templates/tpl-ha-web-3tier', '#/designer/templates/tpl-serverless-api', '#/designer/templates/tpl-decoupled-queue', '#/learn/saa/saa-cost-storage', '#/learn/saa/saa-cost-compute', '#/learn/saa/saa-cost-database', '#/learn/saa/saa-cost-network', '#/compare/nat-options', '#/compare/nat-options/training', '#/learn/saa/saa-perf-network', '#/learn/saa/saa-perf-data', '#/compare/vpc-connectivity', '#/compare/data-transfer', '#/services/aws-transit-gateway', '#/learn/saa/saa-perf-storage', '#/learn/saa/saa-perf-compute', '#/learn/saa/saa-perf-database', '#/compare/s3-storage-classes', '#/compare/ebs-volume-types', '#/services/amazon-rds-proxy', '#/learn/saa/saa-scalable-loose', '#/learn/saa/saa-ha-ft', '#/compare/rds-ha', '#/compare/load-balancers', '#/compare/dr-strategies', '#/compare/dr-strategies/training', '#/services/amazon-api-gateway', '#/services/amazon-cognito', '#/practice/run?exam=saa&mode=random', '#/services/aws-application-migration-service', '#/designer', '#/practice', '#/practice/run?exam=clf&mode=random', '#/progress', '#/review', '#/settings', '#/nope']
+PAGES = ['', '#/learn', '#/learn/clf', '#/learn/saa', '#/learn/clf/clf-cloud-basics', '#/learn/clf/clf-regions-azs', '#/learn/clf/clf-shared-responsibility', '#/learn/clf/clf-storage', '#/learn/clf/clf-well-architected', '#/learn/clf/clf-migration-caf', '#/learn/clf/clf-compute', '#/learn/clf/clf-iam', '#/learn/clf/clf-security-governance', '#/learn/clf/clf-security-services', '#/learn/clf/clf-global-edge', '#/learn/clf/clf-database', '#/learn/clf/clf-network', '#/learn/clf/clf-cloud-economics', '#/learn/clf/clf-pricing-models', '#/learn/clf/clf-billing-cost', '#/learn/clf/clf-support-plans', '#/learn/clf/clf-ai-analytics', '#/learn/clf/clf-other-services', '#/services/amazon-quick', '#/services/amazon-appstream-2', '#/learn/clf/clf-deploy-operate', '#/learn/clf/clf-resources-partners', '#/services/aws-cloudformation', '#/services/aws-health-dashboard', '#/services/aws-support', '#/services/aws-organizations', '#/services/amazon-vpc', '#/services/amazon-rds', '#/services/amazon-cloudfront', '#/services/aws-iam', '#/services/aws-lambda', '#/services/elastic-load-balancing', '#/services', '#/services/amazon-s3', '#/services/amazon-fsx', '#/compare', '#/compare/storage', '#/compare/storage/training', '#/compare/database', '#/compare/compute', '#/compare/messaging', '#/compare/ec2-purchase', '#/compare/ec2-purchase/training', '#/compare/sg-nacl', '#/compare/vpc-endpoints', '#/compare/sg-nacl/training', '#/learn/saa/saa-secure-access', '#/learn/saa/saa-secure-workloads', '#/learn/saa/saa-data-security', '#/designer/templates/tpl-private-egress', '#/designer/templates/tpl-hybrid-connect', '#/designer/templates/tpl-data-lake', '#/designer/templates/tpl-dr-warm-standby', '#/designer/challenges/ch-ha-shop', '#/designer/challenges/ch-video-queue', '#/designer/challenges/ch-serverless-api', '#/designer/templates/tpl-static-website', '#/designer/templates/tpl-ha-web-3tier', '#/designer/templates/tpl-serverless-api', '#/designer/templates/tpl-decoupled-queue', '#/learn/saa/saa-cost-storage', '#/learn/saa/saa-cost-compute', '#/learn/saa/saa-cost-database', '#/learn/saa/saa-cost-network', '#/compare/nat-options', '#/compare/nat-options/training', '#/learn/saa/saa-perf-network', '#/learn/saa/saa-perf-data', '#/compare/vpc-connectivity', '#/compare/data-transfer', '#/services/aws-transit-gateway', '#/learn/saa/saa-perf-storage', '#/learn/saa/saa-perf-compute', '#/learn/saa/saa-perf-database', '#/compare/s3-storage-classes', '#/compare/ebs-volume-types', '#/services/amazon-rds-proxy', '#/learn/saa/saa-scalable-loose', '#/learn/saa/saa-ha-ft', '#/compare/rds-ha', '#/compare/load-balancers', '#/compare/dr-strategies', '#/compare/dr-strategies/training', '#/services/amazon-api-gateway', '#/services/amazon-cognito', '#/practice/run?exam=saa&mode=random', '#/services/aws-application-migration-service', '#/designer', '#/practice', '#/practice/run?exam=clf&mode=random', '#/progress', '#/review', '#/settings', '#/nope']
 
 with sync_playwright() as p:
     ctx = launch(p, {'width': 390, 'height': 844}, True)
@@ -62,7 +62,7 @@ with sync_playwright() as p:
     secs = page.evaluate('''() => new Promise(r => { const q = indexedDB.open('aws-master-academy'); q.onsuccess = () => { const g = q.result.transaction('studySessions').objectStore('studySessions').getAll(); g.onsuccess = () => r(g.result) } })''')
     learn = lambda rows: next((r['seconds'] for r in rows if r['feature'] == 'learn'), None)
     # 上限は巡回するレッスンページの数に比例する（第4弾で3ページ増えたため 30→45 秒、第5弾で4ページ増えたため 45→60 秒）
-    check('記録秒数が妥当(10〜163秒)', learn(secs) is not None and 10 <= learn(secs) <= 163, json.dumps(secs))
+    check('記録秒数が妥当(10〜184秒)', learn(secs) is not None and 10 <= learn(secs) <= 184, json.dumps(secs))
     before = learn(secs); total_before = len(secs)
     ctx.close()
 
@@ -219,7 +219,7 @@ with sync_playwright() as p:
     # 構成図シミュレーター
     page.goto(BASE + '#/designer'); page.wait_for_timeout(400)
     t = page.inner_text('main')
-    check('構成図：お手本構成の一覧', 'お手本構成' in t and '公開中 4 / 予定 8' in t and '可用性の高い3層ウェブアプリケーション' in t)
+    check('構成図：お手本構成の一覧', 'お手本構成' in t and '公開中 8 / 予定 8' in t and '可用性の高い3層ウェブアプリケーション' in t)
     page.get_by_role('link', name=re.compile('キューで疎結合にした処理')).click(); page.wait_for_timeout(400)
     check('構成図：お手本の詳細', 'まだ箱が選ばれていません' in page.inner_text('main') and page.locator('figure svg').count() >= 1)
     page.get_by_role('button', name='Amazon SQS').click(); page.wait_for_timeout(200)
@@ -277,6 +277,39 @@ with sync_playwright() as p:
     page.get_by_role('button', name='削除する', exact=True).click(); page.get_by_role('button', name='本当に削除する').click(); page.wait_for_timeout(500)
     t = page.inner_text('main')
     check('作図：削除すると一覧から消える', 'サーバーレスのAPI（コピー）' not in t and 'テストの構成図' in t)
+
+    # 設計問題
+    page.goto(BASE + '#/designer'); page.wait_for_timeout(400)
+    t = page.inner_text('main')
+    check('設計問題：一覧', '設計問題' in t and '止まらないネットショップ' in t and '未挑戦' in t)
+    page.get_by_role('link', name=re.compile('写真館のウェブサイトを世界に届ける')).click(); page.wait_for_timeout(400)
+    t = page.inner_text('main')
+    check('設計問題：状況と要件', '満たしたい要件' in t and 'サーバーを管理しない' in t and '構成図を作ると、ここに観点ごとの講評が表示されます' in t)
+    page.get_by_role('button', name='構成図を作りはじめる').click(); page.wait_for_timeout(500)
+    check('設計問題：作図画面に問題が出る', '設計問題：写真館のウェブサイトを世界に届ける' in page.inner_text('main'))
+    for q, nm in [('CloudFront', 'Amazon CloudFront'), ('S3', 'Amazon S3')]:
+        page.get_by_role('button', name='＋ サービス').click()
+        page.get_by_placeholder('サービス名で探す（例：S3、データベース）').fill(q)
+        page.get_by_role('list', name='サービスの候補').get_by_role('button', name=re.compile('^' + nm + ' ')).first.click(); page.wait_for_timeout(150)
+    page.wait_for_timeout(600)
+    page.get_by_role('link', name='講評を見る').click(); page.wait_for_timeout(500)
+    t = page.inner_text('main')
+    check('設計問題：線がないと一部だけ満たす', '5個の観点のうち、3個を満たしています' in t and 'まだ' in t, t[:0])
+    page.get_by_role('button', name='自分の構成図を直す').click(); page.wait_for_timeout(500)
+    svg = page.locator('figure svg')
+    svg.get_by_role('button', name='Amazon CloudFront', exact=True).click(); page.get_by_role('button', name='線をつなぐ').click()
+    svg.get_by_role('button', name='Amazon S3', exact=True).click(); page.wait_for_timeout(150)
+    page.get_by_role('button', name='＋ サービス').click()
+    page.get_by_placeholder('サービス名で探す（例：S3、データベース）').fill('Route 53')
+    page.get_by_role('list', name='サービスの候補').get_by_role('button', name=re.compile('^Amazon Route 53 ')).first.click(); page.wait_for_timeout(700)
+    page.get_by_role('link', name='講評を見る').click(); page.wait_for_timeout(500)
+    check('設計問題：直すとすべて満たす', '5個の観点のうち、5個を満たしています' in page.inner_text('main'))
+    page.get_by_role('button', name='模範解答を見る').click(); page.wait_for_timeout(200)
+    t = page.inner_text('main')
+    check('設計問題：模範解答', '模範解答の例' in t and 'お手本構成「静的ウェブサイトの配信」で詳しく見る' in t)
+    page.goto(BASE + '#/designer'); page.wait_for_timeout(400)
+    t = page.inner_text('main')
+    check('設計問題：一覧に結果が出る', '観点 5 / 5' in t and '設計問題：写真館' not in t.split('設計問題')[0])
 
     # 演習・進捗・復習
     page.goto(BASE + '#/practice'); page.wait_for_timeout(400)

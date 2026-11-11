@@ -1,0 +1,196 @@
+{
+  "id": "tpl-private-egress",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+    },
+    {
+      "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Compare NAT gateways and NAT instances（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html"
+    },
+    {
+      "title": "NAT gateway basics（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-basics.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html"
+    },
+    {
+      "title": "COST08-BP03 Implement services to reduce data transfer costs（AWS Well-Architected コスト最適化の柱）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/cost_data_transfer_implement_services.html"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "プライベートサブネットからの外向きの通信",
+  "order": 5,
+  "summary": "インターネットから直接アクセスさせたくないサーバーが、外へ出ていくための2つの道（NATゲートウェイと、ゲートウェイエンドポイント）を使い分ける構成です。",
+  "diagram": {
+    "nodes": [
+      {
+        "id": "net",
+        "kind": "actor",
+        "label": "インターネット",
+        "x": 28,
+        "y": 8,
+        "note": "ソフトウェアの更新の配布元など、VPCの外の宛先です。",
+        "width": 112,
+        "height": 36
+      },
+      {
+        "id": "s3",
+        "kind": "service",
+        "label": "Amazon S3",
+        "x": 236,
+        "y": 4,
+        "serviceId": "amazon-s3",
+        "note": "データの保存先です。ゲートウェイエンドポイントを通って接続します。"
+      },
+      {
+        "id": "vpc",
+        "kind": "group",
+        "label": "VPC",
+        "x": 8,
+        "y": 64,
+        "width": 344,
+        "height": 300
+      },
+      {
+        "id": "igw",
+        "kind": "service",
+        "label": "インターネット ゲートウェイ",
+        "x": 28,
+        "y": 86,
+        "serviceId": "amazon-vpc",
+        "note": "VPCとインターネットをつなぐ出入口です。",
+        "width": 112,
+        "height": 44,
+        "parentId": "vpc"
+      },
+      {
+        "id": "gwe",
+        "kind": "service",
+        "label": "ゲートウェイ エンドポイント",
+        "x": 232,
+        "y": 86,
+        "serviceId": "amazon-vpc",
+        "note": "インターネットゲートウェイやNATの装置なしで、S3（とDynamoDB）に接続するための出入口です。利用に追加の料金はかかりません。",
+        "width": 112,
+        "height": 44,
+        "parentId": "vpc"
+      },
+      {
+        "id": "pub",
+        "kind": "group",
+        "label": "パブリックサブネット",
+        "x": 16,
+        "y": 150,
+        "width": 150,
+        "height": 90,
+        "parentId": "vpc"
+      },
+      {
+        "id": "nat",
+        "kind": "service",
+        "label": "NATゲートウェイ",
+        "x": 35,
+        "y": 180,
+        "serviceId": "amazon-vpc",
+        "note": "プライベートサブネットのサーバーが、外へ通信できるようにする取り次ぎ係です。外からの接続は開始できません。パブリックサブネットに置きます。",
+        "width": 112,
+        "height": 44,
+        "parentId": "pub"
+      },
+      {
+        "id": "prv",
+        "kind": "group",
+        "label": "プライベートサブネット",
+        "x": 16,
+        "y": 250,
+        "width": 328,
+        "height": 104,
+        "parentId": "vpc"
+      },
+      {
+        "id": "ec2",
+        "kind": "service",
+        "label": "Amazon EC2",
+        "x": 128,
+        "y": 294,
+        "serviceId": "amazon-ec2",
+        "note": "アプリケーションのサーバーです。インターネットゲートウェイへの経路を持たない、プライベートサブネットに置きます。",
+        "width": 104,
+        "height": 44,
+        "parentId": "prv"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "ec2",
+        "to": "nat"
+      },
+      {
+        "id": "e2",
+        "from": "nat",
+        "to": "igw"
+      },
+      {
+        "id": "e3",
+        "from": "igw",
+        "to": "net",
+        "label": "①更新の取得"
+      },
+      {
+        "id": "e4",
+        "from": "ec2",
+        "to": "gwe"
+      },
+      {
+        "id": "e5",
+        "from": "gwe",
+        "to": "s3",
+        "label": "②S3へ"
+      }
+    ]
+  },
+  "flow": [
+    "サーバーがソフトウェアの更新などを取得するときは、NATゲートウェイを経由して、インターネットへ出ます。",
+    "サーバーがS3にデータを送るときは、ルートテーブルの設定によって、ゲートウェイエンドポイントを通ります。",
+    "どちらの道でも、インターネットの側から、サーバーへの接続を始めることはできません。"
+  ],
+  "explanation": "【直接アクセスさせない】\nインターネットから直接アクセスされるべきでないインスタンスは、プライベートサブネットに置きます。プライベートサブネットは、インターネットゲートウェイへの経路を持たないサブネットです。\n【外へ出るための道】\nプライベートサブネットのインスタンスがインターネットにアクセスするには、NATゲートウェイを使います。NATゲートウェイは、パブリックサブネットに置きます。\n【S3への近道】\nゲートウェイエンドポイントは、インターネットゲートウェイやNATの装置を使わずに、Amazon S3とAmazon DynamoDBへの接続を提供します。追加の料金はかかりません。\n【コストの面】\nNATゲートウェイは、数、利用時間、通過させたデータの量に応じて課金されます。S3への通信をゲートウェイエンドポイントに向けると、NATゲートウェイを通るデータを減らせます。",
+  "points": [
+    "プライベートサブネットからインターネットへ＝NATゲートウェイ（パブリックサブネットに置く）。",
+    "S3・DynamoDBへ＝ゲートウェイエンドポイント（追加料金なし）。NATゲートウェイを通るデータを減らせる。",
+    "本番環境では、NATゲートウェイをアベイラビリティゾーンごとに置く（この図は1つのゾーンだけを描いている）。"
+  ],
+  "relatedLessonIds": [
+    "saa-secure-workloads",
+    "saa-cost-network"
+  ]
+}

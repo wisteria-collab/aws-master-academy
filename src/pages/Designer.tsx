@@ -1,10 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { ChevronIcon } from '../components/icons'
 import { usePageTitle } from '../components/Navigation'
-import { Badge, Button, Card, EmptyState, PageHeader } from '../components/ui'
+import { Badge, Button, EmptyState, PageHeader } from '../components/ui'
 import { content } from '../content'
 import { useStore } from '../hooks/useStore'
-import { newDiagramId } from '../logic/diagram'
+import { reviewDiagram } from '../logic/challenge'
+import { newDiagramId, parseDiagram } from '../logic/diagram'
 import { storage } from '../storage'
 
 /** お手本構成の公開予定のテーマ数 */
@@ -13,9 +14,10 @@ export const PLANNED_TEMPLATES = 8
 export function Designer() {
   usePageTitle('構成図シミュレーター')
   const templates = [...content.diagrams].sort((a, b) => a.order - b.order)
+  const challenges = [...content.challenges].sort((a, b) => a.order - b.order)
   const navigate = useNavigate()
   const saved = useStore('diagrams')
-  const mine = [...saved.data].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
+  const mine = saved.data.filter((d) => !d.challengeId).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
   const create = () => {
     const id = newDiagramId()
     void storage
@@ -25,7 +27,7 @@ export function Designer() {
   }
   return (
     <div className="flex flex-col gap-5">
-      <PageHeader title="構成図シミュレーター" lead="サービスを「どう組み合わせるか」を、図で学びます。まずはお手本の構成を読み解きましょう。" />
+      <PageHeader title="構成図シミュレーター" lead="サービスを「どう組み合わせるか」を、図で学びます。お手本を読み解き、自分で作り、設計問題に挑戦します。" />
 
       <section aria-labelledby="dg-templates">
         <h2 id="dg-templates" className="text-xl font-bold">
@@ -85,12 +87,32 @@ export function Designer() {
         )}
       </section>
 
-      <Card>
-        <h2 className="text-lg font-bold">今後追加する機能（Phase 5）</h2>
-        <ul className="mt-2 list-disc pl-5 text-base leading-relaxed text-navy-800">
-          <li>設計問題（企業の課題から構成を考え、観点別の講評を受ける）</li>
+      <section aria-labelledby="dg-challenges">
+        <h2 id="dg-challenges" className="text-xl font-bold">
+          設計問題
+        </h2>
+        <p className="mt-1 text-base leading-relaxed text-navy-700">企業の課題を読んで、自分で構成を考えます。作った構成図に、観点ごとの講評が付きます。</p>
+        <ul className="mt-3 flex flex-col gap-3">
+          {challenges.map((c) => {
+            const d = saved.data.filter((x) => x.challengeId === c.id).sort((x, y) => y.updatedAt.localeCompare(x.updatedAt))[0]
+            const r = d ? reviewDiagram(c, parseDiagram(d.nodes, d.edges)) : null
+            return (
+              <li key={c.id}>
+                <Link to={`/designer/challenges/${c.id}`} className="flex items-center gap-3 rounded-2xl border border-navy-100 bg-white p-4 shadow-sm transition-colors hover:border-brand-500">
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-lg font-bold">{c.title}</span>
+                    <span className="mt-1 block text-base leading-relaxed text-navy-700">{c.requirements[0]}　ほか</span>
+                    <span className="mt-2 flex flex-wrap gap-2">
+                      <Badge tone={r ? 'good' : 'neutral'}>{r ? `観点 ${r.passed} / ${r.total}` : '未挑戦'}</Badge>
+                    </span>
+                  </span>
+                  <ChevronIcon className="h-5 w-5 shrink-0 text-navy-600" />
+                </Link>
+              </li>
+            )
+          })}
         </ul>
-      </Card>
+      </section>
     </div>
   )
 }

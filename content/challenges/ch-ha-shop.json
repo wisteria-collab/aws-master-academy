@@ -1,0 +1,335 @@
+{
+  "id": "ch-ha-shop",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Amazon RDS Read Replicas（AWS公式）",
+      "url": "https://aws.amazon.com/rds/features/read-replicas/"
+    },
+    {
+      "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+    },
+    {
+      "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+    },
+    {
+      "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+    },
+    {
+      "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "止まらないネットショップ",
+  "order": 2,
+  "scenario": "あるネットショップは、1つのアベイラビリティゾーンにある1台のEC2インスタンスと、1台のデータベースで動いています。先月、サーバーの障害で半日のあいだ販売が止まりました。経営者は、1台のサーバーや、1つのアベイラビリティゾーンの障害では、販売が止まらないようにしたいと考えています。",
+  "requirements": [
+    "1台のサーバーが止まっても、販売を続けられる",
+    "1つのアベイラビリティゾーンに障害が起きても、販売を続けられる",
+    "データベースは、障害のときに自動で切り替わる",
+    "データベースは、インターネットから直接アクセスされない"
+  ],
+  "hints": [
+    "「そこが止まると全体が止まる部分」を、1つずつ探してみましょう。",
+    "アベイラビリティゾーンの枠を2つ置いて、それぞれにサーバーを置きます。"
+  ],
+  "modelAnswer": {
+    "nodes": [
+      {
+        "id": "user",
+        "kind": "actor",
+        "label": "利用者",
+        "x": 136,
+        "y": 8,
+        "width": 88,
+        "height": 36
+      },
+      {
+        "id": "vpc",
+        "kind": "group",
+        "label": "VPC",
+        "x": 8,
+        "y": 58,
+        "width": 344,
+        "height": 330
+      },
+      {
+        "id": "alb",
+        "kind": "service",
+        "label": "Application Load Balancer",
+        "x": 116,
+        "y": 80,
+        "serviceId": "elastic-load-balancing",
+        "width": 128,
+        "height": 44,
+        "parentId": "vpc"
+      },
+      {
+        "id": "aza",
+        "kind": "group",
+        "label": "アベイラビリティゾーン A",
+        "x": 16,
+        "y": 140,
+        "width": 160,
+        "height": 240,
+        "parentId": "vpc"
+      },
+      {
+        "id": "azc",
+        "kind": "group",
+        "label": "アベイラビリティゾーン C",
+        "x": 184,
+        "y": 140,
+        "width": 160,
+        "height": 240,
+        "parentId": "vpc"
+      },
+      {
+        "id": "appa",
+        "kind": "group",
+        "label": "プライベート（アプリ）",
+        "x": 24,
+        "y": 162,
+        "width": 144,
+        "height": 90,
+        "parentId": "aza"
+      },
+      {
+        "id": "appc",
+        "kind": "group",
+        "label": "プライベート（アプリ）",
+        "x": 192,
+        "y": 162,
+        "width": 144,
+        "height": 90,
+        "parentId": "azc"
+      },
+      {
+        "id": "dba",
+        "kind": "group",
+        "label": "プライベート（DB）",
+        "x": 24,
+        "y": 260,
+        "width": 144,
+        "height": 112,
+        "parentId": "aza"
+      },
+      {
+        "id": "dbc",
+        "kind": "group",
+        "label": "プライベート（DB）",
+        "x": 192,
+        "y": 260,
+        "width": 144,
+        "height": 112,
+        "parentId": "azc"
+      },
+      {
+        "id": "ec2a",
+        "kind": "service",
+        "label": "EC2（Auto Scaling）",
+        "x": 40,
+        "y": 192,
+        "serviceId": "amazon-ec2-auto-scaling",
+        "width": 112,
+        "height": 44,
+        "parentId": "appa"
+      },
+      {
+        "id": "ec2c",
+        "kind": "service",
+        "label": "EC2（Auto Scaling）",
+        "x": 208,
+        "y": 192,
+        "serviceId": "amazon-ec2-auto-scaling",
+        "width": 112,
+        "height": 44,
+        "parentId": "appc"
+      },
+      {
+        "id": "rdsp",
+        "kind": "service",
+        "label": "RDS プライマリ",
+        "x": 32,
+        "y": 304,
+        "serviceId": "amazon-rds",
+        "width": 104,
+        "height": 44,
+        "parentId": "dba"
+      },
+      {
+        "id": "rdss",
+        "kind": "service",
+        "label": "RDS スタンバイ",
+        "x": 224,
+        "y": 304,
+        "serviceId": "amazon-rds",
+        "width": 104,
+        "height": 44,
+        "parentId": "dbc"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "user",
+        "to": "alb",
+        "label": "HTTPS"
+      },
+      {
+        "id": "e2",
+        "from": "alb",
+        "to": "ec2a"
+      },
+      {
+        "id": "e3",
+        "from": "alb",
+        "to": "ec2c"
+      },
+      {
+        "id": "e4",
+        "from": "ec2a",
+        "to": "rdsp"
+      },
+      {
+        "id": "e5",
+        "from": "ec2c",
+        "to": "rdsp"
+      },
+      {
+        "id": "e6",
+        "from": "rdsp",
+        "to": "rdss",
+        "label": "同期の複製"
+      }
+    ]
+  },
+  "modelExplanation": "EC2インスタンスを2つのアベイラビリティゾーンに配置し、Elastic Load Balancingで通信を分散します。データベースは、Amazon RDSのマルチAZ配置にします。別のアベイラビリティゾーンに同期のスタンバイが維持され、問題が検出されると自動でフェイルオーバーします。アプリケーションとデータベースは、プライベートサブネットに置きます。",
+  "relatedTemplateIds": [
+    "tpl-ha-web-3tier"
+  ],
+  "checklist": [
+    {
+      "id": "c1",
+      "label": "アベイラビリティゾーンの枠が、2つ以上ある",
+      "rule": {
+        "type": "hasGroup",
+        "labelIncludes": [
+          "アベイラビリティゾーン",
+          "AZ"
+        ],
+        "min": 2
+      },
+      "reason": "1つのアベイラビリティゾーンの障害に耐えるには、2つ以上のゾーンを使います。"
+    },
+    {
+      "id": "c2",
+      "label": "サーバー（EC2）の箱が、2つ以上ある",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-ec2",
+          "amazon-ec2-auto-scaling"
+        ],
+        "min": 2
+      },
+      "reason": "サーバーが1台だけだと、その1台が単一障害点になります。"
+    },
+    {
+      "id": "c3",
+      "label": "ロードバランサー（Elastic Load Balancing）を使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "elastic-load-balancing"
+        ]
+      },
+      "reason": "ロードバランサーが、通信を複数のアベイラビリティゾーンのサーバーに分散します。"
+    },
+    {
+      "id": "c4",
+      "label": "ロードバランサーとサーバーが、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "elastic-load-balancing"
+        ],
+        "to": [
+          "amazon-ec2",
+          "amazon-ec2-auto-scaling"
+        ]
+      },
+      "reason": "利用者の通信は、ロードバランサーを通ってサーバーに届きます。"
+    },
+    {
+      "id": "c5",
+      "label": "データベース（RDSまたはAurora）の箱が、2つ以上ある",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-rds",
+          "amazon-aurora"
+        ],
+        "min": 2
+      },
+      "reason": "マルチAZ配置では、プライマリとは別のアベイラビリティゾーンに、スタンバイが維持されます。図では、2つの箱で表します。"
+    },
+    {
+      "id": "c6",
+      "label": "サーバーとデータベースが、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "amazon-ec2",
+          "amazon-ec2-auto-scaling"
+        ],
+        "to": [
+          "amazon-rds",
+          "amazon-aurora"
+        ]
+      },
+      "reason": "サーバーが、データベースを読み書きします。"
+    },
+    {
+      "id": "c7",
+      "label": "データベースが、「プライベート」の枠の中にある",
+      "rule": {
+        "type": "insideGroup",
+        "serviceIds": [
+          "amazon-rds",
+          "amazon-aurora"
+        ],
+        "labelIncludes": [
+          "プライベート"
+        ]
+      },
+      "reason": "インターネットから直接アクセスされるべきでないものは、プライベートサブネットに置きます。"
+    }
+  ]
+}

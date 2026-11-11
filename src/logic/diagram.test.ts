@@ -93,3 +93,37 @@ describe('構成図の編集', () => {
     expect(usedServiceIds(d)).toEqual(['amazon-ec2', 'amazon-rds'])
   })
 })
+
+import { content } from '../content'
+import { checkRule, reviewDiagram, ruleSchema } from './challenge'
+
+describe('設計問題の講評', () => {
+  it('模範解答は、すべての観点を満たす', () => {
+    expect(content.challenges.length).toBeGreaterThan(0)
+    for (const c of content.challenges) {
+      const r = reviewDiagram(c, c.modelAnswer)
+      expect(r.items.filter((i) => !i.ok).map((i) => `${c.id}/${i.id}`)).toEqual([])
+    }
+  })
+
+  it('空の構成図では、「使っていない」以外の観点を満たさない', () => {
+    for (const c of content.challenges) {
+      const r = reviewDiagram(c, emptyDiagram())
+      const positive = c.checklist.filter((k) => ruleSchema.parse(k.rule).type !== 'notService').length
+      expect(r.passed).toBe(r.total - positive)
+    }
+  })
+
+  it('線の向きは問わない。枠の中にあるかは位置で決まる', () => {
+    const { d, a, b } = two()
+    const e = addEdge(d, b, a).diagram
+    expect(checkRule(e, { type: 'connected', from: ['amazon-ec2'], to: ['amazon-rds'] })).toBe(true)
+    expect(checkRule(d, { type: 'connected', from: ['amazon-ec2'], to: ['amazon-rds'] })).toBe(false)
+    const rds = d.nodes.find((n) => n.id === b)!
+    const g = addNode(d, { kind: 'group', label: 'プライベートサブネット', width: 140, height: 76 })
+    const rule = { type: 'insideGroup' as const, serviceIds: ['amazon-rds'], labelIncludes: ['プライベート'] }
+    expect(checkRule(g.diagram, rule)).toBe(false)
+    const placed = { ...g.diagram, nodes: g.diagram.nodes.map((n) => (n.id === g.id ? { ...n, x: rds.x - 8, y: rds.y - 20 } : n)) }
+    expect(checkRule(placed, rule)).toBe(true)
+  })
+})

@@ -5,6 +5,7 @@ import { NavigationProvider } from './components/Navigation'
 import { Layout } from './components/Layout'
 import { Notice } from './components/ui'
 import { StorageHealthProvider } from './hooks/useStorageHealth'
+import { ChallengePage } from './pages/ChallengePage'
 import { ComingSoon } from './pages/ComingSoon'
 import { Designer } from './pages/Designer'
 import { DiagramEditor } from './pages/DiagramEditor'
@@ -61,6 +62,7 @@ export default function App() {
             <Route path="designer" element={<Designer />} />
             <Route path="designer/templates/:templateId" element={<DiagramTemplatePage />} />
             <Route path="designer/edit/:diagramId" element={<DiagramEditor />} />
+            <Route path="designer/challenges/:challengeId" element={<ChallengePage />} />
             <Route path="designer/*" element={<ComingSoon kind="designer" />} />
             <Route path="practice" element={<Practice />} />
             <Route path="practice/run" element={<PracticeRun />} />

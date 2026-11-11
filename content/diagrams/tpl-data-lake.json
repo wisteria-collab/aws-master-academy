@@ -1,0 +1,164 @@
+{
+  "id": "tpl-data-lake",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "データレイクでの分析",
+  "order": 7,
+  "summary": "流れ続けるデータを取り込み、Amazon S3のデータレイクにためて、分析と可視化を行う、代表的な流れの例です。",
+  "diagram": {
+    "nodes": [
+      {
+        "id": "src",
+        "kind": "actor",
+        "label": "アプリやセンサー",
+        "x": 16,
+        "y": 8,
+        "note": "クリックの記録や測定値など、データの発生元です。",
+        "width": 136,
+        "height": 36
+      },
+      {
+        "id": "kds",
+        "kind": "service",
+        "label": "Kinesis Data Streams",
+        "x": 28,
+        "y": 78,
+        "serviceId": "amazon-kinesis",
+        "note": "流れ続けるデータを受け取る、リアルタイムのデータストリーミングサービスです。データはミリ秒単位で利用できるようになります。",
+        "width": 112
+      },
+      {
+        "id": "fh",
+        "kind": "service",
+        "label": "Amazon Data Firehose",
+        "x": 28,
+        "y": 156,
+        "serviceId": "amazon-data-firehose",
+        "note": "ストリーミングデータを、保存先へ届けます。S3に届ける前に、Apache Parquetなどの列指向のフォーマットに変換できます。",
+        "width": 112
+      },
+      {
+        "id": "s3",
+        "kind": "service",
+        "label": "Amazon S3（データレイク）",
+        "x": 24,
+        "y": 234,
+        "serviceId": "amazon-s3",
+        "note": "データレイクの保存先です。すべてのデータを、元の形のままでも、分析用に整えた形でも保管します。",
+        "width": 120
+      },
+      {
+        "id": "lf",
+        "kind": "service",
+        "label": "AWS Lake Formation",
+        "x": 24,
+        "y": 316,
+        "serviceId": "aws-lake-formation",
+        "note": "データレイクの構築と、アクセスの管理を受け持ちます。",
+        "width": 120
+      },
+      {
+        "id": "glue",
+        "kind": "service",
+        "label": "AWS Glue",
+        "x": 232,
+        "y": 156,
+        "serviceId": "aws-glue",
+        "note": "データを分析しやすい形に整える、ETL（抽出・変換・読み込み）のサービスです。"
+      },
+      {
+        "id": "ath",
+        "kind": "service",
+        "label": "Amazon Athena",
+        "x": 232,
+        "y": 234,
+        "serviceId": "amazon-athena",
+        "note": "S3に置いたデータを、SQLで直接分析します。"
+      },
+      {
+        "id": "qk",
+        "kind": "service",
+        "label": "Amazon Quick",
+        "x": 232,
+        "y": 316,
+        "serviceId": "amazon-quick",
+        "note": "分析の結果を、グラフなどで可視化します。"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "src",
+        "to": "kds"
+      },
+      {
+        "id": "e2",
+        "from": "kds",
+        "to": "fh"
+      },
+      {
+        "id": "e3",
+        "from": "fh",
+        "to": "s3",
+        "label": "変換して保存"
+      },
+      {
+        "id": "e4",
+        "from": "glue",
+        "to": "s3",
+        "label": "ETL"
+      },
+      {
+        "id": "e5",
+        "from": "ath",
+        "to": "s3",
+        "label": "SQLで分析"
+      },
+      {
+        "id": "e6",
+        "from": "qk",
+        "to": "ath",
+        "label": "可視化"
+      },
+      {
+        "id": "e7",
+        "from": "lf",
+        "to": "s3",
+        "label": "アクセス管理"
+      }
+    ]
+  },
+  "flow": [
+    "アプリやセンサーのデータを、Kinesis Data Streamsが受け取ります。",
+    "Data Firehoseが、データを列指向のフォーマットに変換して、S3に保存します。",
+    "Glueが、データを分析しやすい形に整えます。",
+    "Athenaが、S3のデータをSQLで分析し、Quickが結果を可視化します。",
+    "Lake Formationが、誰がどのデータを使えるかを管理します。"
+  ],
+  "explanation": "【流れ続けるのか、まとまって届くのか】\n最初に見るのは、データの届き方です。流れ続けるデータは、ストリーミングのサービス（Kinesis Data Streams、Data Firehose）で取り込みます。まとまったデータは、AWS DataSyncなどの転送サービスで移します。\n【分析しやすい形にしておく】\nData Firehoseは、S3に届ける前に、Apache ParquetやApache ORCといった列指向のフォーマットに変換できます。\n【安全なデータレイク】\nAWS Lake Formationは、データを収集してカタログ化し、S3のデータレイクに移し、機密性の高いデータへのアクセスを保護する仕組みを用意します。",
+  "points": [
+    "流れ続けるデータをミリ秒単位で＝Kinesis Data Streams。保存先へ届ける（変換つき）＝Data Firehose。",
+    "データレイクの保存先はS3。構築とアクセス管理＝Lake Formation。",
+    "ETL＝Glue。S3へのSQL＝Athena。可視化＝Quick。",
+    "この図は代表的な流れの例。まとまったデータの移行には、DataSyncやSnow Familyを使う。"
+  ],
+  "relatedLessonIds": [
+    "saa-perf-data"
+  ]
+}

@@ -61,6 +61,7 @@ export function DiagramEditor() {
   const [message, setMessage] = useState('')
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [undoCount, setUndoCount] = useState(0)
+  const [challenge, setChallenge] = useState<(typeof content.challenges)[number] | undefined>(undefined)
   const history = useRef<DiagramBody[]>([])
   const dragBase = useRef<DiagramBody | null>(null)
   const challengeId = useRef<string | undefined>(undefined)
@@ -73,6 +74,7 @@ export function DiagramEditor() {
     setName(record.name)
     setBody(parseDiagram(record.nodes, record.edges))
     challengeId.current = record.challengeId
+    setChallenge(content.challenges.find((c) => c.id === record.challengeId))
     setLoaded(true)
   }, [loaded, saved.loading, record])
 
@@ -176,6 +178,25 @@ export function DiagramEditor() {
           {status}
         </p>
       </div>
+
+      {challenge && (
+        <Card>
+          <h2 className="text-lg font-bold">設計問題：{challenge.title}</h2>
+          <details className="mt-1">
+            <summary className="min-h-11 cursor-pointer text-base font-bold leading-[2.75rem]">要件を確認する</summary>
+            <ul className="list-disc pl-5 text-base leading-relaxed text-navy-900">
+              {challenge.requirements.map((r) => (
+                <li key={r} className="mt-1">
+                  {r}
+                </li>
+              ))}
+            </ul>
+          </details>
+          <Link to={`/designer/challenges/${challenge.id}`} className="mt-2 flex min-h-12 items-center justify-center rounded-xl bg-navy-800 px-4 text-base font-bold text-white">
+            講評を見る
+          </Link>
+        </Card>
+      )}
 
       <div className="flex flex-wrap gap-2">
         <Button variant={picker === 'service' ? 'primary' : 'secondary'} onClick={() => setPicker(picker === 'service' ? null : 'service')}>
