@@ -1,0 +1,74 @@
+{
+  "id": "amazon-emr",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "Amazon EMR",
+  "aliases": [
+    "EMR",
+    "イーエムアール"
+  ],
+  "category": "analytics",
+  "summary": "Apache Sparkなどのオープンソースのツールを使って、膨大なデータを処理するクラウドのビッグデータ基盤。",
+  "beginner": {
+    "analogy": "大量の荷物を仕分ける「臨時の大型仕分けセンター」です。必要なときに大勢の作業員（サーバー）を集めて、一気に処理します。",
+    "description": "とても大きなデータを、たくさんのサーバーで手分けして処理するためのサービスです。Apache Sparkなどの広く使われているツールがそのまま使えます。"
+  },
+  "exam": {
+    "description": "Apache Spark、Apache Hive、Apache HBase、Apache Flink、Apache Hudi、Prestoなどのオープンソースのツールを使って、膨大な量のデータを処理するクラウドのビッグデータ基盤です。キャパシティのプロビジョニングやクラスターの調整といった、時間のかかる作業を自動化します。Amazon EC2インスタンス、Amazon EKSクラスター、AWS Outposts上のオンプレミスで実行できます。",
+    "points": [
+      "Apache SparkやHiveなどでのビッグデータ処理＝Amazon EMR。",
+      "試験ガイドでは、データ処理のためのコンピューティングの選択肢として挙げられている。",
+      "サーバーレスのETLならAWS Glue、S3へのSQLならAmazon Athena。"
+    ]
+  },
+  "useCases": [
+    "既存のSparkやHadoopの処理を、AWSで実行する"
+  ],
+  "mechanism": "クラスターを用意し、オープンソースのツールでデータを分散処理します。",
+  "pros": [
+    "既存のオープンソースのツールをそのまま使える",
+    "クラスターの用意や調整が自動化される"
+  ],
+  "cons": [
+    "クラスターという単位を意識する必要がある"
+  ],
+  "scenes": [
+    "オンプレミスのHadoopで行っていた大規模な集計を、AWSに移す"
+  ],
+  "similarServiceIds": [
+    "aws-glue",
+    "amazon-athena"
+  ],
+  "relatedServiceIds": [
+    "amazon-s3",
+    "amazon-ec2"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/emr/"
+}

@@ -1,0 +1,214 @@
+{
+  "id": "s3-storage-classes",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "Amazon S3のストレージクラス",
+  "category": "storage",
+  "summary": "どのクラスも同じS3で、99.999999999%（イレブンナイン）の耐久性を持つように設計されています。違うのは、アクセスの頻度と、取り出しの速さへの向き不向きです。「どれくらいの頻度で使うか」「すぐ取り出す必要があるか」で選びます。",
+  "items": [
+    {
+      "key": "standard",
+      "label": "S3 Standard",
+      "oneLine": "いつも使う物の棚",
+      "values": {
+        "role": "頻繁にアクセスするデータを保存する",
+        "mechanism": "オブジェクトとして保存する",
+        "data": "頻繁にアクセスするデータ",
+        "useCases": "ウェブサイトのコンテンツ、日々使うデータ",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "すぐに取り出せる",
+        "scalability": "容量を気にせず保存できる",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "クラスの移動はライフサイクルポリシーで自動化できる",
+        "limits": "あまり使わないデータを置き続けると、費用の面で不利",
+        "chooseWhen": "頻繁にアクセスするデータ",
+        "avoidWhen": "ほとんどアクセスしないデータ"
+      },
+      "serviceId": "amazon-s3"
+    },
+    {
+      "key": "intelligent",
+      "label": "S3 Intelligent-Tiering",
+      "oneLine": "使い方を見て自動で置き場所を変える棚",
+      "values": {
+        "role": "アクセスのパターンがわからない、または変化するデータのコストを、自動的に節約する",
+        "mechanism": "アクセスのパターンに応じて自動で階層を移す",
+        "data": "アクセスのパターンが不明、または変化するデータ",
+        "useCases": "利用の傾向が読めないデータ",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "容量を気にせず保存できる",
+        "cost": "自動的なコスト削減",
+        "operations": "この教材の出典には記載がないため、公式ドキュメントで確認する（運用の手間は小さい）",
+        "limits": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "chooseWhen": "アクセスの頻度が予測できないとき",
+        "avoidWhen": "アクセスの頻度がはっきりわかっているとき"
+      },
+      "serviceId": "amazon-s3"
+    },
+    {
+      "key": "ia",
+      "label": "S3 Standard-IA／S3 One Zone-IA",
+      "oneLine": "たまにしか使わない物の棚",
+      "values": {
+        "role": "アクセスの頻度が低いデータを保存する",
+        "mechanism": "オブジェクトとして保存する",
+        "data": "アクセスの頻度が低いデータ",
+        "useCases": "バックアップ、たまに参照する過去のデータ",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "容量を気にせず保存できる",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "ライフサイクルポリシーで、Standardから自動的に移せる",
+        "limits": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "chooseWhen": "あまりアクセスしないが、保存しておく必要があるデータ",
+        "avoidWhen": "頻繁にアクセスするデータ"
+      },
+      "serviceId": "amazon-s3"
+    },
+    {
+      "key": "glacier-ir",
+      "label": "S3 Glacier Instant Retrieval",
+      "oneLine": "すぐ取り出せる書庫",
+      "values": {
+        "role": "すぐにアクセスする必要があるアーカイブデータを保存する",
+        "mechanism": "オブジェクトとして保存する",
+        "data": "アーカイブデータ",
+        "useCases": "まれにしか見ないが、見るときはすぐに必要な記録",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "すぐに取り出せる",
+        "scalability": "容量を気にせず保存できる",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "limits": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "chooseWhen": "アーカイブだが、必要なときはすぐに取り出したいとき",
+        "avoidWhen": "頻繁にアクセスするデータ"
+      },
+      "serviceId": "amazon-s3"
+    },
+    {
+      "key": "glacier-fr",
+      "label": "S3 Glacier Flexible Retrieval",
+      "oneLine": "取り出しに時間がかかってよい書庫",
+      "values": {
+        "role": "すぐにアクセスする必要のない、めったに使わない長期保存のデータを保存する",
+        "mechanism": "オブジェクトとして保存する",
+        "data": "めったにアクセスしない長期保存のデータ",
+        "useCases": "すぐに必要にならない長期の保管",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "すぐには取り出せない",
+        "scalability": "容量を気にせず保存できる",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "limits": "すぐに取り出す用途には向かない",
+        "chooseWhen": "長期保存で、すぐに取り出す必要がないとき",
+        "avoidWhen": "必要なときにすぐ取り出したいとき"
+      },
+      "serviceId": "amazon-s3"
+    },
+    {
+      "key": "deep-archive",
+      "label": "S3 Glacier Deep Archive",
+      "oneLine": "遠くの倉庫（最も安い）",
+      "values": {
+        "role": "長期のアーカイブとデジタル保存のためのデータを保存する",
+        "mechanism": "オブジェクトとして保存する",
+        "data": "長期のアーカイブ",
+        "useCases": "法令で長期の保管が求められる記録",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "取り出しに数時間かかる",
+        "scalability": "容量を気にせず保存できる",
+        "cost": "クラウドで最も低コストのストレージ",
+        "operations": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "limits": "取り出しに数時間かかる",
+        "chooseWhen": "長期保管で、取り出しに数時間かかってもよく、費用を最小にしたいとき",
+        "avoidWhen": "数時間も待てないとき"
+      },
+      "serviceId": "amazon-s3"
+    }
+  ],
+  "figureIds": [],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "アクセスの頻度が予測できない、または変化しますか？",
+      "yes": "r-int",
+      "no": "n2"
+    },
+    {
+      "id": "n2",
+      "question": "頻繁にアクセスしますか？",
+      "yes": "r-std",
+      "no": "n3"
+    },
+    {
+      "id": "n3",
+      "question": "アーカイブ（長期保管）が目的ですか？",
+      "yes": "n4",
+      "no": "r-ia"
+    },
+    {
+      "id": "n4",
+      "question": "必要なときは、すぐに取り出せる必要がありますか？",
+      "yes": "r-gir",
+      "no": "n5"
+    },
+    {
+      "id": "n5",
+      "question": "取り出しに数時間かかってもよく、費用を最小にしたいですか？",
+      "yes": "r-da",
+      "no": "r-gfr"
+    },
+    {
+      "id": "r-int",
+      "resultItemKey": "intelligent",
+      "note": "アクセスのパターンに応じて、自動でコストを節約します。"
+    },
+    {
+      "id": "r-std",
+      "resultItemKey": "standard",
+      "note": "頻繁にアクセスするデータ向けです。"
+    },
+    {
+      "id": "r-ia",
+      "resultItemKey": "ia",
+      "note": "アクセスの頻度が低いデータ向けです。"
+    },
+    {
+      "id": "r-gir",
+      "resultItemKey": "glacier-ir",
+      "note": "アーカイブでも、すぐにアクセスできます。"
+    },
+    {
+      "id": "r-da",
+      "resultItemKey": "deep-archive",
+      "note": "クラウドで最も低コストのストレージです。"
+    },
+    {
+      "id": "r-gfr",
+      "resultItemKey": "glacier-fr",
+      "note": "すぐにアクセスする必要のない長期保存向けです。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "saa-q-s3c-train-01",
+    "saa-q-s3c-train-02",
+    "saa-q-s3c-train-03"
+  ]
+}

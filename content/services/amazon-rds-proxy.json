@@ -1,0 +1,79 @@
+{
+  "id": "amazon-rds-proxy",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Amazon RDS Proxy FAQs（AWS公式）",
+      "url": "https://aws.amazon.com/rds/proxy/faqs/"
+    },
+    {
+      "title": "RDS Proxy concepts and terminology（Amazon RDS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.howitworks.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "Amazon RDS Proxy",
+  "aliases": [
+    "RDS Proxy",
+    "アールディーエスプロキシ"
+  ],
+  "category": "database",
+  "summary": "データベースの接続をまとめて共有する、フルマネージドで可用性の高いデータベースプロキシ。",
+  "beginner": {
+    "analogy": "人気店の「受付係」です。お客さん（アプリ）が殺到しても、受付が順番に、限られた席（データベースの接続）へ案内します。",
+    "description": "アプリケーションとデータベースの間に入って、データベースへの接続をまとめて使い回してくれるサービスです。接続が多すぎてデータベースが苦しくなるのを防ぎます。"
+  },
+  "exam": {
+    "description": "Amazon RDSの機能として提供される、フルマネージドで可用性の高いデータベースプロキシです。データベースの接続をプールして共有することで拡張性を高め、フェイルオーバーのときにはアプリケーションの接続を保ったまま新しいデータベースインスタンスに通信を振り向けて可用性を高めます。AWS Secrets ManagerやIAMと統合して、認証情報の扱いも安全にできます。サーバーレスのアプリケーションが、接続をプールして再利用することで効率よくスケールできるようにします。",
+    "points": [
+      "データベースの接続のプールと共有＝Amazon RDS Proxy。",
+      "多数のAWS Lambda関数からの接続で、データベースの接続数が足りなくなる問題に対応する。",
+      "フェイルオーバーのときに、アプリケーションの接続を保ったまま切り替える。",
+      "認証情報をSecrets ManagerやIAMで扱える。"
+    ]
+  },
+  "useCases": [
+    "Lambdaなど、同時に大量の接続を開くアプリケーションとRDSの間に置く"
+  ],
+  "mechanism": "アプリケーションは、データベースではなくプロキシに接続します。プロキシが、プールした接続を共有してデータベースに渡します。",
+  "pros": [
+    "接続数の急増に強くなる",
+    "フェイルオーバーの影響を小さくできる",
+    "フルマネージド"
+  ],
+  "cons": [
+    "読み取りの処理能力そのものを増やすものではない（それはリードレプリカ）"
+  ],
+  "scenes": [
+    "Lambda関数が急に増えたときに、データベースの接続が上限に達してエラーになる"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "amazon-rds",
+    "amazon-aurora",
+    "aws-lambda",
+    "aws-secrets-manager"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html"
+}

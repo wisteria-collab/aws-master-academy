@@ -2168,5 +2168,161 @@
     "plain": "同期は「相手が受け取ったのを確認してから次に進む」手渡し、非同期は「ポストに入れたら次に進む」郵送のようなものです。",
     "example": "Amazon RDSのマルチAZ配置は同期、リードレプリカは非同期でレプリケーションする。",
     "serviceIds": []
+  },
+  {
+    "id": "iops",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EBS volume types（AWS公式）",
+        "url": "https://aws.amazon.com/ebs/volume-types/"
+      },
+      {
+        "title": "Amazon EBS volume types（Amazon EBS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "IOPS",
+    "description": "1秒間に処理できる読み書きの回数です。ストレージの性能を表す指標の1つで、小さな読み書きを数多く行う処理（データベースなど）で重要になります。",
+    "plain": "レジ係が1分間にさばけるお客さんの「人数」のようなものです。",
+    "example": "多数の小さな読み書きを行うデータベースには、IOPSを指定できるプロビジョンドIOPS SSDのボリュームを使う。",
+    "serviceIds": []
+  },
+  {
+    "id": "throughput",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EBS volume types（AWS公式）",
+        "url": "https://aws.amazon.com/ebs/volume-types/"
+      },
+      {
+        "title": "Amazon EBS volume types（Amazon EBS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "スループット",
+    "description": "一定の時間に読み書きできるデータの量です。大きなデータを連続して読み書きする処理（ログの処理やビッグデータなど）で重要になります。",
+    "plain": "ホースから1分間に出る水の「量」のようなものです。回数ではなく、まとめて流せる量を表します。",
+    "example": "ログを連続して大量に処理するワークロードには、スループット最適化HDDのボリュームを使う。",
+    "serviceIds": []
+  },
+  {
+    "id": "data-warehouse",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "データウェアハウス",
+    "description": "分析のために、大量のデータを集めて整理しておくデータベースです。複雑な集計や分析の問い合わせに向いています。",
+    "plain": "お店のレジ（日々の取引用のデータベース）とは別にある、過去の伝票をすべて集めた「分析用の資料室」です。",
+    "example": "Amazon Redshiftで、数年分の販売データに対して、複雑な分析のSQLを実行する。",
+    "serviceIds": []
+  },
+  {
+    "id": "connection-pooling",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Proxy FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/rds/proxy/faqs/"
+      },
+      {
+        "title": "RDS Proxy concepts and terminology（Amazon RDS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.howitworks.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "コネクションプーリング",
+    "description": "データベースとの接続を、使うたびに作り直すのではなく、あらかじめ用意した接続を使い回す仕組みです。",
+    "plain": "毎回タクシーを呼ぶのではなく、待機している数台のタクシーをみんなで順番に使うイメージです。",
+    "example": "多数のAWS Lambda関数からの接続を、Amazon RDS Proxyがまとめて、少ない数の接続を共有してデータベースに渡す。",
+    "serviceIds": []
+  },
+  {
+    "id": "capacity-mode",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "DynamoDB on-demand and provisioned capacity（AWS Well-Architected サーバーレスアプリケーションレンズ）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/capacity.html"
+      },
+      {
+        "title": "Evaluate your table capacity mode（Amazon DynamoDB デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/CostOptimization_TableCapacityMode.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "キャパシティモード",
+    "description": "Amazon DynamoDBの、読み書きの処理能力の確保と課金の方式です。オンデマンドと、プロビジョンドの2つがあります。",
+    "plain": "オンデマンドは「使った分だけ払う従量制」、プロビジョンドは「あらかじめ決めた量を契約する定額制」に似ています。",
+    "example": "アクセスの量が読めない新しいサービスはオンデマンド、量が安定して予測できるサービスはプロビジョンド（Auto Scalingつき）にする。",
+    "serviceIds": []
+  },
+  {
+    "id": "lifecycle-policy",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "ライフサイクルポリシー",
+    "description": "Amazon S3で、オブジェクトを時間の経過に合わせて、別のストレージクラスへ自動的に移すためのルールです。",
+    "plain": "「3か月使わなかった書類は書庫へ、1年たったら倉庫へ」という、書類整理のルールのようなものです。",
+    "example": "アップロードから30日たったログを、低頻度アクセス用のクラスへ、1年たったらアーカイブ用のクラスへ自動で移す。",
+    "serviceIds": []
   }
 ]

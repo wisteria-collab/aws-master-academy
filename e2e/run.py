@@ -13,7 +13,7 @@ def launch(p, viewport, mobile):
         viewport=viewport, is_mobile=mobile, has_touch=mobile, device_scale_factor=2 if mobile else 1,
         accept_downloads=True, args=['--no-sandbox'])
 
-PAGES = ['', '#/learn', '#/learn/clf', '#/learn/saa', '#/learn/clf/clf-cloud-basics', '#/learn/clf/clf-regions-azs', '#/learn/clf/clf-shared-responsibility', '#/learn/clf/clf-storage', '#/learn/clf/clf-well-architected', '#/learn/clf/clf-migration-caf', '#/learn/clf/clf-compute', '#/learn/clf/clf-iam', '#/learn/clf/clf-security-governance', '#/learn/clf/clf-security-services', '#/learn/clf/clf-global-edge', '#/learn/clf/clf-database', '#/learn/clf/clf-network', '#/learn/clf/clf-cloud-economics', '#/learn/clf/clf-pricing-models', '#/learn/clf/clf-billing-cost', '#/learn/clf/clf-support-plans', '#/learn/clf/clf-ai-analytics', '#/learn/clf/clf-other-services', '#/services/amazon-quick', '#/services/amazon-appstream-2', '#/learn/clf/clf-deploy-operate', '#/learn/clf/clf-resources-partners', '#/services/aws-cloudformation', '#/services/aws-health-dashboard', '#/services/aws-support', '#/services/aws-organizations', '#/services/amazon-vpc', '#/services/amazon-rds', '#/services/amazon-cloudfront', '#/services/aws-iam', '#/services/aws-lambda', '#/services/elastic-load-balancing', '#/services', '#/services/amazon-s3', '#/services/amazon-fsx', '#/compare', '#/compare/storage', '#/compare/storage/training', '#/compare/database', '#/compare/compute', '#/compare/messaging', '#/compare/ec2-purchase', '#/compare/ec2-purchase/training', '#/compare/sg-nacl', '#/compare/vpc-endpoints', '#/compare/sg-nacl/training', '#/learn/saa/saa-secure-access', '#/learn/saa/saa-secure-workloads', '#/learn/saa/saa-data-security', '#/learn/saa/saa-scalable-loose', '#/learn/saa/saa-ha-ft', '#/compare/rds-ha', '#/compare/load-balancers', '#/compare/dr-strategies', '#/compare/dr-strategies/training', '#/services/amazon-api-gateway', '#/services/amazon-cognito', '#/practice/run?exam=saa&mode=random', '#/services/aws-application-migration-service', '#/designer', '#/practice', '#/practice/run?exam=clf&mode=random', '#/progress', '#/review', '#/settings', '#/nope']
+PAGES = ['', '#/learn', '#/learn/clf', '#/learn/saa', '#/learn/clf/clf-cloud-basics', '#/learn/clf/clf-regions-azs', '#/learn/clf/clf-shared-responsibility', '#/learn/clf/clf-storage', '#/learn/clf/clf-well-architected', '#/learn/clf/clf-migration-caf', '#/learn/clf/clf-compute', '#/learn/clf/clf-iam', '#/learn/clf/clf-security-governance', '#/learn/clf/clf-security-services', '#/learn/clf/clf-global-edge', '#/learn/clf/clf-database', '#/learn/clf/clf-network', '#/learn/clf/clf-cloud-economics', '#/learn/clf/clf-pricing-models', '#/learn/clf/clf-billing-cost', '#/learn/clf/clf-support-plans', '#/learn/clf/clf-ai-analytics', '#/learn/clf/clf-other-services', '#/services/amazon-quick', '#/services/amazon-appstream-2', '#/learn/clf/clf-deploy-operate', '#/learn/clf/clf-resources-partners', '#/services/aws-cloudformation', '#/services/aws-health-dashboard', '#/services/aws-support', '#/services/aws-organizations', '#/services/amazon-vpc', '#/services/amazon-rds', '#/services/amazon-cloudfront', '#/services/aws-iam', '#/services/aws-lambda', '#/services/elastic-load-balancing', '#/services', '#/services/amazon-s3', '#/services/amazon-fsx', '#/compare', '#/compare/storage', '#/compare/storage/training', '#/compare/database', '#/compare/compute', '#/compare/messaging', '#/compare/ec2-purchase', '#/compare/ec2-purchase/training', '#/compare/sg-nacl', '#/compare/vpc-endpoints', '#/compare/sg-nacl/training', '#/learn/saa/saa-secure-access', '#/learn/saa/saa-secure-workloads', '#/learn/saa/saa-data-security', '#/learn/saa/saa-perf-storage', '#/learn/saa/saa-perf-compute', '#/learn/saa/saa-perf-database', '#/compare/s3-storage-classes', '#/compare/ebs-volume-types', '#/services/amazon-rds-proxy', '#/learn/saa/saa-scalable-loose', '#/learn/saa/saa-ha-ft', '#/compare/rds-ha', '#/compare/load-balancers', '#/compare/dr-strategies', '#/compare/dr-strategies/training', '#/services/amazon-api-gateway', '#/services/amazon-cognito', '#/practice/run?exam=saa&mode=random', '#/services/aws-application-migration-service', '#/designer', '#/practice', '#/practice/run?exam=clf&mode=random', '#/progress', '#/review', '#/settings', '#/nope']
 
 with sync_playwright() as p:
     ctx = launch(p, {'width': 390, 'height': 844}, True)
@@ -35,7 +35,7 @@ with sync_playwright() as p:
     body = page.inner_text('body')
     for word in ['学習進捗', 'CLF学習', 'SAA学習', 'サービス図鑑', '類似サービス比較', '構成図シミュレーター', '問題演習', '苦手分野・復習', 'AWS非公式']:
         check(f'ホームに「{word}」', word in body)
-    check('架空の進捗を出していない', '0分' in body and '0 / 21' in body and '0 / 5' in body, body[:400])
+    check('架空の進捗を出していない', '0分' in body and '0 / 21' in body and '0 / 8' in body, body[:400])
 
     # 下部タブで遷移
     page.get_by_role('navigation', name='メインメニュー').last.get_by_role('link', name='記録').click()
@@ -60,7 +60,7 @@ with sync_playwright() as p:
     secs = page.evaluate('''() => new Promise(r => { const q = indexedDB.open('aws-master-academy'); q.onsuccess = () => { const g = q.result.transaction('studySessions').objectStore('studySessions').getAll(); g.onsuccess = () => r(g.result) } })''')
     learn = lambda rows: next((r['seconds'] for r in rows if r['feature'] == 'learn'), None)
     # 上限は巡回するレッスンページの数に比例する（第4弾で3ページ増えたため 30→45 秒、第5弾で4ページ増えたため 45→60 秒）
-    check('記録秒数が妥当(10〜100秒)', learn(secs) is not None and 10 <= learn(secs) <= 100, json.dumps(secs))
+    check('記録秒数が妥当(10〜118秒)', learn(secs) is not None and 10 <= learn(secs) <= 118, json.dumps(secs))
     before = learn(secs); total_before = len(secs)
     ctx.close()
 
@@ -182,7 +182,7 @@ with sync_playwright() as p:
 
     # サービス図鑑
     page.goto(BASE + '#/services'); page.wait_for_timeout(400)
-    check('図鑑に84サービス', page.locator('main ul li a').count() == 84)
+    check('図鑑に88サービス', page.locator('main ul li a').count() == 88)
     page.get_by_placeholder('サービス名で検索').fill('efs'); page.wait_for_timeout(200)
     check('検索で絞り込み（名前の一致が先頭）', 1 <= page.locator('main ul li a').count() <= 5 and 'Amazon EFS' in page.locator('main ul li a').first.inner_text())
     page.locator('main ul li a').first.click(); page.wait_for_timeout(400)

@@ -1,0 +1,88 @@
+{
+  "id": "saa-perf-storage",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Amazon EBS volume types（AWS公式）",
+      "url": "https://aws.amazon.com/ebs/volume-types/"
+    },
+    {
+      "title": "Amazon EBS volume types（Amazon EBS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 6,
+  "title": "高パフォーマンスでスケーラブルなストレージの選択",
+  "domainId": "saa-d3",
+  "taskIds": [
+    "saa-3-1"
+  ],
+  "overview": "第3分野のテーマは「高パフォーマンス」、つまり要件に合った性能を出せる設計です。最初のタスクはストレージです。CLFでは、オブジェクト・ブロック・ファイルの3種類と、S3・EBS・EFSの役割を学びました。SAAでは、その中でさらに「どの種類のボリュームやクラスを選ぶか」まで判断します。\n試験ガイドでは、ストレージサービスとその使いどころ（Amazon S3、Amazon EFS、Amazon EBS）、ストレージの種類と特性（オブジェクト、ファイル、ブロック）、ハイブリッドストレージが挙げられています。",
+  "beginner": {
+    "analogy": "荷物の保管にたとえます。EBSは、1台のサーバー専用の「作業机の引き出し」で、引き出しにも高級品（SSD）と大容量の安いもの（HDD）があります。EFSは、大勢が同時に使える「共有の書類棚」です。S3は、どれだけでも預けられる「貸倉庫」で、よく使う物の棚から、めったに開けない遠くの倉庫まで、いくつかの区画があります。",
+    "description": "ストレージ選びは2段階です。まず「どう使うか」で種類（ブロック・ファイル・オブジェクト）を決めます。次に「どれくらいの速さが必要か」「どれくらいの頻度で使うか」で、その中の区分（ボリュームタイプやストレージクラス）を決めます。"
+  },
+  "useCases": [
+    "データベース用に、高速なブロックストレージを選ぶ",
+    "多数のサーバーから、同じファイルを共有する",
+    "めったに使わないデータを、安く長期保管する",
+    "オンプレミスから、AWSのストレージを使う"
+  ],
+  "mechanism": {
+    "text": "【ブロックストレージ：Amazon EBS】\nボリュームタイプは、SSDとHDDに大きく分かれます。\n・SSD：データベース、仮想デスクトップ、ブートボリュームなど、トランザクション処理向け。\n　- 汎用SSD（gp3）：価格と性能のバランスがよい。\n　- プロビジョンドIOPS SSD（io2 Block Express）：EBSで最も高性能。最も要求の厳しいデータベース向け。\n・HDD：MapReduceやログ処理など、スループットが重要な処理向け。\n　- スループット最適化HDD（st1）：頻繁にアクセスする、スループット重視のワークロード向け。\n　- コールドHDD（sc1）：アクセスの頻度が低いデータ向けで、最も低コスト。\nHDDのボリュームは、ブートボリュームには使えません。\n【ファイルストレージ】\n・Amazon EFS：数千台のEC2インスタンスからの共有アクセス向け。ペタバイト規模まで自動で拡張します。\n・Amazon FSx for Windows File Server：SMBプロトコルとActive Directoryに対応した、Windows向けのファイルシステム。\n・Amazon FSx for Lustre：HPC、機械学習など、計算量の多いワークロード向け。S3と連携できます。\n・Amazon FSx for NetApp ONTAP、Amazon FSx for OpenZFS：それぞれのファイルシステムを、フルマネージドで使えます。\n【オブジェクトストレージ：Amazon S3】\nイレブンナイン（99.999999999%）の耐久性を持つように設計されています。ストレージクラスは、アクセスの頻度で選びます。\n・S3 Standard：頻繁にアクセスするデータ。\n・S3 Intelligent-Tiering：アクセスのパターンがわからない、または変化するデータ。自動でコストを節約。\n・S3 Standard-IA、S3 One Zone-IA：アクセスの頻度が低いデータ。\n・S3 Glacier Instant Retrieval：すぐにアクセスする必要があるアーカイブ。\n・S3 Glacier Flexible Retrieval：すぐにアクセスする必要のない長期保存。\n・S3 Glacier Deep Archive：取り出しに数時間かかる、最も低コストの長期アーカイブ。\nライフサイクルポリシーで、アプリケーションを変更せずに、クラスの間でデータを自動的に移せます。S3 Object Lockは、一定の期間または無期限に、削除や上書きを防ぎます（WORM）。\n【ハイブリッドストレージ：AWS Storage Gateway】\nオンプレミスのアプリケーションが、NFS、SMB、iSCSIの標準プロトコルで、AWSのストレージを使えるようにします。よく使うデータは、ローカルのキャッシュから低遅延で読み出せます。",
+    "figureId": "storage-types"
+  },
+  "relatedServiceIds": [
+    "amazon-ebs",
+    "amazon-efs",
+    "amazon-fsx",
+    "amazon-s3",
+    "aws-storage-gateway"
+  ],
+  "examPoints": [
+    "EBS：SSD（gp3・io2）＝データベースなどのトランザクション処理。HDD（st1・sc1）＝ログ処理などのスループット重視。",
+    "最高性能・高IOPS＝io2 Block Express。バランス＝gp3。スループット重視で低コスト＝st1。低頻度で最安＝sc1。",
+    "HDD（st1・sc1）は、ブートボリュームに使えない。",
+    "多数のLinuxインスタンスで共有＝EFS。Windows（SMB・Active Directory）＝FSx for Windows File Server。HPC＝FSx for Lustre。",
+    "S3のクラス：頻繁＝Standard、予測不能＝Intelligent-Tiering、低頻度＝IA、アーカイブ＝Glacierの各クラス。",
+    "Glacier Instant Retrieval＝すぐ取り出すアーカイブ。Deep Archive＝数時間かかるが最も低コスト。",
+    "クラスの自動移行＝ライフサイクルポリシー。削除・上書きの防止（WORM）＝S3 Object Lock。",
+    "オンプレミスから標準プロトコルでAWSのストレージへ＝Storage Gateway。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-ps-01",
+    "saa-q-ps-02",
+    "saa-q-ps-03",
+    "saa-q-ps-04",
+    "saa-q-s3c-train-01",
+    "saa-q-s3c-train-02",
+    "saa-q-s3c-train-03",
+    "saa-q-ebs-train-01",
+    "saa-q-ebs-train-02"
+  ],
+  "glossaryTermIds": [
+    "block-storage",
+    "file-storage",
+    "object-storage",
+    "iops",
+    "throughput",
+    "lifecycle-policy",
+    "hybrid"
+  ]
+}

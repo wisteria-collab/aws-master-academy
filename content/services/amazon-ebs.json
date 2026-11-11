@@ -72,7 +72,8 @@
     "amazon-ec2"
   ],
   "comparisonGroupIds": [
-    "storage"
+    "storage",
+    "ebs-volume-types"
   ],
   "importance": {
     "clf": "high",

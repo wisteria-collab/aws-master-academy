@@ -1,0 +1,1326 @@
+[
+  {
+    "id": "saa-q-ps-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、複数のアベイラビリティゾーンにある数百台のLinuxのEC2インスタンスから、同じファイルに同時にアクセスする必要があります。保存するデータの量は予測できず、容量の管理はしたくありません。最も適切なストレージはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon EFS",
+        "correct": true,
+        "explanation": "EFSは、数千台のEC2インスタンスからの大規模な並列の共有アクセスを提供するように設計されています。アプリケーションを止めることなく、ペタバイト規模まで必要に応じて拡張します。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon EBS",
+        "correct": false,
+        "explanation": "EBSは、EC2インスタンスに接続して使うブロックストレージです。数百台のインスタンスから同じファイルを共有する用途には、ファイルストレージであるEFSが合います。",
+        "eliminatedBy": "数百台のLinuxのEC2インスタンスから、同じファイルに同時にアクセス"
+      },
+      {
+        "id": "c",
+        "text": "インスタンスストア",
+        "correct": false,
+        "explanation": "インスタンスストアは、そのインスタンスに結び付いた一時的なストレージです。ほかのインスタンスとは共有できず、停止するとデータが失われます。",
+        "eliminatedBy": "同じファイルに同時にアクセス"
+      },
+      {
+        "id": "d",
+        "text": "Amazon FSx for Windows File Server",
+        "correct": false,
+        "explanation": "FSx for Windows File Serverは、SMBプロトコルに対応したWindows向けのファイルシステムです。問題文のインスタンスはLinuxです。",
+        "eliminatedBy": "Linuxの"
+      }
+    ],
+    "keywords": [
+      "数百台のLinuxのEC2インスタンスから、同じファイルに同時にアクセス",
+      "容量の管理はしたくありません"
+    ],
+    "decisionPoint": "多数のLinuxインスタンスで共有＋自動で拡張＝EFS。",
+    "serviceIds": [
+      "amazon-efs"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-storage"
+      },
+      {
+        "type": "comparison",
+        "id": "storage"
+      },
+      {
+        "type": "service",
+        "id": "amazon-efs"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ps-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある研究機関は、ハイパフォーマンスコンピューティング（HPC）のワークロードで、巨大なデータセットを非常に高いスループットで処理します。データはAmazon S3にあり、処理のときだけ高速なファイルシステムに読み込み、結果をS3に書き戻したいと考えています。最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon FSx for Lustre",
+        "correct": true,
+        "explanation": "FSx for Lustreは、HPC、機械学習、メディアのデータ処理など、計算量の多いワークロードに最適化されています。S3と連携し、データをS3から自動的にコピーして処理し、結果をS3に書き戻せます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon FSx for Windows File Server",
+        "correct": false,
+        "explanation": "FSx for Windows File Serverは、Windows向けのファイルシステムです。HPC向けに最適化されたものではありません。",
+        "eliminatedBy": "ハイパフォーマンスコンピューティング（HPC）のワークロード"
+      },
+      {
+        "id": "c",
+        "text": "Amazon S3 Glacier Deep Archive",
+        "correct": false,
+        "explanation": "Glacier Deep Archiveは、長期のアーカイブ用のストレージクラスで、取り出しに数時間かかります。高速な処理には使えません。",
+        "eliminatedBy": "非常に高いスループットで処理"
+      },
+      {
+        "id": "d",
+        "text": "AWS Storage Gateway",
+        "correct": false,
+        "explanation": "Storage Gatewayは、オンプレミスのアプリケーションからAWSのストレージを使うためのハイブリッドストレージです。HPC向けの高速なファイルシステムではありません。",
+        "eliminatedBy": "高速なファイルシステムに読み込み"
+      }
+    ],
+    "keywords": [
+      "ハイパフォーマンスコンピューティング（HPC）",
+      "データはAmazon S3にあり"
+    ],
+    "decisionPoint": "HPC・機械学習向けの高速なファイルシステム＋S3連携＝FSx for Lustre。",
+    "serviceIds": [
+      "amazon-fsx"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-storage"
+      },
+      {
+        "type": "service",
+        "id": "amazon-fsx"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ps-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスのアプリケーションを変更せずに、標準のファイル共有のプロトコル（NFSやSMB）を使って、AWSのクラウドストレージにデータを保存したいと考えています。よく使うデータは、オンプレミスから低遅延で読み出せる必要があります。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Storage Gateway",
+        "correct": true,
+        "explanation": "Storage Gatewayは、オンプレミスのアプリケーションがAWSのクラウドストレージを使えるようにするハイブリッドストレージのサービスです。NFS、SMB、iSCSIで接続でき、よく使うデータはローカルのキャッシュから低遅延で読み出せます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS DataSync",
+        "correct": false,
+        "explanation": "DataSyncは、オンプレミスのストレージとAWSの間のデータの移動を自動化する転送サービスです。オンプレミスのアプリケーションが継続的に使うストレージの窓口になるものではありません。",
+        "eliminatedBy": "アプリケーションを変更せずに、標準のファイル共有のプロトコル"
+      },
+      {
+        "id": "c",
+        "text": "Amazon EBS",
+        "correct": false,
+        "explanation": "EBSは、EC2インスタンスに接続するブロックストレージです。オンプレミスのアプリケーションから直接使うものではありません。",
+        "eliminatedBy": "オンプレミスのアプリケーション"
+      },
+      {
+        "id": "d",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontはコンテンツを配信するサービスです。オンプレミスのアプリケーションのストレージにはなりません。",
+        "eliminatedBy": "AWSのクラウドストレージにデータを保存"
+      }
+    ],
+    "keywords": [
+      "オンプレミスのアプリケーションを変更せずに",
+      "NFSやSMB",
+      "低遅延で読み出せる"
+    ],
+    "decisionPoint": "オンプレミスから標準プロトコルでAWSのストレージへ＋ローカルキャッシュ＝Storage Gateway。",
+    "serviceIds": [
+      "aws-storage-gateway"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-storage"
+      },
+      {
+        "type": "service",
+        "id": "aws-storage-gateway"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ps-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EBS volume types（AWS公式）",
+        "url": "https://aws.amazon.com/ebs/volume-types/"
+      },
+      {
+        "title": "Amazon EBS volume types（Amazon EBS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-1",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、SAP HANAのような、極めて高いIOPSと1ミリ秒未満の遅延を必要とするデータベースを、Amazon EC2で動かします。最も適切なAmazon EBSのボリュームタイプはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "プロビジョンドIOPS SSD（io2 Block Express）",
+        "correct": true,
+        "explanation": "io2 Block Expressは、EBSの中で最も高い性能のボリュームです。SAP HANAなどの最も要求の厳しいトランザクション処理のアプリケーション向けで、1ミリ秒未満の遅延を実現します。"
+      },
+      {
+        "id": "b",
+        "text": "スループット最適化HDD（st1）",
+        "correct": false,
+        "explanation": "st1は、ビッグデータやログ処理のような、スループットが重要なワークロード向けの低コストのHDDです。高いIOPSと低い遅延が必要なデータベースには向きません。",
+        "eliminatedBy": "極めて高いIOPSと1ミリ秒未満の遅延"
+      },
+      {
+        "id": "c",
+        "text": "コールドHDD（sc1）",
+        "correct": false,
+        "explanation": "sc1は、アクセス頻度の低いデータ向けの、最も低コストのHDDです。高い性能が必要なデータベースには向きません。",
+        "eliminatedBy": "極めて高いIOPSと1ミリ秒未満の遅延"
+      },
+      {
+        "id": "d",
+        "text": "汎用SSD（gp3）",
+        "correct": false,
+        "explanation": "gp3は、価格と性能のバランスを取った汎用のSSDです。gp3が提供できる以上のIOPSが必要な場合は、io2 Block Expressが推奨されています。",
+        "eliminatedBy": "極めて高いIOPS"
+      }
+    ],
+    "keywords": [
+      "極めて高いIOPS",
+      "1ミリ秒未満の遅延"
+    ],
+    "decisionPoint": "最高性能・高IOPS・低遅延＝io2 Block Express。バランス＝gp3。",
+    "serviceIds": [
+      "amazon-ebs"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-storage"
+      },
+      {
+        "type": "comparison",
+        "id": "ebs-volume-types"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ebs"
+      }
+    ],
+    "variationGroupId": "ebs-volume-types-select"
+  },
+  {
+    "id": "saa-q-pc-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業のウェブアプリケーションは、毎週月曜日の朝に利用が急増するなど、アクセスの増減に予測できる周期があります。予測される需要に基づいて、あらかじめ適切な数のEC2インスタンスを用意しておきたいと考えています。Amazon EC2 Auto Scalingのどの機能が最も適切ですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "予測スケーリング",
+        "correct": true,
+        "explanation": "予測スケーリングは、予測された需要に基づいて、適切な数のEC2インスタンスを自動的にスケジュールします。動的スケーリングと併用すると、より速くスケールできます。"
+      },
+      {
+        "id": "b",
+        "text": "インスタンスタイプを大きいものに変更する",
+        "correct": false,
+        "explanation": "インスタンスタイプの変更は、台数ではなく1台の大きさを変える垂直スケーリングです。需要の予測に基づいて台数を用意する機能ではありません。",
+        "eliminatedBy": "あらかじめ適切な数のEC2インスタンスを用意"
+      },
+      {
+        "id": "c",
+        "text": "スポットインスタンスだけを使う",
+        "correct": false,
+        "explanation": "スポットインスタンスは購入方法の1つで、低い価格で使える代わりに中断されることがあります。需要を予測して台数を用意する機能ではありません。",
+        "eliminatedBy": "予測される需要に基づいて"
+      },
+      {
+        "id": "d",
+        "text": "Elastic Load Balancingのヘルスチェック",
+        "correct": false,
+        "explanation": "ヘルスチェックは、ターゲットが正常かどうかを確認するものです。需要を予測して台数を増やす機能ではありません。",
+        "eliminatedBy": "予測される需要に基づいて、あらかじめ"
+      }
+    ],
+    "keywords": [
+      "予測できる周期",
+      "予測される需要に基づいて、あらかじめ"
+    ],
+    "decisionPoint": "需要の変化に反応＝動的スケーリング。予測して先に用意＝予測スケーリング。",
+    "serviceIds": [
+      "amazon-ec2-auto-scaling"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-compute"
+      },
+      {
+        "type": "service",
+        "id": "amazon-ec2-auto-scaling"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-pc-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある研究チームは、数十万件のバッチ計算のジョブを実行します。ジョブの量と必要なリソースに応じて、最適な量と種類のコンピューティングリソースを自動的に用意したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Batch",
+        "correct": true,
+        "explanation": "AWS Batchは、数十万件のバッチ計算のジョブを効率よく実行できます。投入されたジョブの量と必要なリソースに基づいて、最適な量と種類のコンピューティングリソースを動的にプロビジョニングします。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon API Gateway",
+        "correct": false,
+        "explanation": "API Gatewayは、APIを作成して公開するサービスです。バッチ計算のジョブを実行するものではありません。",
+        "eliminatedBy": "数十万件のバッチ計算のジョブを実行"
+      },
+      {
+        "id": "c",
+        "text": "Amazon CloudFront",
+        "correct": false,
+        "explanation": "CloudFrontはコンテンツを配信するサービスです。計算のジョブを実行するものではありません。",
+        "eliminatedBy": "バッチ計算のジョブを実行"
+      },
+      {
+        "id": "d",
+        "text": "AWS Step Functions",
+        "correct": false,
+        "explanation": "Step Functionsは、処理の流れを管理するサービスです。ジョブに合わせてコンピューティングリソースを用意して実行するサービスではありません。",
+        "eliminatedBy": "最適な量と種類のコンピューティングリソースを自動的に用意"
+      }
+    ],
+    "keywords": [
+      "数十万件のバッチ計算のジョブ",
+      "コンピューティングリソースを自動的に用意"
+    ],
+    "decisionPoint": "大量のバッチ計算＝AWS Batch。",
+    "serviceIds": [
+      "aws-batch"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-compute"
+      },
+      {
+        "type": "service",
+        "id": "aws-batch"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-pc-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスのHadoopクラスターで、Apache Sparkを使った大規模なデータ処理を行っています。既存のSparkの処理をできるだけ変えずにAWSへ移し、クラスターの用意や調整の手間を減らしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon EMR",
+        "correct": true,
+        "explanation": "EMRは、Apache Sparkなどのオープンソースのツールを使って膨大なデータを処理するビッグデータ基盤です。キャパシティのプロビジョニングやクラスターの調整を自動化します。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Lambda",
+        "correct": false,
+        "explanation": "Lambdaは、コードを実行するサーバーレスのサービスです。既存のSparkの処理をそのまま動かすクラスターの基盤ではありません。",
+        "eliminatedBy": "既存のSparkの処理をできるだけ変えずに"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Athena",
+        "correct": false,
+        "explanation": "Athenaは、S3のデータにSQLで問い合わせるサービスです。既存のSparkの処理をそのまま移す先ではありません。",
+        "eliminatedBy": "Apache Sparkを使った大規模なデータ処理"
+      },
+      {
+        "id": "d",
+        "text": "Amazon RDS",
+        "correct": false,
+        "explanation": "RDSはリレーショナルデータベースのサービスです。Sparkによる分散処理の基盤ではありません。",
+        "eliminatedBy": "Apache Sparkを使った大規模なデータ処理"
+      }
+    ],
+    "keywords": [
+      "Apache Spark",
+      "できるだけ変えずに"
+    ],
+    "decisionPoint": "Spark・Hadoopなどのオープンソースのビッグデータ処理＝EMR。",
+    "serviceIds": [
+      "amazon-emr"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-compute"
+      },
+      {
+        "type": "service",
+        "id": "amazon-emr"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-pc-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある動画変換のシステムでは、変換の依頼を受け付けるウェブ層と、変換を実行する処理層があります。依頼が急増したときに、処理層だけを依頼の量に合わせて独立にスケールさせたいと考えています。最も適切な設計はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ウェブ層と処理層の間にAmazon SQSのキューを置き、処理層をキューの状況に応じてスケールさせる",
+        "correct": true,
+        "explanation": "キューを置いて2つの層を疎結合にすると、それぞれが独立してスケールできます。処理が追いつかない依頼はキューにたまり、処理層を増やすことで消化できます。"
+      },
+      {
+        "id": "b",
+        "text": "ウェブ層と処理層を、1台の大きなEC2インスタンスにまとめる",
+        "correct": false,
+        "explanation": "1台にまとめると、処理層だけを独立にスケールさせることができません。単一障害点にもなります。",
+        "eliminatedBy": "処理層だけを依頼の量に合わせて独立にスケール"
+      },
+      {
+        "id": "c",
+        "text": "ウェブ層のインスタンスタイプを大きくする",
+        "correct": false,
+        "explanation": "ウェブ層を大きくしても、変換を実行する処理層の能力は増えません。",
+        "eliminatedBy": "処理層だけを"
+      },
+      {
+        "id": "d",
+        "text": "処理層の前にAmazon CloudFrontを置く",
+        "correct": false,
+        "explanation": "CloudFrontはコンテンツをキャッシュして配信するサービスです。変換の処理を層ごとにスケールさせる仕組みではありません。",
+        "eliminatedBy": "依頼の量に合わせて独立にスケール"
+      }
+    ],
+    "keywords": [
+      "処理層だけを",
+      "独立にスケール"
+    ],
+    "decisionPoint": "層の間にキューを置くと、各層が独立にスケールできます。",
+    "serviceIds": [
+      "amazon-sqs",
+      "amazon-ec2-auto-scaling"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-compute"
+      },
+      {
+        "type": "comparison",
+        "id": "messaging"
+      },
+      {
+        "type": "service",
+        "id": "amazon-sqs"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-pd-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon RDS Proxy FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/rds/proxy/faqs/"
+      },
+      {
+        "title": "RDS Proxy concepts and terminology（Amazon RDS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.howitworks.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、AWS Lambdaで動くアプリケーションから、Amazon RDS for MySQLに接続しています。アクセスが急増するとLambda関数が大量に同時実行され、データベースの接続数が上限に達してエラーが起きます。最も適切な対策はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon RDS Proxyを使う",
+        "correct": true,
+        "explanation": "RDS Proxyは、データベースの接続をプールして共有します。サーバーレスのアプリケーションが、接続を再利用することで効率よくスケールできるようにします。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon RDSのバックアップの保持期間を延ばす",
+        "correct": false,
+        "explanation": "バックアップの保持期間は、データの保護に関する設定です。接続数の問題とは関係がありません。",
+        "eliminatedBy": "データベースの接続数が上限に達して"
+      },
+      {
+        "id": "c",
+        "text": "Lambda関数をAmazon EC2に移し、インスタンスを1台だけ使う",
+        "correct": false,
+        "explanation": "1台のEC2に移すと、アクセスの急増に対応できなくなります。接続を共有する仕組みを入れるほうが適切です。",
+        "eliminatedBy": "アクセスが急増すると"
+      },
+      {
+        "id": "d",
+        "text": "Amazon S3のバージョニングを有効にする",
+        "correct": false,
+        "explanation": "S3のバージョニングは、オブジェクトの以前の状態を残す機能です。データベースの接続とは関係がありません。",
+        "eliminatedBy": "データベースの接続数"
+      }
+    ],
+    "keywords": [
+      "AWS Lambda",
+      "データベースの接続数が上限に達して"
+    ],
+    "decisionPoint": "Lambdaなどからの大量の接続＝RDS Proxyで接続をプールする。",
+    "serviceIds": [
+      "amazon-rds-proxy"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-database"
+      },
+      {
+        "type": "service",
+        "id": "amazon-rds-proxy"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-pd-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "DynamoDB on-demand and provisioned capacity（AWS Well-Architected サーバーレスアプリケーションレンズ）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/capacity.html"
+      },
+      {
+        "title": "Evaluate your table capacity mode（Amazon DynamoDB デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/CostOptimization_TableCapacityMode.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、新しいサービスのデータをAmazon DynamoDBに保存します。利用者の数がまったく予測できず、アクセスが急に増えたり、ほとんどなくなったりする可能性があります。キャパシティの計画をせずに、リクエストの分だけ支払いたいと考えています。最も適切なキャパシティモードはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "オンデマンド",
+        "correct": true,
+        "explanation": "オンデマンドのキャパシティモードでは、テーブルに対して行った読み書きのリクエストごとに支払います。使った分だけ支払うため、利用の量が読めない場合に向いています。"
+      },
+      {
+        "id": "b",
+        "text": "プロビジョンド（Auto Scalingなし）",
+        "correct": false,
+        "explanation": "プロビジョンドは、テーブルが使える読み書きのキャパシティをあらかじめ定義する方式です。キャパシティの計画をしたくない、という要件に合いません。",
+        "eliminatedBy": "キャパシティの計画をせずに"
+      },
+      {
+        "id": "c",
+        "text": "プロビジョンド（リザーブドキャパシティつき）",
+        "correct": false,
+        "explanation": "キャパシティを予約する方式は、利用の量が安定して予測できる場合に向きます。利用者の数がまったく予測できない場合には合いません。",
+        "eliminatedBy": "利用者の数がまったく予測できず"
+      },
+      {
+        "id": "d",
+        "text": "DynamoDBにはキャパシティモードがなく、常に同じ方式で課金される",
+        "correct": false,
+        "explanation": "DynamoDBには、オンデマンドとプロビジョンドの2つのキャパシティモードがあります。",
+        "eliminatedBy": "最も適切なキャパシティモード"
+      }
+    ],
+    "keywords": [
+      "まったく予測できず",
+      "リクエストの分だけ支払いたい"
+    ],
+    "decisionPoint": "予測できない＝オンデマンド。安定して予測できる＝プロビジョンド（＋Auto Scaling）。",
+    "serviceIds": [
+      "amazon-dynamodb"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-database"
+      },
+      {
+        "type": "service",
+        "id": "amazon-dynamodb"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-pd-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、各システムから集めた数年分・ペタバイト規模のデータに対して、標準的なSQLと既存のBIツールを使い、複雑な分析クエリを実行したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Redshift",
+        "correct": true,
+        "explanation": "Redshiftはクラウドのデータウェアハウスです。標準的なSQLと既存のBIツールを使って、テラバイトからペタバイトのデータに複雑な分析クエリを実行できます。"
+      },
+      {
+        "id": "b",
+        "text": "Amazon RDS",
+        "correct": false,
+        "explanation": "RDSは、日々の取引を処理するリレーショナルデータベースのサービスです。ペタバイト規模のデータへの複雑な分析には、データウェアハウスであるRedshiftが合います。",
+        "eliminatedBy": "ペタバイト規模のデータに対して"
+      },
+      {
+        "id": "c",
+        "text": "Amazon ElastiCache",
+        "correct": false,
+        "explanation": "ElastiCacheはインメモリのキャッシュです。大量のデータへの分析クエリを実行するものではありません。",
+        "eliminatedBy": "複雑な分析クエリを実行"
+      },
+      {
+        "id": "d",
+        "text": "Amazon DynamoDB",
+        "correct": false,
+        "explanation": "DynamoDBは、キーを指定した高速な読み書きに向いたNoSQLデータベースです。SQLとBIツールでの複雑な分析のためのデータウェアハウスではありません。",
+        "eliminatedBy": "標準的なSQLと既存のBIツールを使い、複雑な分析クエリ"
+      }
+    ],
+    "keywords": [
+      "ペタバイト規模",
+      "複雑な分析クエリ"
+    ],
+    "decisionPoint": "大量データの分析（データウェアハウス）＝Redshift。",
+    "serviceIds": [
+      "amazon-redshift"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-database"
+      },
+      {
+        "type": "service",
+        "id": "amazon-redshift"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-pd-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is the AWS Schema Conversion Tool?（AWS SCT ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "advanced",
+    "stem": "ある企業は、オンプレミスのOracleデータベースを、Amazon Aurora PostgreSQLへ移行します。移行元と移行先でデータベースエンジンが異なるため、スキーマを変換する必要があります。移行中も移行元は稼働させ続けたいと考えています。最も適切な組み合わせはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Schema Conversion Tool（AWS SCT）でスキーマを変換し、AWS DMSでデータを移行する",
+        "correct": true,
+        "explanation": "エンジンが異なる移行では、AWS SCTで既存のスキーマを別のエンジン向けに変換します。データの移行にはAWS DMSを使い、移行中も移行元のデータベースは稼働し続けます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS DataSyncだけを使う",
+        "correct": false,
+        "explanation": "DataSyncは、ストレージの間でファイルなどのデータを移動するサービスです。データベースのスキーマを変換したり、データベースを移行したりするものではありません。",
+        "eliminatedBy": "スキーマを変換する必要があります"
+      },
+      {
+        "id": "c",
+        "text": "AWS DMSだけを使い、スキーマの変換は行わない",
+        "correct": false,
+        "explanation": "エンジンが異なるため、スキーマの変換が必要です。その役割を担うのがAWS SCTです。",
+        "eliminatedBy": "データベースエンジンが異なるため、スキーマを変換する必要"
+      },
+      {
+        "id": "d",
+        "text": "AWS Transfer Familyでデータベースのファイルを転送する",
+        "correct": false,
+        "explanation": "Transfer Familyは、SFTPなどによるファイル転送のサービスです。稼働中のデータベースを別のエンジンへ移行するものではありません。",
+        "eliminatedBy": "移行中も移行元は稼働させ続けたい"
+      }
+    ],
+    "keywords": [
+      "データベースエンジンが異なる",
+      "スキーマを変換",
+      "移行元は稼働させ続けたい"
+    ],
+    "decisionPoint": "エンジンが異なる（異種間の）移行＝SCTでスキーマ変換＋DMSでデータ移行。",
+    "serviceIds": [
+      "aws-dms"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-database"
+      },
+      {
+        "type": "service",
+        "id": "aws-dms"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-s3c-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-1",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、法令により7年間の保管が義務付けられている記録を、Amazon S3に保存します。この記録を取り出すことはほとんどなく、取り出すときに数時間かかっても問題ありません。保管の費用を最も低くしたい場合、最も適切なストレージクラスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "S3 Glacier Deep Archive",
+        "correct": true,
+        "explanation": "Glacier Deep Archiveは、長期のアーカイブ向けで、取り出しに数時間かかる代わりに、クラウドで最も低コストのストレージです。"
+      },
+      {
+        "id": "b",
+        "text": "S3 Standard",
+        "correct": false,
+        "explanation": "S3 Standardは、頻繁にアクセスするデータ向けです。ほとんど取り出さない記録を置くには費用が高くなります。",
+        "eliminatedBy": "取り出すことはほとんどなく"
+      },
+      {
+        "id": "c",
+        "text": "S3 Glacier Instant Retrieval",
+        "correct": false,
+        "explanation": "Glacier Instant Retrievalは、すぐにアクセスする必要があるアーカイブ向けです。数時間かかってもよいなら、より低コストのDeep Archiveを選べます。",
+        "eliminatedBy": "取り出すときに数時間かかっても問題ありません"
+      },
+      {
+        "id": "d",
+        "text": "S3 Intelligent-Tiering",
+        "correct": false,
+        "explanation": "Intelligent-Tieringは、アクセスのパターンがわからないデータ向けです。ほとんど取り出さないことがわかっている長期保管には、Deep Archiveが最も低コストです。",
+        "eliminatedBy": "保管の費用を最も低くしたい"
+      }
+    ],
+    "keywords": [
+      "7年間の保管",
+      "数時間かかっても問題ありません",
+      "費用を最も低く"
+    ],
+    "decisionPoint": "長期保管＋数時間待てる＋最安＝Glacier Deep Archive。",
+    "serviceIds": [
+      "amazon-s3"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "s3-storage-classes"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-perf-storage"
+      }
+    ],
+    "variationGroupId": "s3-storage-classes-select"
+  },
+  {
+    "id": "saa-q-s3c-train-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-1",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、利用者がアップロードした画像をAmazon S3に保存しています。画像によって、頻繁に見られるものと、まったく見られなくなるものがあり、アクセスのパターンは予測できません。運用の手間をかけずに、保存の費用を自動的に抑えたい場合、最も適切なストレージクラスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "S3 Intelligent-Tiering",
+        "correct": true,
+        "explanation": "Intelligent-Tieringは、アクセスのパターンがわからない、または変化するデータについて、自動的にコストを節約します。"
+      },
+      {
+        "id": "b",
+        "text": "S3 Standard",
+        "correct": false,
+        "explanation": "S3 Standardは、頻繁にアクセスするデータ向けです。見られなくなった画像も同じクラスに置き続けることになり、費用を抑えられません。",
+        "eliminatedBy": "まったく見られなくなるもの"
+      },
+      {
+        "id": "c",
+        "text": "S3 Glacier Deep Archive",
+        "correct": false,
+        "explanation": "Deep Archiveは、取り出しに数時間かかります。頻繁に見られる画像もあるため、すぐに表示できなくなります。",
+        "eliminatedBy": "頻繁に見られるもの"
+      },
+      {
+        "id": "d",
+        "text": "S3 One Zone-IA",
+        "correct": false,
+        "explanation": "One Zone-IAは、アクセスの頻度が低いデータ向けです。頻繁に見られる画像もあり、アクセスのパターンが予測できない場合には合いません。",
+        "eliminatedBy": "アクセスのパターンは予測できません"
+      }
+    ],
+    "keywords": [
+      "アクセスのパターンは予測できません",
+      "自動的に抑えたい"
+    ],
+    "decisionPoint": "アクセスが予測できない＋自動で節約＝Intelligent-Tiering。",
+    "serviceIds": [
+      "amazon-s3"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "s3-storage-classes"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-perf-storage"
+      }
+    ],
+    "variationGroupId": "s3-storage-classes-select"
+  },
+  {
+    "id": "saa-q-s3c-train-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-1",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある病院は、過去の検査画像をアーカイブとしてAmazon S3に保存します。参照されることはまれですが、医師が必要としたときには、すぐに表示できなければなりません。最も適切なストレージクラスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "S3 Glacier Instant Retrieval",
+        "correct": true,
+        "explanation": "Glacier Instant Retrievalは、すぐにアクセスする必要があるアーカイブデータ向けのストレージクラスです。"
+      },
+      {
+        "id": "b",
+        "text": "S3 Glacier Deep Archive",
+        "correct": false,
+        "explanation": "Deep Archiveは、取り出しに数時間かかります。すぐに表示できなければならない、という要件に合いません。",
+        "eliminatedBy": "すぐに表示できなければなりません"
+      },
+      {
+        "id": "c",
+        "text": "S3 Glacier Flexible Retrieval",
+        "correct": false,
+        "explanation": "Glacier Flexible Retrievalは、すぐにアクセスする必要のないデータ向けです。すぐに表示する必要がある場合には合いません。",
+        "eliminatedBy": "すぐに表示できなければなりません"
+      },
+      {
+        "id": "d",
+        "text": "S3 Standard",
+        "correct": false,
+        "explanation": "S3 Standardはすぐに取り出せますが、頻繁にアクセスするデータ向けです。まれにしか参照しないアーカイブには、アーカイブ向けのクラスが合います。",
+        "eliminatedBy": "参照されることはまれ"
+      }
+    ],
+    "keywords": [
+      "アーカイブ",
+      "参照されることはまれ",
+      "すぐに表示"
+    ],
+    "decisionPoint": "アーカイブ＋すぐ取り出す＝Glacier Instant Retrieval。",
+    "serviceIds": [
+      "amazon-s3"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "s3-storage-classes"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-perf-storage"
+      }
+    ],
+    "variationGroupId": "s3-storage-classes-select"
+  },
+  {
+    "id": "saa-q-ebs-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EBS volume types（AWS公式）",
+        "url": "https://aws.amazon.com/ebs/volume-types/"
+      },
+      {
+        "title": "Amazon EBS volume types（Amazon EBS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-1",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Amazon EC2で、大量のログを連続して読み書きするログ処理のシステムを動かします。データへのアクセスは頻繁で、IOPSよりもスループットが重要です。SSDより低いコストにしたい場合、最も適切なAmazon EBSのボリュームタイプはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "スループット最適化HDD（st1）",
+        "correct": true,
+        "explanation": "st1は、頻繁にアクセスする、スループットが重要なワークロード向けの低コストのHDDです。ビッグデータ、データウェアハウス、ログ処理に向いています。"
+      },
+      {
+        "id": "b",
+        "text": "プロビジョンドIOPS SSD（io2 Block Express）",
+        "correct": false,
+        "explanation": "io2 Block Expressは、極めて高いIOPSが必要なデータベース向けの、最も高性能なSSDです。SSDより低いコストにしたい、という要件に合いません。",
+        "eliminatedBy": "SSDより低いコストにしたい"
+      },
+      {
+        "id": "c",
+        "text": "コールドHDD（sc1）",
+        "correct": false,
+        "explanation": "sc1は、アクセスの頻度が低いデータ向けです。問題文では、データへのアクセスは頻繁です。",
+        "eliminatedBy": "データへのアクセスは頻繁"
+      },
+      {
+        "id": "d",
+        "text": "汎用SSD（gp3）",
+        "correct": false,
+        "explanation": "gp3はSSDです。SSDより低いコストにしたい、という要件に合いません。",
+        "eliminatedBy": "SSDより低いコストにしたい"
+      }
+    ],
+    "keywords": [
+      "ログ処理",
+      "アクセスは頻繁",
+      "スループットが重要",
+      "SSDより低いコスト"
+    ],
+    "decisionPoint": "頻繁＋スループット重視＋低コスト＝st1。頻度が低いならsc1。",
+    "serviceIds": [
+      "amazon-ebs"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "ebs-volume-types"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-perf-storage"
+      }
+    ],
+    "variationGroupId": "ebs-volume-types-select"
+  },
+  {
+    "id": "saa-q-ebs-train-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EBS volume types（Amazon EBS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html"
+      },
+      {
+        "title": "Amazon EBS volume types（AWS公式）",
+        "url": "https://aws.amazon.com/ebs/volume-types/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-1",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるエンジニアが、費用を抑えるために、EC2インスタンスのブートボリューム（OSを起動するためのボリューム）にコールドHDD（sc1）を使おうとしています。この考えに対する説明として正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "HDDのボリューム（st1、sc1）はブートボリュームに使えないため、汎用SSD（gp3）などを使う",
+        "correct": true,
+        "explanation": "HDDのボリュームタイプは、ブートボリュームに対応していません。gp3は、ブートボリュームを用途の1つとする汎用のSSDです。"
+      },
+      {
+        "id": "b",
+        "text": "正しい。sc1はブートボリュームに最適なボリュームタイプである",
+        "correct": false,
+        "explanation": "sc1はブートボリュームに使えません。アクセスの頻度が低い大きなデータ向けのボリュームです。",
+        "eliminatedBy": "ブートボリューム（OSを起動するためのボリューム）にコールドHDD（sc1）を"
+      },
+      {
+        "id": "c",
+        "text": "ブートボリュームに使えるのは、インスタンスストアだけである",
+        "correct": false,
+        "explanation": "SSDのEBSボリューム（gp3など）は、ブートボリュームに使えます。インスタンスストアだけではありません。",
+        "eliminatedBy": "ブートボリューム"
+      },
+      {
+        "id": "d",
+        "text": "ブートボリュームには、スループット最適化HDD（st1）を使う必要がある",
+        "correct": false,
+        "explanation": "st1もHDDのボリュームであり、ブートボリュームには使えません。",
+        "eliminatedBy": "費用を抑えるために"
+      }
+    ],
+    "keywords": [
+      "ブートボリューム",
+      "コールドHDD（sc1）"
+    ],
+    "decisionPoint": "HDD（st1・sc1）はブートボリューム不可。ブートにはSSD。",
+    "serviceIds": [
+      "amazon-ebs"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "ebs-volume-types"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-perf-storage"
+      }
+    ],
+    "variationGroupId": "ebs-volume-types-select"
+  }
+]

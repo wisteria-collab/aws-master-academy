@@ -1,0 +1,75 @@
+{
+  "id": "amazon-redshift",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "Amazon Redshift",
+  "aliases": [
+    "Redshift",
+    "レッドシフト"
+  ],
+  "category": "analytics",
+  "summary": "標準的なSQLと既存のBIツールで、大量のデータを分析できるクラウドのデータウェアハウス。",
+  "beginner": {
+    "analogy": "過去の伝票をすべて集めた「分析専用の資料室」です。日々の取引をさばくレジとは別に、じっくり集計するための場所です。",
+    "description": "大量のデータを集めて、複雑な集計や分析をするための、分析専用のデータベースです。"
+  },
+  "exam": {
+    "description": "クラウドのデータウェアハウスです。標準的なSQLと既存のビジネスインテリジェンス（BI）のツールを使って、すべてのデータを高速に、簡単に、コスト効率よく分析できます。テラバイトからペタバイトの構造化・半構造化データに対して、複雑な分析クエリを実行できます。Amazon Redshift Serverlessでは、データウェアハウスのインフラストラクチャを管理せずに分析を実行・拡張でき、使った分だけ支払います。",
+    "points": [
+      "データウェアハウス（大量データの複雑な分析）＝Amazon Redshift。",
+      "日々の取引の処理（トランザクション）はAmazon RDSやAmazon Aurora。",
+      "S3のデータにそのままSQLを実行するだけならAmazon Athena。"
+    ]
+  },
+  "useCases": [
+    "数年分の業務データを集めた分析基盤"
+  ],
+  "mechanism": "分析したいデータをRedshiftに集め、SQLで分析します。",
+  "pros": [
+    "大量のデータへの複雑な分析に向く",
+    "既存のBIツールを使える"
+  ],
+  "cons": [
+    "日々の取引を処理するデータベースとしては使わない"
+  ],
+  "scenes": [
+    "各システムのデータを集めて、経営向けの分析レポートを作る"
+  ],
+  "similarServiceIds": [
+    "amazon-athena",
+    "amazon-rds"
+  ],
+  "relatedServiceIds": [
+    "amazon-quick",
+    "aws-glue",
+    "amazon-s3"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/redshift/"
+}

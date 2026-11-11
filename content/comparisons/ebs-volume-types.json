@@ -1,0 +1,156 @@
+{
+  "id": "ebs-volume-types",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Amazon EBS volume types（AWS公式）",
+      "url": "https://aws.amazon.com/ebs/volume-types/"
+    },
+    {
+      "title": "Amazon EBS volume types（Amazon EBS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "Amazon EBSのボリュームタイプ：gp3・io2 Block Express・st1・sc1",
+  "category": "storage",
+  "summary": "EBSのボリュームは、SSDとHDDの2つに大きく分かれます。SSDは、データベースのような「小さな読み書きを数多く行う」処理向け、HDDは、ログ処理のような「大きなデータを連続して読み書きする」処理向けです。必要な性能と費用のバランスで選びます。",
+  "items": [
+    {
+      "key": "gp3",
+      "label": "汎用SSD（gp3）",
+      "oneLine": "たいていの用途に合う標準のSSD",
+      "values": {
+        "role": "価格と性能のバランスを取った、汎用のSSD",
+        "mechanism": "SSDに保存する",
+        "data": "ブロックストレージ",
+        "useCases": "仮想デスクトップ、中規模の単一インスタンスのデータベース、低遅延の対話型アプリ、開発・テスト、ブートボリューム",
+        "availability": "ボリュームは、アベイラビリティゾーンの中で自動的に複製される",
+        "performance": "価格と性能のバランスがよい",
+        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "io2 Block Expressより低コスト",
+        "operations": "この教材の出典には記載がないため、公式ドキュメントで確認する（ブートボリュームに使える）",
+        "limits": "これ以上のIOPSが必要な場合はio2 Block Expressが推奨される",
+        "chooseWhen": "特別な要件がない多くのワークロード",
+        "avoidWhen": "極めて高いIOPSと低い遅延が必要なとき"
+      },
+      "serviceId": "amazon-ebs"
+    },
+    {
+      "key": "io2",
+      "label": "プロビジョンドIOPS SSD（io2 Block Express）",
+      "oneLine": "最も速い、要求の厳しいデータベース向けのSSD",
+      "values": {
+        "role": "EBSの中で最も高い性能を提供する",
+        "mechanism": "SSDに保存する。IOPSを指定して確保する",
+        "data": "ブロックストレージ",
+        "useCases": "SAP HANA、Microsoft SQL Server、IBM DB2など、最も要求の厳しいトランザクション処理のアプリケーション",
+        "availability": "耐久性は99.999%",
+        "performance": "最大256,000 IOPS、1ミリ秒未満の遅延",
+        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "性能が高い分、汎用SSDより費用がかかる",
+        "operations": "Multi-Attachに対応する",
+        "limits": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "chooseWhen": "極めて高いIOPSと、低い遅延が必要なデータベース",
+        "avoidWhen": "そこまでの性能が必要ないとき（その場合はgp3）"
+      },
+      "serviceId": "amazon-ebs"
+    },
+    {
+      "key": "st1",
+      "label": "スループット最適化HDD（st1）",
+      "oneLine": "大量のデータを流すための安いHDD",
+      "values": {
+        "role": "頻繁にアクセスする、スループットが重要なワークロード向けの低コストのHDD",
+        "mechanism": "HDDに保存する",
+        "data": "ブロックストレージ",
+        "useCases": "ビッグデータ、データウェアハウス、ログ処理",
+        "availability": "ボリュームは、アベイラビリティゾーンの中で自動的に複製される",
+        "performance": "スループット（まとめて流せる量）を重視する",
+        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "SSDより低コスト",
+        "operations": "ブートボリュームには使えない",
+        "limits": "ブートボリュームには使えない。小さな読み書きを数多く行う処理には向かない",
+        "chooseWhen": "大きなデータを連続して読み書きする処理",
+        "avoidWhen": "データベースのように、高いIOPSが必要なとき"
+      },
+      "serviceId": "amazon-ebs"
+    },
+    {
+      "key": "sc1",
+      "label": "コールドHDD（sc1）",
+      "oneLine": "あまり使わないデータ用の一番安いHDD",
+      "values": {
+        "role": "アクセスの頻度が低いワークロード向けの、最も低コストのHDD",
+        "mechanism": "HDDに保存する",
+        "data": "ブロックストレージ",
+        "useCases": "アクセスの頻度が低い、大きなデータ",
+        "availability": "ボリュームは、アベイラビリティゾーンの中で自動的に複製される",
+        "performance": "性能より費用を重視する",
+        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "EBSのボリュームタイプの中で、GBあたりの費用が最も低い",
+        "operations": "ブートボリュームには使えない",
+        "limits": "ブートボリュームには使えない",
+        "chooseWhen": "あまりアクセスしない大きなデータを、できるだけ安くEBSに置きたいとき",
+        "avoidWhen": "頻繁にアクセスするデータ、性能が必要なとき"
+      },
+      "serviceId": "amazon-ebs"
+    }
+  ],
+  "figureIds": [],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "大きなデータを連続して読み書きする処理（ログ処理やビッグデータなど）ですか？",
+      "yes": "n2",
+      "no": "n3"
+    },
+    {
+      "id": "n2",
+      "question": "データへのアクセスは頻繁ですか？",
+      "yes": "r-st1",
+      "no": "r-sc1"
+    },
+    {
+      "id": "n3",
+      "question": "極めて高いIOPSと、1ミリ秒未満の遅延が必要ですか？",
+      "yes": "r-io2",
+      "no": "r-gp3"
+    },
+    {
+      "id": "r-st1",
+      "resultItemKey": "st1",
+      "note": "スループット重視の低コストのHDDです。ブートボリュームには使えません。"
+    },
+    {
+      "id": "r-sc1",
+      "resultItemKey": "sc1",
+      "note": "最も低コストです。ブートボリュームには使えません。"
+    },
+    {
+      "id": "r-io2",
+      "resultItemKey": "io2",
+      "note": "EBSで最も高い性能です。"
+    },
+    {
+      "id": "r-gp3",
+      "resultItemKey": "gp3",
+      "note": "価格と性能のバランスがよく、ブートボリュームにも使えます。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "saa-q-ps-04",
+    "saa-q-ebs-train-01",
+    "saa-q-ebs-train-02"
+  ]
+}

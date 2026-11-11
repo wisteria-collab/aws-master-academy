@@ -1,0 +1,77 @@
+{
+  "id": "saa-perf-compute",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 7,
+  "title": "高パフォーマンスで弾力性のあるコンピューティングの設計",
+  "domainId": "saa-d3",
+  "taskIds": [
+    "saa-3-2"
+  ],
+  "overview": "2つ目のタスクはコンピューティングです。CLFでは、EC2、Lambda、コンテナの各サービスの役割と、インスタンスタイプの種類を学びました。SAAでは、要件から「どのサービスを、どの大きさで、どうスケールさせるか」を判断します。\n試験ガイドでは、コンピューティングサービスとその使いどころ（AWS Batch、Amazon EMR、AWS Fargate）、スケーラビリティの機能（Amazon EC2 Auto Scaling、AWS Auto Scaling）、サーバーレス、コンテナのオーケストレーション、そして、部品を疎結合にして独立にスケールさせることが挙げられています。",
+  "beginner": {
+    "analogy": "厨房にたとえます。インスタンスタイプは「料理人の得意分野」です。計算が得意な人、たくさんの材料を一度に広げられる人（メモリ）、というように、仕事に合った人を選びます。Auto Scalingは、お客さんの数に合わせて料理人の「人数」を増減する仕組みです。お客さんが来てから増やすのが動的スケーリング、「月曜の朝は混む」と予測して先に増やすのが予測スケーリングです。",
+    "description": "性能を出す方法は3つあります。仕事に合った種類のサーバーを選ぶこと、混み具合に合わせて台数を変えること、そして、混んでいる部分だけを増やせるように部品を分けておくことです。"
+  },
+  "useCases": [
+    "計算量の多い処理に、合ったインスタンスタイプを選ぶ",
+    "アクセスの増減に合わせて、台数を自動で変える",
+    "大量のバッチ計算のジョブを実行する",
+    "既存のSparkの処理を、AWSで動かす"
+  ],
+  "mechanism": {
+    "text": "【インスタンスタイプを選ぶ】\nEC2のインスタンスタイプは、用途別に最適化されています。汎用、コンピューティング最適化、メモリ最適化、ストレージ最適化、高速コンピューティングの中から、ワークロードの性質に合うものを選びます。\n【スケーリング】\nAmazon EC2 Auto Scalingは、定義した条件に従って、EC2インスタンスを自動的に追加・削除します。\n・動的スケーリング：需要の変化に反応して増減します。\n・予測スケーリング：予測された需要に基づいて、適切な数のインスタンスを自動的にスケジュールします。\n2つを併用すると、より速くスケールできます。\nAWS Auto Scalingは、アプリケーションを監視し、複数のサービスにまたがる複数のリソースのキャパシティを自動的に調整します。\n【独立にスケールさせる】\n層と層の間にキュー（Amazon SQS）を置いて疎結合にすると、それぞれの層を独立にスケールさせられます。\n【用途に合ったコンピューティング】\n・AWS Lambda：サーバーを管理せずにコードを実行します。実行した時間の分だけ支払います。\n・AWS Fargate：サーバーを管理せずにコンテナを実行します。\n・Amazon ECS、Amazon EKS：コンテナのオーケストレーションを行います。\n・AWS Batch：数十万件のバッチ計算のジョブを実行します。ジョブに合わせて、最適な量と種類のリソースを動的に用意します。\n・Amazon EMR：Apache Sparkなどのオープンソースのツールで、ビッグデータを処理します。\n【エッジ】\nAmazon CloudFrontは、コンテンツを利用者に近いエッジロケーションから配信します。\n【この教材でまだ扱っていない項目】\n試験ガイドには、Lambdaのメモリの選択も挙げられています。公式情報の確認ができしだい追加します。",
+    "figureId": "compute-options"
+  },
+  "relatedServiceIds": [
+    "amazon-ec2",
+    "amazon-ec2-auto-scaling",
+    "aws-lambda",
+    "aws-fargate",
+    "amazon-ecs",
+    "amazon-eks",
+    "aws-batch",
+    "amazon-emr",
+    "amazon-sqs"
+  ],
+  "examPoints": [
+    "ワークロードの性質に合うインスタンスタイプを選ぶ（計算が多い＝コンピューティング最適化、メモリを多く使う＝メモリ最適化）。",
+    "需要の変化に反応＝動的スケーリング。予測して先に用意＝予測スケーリング。併用できる。",
+    "層の間にキューを置くと、各層を独立にスケールさせられる。",
+    "大量のバッチ計算のジョブ＝AWS Batch。Spark・Hadoopなどのビッグデータ処理＝Amazon EMR。",
+    "サーバーを管理しない：コードならLambda、コンテナならFargate。",
+    "複数のサービスのリソースをまとめて自動調整＝AWS Auto Scaling。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-pc-01",
+    "saa-q-pc-02",
+    "saa-q-pc-03",
+    "saa-q-pc-04"
+  ],
+  "glossaryTermIds": [
+    "instance",
+    "horizontal-scaling",
+    "elasticity",
+    "serverless",
+    "container",
+    "decoupling"
+  ],
+  "uncertainNote": "試験ガイドに挙げられているLambdaのメモリの選択は、公式情報での確認がまだのため、このレッスンでは扱っていません。"
+}

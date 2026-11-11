@@ -8,10 +8,7 @@ import { useStore } from '../hooks/useStore'
 import { accuracy, formatRate, latestAttempts } from '../logic/stats'
 
 /** 比較グループの公開予定（Phase 4 で順に追加する） */
-const planned = [
-  'S3ストレージクラス',
-  'ネットワークの接続（VPCピアリング・Transit Gateway・VPN・Direct Connect）ほか',
-]
+const planned: string[] = []
 
 export function Compare() {
   const attempts = useStore('attempts')
@@ -45,15 +42,17 @@ export function Compare() {
         })}
       </ul>
 
-      <Card>
-        <h2 className="text-lg font-bold">今後追加する比較グループ</h2>
-        <p className="mt-1 text-base leading-relaxed text-navy-700">AWS公式情報と照合できたものから公開します（Phase 4）。</p>
-        <ul className="mt-2 list-disc pl-5 text-base leading-relaxed">
-          {planned.map((p) => (
-            <li key={p}>{p}</li>
-          ))}
-        </ul>
-      </Card>
+      {planned.length > 0 && (
+        <Card>
+          <h2 className="text-lg font-bold">今後追加する比較グループ</h2>
+          <p className="mt-1 text-base leading-relaxed text-navy-700">AWS公式情報と照合できたものから公開します（Phase 4）。</p>
+          <ul className="mt-2 list-disc pl-5 text-base leading-relaxed">
+            {planned.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
+        </Card>
+      )}
     </div>
   )
 }

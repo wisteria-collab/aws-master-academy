@@ -1,0 +1,106 @@
+{
+  "id": "saa-perf-database",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Amazon RDS Read Replicas（AWS公式）",
+      "url": "https://aws.amazon.com/rds/features/read-replicas/"
+    },
+    {
+      "title": "Amazon RDS Proxy FAQs（AWS公式）",
+      "url": "https://aws.amazon.com/rds/proxy/faqs/"
+    },
+    {
+      "title": "RDS Proxy concepts and terminology（Amazon RDS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.howitworks.html"
+    },
+    {
+      "title": "DynamoDB on-demand and provisioned capacity（AWS Well-Architected サーバーレスアプリケーションレンズ）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/capacity.html"
+    },
+    {
+      "title": "Evaluate your table capacity mode（Amazon DynamoDB デベロッパーガイド）",
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/CostOptimization_TableCapacityMode.html"
+    },
+    {
+      "title": "What is the AWS Schema Conversion Tool?（AWS SCT ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Amazon DynamoDB Features（AWS公式）",
+      "url": "https://www.amazonaws.cn/en/dynamodb/features"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 8,
+  "title": "高パフォーマンスなデータベースの選択",
+  "domainId": "saa-d3",
+  "taskIds": [
+    "saa-3-3"
+  ],
+  "overview": "3つ目のタスクはデータベースです。CLFでは、リレーショナル（RDS、Aurora）、NoSQL（DynamoDB）、インメモリ（ElastiCache）の違いを学びました。SAAでは、データの読み書きの傾向から、種類、エンジン、キャパシティ、キャッシュ、レプリカをどう組み合わせるかを判断します。\n試験ガイドでは、データへのアクセスのパターン（読み取りが多いか、書き込みが多いか）、キャパシティの計画（キャパシティユニット、インスタンスタイプ、プロビジョンドIOPS）、データベースの接続とプロキシ、エンジンと移行（同種間・異種間）、レプリケーション（リードレプリカ）、データベースの種類（サーバーレス、リレーショナルと非リレーショナル、インメモリ）、キャッシュ戦略が挙げられています。",
+  "beginner": {
+    "analogy": "図書館にたとえます。読む人が多すぎるなら、本の「写し」を増やす（リードレプリカ）か、人気の本を受付の手元に置く（キャッシュ）のが効きます。窓口に人が殺到するなら、受付係が整理して案内します（RDS Proxy）。そもそも、物語の本と辞書では棚の作りが違うように、データの形に合った種類のデータベースを選ぶことが出発点です。",
+    "description": "データベースが遅いとき、原因はたいてい「読む量が多い」「書く量が多い」「接続が多い」「種類が合っていない」のどれかです。原因によって、打つ手が違います。"
+  },
+  "useCases": [
+    "読み取りの多いデータベースを速くする",
+    "Lambdaからの大量の接続に耐えられるようにする",
+    "利用の量が読めないサービスのデータベースを選ぶ",
+    "エンジンの異なるデータベースへ移行する"
+  ],
+  "mechanism": {
+    "text": "【データベースの種類を選ぶ】\n・リレーショナル（Amazon RDS、Amazon Aurora）：従来型の業務アプリケーション、ERP、CRM、eコマース。\n・キーバリュー（Amazon DynamoDB）：アクセスの多いウェブアプリ、eコマース、ゲーム。\n・インメモリ（Amazon ElastiCache、Amazon MemoryDB）：キャッシュ、セッション管理、ゲームのランキング。\n・データウェアハウス（Amazon Redshift）：大量のデータへの複雑な分析。\nほかにも、ドキュメント（Amazon DocumentDB）、グラフ（Amazon Neptune）、時系列（Amazon Timestream）、ワイドカラム（Amazon Keyspaces）のデータベースがあります。\n【読み取りが多いとき】\n・リードレプリカ：読み取りをスケーリングします。Auroraでは、低遅延のリードレプリカを最大15個まで使えます。\n・キャッシュ：Amazon ElastiCacheで、よく読まれるデータをメモリから返します。DynamoDBには、インメモリキャッシュのDynamoDB Accelerator（DAX）があります。\n【キャパシティの計画】\n・Amazon RDS：メモリ、性能、I/Oに最適化されたインスタンスタイプから選びます。高いIOPSが必要なら、プロビジョンドIOPSのストレージを検討します。\n・Amazon DynamoDB：キャパシティモードが2つあります。オンデマンドは、読み書きのリクエストごとに支払います。プロビジョンドは、読み書きのキャパシティユニットをあらかじめ定義し、Auto Scalingで調整できます。\n【接続とプロキシ】\nAmazon RDS Proxyは、データベースの接続をプールして共有します。サーバーレスのアプリケーションからの大量の接続に対応でき、フェイルオーバーのときもアプリケーションの接続を保ちます。\n【エンジンと移行】\n同じエンジンどうしの移行（同種間）と、異なるエンジンへの移行（異種間）があります。異種間では、AWS Schema Conversion Tool（AWS SCT）でスキーマを変換し、AWS DMSでデータを移行します。AWS DMSでは、移行中も移行元は稼働し続けます。\n【サーバーレスのデータベース】\nAmazon DynamoDBは、サーバーの管理が不要です。Amazon Redshift Serverlessは、データウェアハウスのインフラストラクチャを管理せずに使えます。",
+    "figureId": "db-types"
+  },
+  "relatedServiceIds": [
+    "amazon-rds",
+    "amazon-aurora",
+    "amazon-dynamodb",
+    "amazon-elasticache",
+    "amazon-redshift",
+    "amazon-rds-proxy",
+    "aws-dms"
+  ],
+  "examPoints": [
+    "読み取りが多い＝リードレプリカ、またはキャッシュ（ElastiCache、DynamoDBならDAX）。",
+    "Lambdaなどからの大量の接続＝RDS Proxyで接続をプールする。",
+    "DynamoDBのキャパシティモード：予測できない＝オンデマンド。安定して予測できる＝プロビジョンド（＋Auto Scaling）。",
+    "大量データの複雑な分析＝Redshift（データウェアハウス）。日々の取引＝RDS・Aurora。",
+    "エンジンが異なる移行＝SCTでスキーマ変換＋DMSでデータ移行。",
+    "高いIOPSが必要なデータベース＝プロビジョンドIOPSのストレージ。",
+    "用途別：キャッシュ・セッション＝インメモリ、グラフ＝Neptune、時系列＝Timestream、ドキュメント＝DocumentDB。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-pd-01",
+    "saa-q-pd-02",
+    "saa-q-pd-03",
+    "saa-q-pd-04"
+  ],
+  "glossaryTermIds": [
+    "relational-database",
+    "nosql",
+    "in-memory",
+    "cache",
+    "replica",
+    "connection-pooling",
+    "capacity-mode",
+    "data-warehouse",
+    "iops"
+  ]
+}

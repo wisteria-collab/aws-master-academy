@@ -1,0 +1,77 @@
+{
+  "id": "aws-storage-gateway",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS Storage Gateway",
+  "aliases": [
+    "Storage Gateway",
+    "ストレージゲートウェイ"
+  ],
+  "category": "storage",
+  "summary": "オンプレミスのアプリケーションから、AWSのクラウドストレージをそのまま使えるようにするハイブリッドストレージのサービス。",
+  "beginner": {
+    "analogy": "社内の棚の奥が、そのままAWSの巨大な倉庫につながっている「どこでもドア付きの棚」です。使う人は、いつもの棚として使えます。",
+    "description": "社内のシステムから、いつものファイル共有やディスクと同じやり方で、AWSのストレージを使えるようにするサービスです。"
+  },
+  "exam": {
+    "description": "オンプレミスのアプリケーションが、AWSのクラウドストレージをシームレスに使えるようにするハイブリッドストレージのサービスです。バックアップとアーカイブ、災害対策、クラウドでのデータ処理、ストレージの階層化、移行に使えます。アプリケーションは、仮想マシンまたはハードウェアのゲートウェイアプライアンスを通じて、NFS、SMB、iSCSIといった標準のストレージプロトコルで接続します。よく使うデータは、ローカルのキャッシュから低遅延で読み出せます。",
+    "points": [
+      "オンプレミスからAWSのストレージを使うハイブリッドストレージ＝AWS Storage Gateway。",
+      "NFS・SMB・iSCSIの標準プロトコルで接続する。ファイル、ボリューム、仮想テープを扱う。",
+      "よく使うデータはローカルにキャッシュされる。",
+      "データを一度に移すならAWS DataSync、SFTPでの受け渡しならAWS Transfer Family。"
+    ]
+  },
+  "useCases": [
+    "オンプレミスのバックアップ先をAWSにする",
+    "社内のファイル共有の保存先をAmazon S3にする"
+  ],
+  "mechanism": "オンプレミスにゲートウェイを置き、標準のプロトコルで受け取ったデータをAWSのストレージに保存します。",
+  "pros": [
+    "アプリケーションを変更せずにAWSのストレージを使える",
+    "ローカルのキャッシュで低遅延"
+  ],
+  "cons": [
+    "オンプレミスにゲートウェイを置く必要がある"
+  ],
+  "scenes": [
+    "テープで取っていたバックアップを、運用を変えずにAWSへ保存する"
+  ],
+  "similarServiceIds": [
+    "aws-datasync",
+    "aws-transfer-family"
+  ],
+  "relatedServiceIds": [
+    "amazon-s3",
+    "amazon-ebs",
+    "amazon-fsx"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d3"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/storagegateway/"
+}

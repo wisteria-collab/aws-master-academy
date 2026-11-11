@@ -76,7 +76,8 @@
     "amazon-ec2"
   ],
   "comparisonGroupIds": [
-    "storage"
+    "storage",
+    "s3-storage-classes"
   ],
   "importance": {
     "clf": "high",
