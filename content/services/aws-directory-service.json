@@ -1,0 +1,72 @@
+{
+  "id": "aws-directory-service",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS Directory Service",
+  "aliases": [
+    "Directory Service",
+    "AWS Managed Microsoft AD",
+    "マネージドAD"
+  ],
+  "category": "security",
+  "summary": "マネージドなMicrosoft Active DirectoryをAWSクラウドで使えるサービス。",
+  "beginner": {
+    "analogy": "会社の「社員名簿と入館管理」を、AWSに預けて運用してもらうイメージです。",
+    "description": "Windowsの世界で広く使われている、ユーザー管理の仕組み（Active Directory）を、AWSが運用してくれるサービスです。"
+  },
+  "exam": {
+    "description": "AWS Directory Service for Microsoft Active Directory（AWS Managed Microsoft AD）は、ディレクトリを利用するワークロードやAWSリソースが、AWSクラウド上のマネージドなActive Directoryを使えるようにします。実際のMicrosoft Active Directoryをもとに構築されており、既存のActive Directoryのデータをクラウドに同期・複製する必要がありません。",
+    "points": [
+      "マネージドなMicrosoft Active Directory＝AWS Directory Service。",
+      "試験ガイドでは、ディレクトリサービスをIAMロールとフェデレーションする場面の判断が求められる。"
+    ]
+  },
+  "useCases": [
+    "Active Directoryを必要とするワークロードをAWSで動かす"
+  ],
+  "mechanism": "AWSが運用するActive Directoryを、ワークロードやAWSリソースから利用します。",
+  "pros": [
+    "Active Directoryの運用をAWSに任せられる"
+  ],
+  "cons": [
+    "アプリの利用者の会員登録・ログインが目的ならAmazon Cognito"
+  ],
+  "scenes": [
+    "Windowsのファイルサーバーをクラウドに移すにあたり、Active Directoryも必要になる"
+  ],
+  "similarServiceIds": [
+    "aws-iam-identity-center"
+  ],
+  "relatedServiceIds": [
+    "amazon-fsx",
+    "aws-iam-identity-center"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d1"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/directoryservice/"
+}

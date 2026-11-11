@@ -12,7 +12,7 @@ const planned = [
   'ネットワーク（ALB・NLB・GWLB・CloudFront・Route 53）',
   '可用性（Multi-AZ・Read Replica・バックアップ）',
   'S3ストレージクラス',
-  'セキュリティグループとネットワークACL ほか',
+  'ロードバランサーの種類 ほか',
 ]
 
 export function Compare() {

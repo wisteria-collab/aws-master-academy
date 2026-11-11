@@ -69,7 +69,10 @@
     "aws-direct-connect",
     "amazon-inspector"
   ],
-  "comparisonGroupIds": [],
+  "comparisonGroupIds": [
+    "sg-nacl",
+    "vpc-endpoints"
+  ],
   "importance": {
     "clf": "high",
     "saa": "high"

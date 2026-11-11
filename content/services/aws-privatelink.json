@@ -1,0 +1,87 @@
+{
+  "id": "aws-privatelink",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS PrivateLink",
+  "aliases": [
+    "PrivateLink",
+    "プライベートリンク",
+    "インターフェイスエンドポイント"
+  ],
+  "category": "networking",
+  "summary": "VPC、AWSのサービス、オンプレミスのアプリケーションの間を、パブリックなインターネットにさらさずにプライベートに接続するサービス。",
+  "beginner": {
+    "analogy": "建物どうしをつなぐ「屋内の連絡通路」です。外の道路（インターネット）に出ずに、目的の場所へ行けます。",
+    "description": "インターネットを通らずに、自分のVPCからAWSのサービスなどに接続できるようにする仕組みです。"
+  },
+  "exam": {
+    "description": "データをパブリックなインターネットにさらさないことで、クラウド上のアプリケーションと共有するデータのセキュリティを簡単にします。VPC、AWSのサービス、オンプレミスのアプリケーションの間に、Amazonのネットワーク上で安全なプライベート接続を提供します。インターネットゲートウェイを使わずに、AWSのサービスがVPCの中にあるかのように接続できます。",
+    "points": [
+      "インターネットを通らないプライベートな接続＝AWS PrivateLink。",
+      "インターネットゲートウェイやNATデバイスを使わずに、AWSのサービスに接続できる。",
+      "Amazon S3とDynamoDBには、PrivateLinkを使わない「ゲートウェイエンドポイント」もある（追加料金なし）。"
+    ]
+  },
+  "useCases": [
+    "プライベートサブネットから、AWSのサービスに安全に接続する"
+  ],
+  "mechanism": "VPCにエンドポイントを作成し、プライベートIPアドレスを使ってAWSのサービスに接続します。",
+  "pros": [
+    "通信がパブリックなインターネットにさらされない",
+    "インターネットゲートウェイが不要"
+  ],
+  "cons": [
+    "S3とDynamoDBだけなら、追加料金のないゲートウェイエンドポイントも選べる"
+  ],
+  "scenes": [
+    "インターネットへの経路を持たないサブネットから、AWSのサービスのAPIを呼び出す"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "amazon-vpc",
+    "amazon-s3",
+    "amazon-dynamodb"
+  ],
+  "comparisonGroupIds": [
+    "vpc-endpoints"
+  ],
+  "importance": {
+    "clf": "low",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d1"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/vpc/latest/privatelink/"
+}

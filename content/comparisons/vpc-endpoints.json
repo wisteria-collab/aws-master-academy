@@ -1,0 +1,133 @@
+{
+  "id": "vpc-endpoints",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+    },
+    {
+      "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "VPCからAWSサービスへの接続：ゲートウェイエンドポイント・インターフェイスエンドポイント・NATゲートウェイ",
+  "category": "networking",
+  "summary": "プライベートサブネットからAWSのサービスやインターネットに接続する方法は、3つあります。「接続先はどこか」「インターネットを通してよいか」で選びます。",
+  "items": [
+    {
+      "key": "gateway",
+      "label": "ゲートウェイエンドポイント",
+      "oneLine": "S3とDynamoDB専用の連絡通路（追加料金なし）",
+      "values": {
+        "role": "Amazon S3とDynamoDBへの接続を、インターネットゲートウェイやNATデバイスなしで提供する",
+        "mechanism": "ルートテーブルに、サービスあての通信をエンドポイントへ向ける経路を追加する",
+        "data": "VPCからサービスへの通信が、ゲートウェイエンドポイントに向けられる",
+        "useCases": "プライベートサブネットからS3やDynamoDBにアクセスする",
+        "availability": "信頼性の高い接続を提供する",
+        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "追加料金はかからない",
+        "operations": "ルートテーブルに経路を追加する",
+        "limits": "対応するサービスはAmazon S3とDynamoDBだけ。AWS PrivateLinkは使わない",
+        "chooseWhen": "プライベートサブネットから、S3やDynamoDBにだけ接続できればよいとき",
+        "avoidWhen": "S3とDynamoDB以外のAWSサービスに接続したいとき"
+      },
+      "serviceId": "amazon-vpc"
+    },
+    {
+      "key": "interface",
+      "label": "インターフェイスエンドポイント（AWS PrivateLink）",
+      "oneLine": "多くのサービスにつながる連絡通路",
+      "values": {
+        "role": "AWSのサービスに、VPCの中にあるかのようにプライベートに接続する",
+        "mechanism": "AWS PrivateLinkを使い、プライベートIPアドレスでサービスに接続する",
+        "data": "通信がパブリックなインターネットにさらされない",
+        "useCases": "インターネットへの経路を持たないサブネットから、AWSのサービスのAPIを呼び出す",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "料金は公式の料金ページで確認する（ゲートウェイエンドポイントは追加料金なし）",
+        "operations": "サービスごとにエンドポイントを作成する",
+        "limits": "S3とDynamoDBだけなら、追加料金のないゲートウェイエンドポイントも選べる",
+        "chooseWhen": "S3とDynamoDB以外のAWSサービスに、インターネットを通らずに接続したいとき",
+        "avoidWhen": "インターネット上の一般のサイトに接続したいとき（その場合はNATゲートウェイ）"
+      },
+      "serviceId": "aws-privatelink"
+    },
+    {
+      "key": "nat",
+      "label": "NATゲートウェイ",
+      "oneLine": "外に電話をかけるための代表電話",
+      "values": {
+        "role": "プライベートサブネットのインスタンスが、インターネットにアクセスできるようにする",
+        "mechanism": "パブリックサブネットに置き、プライベートサブネットからの通信をそこへ向ける",
+        "data": "通信はインターネットに出る",
+        "useCases": "プライベートサブネットのサーバーが、インターネットからソフトウェアの更新をダウンロードする",
+        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "料金は公式の料金ページで確認する",
+        "operations": "パブリックサブネットへの配置と、ルートテーブルの設定が必要",
+        "limits": "通信がインターネットを通る",
+        "chooseWhen": "インターネット上の接続先にアクセスする必要があるとき",
+        "avoidWhen": "通信をインターネットに出したくないとき（その場合はVPCエンドポイント）"
+      },
+      "serviceId": "amazon-vpc"
+    }
+  ],
+  "figureIds": [],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "接続先は、インターネット上の一般のサイトですか？（AWSのサービスではない）",
+      "yes": "r-nat",
+      "no": "n2"
+    },
+    {
+      "id": "n2",
+      "question": "接続先は、Amazon S3またはDynamoDBだけですか？",
+      "yes": "r-gw",
+      "no": "r-if"
+    },
+    {
+      "id": "r-nat",
+      "resultItemKey": "nat",
+      "note": "パブリックサブネットに配置します。"
+    },
+    {
+      "id": "r-gw",
+      "resultItemKey": "gateway",
+      "note": "追加料金がかかりません。ルートテーブルに経路を追加します。"
+    },
+    {
+      "id": "r-if",
+      "resultItemKey": "interface",
+      "note": "AWS PrivateLinkを使ったプライベートな接続です。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "saa-q-wl-01",
+    "saa-q-wl-02",
+    "saa-q-vpce-train-01"
+  ]
+}

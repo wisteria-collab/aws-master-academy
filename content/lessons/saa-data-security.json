@@ -1,0 +1,84 @@
+{
+  "id": "saa-data-security",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "AWS KMS keys（AWS KMS デベロッパーガイド）",
+      "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html"
+    },
+    {
+      "title": "AWS KMS FAQs（AWS公式）",
+      "url": "https://aws.amazon.com/kms/faqs/"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Security best practices in IAM（IAM ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 3,
+  "title": "データセキュリティの管理",
+  "domainId": "saa-d1",
+  "taskIds": [
+    "saa-1-3"
+  ],
+  "overview": "3つ目のテーマは、データそのものを守ることです。CLFでは、保存時の暗号化と転送時の暗号化、AWS KMSとAWS Certificate Managerの役割を学びました。SAAでは、鍵を誰が管理するか、鍵へのアクセスをどう制御するか、バックアップと複製をどう行うかまで設計します。\n試験ガイドでは、保存時の暗号化（AWS KMS）、転送時の暗号化（TLSを使うAWS Certificate Manager）、暗号鍵のアクセスポリシー、データのバックアップと複製、データのアクセス・ライフサイクル・保護のポリシー、暗号鍵のローテーションと証明書の更新が挙げられています。",
+  "beginner": {
+    "analogy": "貴重品の保管にたとえます。暗号化は、貴重品を「金庫に入れる」ことです。KMSの鍵は金庫の鍵で、キーポリシーは「誰に鍵を貸してよいかの台帳」です。鍵のローテーションは、定期的な「鍵の交換」です。バックアップは「控えを別の場所にも置く」ことです。",
+    "description": "データを守るには、「読めないようにする（暗号化）」「読める人を絞る（アクセス制御）」「なくならないようにする（バックアップと複製）」の3つを組み合わせます。どれか1つだけでは足りません。"
+  },
+  "useCases": [
+    "保存するデータを、自社で管理する鍵で暗号化する",
+    "ウェブサイトの通信をTLSで暗号化し、証明書の更新を自動化する",
+    "複数のサービスのバックアップを一元管理する",
+    "専用のHSMで暗号鍵を管理する"
+  ],
+  "mechanism": {
+    "text": "【保存時の暗号化と鍵の管理】\nAWS KMSは、暗号鍵を作成・管理し、その使用を幅広いAWSサービスやアプリケーションで制御できるようにします。\nKMSの鍵には3種類あります。\n・カスタマー管理キー：利用者が作成して管理します。キーポリシーなどを制御でき、自動ローテーションは任意で有効にできます。アカウントをまたいで鍵へのアクセスを共有することもできます。\n・AWSマネージドキー：AWSのサービスが、利用者のアカウントに作成して管理します。\n・AWS所有のキー：AWSが所有して管理します。\n制御が重要なときはカスタマー管理キー、手軽さが重要なときはAWS所有のキーを使います。\n【鍵へのアクセスの制御】\nキーポリシーは、鍵へのアクセスを制御します。それぞれの鍵に1つあり、誰がその鍵を、どのように使えるかを定めます。\n【専用のHSM】\nAWS CloudHSMは、FIPS 140-2 レベル3の検証を受けた専用のHSMで、自分の暗号鍵を管理できます。\n【転送時の暗号化】\nAWS Certificate Manager（ACM）は、SSL/TLS証明書をプロビジョニング、管理、デプロイします。証明書の購入、アップロード、更新という手作業をなくします。\nポリシーの条件を使って、TLSを使ったリクエストだけを許可することもできます。\n【バックアップと複製】\nAWS Backupは、AWSのサービス全体のバックアップを、ポリシーに基づいて一元化・自動化します。コンプライアンスへの対応にも役立ちます。\nサービスごとの複製の仕組みもあります。たとえばAmazon Auroraは、データを3つのアベイラビリティゾーンにまたがって複製します。\n【データの分類とライフサイクル】\nAmazon Macieは、Amazon S3の機密データを発見します。S3のライフサイクルポリシーは、データをストレージクラスの間で自動的に移します。\n【コンプライアンス】\nAWS Artifactでコンプライアンスのレポートを入手でき、AWS Configでリソースの設定の変更履歴を確認できます。"
+  },
+  "relatedServiceIds": [
+    "aws-kms",
+    "aws-cloudhsm",
+    "aws-certificate-manager",
+    "aws-backup",
+    "amazon-macie",
+    "aws-secrets-manager",
+    "amazon-s3"
+  ],
+  "examPoints": [
+    "保存時の暗号化の鍵＝AWS KMS。転送時の暗号化の証明書＝AWS Certificate Manager（更新の手作業をなくす）。",
+    "KMSの鍵は3種類：カスタマー管理キー（自分で制御）、AWSマネージドキー、AWS所有のキー。",
+    "キーポリシーを自分で管理したい、ローテーションを自分で決めたい＝カスタマー管理キー。",
+    "キーポリシーは鍵ごとに1つ。誰が、どのように鍵を使えるかを定める。",
+    "専用のHSM（FIPS 140-2 レベル3）＝AWS CloudHSM。",
+    "バックアップの一元管理と自動化＝AWS Backup。",
+    "認証情報のローテーション＝AWS Secrets Manager。機密データの発見＝Amazon Macie。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-data-01",
+    "saa-q-data-02",
+    "saa-q-data-03",
+    "saa-q-data-04"
+  ],
+  "glossaryTermIds": [
+    "encryption",
+    "key-policy",
+    "compliance",
+    "replica"
+  ]
+}

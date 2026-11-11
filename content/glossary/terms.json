@@ -1748,5 +1748,209 @@
     "plain": "荷物の「送料」のようなものです。同じ建物の中で渡すなら無料でも、別の街や外国に送るとお金がかかります。",
     "example": "同じアベイラビリティゾーンの中の転送は無料。別のアベイラビリティゾーンや別のリージョンへの転送、インターネットへの送信には料金がかかる。",
     "serviceIds": []
+  },
+  {
+    "id": "scp",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "サービスコントロールポリシー",
+    "description": "AWS Organizationsで、組織内のアカウントに対して「ここまでしかできない」という権限の上限（ガードレール）を設定するポリシーです。SCPと略します。SCPそのものは権限を与えません。",
+    "plain": "会社全体の「就業規則」のようなものです。部署ごとの許可（IAMポリシー）があっても、就業規則で禁止されていることはできません。",
+    "example": "組織内のすべてのアカウントで、特定のリージョン以外の利用を禁止する。",
+    "serviceIds": []
+  },
+  {
+    "id": "trust-policy",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Access for an IAM user in another AWS account that you own（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html"
+      },
+      {
+        "title": "assume-role（AWS CLI コマンドリファレンス）",
+        "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "信頼ポリシー",
+    "description": "IAMロールに付けるポリシーで、「誰がこのロールを引き受けてよいか」を定めます。",
+    "plain": "「この合鍵を借りてよい人の名簿」のようなものです。名簿に載っていない人は、鍵を借りられません。",
+    "example": "本番アカウントのロールの信頼ポリシーで、開発アカウントを信頼する相手として指定する。",
+    "serviceIds": []
+  },
+  {
+    "id": "federation",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "フェデレーション",
+    "description": "社内のディレクトリなど、外部のIDプロバイダーで認証された利用者が、ロールを引き受けてAWSにアクセスする仕組みです。",
+    "plain": "「社員証を見せれば、提携先のビルにも入れる」仕組みに似ています。提携先のビル専用の会員証を別に作る必要がありません。",
+    "example": "社員が会社のIDでサインインし、AWS IAM Identity Centerを通じて一時的な認証情報でAWSにアクセスする。",
+    "serviceIds": []
+  },
+  {
+    "id": "resource-based-policy",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "assume-role（AWS CLI コマンドリファレンス）",
+        "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "リソースベースのポリシー",
+    "description": "S3バケットなどのリソースの側に付けるポリシーで、「誰がこのリソースにアクセスできるか」を定めます。",
+    "plain": "部屋のドアに貼る「入室を許可する人の一覧」のようなものです。人に持たせる入館証（アイデンティティベースのポリシー）とは、付ける場所が違います。",
+    "example": "S3バケットにポリシーを付けて、特定のアカウントからのアクセスを許可する。",
+    "serviceIds": []
+  },
+  {
+    "id": "nat-gateway",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "NATゲートウェイ",
+    "description": "プライベートサブネットのインスタンスが、インターネットにアクセスできるようにするための仕組みです。パブリックサブネットに置きます。",
+    "plain": "会社の「代表電話」に似ています。社内の人は代表番号を通して外に電話をかけられますが、外からは個人の内線番号に直接かけられません。",
+    "example": "プライベートサブネットのサーバーが、ソフトウェアの更新をダウンロードするためにNATゲートウェイを使う。",
+    "serviceIds": []
+  },
+  {
+    "id": "vpc-endpoint",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+      },
+      {
+        "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "VPCエンドポイント",
+    "description": "インターネットゲートウェイやNATを使わずに、VPCからAWSのサービスにプライベートに接続するための仕組みです。ゲートウェイエンドポイントとインターフェイスエンドポイントがあります。",
+    "plain": "建物から外の道路に出ずに、隣の建物へ行ける「連絡通路」のようなものです。",
+    "example": "プライベートサブネットのインスタンスから、ゲートウェイエンドポイントを通ってAmazon S3にアクセスする。",
+    "serviceIds": []
+  },
+  {
+    "id": "key-policy",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS KMS keys（AWS KMS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "キーポリシー",
+    "description": "AWS KMSの鍵に付けるポリシーで、誰がその鍵を使えるか、どのように使えるかを定めます。鍵ごとに1つあります。",
+    "plain": "金庫の鍵の「貸し出し台帳」のようなものです。台帳に載っている人だけが、決められた使い方で鍵を使えます。",
+    "example": "カスタマー管理キーのキーポリシーで、特定のロールにだけ復号を許可する。",
+    "serviceIds": []
+  },
+  {
+    "id": "landing-zone",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "ランディングゾーン",
+    "description": "セキュリティや運用のルールがあらかじめ整えられた、複数アカウントのAWS環境の土台です。AWS Control Towerが自動で用意します。",
+    "plain": "新しく入居する前に、水道・電気・防犯設備が整えられた「分譲地」のようなものです。",
+    "example": "AWS Control Towerでランディングゾーンを設定し、新しいアカウントを同じルールのもとで追加する。",
+    "serviceIds": []
   }
 ]

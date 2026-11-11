@@ -1,0 +1,1170 @@
+[
+  {
+    "id": "saa-q-acc-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "How do I use IAM to access resources in another AWS account?（AWS re:Post ナレッジセンター）",
+        "url": "https://repost.aws/knowledge-center/cross-account-access-iam"
+      },
+      {
+        "title": "Access for an IAM user in another AWS account that you own（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html"
+      },
+      {
+        "title": "assume-role（AWS CLI コマンドリファレンス）",
+        "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、開発用と本番用の2つのAWSアカウントを使っています。開発アカウントのIAMユーザーが、本番アカウントのS3バケットを、必要なときだけ操作できるようにする必要があります。長期的な認証情報を本番アカウントに追加で作ることは避けたいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "本番アカウントにIAMロールを作成し、信頼ポリシーで開発アカウントを信頼して、開発アカウントのユーザーにそのロールを引き受けさせる",
+        "correct": true,
+        "explanation": "クロスアカウントアクセスには、一時的な認証情報を使うIAMロールが推奨されています。ロールを引き受けると、AWS STSが一時的な認証情報を返します。"
+      },
+      {
+        "id": "b",
+        "text": "本番アカウントにIAMユーザーを作成し、アクセスキーを開発者全員に配る",
+        "correct": false,
+        "explanation": "IAMユーザーのアクセスキーは長期的な認証情報です。長期的な認証情報を追加で作ることは避けたい、という要件に反します。",
+        "eliminatedBy": "長期的な認証情報を本番アカウントに追加で作ることは避けたい"
+      },
+      {
+        "id": "c",
+        "text": "本番アカウントのルートユーザーの認証情報を、開発者と共有する",
+        "correct": false,
+        "explanation": "ルートユーザーの認証情報は共有しないことが推奨されています。日常の作業に使うものでもありません。",
+        "eliminatedBy": "必要なときだけ操作できるようにする"
+      },
+      {
+        "id": "d",
+        "text": "開発アカウントにサービスコントロールポリシー（SCP）を適用して、S3へのアクセスを許可する",
+        "correct": false,
+        "explanation": "SCPは権限の上限を設定するもので、権限を与えるものではありません。SCPだけでアクセスを許可することはできません。",
+        "eliminatedBy": "操作できるようにする必要があります"
+      }
+    ],
+    "keywords": [
+      "2つのAWSアカウント",
+      "長期的な認証情報を本番アカウントに追加で作ることは避けたい"
+    ],
+    "decisionPoint": "アカウントをまたぐアクセスは、IAMロールの引き受け（一時的な認証情報）で行います。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      },
+      {
+        "type": "service",
+        "id": "aws-iam"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-acc-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、AWS Organizationsで多数のアカウントを管理しています。各アカウントの管理者がどのようなIAMポリシーを作成しても、組織内のすべてのアカウントで、承認されていないリージョンの利用を防ぎたいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "サービスコントロールポリシー（SCP）を使う",
+        "correct": true,
+        "explanation": "SCPは、組織内のアカウントのすべてのプリンシパルに対して、権限のガードレール（上限）を設定します。各アカウントのIAMポリシーが許可していても、SCPで許可されていない操作はできません。"
+      },
+      {
+        "id": "b",
+        "text": "各アカウントのIAMユーザーに、多要素認証（MFA）を必須にする",
+        "correct": false,
+        "explanation": "MFAはサインインの保護を強める手段です。特定のリージョンの利用を防ぐ仕組みではありません。",
+        "eliminatedBy": "承認されていないリージョンの利用を防ぎたい"
+      },
+      {
+        "id": "c",
+        "text": "各アカウントの管理者に、リージョンを制限するIAMポリシーを作成するよう依頼する",
+        "correct": false,
+        "explanation": "各アカウントの管理者に任せる方法では、管理者が別のポリシーを作成すれば制限を外せてしまいます。問題文は、管理者がどのようなポリシーを作成しても防ぎたい、と述べています。",
+        "eliminatedBy": "各アカウントの管理者がどのようなIAMポリシーを作成しても"
+      },
+      {
+        "id": "d",
+        "text": "AWS Shieldを有効にする",
+        "correct": false,
+        "explanation": "ShieldはDDoS攻撃から保護するサービスです。リージョンの利用を制限するものではありません。",
+        "eliminatedBy": "承認されていないリージョンの利用を防ぎたい"
+      }
+    ],
+    "keywords": [
+      "AWS Organizations",
+      "すべてのアカウントで",
+      "どのようなIAMポリシーを作成しても"
+    ],
+    "decisionPoint": "組織全体への権限の上限＝SCP。SCPは権限を与えず、上限だけを決めます。",
+    "serviceIds": [
+      "aws-organizations"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      },
+      {
+        "type": "service",
+        "id": "aws-organizations"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-acc-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Security best practices in IAM（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業には、社内のIDプロバイダーで管理されている数千人の社員がいます。社員がAWSにアクセスするために、社員ごとにIAMユーザーを作成することは避け、既存のIDでサインインして一時的な認証情報でアクセスさせたいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "IDプロバイダーとのフェデレーションを使い、社員にロールを引き受けさせる",
+        "correct": true,
+        "explanation": "人のユーザーには、IDプロバイダーとのフェデレーションで、ロールを引き受けて一時的な認証情報を使わせることが推奨されています。その管理にはAWS IAM Identity Centerが推奨されています。"
+      },
+      {
+        "id": "b",
+        "text": "社員全員分のIAMユーザーを作成し、アクセスキーを発行する",
+        "correct": false,
+        "explanation": "社員ごとにIAMユーザーを作成することは避けたい、という要件に反します。アクセスキーは長期的な認証情報でもあります。",
+        "eliminatedBy": "社員ごとにIAMユーザーを作成することは避け"
+      },
+      {
+        "id": "c",
+        "text": "1つのIAMユーザーを作成し、全社員でパスワードを共有する",
+        "correct": false,
+        "explanation": "認証情報の共有は避けるべきです。誰が何をしたのかも区別できなくなります。",
+        "eliminatedBy": "既存のIDでサインインして"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Cognitoで、社員をアプリのユーザーとして登録し直す",
+        "correct": false,
+        "explanation": "Cognitoは、ウェブアプリやモバイルアプリの利用者のサインアップとサインインのためのサービスです。既存のIDでそのままAWSにアクセスさせる、という要件にはフェデレーションが合います。",
+        "eliminatedBy": "既存のIDでサインインして"
+      }
+    ],
+    "keywords": [
+      "社内のIDプロバイダー",
+      "既存のIDでサインインして一時的な認証情報で"
+    ],
+    "decisionPoint": "既存のIDでAWSへ＝フェデレーション（IAM Identity Center）。IAMユーザーを人数分作らない。",
+    "serviceIds": [
+      "aws-iam-identity-center"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      },
+      {
+        "type": "service",
+        "id": "aws-iam-identity-center"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-acc-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、事業部ごとにAWSアカウントを分ける方針です。セキュリティ、運用、コンプライアンスのルールがあらかじめ整えられた複数アカウントの環境を、ベストプラクティスに沿って自動でセットアップしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Control Tower",
+        "correct": true,
+        "explanation": "Control Towerは、安全で適切に設計された複数アカウントの環境であるランディングゾーンのセットアップを自動化します。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Config",
+        "correct": false,
+        "explanation": "Configは、リソースの設定の変更履歴を記録して評価するサービスです。複数アカウントの環境をセットアップするサービスではありません。",
+        "eliminatedBy": "複数アカウントの環境を、ベストプラクティスに沿って自動でセットアップ"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Cognito",
+        "correct": false,
+        "explanation": "Cognitoは、アプリの利用者のサインアップとサインインのためのサービスです。複数アカウントの環境の土台を用意するものではありません。",
+        "eliminatedBy": "複数アカウントの環境"
+      },
+      {
+        "id": "d",
+        "text": "AWS CloudHSM",
+        "correct": false,
+        "explanation": "CloudHSMは、専用のHSMで暗号鍵を管理するサービスです。アカウントの環境をセットアップするものではありません。",
+        "eliminatedBy": "自動でセットアップしたい"
+      }
+    ],
+    "keywords": [
+      "複数アカウントの環境",
+      "自動でセットアップ"
+    ],
+    "decisionPoint": "複数アカウントの土台（ランディングゾーン）の自動セットアップ＝Control Tower。",
+    "serviceIds": [
+      "aws-control-tower"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-access"
+      },
+      {
+        "type": "service",
+        "id": "aws-control-tower"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-wl-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、VPCのプライベートサブネットでアプリケーションサーバーを動かしています。サーバーは、ソフトウェアの更新をインターネットからダウンロードする必要があります。ただし、サーバーをパブリックサブネットに移すことはしたくありません。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "パブリックサブネットにNATゲートウェイを配置し、プライベートサブネットからの通信をNATゲートウェイに向ける",
+        "correct": true,
+        "explanation": "プライベートサブネットのインスタンスがインターネットにアクセスするには、NATゲートウェイを使います。NATデバイスはパブリックサブネットに置き、プライベートサブネットの通信をそこへ向けます。"
+      },
+      {
+        "id": "b",
+        "text": "プライベートサブネットのルートテーブルに、インターネットゲートウェイへの経路を追加する",
+        "correct": false,
+        "explanation": "プライベートサブネットは、インターネットゲートウェイへの経路を持たないサブネットです。経路を追加すると、プライベートサブネットではなくなります。",
+        "eliminatedBy": "サーバーをパブリックサブネットに移すことはしたくありません"
+      },
+      {
+        "id": "c",
+        "text": "セキュリティグループで、すべての受信の通信を許可する",
+        "correct": false,
+        "explanation": "セキュリティグループで受信を許可しても、インターネットへ出る経路がなければ、更新をダウンロードできません。不要な受信を許可することにもなります。",
+        "eliminatedBy": "インターネットからダウンロードする必要があります"
+      },
+      {
+        "id": "d",
+        "text": "AWS Direct Connectを契約する",
+        "correct": false,
+        "explanation": "Direct Connectは、自社の拠点とAWSを専用のネットワーク接続で結ぶサービスです。プライベートサブネットからインターネットへアクセスするためのものではありません。",
+        "eliminatedBy": "インターネットからダウンロードする"
+      }
+    ],
+    "keywords": [
+      "プライベートサブネット",
+      "インターネットからダウンロード",
+      "パブリックサブネットに移すことはしたくありません"
+    ],
+    "decisionPoint": "プライベートサブネットからインターネットへ出る＝NATゲートウェイ（パブリックサブネットに置く）。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      },
+      {
+        "type": "service",
+        "id": "amazon-vpc"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-wl-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、プライベートサブネットのEC2インスタンスから、Amazon S3にデータを保存しています。セキュリティの方針により、この通信にインターネットゲートウェイやNATデバイスを使いたくありません。追加料金をかけずに実現する方法として、最も適切なものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon S3のゲートウェイエンドポイントを作成する",
+        "correct": true,
+        "explanation": "ゲートウェイエンドポイントは、インターネットゲートウェイやNATデバイスを必要とせずに、Amazon S3とDynamoDBへの接続を提供します。追加料金はかかりません。"
+      },
+      {
+        "id": "b",
+        "text": "インスタンスをパブリックサブネットに移し、パブリックIPアドレスを割り当てる",
+        "correct": false,
+        "explanation": "パブリックサブネットからS3への通信は、インターネットゲートウェイを通ります。インターネットゲートウェイを使いたくない、という方針に反します。",
+        "eliminatedBy": "インターネットゲートウェイやNATデバイスを使いたくありません"
+      },
+      {
+        "id": "c",
+        "text": "NATゲートウェイを作成して、S3への通信を通す",
+        "correct": false,
+        "explanation": "NATデバイスを使いたくない、という方針に反します。",
+        "eliminatedBy": "NATデバイスを使いたくありません"
+      },
+      {
+        "id": "d",
+        "text": "AWS Site-to-Site VPNを作成する",
+        "correct": false,
+        "explanation": "Site-to-Site VPNは、自社のネットワークとVPCを暗号化されたトンネルで結ぶものです。VPCの中からS3に接続するための仕組みではありません。",
+        "eliminatedBy": "プライベートサブネットのEC2インスタンスから、Amazon S3に"
+      }
+    ],
+    "keywords": [
+      "Amazon S3",
+      "インターネットゲートウェイやNATデバイスを使いたくありません",
+      "追加料金をかけずに"
+    ],
+    "decisionPoint": "S3・DynamoDBへのプライベートな接続＝ゲートウェイエンドポイント（追加料金なし）。",
+    "serviceIds": [
+      "amazon-s3",
+      "aws-privatelink"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      },
+      {
+        "type": "comparison",
+        "id": "vpc-endpoints"
+      },
+      {
+        "type": "service",
+        "id": "aws-privatelink"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-wl-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、新しいモバイルアプリに、利用者の会員登録とサインインの機能を追加します。利用者が、既存のソーシャルアカウントでもサインインできるようにする必要があります。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Amazon Cognito",
+        "correct": true,
+        "explanation": "Cognitoは、ウェブアプリやモバイルアプリに、サインアップ、サインイン、アクセス制御を追加できます。ソーシャルアイデンティティプロバイダーを使ったサインインにも対応します。"
+      },
+      {
+        "id": "b",
+        "text": "AWS IAM Identity Center",
+        "correct": false,
+        "explanation": "IAM Identity Centerは、複数のAWSアカウントや業務アプリケーションへの、社員などのアクセスを一元管理するサービスです。モバイルアプリの一般の利用者の会員登録のためのものではありません。",
+        "eliminatedBy": "モバイルアプリに、利用者の会員登録とサインインの機能"
+      },
+      {
+        "id": "c",
+        "text": "AWS Directory Service",
+        "correct": false,
+        "explanation": "Directory Serviceは、マネージドなMicrosoft Active Directoryを提供するサービスです。ソーシャルアカウントでのサインインを追加するためのものではありません。",
+        "eliminatedBy": "既存のソーシャルアカウントでもサインイン"
+      },
+      {
+        "id": "d",
+        "text": "AWS Secrets Manager",
+        "correct": false,
+        "explanation": "Secrets Managerは、データベースの認証情報などのシークレットを保管するサービスです。利用者のサインインの機能を提供するものではありません。",
+        "eliminatedBy": "利用者の会員登録とサインインの機能"
+      }
+    ],
+    "keywords": [
+      "モバイルアプリ",
+      "会員登録とサインイン",
+      "ソーシャルアカウント"
+    ],
+    "decisionPoint": "アプリの利用者の認証＝Cognito。社員のAWSアクセス＝IAM Identity Center。",
+    "serviceIds": [
+      "amazon-cognito"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      },
+      {
+        "type": "service",
+        "id": "amazon-cognito"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-wl-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、ウェブサーバー用のセキュリティグループでHTTPSの受信を許可しています。ところが、特定のIPアドレス範囲から不審なアクセスが続いているため、その範囲からの通信だけを明示的に拒否したいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "サブネットのネットワークACLに、そのIPアドレス範囲を拒否するルールを追加する",
+        "correct": true,
+        "explanation": "ネットワークACLは、許可と拒否の両方のルールを設定できます。ルールは番号の小さい順に評価されるため、拒否のルールを許可のルールより先に評価されるように置きます。"
+      },
+      {
+        "id": "b",
+        "text": "セキュリティグループに、そのIPアドレス範囲を拒否するルールを追加する",
+        "correct": false,
+        "explanation": "セキュリティグループに設定できるのは許可のルールだけです。拒否のルールは追加できません。",
+        "eliminatedBy": "明示的に拒否したい"
+      },
+      {
+        "id": "c",
+        "text": "セキュリティグループをすべて削除する",
+        "correct": false,
+        "explanation": "セキュリティグループを削除しても、特定の範囲だけを拒否することにはなりません。必要な通信まで制御できなくなります。",
+        "eliminatedBy": "その範囲からの通信だけを"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Macieを有効にする",
+        "correct": false,
+        "explanation": "Macieは、S3の機密データを発見するサービスです。特定のIPアドレスからの通信を拒否するものではありません。",
+        "eliminatedBy": "通信だけを明示的に拒否"
+      }
+    ],
+    "keywords": [
+      "特定のIPアドレス範囲",
+      "明示的に拒否したい"
+    ],
+    "decisionPoint": "「拒否」が必要ならネットワークACL。セキュリティグループは許可のみ。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      },
+      {
+        "type": "comparison",
+        "id": "sg-nacl"
+      },
+      {
+        "type": "service",
+        "id": "amazon-vpc"
+      }
+    ],
+    "variationGroupId": "sg-nacl-select"
+  },
+  {
+    "id": "saa-q-data-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS KMS keys（AWS KMS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html"
+      },
+      {
+        "title": "AWS KMS FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/kms/faqs/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、保存するデータをAWS KMSの鍵で暗号化します。誰が鍵を使えるかを定めるキーポリシーを自社で管理し、鍵の自動ローテーションを有効にするかどうかも自社で決めたいと考えています。最も適切な鍵の種類はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "カスタマー管理キー",
+        "correct": true,
+        "explanation": "カスタマー管理キーは、利用者が作成して管理する鍵です。キーポリシーやローテーションなどを利用者が制御できます。自動ローテーションは任意で有効にできます。"
+      },
+      {
+        "id": "b",
+        "text": "AWSマネージドキー",
+        "correct": false,
+        "explanation": "AWSマネージドキーは、AWSのサービスが利用者のアカウント内に作成して管理する鍵です。利用者が鍵を管理することはできません。",
+        "eliminatedBy": "キーポリシーを自社で管理し"
+      },
+      {
+        "id": "c",
+        "text": "AWS所有のキー",
+        "correct": false,
+        "explanation": "AWS所有のキーは、AWSが所有して管理する鍵で、利用者のアカウントには作成されません。キーポリシーを自社で管理することはできません。",
+        "eliminatedBy": "キーポリシーを自社で管理し"
+      },
+      {
+        "id": "d",
+        "text": "IAMユーザーのアクセスキー",
+        "correct": false,
+        "explanation": "アクセスキーは、プログラムからAWSにアクセスするための認証情報です。データを暗号化するためのKMSの鍵ではありません。",
+        "eliminatedBy": "AWS KMSの鍵で暗号化します"
+      }
+    ],
+    "keywords": [
+      "キーポリシーを自社で管理",
+      "自動ローテーションを有効にするかどうかも自社で決めたい"
+    ],
+    "decisionPoint": "自分で制御したい＝カスタマー管理キー。手軽さ重視＝AWSマネージドキーやAWS所有のキー。",
+    "serviceIds": [
+      "aws-kms"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-data-security"
+      },
+      {
+        "type": "service",
+        "id": "aws-kms"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-data-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、ロードバランサーで使うSSL/TLS証明書を、手作業で購入して更新しています。更新を忘れて証明書の期限が切れる事故が起きたため、証明書のプロビジョニング、管理、更新の手間をなくしたいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Certificate Manager（ACM）",
+        "correct": true,
+        "explanation": "ACMは、SSL/TLS証明書を簡単にプロビジョニング、管理、デプロイできるサービスです。証明書の購入、アップロード、更新という手作業をなくします。"
+      },
+      {
+        "id": "b",
+        "text": "AWS KMS",
+        "correct": false,
+        "explanation": "KMSは、暗号鍵を作成して管理するサービスです。SSL/TLS証明書の発行や更新を行うものではありません。",
+        "eliminatedBy": "SSL/TLS証明書を"
+      },
+      {
+        "id": "c",
+        "text": "AWS Secrets Manager",
+        "correct": false,
+        "explanation": "Secrets Managerは、データベースの認証情報などのシークレットを保管してローテーションするサービスです。SSL/TLS証明書の更新を自動化するためのサービスではありません。",
+        "eliminatedBy": "証明書のプロビジョニング、管理、更新"
+      },
+      {
+        "id": "d",
+        "text": "Amazon GuardDuty",
+        "correct": false,
+        "explanation": "GuardDutyは、悪意のある活動を継続的に監視するサービスです。証明書の管理は行いません。",
+        "eliminatedBy": "証明書のプロビジョニング、管理、更新"
+      }
+    ],
+    "keywords": [
+      "SSL/TLS証明書",
+      "更新の手間をなくしたい"
+    ],
+    "decisionPoint": "転送時の暗号化のための証明書＝ACM。保存時の暗号化の鍵＝KMS。",
+    "serviceIds": [
+      "aws-certificate-manager"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-data-security"
+      },
+      {
+        "type": "service",
+        "id": "aws-certificate-manager"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-data-03",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Amazon RDS、Amazon EFS、Amazon DynamoDBを使っています。これらのバックアップを、共通のポリシーに基づいて1か所から一元的に管理し、自動化したいと考えています。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Backup",
+        "correct": true,
+        "explanation": "AWS Backupは、AWSのサービス全体のデータ保護を一元化して自動化する、ポリシーに基づくフルマネージドのサービスです。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Database Migration Service（AWS DMS）",
+        "correct": false,
+        "explanation": "AWS DMSは、データベースを移行するためのサービスです。複数のサービスのバックアップを一元管理するものではありません。",
+        "eliminatedBy": "バックアップを、共通のポリシーに基づいて1か所から一元的に管理"
+      },
+      {
+        "id": "c",
+        "text": "Amazon Macie",
+        "correct": false,
+        "explanation": "Macieは、S3の機密データを発見するサービスです。バックアップを取るものではありません。",
+        "eliminatedBy": "バックアップを"
+      },
+      {
+        "id": "d",
+        "text": "AWS CloudTrail",
+        "correct": false,
+        "explanation": "CloudTrailは、APIの操作履歴を記録するサービスです。データのバックアップを自動化するものではありません。",
+        "eliminatedBy": "バックアップを、共通のポリシーに基づいて"
+      }
+    ],
+    "keywords": [
+      "バックアップ",
+      "共通のポリシー",
+      "一元的に管理"
+    ],
+    "decisionPoint": "複数サービスのバックアップの一元管理＝AWS Backup。",
+    "serviceIds": [
+      "aws-backup"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-data-security"
+      },
+      {
+        "type": "service",
+        "id": "aws-backup"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-data-04",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-3",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "advanced",
+    "stem": "ある金融機関は、規制により、暗号鍵を自社専用のハードウェアセキュリティモジュール（HSM）で管理することが求められています。FIPS 140-2 レベル3の検証を受けた専用のHSMが必要です。最も適切なサービスはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS CloudHSM",
+        "correct": true,
+        "explanation": "CloudHSMでは、FIPS 140-2 レベル3の検証を受けた専用のHSMを使って、自分の暗号鍵を管理できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Certificate Manager",
+        "correct": false,
+        "explanation": "ACMは、SSL/TLS証明書を管理するサービスです。専用のHSMで暗号鍵を管理するためのサービスではありません。",
+        "eliminatedBy": "自社専用のハードウェアセキュリティモジュール（HSM）で管理"
+      },
+      {
+        "id": "c",
+        "text": "AWS Secrets Manager",
+        "correct": false,
+        "explanation": "Secrets Managerは、パスワードなどのシークレットを保管するサービスです。専用のHSMを提供するものではありません。",
+        "eliminatedBy": "専用のHSMが必要"
+      },
+      {
+        "id": "d",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "Artifactは、AWSのコンプライアンスに関するレポートを入手するサービスです。暗号鍵を管理するものではありません。",
+        "eliminatedBy": "暗号鍵を自社専用のハードウェアセキュリティモジュール（HSM）で管理"
+      }
+    ],
+    "keywords": [
+      "自社専用のハードウェアセキュリティモジュール（HSM）",
+      "専用のHSM"
+    ],
+    "decisionPoint": "「専用のHSM」＝CloudHSM。",
+    "serviceIds": [
+      "aws-cloudhsm"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-data-security"
+      },
+      {
+        "type": "service",
+        "id": "aws-cloudhsm"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-sg-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "あるエンジニアが、サブネットのネットワークACLで、ウェブサーバーへのHTTPSの受信を許可するルールを追加しました。しかし、利用者はウェブサイトを表示できません。セキュリティグループの設定には問題がありません。原因として最も考えられるものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ネットワークACLで、戻りの通信を許可するルールが設定されていない",
+        "correct": true,
+        "explanation": "ネットワークACLはステートレスです。受信を許可しても、その応答である戻りの通信は自動では許可されないため、明示的に許可するルールが必要です。"
+      },
+      {
+        "id": "b",
+        "text": "セキュリティグループで、戻りの通信を許可するルールが設定されていない",
+        "correct": false,
+        "explanation": "セキュリティグループはステートフルで、許可した通信に対する戻りの通信は自動的に許可されます。戻りのルールを設定する必要はありません。",
+        "eliminatedBy": "セキュリティグループの設定には問題がありません"
+      },
+      {
+        "id": "c",
+        "text": "ネットワークACLは、許可のルールを設定できない",
+        "correct": false,
+        "explanation": "ネットワークACLは、許可と拒否の両方のルールを設定できます。",
+        "eliminatedBy": "HTTPSの受信を許可するルールを追加しました"
+      },
+      {
+        "id": "d",
+        "text": "ネットワークACLは、インスタンスの単位でしか適用できない",
+        "correct": false,
+        "explanation": "ネットワークACLは、サブネットの単位で適用されます。インスタンスの単位で適用されるのはセキュリティグループです。",
+        "eliminatedBy": "サブネットのネットワークACLで"
+      }
+    ],
+    "keywords": [
+      "ネットワークACL",
+      "受信を許可するルールを追加",
+      "表示できません"
+    ],
+    "decisionPoint": "ネットワークACLはステートレス。行きと戻りの両方を許可する必要があります。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "sg-nacl"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      }
+    ],
+    "variationGroupId": "sg-nacl-select"
+  },
+  {
+    "id": "saa-q-sg-train-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、同じサブネットにある複数のEC2インスタンスのうち、ウェブサーバーの役割を持つインスタンスにだけ、HTTPSの受信を許可したいと考えています。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "ウェブサーバーのインスタンスに関連付けるセキュリティグループで、HTTPSの受信を許可する",
+        "correct": true,
+        "explanation": "セキュリティグループはインスタンスの単位で動作し、関連付けたインスタンスにだけ適用されます。同じサブネットの中でも、インスタンスごとに異なるルールを適用できます。"
+      },
+      {
+        "id": "b",
+        "text": "サブネットのネットワークACLで、HTTPSの受信を許可する",
+        "correct": false,
+        "explanation": "ネットワークACLは、関連付けたサブネットの中のすべてのインスタンスに適用されます。特定のインスタンスにだけ許可する、という制御はできません。",
+        "eliminatedBy": "ウェブサーバーの役割を持つインスタンスにだけ"
+      },
+      {
+        "id": "c",
+        "text": "サブネットのルートテーブルから、インターネットゲートウェイへの経路を削除する",
+        "correct": false,
+        "explanation": "経路を削除すると、サブネット全体がインターネットと通信できなくなります。特定のインスタンスにだけ受信を許可することにはなりません。",
+        "eliminatedBy": "HTTPSの受信を許可したい"
+      },
+      {
+        "id": "d",
+        "text": "すべてのインスタンスで、AWS Shieldを有効にする",
+        "correct": false,
+        "explanation": "ShieldはDDoS攻撃から保護するサービスです。インスタンスごとに受信の許可を設定するものではありません。",
+        "eliminatedBy": "インスタンスにだけ、HTTPSの受信を許可"
+      }
+    ],
+    "keywords": [
+      "同じサブネット",
+      "インスタンスにだけ"
+    ],
+    "decisionPoint": "インスタンスごとの制御＝セキュリティグループ。サブネット全体＝ネットワークACL。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "sg-nacl"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      }
+    ],
+    "variationGroupId": "sg-nacl-select"
+  },
+  {
+    "id": "saa-q-vpce-train-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+      },
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+      },
+      {
+        "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-11",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d1",
+    "taskId": "saa-1-2",
+    "format": "comparison",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、インターネットへの経路を持たないプライベートサブネットのアプリケーションから、Amazon S3とDynamoDB以外のAWSサービスのAPIを呼び出す必要があります。通信をパブリックなインターネットに出したくありません。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS PrivateLinkを使うインターフェイスエンドポイントを作成する",
+        "correct": true,
+        "explanation": "AWS PrivateLinkを使うと、インターネットゲートウェイを使わずに、AWSのサービスがVPCの中にあるかのように接続できます。通信はパブリックなインターネットにさらされません。"
+      },
+      {
+        "id": "b",
+        "text": "ゲートウェイエンドポイントを作成する",
+        "correct": false,
+        "explanation": "ゲートウェイエンドポイントが対応するのは、Amazon S3とDynamoDBだけです。",
+        "eliminatedBy": "Amazon S3とDynamoDB以外のAWSサービス"
+      },
+      {
+        "id": "c",
+        "text": "NATゲートウェイを作成する",
+        "correct": false,
+        "explanation": "NATゲートウェイを使うと、通信はインターネットに出ます。インターネットに出したくない、という要件に反します。",
+        "eliminatedBy": "通信をパブリックなインターネットに出したくありません"
+      },
+      {
+        "id": "d",
+        "text": "インスタンスにパブリックIPアドレスを割り当てる",
+        "correct": false,
+        "explanation": "パブリックIPアドレスを使う方法では、通信がインターネットゲートウェイを通ります。要件に反します。",
+        "eliminatedBy": "通信をパブリックなインターネットに出したくありません"
+      }
+    ],
+    "keywords": [
+      "Amazon S3とDynamoDB以外",
+      "パブリックなインターネットに出したくありません"
+    ],
+    "decisionPoint": "S3・DynamoDB＝ゲートウェイエンドポイント。それ以外のサービス＝インターフェイスエンドポイント（PrivateLink）。",
+    "serviceIds": [
+      "aws-privatelink"
+    ],
+    "related": [
+      {
+        "type": "comparison",
+        "id": "vpc-endpoints"
+      },
+      {
+        "type": "lesson",
+        "id": "saa-secure-workloads"
+      }
+    ],
+    "variationGroupId": "vpc-endpoints-select"
+  }
+]

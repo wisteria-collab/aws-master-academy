@@ -136,7 +136,8 @@ describe('公開中の教材', () => {
         if (!c.correct) expect(c.eliminatedBy, `${q.id}:${c.id}`).toBeTruthy()
       }
       expect(q.sources.length, q.id).toBeGreaterThan(0)
-      expect(q.basedOnGuide?.[0]?.version, q.id).toBe('1.3')
+      expect(q.basedOnGuide?.[0]?.exam, q.id).toBe(q.exam)
+      expect(q.basedOnGuide?.[0]?.version, q.id).toBe(q.exam === 'clf' ? '1.3' : '1.1')
     }
   })
 

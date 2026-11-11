@@ -1,0 +1,107 @@
+{
+  "id": "sg-nacl",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "VPCの通信制御：セキュリティグループとネットワークACL",
+  "category": "networking",
+  "summary": "どちらもVPCの中の通信を制御する仕組みですが、守る単位とルールの性質が違います。「どの単位で守るか」「拒否のルールが必要か」で使い分け、多くの場合は両方を組み合わせます。",
+  "items": [
+    {
+      "key": "sg",
+      "label": "セキュリティグループ",
+      "oneLine": "各部屋のドアの鍵（インスタンス単位）",
+      "values": {
+        "role": "インスタンスへの通信を制御する",
+        "mechanism": "関連付けたインスタンスに対して、許可のルールを適用する",
+        "data": "戻りの通信を自動的に許可する（ステートフル）",
+        "useCases": "インスタンスごとに、必要な通信だけを許可する",
+        "availability": "VPCの機能として提供される",
+        "performance": "すべてのルールを評価してから、通信を許可するかどうかを判断する",
+        "scalability": "そのセキュリティグループに関連付けたすべてのインスタンスに適用される",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "許可のルールだけを考えればよい。戻りの通信のルールは不要",
+        "limits": "拒否のルールは設定できない",
+        "chooseWhen": "インスタンスへのアクセスを制御したいとき。主な制御の手段として使う",
+        "avoidWhen": "特定の送信元を明示的に拒否したいとき（その場合はネットワークACL）"
+      },
+      "serviceId": "amazon-vpc"
+    },
+    {
+      "key": "nacl",
+      "label": "ネットワークACL",
+      "oneLine": "フロアの入口の警備員（サブネット単位）",
+      "values": {
+        "role": "サブネットに出入りする通信を制御する",
+        "mechanism": "関連付けたサブネットに対して、許可と拒否のルールを適用する",
+        "data": "戻りの通信も明示的に許可する必要がある（ステートレス）",
+        "useCases": "サブネット全体で、特定の通信を拒否する。セキュリティグループに加えた防御の層として使う",
+        "availability": "VPCの機能として提供される",
+        "performance": "ルールを番号の小さい順に評価し、一致したところで決まる",
+        "scalability": "関連付けたサブネットの中の、すべてのインスタンスに適用される",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "行きと戻りの両方のルールを設定する必要がある",
+        "limits": "戻りの通信のルールを忘れると、通信できなくなる",
+        "chooseWhen": "特定のIPアドレスからの通信を、サブネット全体で拒否したいとき",
+        "avoidWhen": "インスタンスごとに細かく制御したいだけのとき（その場合はセキュリティグループ）"
+      },
+      "serviceId": "amazon-vpc"
+    }
+  ],
+  "figureIds": [
+    "vpc-structure"
+  ],
+  "decisionFlow": [
+    {
+      "id": "n1",
+      "question": "特定の送信元からの通信を、明示的に「拒否」する必要がありますか？",
+      "yes": "r-nacl",
+      "no": "n2"
+    },
+    {
+      "id": "n2",
+      "question": "サブネット全体に、同じルールをまとめて適用したいですか？",
+      "yes": "r-nacl2",
+      "no": "r-sg"
+    },
+    {
+      "id": "r-nacl",
+      "resultItemKey": "nacl",
+      "note": "拒否のルールを設定できるのはネットワークACLです。番号の小さいルールから評価されます。"
+    },
+    {
+      "id": "r-nacl2",
+      "resultItemKey": "nacl",
+      "note": "サブネットの単位で適用されます。戻りの通信のルールも忘れずに設定します。"
+    },
+    {
+      "id": "r-sg",
+      "resultItemKey": "sg",
+      "note": "インスタンスの単位で、必要な通信だけを許可します。"
+    }
+  ],
+  "trainingQuestionIds": [
+    "saa-q-wl-04",
+    "saa-q-sg-train-01",
+    "saa-q-sg-train-02"
+  ]
+}

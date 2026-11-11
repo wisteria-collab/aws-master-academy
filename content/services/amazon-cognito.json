@@ -1,0 +1,73 @@
+{
+  "id": "amazon-cognito",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "Amazon Cognito",
+  "aliases": [
+    "Cognito",
+    "コグニート"
+  ],
+  "category": "security",
+  "summary": "ウェブアプリやモバイルアプリに、ユーザーのサインアップ、サインイン、アクセス制御を追加できるサービス。",
+  "beginner": {
+    "analogy": "アプリの「会員登録とログインの受付係」です。自分で受付の仕組みを作らなくても、任せられます。",
+    "description": "自分で作るアプリに、会員登録とログインの機能を付けるためのサービスです。SNSのアカウントでのログインにも対応できます。"
+  },
+  "exam": {
+    "description": "ウェブアプリやモバイルアプリに、ユーザーのサインアップ、サインイン、アクセス制御を素早く簡単に追加できます。数百万のユーザーまでスケールでき、Apple、Facebook、Amazonなどのソーシャルアイデンティティプロバイダーや、SAML 2.0のアイデンティティソリューションを使ったサインインに対応します。",
+    "points": [
+      "アプリの利用者（エンドユーザー）のサインアップ・サインイン＝Amazon Cognito。",
+      "ソーシャルアイデンティティプロバイダーやSAML 2.0に対応。",
+      "社員が複数のAWSアカウントにアクセスするためのサインインは、AWS IAM Identity Center。対象が違う。"
+    ]
+  },
+  "useCases": [
+    "モバイルアプリの会員登録とログイン"
+  ],
+  "mechanism": "アプリにサインアップとサインインの機能を追加し、利用者を認証します。",
+  "pros": [
+    "認証の仕組みを自分で作らなくてよい",
+    "数百万のユーザーまでスケールできる"
+  ],
+  "cons": [
+    "AWSアカウントへの社員のアクセス管理が目的ならIAM Identity Centerを使う"
+  ],
+  "scenes": [
+    "新しいスマートフォンアプリに、SNSアカウントでのログイン機能を付ける"
+  ],
+  "similarServiceIds": [
+    "aws-iam-identity-center"
+  ],
+  "relatedServiceIds": [
+    "aws-amplify",
+    "aws-iam"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d1"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/cognito/"
+}

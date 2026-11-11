@@ -1,0 +1,73 @@
+{
+  "id": "aws-control-tower",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS Control Tower",
+  "aliases": [
+    "Control Tower",
+    "コントロールタワー"
+  ],
+  "category": "management-governance",
+  "summary": "安全で適切に設計された複数アカウントの環境（ランディングゾーン）を、自動でセットアップするサービス。",
+  "beginner": {
+    "analogy": "新しい街を作るときの「区画整理と共通ルールづくり」です。道路や防犯のルールが整った状態から、家（アカウント）を建て始められます。",
+    "description": "複数のAWSアカウントを使うときの土台を、ベストプラクティスに沿って自動で用意してくれるサービスです。"
+  },
+  "exam": {
+    "description": "安全で適切に設計された複数アカウントのAWS環境である、ランディングゾーンのセットアップを自動化します。ランディングゾーンの構成は、多くの企業との取り組みで確立されたベストプラクティスに基づいており、セキュリティ、運用、コンプライアンスのルールでAWSのワークロードを統制しやすくします。",
+    "points": [
+      "複数アカウントの環境（ランディングゾーン）の自動セットアップ＝AWS Control Tower。",
+      "セキュリティ、運用、コンプライアンスのルールで統制する。",
+      "権限の上限を設定するのはAWS Organizationsのサービスコントロールポリシー（SCP）。"
+    ]
+  },
+  "useCases": [
+    "複数アカウントの環境を、最初から統制のとれた形で始める"
+  ],
+  "mechanism": "ベストプラクティスに基づくランディングゾーンを自動で構成します。",
+  "pros": [
+    "複数アカウントの土台を短時間で用意できる",
+    "ルールによる統制がしやすい"
+  ],
+  "cons": [
+    "単一のアカウントだけを使う場合には必要性が低い"
+  ],
+  "scenes": [
+    "事業部ごとにアカウントを分ける方針の企業が、共通のルールのもとでアカウントを増やしていく"
+  ],
+  "similarServiceIds": [
+    "aws-organizations"
+  ],
+  "relatedServiceIds": [
+    "aws-organizations",
+    "aws-iam-identity-center"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d1"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/controltower/"
+}

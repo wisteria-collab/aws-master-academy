@@ -1,0 +1,93 @@
+{
+  "id": "saa-secure-workloads",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+    },
+    {
+      "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 2,
+  "title": "安全なワークロードとアプリケーションの設計",
+  "domainId": "saa-d1",
+  "taskIds": [
+    "saa-1-2"
+  ],
+  "overview": "2つ目のテーマは、ネットワークとアプリケーションを安全に設計することです。CLFでは、VPC、サブネット、セキュリティグループ、ネットワークACLの役割を学びました。SAAでは、それらを組み合わせて「どこに何を置き、どの通信を通すか」を設計します。\n試験ガイドでは、セキュリティの構成要素（セキュリティグループ、ルートテーブル、ネットワークACL、NATゲートウェイ）を使ったVPCの設計、パブリックサブネットとプライベートサブネットによる分離、アプリケーションを保護するサービスの組み合わせ（AWS Shield、AWS WAF、IAM Identity Center、AWS Secrets Manager）、外部との接続の保護（VPN、AWS Direct Connect）が挙げられています。",
+  "beginner": {
+    "analogy": "お城の守りにたとえます。VPCは「城壁の内側」です。パブリックサブネットは来客を迎える「城門のそばの広間」、プライベートサブネットは宝物を置く「奥の間」です。NATゲートウェイは、奥の間の人が外へ使いを出すための「通用口」で、外からは入れません。VPCエンドポイントは、城の外に出ずに隣の蔵へ行ける「渡り廊下」です。",
+    "description": "安全な設計の基本は、「外に見せる必要のないものは、外から届かない場所に置く」ことです。そのうえで、中から外に出る必要がある通信だけ、必要な出口を用意します。守りは1つに頼らず、何層にも重ねます。"
+  },
+  "useCases": [
+    "ウェブサーバーとデータベースを、別々のサブネットに分ける",
+    "プライベートサブネットのサーバーが、更新をダウンロードできるようにする",
+    "インターネットを通らずに、Amazon S3にアクセスする",
+    "アプリの利用者のサインインを追加する",
+    "ウェブアプリケーションを攻撃から守る"
+  ],
+  "mechanism": {
+    "text": "【サブネットによる分離】\nサブネットを使って、アプリケーションの層（ウェブ、アプリケーション、データベース）を分離します。インターネットから直接アクセスされるべきでないインスタンスは、プライベートサブネットに置きます。プライベートサブネットは、インターネットゲートウェイへの経路を持たないサブネットです。\nルートテーブルには、必要最小限の経路だけを設定します。\n【プライベートサブネットからの外向きの通信】\nプライベートサブネットのインスタンスがインターネットにアクセスするには、NATゲートウェイを使います。NATデバイスはパブリックサブネットに置きます。\n【VPCエンドポイント】\nゲートウェイエンドポイントは、インターネットゲートウェイやNATデバイスを使わずに、Amazon S3とDynamoDBへの接続を提供します。追加料金はかかりません。\nAWS PrivateLink（インターフェイスエンドポイント）は、AWSのサービスがVPCの中にあるかのように、プライベートIPアドレスで接続できるようにします。通信はパブリックなインターネットにさらされません。\n【通信の制御】\nセキュリティグループは、インスタンスへのアクセスを制御する主な手段です。インスタンスの単位で動作し、許可のルールだけを持ち、ステートフルです。\nネットワークACLは、サブネットの単位で動作し、許可と拒否のルールを持ち、ステートレスです。セキュリティグループに加えた防御の層として使います。\n【アプリケーションの保護】\n・AWS Shield：DDoS攻撃から保護します。\n・AWS WAF：SQLインジェクションなど、ウェブアプリケーションへの攻撃から保護します。\n・Amazon Cognito：アプリの利用者のサインアップとサインインを追加します。\n・AWS Secrets Manager：データベースの認証情報などを保管し、ローテーションします。コードに直接書かずに済みます。\n・Amazon GuardDuty：悪意のある活動を継続的に監視します。Amazon Macie：S3の機密データを発見します。\n【外部との接続の保護】\nAWS Site-to-Site VPNは、自社のネットワークとVPCの間に暗号化されたトンネルを作ります。AWS Direct Connectは、専用のネットワーク接続を提供します。",
+    "figureId": "vpc-structure"
+  },
+  "relatedServiceIds": [
+    "amazon-vpc",
+    "aws-privatelink",
+    "amazon-cognito",
+    "aws-shield",
+    "aws-waf",
+    "aws-secrets-manager",
+    "aws-vpn",
+    "aws-direct-connect"
+  ],
+  "examPoints": [
+    "外から直接アクセスさせないものはプライベートサブネット（インターネットゲートウェイへの経路を持たない）。",
+    "プライベートサブネットからインターネットへ＝NATゲートウェイ（パブリックサブネットに置く）。",
+    "S3・DynamoDBへ、インターネットを通らずに＝ゲートウェイエンドポイント（追加料金なし）。",
+    "その他のAWSサービスへ、インターネットを通らずに＝インターフェイスエンドポイント（AWS PrivateLink）。",
+    "セキュリティグループ＝インスタンス単位・許可のみ・ステートフル。ネットワークACL＝サブネット単位・許可と拒否・ステートレス。",
+    "DDoS＝Shield、SQLインジェクションなど＝WAF、アプリ利用者の認証＝Cognito、認証情報の保管＝Secrets Manager。",
+    "外部との接続：暗号化されたトンネル＝VPN、専用の接続＝Direct Connect。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-wl-01",
+    "saa-q-wl-02",
+    "saa-q-wl-03",
+    "saa-q-wl-04",
+    "saa-q-sg-train-01",
+    "saa-q-sg-train-02",
+    "saa-q-vpce-train-01"
+  ],
+  "glossaryTermIds": [
+    "subnet",
+    "nat-gateway",
+    "vpc-endpoint",
+    "security-group",
+    "network-acl",
+    "ddos",
+    "vpn"
+  ]
+}

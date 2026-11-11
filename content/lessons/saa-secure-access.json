@@ -1,0 +1,92 @@
+{
+  "id": "saa-secure-access",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Security best practices in IAM（IAM ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html"
+    },
+    {
+      "title": "Access for an IAM user in another AWS account that you own（IAM ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html"
+    },
+    {
+      "title": "How do I use IAM to access resources in another AWS account?（AWS re:Post ナレッジセンター）",
+      "url": "https://repost.aws/knowledge-center/cross-account-access-iam"
+    },
+    {
+      "title": "assume-role（AWS CLI コマンドリファレンス）",
+      "url": "https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "course": "saa",
+  "order": 1,
+  "title": "AWSリソースへの安全なアクセスの設計",
+  "domainId": "saa-d1",
+  "taskIds": [
+    "saa-1-1"
+  ],
+  "overview": "SAAの最初のテーマは、「誰が、何に、どうやってアクセスするか」を安全に設計することです。CLFではIAMの基本（ユーザー、グループ、ロール、ポリシー、MFA、最小権限）を学びました。SAAでは、それを複数のアカウントや、会社の既存のIDと組み合わせて設計する力が問われます。\n試験ガイドでは、ロールを使ったアクセス制御（AWS STS、ロールの切り替え、クロスアカウントアクセス）、複数アカウントのセキュリティ戦略（AWS Control Tower、サービスコントロールポリシー）、リソースポリシーの使いどころ、ディレクトリサービスとのフェデレーションが挙げられています。",
+  "beginner": {
+    "analogy": "大きな会社の入館管理にたとえます。IAMロールは、必要なときだけ受付で借りる「一時的な入館証」です。信頼ポリシーは「この入館証を借りてよい人の名簿」です。サービスコントロールポリシー（SCP）は、全社共通の「就業規則」で、部署の許可があっても規則で禁止されたことはできません。フェデレーションは、「自社の社員証を見せれば、提携先のビルにも入れる」仕組みです。",
+    "description": "アカウントやユーザーが増えるほど、「長く使える鍵をあちこちに配る」やり方は危険になります。SAAの設計の基本は、長く使える鍵を配らず、必要なときだけ使える一時的な鍵を渡すこと、そして組織全体に共通の上限を設けることです。"
+  },
+  "useCases": [
+    "開発アカウントのメンバーが、本番アカウントのリソースを一時的に操作する",
+    "組織内のすべてのアカウントで、特定の操作を禁止する",
+    "社員が会社のIDでAWSにサインインする",
+    "複数アカウントの環境を、共通のルールのもとで立ち上げる"
+  ],
+  "mechanism": {
+    "text": "【ロールと一時的な認証情報】\nロールを引き受ける（AssumeRole）と、AWS STS（Security Token Service）が一時的な認証情報を返します。一時的な認証情報は、アクセスキーID、シークレットアクセスキー、セキュリティトークンで構成されます。\nAWSのコンピューティングサービス（Amazon EC2やAWS Lambdaなど）の上で動くワークロードには、ロールの一時的な認証情報が渡されるため、長期的な認証情報を配る必要がありません。\n【クロスアカウントアクセス】\n別のアカウントのリソースにアクセスするには、アクセスされる側のアカウントにロールを作り、信頼ポリシーで相手のアカウントを信頼します。相手のアカウントのユーザーは、そのロールを引き受けて（コンソールではロールの切り替えで）アクセスします。長期的な認証情報を持つIAMユーザーを作るのではなく、ロールを使うことが推奨されています。\n【ポリシーの種類】\n権限を与えるには、アイデンティティベースのポリシー（ユーザーやロールに付ける）か、リソースベースのポリシー（リソースに付ける）を使います。\nポリシーには条件を指定できます。たとえば、「TLSを使ったリクエストだけを許可する」といった条件です。\nアクセス許可の境界は、権限を委任するときに、委任する権限の上限を設定します。それ自体は権限を与えません。\n【複数アカウントの戦略】\nAWS Organizationsは、アカウントをグループにまとめ、ポリシーを適用して統制します。\nサービスコントロールポリシー（SCP）は、組織内のアカウントのすべてのプリンシパル（ロールとユーザー）に対する、権限のガードレールです。SCPは権限を与えません。権限を与えるには、別にアイデンティティベースまたはリソースベースのポリシーが必要です。\nAWS Control Towerは、安全な複数アカウントの環境（ランディングゾーン）のセットアップを自動化します。\n【フェデレーション】\n人のユーザーには、IDプロバイダーとのフェデレーションで、ロールを引き受けて一時的な認証情報を使わせることが推奨されています。AWS IAM Identity Centerは、複数のAWSアカウントや業務アプリケーションへのシングルサインオンを一元管理します。AWS Directory Serviceは、マネージドなMicrosoft Active Directoryを提供します。\n【公開やクロスアカウントのアクセスの確認】\nIAM Access Analyzerは、公開またはクロスアカウントのアクセスを許可しているリソースを見つけて知らせます。",
+    "figureId": "iam-elements"
+  },
+  "relatedServiceIds": [
+    "aws-iam",
+    "aws-iam-identity-center",
+    "aws-organizations",
+    "aws-control-tower",
+    "aws-directory-service"
+  ],
+  "examPoints": [
+    "ロールを引き受けると、AWS STSが一時的な認証情報を返す。",
+    "クロスアカウントアクセス＝アクセスされる側にロールを作り、信頼ポリシーで相手を信頼する。IAMユーザーを増やさない。",
+    "SCPは権限の上限（ガードレール）。権限を与えない。組織内のアカウントのすべてのプリンシパルに効く。",
+    "権限を与えるのは、アイデンティティベースのポリシーか、リソースベースのポリシー。",
+    "人のユーザーはフェデレーション（IAM Identity Center）で一時的な認証情報。ワークロードはロール。",
+    "複数アカウントの土台を自動でセットアップ＝AWS Control Tower。",
+    "アクセス許可の境界＝委任する権限の上限。条件＝ポリシーが有効になる条件。",
+    "公開・クロスアカウントのアクセスの検出＝IAM Access Analyzer。"
+  ],
+  "quizQuestionIds": [
+    "saa-q-acc-01",
+    "saa-q-acc-02",
+    "saa-q-acc-03",
+    "saa-q-acc-04"
+  ],
+  "glossaryTermIds": [
+    "temporary-credentials",
+    "trust-policy",
+    "scp",
+    "federation",
+    "resource-based-policy",
+    "landing-zone",
+    "least-privilege",
+    "mfa"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "aws-backup",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS Backup",
+  "aliases": [
+    "Backup",
+    "バックアップ"
+  ],
+  "category": "storage",
+  "summary": "複数のAWSサービスにまたがるデータ保護（バックアップ）を、一元化して自動化するフルマネージドのサービス。",
+  "beginner": {
+    "analogy": "会社全体の「バックアップ係」です。部署ごとにばらばらだったバックアップを、1つのルールでまとめて面倒を見ます。",
+    "description": "いろいろなAWSサービスのバックアップを、1か所でまとめて設定し、自動で取るためのサービスです。"
+  },
+  "exam": {
+    "description": "AWSのサービス全体のデータ保護を、一元化して自動化できます。コスト効率がよく、フルマネージドで、ポリシーに基づくサービスであり、大規模なデータ保護を簡単にします。規制へのコンプライアンスや、データ保護に関する社内のポリシーへの対応にも役立ちます。",
+    "points": [
+      "バックアップの一元管理と自動化＝AWS Backup。",
+      "ポリシーに基づいてバックアップを取る。",
+      "コンプライアンスやデータ保護の社内ポリシーへの対応に役立つ。"
+    ]
+  },
+  "useCases": [
+    "複数のサービスのバックアップを、共通のルールで自動化する"
+  ],
+  "mechanism": "バックアップのポリシーを定義すると、対象のリソースのバックアップが自動で取られます。",
+  "pros": [
+    "バックアップを1か所で管理できる",
+    "フルマネージド"
+  ],
+  "cons": [
+    "バックアップの頻度や保持期間は利用者が決める"
+  ],
+  "scenes": [
+    "データベースとファイルシステムのバックアップを、同じ保持期間のルールで自動化する"
+  ],
+  "similarServiceIds": [],
+  "relatedServiceIds": [
+    "amazon-rds",
+    "amazon-efs",
+    "amazon-ebs",
+    "amazon-dynamodb"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "mid",
+    "saa": "high"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d1"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/aws-backup/"
+}

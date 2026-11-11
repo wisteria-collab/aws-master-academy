@@ -1,0 +1,71 @@
+{
+  "id": "aws-cloudhsm",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "name": "AWS CloudHSM",
+  "aliases": [
+    "CloudHSM",
+    "クラウドエイチエスエム"
+  ],
+  "category": "security",
+  "summary": "専用のハードウェアセキュリティモジュール（HSM）で、自分の暗号鍵を生成して使えるサービス。",
+  "beginner": {
+    "analogy": "銀行の「自分専用の貸金庫」です。共用の金庫ではなく、自分だけの金庫で鍵を保管します。",
+    "description": "暗号鍵を、自分専用の特別な機器（HSM）の中で作って管理するためのサービスです。"
+  },
+  "exam": {
+    "description": "クラウドベースのハードウェアセキュリティモジュール（HSM）で、AWSクラウド上で自分の暗号鍵を簡単に生成して使えます。FIPS 140-2 レベル3の検証を受けた専用のHSMを使って、自分の暗号鍵を管理できます。",
+    "points": [
+      "専用のHSMで自分の鍵を管理＝AWS CloudHSM。",
+      "鍵の作成と管理、AWSサービスとの統合が中心ならAWS KMS。",
+      "「専用のHSM」「FIPS 140-2 レベル3」が手がかり。"
+    ]
+  },
+  "useCases": [
+    "専用のHSMでの鍵の管理が求められるコンプライアンス要件への対応"
+  ],
+  "mechanism": "専用のHSMの中で、暗号鍵を生成して使います。",
+  "pros": [
+    "専用のHSMで鍵を管理できる"
+  ],
+  "cons": [
+    "多くの場合はAWS KMSで足りる"
+  ],
+  "scenes": [
+    "規制により、専用のハードウェアで暗号鍵を管理することが求められている"
+  ],
+  "similarServiceIds": [
+    "aws-kms"
+  ],
+  "relatedServiceIds": [
+    "aws-kms"
+  ],
+  "comparisonGroupIds": [],
+  "importance": {
+    "clf": "low",
+    "saa": "mid"
+  },
+  "examDomains": [
+    {
+      "exam": "saa",
+      "domainId": "saa-d1"
+    }
+  ],
+  "docUrl": "https://docs.aws.amazon.com/cloudhsm/"
+}
