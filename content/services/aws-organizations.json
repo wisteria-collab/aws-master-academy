@@ -17,9 +17,13 @@
     {
       "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    },
+    {
+      "title": "Billing and pricing for AWS Organizations（AWS Organizations ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/pricing.html"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -81,5 +85,6 @@
       "domainId": "clf-d4"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/organizations/"
+  "docUrl": "https://docs.aws.amazon.com/organizations/",
+  "pricingNote": "追加料金なしで利用できます。課金されるのは、メンバーアカウントのユーザーやロールが使ったAWSリソースの分だけです。"
 }

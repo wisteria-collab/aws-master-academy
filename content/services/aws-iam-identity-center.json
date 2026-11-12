@@ -13,9 +13,13 @@
     {
       "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    },
+    {
+      "title": "AWS IAM and AWS IAM Identity Center（AWS公式の比較ページ）",
+      "url": "https://aws.amazon.com/compare/iam-and-iam-identity-center/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -71,5 +75,6 @@
       "domainId": "clf-d2"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/singlesignon/"
+  "docUrl": "https://docs.aws.amazon.com/singlesignon/",
+  "pricingNote": "追加料金なしで利用できます。"
 }

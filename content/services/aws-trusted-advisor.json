@@ -9,9 +9,17 @@
     {
       "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    },
+    {
+      "title": "AWS Trusted Advisor（AWS Support ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html"
+    },
+    {
+      "title": "AWS Support Plans（AWS Support ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/awssupport/latest/user/aws-support-plans.html"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -64,5 +72,7 @@
       "domainId": "clf-d2"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/awssupport/"
+  "docUrl": "https://docs.aws.amazon.com/awssupport/",
+  "pricingNote": "使えるチェックの範囲は、契約しているAWSサポートのプランによって変わります。",
+  "uncertainNote": "AWS公式のドキュメント（2026年11月12日に確認）では、現在のプランはベーシック、AWS Business Support+、AWS Enterprise Support、AWS Unified Operationsと案内されています。デベロッパー、ビジネス、Enterprise On-Rampの各プランは2027年1月1日に提供終了と告知されています。このアプリは試験ガイド（バージョン1.3）のプラン名に合わせています。受験前に、公式の最新情報を確認してください。"
 }

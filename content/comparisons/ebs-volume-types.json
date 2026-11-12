@@ -13,9 +13,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Modify an Amazon EBS volume using Elastic Volumes operations（Amazon EBS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -37,7 +41,7 @@
         "useCases": "仮想デスクトップ、中規模の単一インスタンスのデータベース、低遅延の対話型アプリ、開発・テスト、ブートボリューム",
         "availability": "ボリュームは、アベイラビリティゾーンの中で自動的に複製される",
         "performance": "価格と性能のバランスがよい",
-        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "Elastic Volumesにより、対応するインスタンスでは、デタッチや再起動をせずに、サイズの拡張、種類の変更、性能（IOPS）の調整ができる",
         "cost": "io2 Block Expressより低コスト",
         "operations": "この教材の出典には記載がないため、公式ドキュメントで確認する（ブートボリュームに使える）",
         "limits": "これ以上のIOPSが必要な場合はio2 Block Expressが推奨される",
@@ -57,7 +61,7 @@
         "useCases": "SAP HANA、Microsoft SQL Server、IBM DB2など、最も要求の厳しいトランザクション処理のアプリケーション",
         "availability": "耐久性は99.999%",
         "performance": "最大256,000 IOPS、1ミリ秒未満の遅延",
-        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "Elastic Volumesにより、対応するインスタンスでは、デタッチや再起動をせずに、サイズの拡張、種類の変更、性能（IOPS）の調整ができる",
         "cost": "性能が高い分、汎用SSDより費用がかかる",
         "operations": "Multi-Attachに対応する",
         "limits": "この教材の出典には記載がないため、公式ドキュメントで確認する",
@@ -77,7 +81,7 @@
         "useCases": "ビッグデータ、データウェアハウス、ログ処理",
         "availability": "ボリュームは、アベイラビリティゾーンの中で自動的に複製される",
         "performance": "スループット（まとめて流せる量）を重視する",
-        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "Elastic Volumesにより、対応するインスタンスでは、デタッチや再起動をせずに、サイズの拡張と種類の変更ができる",
         "cost": "SSDより低コスト",
         "operations": "ブートボリュームには使えない",
         "limits": "ブートボリュームには使えない。小さな読み書きを数多く行う処理には向かない",
@@ -97,7 +101,7 @@
         "useCases": "アクセスの頻度が低い、大きなデータ",
         "availability": "ボリュームは、アベイラビリティゾーンの中で自動的に複製される",
         "performance": "性能より費用を重視する",
-        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "scalability": "Elastic Volumesにより、対応するインスタンスでは、デタッチや再起動をせずに、サイズの拡張と種類の変更ができる",
         "cost": "EBSのボリュームタイプの中で、GBあたりの費用が最も低い",
         "operations": "ブートボリュームには使えない",
         "limits": "ブートボリュームには使えない",

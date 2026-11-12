@@ -81,5 +81,6 @@
   "docUrl": "https://docs.aws.amazon.com/awssupport/",
   "volatile": true,
   "pricingUrl": "https://aws.amazon.com/jp/premiumsupport/pricing/",
-  "pricingNote": "有料のサポートプランは、毎月、最低料金と「その月のAWS利用料の一定の割合」の、どちらか高いほうが請求されます。"
+  "pricingNote": "有料のサポートプランは、毎月、最低料金と「その月のAWS利用料の一定の割合」の、どちらか高いほうが請求されます。",
+  "uncertainNote": "AWS公式のドキュメント（2026年11月12日に確認）では、現在のプランはベーシック、AWS Business Support+、AWS Enterprise Support、AWS Unified Operationsと案内されています。デベロッパー、ビジネス、Enterprise On-Rampの各プランは2027年1月1日に提供終了と告知されています。このアプリは試験ガイド（バージョン1.3）のプラン名に合わせています。受験前に、公式の最新情報を確認してください。"
 }

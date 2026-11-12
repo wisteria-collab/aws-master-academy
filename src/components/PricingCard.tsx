@@ -13,7 +13,8 @@ const linkClass = 'inline-flex min-h-11 items-center rounded-xl border border-na
 /** 料金の案内。金額は変わるため教材には書かず、AWS公式のページへ案内する */
 export function PricingCard({ services = [], hubCount = 2 }: Props) {
   const withPage = services.filter((s) => s.pricingUrl)
-  const without = services.filter((s) => !s.pricingUrl)
+  const noteOnly = services.filter((s) => !s.pricingUrl && s.pricingNote)
+  const without = services.filter((s) => !s.pricingUrl && !s.pricingNote)
   return (
     <Card>
       <h2 className="text-lg font-bold">料金を調べる（AWS公式）</h2>
@@ -35,6 +36,12 @@ export function PricingCard({ services = [], hubCount = 2 }: Props) {
           ))}
         </ul>
       )}
+      {noteOnly.map((s) => (
+        <p key={s.name} className="mt-3 text-base leading-relaxed text-navy-900">
+          <span className="font-bold">{services.length > 1 ? `${s.name}：` : '料金：'}</span>
+          {s.pricingNote}
+        </p>
+      ))}
       {without.length > 0 && (
         <p className="mt-3 text-sm leading-relaxed text-navy-700">
           {services.length > 1 ? `${without.map((s) => s.name).join('、')} の` : 'このサービスの'}個別の料金ページは、まだ確認できていません。下の料金一覧から探してください。

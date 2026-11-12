@@ -2620,5 +2620,33 @@
     "plain": "使っている家を少しずつ直すのではなく、新しい家を建てて引っ越す方法です。新しい家に問題があれば、元の家にすぐ戻れます。",
     "example": "新しい版のサーバー群を並行して用意し、問題がなければ通信を新しい側へ移す。",
     "serviceIds": []
+  },
+  {
+    "id": "throttling",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Throttle requests to your REST APIs for better throughput in API Gateway（Amazon API Gateway デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html"
+      },
+      {
+        "title": "REL05-BP02 Throttle requests（AWS Well-Architected Framework）",
+        "url": "https://docs.aws.amazon.com/wellarchitected/2025-02-25/framework/rel_mitigate_interaction_failure_throttle_requests.html"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "term": "スロットリング",
+    "description": "受け付けるリクエストの量に上限を設け、超えた分を断る仕組みです。サービスが大量のリクエストで押しつぶされるのを防ぎます。Amazon API Gatewayでは、上限を超えたリクエストに429 Too Many Requestsのエラーを返します。",
+    "plain": "人気店の「入場制限」のようなものです。店内がいっぱいになったら、入口でいったん待ってもらい、店の中が混乱しないようにします。",
+    "example": "APIに1秒あたりの上限を設定し、特定の利用者からの大量のリクエストで、ほかの利用者が使えなくなるのを防ぐ。",
+    "serviceIds": [
+      "amazon-api-gateway"
+    ]
   }
 ]

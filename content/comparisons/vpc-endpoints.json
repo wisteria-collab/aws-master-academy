@@ -41,6 +41,18 @@
     {
       "title": "Amazon VPC の料金（AWS公式）",
       "url": "https://aws.amazon.com/jp/vpc/pricing/"
+    },
+    {
+      "title": "AWS PrivateLink quotas（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-limits-endpoints.html"
+    },
+    {
+      "title": "Access an AWS service using an interface VPC endpoint（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html"
+    },
+    {
+      "title": "Guidance for Network Connectivity on AWS（AWS公式）",
+      "url": "https://docs.aws.amazon.com/solutions/network-connectivity-on-aws/"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -83,9 +95,9 @@
         "mechanism": "AWS PrivateLinkを使い、プライベートIPアドレスでサービスに接続する",
         "data": "通信がパブリックなインターネットにさらされない",
         "useCases": "インターネットへの経路を持たないサブネットから、AWSのサービスのAPIを呼び出す",
-        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
-        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
-        "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "availability": "選んだサブネットごとに、エンドポイント用のネットワークインターフェイスが作られる。高可用性のために、複数のアベイラビリティゾーンのサブネットを選ぶ",
+        "performance": "既定で、アベイラビリティゾーンごとに最大10 Gbps。自動的に最大100 Gbpsまで拡張する",
+        "scalability": "通信量に応じて、帯域が自動的に拡張される。さらに高いスループットが必要なときは、AWSサポートに相談する",
         "cost": "エンドポイントをアベイラビリティゾーンごとに用意している時間と、処理されたデータの量（GBあたり）に応じて課金される。金額は公式の料金ページで確認する",
         "operations": "サービスごとにエンドポイントを作成する",
         "limits": "S3とDynamoDBだけなら、追加料金のないゲートウェイエンドポイントも選べる",

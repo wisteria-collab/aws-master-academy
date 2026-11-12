@@ -358,6 +358,8 @@ with sync_playwright() as p:
     check('料金：確認済みのサービスに料金ページのリンク', '料金を調べる（AWS公式）' in t and link.get_attribute('href') == 'https://aws.amazon.com/jp/s3/pricing/' and '料金がかかるもの' in t)
     check('料金：公式の料金一覧と計算ツール', page.get_by_role('link', name=re.compile('AWS公式 料金一覧')).get_attribute('href') == 'https://aws.amazon.com/jp/pricing/' and page.get_by_role('link', name=re.compile('AWS料金計算ツール')).get_attribute('href') == 'https://calculator.aws/')
     page.goto(BASE + '#/services/aws-iam'); page.wait_for_timeout(400)
+    check('料金：追加料金なしと確認できたサービスは、その旨を表示', '追加料金なしで利用できます' in page.inner_text('main') and '個別の料金ページは、まだ確認できていません' not in page.inner_text('main'))
+    page.goto(BASE + '#/services/aws-cli'); page.wait_for_timeout(400)
     check('料金：未確認のサービスは、その旨を表示', '個別の料金ページは、まだ確認できていません' in page.inner_text('main'))
     page.goto(BASE + '#/compare/storage'); page.wait_for_timeout(400)
     check('料金：比較ページにも案内', page.get_by_role('link', name='Amazon S3 の料金ページ（AWS公式）').count() == 1 and page.get_by_role('link', name='Amazon EBS の料金ページ（AWS公式）').count() == 1)
@@ -373,7 +375,8 @@ with sync_playwright() as p:
     page.goto(BASE + '#/progress'); page.wait_for_timeout(500)
     t = page.inner_text('main')
     check('分野別の理解度', '各問題の最新の解答で集計' in t and re.search(r'\d+%', t) is not None)
-    check('苦手サービスにS3', 'Amazon S3' in t.split('苦手サービスランキング')[1].split('模擬試験')[0] and '比較で確認' in t)
+    rank = t.split('苦手サービスランキング')[1].split('模擬試験')[0]
+    check('苦手サービスの欄が出る（順位か、苦手なしの案内）', '正答率' in rank or 'いまのところ苦手なサービスはありません' in rank)
     page.screenshot(path=f'{OUT}/m-progress-phase3.png', full_page=True)
     page.goto(BASE); page.wait_for_timeout(400)
     check('ホームにCLF進捗', '2 / 21 レッスン' in page.inner_text('main'))

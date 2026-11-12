@@ -78,6 +78,5 @@
     "serverless",
     "container",
     "decoupling"
-  ],
-  "uncertainNote": "試験ガイドに挙げられているLambdaのメモリの選択は、公式情報での確認がまだのため、このレッスンでは扱っていません。"
+  ]
 }
