@@ -13,9 +13,13 @@
     {
       "title": "What is AWS Billing and Cost Management?（AWS Billing ユーザーガイド）",
       "url": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html"
+    },
+    {
+      "title": "Choosing an engine（Amazon ElastiCache ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SelectEngine.html"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -92,7 +96,7 @@
       "oneLine": "よく使うものを置く机の上（インメモリキャッシュ）",
       "values": {
         "role": "マネージドのインメモリキャッシュを提供する",
-        "mechanism": "よく使うデータをメモリ上に置き、そこから返す。エンジンはRedis OSSとMemcached",
+        "mechanism": "よく使うデータをメモリ上に置き、そこから返す。エンジンはValkey、Redis OSS、Memcachedの3種類",
         "data": "メモリ上に置く",
         "useCases": "データベースへの問い合わせ結果のキャッシュ、何度も読まれるデータの高速な提供",
         "availability": "マネージドサービスとして提供される",

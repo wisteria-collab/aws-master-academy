@@ -21,6 +21,10 @@
     {
       "title": "Compute Savings Plans の料金（AWS公式）",
       "url": "https://aws.amazon.com/savingsplans/compute-pricing/"
+    },
+    {
+      "title": "Savings Plans FAQs（AWS公式）",
+      "url": "https://aws.amazon.com/savingsplans/faqs/"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -86,5 +90,7 @@
   ],
   "docUrl": "https://docs.aws.amazon.com/savingsplans/",
   "pricingUrl": "https://aws.amazon.com/savingsplans/compute-pricing/",
-  "volatile": true
+  "volatile": true,
+  "pricingNote": "Savings Plansそのものに利用料はなく、「1時間あたりの利用額」を1年または3年約束する代わりに、対象の利用に割引料金が適用される仕組みです。約束した額を超えた分は、通常のオンデマンド料金で課金されます。種類ごとに対象が違います。Compute Savings PlansはEC2・Fargate・Lambda、EC2 Instance Savings Plansは選んだリージョンとインスタンスファミリーのEC2、SageMaker Savings PlansはSageMakerの対象のインスタンスの利用が対象です。データベース向けのDatabase Savings Plans（期間は1年のみ）もあります。支払い方法は、前払いなし・一部前払い・全額前払いから選べます（種類によります）。割引率は変わるため、公式のページで確認してください。",
+  "pricingRefUrl": "https://aws.amazon.com/savingsplans/faqs/"
 }

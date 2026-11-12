@@ -13,6 +13,10 @@
     {
       "title": "Amazon ElastiCache の料金（AWS公式）",
       "url": "https://aws.amazon.com/jp/elasticache/pricing/"
+    },
+    {
+      "title": "Choosing an engine（Amazon ElastiCache ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SelectEngine.html"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -34,12 +38,12 @@
     "description": "よく使うデータをメモリ上に置いておき、素早く返すためのサービスです。ディスクを使うデータベースに毎回問い合わせるよりも速く応答できます。"
   },
   "exam": {
-    "description": "クラウドでインメモリキャッシュを簡単にデプロイ、運用、スケールできるサービスです。低速なディスクベースのデータベースだけに頼らず、高速なマネージドのインメモリキャッシュから情報を取得できるようにして、ウェブアプリケーションの性能を向上させます。エンジンとしてRedis OSSとMemcachedに対応しています。",
+    "description": "クラウドでインメモリキャッシュを簡単にデプロイ、運用、スケールできるサービスです。低速なディスクベースのデータベースだけに頼らず、高速なマネージドのインメモリキャッシュから情報を取得できるようにして、ウェブアプリケーションの性能を向上させます。エンジンは、Valkey、Redis OSS、Memcachedの3種類から選べます。Memcachedは最も単純なキャッシュ向け、ValkeyとRedis OSSは複雑なデータ型などの高度な機能が必要なとき向けです。",
     "points": [
       "インメモリ（メモリベース）のデータベース・キャッシュ＝Amazon ElastiCache。",
       "ディスクベースのデータベースより高速に、メモリから情報を取得できる。",
       "ウェブアプリケーションの性能を向上させるために使う。",
-      "エンジンはRedis OSSとMemcached。"
+      "エンジンはValkey、Redis OSS、Memcachedの3種類。"
     ]
   },
   "useCases": [

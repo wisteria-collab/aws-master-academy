@@ -13,6 +13,10 @@
     {
       "title": "Amazon SageMaker 料金（AWS公式）",
       "url": "https://aws.amazon.com/jp/sagemaker/pricing/"
+    },
+    {
+      "title": "Amazon SageMaker AI の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/sagemaker/ai/pricing/"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -75,5 +79,6 @@
   ],
   "docUrl": "https://docs.aws.amazon.com/sagemaker/",
   "pricingUrl": "https://aws.amazon.com/jp/sagemaker/pricing/",
-  "volatile": true
+  "volatile": true,
+  "pricingNote": "オンデマンドでは、最低料金や前払いはなく、ノートブック・トレーニング・リアルタイム推論などに使ったインスタンスの利用時間と、ストレージの量（GB）に応じて課金されます。サーバーレス推論は、選んだメモリの量にもとづくコンピューティングの時間（ミリ秒単位）と、処理したデータの量に応じて課金されます。一定の利用を約束して割引を受けるSageMaker Savings Plansもあります。最初のリソースを作成してから2か月間は、無料利用枠があります（2026年11月12日に確認）。"
 }

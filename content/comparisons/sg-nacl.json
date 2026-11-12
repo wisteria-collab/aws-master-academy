@@ -13,9 +13,17 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Control traffic to your AWS resources using security groups（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/vpc-security-groups.html"
+    },
+    {
+      "title": "Control subnet traffic with network access control lists（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/vpc-network-acls.html"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -38,7 +46,7 @@
         "availability": "VPCの機能として提供される",
         "performance": "すべてのルールを評価してから、通信を許可するかどうかを判断する",
         "scalability": "そのセキュリティグループに関連付けたすべてのインスタンスに適用される",
-        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "追加料金なしで使用できる",
         "operations": "許可のルールだけを考えればよい。戻りの通信のルールは不要",
         "limits": "拒否のルールは設定できない",
         "chooseWhen": "インスタンスへのアクセスを制御したいとき。主な制御の手段として使う",
@@ -58,7 +66,7 @@
         "availability": "VPCの機能として提供される",
         "performance": "ルールを番号の小さい順に評価し、一致したところで決まる",
         "scalability": "関連付けたサブネットの中の、すべてのインスタンスに適用される",
-        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "追加料金なしで使用できる",
         "operations": "行きと戻りの両方のルールを設定する必要がある",
         "limits": "戻りの通信のルールを忘れると、通信できなくなる",
         "chooseWhen": "特定のIPアドレスからの通信を、サブネット全体で拒否したいとき",

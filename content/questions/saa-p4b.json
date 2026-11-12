@@ -866,9 +866,13 @@
       {
         "title": "SAA-C03 試験ガイド（AWS公式）",
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      },
+      {
+        "title": "FIPS validation（AWS CloudHSM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/cloudhsm/latest/userguide/fips-validation.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-12",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -881,13 +885,13 @@
     "format": "scenario",
     "select": "single",
     "difficulty": "advanced",
-    "stem": "ある金融機関は、規制により、暗号鍵を自社専用のハードウェアセキュリティモジュール（HSM）で管理することが求められています。FIPS 140-2 レベル3の検証を受けた専用のHSMが必要です。最も適切なサービスはどれですか。",
+    "stem": "ある金融機関は、規制により、暗号鍵を自社専用のハードウェアセキュリティモジュール（HSM）で管理することが求められています。FIPS 140-3 レベル3の認証を受けた専用のHSMが必要です。最も適切なサービスはどれですか。",
     "choices": [
       {
         "id": "a",
         "text": "AWS CloudHSM",
         "correct": true,
-        "explanation": "CloudHSMでは、FIPS 140-2 レベル3の検証を受けた専用のHSMを使って、自分の暗号鍵を管理できます。"
+        "explanation": "CloudHSMでは、専用のHSMを使って、自分の暗号鍵を管理できます。現在のHSMのタイプ（hsm2m.medium）は、FIPS 140-3 レベル3の認証を受けています。以前のタイプ（hsm1.medium）は、FIPS 140-2 レベル3の認証でした。"
       },
       {
         "id": "b",

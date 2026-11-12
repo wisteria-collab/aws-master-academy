@@ -13,6 +13,10 @@
     {
       "title": "AWS Snow Family の料金（AWS公式）",
       "url": "https://aws.amazon.com/jp/snowball/pricing/"
+    },
+    {
+      "title": "AWS Snowball Edge availability change（AWS Snowball Edge デベロッパーガイド）",
+      "url": "https://docs.aws.amazon.com/snowball/latest/developer-guide/snowball-edge-availability-change.html"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -36,11 +40,12 @@
     "description": "専用の機器にデータを入れて、その機器ごとAWSに送ることで、大量のデータを運ぶサービスです。ネットワークが使えない場所でも使えます。"
   },
   "exam": {
-    "description": "過酷な、データセンターではない環境や、安定したネットワーク接続がない場所で運用する必要がある顧客を支援します。AWS SnowballとAWS Snowball Edgeで構成され、多くはコンピューティングの機能を内蔵した、いくつかの物理的な機器を提供します。エクサバイト規模までのデータを、AWSとの間で物理的に輸送するのに役立ちます。",
+    "description": "過酷な、データセンターではない環境や、安定したネットワーク接続がない場所で運用する必要がある顧客を支援します。AWS SnowballとAWS Snowball Edgeで構成され、多くはコンピューティングの機能を内蔵した、いくつかの物理的な機器を提供します。大量のデータを、AWSとの間で物理的に輸送するためのサービスです。現在は、新規の利用者には提供されていません（下の注意を参照）。",
     "points": [
       "大量のデータを物理的な機器で輸送＝AWS Snow Family。",
       "安定したネットワーク接続がない場所でも使える。コンピューティングの機能を内蔵した機器もある。",
-      "ネットワーク経由のデータ移動はAWS DataSync。"
+      "ネットワーク経由のデータ移動はAWS DataSync。",
+      "新規の利用者には提供されていない。現在の代わりの方法：オンライン＝AWS DataSync、オフライン＝AWS Data Transfer Terminal、エッジ＝AWS Outposts。"
     ]
   },
   "useCases": [
@@ -51,7 +56,8 @@
     "ネットワークに頼らずに大量のデータを運べる"
   ],
   "cons": [
-    "機器の輸送の時間がかかる"
+    "機器の輸送の時間がかかる",
+    "新規の利用者は注文できない"
   ],
   "scenes": [
     "ネットワークで送ると数か月かかる量のデータを、AWSへ移す"
@@ -78,5 +84,6 @@
   "docUrl": "https://docs.aws.amazon.com/snowball/",
   "pricingUrl": "https://aws.amazon.com/jp/snowball/pricing/",
   "pricingNote": "機器を使った日数（含まれる日数を超えた分）、サービスの料金、配送料、AWSから外へのデータ転送など。",
-  "volatile": true
+  "volatile": true,
+  "uncertainNote": "AWS公式の案内（2026年11月12日に確認）では、AWS Snowball Edgeは新規の利用者には提供されておらず、Snow Familyの機器の新規の注文も受け付けていません。既存の利用者は引き続き使えます。代わりの方法として、オンラインの転送にはAWS DataSync、オフラインの転送にはAWS Data Transfer TerminalやAWSパートナーの製品、エッジでの処理にはAWS Outpostsが案内されています。試験ガイドにはSnow Familyの名前が載っているため、役割（大量のデータの物理的な輸送）は学んでおきます。"
 }

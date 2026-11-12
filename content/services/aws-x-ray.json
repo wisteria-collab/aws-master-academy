@@ -71,7 +71,7 @@
     }
   ],
   "docUrl": "https://docs.aws.amazon.com/xray/",
-  "pricingNote": "X-Rayのトレースの料金は、Amazon CloudWatchの料金ページに掲載されています。記録したトレースの数、取得またはスキャンしたトレースの数、X-Ray Insightsで処理したトレースの数に応じて課金されます。毎月、記録は最初の10万件、取得とスキャンは合わせて最初の100万件が無料です（2026年11月12日に確認。無料の範囲は変わることがあります）。",
+  "pricingNote": "X-Rayのトレースの料金は、Amazon CloudWatchの料金ページに掲載されています。記録したトレースの数、取得またはスキャンしたトレースの数、X-Ray Insightsで処理したトレースの数に応じて課金されます。料金ページには、毎月、記録は最初の10万件、取得とスキャンは合わせて最初の100万件が無料と書かれています（2026年11月12日に確認）。適用の条件（アカウント単位かどうか、期間の制限があるかなど）は、確認できた範囲には書かれていませんでした。件数や条件は変わることがあるため、利用の前に公式の料金ページで確認してください。",
   "pricingRefUrl": "https://aws.amazon.com/jp/cloudwatch/pricing/",
   "pricingUrl": "https://aws.amazon.com/jp/cloudwatch/pricing/",
   "volatile": true

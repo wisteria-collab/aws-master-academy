@@ -21,6 +21,14 @@
     {
       "title": "AWS Snow Family の料金（AWS公式）",
       "url": "https://aws.amazon.com/jp/snowball/pricing/"
+    },
+    {
+      "title": "AWS Snowball Edge availability change（AWS Snowball Edge デベロッパーガイド）",
+      "url": "https://docs.aws.amazon.com/snowball/latest/developer-guide/snowball-edge-availability-change.html"
+    },
+    {
+      "title": "AWS Storage Gateway の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/storagegateway/pricing/"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -86,7 +94,7 @@
         "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
         "performance": "ローカルのキャッシュにより、よく使うデータに低遅延でアクセスできる",
         "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
-        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "ゲートウェイの種類ごとに料金表がある。ゲートウェイとAWSの間で転送したデータの量に応じて課金される。S3に保存したデータにはS3の料金が別にかかる。金額は公式の料金ページで確認する",
         "operations": "オンプレミスにゲートウェイを置く",
         "limits": "オンプレミスにゲートウェイが必要",
         "chooseWhen": "オンプレミスのアプリケーションが、AWSのストレージを継続的に使い続けるとき",
@@ -101,16 +109,16 @@
       "values": {
         "role": "大量のデータを、物理的な機器でAWSとの間で輸送する",
         "mechanism": "機器にデータを入れ、機器を輸送する",
-        "data": "エクサバイト規模までのデータを運べる",
+        "data": "機器にデータを入れて運ぶ",
         "useCases": "安定したネットワーク接続がない場所からのデータの移行",
-        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "availability": "新規の利用者には提供されていない。既存の利用者は引き続き使える",
         "performance": "ネットワークの速度に左右されない",
-        "scalability": "エクサバイト規模まで対応",
+        "scalability": "ネットワークでは運びにくい、大量のデータに対応する",
         "cost": "機器を使った日数（含まれる日数を超えた分）、サービスの料金、配送料などがかかる。金額は公式の料金ページで確認する",
         "operations": "機器の受け取りと発送の作業がある",
-        "limits": "機器の輸送に時間がかかる",
+        "limits": "機器の輸送に時間がかかる。新規の利用者には提供されていない",
         "chooseWhen": "回線が細い、またはデータが非常に大きく、ネットワークでは現実的でないとき",
-        "avoidWhen": "ネットワークで十分に速く送れるとき"
+        "avoidWhen": "ネットワークで十分に速く送れるとき。これから新しく使い始めるとき（新規の注文は受け付けていないため、AWS DataSyncやAWS Data Transfer Terminalを検討する）"
       },
       "serviceId": "aws-snow-family"
     }
@@ -160,5 +168,6 @@
     "saa-q-di-04",
     "saa-q-dt-train-01",
     "saa-q-dt-train-02"
-  ]
+  ],
+  "uncertainNote": "AWS公式の案内（2026年11月12日に確認）では、AWS Snowball Edgeは新規の利用者には提供されておらず、Snow Familyの機器の新規の注文も受け付けていません。既存の利用者は引き続き使えます。代わりの方法として、オンラインの転送にはAWS DataSync、オフラインの転送にはAWS Data Transfer TerminalやAWSパートナーの製品、エッジでの処理にはAWS Outpostsが案内されています。試験ガイドにはSnow Familyの名前が載っているため、役割（大量のデータの物理的な輸送）は学んでおきます。"
 }

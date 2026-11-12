@@ -13,9 +13,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Choosing an engine（Amazon ElastiCache ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SelectEngine.html"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -57,7 +61,7 @@
     "RDSは管理作業（ハードウェアの用意、セットアップ、パッチ適用、バックアップ）を自動化する。",
     "AuroraはMySQL・PostgreSQL互換。ストレージが自動で拡張し、3つのアベイラビリティゾーンに複製される。",
     "DynamoDBは、どんな規模でも1桁ミリ秒。フルマネージド。",
-    "ElastiCacheは、メモリからデータを返して応答を速くする。エンジンはRedis OSSとMemcached。",
+    "ElastiCacheは、メモリからデータを返して応答を速くする。エンジンはValkey、Redis OSS、Memcachedの3種類。",
     "データベースの移行＝AWS DMS（移行中も移行元は稼働）。スキーマの変換＝AWS SCT。",
     "「管理を任せたい」ならマネージドデータベース、「OSやソフトウェアを自分で管理したい」ならEC2上のデータベース。",
     "RDSの高可用性は、マルチAZ配置で高める。"

@@ -13,6 +13,10 @@
     {
       "title": "AWS CloudHSM の料金（AWS公式）",
       "url": "https://aws.amazon.com/jp/cloudhsm/pricing/"
+    },
+    {
+      "title": "FIPS validation（AWS CloudHSM ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/cloudhsm/latest/userguide/fips-validation.html"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -34,11 +38,11 @@
     "description": "暗号鍵を、自分専用の特別な機器（HSM）の中で作って管理するためのサービスです。"
   },
   "exam": {
-    "description": "クラウドベースのハードウェアセキュリティモジュール（HSM）で、AWSクラウド上で自分の暗号鍵を簡単に生成して使えます。FIPS 140-2 レベル3の検証を受けた専用のHSMを使って、自分の暗号鍵を管理できます。",
+    "description": "クラウドベースのハードウェアセキュリティモジュール（HSM）で、AWSクラウド上で自分の暗号鍵を簡単に生成して使えます。専用のHSMを使って、自分の暗号鍵を管理できます。現在のHSMのタイプ（hsm2m.medium）は、FIPS 140-3 レベル3の認証を受けています。以前のタイプ（hsm1.medium）はFIPS 140-2 レベル3の認証で、その証明書は2026年1月4日にNISTの過去の一覧（Historical list）へ移りました。",
     "points": [
       "専用のHSMで自分の鍵を管理＝AWS CloudHSM。",
       "鍵の作成と管理、AWSサービスとの統合が中心ならAWS KMS。",
-      "「専用のHSM」「FIPS 140-2 レベル3」が手がかり。"
+      "「専用のHSM」「FIPS 140-3 レベル3」が手がかり（以前のタイプはFIPS 140-2 レベル3）。"
     ]
   },
   "useCases": [

@@ -9,9 +9,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "AWS Snowball Edge availability change（AWS Snowball Edge デベロッパーガイド）",
+      "url": "https://docs.aws.amazon.com/snowball/latest/developer-guide/snowball-edge-availability-change.html"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -38,7 +42,7 @@
     "ログを全文検索できるようにする"
   ],
   "mechanism": {
-    "text": "【ストリーミングデータの取り込み】\n・Amazon Kinesis Data Streams：大規模に拡張できる、リアルタイムのデータストリーミングサービスです。データはミリ秒単位で利用できるようになります。\n・Amazon Data Firehose：ストリーミングデータを取り込み、変換して、Amazon S3、Amazon Redshift、Amazon OpenSearch Serviceなどに届けます。フルマネージドで、自動的にスケールします。S3に届ける前に、Apache ParquetやApache ORCといった列指向のフォーマットに変換できます。\n・Amazon MSK：Apache Kafkaを使うアプリケーションのための、フルマネージドのサービスです。\n【まとまったデータの転送】\n・AWS DataSync：オンプレミスのストレージとS3・EFSの間のデータ移動を自動化します。\n・AWS Storage Gateway：オンプレミスのアプリケーションが、AWSのストレージを継続的に使えるようにします。\n・AWS Transfer Family：SFTP・FTPS・FTPでのファイル転送を、S3やEFSに直接届けます。\n・AWS Snow Family：大量のデータを、物理的な機器で輸送します。\n【データレイク】\nデータレイクは、すべてのデータを、元の形のままでも、分析用に整えた形でも保管する場所です。AWS Lake Formationは、データを収集してカタログ化し、Amazon S3のデータレイクに移し、機密性の高いデータへのアクセスを保護します。\n【変換】\nAWS Glueは、フルマネージドのETLサービスです。データを検出し、メタデータをAWS Glue Data Catalogに保存します。\n【分析と可視化】\n・Amazon Athena：S3のデータを、標準的なSQLで分析します。サーバーレスで、AWS Glue Data Catalogと連携します。\n・Amazon Redshift：大量のデータに複雑な分析を行うデータウェアハウスです。\n・Amazon EMR：Apache Sparkなどで、ビッグデータを処理します。\n・Amazon OpenSearch Service：ログ分析や全文検索を行います。\n・Amazon Quick：ダッシュボードで可視化します（以前の名前はAmazon QuickSight）。\n【取り込み口の保護】\n取り込みに使うサービスへのアクセスは、IAMのポリシーで必要最小限に絞ります。インターネットを通さずに取り込みたい場合は、VPCエンドポイントを使います。",
+    "text": "【ストリーミングデータの取り込み】\n・Amazon Kinesis Data Streams：大規模に拡張できる、リアルタイムのデータストリーミングサービスです。データはミリ秒単位で利用できるようになります。\n・Amazon Data Firehose：ストリーミングデータを取り込み、変換して、Amazon S3、Amazon Redshift、Amazon OpenSearch Serviceなどに届けます。フルマネージドで、自動的にスケールします。S3に届ける前に、Apache ParquetやApache ORCといった列指向のフォーマットに変換できます。\n・Amazon MSK：Apache Kafkaを使うアプリケーションのための、フルマネージドのサービスです。\n【まとまったデータの転送】\n・AWS DataSync：オンプレミスのストレージとS3・EFSの間のデータ移動を自動化します。\n・AWS Storage Gateway：オンプレミスのアプリケーションが、AWSのストレージを継続的に使えるようにします。\n・AWS Transfer Family：SFTP・FTPS・FTPでのファイル転送を、S3やEFSに直接届けます。\n・AWS Snow Family：大量のデータを、物理的な機器で輸送します。現在は、新規の利用者には提供されていません。新しく始める場合、オンラインの転送にはAWS DataSync、オフラインの転送にはAWS Data Transfer Terminalが案内されています。\n【データレイク】\nデータレイクは、すべてのデータを、元の形のままでも、分析用に整えた形でも保管する場所です。AWS Lake Formationは、データを収集してカタログ化し、Amazon S3のデータレイクに移し、機密性の高いデータへのアクセスを保護します。\n【変換】\nAWS Glueは、フルマネージドのETLサービスです。データを検出し、メタデータをAWS Glue Data Catalogに保存します。\n【分析と可視化】\n・Amazon Athena：S3のデータを、標準的なSQLで分析します。サーバーレスで、AWS Glue Data Catalogと連携します。\n・Amazon Redshift：大量のデータに複雑な分析を行うデータウェアハウスです。\n・Amazon EMR：Apache Sparkなどで、ビッグデータを処理します。\n・Amazon OpenSearch Service：ログ分析や全文検索を行います。\n・Amazon Quick：ダッシュボードで可視化します（以前の名前はAmazon QuickSight）。\n【取り込み口の保護】\n取り込みに使うサービスへのアクセスは、IAMのポリシーで必要最小限に絞ります。インターネットを通さずに取り込みたい場合は、VPCエンドポイントを使います。",
     "figureId": "data-flow"
   },
   "relatedServiceIds": [
@@ -80,5 +84,6 @@
     "columnar-format",
     "business-intelligence",
     "data-warehouse"
-  ]
+  ],
+  "uncertainNote": "AWS公式の案内（2026年11月12日に確認）では、AWS Snowball Edgeは新規の利用者には提供されておらず、Snow Familyの機器の新規の注文も受け付けていません。既存の利用者は引き続き使えます。代わりの方法として、オンラインの転送にはAWS DataSync、オフラインの転送にはAWS Data Transfer TerminalやAWSパートナーの製品、エッジでの処理にはAWS Outpostsが案内されています。試験ガイドにはSnow Familyの名前が載っているため、役割（大量のデータの物理的な輸送）は学んでおきます。"
 }

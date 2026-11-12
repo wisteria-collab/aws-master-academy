@@ -13,6 +13,10 @@
     {
       "title": "AWS Storage Gateway Pricing（AWS公式）",
       "url": "https://aws.amazon.com/storagegateway/pricing/"
+    },
+    {
+      "title": "AWS Storage Gateway の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/storagegateway/pricing/"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -81,5 +85,6 @@
   ],
   "docUrl": "https://docs.aws.amazon.com/storagegateway/",
   "pricingUrl": "https://aws.amazon.com/storagegateway/pricing/",
-  "volatile": true
+  "volatile": true,
+  "pricingNote": "ゲートウェイの種類（ファイル、ボリューム、テープ）ごとに料金表があります。共通して、ゲートウェイとAWSの間で転送したデータの量に応じた料金がかかります。このほか、Amazon S3に保存したデータにはS3の料金、AWS Direct Connectを使う場合はその料金、ゲートウェイをAmazon EC2で動かす場合はEC2の料金、Amazon CloudWatchの料金が、別にかかります。種類ごとの保存やリクエストの料金の内訳は、公式の料金ページで確認してください（2026年11月12日に確認。内訳の表は、今回の確認では読み取れませんでした）。"
 }

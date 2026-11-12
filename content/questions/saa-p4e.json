@@ -638,9 +638,13 @@
       {
         "title": "SAA-C03 試験ガイド（AWS公式）",
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      },
+      {
+        "title": "AWS Snowball Edge availability change（AWS Snowball Edge デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/snowball/latest/developer-guide/snowball-edge-availability-change.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-12",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -705,7 +709,8 @@
         "id": "aws-snow-family"
       }
     ],
-    "variationGroupId": "data-transfer-select"
+    "variationGroupId": "data-transfer-select",
+    "uncertainNote": "AWS公式の案内（2026年11月12日に確認）では、Snow Familyの機器は新規の注文を受け付けていません。この問題は、試験ガイドに載っているサービスの役割を確認するためのものです。新しく始める場合の代わりの方法として、AWS DataSync（オンライン）やAWS Data Transfer Terminal（オフライン）が案内されています。"
   },
   {
     "id": "saa-q-di-05",

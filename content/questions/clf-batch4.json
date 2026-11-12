@@ -270,7 +270,7 @@
         "id": "c",
         "text": "Amazon ElastiCache",
         "correct": false,
-        "explanation": "ElastiCacheはインメモリのキャッシュのサービスで、対応するエンジンはRedis OSSとMemcachedです。PostgreSQLと互換性のあるリレーショナルデータベースではありません。",
+        "explanation": "ElastiCacheはインメモリのキャッシュのサービスで、対応するエンジンはValkey、Redis OSS、Memcachedです。PostgreSQLと互換性のあるリレーショナルデータベースではありません。",
         "eliminatedBy": "PostgreSQLと互換性のあるリレーショナルデータベース"
       },
       {
