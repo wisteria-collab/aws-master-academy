@@ -86,5 +86,6 @@
     }
   ],
   "docUrl": "https://docs.aws.amazon.com/organizations/",
-  "pricingNote": "追加料金なしで利用できます。課金されるのは、メンバーアカウントのユーザーやロールが使ったAWSリソースの分だけです。"
+  "pricingNote": "追加料金なしで利用できます。課金されるのは、メンバーアカウントのユーザーやロールが使ったAWSリソースの分だけです。",
+  "pricingRefUrl": "https://docs.aws.amazon.com/organizations/latest/userguide/pricing.html"
 }

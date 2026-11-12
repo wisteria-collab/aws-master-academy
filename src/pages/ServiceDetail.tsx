@@ -199,7 +199,7 @@ export function ServiceDetail() {
         </a>
       </div>
 
-      <PricingCard services={[{ name: service.name, pricingUrl: service.pricingUrl, pricingNote: service.pricingNote }]} />
+      <PricingCard services={[{ name: service.name, pricingUrl: service.pricingUrl, pricingNote: service.pricingNote, pricingRefUrl: service.pricingRefUrl }]} />
 
       <BackLink fallback="/services" fallbackLabel="サービス図鑑" />
 

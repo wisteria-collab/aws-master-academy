@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    },
+    {
+      "title": "AWS Marketplace product pricing（AWS Marketplace 出品者ガイド）",
+      "url": "https://docs.aws.amazon.com/marketplace/latest/userguide/pricing-overview.html"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -67,5 +71,7 @@
       "domainId": "clf-d4"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/marketplace/"
+  "docUrl": "https://docs.aws.amazon.com/marketplace/",
+  "pricingNote": "AWS Marketplaceそのものに決まった料金表はなく、料金は製品ごとに決まります。出品者は、製品を無料でも有料でも提供できます。料金モデルには、無料、無料トライアル、時間単位、月額、年額、複数年、BYOL（自分のライセンスの持ち込み）があります。期間や使用量を決めた契約や、個別の条件を決めるプライベートオファーもあります。購入した製品の料金は、AWSの請求に含まれます。製品を動かすためのAWSリソース（Amazon EC2など）の料金は、別に確認してください。",
+  "pricingRefUrl": "https://docs.aws.amazon.com/marketplace/latest/userguide/pricing-overview.html"
 }

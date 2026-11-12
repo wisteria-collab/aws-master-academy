@@ -76,5 +76,6 @@
     }
   ],
   "docUrl": "https://docs.aws.amazon.com/singlesignon/",
-  "pricingNote": "追加料金なしで利用できます。"
+  "pricingNote": "追加料金なしで利用できます。",
+  "pricingRefUrl": "https://aws.amazon.com/compare/iam-and-iam-identity-center/"
 }

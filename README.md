@@ -54,3 +54,7 @@ npm run build      # 検証 + 型チェック + ビルド（dist/ に出力）
 ---
 
 AWS非公式の学習用アプリです。Amazon Web Services、AWS は、Amazon.com, Inc. またはその関連会社の商標です。
+
+## 引き継ぎ
+
+作業の手順・ルール・残課題は [docs/HANDOFF.md](docs/HANDOFF.md) にまとめています。

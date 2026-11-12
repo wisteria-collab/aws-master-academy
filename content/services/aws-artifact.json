@@ -66,5 +66,6 @@
     }
   ],
   "docUrl": "https://docs.aws.amazon.com/artifact/",
-  "pricingNote": "追加料金なしで利用できます。"
+  "pricingNote": "追加料金なしで利用できます。",
+  "pricingRefUrl": "https://aws.amazon.com/blogs/security/accept-a-baa-with-aws-for-all-accounts-in-your-organization/"
 }

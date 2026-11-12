@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "AWS マネジメントコンソール（AWS公式）",
+      "url": "https://aws.amazon.com/jp/console/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -70,5 +74,7 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/awsconsolehelpdocs/"
+  "docUrl": "https://docs.aws.amazon.com/awsconsolehelpdocs/",
+  "pricingNote": "公式のページでは、コンソールそのものの料金（独立した従量課金）についての記載は確認できていません。コンソールから作成・操作したAWSリソースには、それぞれのサービスの料金がかかります。金額は、各サービスの料金ページで確認してください。",
+  "pricingRefUrl": "https://aws.amazon.com/jp/console/"
 }

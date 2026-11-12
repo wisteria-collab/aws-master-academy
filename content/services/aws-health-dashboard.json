@@ -78,5 +78,6 @@
     }
   ],
   "docUrl": "https://docs.aws.amazon.com/health/",
-  "pricingNote": "すべてのAWSの利用者が、追加料金なしで利用できます。"
+  "pricingNote": "すべてのAWSの利用者が、追加料金なしで利用できます。",
+  "pricingRefUrl": "https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html"
 }

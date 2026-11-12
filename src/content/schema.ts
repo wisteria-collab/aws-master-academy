@@ -133,6 +133,8 @@ export const serviceSchema = z
     pricingUrl: z.url().optional(),
     /** 何に対して料金がかかるか（公式の料金情報で確認できた内容） */
     pricingNote: nonEmpty.optional(),
+    /** 個別の料金ページがないサービスで、料金の説明の根拠にした公式ページ */
+    pricingRefUrl: z.url().optional(),
   })
   .superRefine(checkMeta)
 export type Service = z.infer<typeof serviceSchema>

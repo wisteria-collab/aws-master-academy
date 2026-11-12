@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon CloudWatch の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/cloudwatch/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -66,5 +70,9 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/xray/"
+  "docUrl": "https://docs.aws.amazon.com/xray/",
+  "pricingNote": "X-Rayのトレースの料金は、Amazon CloudWatchの料金ページに掲載されています。記録したトレースの数、取得またはスキャンしたトレースの数、X-Ray Insightsで処理したトレースの数に応じて課金されます。毎月、記録は最初の10万件、取得とスキャンは合わせて最初の100万件が無料です（2026年11月12日に確認。無料の範囲は変わることがあります）。",
+  "pricingRefUrl": "https://aws.amazon.com/jp/cloudwatch/pricing/",
+  "pricingUrl": "https://aws.amazon.com/jp/cloudwatch/pricing/",
+  "volatile": true
 }

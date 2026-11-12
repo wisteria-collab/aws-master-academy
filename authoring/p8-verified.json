@@ -1,0 +1,282 @@
+{
+ "amazon-api-gateway": [
+  "https://aws.amazon.com/jp/api-gateway/pricing/",
+  "受け取ったAPIコールの数と、外向きに転送したデータの量。WebSocket APIは、メッセージの数と接続していた時間。キャッシュを使う場合は、その時間。"
+ ],
+ "amazon-appstream-2": [
+  "https://aws.amazon.com/jp/appstream2/pricing/",
+  "ストリーミング用のインスタンスを動かした時間と、利用者ごとの月額の料金など。"
+ ],
+ "amazon-athena": [
+  "https://aws.amazon.com/jp/athena/pricing/",
+  "SQLのクエリでスキャンしたデータの量。キャパシティを予約する使い方もあります。"
+ ],
+ "amazon-aurora": [
+  "https://aws.amazon.com/jp/rds/aurora/pricing/",
+  "DBインスタンス（時間単位、またはServerlessのACU単位）、ストレージ、I/O（構成による）、バックアップ、データ転送など。"
+ ],
+ "amazon-cloudwatch": [
+  "https://aws.amazon.com/jp/cloudwatch/pricing/",
+  "ログの取り込み・保存・クエリ、メトリクス、ダッシュボード、アラームなど、使った量に応じた従量課金。無料利用枠があります。"
+ ],
+ "amazon-cognito": [
+  "https://aws.amazon.com/jp/cognito/pricing/",
+  "ユーザープールの、月間のアクティブユーザー数（MAU）に応じた料金。SMSやメールの送信などは別にかかります。"
+ ],
+ "amazon-connect": [
+  "https://aws.amazon.com/jp/connect/pricing/",
+  "音声、チャット、メールなどのチャネルごとの利用量（通話時間やメッセージ数）に応じた従量課金。"
+ ],
+ "amazon-data-firehose": [
+  "https://aws.amazon.com/jp/firehose/pricing/",
+  "取り込んだデータの量。フォーマットの変換などのオプション機能には、追加の料金がかかります。"
+ ],
+ "amazon-ec2-auto-scaling": [
+  "https://aws.amazon.com/jp/autoscaling/pricing/",
+  "Auto Scalingそのものは無料です。起動したAWSのリソースと、Amazon CloudWatchのモニタリングに料金がかかります。"
+ ],
+ "amazon-ecs": [
+  "https://aws.amazon.com/jp/ecs/pricing/",
+  "ECSのオーケストレーションそのものは無料です。コンテナを動かす基盤（AWS FargateのvCPU・メモリ、またはEC2インスタンスなど）に料金がかかります。"
+ ],
+ "amazon-eks": [
+  "https://aws.amazon.com/jp/eks/pricing/",
+  "クラスターを動かした時間。そのほかに、ノードとして使うEC2インスタンスやEBSなどの、関連するリソースの料金がかかります。"
+ ],
+ "amazon-elasticache": [
+  "https://aws.amazon.com/jp/elasticache/pricing/",
+  "サーバーレスは、保存したデータの量と処理の量。ノードを指定する使い方は、ノードを動かした時間。データ転送やバックアップの保存に料金がかかる場合があります。"
+ ],
+ "amazon-emr": [
+  "https://aws.amazon.com/jp/emr/pricing/",
+  "EMRを動かした時間（秒単位）と、基盤になるEC2インスタンスやEBSなどの料金。"
+ ],
+ "amazon-eventbridge": [
+  "https://aws.amazon.com/jp/eventbridge/pricing/",
+  "取り込んだイベントの数や、配信の数など。スケジューラーやパイプなどの機能ごとに、料金の決まり方があります。"
+ ],
+ "amazon-fsx": [
+  "https://aws.amazon.com/jp/fsx/pricing/",
+  "使ったリソースの量に応じた従量課金。最低料金や初期費用はありません。ファイルシステムの種類ごとに、料金ページがあります。"
+ ],
+ "amazon-guardduty": [
+  "https://aws.amazon.com/jp/guardduty/pricing/",
+  "分析したCloudTrailのイベントの数や、VPCフローログ・DNSログの量など、分析したデータの量に応じた従量課金。"
+ ],
+ "amazon-inspector": [
+  "https://aws.amazon.com/jp/inspector/pricing/",
+  "スキャンしたEC2インスタンス、Lambda関数、コンテナイメージなどの数に応じた従量課金。"
+ ],
+ "amazon-kinesis": [
+  "https://aws.amazon.com/jp/kinesis/data-streams/pricing/",
+  "オンデマンドは、取り込んだデータと読み取ったデータの量など。プロビジョンドは、シャードを使った時間など。"
+ ],
+ "amazon-lex": [
+  "https://aws.amazon.com/jp/lex/pricing/",
+  "処理した音声のリクエストと、テキストのリクエストの数。"
+ ],
+ "amazon-lightsail": [
+  "https://aws.amazon.com/jp/lightsail/pricing/",
+  "仮想サーバーやデータベースなどの、プランごとの月額の料金。プランに含まれるデータ転送の量を超えた送信には、料金がかかります。"
+ ],
+ "amazon-macie": [
+  "https://aws.amazon.com/jp/macie/pricing/",
+  "対象にするS3バケットの数、監視するオブジェクトの数、検査したデータの量。"
+ ],
+ "amazon-opensearch-service": [
+  "https://aws.amazon.com/jp/opensearch-service/pricing/",
+  "インスタンスを動かした時間、ストレージ、データ転送。サーバーレスは、使った処理の容量と、保存したデータの量。"
+ ],
+ "amazon-quick": [
+  "https://aws.amazon.com/jp/quick/pricing/",
+  "利用者ごとの月額の料金など。"
+ ],
+ "amazon-rds-proxy": [
+  "https://aws.amazon.com/jp/rds/proxy/pricing/",
+  "接続先のデータベースの容量に基づく、時間単位の料金（vCPU、またはAurora ServerlessのACUの単位）。"
+ ],
+ "amazon-redshift": [
+  "https://aws.amazon.com/jp/redshift/pricing/",
+  "プロビジョンドは、ノードを動かした時間。サーバーレスは、使ったコンピューティングの容量。ほかに、保存したデータの量など。"
+ ],
+ "amazon-route-53": [
+  "https://aws.amazon.com/jp/route53/pricing/",
+  "ホストゾーンの数、DNSのクエリの数、ヘルスチェックの数、ドメインの登録など。"
+ ],
+ "amazon-ses": [
+  "https://aws.amazon.com/jp/ses/pricing/",
+  "送受信したメールの量など。"
+ ],
+ "amazon-sqs": [
+  "https://aws.amazon.com/jp/sqs/pricing/",
+  "APIリクエストの数（標準キューとFIFOキューで料金が異なります）。リージョンの間や、インターネットとのデータ転送に、料金がかかる場合があります。"
+ ],
+ "amazon-vpc": [
+  "https://aws.amazon.com/jp/vpc/pricing/",
+  "NATゲートウェイは、動かした時間と、処理したデータの量。ほかに、パブリックIPv4アドレスなどに料金がかかります。"
+ ],
+ "amazon-workspaces-secure-browser": [
+  "https://aws.amazon.com/jp/workspaces-family/secure-browser/pricing/",
+  "その月にサインインした利用者の数（月間のアクティブユーザー）に応じた料金など。"
+ ],
+ "amazon-workspaces": [
+  "https://aws.amazon.com/jp/workspaces-family/workspaces/pricing/",
+  "仮想デスクトップごとの、月額または時間単位の料金。"
+ ],
+ "aws-amplify": [
+  "https://aws.amazon.com/jp/amplify/pricing/",
+  "ビルドにかかった時間、データ転送の量、ストレージなど、使った量に応じた従量課金。"
+ ],
+ "aws-application-migration-service": [
+  "https://aws.amazon.com/jp/application-migration-service/pricing/",
+  "レプリケーション（複製）のために確保されるAWSのリソースと、テストや切り替えで起動するEC2インスタンス・EBSの料金。"
+ ],
+ "aws-batch": [
+  "https://aws.amazon.com/jp/batch/pricing/",
+  "AWS Batchそのものに、追加の料金はありません。ジョブを動かすEC2インスタンスやAWS FargateなどのAWSのリソースに料金がかかります。"
+ ],
+ "aws-budgets": [
+  "https://aws.amazon.com/jp/aws-cost-management/aws-budgets/pricing/",
+  "予算による監視は無料です。アクションを設定した予算（一定の数を超える分）と、予算レポートの配信に料金がかかります。"
+ ],
+ "aws-certificate-manager": [
+  "https://aws.amazon.com/jp/certificate-manager/pricing/",
+  "エクスポートできる公開証明書の、発行と更新など。"
+ ],
+ "aws-cloudformation": [
+  "https://aws.amazon.com/jp/cloudformation/pricing/",
+  "AWSのリソースを扱う通常の使い方では、作成したリソースの料金だけがかかります。サードパーティーのリソースなどの操作には、無料利用枠を超えた分の料金がかかります。"
+ ],
+ "aws-cloudhsm": [
+  "https://aws.amazon.com/jp/cloudhsm/pricing/",
+  "HSMごとに、起動してから終了するまでの時間（1時間単位）。初期費用はありません。"
+ ],
+ "aws-cloudtrail": [
+  "https://aws.amazon.com/jp/cloudtrail/pricing/",
+  "証跡で配信したイベントの数、CloudTrail Lakeに取り込んだ量・保持した量、Insightsで分析したイベントの数など。"
+ ],
+ "aws-codebuild": [
+  "https://aws.amazon.com/jp/codebuild/pricing/",
+  "ビルドを実行した時間（コンピューティングのタイプごと）など。"
+ ],
+ "aws-codepipeline": [
+  "https://aws.amazon.com/jp/codepipeline/pricing/",
+  "パイプラインのタイプによって、アクティブなパイプラインの数、またはアクションを実行した時間。"
+ ],
+ "aws-compute-optimizer": [
+  "https://aws.amazon.com/jp/compute-optimizer/pricing/",
+  "Compute Optimizerそのものは無料です。拡張インフラストラクチャメトリクスという有料の機能があります。"
+ ],
+ "aws-config": [
+  "https://aws.amazon.com/jp/config/pricing/",
+  "記録した設定項目の数、ルールの評価の数、コンフォーマンスパックの評価の数。"
+ ],
+ "aws-control-tower": [
+  "https://aws.amazon.com/jp/controltower/pricing/",
+  "Control Towerそのものは無料です。設定や運用で使われるAWS Config、CloudTrail、S3などのサービスの料金がかかります。"
+ ],
+ "aws-cost-explorer": [
+  "https://aws.amazon.com/jp/aws-cost-management/aws-cost-explorer/pricing/",
+  "Cost Explorer APIのリクエストの数と、時間単位の細かさのデータを使う場合の料金。"
+ ],
+ "aws-datasync": [
+  "https://aws.amazon.com/jp/datasync/pricing/",
+  "転送したデータの量。転送先のS3などのリクエストやストレージには、それぞれの料金がかかります。"
+ ],
+ "aws-direct-connect": [
+  "https://aws.amazon.com/jp/directconnect/pricing/",
+  "接続のポートを使った時間と、AWSから外へ転送したデータの量。AWSへの受信のデータ転送は無料です。"
+ ],
+ "aws-directory-service": [
+  "https://aws.amazon.com/jp/directoryservice/pricing/",
+  "ディレクトリの種類とサイズに応じた、時間単位の料金など。"
+ ],
+ "aws-dms": [
+  "https://aws.amazon.com/jp/dms/pricing/",
+  "レプリケーションインスタンスを動かした時間と、追加のログ用ストレージ。サーバーレスは、使った容量の時間単位の料金。"
+ ],
+ "aws-elastic-beanstalk": [
+  "https://aws.amazon.com/jp/elasticbeanstalk/pricing/",
+  "Elastic Beanstalkそのものに、追加の料金はありません。アプリケーションを動かすEC2インスタンスやS3バケットなどのAWSのリソースに料金がかかります。"
+ ],
+ "aws-elastic-disaster-recovery": [
+  "https://aws.amazon.com/jp/disaster-recovery/pricing/",
+  "レプリケーション（複製）しているソースサーバーの台数に応じた時間単位の料金と、複製や訓練で使うEBS・EC2の料金。"
+ ],
+ "aws-fargate": [
+  "https://aws.amazon.com/jp/fargate/pricing/",
+  "タスクやポッドが使ったvCPU、メモリ、ストレージの量と、動かした時間。"
+ ],
+ "aws-firewall-manager": [
+  "https://aws.amazon.com/jp/firewall-manager/pricing/",
+  "保護ポリシーごとの月額の料金と、Firewall Managerが作成するAWS WAFなどのリソースやAWS Configルールの料金。"
+ ],
+ "aws-global-accelerator": [
+  "https://aws.amazon.com/jp/global-accelerator/pricing/",
+  "アクセラレーターを動かした時間の固定の料金と、転送したデータの量に応じた料金。"
+ ],
+ "aws-glue": [
+  "https://aws.amazon.com/jp/glue/pricing/",
+  "ETLのジョブやクローラーが使った処理の量（DPU時間）と、データカタログの保存・リクエストなど。"
+ ],
+ "aws-iot-core": [
+  "https://aws.amazon.com/jp/iot-core/pricing/",
+  "デバイスが接続していた時間、メッセージの数、デバイスシャドウなどの操作の数、ルールの実行の数など。"
+ ],
+ "aws-kms": [
+  "https://aws.amazon.com/jp/kms/pricing/",
+  "KMSキーごとの月額の料金と、無料利用枠を超えたAPIリクエスト。"
+ ],
+ "aws-lake-formation": [
+  "https://aws.amazon.com/jp/lake-formation/pricing/",
+  "一部の機能で、スキャンしたデータの量などに応じた料金がかかります。"
+ ],
+ "aws-privatelink": [
+  "https://aws.amazon.com/jp/privatelink/pricing/",
+  "VPCエンドポイントを、アベイラビリティゾーンごとに用意している時間と、エンドポイントを通って処理されたデータの量。"
+ ],
+ "aws-secrets-manager": [
+  "https://aws.amazon.com/jp/secrets-manager/pricing/",
+  "保管するシークレットの数と、APIコールの数。前払いや長期契約は不要です。"
+ ],
+ "aws-security-hub": [
+  "https://aws.amazon.com/jp/security-hub/pricing/",
+  "監視の対象になるリソースの数などに応じた従量課金。"
+ ],
+ "aws-shield": [
+  "https://aws.amazon.com/jp/shield/pricing/",
+  "Shield Standardは無料です。Shield Advancedは、1年契約の月額の料金と、データ転送の量に応じた料金がかかります。"
+ ],
+ "aws-snow-family": [
+  "https://aws.amazon.com/jp/snowball/pricing/",
+  "機器を使った日数（含まれる日数を超えた分）、サービスの料金、配送料、AWSから外へのデータ転送など。"
+ ],
+ "aws-step-functions": [
+  "https://aws.amazon.com/jp/step-functions/pricing/",
+  "標準ワークフローは、状態遷移の回数。Expressワークフローは、リクエストの数と、実行時間・メモリの量。"
+ ],
+ "aws-support": [
+  "https://aws.amazon.com/jp/premiumsupport/pricing/",
+  "有料のサポートプランは、毎月、最低料金と「その月のAWS利用料の一定の割合」の、どちらか高いほうが請求されます。"
+ ],
+ "aws-transfer-family": [
+  "https://aws.amazon.com/jp/aws-transfer-family/pricing/",
+  "エンドポイントで有効にしたプロトコルごとの時間単位の料金と、転送したデータの量など。"
+ ],
+ "aws-transit-gateway": [
+  "https://aws.amazon.com/jp/transit-gateway/pricing/",
+  "Transit Gatewayへの接続（アタッチメント）の数に応じた時間単位の料金と、通過するデータの量に応じたデータ処理の料金。"
+ ],
+ "aws-vpn": [
+  "https://aws.amazon.com/jp/vpn/pricing/",
+  "Site-to-Site VPNは、接続ごとの時間単位の料金と、データ転送の料金。Client VPNは、エンドポイントと接続の時間単位の料金。"
+ ],
+ "aws-waf": [
+  "https://aws.amazon.com/jp/waf/pricing/",
+  "作成するウェブACLの数、ルールの数、受け取ったリクエストの数。ボット対策などのオプション機能は別にかかります。"
+ ],
+ "elastic-load-balancing": [
+  "https://aws.amazon.com/jp/elasticloadbalancing/pricing/",
+  "ロードバランサーを動かした時間（1時間単位）と、処理の量を表す単位（ALBはLCU、NLBはNLCU、GWLBはGLCU）の使用量。"
+ ]
+}

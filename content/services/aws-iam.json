@@ -82,5 +82,6 @@
     }
   ],
   "docUrl": "https://docs.aws.amazon.com/iam/",
-  "pricingNote": "追加料金なしで利用できます。"
+  "pricingNote": "追加料金なしで利用できます。",
+  "pricingRefUrl": "https://aws.amazon.com/iam/faqs/"
 }

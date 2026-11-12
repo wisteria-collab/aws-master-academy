@@ -15,7 +15,7 @@
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -75,5 +75,7 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/cli/"
+  "docUrl": "https://docs.aws.amazon.com/cli/",
+  "pricingNote": "AWS CLIは、オープンソースのツールです。公式のページでは、CLIそのものの料金についての記載は確認できていません。AWSのサービスは使った分だけ課金されるため、CLIから作成・操作したリソースには、それぞれのサービスの料金がかかります。CLIの利用と、操作したサービスの料金は、分けて考えてください。",
+  "pricingRefUrl": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html"
 }

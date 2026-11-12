@@ -152,7 +152,7 @@ export function CompareDetail() {
       <PricingCard
         services={[...new Map(group.items.flatMap((i) => (i.serviceId ? [i.serviceId] : [])).map((id) => [id, content.services.find((x) => x.id === id)])).values()]
           .filter((x) => x !== undefined)
-          .map((x) => ({ name: x.name, pricingUrl: x.pricingUrl, pricingNote: x.pricingNote }))}
+          .map((x) => ({ name: x.name, pricingUrl: x.pricingUrl, pricingNote: x.pricingNote, pricingRefUrl: x.pricingRefUrl }))}
       />
 
       <BackLink fallback="/compare" fallbackLabel="類似サービス比較" />
