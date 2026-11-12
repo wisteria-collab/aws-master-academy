@@ -17,9 +17,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Understanding S3 Glacier storage classes（Amazon S3 ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/glacier-storage-classes.html"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -45,7 +49,7 @@
     "オンプレミスから、AWSのストレージを使う"
   ],
   "mechanism": {
-    "text": "【ブロックストレージ：Amazon EBS】\nボリュームタイプは、SSDとHDDに大きく分かれます。\n・SSD：データベース、仮想デスクトップ、ブートボリュームなど、トランザクション処理向け。\n　- 汎用SSD（gp3）：価格と性能のバランスがよい。\n　- プロビジョンドIOPS SSD（io2 Block Express）：EBSで最も高性能。最も要求の厳しいデータベース向け。\n・HDD：MapReduceやログ処理など、スループットが重要な処理向け。\n　- スループット最適化HDD（st1）：頻繁にアクセスする、スループット重視のワークロード向け。\n　- コールドHDD（sc1）：アクセスの頻度が低いデータ向けで、最も低コスト。\nHDDのボリュームは、ブートボリュームには使えません。\n【ファイルストレージ】\n・Amazon EFS：数千台のEC2インスタンスからの共有アクセス向け。ペタバイト規模まで自動で拡張します。\n・Amazon FSx for Windows File Server：SMBプロトコルとActive Directoryに対応した、Windows向けのファイルシステム。\n・Amazon FSx for Lustre：HPC、機械学習など、計算量の多いワークロード向け。S3と連携できます。\n・Amazon FSx for NetApp ONTAP、Amazon FSx for OpenZFS：それぞれのファイルシステムを、フルマネージドで使えます。\n【オブジェクトストレージ：Amazon S3】\nイレブンナイン（99.999999999%）の耐久性を持つように設計されています。ストレージクラスは、アクセスの頻度で選びます。\n・S3 Standard：頻繁にアクセスするデータ。\n・S3 Intelligent-Tiering：アクセスのパターンがわからない、または変化するデータ。自動でコストを節約。\n・S3 Standard-IA、S3 One Zone-IA：アクセスの頻度が低いデータ。\n・S3 Glacier Instant Retrieval：すぐにアクセスする必要があるアーカイブ。\n・S3 Glacier Flexible Retrieval：すぐにアクセスする必要のない長期保存。\n・S3 Glacier Deep Archive：取り出しに数時間かかる、最も低コストの長期アーカイブ。\nライフサイクルポリシーで、アプリケーションを変更せずに、クラスの間でデータを自動的に移せます。S3 Object Lockは、一定の期間または無期限に、削除や上書きを防ぎます（WORM）。\n【ハイブリッドストレージ：AWS Storage Gateway】\nオンプレミスのアプリケーションが、NFS、SMB、iSCSIの標準プロトコルで、AWSのストレージを使えるようにします。よく使うデータは、ローカルのキャッシュから低遅延で読み出せます。",
+    "text": "【ブロックストレージ：Amazon EBS】\nボリュームタイプは、SSDとHDDに大きく分かれます。\n・SSD：データベース、仮想デスクトップ、ブートボリュームなど、トランザクション処理向け。\n　- 汎用SSD（gp3）：価格と性能のバランスがよい。\n　- プロビジョンドIOPS SSD（io2 Block Express）：EBSで最も高性能。最も要求の厳しいデータベース向け。\n・HDD：MapReduceやログ処理など、スループットが重要な処理向け。\n　- スループット最適化HDD（st1）：頻繁にアクセスする、スループット重視のワークロード向け。\n　- コールドHDD（sc1）：アクセスの頻度が低いデータ向けで、最も低コスト。\nHDDのボリュームは、ブートボリュームには使えません。\n【ファイルストレージ】\n・Amazon EFS：数千台のEC2インスタンスからの共有アクセス向け。ペタバイト規模まで自動で拡張します。\n・Amazon FSx for Windows File Server：SMBプロトコルとActive Directoryに対応した、Windows向けのファイルシステム。\n・Amazon FSx for Lustre：HPC、機械学習など、計算量の多いワークロード向け。S3と連携できます。\n・Amazon FSx for NetApp ONTAP、Amazon FSx for OpenZFS：それぞれのファイルシステムを、フルマネージドで使えます。\n【オブジェクトストレージ：Amazon S3】\nイレブンナイン（99.999999999%）の耐久性を持つように設計されています。ストレージクラスは、アクセスの頻度で選びます。\n・S3 Standard：頻繁にアクセスするデータ。\n・S3 Intelligent-Tiering：アクセスのパターンがわからない、または変化するデータ。自動でコストを節約。\n・S3 Standard-IA、S3 One Zone-IA：アクセスの頻度が低いデータ。\n・S3 Glacier Instant Retrieval：すぐにアクセスする必要があるアーカイブ。\n・S3 Glacier Flexible Retrieval：すぐにアクセスする必要のない長期保存。\n・S3 Glacier Deep Archive：取り出しに9〜48時間かかる、最も低コストの長期アーカイブ。\nライフサイクルポリシーで、アプリケーションを変更せずに、クラスの間でデータを自動的に移せます。S3 Object Lockは、一定の期間または無期限に、削除や上書きを防ぎます（WORM）。\n【ハイブリッドストレージ：AWS Storage Gateway】\nオンプレミスのアプリケーションが、NFS、SMB、iSCSIの標準プロトコルで、AWSのストレージを使えるようにします。よく使うデータは、ローカルのキャッシュから低遅延で読み出せます。",
     "figureId": "storage-types"
   },
   "relatedServiceIds": [
@@ -61,7 +65,7 @@
     "HDD（st1・sc1）は、ブートボリュームに使えない。",
     "多数のLinuxインスタンスで共有＝EFS。Windows（SMB・Active Directory）＝FSx for Windows File Server。HPC＝FSx for Lustre。",
     "S3のクラス：頻繁＝Standard、予測不能＝Intelligent-Tiering、低頻度＝IA、アーカイブ＝Glacierの各クラス。",
-    "Glacier Instant Retrieval＝すぐ取り出すアーカイブ。Deep Archive＝数時間かかるが最も低コスト。",
+    "Glacier Instant Retrieval＝すぐ取り出すアーカイブ。Deep Archive＝取り出しに9〜48時間かかるが最も低コスト。",
     "クラスの自動移行＝ライフサイクルポリシー。削除・上書きの防止（WORM）＝S3 Object Lock。",
     "オンプレミスから標準プロトコルでAWSのストレージへ＝Storage Gateway。"
   ],

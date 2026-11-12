@@ -9,7 +9,7 @@ import type { ExamId } from '../content/schema'
 import { useProgressSummary } from '../hooks/useProgressSummary'
 import { useStore } from '../hooks/useStore'
 import { newId } from '../logic/answers'
-import { formatClock, MOCK_QUESTION_COUNT, pickWeak, pickWeighted, scoreExam } from '../logic/exam'
+import { formatClock, MOCK_QUESTION_COUNT, pickWeak, pickWeighted, scoreExam, similarKey } from '../logic/exam'
 import { formatRate } from '../logic/stats'
 import { storage } from '../storage'
 
@@ -56,7 +56,7 @@ export function Practice() {
     for (const e of exams.data.filter((x) => x.exam === exam && x.status === 'in_progress')) await storage.remove('examAttempts', e.id).catch(() => {})
     const now = new Date().toISOString()
     const id = newId()
-    const picked = pickWeighted(questions, spec.domains, MOCK_QUESTION_COUNT)
+    const picked = pickWeighted(questions, spec.domains, MOCK_QUESTION_COUNT, Math.random, similarKey)
     await storage
       .put('examAttempts', { id, exam, questionIds: picked.map((q) => q.id), answers: {}, flagged: [], startedAt: now, remainingSeconds: spec.durationMinutes * 60, status: 'in_progress', updatedAt: now })
       .then(() => navigate(`/exam/run/${id}`))

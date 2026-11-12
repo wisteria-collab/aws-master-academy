@@ -17,6 +17,31 @@ export interface ExamQuestion extends Gradable {
   domainId: string
 }
 
+/**
+ * よく似た問題（同じタスクで、正解も同じもの）が1回の出題に重ならないよう、並べ替える。
+ * それぞれのグループの1問目を先に並べ、2問目以降は後ろへ回す（問題が足りないときだけ使われる）。
+ */
+function spread<Q>(list: Q[], keyOf?: (q: Q) => string): Q[] {
+  if (!keyOf) return list
+  const seen = new Set<string>()
+  const first: Q[] = []
+  const later: Q[] = []
+  for (const q of list) {
+    const k = keyOf(q)
+    if (seen.has(k)) later.push(q)
+    else {
+      seen.add(k)
+      first.push(q)
+    }
+  }
+  return [...first, ...later]
+}
+
+/** 同じタスクで、正解の選択肢も同じ問題は、よく似た問題とみなす */
+export function similarKey(q: { taskId?: string; domainId: string; choices: { text: string; correct: boolean }[] }): string {
+  return `${q.taskId ?? q.domainId}|${q.choices.filter((c) => c.correct).map((c) => c.text).sort().join('/')}`
+}
+
 /** 合計 total 問を、分野の出題比率どおりに割り振る（端数は、余りの大きい分野から1問ずつ足す） */
 export function allocate(domains: DomainWeight[], total: number): Record<string, number> {
   const sum = domains.reduce((a, d) => a + d.weight, 0)
@@ -36,12 +61,12 @@ export function allocate(domains: DomainWeight[], total: number): Record<string,
  * 分野の出題比率に合わせて、count 問を選ぶ。
  * ある分野の問題が足りないときは、ほかの分野の問題で補う。最後に全体を並べ替える。
  */
-export function pickWeighted<Q extends ExamQuestion>(pool: readonly Q[], domains: DomainWeight[], count: number, random: () => number = Math.random): Q[] {
+export function pickWeighted<Q extends ExamQuestion>(pool: readonly Q[], domains: DomainWeight[], count: number, random: () => number = Math.random, similarKey?: (q: Q) => string): Q[] {
   const plan = allocate(domains, Math.min(count, pool.length))
   const picked: Q[] = []
   const rest: Q[] = []
   for (const d of domains) {
-    const list = shuffle(pool.filter((q) => q.domainId === d.id), random)
+    const list = spread(shuffle(pool.filter((q) => q.domainId === d.id), random), similarKey)
     picked.push(...list.slice(0, plan[d.id]))
     rest.push(...list.slice(plan[d.id]))
   }

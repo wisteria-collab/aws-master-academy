@@ -84,3 +84,39 @@ describe('苦手分野演習', () => {
     expect(pickWeak(pool, [att('a0', true), att('b0', true)], 5)).toEqual([])
   })
 })
+
+describe('選択肢の並び', () => {
+  it('正解の位置が、特定の場所に偏らない', () => {
+    for (const exam of ['clf', 'saa'] as const) {
+      const single = content.questions.filter((q) => q.exam === exam && q.select === 'single')
+      const counts = [0, 0, 0, 0]
+      for (const q of single) counts[q.choices.findIndex((c) => c.correct)]++
+      for (const n of counts) {
+        expect(n / single.length, `${exam}: ${counts.join(',')}`).toBeGreaterThan(0.15)
+        expect(n / single.length, `${exam}: ${counts.join(',')}`).toBeLessThan(0.35)
+      }
+    }
+  })
+  it('並びは、何度読み込んでも同じになる', () => {
+    const q = content.questions[0]
+    expect(q.choices.map((c) => c.id)).toEqual([...q.choices].map((c) => c.id))
+    expect(new Set(q.choices.map((c) => c.id)).size).toBe(q.choices.length)
+  })
+})
+
+describe('よく似た問題を重ねない', () => {
+  it('模擬試験では、同じタスクで正解も同じ問題が、できるだけ重ならない', async () => {
+    const { similarKey } = await import('./exam')
+    for (const exam of ['clf', 'saa'] as const) {
+      const spec = getExamSpec(exam)!
+      const pool = content.questions.filter((q) => q.exam === exam)
+      for (let seed = 1; seed <= 5; seed++) {
+        const picked = pickWeighted(pool, spec.domains, MOCK_QUESTION_COUNT, seeded(seed), similarKey)
+        expect(picked).toHaveLength(65)
+        const keys = picked.map(similarKey)
+        // 分野の問題数が足りるかぎり、重なりは起きない（足りない分野だけ、やむをえず重なる）
+        expect(keys.length - new Set(keys).size, `${exam} seed ${seed}`).toBeLessThanOrEqual(3)
+      }
+    }
+  })
+})

@@ -8,7 +8,7 @@ import { content, getExamSpec } from '../content'
 import type { Question } from '../content/schema'
 import { shuffle } from '../logic/answers'
 import { toLocalDate } from '../logic/dates'
-import { pickWeak, pickWeighted } from '../logic/exam'
+import { pickWeak, pickWeighted, similarKey } from '../logic/exam'
 import { dueItems } from '../logic/review'
 import { useStudyTimer } from '../hooks/useStudyTimer'
 import { storage, type Attempt } from '../storage'
@@ -28,7 +28,7 @@ async function pick(mode: Mode, params: URLSearchParams): Promise<Question[]> {
   if (mode === 'weak') return pickWeak(pool, await storage.getAll('attempts'), 10)
   // ランダム演習は、公式の出題比率に合わせて選ぶ（問題数の多い分野に偏らないようにする）
   const spec = exam === 'clf' || exam === 'saa' ? getExamSpec(exam) : undefined
-  return spec ? pickWeighted(pool, spec.domains, 10) : shuffle(pool).slice(0, 10)
+  return spec ? pickWeighted(pool, spec.domains, 10, Math.random, similarKey) : shuffle(pool).slice(0, 10)
 }
 
 export function PracticeRun() {

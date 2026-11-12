@@ -157,9 +157,13 @@
       {
         "title": "SAA-C03 試験ガイド（AWS公式）",
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      },
+      {
+        "title": "Understanding S3 Glacier storage classes（Amazon S3 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/glacier-storage-classes.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-12",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -191,7 +195,7 @@
         "id": "c",
         "text": "S3 Glacier Deep Archive",
         "correct": false,
-        "explanation": "S3 Glacier Deep Archiveは、長期の保管向けで、取り出しに数時間かかります。いつアクセスされるか分からないファイルには合いません。",
+        "explanation": "S3 Glacier Deep Archiveは、長期の保管向けで、取り出しに9〜48時間かかります。いつアクセスされるか分からないファイルには合いません。",
         "eliminatedBy": "アクセスの頻度が予測できず"
       },
       {
@@ -312,9 +316,13 @@
       {
         "title": "SAA-C03 試験ガイド（AWS公式）",
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      },
+      {
+        "title": "Understanding S3 Glacier storage classes（Amazon S3 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/glacier-storage-classes.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-12",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -353,7 +361,7 @@
         "id": "d",
         "text": "S3 Glacier Deep Archive",
         "correct": false,
-        "explanation": "S3 Glacier Deep Archiveは、取り出しに数時間かかります。すぐに取り出す必要があるデータには合いません。",
+        "explanation": "S3 Glacier Deep Archiveは、取り出しに9〜48時間かかります。すぐに取り出す必要があるデータには合いません。",
         "eliminatedBy": "すぐに取り出せる必要があります"
       }
     ],
@@ -387,9 +395,13 @@
       {
         "title": "SAA-C03 試験ガイド（AWS公式）",
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      },
+      {
+        "title": "Understanding S3 Glacier storage classes（Amazon S3 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/glacier-storage-classes.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-12",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -402,13 +414,13 @@
     "format": "scenario",
     "select": "single",
     "difficulty": "standard",
-    "stem": "ある企業は、法令により、取引の記録を7年間保管する必要があります。記録を取り出すことはほとんどなく、取り出しに数時間かかっても問題ありません。保存のコストを最も低くしたい場合、最も適切なストレージクラスはどれですか。",
+    "stem": "ある企業は、法令により、取引の記録を7年間保管する必要があります。記録を取り出すことはほとんどなく、取り出しに1〜2日かかっても問題ありません。保存のコストを最も低くしたい場合、最も適切なストレージクラスはどれですか。",
     "choices": [
       {
         "id": "a",
         "text": "S3 Glacier Deep Archive",
         "correct": true,
-        "explanation": "S3 Glacier Deep Archiveは、長期の保管のための、最も低コストのストレージクラスです。取り出しには数時間かかりますが、この要件では問題になりません。"
+        "explanation": "S3 Glacier Deep Archiveは、長期の保管のための、最も低コストのストレージクラスです。取り出しには9〜48時間かかりますが、この要件では問題になりません。"
       },
       {
         "id": "b",
@@ -421,8 +433,8 @@
         "id": "c",
         "text": "S3 Glacier Instant Retrieval",
         "correct": false,
-        "explanation": "S3 Glacier Instant Retrievalは、まれにしか見ないが、見るときはすぐに必要なデータ向けです。取り出しに数時間かかってよいなら、最も低コストのDeep Archiveが合います。",
-        "eliminatedBy": "取り出しに数時間かかっても問題ありません"
+        "explanation": "S3 Glacier Instant Retrievalは、まれにしか見ないが、見るときはすぐに必要なデータ向けです。取り出しに1〜2日かかってよいなら、最も低コストのDeep Archiveが合います。",
+        "eliminatedBy": "取り出しに1〜2日かかっても問題ありません"
       },
       {
         "id": "d",
@@ -434,10 +446,10 @@
     ],
     "keywords": [
       "7年間保管",
-      "取り出しに数時間かかっても問題ありません",
+      "取り出しに1〜2日かかっても問題ありません",
       "最も低く"
     ],
-    "decisionPoint": "長期保管・取り出しに時間がかかってよい・最も低コスト＝S3 Glacier Deep Archive。",
+    "decisionPoint": "長期保管・取り出しに1〜2日かかってよい・最も低コスト＝S3 Glacier Deep Archive。",
     "serviceIds": [
       "amazon-s3"
     ],
