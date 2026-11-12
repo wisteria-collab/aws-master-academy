@@ -1,6 +1,6 @@
 export const appInfo = {
   name: 'AWS Master Academy',
-  version: '1.5.1',
+  version: '1.5.2',
   phase: '公式の料金情報とリンクを追加',
   disclaimer:
     'AWS非公式の学習用アプリです。Amazon Web Services、AWS は、Amazon.com, Inc. またはその関連会社の商標です。',
