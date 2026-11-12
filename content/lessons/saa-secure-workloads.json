@@ -79,7 +79,8 @@
     "saa-q-wl-04",
     "saa-q-sg-train-01",
     "saa-q-sg-train-02",
-    "saa-q-vpce-train-01"
+    "saa-q-vpce-train-01",
+    "saa-q-thr-waf-01"
   ],
   "glossaryTermIds": [
     "subnet",

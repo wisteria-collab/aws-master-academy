@@ -76,7 +76,8 @@
     "saa-q-sc-05",
     "saa-q-sc-06",
     "saa-q-lb-train-01",
-    "saa-q-lb-train-02"
+    "saa-q-lb-train-02",
+    "saa-q-thr-sqs-01"
   ],
   "glossaryTermIds": [
     "horizontal-scaling",

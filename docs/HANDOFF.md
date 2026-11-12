@@ -1,6 +1,6 @@
 # 引き継ぎメモ（AWS Master Academy）
 
-最終更新：2026-11-12（v1.7.1）。このファイルを読めば、別の担当（別のモデル・別の会話）でも作業を続けられるようにまとめています。
+最終更新：2026-11-12（v1.7.2）。このファイルを読めば、別の担当（別のモデル・別の会話）でも作業を続けられるようにまとめています。
 
 ## 1. これは何か
 - AWS認定 CLF-C02（試験ガイド v1.3）と SAA-C03（v1.1）の学習用Webアプリ。**AWS非公式**。
@@ -49,7 +49,7 @@ git commit → git push → gh run list -R wisteria-collab/aws-master-academy -L
 | `authoring/p9-notes.md` | 直近の作業の記録 |
 
 ## 5. いまの規模
-レッスン35（CLF 21・SAA 14）／サービス94（全件に料金の案内あり）／比較15／問題 CLF 151・SAA 143／構成図8／設計問題5／用語104
+レッスン35（CLF 21・SAA 14）／サービス94（全件に料金の案内あり）／比較15／問題 CLF 151・SAA 145／構成図8／設計問題5／用語104
 
 ## 6. 残っている課題
 - サポートプラン：レッスン・図鑑・問題は、現行のプラン（Basic / Business Support+ / Enterprise Support / Unified Operations）で書かれている。Developer・Business・Enterprise On-Ramp は2027-01-01に終了予定、という案内も記載済み。追加の対応は不要。
