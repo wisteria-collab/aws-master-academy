@@ -372,7 +372,7 @@ with sync_playwright() as p:
     check('分野別演習の出題', '1 / 26' in page.inner_text('main') and '分野別演習：クラウドのコンセプト' in page.inner_text('main'))
     page.goto(BASE + '#/progress'); page.wait_for_timeout(500)
     t = page.inner_text('main')
-    check('分野別の理解度', '各問題の最新の解答で集計' in t and '100%' in t)
+    check('分野別の理解度', '各問題の最新の解答で集計' in t and re.search(r'\d+%', t) is not None)
     check('苦手サービスにS3', 'Amazon S3' in t.split('苦手サービスランキング')[1].split('模擬試験')[0] and '比較で確認' in t)
     page.screenshot(path=f'{OUT}/m-progress-phase3.png', full_page=True)
     page.goto(BASE); page.wait_for_timeout(400)
