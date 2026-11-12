@@ -9,9 +9,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "AWS料金体系の仕組み（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/ja_jp/whitepapers/latest/how-aws-pricing-works/how-aws-pricing-works.pdf"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -34,7 +38,7 @@
         "availability": "高可用性と自動スケーリングの機能を備える",
         "performance": "高度なリクエストのルーティングを提供する",
         "scalability": "自動的にスケールする",
-        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "ロードバランサーを動かした時間と、処理したデータの量が、料金に反映される。金額は公式の料金ページで確認する",
         "operations": "マネージドサービスとして提供される",
         "limits": "HTTPとHTTPSの通信に最適化されている",
         "chooseWhen": "HTTP/HTTPSのウェブアプリケーションで、リクエストの内容に応じて振り分けたいとき",
@@ -54,7 +58,7 @@
         "availability": "高可用性と自動スケーリングの機能を備える",
         "performance": "超低遅延を保ちながら、毎秒数百万件のリクエストを処理できる",
         "scalability": "自動的にスケールする",
-        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "ロードバランサーを動かした時間と、処理したデータの量が、料金に反映される。金額は公式の料金ページで確認する",
         "operations": "マネージドサービスとして提供される",
         "limits": "リクエストの内容に基づく振り分けは行わない",
         "chooseWhen": "TCPの通信で、極めて高い性能と低い遅延が必要なとき",

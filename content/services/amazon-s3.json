@@ -13,9 +13,17 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "S3 料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/s3/pricing/"
+    },
+    {
+      "title": "AWS料金体系の仕組み（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/ja_jp/whitepapers/latest/how-aws-pricing-works/how-aws-pricing-works.pdf"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -89,5 +97,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/s3/"
+  "docUrl": "https://docs.aws.amazon.com/s3/",
+  "pricingUrl": "https://aws.amazon.com/jp/s3/pricing/",
+  "pricingNote": "保存した量（ストレージクラスごと）、リクエストとデータの取り出し、データ転送、管理・分析の機能、レプリケーションなど。インターネットからS3への受信のデータ転送は無料です。",
+  "volatile": true
 }

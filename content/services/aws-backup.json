@@ -9,9 +9,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "AWS Backup Pricing（AWS公式）",
+      "url": "https://aws.amazon.com/backup/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -69,5 +73,8 @@
       "domainId": "saa-d1"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/aws-backup/"
+  "docUrl": "https://docs.aws.amazon.com/aws-backup/",
+  "pricingUrl": "https://aws.amazon.com/backup/pricing/",
+  "pricingNote": "使ったバックアップのストレージ、リージョンの間で転送したバックアップのデータ、復元したデータなど。最低料金や初期費用はありません。",
+  "volatile": true
 }

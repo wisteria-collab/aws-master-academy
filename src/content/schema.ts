@@ -129,6 +129,10 @@ export const serviceSchema = z
     importance: z.object({ clf: importanceSchema, saa: importanceSchema }),
     examDomains: z.array(z.object({ exam: examIdSchema, domainId: idSchema })).default([]),
     docUrl: z.url(),
+    /** このサービスの公式の料金ページ。実際に開いて確認できたものだけを入れる */
+    pricingUrl: z.url().optional(),
+    /** 何に対して料金がかかるか（公式の料金情報で確認できた内容） */
+    pricingNote: nonEmpty.optional(),
   })
   .superRefine(checkMeta)
 export type Service = z.infer<typeof serviceSchema>

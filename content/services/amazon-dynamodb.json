@@ -9,9 +9,17 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon DynamoDB Pricing（AWS公式）",
+      "url": "https://aws.amazon.com/dynamodb/pricing/"
+    },
+    {
+      "title": "AWS料金体系の仕組み（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/ja_jp/whitepapers/latest/how-aws-pricing-works/how-aws-pricing-works.pdf"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -77,5 +85,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/dynamodb/"
+  "docUrl": "https://docs.aws.amazon.com/dynamodb/",
+  "pricingUrl": "https://aws.amazon.com/dynamodb/pricing/",
+  "pricingNote": "データの読み取り、書き込み、保存と、有効にしたオプションの機能。読み書きの料金は、キャパシティモード（オンデマンド／プロビジョンド）で決まり方が変わります。",
+  "volatile": true
 }

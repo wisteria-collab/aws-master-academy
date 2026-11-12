@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon SNS Pricing（AWS公式）",
+      "url": "https://aws.amazon.com/sns/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -74,5 +78,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/sns/"
+  "docUrl": "https://docs.aws.amazon.com/sns/",
+  "pricingUrl": "https://aws.amazon.com/sns/pricing/",
+  "pricingNote": "標準トピックは、APIリクエストの数と、配信先への配信の数。SNSへの受信のデータ転送は無料です。前払いや最低利用料はありません。",
+  "volatile": true
 }

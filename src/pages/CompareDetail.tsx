@@ -2,6 +2,7 @@ import { BackLink, usePageTitle } from '../components/Navigation'
 import { useSessionState } from '../hooks/useSessionState'
 import { Link, useParams } from 'react-router-dom'
 import { guideLabel } from '../components/QuestionCard'
+import { PricingCard } from '../components/PricingCard'
 import { SourceList } from '../components/SourceList'
 import { Button, Card, CardTitle, Notice } from '../components/ui'
 import { content } from '../content'
@@ -147,6 +148,12 @@ export function CompareDetail() {
           </Card>
         ))}
       </section>
+
+      <PricingCard
+        services={[...new Map(group.items.flatMap((i) => (i.serviceId ? [i.serviceId] : [])).map((id) => [id, content.services.find((x) => x.id === id)])).values()]
+          .filter((x) => x !== undefined)
+          .map((x) => ({ name: x.name, pricingUrl: x.pricingUrl, pricingNote: x.pricingNote }))}
+      />
 
       <BackLink fallback="/compare" fallbackLabel="類似サービス比較" />
 

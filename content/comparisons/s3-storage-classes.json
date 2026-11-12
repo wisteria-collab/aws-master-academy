@@ -17,6 +17,10 @@
     {
       "title": "Understanding S3 Glacier storage classes（Amazon S3 ユーザーガイド）",
       "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/glacier-storage-classes.html"
+    },
+    {
+      "title": "S3 料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/s3/pricing/"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -42,7 +46,7 @@
         "availability": "99.99%の可用性になるよう設計。3つ以上のアベイラビリティゾーンに保存",
         "performance": "すぐに取り出せる",
         "scalability": "容量を気にせず保存できる",
-        "cost": "最小の保存期間や、取り出し料金はない。単価は公式の料金ページで確認する",
+        "cost": "保存した量、リクエスト、データ転送などに料金がかかる。最小の保存期間や、取り出し料金はない。金額は公式の料金ページで確認する",
         "operations": "クラスの移動はライフサイクルポリシーで自動化できる",
         "limits": "あまり使わないデータを置き続けると、費用の面で不利",
         "chooseWhen": "頻繁にアクセスするデータ",

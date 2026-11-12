@@ -9,9 +9,17 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "AWS Lambda の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/lambda/pricing/"
+    },
+    {
+      "title": "AWS料金体系の仕組み（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/ja_jp/whitepapers/latest/how-aws-pricing-works/how-aws-pricing-works.pdf"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -76,5 +84,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/lambda/"
+  "docUrl": "https://docs.aws.amazon.com/lambda/",
+  "pricingUrl": "https://aws.amazon.com/jp/lambda/pricing/",
+  "pricingNote": "関数へのリクエストの数と、コードの実行にかかった時間。実行時間の料金は、関数に割り当てたメモリの量で変わります。無料利用枠があります。",
+  "volatile": true
 }

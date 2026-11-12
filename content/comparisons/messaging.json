@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon SNS Pricing（AWS公式）",
+      "url": "https://aws.amazon.com/sns/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -54,7 +58,7 @@
         "availability": "可用性が高く、耐久性がある",
         "performance": "高スループットのメッセージング",
         "scalability": "システムを疎結合にする",
-        "cost": "この教材の出典には料金の記載がないため、公式の料金ページで確認する",
+        "cost": "標準トピックは、APIリクエストの数と、配信先への配信の数に基づく。前払いや最低利用料はない",
         "operations": "フルマネージド",
         "limits": "メッセージをためておいて、受け取る側のペースで処理する仕組みではない",
         "chooseWhen": "複数の相手に、いっせいに通知したいとき",

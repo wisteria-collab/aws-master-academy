@@ -351,10 +351,23 @@ with sync_playwright() as p:
     page.goto(BASE + '#/practice/run?exam=clf&mode=weak'); page.wait_for_timeout(600)
     check('苦手分野演習：出題される', '苦手分野演習' in page.inner_text('main') and '1 / ' in page.inner_text('main'))
 
+    # 料金の案内（AWS公式へのリンク）
+    page.goto(BASE + '#/services/amazon-s3'); page.wait_for_timeout(400)
+    t = page.inner_text('main')
+    link = page.get_by_role('link', name='Amazon S3 の料金ページ（AWS公式）')
+    check('料金：確認済みのサービスに料金ページのリンク', '料金を調べる（AWS公式）' in t and link.get_attribute('href') == 'https://aws.amazon.com/jp/s3/pricing/' and '料金がかかるもの' in t)
+    check('料金：公式の料金一覧と計算ツール', page.get_by_role('link', name=re.compile('AWS公式 料金一覧')).get_attribute('href') == 'https://aws.amazon.com/jp/pricing/' and page.get_by_role('link', name=re.compile('AWS料金計算ツール')).get_attribute('href') == 'https://calculator.aws/')
+    page.goto(BASE + '#/services/aws-iam'); page.wait_for_timeout(400)
+    check('料金：未確認のサービスは、その旨を表示', '個別の料金ページは、まだ確認できていません' in page.inner_text('main'))
+    page.goto(BASE + '#/compare/storage'); page.wait_for_timeout(400)
+    check('料金：比較ページにも案内', page.get_by_role('link', name='Amazon S3 の料金ページ（AWS公式）').count() == 1 and page.get_by_role('link', name='Amazon EBS の料金ページ（AWS公式）').count() == 1)
+    page.goto(BASE + '#/guide'); page.wait_for_timeout(400)
+    check('料金：使い方ページに公式資料4件', page.get_by_role('link', name=re.compile('AWS料金体系の仕組み')).count() == 1 and page.get_by_role('link', name=re.compile('公式ドキュメント')).count() >= 1)
+
     # 演習・進捗・復習
     page.goto(BASE + '#/practice'); page.wait_for_timeout(400)
     t = page.inner_text('main')
-    check('演習メニュー', all(x in t for x in ['ランダム演習', '分野別演習', 'サービス別演習', '公開中 147 問']))
+    check('演習メニュー', all(x in t for x in ['ランダム演習', '分野別演習', 'サービス別演習', '公開中 148 問']))
     page.goto(BASE + '#/practice/run?exam=clf&mode=domain&domain=clf-d1'); page.wait_for_timeout(500)
     check('分野別演習の出題', '1 / 26' in page.inner_text('main') and '分野別演習：クラウドのコンセプト' in page.inner_text('main'))
     page.goto(BASE + '#/progress'); page.wait_for_timeout(500)

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { BackLink, usePageTitle } from '../components/Navigation'
+import { PricingCard } from '../components/PricingCard'
 import { Card, PageHeader } from '../components/ui'
 import { appInfo } from '../config/app'
 import { content, getExamSpec } from '../content'
@@ -63,6 +64,8 @@ export function Guide() {
           設定・バックアップを開く
         </Link>
       </Card>
+
+      <PricingCard hubCount={4} />
 
       <Card>
         <h2 className="text-lg font-bold">教材について</h2>

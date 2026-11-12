@@ -9,9 +9,17 @@
     {
       "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    },
+    {
+      "title": "What is AWS Pricing Calculator?（AWS Pricing Calculator ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html"
+    },
+    {
+      "title": "AWS Pricing Calculator（AWS公式）",
+      "url": "https://calculator.aws/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -30,7 +38,7 @@
     "description": "これから使おうとしているAWSのサービスについて、いくらかかりそうかを事前に計算できるツールです。"
   },
   "exam": {
-    "description": "計画しているワークロードのコストを見積もるためのツールです。公開されているPricing Calculatorのウェブサイトでは、オンデマンド料金でAWSのサービスを利用する場合のコストの見積もりを作成できます。コンソール内のPricing Calculatorでは、割引や購入のコミットメントを反映して、計画しているクラウドのコストを見積もれます。",
+    "description": "計画しているワークロードのコストを見積もるためのツールです。公開されているPricing Calculatorのウェブサイトでは、オンデマンド料金でAWSのサービスを利用する場合のコストの見積もりを作成できます。コンソール内のPricing Calculatorでは、割引や購入のコミットメントを反映して、計画しているクラウドのコストを見積もれます。AWS Pricing Calculatorは、無料で使えるウェブベースの計画ツールです。構築する前に構成をモデル化したり、サービスの価格を調べたり、支出を計画したりするために使います。見積もりに、税は含まれません。",
     "points": [
       "利用を始める前の「見積もり」＝AWS Pricing Calculator。",
       "すでに発生したコストの分析はAWS Cost Explorer、予算とアラートはAWS Budgets。",
@@ -66,5 +74,7 @@
       "domainId": "clf-d4"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/pricing-calculator/"
+  "docUrl": "https://docs.aws.amazon.com/pricing-calculator/",
+  "pricingUrl": "https://calculator.aws/",
+  "pricingNote": "料金計算ツールそのものは、無料で使えます。"
 }

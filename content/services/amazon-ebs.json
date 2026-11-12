@@ -13,9 +13,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon EBS Pricing（AWS公式）",
+      "url": "https://aws.amazon.com/ebs/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -85,5 +89,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/ebs/"
+  "docUrl": "https://docs.aws.amazon.com/ebs/",
+  "pricingUrl": "https://aws.amazon.com/ebs/pricing/",
+  "pricingNote": "確保した容量（GB／月）。使った量ではなく、確保した量に対して支払います。基準を超えるIOPSやスループットを確保すると、料金が加わります。",
+  "volatile": true
 }

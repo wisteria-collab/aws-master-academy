@@ -17,9 +17,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "AWS料金体系の仕組み（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/ja_jp/whitepapers/latest/how-aws-pricing-works/how-aws-pricing-works.pdf"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -42,7 +46,7 @@
         "availability": "問題が検出されると、スタンバイ（Auroraではレプリカ）に自動でフェイルオーバーする",
         "performance": "Aurora以外では、アクティブなのはプライマリだけ。読み取りの処理能力は増えない",
         "scalability": "読み取りのスケーリングが目的ではない",
-        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "デプロイのタイプ（単一／複数のアベイラビリティゾーン）は、RDSの料金を決める要素の1つ。金額は公式の料金ページで確認する",
         "operations": "フェイルオーバーは自動。バックアップは、Aurora以外ではスタンバイから取得される",
         "limits": "1つのリージョンの中の、少なくとも2つのアベイラビリティゾーンにまたがる。リージョン全体の障害には対応しない",
         "chooseWhen": "アベイラビリティゾーンの障害が起きても、自動で切り替えて使い続けたいとき",

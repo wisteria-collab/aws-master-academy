@@ -3,6 +3,7 @@ import { useSessionState } from '../hooks/useSessionState'
 import { useEffect, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { guideLabel } from '../components/QuestionCard'
+import { PricingCard } from '../components/PricingCard'
 import { SourceList } from '../components/SourceList'
 import { Badge, Button, Card, Notice } from '../components/ui'
 import { categoryLabel, importanceLabels } from '../config/labels'
@@ -197,6 +198,8 @@ export function ServiceDetail() {
           公式ドキュメントを開く
         </a>
       </div>
+
+      <PricingCard services={[{ name: service.name, pricingUrl: service.pricingUrl, pricingNote: service.pricingNote }]} />
 
       <BackLink fallback="/services" fallbackLabel="サービス図鑑" />
 

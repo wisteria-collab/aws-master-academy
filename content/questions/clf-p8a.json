@@ -1,0 +1,71 @@
+[
+  {
+    "id": "clf-q-price-dt-in",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS料金体系の仕組み（AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/ja_jp/whitepapers/latest/how-aws-pricing-works/how-aws-pricing-works.pdf"
+      },
+      {
+        "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
+        "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-1",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、オンプレミスにある大量のデータを、インターネット経由でAWSにアップロードします。AWSのデータ転送の料金についての説明として、正しいものはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "インターネットからAWSへの受信のデータ転送は、ほとんどの場合、料金がかからない",
+        "correct": true,
+        "explanation": "AWSでは、受信のデータ転送には、ほとんどの場合、料金がかかりません。料金がかかるのは、主に外向き（AWSからの送信）のデータ転送です。"
+      },
+      {
+        "id": "b",
+        "text": "受信のデータ転送にも、送信と同じ料金がかかる",
+        "correct": false,
+        "explanation": "受信と送信の料金は同じではありません。受信のデータ転送は、ほとんどの場合、料金がかかりません。",
+        "eliminatedBy": "インターネット経由でAWSにアップロード"
+      },
+      {
+        "id": "c",
+        "text": "データ転送の料金は、送受信の量にかかわらず、毎月の定額である",
+        "correct": false,
+        "explanation": "AWSの料金は従量制です。外向きのデータ転送は、転送した量に応じて課金されます。",
+        "eliminatedBy": "データ転送の料金についての説明"
+      },
+      {
+        "id": "d",
+        "text": "データ転送は、送信も受信も、すべて無料である",
+        "correct": false,
+        "explanation": "外向き（AWSからの送信）のデータ転送には、料金がかかります。コストの基本の要因の1つです。",
+        "eliminatedBy": "データ転送の料金についての説明"
+      }
+    ],
+    "keywords": [
+      "インターネット経由でAWSにアップロード",
+      "データ転送の料金"
+    ],
+    "decisionPoint": "受信はほとんどの場合無料。外向きの送信に料金がかかる。",
+    "serviceIds": [],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-pricing-models"
+      }
+    ]
+  }
+]

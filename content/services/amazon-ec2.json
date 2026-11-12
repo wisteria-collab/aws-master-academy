@@ -17,9 +17,17 @@
     {
       "title": "Amazon EC2 instance type specifications（Amazon EC2 ドキュメント）",
       "url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-type-specifications.html"
+    },
+    {
+      "title": "Amazon EC2 料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/ec2/pricing/"
+    },
+    {
+      "title": "AWS料金体系の仕組み（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/ja_jp/whitepapers/latest/how-aws-pricing-works/how-aws-pricing-works.pdf"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -99,5 +107,8 @@
       "domainId": "clf-d2"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/ec2/"
+  "docUrl": "https://docs.aws.amazon.com/ec2/",
+  "pricingUrl": "https://aws.amazon.com/jp/ec2/pricing/",
+  "pricingNote": "インスタンスを動かした時間（秒単位、最低60秒）。インスタンスタイプと、購入オプション（オンデマンド、Savings Plans、スポットなど）で料金が変わります。",
+  "volatile": true
 }
