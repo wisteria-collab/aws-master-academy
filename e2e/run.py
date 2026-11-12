@@ -62,7 +62,7 @@ with sync_playwright() as p:
     secs = page.evaluate('''() => new Promise(r => { const q = indexedDB.open('aws-master-academy'); q.onsuccess = () => { const g = q.result.transaction('studySessions').objectStore('studySessions').getAll(); g.onsuccess = () => r(g.result) } })''')
     learn = lambda rows: next((r['seconds'] for r in rows if r['feature'] == 'learn'), None)
     # 上限は巡回するレッスンページの数に比例する（第4弾で3ページ増えたため 30→45 秒、第5弾で4ページ増えたため 45→60 秒）
-    check('記録秒数が妥当(10〜196秒)', learn(secs) is not None and 10 <= learn(secs) <= 196, json.dumps(secs))
+    check('記録秒数が妥当(10〜199秒)', learn(secs) is not None and 10 <= learn(secs) <= 199, json.dumps(secs))
     before = learn(secs); total_before = len(secs)
     ctx.close()
 

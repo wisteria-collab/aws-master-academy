@@ -25,30 +25,46 @@
     {
       "title": "Amazon RDS の料金（AWS公式）",
       "url": "https://aws.amazon.com/jp/rds/pricing/"
+    },
+    {
+      "title": "Configuring and managing a Multi-AZ deployment for Amazon RDS（Amazon RDS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html"
+    },
+    {
+      "title": "Multi-AZ DB cluster deployments for Amazon RDS（Amazon RDS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"
+    },
+    {
+      "title": "Supported Regions and DB engines for Multi-AZ DB clusters in Amazon RDS（Amazon RDS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters.html"
+    },
+    {
+      "title": "Creating a Multi-AZ DB cluster for Amazon RDS（Amazon RDS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html"
     }
   ],
-  "verifiedAt": "2026-11-12",
+  "verifiedAt": "2026-11-13",
   "basedOnGuide": [
     {
       "exam": "saa",
       "version": "1.1"
     }
   ],
-  "title": "データベースの複製：マルチAZ・リードレプリカ・マルチリージョン",
+  "title": "データベースの複製：マルチAZ・マルチAZ DBクラスター・リードレプリカ・マルチリージョン",
   "category": "database",
-  "summary": "3つとも「データベースのコピーをもう1つ持つ」仕組みですが、目的が違います。「止まらないようにしたい（高可用性）」「読み取りを速くしたい（スケーリング）」「リージョンの障害に備えたい（災害対策）」のどれかで選びます。",
+  "summary": "4つとも「データベースのコピーをもう1つ持つ」仕組みですが、目的が違います。「止まらないようにしたい（高可用性）」「読み取りを速くしたい（スケーリング）」「リージョンの障害に備えたい（災害対策）」のどれかで選びます。MySQLとPostgreSQLでは、高可用性と読み取りの分散を1つの構成で両立するマルチAZ DBクラスターも選べます。",
   "items": [
     {
       "key": "multi-az",
-      "label": "マルチAZ配置",
+      "label": "マルチAZ配置（DBインスタンス）",
       "oneLine": "止まらないための控え（高可用性）",
       "values": {
         "role": "高可用性を実現する",
-        "mechanism": "別のアベイラビリティゾーンに、スタンバイを自動的に維持する",
+        "mechanism": "別のアベイラビリティゾーンに、スタンバイを1つ自動的に維持する",
         "data": "同期レプリケーション",
         "useCases": "本番用のデータベースを、アベイラビリティゾーンの障害に備えさせる",
         "availability": "問題が検出されると、スタンバイ（Auroraではレプリカ）に自動でフェイルオーバーする",
-        "performance": "Aurora以外では、アクティブなのはプライマリだけ。読み取りの処理能力は増えない",
+        "performance": "スタンバイは読み取りの処理をしない（Auroraを除く）。読み取りの処理能力は増えない",
         "scalability": "読み取りのスケーリングが目的ではない",
         "cost": "デプロイのタイプ（単一／複数のアベイラビリティゾーン）は、RDSの料金を決める要素の1つ。マルチAZの複製のための、アベイラビリティゾーンの間のデータ転送は無料。金額は公式の料金ページで確認する",
         "operations": "フェイルオーバーは自動。バックアップは、Aurora以外ではスタンバイから取得される",
@@ -57,6 +73,26 @@
         "avoidWhen": "読み取りの処理能力を増やしたいとき（その場合はリードレプリカ）"
       },
       "serviceId": "amazon-rds"
+    },
+    {
+      "key": "multi-az-cluster",
+      "label": "マルチAZ DBクラスター",
+      "serviceId": "amazon-rds",
+      "oneLine": "控えにも、読む係にもなる2つのスタンバイ",
+      "values": {
+        "role": "高可用性と、読み取りの処理能力を両立する",
+        "mechanism": "書き込み用のDBインスタンス1つと、読み取り用のDBインスタンス2つを、同じリージョンの3つのアベイラビリティゾーンに置く",
+        "data": "半同期レプリケーション（少なくとも1つの読み取り用のDBインスタンスの確認で、変更が確定する）",
+        "useCases": "高可用性が必要で、読み取りの多い処理も同じ構成で受けたいMySQLやPostgreSQLのデータベース",
+        "availability": "読み取り用のDBインスタンスが、フェイルオーバーの切り替え先になる",
+        "performance": "読み取り用のDBインスタンスで、読み取り専用の処理を実行できる。スタンバイが1つの構成より、書き込みの遅延が一般に小さい",
+        "scalability": "2つの読み取り用のDBインスタンスで、読み取りの処理能力が増える",
+        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "operations": "書き込み用のエンドポイントと、読み取り用のエンドポイントを使い分けて接続する",
+        "limits": "MySQLとPostgreSQLのみ（Db2、MariaDB、Oracle、SQL Serverでは使えない）。アベイラビリティゾーンが3つ以上あるリージョンが必要。使えるDBインスタンスクラスに制限がある",
+        "chooseWhen": "MySQLまたはPostgreSQLで、自動のフェイルオーバーと読み取りの分散を、1つの構成で実現したいとき",
+        "avoidWhen": "MySQLとPostgreSQL以外のエンジンを使うとき。リージョン全体の障害に備えたいとき（その場合はマルチリージョン配置）"
+      }
     },
     {
       "key": "read-replica",
@@ -111,6 +147,12 @@
       "id": "n2",
       "question": "目的は、読み取りの処理能力を増やすことですか？",
       "yes": "r-rr",
+      "no": "n3"
+    },
+    {
+      "id": "n3",
+      "question": "MySQLかPostgreSQLで、高可用性に加えて、読み取りの分散も1つの構成で実現したいですか？",
+      "yes": "r-cl",
       "no": "r-az"
     },
     {
@@ -126,7 +168,12 @@
     {
       "id": "r-az",
       "resultItemKey": "multi-az",
-      "note": "同期のスタンバイに、自動でフェイルオーバーします。"
+      "note": "スタンバイが1つの構成です。同期のスタンバイに、自動でフェイルオーバーします。"
+    },
+    {
+      "id": "r-cl",
+      "resultItemKey": "multi-az-cluster",
+      "note": "3つのアベイラビリティゾーンに、書き込み用1つと読み取り用2つのDBインスタンスを置きます。"
     }
   ],
   "trainingQuestionIds": [
