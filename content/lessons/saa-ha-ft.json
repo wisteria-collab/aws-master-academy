@@ -110,7 +110,10 @@
     "saa-q-dr-train-01",
     "saa-q-dr-train-02",
     "saa-q-ha-16",
-    "saa-q-ha-17"
+    "saa-q-ha-17",
+    "saa-q-thr-01",
+    "saa-q-thr-02",
+    "saa-q-vpce-ha-01"
   ],
   "glossaryTermIds": [
     "high-availability",

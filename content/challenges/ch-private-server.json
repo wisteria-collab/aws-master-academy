@@ -1,0 +1,280 @@
+{
+  "id": "ch-private-server",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+    },
+    {
+      "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Compare NAT gateways and NAT instances（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html"
+    },
+    {
+      "title": "NAT gateway basics（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-basics.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html"
+    },
+    {
+      "title": "COST08-BP03 Implement services to reduce data transfer costs（AWS Well-Architected コスト最適化の柱）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/cost_data_transfer_implement_services.html"
+    }
+  ],
+  "verifiedAt": "2026-11-12",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "外から見えないサーバーに、外への道だけを作る",
+  "order": 5,
+  "scenario": "ある会社は、顧客情報を扱うアプリケーションのサーバーを、Amazon EC2で動かします。このサーバーは、インターネットから直接アクセスされてはいけません。一方で、サーバーからは、ソフトウェアの更新をインターネットから取得する必要があります。また、サーバーは大量のファイルをAmazon S3に保存します。S3への通信は、できるだけ費用を抑えたいと考えています。",
+  "requirements": [
+    "サーバーは、インターネットから直接アクセスされない場所に置く",
+    "サーバーから、インターネットへ更新を取りに行ける",
+    "外からサーバーへの接続は、開始できないようにする",
+    "S3への通信は、NATの装置を通さずに行う"
+  ],
+  "hints": [
+    "VPCの中に、「パブリックサブネット」と「プライベートサブネット」の2つの枠を作ります。サーバーはどちらに置きますか。",
+    "外へ出るための取り次ぎ係（NATゲートウェイ）と、S3への近道（ゲートウェイエンドポイント）は、どちらも「Amazon VPC」の箱で表します。箱の名前を書き換えて使い分けてください。"
+  ],
+  "modelAnswer": {
+    "nodes": [
+      {
+        "id": "net",
+        "kind": "actor",
+        "label": "インターネット",
+        "x": 28,
+        "y": 8,
+        "width": 112,
+        "height": 36
+      },
+      {
+        "id": "s3",
+        "kind": "service",
+        "label": "Amazon S3",
+        "x": 236,
+        "y": 4,
+        "serviceId": "amazon-s3"
+      },
+      {
+        "id": "vpc",
+        "kind": "group",
+        "label": "VPC",
+        "x": 8,
+        "y": 64,
+        "width": 344,
+        "height": 300
+      },
+      {
+        "id": "igw",
+        "kind": "service",
+        "label": "インターネット ゲートウェイ",
+        "x": 28,
+        "y": 86,
+        "serviceId": "amazon-vpc",
+        "width": 112,
+        "height": 44,
+        "parentId": "vpc"
+      },
+      {
+        "id": "gwe",
+        "kind": "service",
+        "label": "ゲートウェイ エンドポイント",
+        "x": 232,
+        "y": 86,
+        "serviceId": "amazon-vpc",
+        "width": 112,
+        "height": 44,
+        "parentId": "vpc"
+      },
+      {
+        "id": "pub",
+        "kind": "group",
+        "label": "パブリックサブネット",
+        "x": 16,
+        "y": 150,
+        "width": 150,
+        "height": 90,
+        "parentId": "vpc"
+      },
+      {
+        "id": "nat",
+        "kind": "service",
+        "label": "NATゲートウェイ",
+        "x": 35,
+        "y": 180,
+        "serviceId": "amazon-vpc",
+        "width": 112,
+        "height": 44,
+        "parentId": "pub"
+      },
+      {
+        "id": "prv",
+        "kind": "group",
+        "label": "プライベートサブネット",
+        "x": 16,
+        "y": 250,
+        "width": 328,
+        "height": 104,
+        "parentId": "vpc"
+      },
+      {
+        "id": "ec2",
+        "kind": "service",
+        "label": "Amazon EC2",
+        "x": 128,
+        "y": 294,
+        "serviceId": "amazon-ec2",
+        "width": 104,
+        "height": 44,
+        "parentId": "prv"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "ec2",
+        "to": "nat"
+      },
+      {
+        "id": "e2",
+        "from": "nat",
+        "to": "igw"
+      },
+      {
+        "id": "e3",
+        "from": "igw",
+        "to": "net",
+        "label": "①更新の取得"
+      },
+      {
+        "id": "e4",
+        "from": "ec2",
+        "to": "gwe"
+      },
+      {
+        "id": "e5",
+        "from": "gwe",
+        "to": "s3",
+        "label": "②S3へ"
+      }
+    ]
+  },
+  "modelExplanation": "サーバーは、インターネットゲートウェイへの経路を持たないプライベートサブネットに置きます。外へ出る通信は、パブリックサブネットに置いたNATゲートウェイが取り次ぎます。NATゲートウェイは、外からの接続を開始させません。S3への通信は、ゲートウェイエンドポイントを通します。ゲートウェイエンドポイントに追加の料金はかからず、NATゲートウェイを通るデータを減らせます。",
+  "relatedTemplateIds": [
+    "tpl-private-egress"
+  ],
+  "checklist": [
+    {
+      "id": "c1",
+      "label": "パブリックサブネットの枠がある",
+      "rule": {
+        "type": "hasGroup",
+        "labelIncludes": [
+          "パブリック"
+        ]
+      },
+      "reason": "NATゲートウェイは、パブリックサブネットに置きます。"
+    },
+    {
+      "id": "c2",
+      "label": "プライベートサブネットの枠がある",
+      "rule": {
+        "type": "hasGroup",
+        "labelIncludes": [
+          "プライベート"
+        ]
+      },
+      "reason": "インターネットから直接アクセスされるべきでないサーバーは、プライベートサブネットに置きます。"
+    },
+    {
+      "id": "c3",
+      "label": "サーバー（EC2）が、プライベートサブネットの中にある",
+      "rule": {
+        "type": "insideGroup",
+        "serviceIds": [
+          "amazon-ec2"
+        ],
+        "labelIncludes": [
+          "プライベート"
+        ]
+      },
+      "reason": "プライベートサブネットは、インターネットゲートウェイへの経路を持たないため、外から直接は届きません。"
+    },
+    {
+      "id": "c4",
+      "label": "VPCの部品（NATゲートウェイなど）が、パブリックサブネットの中にある",
+      "rule": {
+        "type": "insideGroup",
+        "serviceIds": [
+          "amazon-vpc"
+        ],
+        "labelIncludes": [
+          "パブリック"
+        ]
+      },
+      "reason": "外へ出るための取り次ぎ係であるNATゲートウェイは、パブリックサブネットに置きます。"
+    },
+    {
+      "id": "c5",
+      "label": "サーバーとVPCの部品が、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "amazon-ec2"
+        ],
+        "to": [
+          "amazon-vpc"
+        ]
+      },
+      "reason": "サーバーからの通信は、NATゲートウェイやゲートウェイエンドポイントを通って外へ出ます。"
+    },
+    {
+      "id": "c6",
+      "label": "Amazon S3を使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-s3"
+        ]
+      },
+      "reason": "ファイルの保存先です。"
+    },
+    {
+      "id": "c7",
+      "label": "VPCの部品（ゲートウェイエンドポイント）とS3が、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "amazon-vpc"
+        ],
+        "to": [
+          "amazon-s3"
+        ]
+      },
+      "reason": "ゲートウェイエンドポイントを通すと、インターネットゲートウェイやNATの装置を使わずにS3へ接続できます。追加の料金はかかりません。"
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+[
+  {
+    "id": "clf-q-org-cost-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Billing and pricing for AWS Organizations（AWS Organizations ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/organizations/latest/userguide/pricing.html"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-2",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、部門ごとに作った複数のAWSアカウントを、AWS Organizationsでまとめて管理することを検討しています。経理の担当者から、「AWS Organizationsを使うこと自体に、料金はかかるのか」と質問されました。どの説明が正しいですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "追加料金なしで利用でき、課金されるのはメンバーアカウントで使ったAWSリソースの分だけである",
+        "correct": true,
+        "explanation": "AWS Organizationsは、追加料金なしで提供されています。課金されるのは、メンバーアカウントのユーザーやロールが使ったAWSリソースの分だけです。"
+      },
+      {
+        "id": "b",
+        "text": "管理するアカウントの数に応じて、月額の料金がかかる",
+        "correct": false,
+        "explanation": "AWS Organizationsは、追加料金なしで提供されています。アカウントの数に応じた料金はありません。",
+        "eliminatedBy": "AWS Organizationsを使うこと自体に、料金はかかるのか"
+      },
+      {
+        "id": "c",
+        "text": "AWSサポートの有料プランを契約しているアカウントだけが利用できる",
+        "correct": false,
+        "explanation": "AWS Organizationsは、追加料金なしで提供されています。利用に、有料のサポートプランの契約は必要ありません。",
+        "eliminatedBy": "AWS Organizationsを使うこと自体に、料金はかかるのか"
+      },
+      {
+        "id": "d",
+        "text": "組織を作成するときに、初期費用を一度だけ支払う",
+        "correct": false,
+        "explanation": "AWS Organizationsに、初期費用はありません。追加料金なしで利用できます。",
+        "eliminatedBy": "AWS Organizationsを使うこと自体に、料金はかかるのか"
+      }
+    ],
+    "keywords": [
+      "AWS Organizationsを使うこと自体に、料金はかかるのか"
+    ],
+    "decisionPoint": "AWS Organizations＝追加料金なし。払うのは、各アカウントで使ったリソースの分。",
+    "serviceIds": [
+      "aws-organizations"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-billing-cost"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-iam-cost-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS Identity and Access Management (IAM) FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/iam/faqs/"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d2",
+    "taskId": "clf-2-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業の管理者は、担当者ごとにIAMユーザーを作成し、役割に合わせたIAMポリシーを設定しようとしています。上司から、「ユーザーやポリシーを増やすと、IAMの利用料金が増えるのではないか」と質問されました。どの説明が正しいですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "IAMは、追加料金なしで利用できる",
+        "correct": true,
+        "explanation": "IAMは、追加料金なしで提供されています。ユーザー、グループ、ロール、ポリシーを作ること自体に、料金はかかりません。"
+      },
+      {
+        "id": "b",
+        "text": "IAMユーザー1人ごとに、月額の料金がかかる",
+        "correct": false,
+        "explanation": "IAMは、追加料金なしで提供されています。ユーザーの数に応じた料金はありません。",
+        "eliminatedBy": "IAMの利用料金が増えるのではないか"
+      },
+      {
+        "id": "c",
+        "text": "IAMポリシーを評価した回数に応じて、料金がかかる",
+        "correct": false,
+        "explanation": "IAMは、追加料金なしで提供されています。ポリシーの評価の回数に応じた料金はありません。",
+        "eliminatedBy": "IAMの利用料金が増えるのではないか"
+      },
+      {
+        "id": "d",
+        "text": "最初の12か月だけ無料で、その後は料金がかかる",
+        "correct": false,
+        "explanation": "IAMは、期間の制限なく、追加料金なしで利用できます。",
+        "eliminatedBy": "IAMの利用料金が増えるのではないか"
+      }
+    ],
+    "keywords": [
+      "IAMの利用料金が増えるのではないか"
+    ],
+    "decisionPoint": "IAM＝追加料金なし。必要なだけユーザーやロールを分け、最小権限にする。",
+    "serviceIds": [
+      "aws-iam"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-iam"
+      }
+    ]
+  },
+  {
+    "id": "clf-q-health-cost-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "What is AWS Health?（AWS Health ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "clf",
+        "version": "1.3"
+      }
+    ],
+    "exam": "clf",
+    "domainId": "clf-d4",
+    "taskId": "clf-4-3",
+    "format": "basic",
+    "select": "single",
+    "difficulty": "basic",
+    "stem": "ある企業は、無料のベーシックサポートのまま、AWSを利用しています。運用の担当者は、自社のアカウントのリソースに影響するAWS側の障害や、予定されているメンテナンスの情報を確認したいと考えています。追加の費用はかけたくありません。どれを使えばよいですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "AWS Health Dashboard",
+        "correct": true,
+        "explanation": "AWS Health Dashboardは、すべてのAWSの利用者が、追加料金なしで利用できます。自分のアカウントやリソースに影響するイベントや、予定されている変更を確認できます。"
+      },
+      {
+        "id": "b",
+        "text": "AWS Artifact",
+        "correct": false,
+        "explanation": "AWS Artifactは、AWSのコンプライアンスレポートや契約を入手するためのサービスです。障害やメンテナンスの情報を確認するものではありません。",
+        "eliminatedBy": "障害や、予定されているメンテナンスの情報を確認したい"
+      },
+      {
+        "id": "c",
+        "text": "AWS Cost Explorer",
+        "correct": false,
+        "explanation": "AWS Cost Explorerは、費用と使用量を可視化して分析するサービスです。障害やメンテナンスの情報は表示しません。",
+        "eliminatedBy": "障害や、予定されているメンテナンスの情報を確認したい"
+      },
+      {
+        "id": "d",
+        "text": "AWS Marketplace",
+        "correct": false,
+        "explanation": "AWS Marketplaceは、ソフトウェアなどを探して購入するためのカタログです。障害やメンテナンスの情報を確認する場所ではありません。",
+        "eliminatedBy": "障害や、予定されているメンテナンスの情報を確認したい"
+      }
+    ],
+    "keywords": [
+      "障害や、予定されているメンテナンスの情報を確認したい",
+      "追加の費用はかけたくありません"
+    ],
+    "decisionPoint": "自分のアカウントに影響する障害・メンテナンスの情報＝AWS Health Dashboard（追加料金なし）。",
+    "serviceIds": [
+      "aws-health-dashboard"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "clf-resources-partners"
+      }
+    ]
+  }
+]

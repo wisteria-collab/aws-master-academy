@@ -1,0 +1,294 @@
+[
+  {
+    "id": "saa-q-thr-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Throttle requests to your REST APIs for better throughput in API Gateway（Amazon API Gateway デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Amazon API Gatewayで公開しているAPIを運用しています。一部の利用者から短時間に大量のリクエストが送られ、背後のシステムが処理しきれなくなることがありました。背後のシステムを守るために、受け付けるリクエストの量に上限を設けたいと考えています。上限を超えたリクエストは、エラーとして断ってかまいません。どの機能を使えばよいですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "API Gatewayのスロットリングを設定する",
+        "correct": true,
+        "explanation": "スロットリングは、1秒あたりのリクエスト数とバーストに上限を設け、超えた分を429 Too Many Requestsのエラーで断る機能です。背後のシステムが、大量のリクエストで押しつぶされるのを防げます。"
+      },
+      {
+        "id": "b",
+        "text": "API Gatewayのキャッシュを有効にする",
+        "correct": false,
+        "explanation": "キャッシュは、同じ応答を保存して使い回し、背後への呼び出しを減らす機能です。受け付けるリクエストの量に上限を設けるものではありません。",
+        "eliminatedBy": "受け付けるリクエストの量に上限を設けたい"
+      },
+      {
+        "id": "c",
+        "text": "Amazon CloudWatchのアラームを作成する",
+        "correct": false,
+        "explanation": "アラームは、指標がしきい値を超えたことを通知する機能です。状況を知ることはできますが、リクエストを断ることはできません。",
+        "eliminatedBy": "上限を超えたリクエストは、エラーとして断って"
+      },
+      {
+        "id": "d",
+        "text": "背後のシステムをマルチAZ配置にする",
+        "correct": false,
+        "explanation": "マルチAZ配置は、アベイラビリティゾーンの障害に備える方法です。大量のリクエストを断って、システムを守る仕組みではありません。",
+        "eliminatedBy": "受け付けるリクエストの量に上限を設けたい"
+      }
+    ],
+    "keywords": [
+      "受け付けるリクエストの量に上限を設けたい",
+      "上限を超えたリクエストは、エラーとして断って"
+    ],
+    "decisionPoint": "リクエストの量に上限を設けて守る＝スロットリング。API Gatewayは超えた分を429エラーで断る。",
+    "serviceIds": [
+      "amazon-api-gateway"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-thr-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Usage plans and API keys for REST APIs in API Gateway（Amazon API Gateway デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html"
+      },
+      {
+        "title": "Throttle requests to your REST APIs for better throughput in API Gateway（Amazon API Gateway デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Amazon API GatewayのREST APIを、複数の取引先に提供しています。取引先ごとにAPIキーを発行しています。ある取引先のプログラムの不具合で大量のリクエストが届き、ほかの取引先の利用に影響が出ました。取引先ごとに、リクエストの上限を設定したいと考えています。どの方法が適切ですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "使用量プランを作成し、取引先のAPIキーと関連付ける",
+        "correct": true,
+        "explanation": "使用量プランは、APIキーでクライアントを見分け、キーごとにスロットリングの上限と、一定期間のリクエスト数の上限（クォータ）を設定できます。取引先ごとに上限を分けられます。"
+      },
+      {
+        "id": "b",
+        "text": "アカウント全体のスロットリングの上限の引き上げを申請する",
+        "correct": false,
+        "explanation": "アカウント全体の上限は、そのリージョンのすべてのAPIに共通で適用されます。引き上げても、取引先ごとに上限を分けることはできません。",
+        "eliminatedBy": "取引先ごとに、リクエストの上限を設定したい"
+      },
+      {
+        "id": "c",
+        "text": "APIを、取引先の数だけ別のリージョンにデプロイする",
+        "correct": false,
+        "explanation": "リージョンを分けると、管理するものが増えます。取引先ごとの上限は、APIキーと使用量プランで設定でき、リージョンを分ける必要はありません。",
+        "eliminatedBy": "取引先ごとにAPIキーを発行しています"
+      },
+      {
+        "id": "d",
+        "text": "AWS Budgetsで、取引先ごとの予算を設定する",
+        "correct": false,
+        "explanation": "AWS Budgetsは、費用や使用量が予算を超えそうなときに通知するサービスです。APIへのリクエストを絞ることはできません。",
+        "eliminatedBy": "取引先ごとに、リクエストの上限を設定したい"
+      }
+    ],
+    "keywords": [
+      "取引先ごとにAPIキーを発行しています",
+      "取引先ごとに、リクエストの上限を設定したい"
+    ],
+    "decisionPoint": "クライアントごとの上限＝使用量プラン＋APIキー。",
+    "serviceIds": [
+      "amazon-api-gateway"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ebs-ev-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Modify an Amazon EBS volume using Elastic Volumes operations（Amazon EBS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、Amazon EC2インスタンスにgp3のAmazon EBSボリュームをアタッチして、業務アプリケーションを動かしています。データが増え、ボリュームの空きが少なくなってきました。インスタンスはElastic Volumesに対応しています。アプリケーションを止めずに、容量を増やしたいと考えています。どの方法が適切ですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Elastic Volumesの操作で、ボリュームのサイズを増やす",
+        "correct": true,
+        "explanation": "Elastic Volumesを使うと、対応するインスタンスでは、ボリュームをデタッチしたりインスタンスを再起動したりせずに、サイズの拡張、種類の変更、性能の調整ができます。変更の間も、アプリケーションを使い続けられます。"
+      },
+      {
+        "id": "b",
+        "text": "インスタンスを停止し、スナップショットから大きいボリュームを作り直して付け替える",
+        "correct": false,
+        "explanation": "この方法でも容量は増やせますが、インスタンスを停止する必要があります。Elastic Volumesに対応していれば、止めずにサイズを増やせます。",
+        "eliminatedBy": "アプリケーションを止めずに"
+      },
+      {
+        "id": "c",
+        "text": "インスタンスストアのボリュームを追加する",
+        "correct": false,
+        "explanation": "インスタンスストアは、インスタンスの停止などでデータが消える一時的なストレージです。業務データを置き続ける場所の拡張には向きません。",
+        "eliminatedBy": "データが増え"
+      },
+      {
+        "id": "d",
+        "text": "ボリュームの種類をコールドHDD（sc1）に変更する",
+        "correct": false,
+        "explanation": "種類を変えても、容量は増えません。sc1はアクセスの少ないデータ向けの低コストなHDDで、空きが少ないという問題は解決しません。",
+        "eliminatedBy": "ボリュームの空きが少なくなってきました"
+      }
+    ],
+    "keywords": [
+      "Elastic Volumesに対応しています",
+      "アプリケーションを止めずに"
+    ],
+    "decisionPoint": "EBSは、Elastic Volumesでデタッチも再起動もせずに、サイズ・種類・性能を変更できる。",
+    "serviceIds": [
+      "amazon-ebs"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-storage"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-vpce-ha-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Access an AWS service using an interface VPC endpoint（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html"
+      },
+      {
+        "title": "Guidance for Network Connectivity on AWS（AWS公式）",
+        "url": "https://docs.aws.amazon.com/solutions/network-connectivity-on-aws/"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-12",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "standard",
+    "stem": "ある企業は、VPC内のプライベートサブネットにあるアプリケーションから、インターフェイスVPCエンドポイントを通して、AWSのサービスに接続しています。アプリケーションは、2つのアベイラビリティゾーンに配置しています。エンドポイントは、1つのサブネットにだけ作成しました。1つのアベイラビリティゾーンに障害が起きても、接続を続けられるようにしたいと考えています。どうすればよいですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "エンドポイントに、複数のアベイラビリティゾーンのサブネットを指定する",
+        "correct": true,
+        "explanation": "インターフェイスエンドポイントは、指定したサブネットごとに、エンドポイント用のネットワークインターフェイスを作ります。複数のアベイラビリティゾーンのサブネットを選ぶことで、高可用性を実現できます。"
+      },
+      {
+        "id": "b",
+        "text": "同じサブネットに、エンドポイントのネットワークインターフェイスを2つ作る",
+        "correct": false,
+        "explanation": "1つのアベイラビリティゾーンにつき、選べるサブネットは1つです。同じ場所に増やしても、そのアベイラビリティゾーンの障害には備えられません。",
+        "eliminatedBy": "1つのアベイラビリティゾーンに障害が起きても"
+      },
+      {
+        "id": "c",
+        "text": "エンドポイントを削除し、NATゲートウェイを1つ作成する",
+        "correct": false,
+        "explanation": "NATゲートウェイを1つだけ作っても、そのアベイラビリティゾーンの障害の影響を受けます。また、通信がエンドポイントを通らなくなります。",
+        "eliminatedBy": "インターフェイスVPCエンドポイントを通して"
+      },
+      {
+        "id": "d",
+        "text": "エンドポイントのセキュリティグループで、すべての通信を許可する",
+        "correct": false,
+        "explanation": "セキュリティグループは、通信を許可するかどうかを決める仕組みです。許可を広げても、アベイラビリティゾーンの障害には備えられません。",
+        "eliminatedBy": "1つのアベイラビリティゾーンに障害が起きても"
+      }
+    ],
+    "keywords": [
+      "1つのサブネットにだけ作成しました",
+      "1つのアベイラビリティゾーンに障害が起きても"
+    ],
+    "decisionPoint": "インターフェイスエンドポイントの高可用性＝複数のアベイラビリティゾーンのサブネットを選ぶ。",
+    "serviceIds": [
+      "amazon-vpc"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      }
+    ]
+  }
+]

@@ -10,7 +10,7 @@ def check(name, ok, detail=''):
     results.append(bool(ok)); print(('PASS' if ok else 'FAIL'), name, detail)
 
 PAGES = ['', '#/learn', '#/learn/saa', '#/learn/clf/clf-storage', '#/learn/saa/saa-cost-network', '#/services', '#/services/amazon-s3', '#/compare', '#/compare/s3-storage-classes',
-         '#/compare/nat-options/training', '#/designer', '#/designer/templates/tpl-ha-web-3tier', '#/designer/challenges/ch-ha-shop', '#/practice', '#/practice/run?exam=saa&mode=random',
+         '#/compare/nat-options/training', '#/designer', '#/designer/templates/tpl-ha-web-3tier', '#/designer/challenges/ch-ha-shop', '#/designer/challenges/ch-private-server', '#/practice', '#/practice/run?exam=saa&mode=random',
          '#/progress', '#/review', '#/settings', '#/guide', '#/search?q=S3']
 
 with sync_playwright() as p:

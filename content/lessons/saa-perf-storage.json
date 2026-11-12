@@ -78,7 +78,8 @@
     "saa-q-s3c-train-02",
     "saa-q-s3c-train-03",
     "saa-q-ebs-train-01",
-    "saa-q-ebs-train-02"
+    "saa-q-ebs-train-02",
+    "saa-q-ebs-ev-01"
   ],
   "glossaryTermIds": [
     "block-storage",
