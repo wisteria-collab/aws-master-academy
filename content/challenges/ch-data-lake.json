@@ -1,0 +1,227 @@
+{
+  "id": "ch-data-lake",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-13",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "流れ続けるデータを、分析できる湖にためる",
+  "order": 8,
+  "scenario": "ある会社は、工場のセンサーから、データを絶え間なく受け取っています。このデータを1か所にためて、分析の担当者がSQLで調べられるようにしたいと考えています。保存の前に、分析しやすい列指向のフォーマットに変換しておきたいです。また、機密性の高いデータへのアクセスは、まとめて管理したいと考えています。",
+  "requirements": [
+    "流れ続けるデータを、ストリーミングのサービスで取り込む",
+    "取り込んだデータを、変換してからAmazon S3にためる",
+    "S3のデータを、SQLで分析できるようにする",
+    "データレイクへのアクセスを、まとめて管理する"
+  ],
+  "hints": [
+    "データの届き方が「流れ続ける」ことに注目します。まとまったデータを移すときとは、使うサービスが違います。",
+    "S3に届ける前に、Apache ParquetやApache ORCに変換できるサービスがあります。"
+  ],
+  "modelAnswer": {
+    "nodes": [
+      {
+        "id": "src",
+        "kind": "actor",
+        "label": "アプリやセンサー",
+        "x": 16,
+        "y": 8,
+        "width": 136,
+        "height": 36
+      },
+      {
+        "id": "kds",
+        "kind": "service",
+        "label": "Kinesis Data Streams",
+        "x": 28,
+        "y": 78,
+        "serviceId": "amazon-kinesis",
+        "width": 112
+      },
+      {
+        "id": "fh",
+        "kind": "service",
+        "label": "Amazon Data Firehose",
+        "x": 28,
+        "y": 156,
+        "serviceId": "amazon-data-firehose",
+        "width": 112
+      },
+      {
+        "id": "s3",
+        "kind": "service",
+        "label": "Amazon S3（データレイク）",
+        "x": 24,
+        "y": 234,
+        "serviceId": "amazon-s3",
+        "width": 120
+      },
+      {
+        "id": "lf",
+        "kind": "service",
+        "label": "AWS Lake Formation",
+        "x": 24,
+        "y": 316,
+        "serviceId": "aws-lake-formation",
+        "width": 120
+      },
+      {
+        "id": "glue",
+        "kind": "service",
+        "label": "AWS Glue",
+        "x": 232,
+        "y": 156,
+        "serviceId": "aws-glue"
+      },
+      {
+        "id": "ath",
+        "kind": "service",
+        "label": "Amazon Athena",
+        "x": 232,
+        "y": 234,
+        "serviceId": "amazon-athena"
+      },
+      {
+        "id": "qk",
+        "kind": "service",
+        "label": "Amazon Quick",
+        "x": 232,
+        "y": 316,
+        "serviceId": "amazon-quick"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "src",
+        "to": "kds"
+      },
+      {
+        "id": "e2",
+        "from": "kds",
+        "to": "fh"
+      },
+      {
+        "id": "e3",
+        "from": "fh",
+        "to": "s3",
+        "label": "変換して保存"
+      },
+      {
+        "id": "e4",
+        "from": "glue",
+        "to": "s3",
+        "label": "ETL"
+      },
+      {
+        "id": "e5",
+        "from": "ath",
+        "to": "s3",
+        "label": "SQLで分析"
+      },
+      {
+        "id": "e6",
+        "from": "qk",
+        "to": "ath",
+        "label": "可視化"
+      },
+      {
+        "id": "e7",
+        "from": "lf",
+        "to": "s3",
+        "label": "アクセス管理"
+      }
+    ]
+  },
+  "modelExplanation": "流れ続けるデータは、Amazon Kinesis Data Streamsで取り込み、Amazon Data FirehoseでS3に届けます。Data Firehoseは、S3に届ける前に、Apache ParquetやApache ORCといった列指向のフォーマットに変換できます。S3にためたデータは、Amazon AthenaでSQLを使って分析し、AWS Glueで変換（ETL）します。AWS Lake Formationは、データをカタログ化し、機密性の高いデータへのアクセスを保護する仕組みを用意します。",
+  "relatedTemplateIds": [
+    "tpl-data-lake"
+  ],
+  "checklist": [
+    {
+      "id": "c1",
+      "label": "ストリーミングの取り込み（Kinesis Data Streams）を使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-kinesis"
+        ]
+      },
+      "reason": "流れ続けるデータは、ストリーミングのサービスで取り込みます。"
+    },
+    {
+      "id": "c2",
+      "label": "Amazon Data Firehoseを使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-data-firehose"
+        ]
+      },
+      "reason": "Data Firehoseは、S3に届ける前に、列指向のフォーマットに変換できます。"
+    },
+    {
+      "id": "c3",
+      "label": "Data FirehoseとS3が、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "amazon-data-firehose"
+        ],
+        "to": [
+          "amazon-s3"
+        ]
+      },
+      "reason": "変換したデータを、データレイクのS3に届けます。"
+    },
+    {
+      "id": "c4",
+      "label": "Amazon Athenaを使い、S3とつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "amazon-athena"
+        ],
+        "to": [
+          "amazon-s3"
+        ]
+      },
+      "reason": "Athenaで、S3のデータをSQLで分析します。"
+    },
+    {
+      "id": "c5",
+      "label": "AWS Lake Formationを使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "aws-lake-formation"
+        ]
+      },
+      "reason": "Lake Formationは、データレイクのデータをカタログ化し、機密性の高いデータへのアクセスを保護します。"
+    },
+    {
+      "id": "c6",
+      "label": "まとまったデータ向けの転送サービス（AWS DataSync）だけで取り込んでいない",
+      "rule": {
+        "type": "notService",
+        "serviceIds": [
+          "aws-datasync"
+        ]
+      },
+      "reason": "DataSyncは、まとまったデータを移すときのサービスです。流れ続けるデータには、ストリーミングのサービスを使います。"
+    }
+  ]
+}
