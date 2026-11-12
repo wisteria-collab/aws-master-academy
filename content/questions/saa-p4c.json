@@ -166,9 +166,13 @@
       {
         "title": "SAA-C03 試験ガイド（AWS公式）",
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      },
+      {
+        "title": "Configuring and managing a Multi-AZ deployment for Amazon RDS（Amazon RDS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-12",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -191,9 +195,9 @@
       },
       {
         "id": "b",
-        "text": "マルチAZ配置を有効にする",
+        "text": "マルチAZ DBインスタンス配置（スタンバイが1つの構成）を有効にする",
         "correct": false,
-        "explanation": "マルチAZ配置の主な目的は高可用性です。Aurora以外では、アクティブなのはプライマリだけで、スタンバイは読み取りには使えません。",
+        "explanation": "マルチAZ DBインスタンス配置の主な目的は高可用性で、スタンバイは読み取りに使えません。読み取りの処理能力は増えません。なお、スタンバイが2つの「マルチAZ DBクラスター配置」（MySQLとPostgreSQLで利用可能）では、スタンバイを読み取りにも使えます。",
         "eliminatedBy": "読み取りの処理能力を増やす"
       },
       {
