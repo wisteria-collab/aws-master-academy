@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    },
+    {
+      "title": "Amazon CloudWatch の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/cloudwatch/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -69,5 +73,8 @@
       "domainId": "clf-d2"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/cloudwatch/"
+  "docUrl": "https://docs.aws.amazon.com/cloudwatch/",
+  "pricingUrl": "https://aws.amazon.com/jp/cloudwatch/pricing/",
+  "pricingNote": "ログの取り込み・保存・クエリ、メトリクス、ダッシュボード、アラームなど、使った量に応じた従量課金。無料利用枠があります。",
+  "volatile": true
 }

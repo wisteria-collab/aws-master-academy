@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon WorkSpaces Secure Browser の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/workspaces-family/secure-browser/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -72,5 +76,8 @@
     }
   ],
   "docUrl": "https://docs.aws.amazon.com/workspaces-web/",
-  "uncertainNote": "試験ガイド（バージョン1.3）ではAmazon WorkSpaces Secure Browser、AWSのホワイトペーパーではAmazon WorkSpaces Webという名前が使われています。説明はホワイトペーパーのAmazon WorkSpaces Webの記述に基づいています。"
+  "uncertainNote": "試験ガイド（バージョン1.3）ではAmazon WorkSpaces Secure Browser、AWSのホワイトペーパーではAmazon WorkSpaces Webという名前が使われています。説明はホワイトペーパーのAmazon WorkSpaces Webの記述に基づいています。",
+  "pricingUrl": "https://aws.amazon.com/jp/workspaces-family/secure-browser/pricing/",
+  "pricingNote": "その月にサインインした利用者の数（月間のアクティブユーザー）に応じた料金など。",
+  "volatile": true
 }

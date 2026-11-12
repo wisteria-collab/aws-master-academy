@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon Lex の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/lex/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -70,5 +74,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/lex/"
+  "docUrl": "https://docs.aws.amazon.com/lex/",
+  "pricingUrl": "https://aws.amazon.com/jp/lex/pricing/",
+  "pricingNote": "処理した音声のリクエストと、テキストのリクエストの数。",
+  "volatile": true
 }

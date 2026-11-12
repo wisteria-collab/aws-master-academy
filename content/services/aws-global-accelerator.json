@@ -5,9 +5,13 @@
     {
       "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
       "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "AWS Global Accelerator の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/global-accelerator/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -65,5 +69,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/global-accelerator/"
+  "docUrl": "https://docs.aws.amazon.com/global-accelerator/",
+  "pricingUrl": "https://aws.amazon.com/jp/global-accelerator/pricing/",
+  "pricingNote": "アクセラレーターを動かした時間の固定の料金と、転送したデータの量に応じた料金。",
+  "volatile": true
 }

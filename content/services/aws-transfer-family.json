@@ -9,9 +9,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "AWS Transfer Family の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/aws-transfer-family/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -72,5 +76,8 @@
       "domainId": "saa-d2"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/transfer/"
+  "docUrl": "https://docs.aws.amazon.com/transfer/",
+  "pricingUrl": "https://aws.amazon.com/jp/aws-transfer-family/pricing/",
+  "pricingNote": "エンドポイントで有効にしたプロトコルごとの時間単位の料金と、転送したデータの量など。",
+  "volatile": true
 }

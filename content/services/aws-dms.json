@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+    },
+    {
+      "title": "AWS Database Migration Service の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/dms/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -71,5 +75,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/dms/"
+  "docUrl": "https://docs.aws.amazon.com/dms/",
+  "pricingUrl": "https://aws.amazon.com/jp/dms/pricing/",
+  "pricingNote": "レプリケーションインスタンスを動かした時間と、追加のログ用ストレージ。サーバーレスは、使った容量の時間単位の料金。",
+  "volatile": true
 }

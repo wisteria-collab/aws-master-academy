@@ -13,6 +13,14 @@
     {
       "title": "Amazon SNS Pricing（AWS公式）",
       "url": "https://aws.amazon.com/sns/pricing/"
+    },
+    {
+      "title": "Amazon SQS の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/sqs/pricing/"
+    },
+    {
+      "title": "Amazon EventBridge の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/eventbridge/pricing/"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -38,7 +46,7 @@
         "availability": "フルマネージドのサービスとして提供される",
         "performance": "受け取る側が、自分のペースで取り出して処理する",
         "scalability": "システムを疎結合にして、スケールできるようにする",
-        "cost": "この教材の出典には料金の記載がないため、公式の料金ページで確認する",
+        "cost": "APIリクエストの数に応じて課金される（標準キューとFIFOキューで料金が異なる）。金額は公式の料金ページで確認する",
         "operations": "メッセージ指向ミドルウェアの管理や運用が不要",
         "limits": "いっせいに複数の相手へ配信する仕組みではない",
         "chooseWhen": "処理の間にキューを置いて、混雑に強くしたいとき",
@@ -78,7 +86,7 @@
         "availability": "サーバーレスのサービスとして提供される",
         "performance": "イベントソースからのリアルタイムのデータを届ける",
         "scalability": "イベント駆動型のアプリケーションを、大規模に構築しやすくする",
-        "cost": "この教材の出典には料金の記載がないため、公式の料金ページで確認する",
+        "cost": "取り込んだイベントの数や、配信の数などに応じて課金される。金額は公式の料金ページで確認する",
         "operations": "サーバーレスで、サーバーの管理が不要",
         "limits": "大量のストリーミングデータを収集して分析するためのサービスではない",
         "chooseWhen": "AWSのサービスやSaaSのイベントをきっかけに、処理を動かしたいとき",

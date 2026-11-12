@@ -5,9 +5,13 @@
     {
       "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
       "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Amazon Lightsail の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/lightsail/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -62,5 +66,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/lightsail/"
+  "docUrl": "https://docs.aws.amazon.com/lightsail/",
+  "pricingUrl": "https://aws.amazon.com/jp/lightsail/pricing/",
+  "pricingNote": "仮想サーバーやデータベースなどの、プランごとの月額の料金。プランに含まれるデータ転送の量を超えた送信には、料金がかかります。",
+  "volatile": true
 }

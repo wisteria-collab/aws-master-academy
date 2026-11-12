@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    },
+    {
+      "title": "AWS Shield の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/shield/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -69,5 +73,8 @@
       "domainId": "clf-d2"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/shield/"
+  "docUrl": "https://docs.aws.amazon.com/shield/",
+  "pricingUrl": "https://aws.amazon.com/jp/shield/pricing/",
+  "pricingNote": "Shield Standardは無料です。Shield Advancedは、1年契約の月額の料金と、データ転送の量に応じた料金がかかります。",
+  "volatile": true
 }

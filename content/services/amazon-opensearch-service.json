@@ -9,9 +9,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Amazon OpenSearch Service の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/opensearch-service/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -71,5 +75,8 @@
       "domainId": "saa-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/opensearch-service/"
+  "docUrl": "https://docs.aws.amazon.com/opensearch-service/",
+  "pricingUrl": "https://aws.amazon.com/jp/opensearch-service/pricing/",
+  "pricingNote": "インスタンスを動かした時間、ストレージ、データ転送。サーバーレスは、使った処理の容量と、保存したデータの量。",
+  "volatile": true
 }

@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon Connect の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/connect/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -66,5 +70,8 @@
     }
   ],
   "docUrl": "https://docs.aws.amazon.com/connect/",
-  "uncertainNote": "試験ガイド（バージョン1.3）ではAmazon Connectと書かれています。AWSのホワイトペーパーでは「Connect Customer」という名前で説明されています。このアプリは試験ガイドの名前に合わせています。"
+  "uncertainNote": "試験ガイド（バージョン1.3）ではAmazon Connectと書かれています。AWSのホワイトペーパーでは「Connect Customer」という名前で説明されています。このアプリは試験ガイドの名前に合わせています。",
+  "pricingUrl": "https://aws.amazon.com/jp/connect/pricing/",
+  "pricingNote": "音声、チャット、メールなどのチャネルごとの利用量（通話時間やメッセージ数）に応じた従量課金。",
+  "volatile": true
 }

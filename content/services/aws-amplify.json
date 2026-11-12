@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "AWS Amplify の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/amplify/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -65,5 +69,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/amplify/"
+  "docUrl": "https://docs.aws.amazon.com/amplify/",
+  "pricingUrl": "https://aws.amazon.com/jp/amplify/pricing/",
+  "pricingNote": "ビルドにかかった時間、データ転送の量、ストレージなど、使った量に応じた従量課金。",
+  "volatile": true
 }

@@ -17,9 +17,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "AWS Transit Gateway の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/transit-gateway/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -81,5 +85,8 @@
       "domainId": "saa-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/vpc/latest/tgw/"
+  "docUrl": "https://docs.aws.amazon.com/vpc/latest/tgw/",
+  "pricingUrl": "https://aws.amazon.com/jp/transit-gateway/pricing/",
+  "pricingNote": "Transit Gatewayへの接続（アタッチメント）の数に応じた時間単位の料金と、通過するデータの量に応じたデータ処理の料金。",
+  "volatile": true
 }

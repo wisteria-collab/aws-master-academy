@@ -9,9 +9,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Amazon Data Firehose の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/firehose/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -73,5 +77,8 @@
       "domainId": "saa-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/firehose/"
+  "docUrl": "https://docs.aws.amazon.com/firehose/",
+  "pricingUrl": "https://aws.amazon.com/jp/firehose/pricing/",
+  "pricingNote": "取り込んだデータの量。フォーマットの変換などのオプション機能には、追加の料金がかかります。",
+  "volatile": true
 }

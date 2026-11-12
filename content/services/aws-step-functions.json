@@ -9,9 +9,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "AWS Step Functions の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/step-functions/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -71,5 +75,8 @@
       "domainId": "saa-d2"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/step-functions/"
+  "docUrl": "https://docs.aws.amazon.com/step-functions/",
+  "pricingUrl": "https://aws.amazon.com/jp/step-functions/pricing/",
+  "pricingNote": "標準ワークフローは、状態遷移の回数。Expressワークフローは、リクエストの数と、実行時間・メモリの量。",
+  "volatile": true
 }

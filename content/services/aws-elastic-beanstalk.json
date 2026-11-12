@@ -5,9 +5,13 @@
     {
       "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
       "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "AWS Elastic Beanstalk の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/elasticbeanstalk/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -68,5 +72,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/elasticbeanstalk/"
+  "docUrl": "https://docs.aws.amazon.com/elasticbeanstalk/",
+  "pricingUrl": "https://aws.amazon.com/jp/elasticbeanstalk/pricing/",
+  "pricingNote": "Elastic Beanstalkそのものに、追加の料金はありません。アプリケーションを動かすEC2インスタンスやS3バケットなどのAWSのリソースに料金がかかります。",
+  "volatile": true
 }

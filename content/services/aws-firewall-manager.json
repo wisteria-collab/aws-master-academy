@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    },
+    {
+      "title": "AWS Firewall Manager の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/firewall-manager/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -66,5 +70,8 @@
       "domainId": "clf-d2"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/waf/"
+  "docUrl": "https://docs.aws.amazon.com/waf/",
+  "pricingUrl": "https://aws.amazon.com/jp/firewall-manager/pricing/",
+  "pricingNote": "保護ポリシーごとの月額の料金と、Firewall Managerが作成するAWS WAFなどのリソースやAWS Configルールの料金。",
+  "volatile": true
 }

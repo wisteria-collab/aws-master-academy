@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon Kinesis の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/kinesis/data-streams/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -71,5 +75,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/kinesis/"
+  "docUrl": "https://docs.aws.amazon.com/kinesis/",
+  "pricingUrl": "https://aws.amazon.com/jp/kinesis/data-streams/pricing/",
+  "pricingNote": "オンデマンドは、取り込んだデータと読み取ったデータの量など。プロビジョンドは、シャードを使った時間など。",
+  "volatile": true
 }

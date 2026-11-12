@@ -13,9 +13,13 @@
     {
       "title": "Amazon EC2 Reserved Instances Pricing（AWS公式）",
       "url": "https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/"
+    },
+    {
+      "title": "Amazon EKS の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/eks/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -98,7 +102,7 @@
         "availability": "管理用の基盤が、複数のアベイラビリティゾーンにまたがって運用される",
         "performance": "標準的なKubernetes環境として動く",
         "scalability": "Kubernetesの仕組みでスケールする",
-        "cost": "使い方によって変わるため、公式の料金ページで確認する",
+        "cost": "クラスターを動かした時間に料金がかかる。そのほかに、ノードとして使うEC2インスタンスなどの料金がかかる。金額は公式の料金ページで確認する",
         "operations": "Kubernetesの管理用の基盤の運用をAWSに任せられる",
         "limits": "Kubernetesの知識が必要",
         "chooseWhen": "Kubernetesの既存のツールやプラグインを使い続けたいとき",

@@ -9,9 +9,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Amazon API Gateway の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/api-gateway/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -68,5 +72,8 @@
       "domainId": "saa-d2"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/apigateway/"
+  "docUrl": "https://docs.aws.amazon.com/apigateway/",
+  "pricingUrl": "https://aws.amazon.com/jp/api-gateway/pricing/",
+  "pricingNote": "受け取ったAPIコールの数と、外向きに転送したデータの量。WebSocket APIは、メッセージの数と接続していた時間。キャッシュを使う場合は、その時間。",
+  "volatile": true
 }

@@ -9,6 +9,10 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "AWS Compute Optimizer の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/compute-optimizer/pricing/"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -75,5 +79,8 @@
       "domainId": "saa-d4"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html"
+  "docUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html",
+  "pricingUrl": "https://aws.amazon.com/jp/compute-optimizer/pricing/",
+  "pricingNote": "Compute Optimizerそのものは無料です。拡張インフラストラクチャメトリクスという有料の機能があります。",
+  "volatile": true
 }

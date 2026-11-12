@@ -33,6 +33,14 @@
     {
       "title": "COST08-BP03 Implement services to reduce data transfer costs（AWS Well-Architected コスト最適化の柱）",
       "url": "https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/cost_data_transfer_implement_services.html"
+    },
+    {
+      "title": "AWS PrivateLink の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/privatelink/pricing/"
+    },
+    {
+      "title": "Amazon VPC の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/vpc/pricing/"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -78,7 +86,7 @@
         "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
         "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
         "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
-        "cost": "時間あたりの料金と、処理したデータ量（GBあたり）の料金がかかる",
+        "cost": "エンドポイントをアベイラビリティゾーンごとに用意している時間と、処理されたデータの量（GBあたり）に応じて課金される。金額は公式の料金ページで確認する",
         "operations": "サービスごとにエンドポイントを作成する",
         "limits": "S3とDynamoDBだけなら、追加料金のないゲートウェイエンドポイントも選べる",
         "chooseWhen": "S3とDynamoDB以外のAWSサービスに、インターネットを通らずに接続したいとき",
@@ -98,7 +106,7 @@
         "availability": "各アベイラビリティゾーンのNATゲートウェイは、冗長性を持って実装されている。ゾーンに依存しない構成にするには、アベイラビリティゾーンごとに作成する",
         "performance": "5 Gbpsの帯域に対応し、自動的に最大100 Gbpsまで拡張する",
         "scalability": "種類やサイズを選ぶ必要がなく、自動的に拡張する",
-        "cost": "NATゲートウェイの数、利用時間、通過させたデータの量に応じて課金される",
+        "cost": "NATゲートウェイを動かした時間と、処理したデータの量に応じて課金される。標準のデータ転送の料金も加わる。金額は公式の料金ページで確認する",
         "operations": "パブリックサブネットへの配置と、ルートテーブルの設定が必要",
         "limits": "通信がインターネットを通る",
         "chooseWhen": "インターネット上の接続先にアクセスする必要があるとき",

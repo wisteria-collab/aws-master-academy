@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    },
+    {
+      "title": "AWS CloudTrail の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/cloudtrail/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -69,5 +73,8 @@
       "domainId": "clf-d2"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/cloudtrail/"
+  "docUrl": "https://docs.aws.amazon.com/cloudtrail/",
+  "pricingUrl": "https://aws.amazon.com/jp/cloudtrail/pricing/",
+  "pricingNote": "証跡で配信したイベントの数、CloudTrail Lakeに取り込んだ量・保持した量、Insightsで分析したイベントの数など。",
+  "volatile": true
 }

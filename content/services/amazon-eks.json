@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon EKS の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/eks/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -73,5 +77,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/eks/"
+  "docUrl": "https://docs.aws.amazon.com/eks/",
+  "pricingUrl": "https://aws.amazon.com/jp/eks/pricing/",
+  "pricingNote": "クラスターを動かした時間。そのほかに、ノードとして使うEC2インスタンスやEBSなどの、関連するリソースの料金がかかります。",
+  "volatile": true
 }

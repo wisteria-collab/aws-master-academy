@@ -9,9 +9,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "AWS Elastic Disaster Recovery の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/disaster-recovery/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -69,5 +73,8 @@
       "domainId": "saa-d2"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/drs/"
+  "docUrl": "https://docs.aws.amazon.com/drs/",
+  "pricingUrl": "https://aws.amazon.com/jp/disaster-recovery/pricing/",
+  "pricingNote": "レプリケーション（複製）しているソースサーバーの台数に応じた時間単位の料金と、複製や訓練で使うEBS・EC2の料金。",
+  "volatile": true
 }

@@ -9,9 +9,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "AWS Lake Formation の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/lake-formation/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -70,5 +74,8 @@
       "domainId": "saa-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/lake-formation/"
+  "docUrl": "https://docs.aws.amazon.com/lake-formation/",
+  "pricingUrl": "https://aws.amazon.com/jp/lake-formation/pricing/",
+  "pricingNote": "一部の機能で、スキャンしたデータの量などに応じた料金がかかります。",
+  "volatile": true
 }

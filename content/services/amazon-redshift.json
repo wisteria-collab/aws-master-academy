@@ -9,9 +9,13 @@
     {
       "title": "SAA-C03 試験ガイド（AWS公式）",
       "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Amazon Redshift の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/redshift/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -71,5 +75,8 @@
       "domainId": "saa-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/redshift/"
+  "docUrl": "https://docs.aws.amazon.com/redshift/",
+  "pricingUrl": "https://aws.amazon.com/jp/redshift/pricing/",
+  "pricingNote": "プロビジョンドは、ノードを動かした時間。サーバーレスは、使ったコンピューティングの容量。ほかに、保存したデータの量など。",
+  "volatile": true
 }

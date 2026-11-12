@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第1分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
+    },
+    {
+      "title": "AWS Application Migration Service の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/application-migration-service/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -70,5 +74,8 @@
       "domainId": "clf-d1"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/mgn/"
+  "docUrl": "https://docs.aws.amazon.com/mgn/",
+  "pricingUrl": "https://aws.amazon.com/jp/application-migration-service/pricing/",
+  "pricingNote": "レプリケーション（複製）のために確保されるAWSのリソースと、テストや切り替えで起動するEC2インスタンス・EBSの料金。",
+  "volatile": true
 }

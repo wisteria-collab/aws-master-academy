@@ -5,9 +5,13 @@
     {
       "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
       "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "AWS Batch の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/batch/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -64,5 +68,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/batch/"
+  "docUrl": "https://docs.aws.amazon.com/batch/",
+  "pricingUrl": "https://aws.amazon.com/jp/batch/pricing/",
+  "pricingNote": "AWS Batchそのものに、追加の料金はありません。ジョブを動かすEC2インスタンスやAWS FargateなどのAWSのリソースに料金がかかります。",
+  "volatile": true
 }

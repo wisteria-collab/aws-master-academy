@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第4分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain4.html"
+    },
+    {
+      "title": "AWS Cost Explorer の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/aws-cost-management/aws-cost-explorer/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -71,5 +75,8 @@
       "domainId": "clf-d4"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/cost-management/"
+  "docUrl": "https://docs.aws.amazon.com/cost-management/",
+  "pricingUrl": "https://aws.amazon.com/jp/aws-cost-management/aws-cost-explorer/pricing/",
+  "pricingNote": "Cost Explorer APIのリクエストの数と、時間単位の細かさのデータを使う場合の料金。",
+  "volatile": true
 }

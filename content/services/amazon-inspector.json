@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第2分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
+    },
+    {
+      "title": "Amazon Inspector の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/inspector/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -68,5 +72,8 @@
       "domainId": "clf-d2"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/inspector/"
+  "docUrl": "https://docs.aws.amazon.com/inspector/",
+  "pricingUrl": "https://aws.amazon.com/jp/inspector/pricing/",
+  "pricingNote": "スキャンしたEC2インスタンス、Lambda関数、コンテナイメージなどの数に応じた従量課金。",
+  "volatile": true
 }

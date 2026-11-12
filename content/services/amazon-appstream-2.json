@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon AppStream 2.0 の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/appstream2/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -71,5 +75,8 @@
     }
   ],
   "docUrl": "https://docs.aws.amazon.com/appstream2/",
-  "uncertainNote": "試験ガイド（バージョン1.3）ではAmazon AppStream 2.0、AWSのホワイトペーパーではAmazon WorkSpaces Applicationsという名前が使われています。このアプリは試験ガイドの名前に合わせています。"
+  "uncertainNote": "試験ガイド（バージョン1.3）ではAmazon AppStream 2.0、AWSのホワイトペーパーではAmazon WorkSpaces Applicationsという名前が使われています。このアプリは試験ガイドの名前に合わせています。",
+  "pricingUrl": "https://aws.amazon.com/jp/appstream2/pricing/",
+  "pricingNote": "ストリーミング用のインスタンスを動かした時間と、利用者ごとの月額の料金など。",
+  "volatile": true
 }

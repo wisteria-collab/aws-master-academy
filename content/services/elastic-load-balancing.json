@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Elastic Load Balancing の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/elasticloadbalancing/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -77,5 +81,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/elasticloadbalancing/"
+  "docUrl": "https://docs.aws.amazon.com/elasticloadbalancing/",
+  "pricingUrl": "https://aws.amazon.com/jp/elasticloadbalancing/pricing/",
+  "pricingNote": "ロードバランサーを動かした時間（1時間単位）と、処理の量を表す単位（ALBはLCU、NLBはNLCU、GWLBはGLCU）の使用量。",
+  "volatile": true
 }

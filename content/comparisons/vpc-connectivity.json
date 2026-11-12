@@ -37,6 +37,14 @@
     {
       "title": "Using the NAT gateway for centralized IPv4 egress（AWSホワイトペーパー）",
       "url": "https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/using-nat-gateway-for-centralized-egress.html"
+    },
+    {
+      "title": "AWS Transit Gateway の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/transit-gateway/pricing/"
+    },
+    {
+      "title": "AWS PrivateLink の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/privatelink/pricing/"
     }
   ],
   "verifiedAt": "2026-11-12",
@@ -82,7 +90,7 @@
         "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
         "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
         "scalability": "VPCが増えても、ハブに接続するだけでよい",
-        "cost": "Transit Gatewayを通るデータには、データ処理の料金がかかる。そのほかの料金は、公式の料金ページで確認する",
+        "cost": "接続（アタッチメント）の数に応じた時間単位の料金と、通過するデータの量に応じたデータ処理の料金がかかる。金額は公式の料金ページで確認する",
         "operations": "接続を1か所で管理できる",
         "limits": "2つのVPCをつなぐだけの用途には大がかり",
         "chooseWhen": "多数のVPCや、オンプレミスのネットワークを相互につなぎたいとき",
@@ -102,7 +110,7 @@
         "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
         "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
         "scalability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
-        "cost": "インターフェイスエンドポイントには、時間あたりの料金と、処理したデータ量（GBあたり）の料金がかかる",
+        "cost": "エンドポイントをアベイラビリティゾーンごとに用意している時間と、処理されたデータの量に応じて課金される。金額は公式の料金ページで確認する",
         "operations": "サービスごとにエンドポイントを作成する",
         "limits": "ネットワーク全体を相互に接続するものではない",
         "chooseWhen": "ネットワーク全体ではなく、特定のサービスへのアクセスだけを提供したいとき",

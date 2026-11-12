@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon Aurora の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/rds/aurora/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -78,5 +82,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/rds/"
+  "docUrl": "https://docs.aws.amazon.com/rds/",
+  "pricingUrl": "https://aws.amazon.com/jp/rds/aurora/pricing/",
+  "pricingNote": "DBインスタンス（時間単位、またはServerlessのACU単位）、ストレージ、I/O（構成による）、バックアップ、データ転送など。",
+  "volatile": true
 }

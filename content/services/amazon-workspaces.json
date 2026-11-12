@@ -9,9 +9,13 @@
     {
       "title": "CLF-C02 試験ガイド 第3分野（AWS公式）",
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
+    },
+    {
+      "title": "Amazon WorkSpaces の料金（AWS公式）",
+      "url": "https://aws.amazon.com/jp/workspaces-family/workspaces/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-11",
+  "verifiedAt": "2026-11-12",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -68,5 +72,8 @@
       "domainId": "clf-d3"
     }
   ],
-  "docUrl": "https://docs.aws.amazon.com/workspaces/"
+  "docUrl": "https://docs.aws.amazon.com/workspaces/",
+  "pricingUrl": "https://aws.amazon.com/jp/workspaces-family/workspaces/pricing/",
+  "pricingNote": "仮想デスクトップごとの、月額または時間単位の料金。",
+  "volatile": true
 }
