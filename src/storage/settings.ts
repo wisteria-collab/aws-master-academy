@@ -11,13 +11,16 @@ export interface Settings {
   lastBackupAt: string | null
   /** バックアップの案内を閉じた日（その日は再表示しない） */
   backupReminderDismissedOn: string | null
+  /** 受験予定日（YYYY-MM-DD）。学習計画の計算に使う */
+  examDates: { clf: string | null; saa: string | null }
+  setExamDate: (exam: 'clf' | 'saa', date: string | null) => void
   setFontSize: (v: Settings['fontSize']) => void
   markBackupDone: (iso: string) => void
   dismissBackupReminder: (date: string) => void
   reset: () => void
 }
 
-const initial = { fontSize: 'normal' as const, lastBackupAt: null, backupReminderDismissedOn: null }
+const initial = { fontSize: 'normal' as const, lastBackupAt: null, backupReminderDismissedOn: null, examDates: { clf: null, saa: null } as { clf: string | null; saa: string | null } }
 
 /** LocalStorage が使えない環境では、メモリ上だけで動かす */
 function safeStorage(): Storage {
@@ -43,11 +46,18 @@ export const useSettings = create<Settings>()(
   persist(
     (set) => ({
       ...initial,
+      setExamDate: (exam, date) => set((st) => ({ examDates: { ...st.examDates, [exam]: date } })),
       setFontSize: (fontSize) => set({ fontSize }),
       markBackupDone: (lastBackupAt) => set({ lastBackupAt }),
       dismissBackupReminder: (backupReminderDismissedOn) => set({ backupReminderDismissedOn }),
       reset: () => set({ ...initial }),
     }),
-    { name: 'ama:settings', version: 1, storage: createJSONStorage(safeStorage) },
+    {
+      name: 'ama:settings',
+      version: 1,
+      storage: createJSONStorage(safeStorage),
+      // 以前の保存データに examDates がなくても動くように、既定値と合わせる
+      merge: (saved, current) => ({ ...current, ...(saved as object), examDates: { ...current.examDates, ...((saved as Partial<Settings> | undefined)?.examDates ?? {}) } }),
+    },
   ),
 )

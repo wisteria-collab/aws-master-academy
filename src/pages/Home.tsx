@@ -9,6 +9,7 @@ import { useProgressSummary, type CourseProgress } from '../hooks/useProgressSum
 import { useStorageHealth } from '../hooks/useStorageHealth'
 import { addDays, formatDuration } from '../logic/dates'
 import { formatRate } from '../logic/stats'
+import { StudyPlanCard } from '../components/StudyPlanCard'
 import { useSettings } from '../storage/settings'
 
 function StatusBadge({ feature }: { feature: FeatureKey }) {
@@ -116,6 +117,13 @@ export function Home() {
           <Stat label="復習待ち" value={`${s.dueReviews.length}問`} />
         </div>
       </Card>
+
+      <StudyPlanCard courses={[s.clf, s.saa]} today={s.today} />
+
+      <Link to="/search" className="flex min-h-12 items-center gap-3 rounded-xl border border-navy-600 bg-white px-4 text-base font-bold">
+        <SearchIcon />
+        アプリ全体を検索する
+      </Link>
 
       <section aria-labelledby="menu-title" className="flex flex-col gap-3">
         <h2 id="menu-title" className="text-lg font-bold">

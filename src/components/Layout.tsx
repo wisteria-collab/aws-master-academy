@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { Suspense, type ReactNode } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { appInfo } from '../config/app'
 import { useEntryId } from '../hooks/useEntryId'
@@ -67,7 +67,9 @@ export function Layout() {
 
       <main className="mx-auto w-full max-w-4xl px-4 pt-5 pb-28 sm:px-6 lg:pb-10">
         {/* 履歴の1件ごとに画面を作り直し、その画面の状態（検索条件や解答の途中経過）を復元する */}
-        <Outlet key={entryId} />
+        <Suspense fallback={<p className="py-6 text-base" role="status">読み込み中です…</p>}>
+          <Outlet key={entryId} />
+        </Suspense>
         <footer className="mt-10 border-t border-navy-100 pt-4 text-sm leading-relaxed text-navy-700">
           <p>{appInfo.disclaimer}</p>
           <p className="mt-1">

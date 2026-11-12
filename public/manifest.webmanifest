@@ -1,0 +1,12 @@
+{
+  "name": "AWS Master Academy（AWS非公式の学習用アプリ）",
+  "short_name": "AWS学習",
+  "description": "AWS認定 CLF・SAA の学習アプリ（AWS非公式）",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#232f3e",
+  "icons": [{ "src": "./favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

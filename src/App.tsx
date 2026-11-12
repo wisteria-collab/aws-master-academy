@@ -1,18 +1,11 @@
-import { useEffect } from 'react'
+import { lazy, useEffect } from 'react'
 import { HashRouter, Link, Route, Routes } from 'react-router-dom'
 import { GlossaryProvider } from './components/Glossary'
 import { NavigationProvider } from './components/Navigation'
 import { Layout } from './components/Layout'
 import { Notice } from './components/ui'
 import { StorageHealthProvider } from './hooks/useStorageHealth'
-import { ChallengePage } from './pages/ChallengePage'
 import { ComingSoon } from './pages/ComingSoon'
-import { Designer } from './pages/Designer'
-import { ExamResult } from './pages/ExamResult'
-import { Guide } from './pages/Guide'
-import { ExamRun } from './pages/ExamRun'
-import { DiagramEditor } from './pages/DiagramEditor'
-import { DiagramTemplatePage } from './pages/DiagramTemplatePage'
 import { Compare } from './pages/Compare'
 import { CompareDetail } from './pages/CompareDetail'
 import { ExamOverview } from './pages/ExamOverview'
@@ -20,14 +13,24 @@ import { Home } from './pages/Home'
 import { LearnHub } from './pages/LearnHub'
 import { Lesson } from './pages/Lesson'
 import { Practice } from './pages/Practice'
-import { PracticeRun } from './pages/PracticeRun'
 import { Progress } from './pages/Progress'
 import { Review } from './pages/Review'
 import { ServiceDetail } from './pages/ServiceDetail'
 import { Services } from './pages/Services'
-import { Settings } from './pages/Settings'
-import { Training } from './pages/Training'
 import { useSettings } from './storage/settings'
+
+// 最初の画面に不要なページは、開いたときに読み込む（初回表示を軽くする）
+import { Search } from './pages/Search'
+const ChallengePage = lazy(() => import('./pages/ChallengePage').then((m) => ({ default: m.ChallengePage })))
+const Designer = lazy(() => import('./pages/Designer').then((m) => ({ default: m.Designer })))
+const ExamResult = lazy(() => import('./pages/ExamResult').then((m) => ({ default: m.ExamResult })))
+const Guide = lazy(() => import('./pages/Guide').then((m) => ({ default: m.Guide })))
+const ExamRun = lazy(() => import('./pages/ExamRun').then((m) => ({ default: m.ExamRun })))
+const DiagramEditor = lazy(() => import('./pages/DiagramEditor').then((m) => ({ default: m.DiagramEditor })))
+const DiagramTemplatePage = lazy(() => import('./pages/DiagramTemplatePage').then((m) => ({ default: m.DiagramTemplatePage })))
+const PracticeRun = lazy(() => import('./pages/PracticeRun').then((m) => ({ default: m.PracticeRun })))
+const Settings = lazy(() => import('./pages/Settings').then((m) => ({ default: m.Settings })))
+const Training = lazy(() => import('./pages/Training').then((m) => ({ default: m.Training })))
 
 function NotFound() {
   return (
@@ -76,6 +79,7 @@ export default function App() {
             <Route path="review" element={<Review />} />
             <Route path="settings" element={<Settings />} />
             <Route path="guide" element={<Guide />} />
+            <Route path="search" element={<Search />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

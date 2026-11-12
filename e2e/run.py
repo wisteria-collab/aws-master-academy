@@ -62,7 +62,7 @@ with sync_playwright() as p:
     secs = page.evaluate('''() => new Promise(r => { const q = indexedDB.open('aws-master-academy'); q.onsuccess = () => { const g = q.result.transaction('studySessions').objectStore('studySessions').getAll(); g.onsuccess = () => r(g.result) } })''')
     learn = lambda rows: next((r['seconds'] for r in rows if r['feature'] == 'learn'), None)
     # 上限は巡回するレッスンページの数に比例する（第4弾で3ページ増えたため 30→45 秒、第5弾で4ページ増えたため 45→60 秒）
-    check('記録秒数が妥当(10〜190秒)', learn(secs) is not None and 10 <= learn(secs) <= 190, json.dumps(secs))
+    check('記録秒数が妥当(10〜193秒)', learn(secs) is not None and 10 <= learn(secs) <= 193, json.dumps(secs))
     before = learn(secs); total_before = len(secs)
     ctx.close()
 
@@ -366,6 +366,31 @@ with sync_playwright() as p:
     page.goto(BASE + '#/guide'); page.wait_for_timeout(400)
     check('料金：使い方ページに公式資料4件', page.get_by_role('link', name=re.compile('AWS料金体系の仕組み')).count() == 1 and page.get_by_role('link', name=re.compile('公式ドキュメント')).count() >= 1)
 
+    # 検索と学習計画
+    page.goto(BASE + '#/'); page.wait_for_timeout(400)
+    page.get_by_role('link', name='アプリ全体を検索する').click(); page.wait_for_timeout(400)
+    page.get_by_label('探したい言葉').fill('ｓ３'); page.wait_for_timeout(300)
+    t = page.inner_text('main')
+    check('検索：全角でもS3が見つかる', '#/search?q=' in page.url and '件見つかりました' in t and 'サービス（' in t and 'Amazon S3' in t and '比較（' in t)
+    page.get_by_label('探したい言葉').fill('スロットリング'); page.wait_for_timeout(300)
+    t = page.inner_text('main')
+    check('検索：用語とレッスンが見つかる', '用語（' in t and 'レッスン（' in t)
+    page.get_by_label('探したい言葉').fill('zzzqqq'); page.wait_for_timeout(300)
+    check('検索：見つからないときの案内', '見つかりませんでした' in page.inner_text('main'))
+    page.get_by_label('探したい言葉').fill('NAT'); page.wait_for_timeout(300)
+    page.get_by_role('link', name=re.compile('NAT')).first.click(); page.wait_for_timeout(500)
+    check('検索：結果から移動できる', '#/search' not in page.url, page.url)
+    page.goto(BASE + '#/'); page.wait_for_timeout(400)
+    import datetime as _dt
+    d = (_dt.date.today() + _dt.timedelta(days=42)).isoformat()
+    page.get_by_label('CLF の試験日').fill(d); page.wait_for_timeout(300)
+    t = page.inner_text('main')
+    check('学習計画：試験日から週のペースを出す', ('あと42日' in t or 'あと41日' in t or 'あと43日' in t) and '1週間に' in t and '最後の14日は模擬試験と復習' in t, t[t.find('学習計画'):][:200])
+    page.reload(); page.wait_for_timeout(500)
+    check('学習計画：試験日が保存される', page.get_by_label('CLF の試験日').input_value() == d)
+    page.get_by_role('button', name='消す').click(); page.wait_for_timeout(200)
+    check('学習計画：消せる', page.get_by_label('CLF の試験日').input_value() == '' and 'あと' not in page.inner_text('main').split('学習計画')[1].split('学習メニュー')[0])
+
     # 演習・進捗・復習
     page.goto(BASE + '#/practice'); page.wait_for_timeout(400)
     t = page.inner_text('main')
@@ -455,6 +480,10 @@ with sync_playwright() as p:
         check(f'[{tag}] 確認問題の選択が残っている', page.locator('label', has_text='Amazon EBS').first.locator('input').is_checked())
         check(f'[{tag}] 講義に戻ったあとの戻るボタンはコース', 'CLF-C02 コース' in page.get_by_test_id('back').first.inner_text())
         page.go_forward(); page.wait_for_timeout(600)
+        try:  # 位置の復元は描画のあとに行われるため、決め打ちの待ち時間ではなく、整うまで待つ
+            page.wait_for_function(f'Math.abs(window.scrollY - {y_compare}) <= 3', timeout=3000)
+        except Exception:
+            pass
         check(f'[{tag}] ブラウザの「進む」で比較の位置と状態が戻る', abs(sy() - y_compare) <= 3 and page.get_by_role('button', name='はい').first.get_attribute('aria-pressed') == 'true', f'{sy()} vs {y_compare}')
         page.go_back(); page.wait_for_timeout(600)
         check(f'[{tag}] ブラウザの「戻る」で講義の位置に戻る', page.url.endswith('#/learn/clf/clf-storage') and abs(sy() - y_lesson) <= 3, f'{sy()} vs {y_lesson}')

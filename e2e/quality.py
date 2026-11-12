@@ -11,7 +11,7 @@ def check(name, ok, detail=''):
 
 PAGES = ['', '#/learn', '#/learn/saa', '#/learn/clf/clf-storage', '#/learn/saa/saa-cost-network', '#/services', '#/services/amazon-s3', '#/compare', '#/compare/s3-storage-classes',
          '#/compare/nat-options/training', '#/designer', '#/designer/templates/tpl-ha-web-3tier', '#/designer/challenges/ch-ha-shop', '#/practice', '#/practice/run?exam=saa&mode=random',
-         '#/progress', '#/review', '#/settings', '#/guide']
+         '#/progress', '#/review', '#/settings', '#/guide', '#/search?q=S3']
 
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path='/usr/bin/google-chrome', args=['--no-sandbox'])
@@ -39,6 +39,25 @@ with sync_playwright() as p:
     check('SAA模擬：分野別の出題数', all(x in t for x in ['出題比率 30%・19問中', '出題比率 26%・17問中', '出題比率 24%・16問中', '出題比率 20%・13問中']))
     check('画面のエラーなし（模擬試験）', not errors, str(errors[:2]))
     ctx.close()
+
+    # オフライン：一度開いたあとは、通信なしでも開ける
+    ctx = b.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)
+    page = ctx.new_page(); errors = []
+    page.on('pageerror', lambda e: errors.append(str(e)))
+    page.goto(BASE); page.wait_for_timeout(500)
+    ready = page.evaluate("navigator.serviceWorker.ready.then(r => new Promise(res => { const t = setInterval(() => { if (r.active && r.active.state === 'activated') { clearInterval(t); res(true) } }, 100) }))")
+    page.wait_for_timeout(1500)
+    n = page.evaluate("caches.keys().then(async ks => { let n = 0; for (const k of ks) n += (await (await caches.open(k)).keys()).length; return n })")
+    check('オフライン：ファイルが端末に保存される', ready and n >= 10, f'{n}件')
+    ctx.set_offline(True)
+    page.reload(); page.wait_for_timeout(1200)
+    check('オフライン：通信なしでホームが開く', '学習進捗' in page.inner_text('body'))
+    page.goto(BASE + '#/designer'); page.wait_for_timeout(1000)
+    check('オフライン：あとから読み込むページも開く', '構成図' in page.inner_text('main') and '読み込み中' not in page.inner_text('main'))
+    page.goto(BASE + '#/services/amazon-s3'); page.wait_for_timeout(800)
+    check('オフライン：教材が読める', 'Amazon S3' in page.inner_text('main'))
+    check('画面のエラーなし（オフライン）', not errors, str(errors[:2]))
+    ctx.set_offline(False); ctx.close()
 
     # アクセシビリティの自動検査
     ctx = b.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)
