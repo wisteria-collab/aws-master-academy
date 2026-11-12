@@ -1,0 +1,251 @@
+{
+  "id": "ch-dr-warm",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Amazon RDS Read Replicas（AWS公式）",
+      "url": "https://aws.amazon.com/rds/features/read-replicas/"
+    },
+    {
+      "title": "Scaling and high availability in Amazon RDS（Amazon RDS 入門ガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/scaling-ha.html"
+    },
+    {
+      "title": "Disaster recovery options in the cloud（AWSホワイトペーパー Disaster Recovery of Workloads on AWS）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+    },
+    {
+      "title": "REL13-BP02 Use defined recovery strategies to meet the recovery objectives（AWS Well-Architected Framework）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/2022-03-31/framework/rel_planning_for_recovery_disaster_recovery.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    }
+  ],
+  "verifiedAt": "2026-11-13",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "リージョンが止まっても、数分で戻す",
+  "order": 6,
+  "scenario": "ある会社の会員サイトは、1つのリージョンで、EC2インスタンスとAmazon Auroraを使って動いています。リージョン全体の障害に備えて、災害対策を用意することになりました。復旧の目標は、失ってよいデータが数秒分、止まってよい時間が数分です。費用を抑えるため、別のリージョンの環境は、本番より小さい規模で常に動かしておきます。",
+  "requirements": [
+    "本番のリージョンと、災害対策用のリージョンを分ける",
+    "災害対策用のリージョンでも、小さい規模のアプリケーションとデータベースを常に動かす",
+    "データベースの内容を、別のリージョンへ継続的に複製する",
+    "障害のときは、利用者の通信を自動で災害対策用のリージョンへ切り替える"
+  ],
+  "hints": [
+    "リージョンを2つの枠で表し、それぞれの中にEC2とAuroraを置きます。",
+    "利用者の通信の切り替えには、ヘルスチェックによる自動のDNSフェイルオーバーに対応するサービスを使います。"
+  ],
+  "modelAnswer": {
+    "nodes": [
+      {
+        "id": "user",
+        "kind": "actor",
+        "label": "利用者",
+        "x": 136,
+        "y": 8,
+        "width": 88,
+        "height": 36
+      },
+      {
+        "id": "r53",
+        "kind": "service",
+        "label": "Amazon Route 53",
+        "x": 128,
+        "y": 74,
+        "serviceId": "amazon-route-53"
+      },
+      {
+        "id": "ra",
+        "kind": "group",
+        "label": "リージョンA（本番）",
+        "x": 8,
+        "y": 152,
+        "width": 166,
+        "height": 224
+      },
+      {
+        "id": "rb",
+        "kind": "group",
+        "label": "リージョンB（縮小版）",
+        "x": 186,
+        "y": 152,
+        "width": 166,
+        "height": 224
+      },
+      {
+        "id": "ea",
+        "kind": "service",
+        "label": "EC2（本番の規模）",
+        "x": 35,
+        "y": 184,
+        "serviceId": "amazon-ec2-auto-scaling",
+        "width": 112,
+        "height": 44,
+        "parentId": "ra"
+      },
+      {
+        "id": "eb",
+        "kind": "service",
+        "label": "EC2（縮小した規模）",
+        "x": 213,
+        "y": 184,
+        "serviceId": "amazon-ec2-auto-scaling",
+        "width": 112,
+        "height": 44,
+        "parentId": "rb"
+      },
+      {
+        "id": "aa",
+        "kind": "service",
+        "label": "Aurora プライマリ",
+        "x": 35,
+        "y": 306,
+        "serviceId": "amazon-aurora",
+        "width": 112,
+        "height": 44,
+        "parentId": "ra"
+      },
+      {
+        "id": "ab",
+        "kind": "service",
+        "label": "Aurora セカンダリ",
+        "x": 213,
+        "y": 306,
+        "serviceId": "amazon-aurora",
+        "width": 112,
+        "height": 44,
+        "parentId": "rb"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "user",
+        "to": "r53"
+      },
+      {
+        "id": "e2",
+        "from": "r53",
+        "to": "ea",
+        "label": "通常"
+      },
+      {
+        "id": "e3",
+        "from": "r53",
+        "to": "eb",
+        "label": "障害時"
+      },
+      {
+        "id": "e4",
+        "from": "ea",
+        "to": "aa"
+      },
+      {
+        "id": "e5",
+        "from": "eb",
+        "to": "ab"
+      },
+      {
+        "id": "e6",
+        "from": "aa",
+        "to": "ab",
+        "label": "非同期の複製"
+      }
+    ]
+  },
+  "modelExplanation": "この目標（データは数秒分、停止は数分）は、ウォームスタンバイの目安に当たります。別のリージョンに縮小版の環境を常に動かし、Auroraグローバルデータベースで、データをリージョンをまたいで継続的に非同期で複製します。障害のときは、Amazon Route 53のヘルスチェックによる自動のDNSフェイルオーバーで、利用者を災害対策用のリージョンへ向け、セカンダリのリージョンを昇格します。",
+  "relatedTemplateIds": [
+    "tpl-dr-warm-standby"
+  ],
+  "checklist": [
+    {
+      "id": "c1",
+      "label": "リージョンの枠が2つある",
+      "rule": {
+        "type": "hasGroup",
+        "labelIncludes": [
+          "リージョン"
+        ],
+        "min": 2
+      },
+      "reason": "リージョン全体の障害に備えるには、別のリージョンに環境を用意します。"
+    },
+    {
+      "id": "c2",
+      "label": "Amazon Auroraを2つ使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-aurora"
+        ],
+        "min": 2
+      },
+      "reason": "それぞれのリージョンにデータベースを置きます。"
+    },
+    {
+      "id": "c3",
+      "label": "Aurora同士が、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "amazon-aurora"
+        ],
+        "to": [
+          "amazon-aurora"
+        ]
+      },
+      "reason": "Auroraグローバルデータベースは、リージョンをまたいで継続的に非同期で複製します。"
+    },
+    {
+      "id": "c4",
+      "label": "アプリケーションのサーバー（EC2）を使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-ec2",
+          "amazon-ec2-auto-scaling"
+        ],
+        "min": 2
+      },
+      "reason": "ウォームスタンバイでは、災害対策用のリージョンでも、縮小版のアプリケーションを常に動かします。"
+    },
+    {
+      "id": "c5",
+      "label": "Amazon Route 53を使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "amazon-route-53"
+        ]
+      },
+      "reason": "Route 53は、ヘルスチェックによる自動のDNSフェイルオーバーに対応します。"
+    },
+    {
+      "id": "c6",
+      "label": "Route 53とアプリケーションのサーバーが、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "amazon-route-53"
+        ],
+        "to": [
+          "amazon-ec2",
+          "amazon-ec2-auto-scaling"
+        ]
+      },
+      "reason": "利用者の通信は、Route 53が、通常は本番へ、障害のときは災害対策用のリージョンへ向けます。"
+    }
+  ]
+}

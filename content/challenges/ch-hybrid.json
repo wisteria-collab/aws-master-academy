@@ -1,0 +1,313 @@
+{
+  "id": "ch-hybrid",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "VPC peering（AWSホワイトペーパー Amazon VPC Connectivity Options）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/vpc-peering.html"
+    },
+    {
+      "title": "How VPC peering connections work（Amazon VPC ピアリングガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html"
+    },
+    {
+      "title": "What is VPC peering?（Amazon VPC ピアリングガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/Welcome.html"
+    },
+    {
+      "title": "Communicating across VPCs and AWS Regions（AWS Prescriptive Guidance）",
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/secure-outbound-network-traffic/vpc-region-communication.html"
+    },
+    {
+      "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
+    },
+    {
+      "title": "Disaster recovery options in the cloud（AWSホワイトペーパー）",
+      "url": "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-options-in-the-cloud.html"
+    },
+    {
+      "title": "SAA-C03 試験ガイド（AWS公式）",
+      "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+    },
+    {
+      "title": "Compare NAT gateways and NAT instances（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html"
+    },
+    {
+      "title": "NAT gateway basics（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-basics.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html"
+    },
+    {
+      "title": "COST08-BP03 Implement services to reduce data transfer costs（AWS Well-Architected コスト最適化の柱）",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/cost_data_transfer_implement_services.html"
+    },
+    {
+      "title": "Infrastructure security in Amazon VPC（Amazon VPC ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/infrastructure-security.html"
+    },
+    {
+      "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html"
+    },
+    {
+      "title": "Access AWS services through AWS PrivateLink（AWS PrivateLink ガイド）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html"
+    }
+  ],
+  "verifiedAt": "2026-11-13",
+  "basedOnGuide": [
+    {
+      "exam": "saa",
+      "version": "1.1"
+    }
+  ],
+  "title": "本社と2つのVPCを、ハブでつなぐ",
+  "order": 7,
+  "scenario": "ある会社は、AWS上に、部署ごとに2つのVPCを持っています。本社のデータセンターから、両方のVPCのサーバーに接続する必要があります。毎日、大量のデータを、一貫した品質で送ります。さらに、専用の接続に問題が起きたときのために、既存のインターネット回線を使った暗号化された接続も用意しておきます。今後VPCが増えても、接続の管理が複雑にならないようにしたいと考えています。",
+  "requirements": [
+    "本社とAWSを、専用の接続で結ぶ",
+    "予備として、インターネット回線を使う暗号化された接続も用意する",
+    "2つのVPCと本社を、中央のハブで接続する",
+    "VPCが増えても、1対1の接続を増やさずに済むようにする"
+  ],
+  "hints": [
+    "本社とVPCは、それぞれ枠で表します。",
+    "1対1の接続（VPCピアリング）ではなく、多数のVPCとオンプレミスをまとめて接続できるハブのサービスを使います。"
+  ],
+  "modelAnswer": {
+    "nodes": [
+      {
+        "id": "onp",
+        "kind": "group",
+        "label": "オンプレミス",
+        "x": 88,
+        "y": 8,
+        "width": 184,
+        "height": 76
+      },
+      {
+        "id": "srv",
+        "kind": "actor",
+        "label": "社内のサーバー",
+        "x": 120,
+        "y": 32,
+        "width": 120,
+        "height": 40,
+        "parentId": "onp"
+      },
+      {
+        "id": "dx",
+        "kind": "service",
+        "label": "AWS Direct Connect",
+        "x": 24,
+        "y": 124,
+        "serviceId": "aws-direct-connect",
+        "width": 120
+      },
+      {
+        "id": "vpn",
+        "kind": "service",
+        "label": "Site-to-Site VPN",
+        "x": 216,
+        "y": 124,
+        "serviceId": "aws-vpn",
+        "width": 120
+      },
+      {
+        "id": "tgw",
+        "kind": "service",
+        "label": "AWS Transit Gateway",
+        "x": 120,
+        "y": 210,
+        "serviceId": "aws-transit-gateway",
+        "width": 120
+      },
+      {
+        "id": "va",
+        "kind": "group",
+        "label": "VPC A",
+        "x": 16,
+        "y": 288,
+        "width": 156,
+        "height": 96
+      },
+      {
+        "id": "vb",
+        "kind": "group",
+        "label": "VPC B",
+        "x": 188,
+        "y": 288,
+        "width": 156,
+        "height": 96
+      },
+      {
+        "id": "ea",
+        "kind": "service",
+        "label": "Amazon EC2",
+        "x": 42,
+        "y": 318,
+        "serviceId": "amazon-ec2",
+        "width": 104,
+        "height": 44,
+        "parentId": "va"
+      },
+      {
+        "id": "eb",
+        "kind": "service",
+        "label": "Amazon EC2",
+        "x": 214,
+        "y": 318,
+        "serviceId": "amazon-ec2",
+        "width": 104,
+        "height": 44,
+        "parentId": "vb"
+      }
+    ],
+    "edges": [
+      {
+        "id": "e1",
+        "from": "srv",
+        "to": "dx",
+        "label": "専用の接続"
+      },
+      {
+        "id": "e2",
+        "from": "srv",
+        "to": "vpn",
+        "label": "暗号化"
+      },
+      {
+        "id": "e3",
+        "from": "dx",
+        "to": "tgw"
+      },
+      {
+        "id": "e4",
+        "from": "vpn",
+        "to": "tgw"
+      },
+      {
+        "id": "e5",
+        "from": "tgw",
+        "to": "ea"
+      },
+      {
+        "id": "e6",
+        "from": "tgw",
+        "to": "eb"
+      }
+    ]
+  },
+  "modelExplanation": "大量のデータを一貫した品質で送るには、専用のネットワーク接続のAWS Direct Connectを使います。予備には、既存のインターネット回線で暗号化されたトンネルを張るAWS Site-to-Site VPNを用意します。両方をAWS Transit Gatewayにつなぎ、Transit Gatewayから各VPCへ接続します。VPCピアリングは1対1の接続で、推移的なルーティングに対応しないため、VPCが増えると接続の管理が複雑になります。",
+  "relatedTemplateIds": [
+    "tpl-hybrid-connect"
+  ],
+  "checklist": [
+    {
+      "id": "c1",
+      "label": "VPCの枠が2つある",
+      "rule": {
+        "type": "hasGroup",
+        "labelIncludes": [
+          "VPC"
+        ],
+        "min": 2
+      },
+      "reason": "部署ごとの2つのVPCを表します。"
+    },
+    {
+      "id": "c2",
+      "label": "AWS Direct Connectを使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "aws-direct-connect"
+        ]
+      },
+      "reason": "大量のデータを継続的に、一貫した品質で送るための専用の接続です。"
+    },
+    {
+      "id": "c3",
+      "label": "Site-to-Site VPNを使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "aws-vpn"
+        ]
+      },
+      "reason": "既存のインターネット回線を使う、暗号化された予備の接続です。"
+    },
+    {
+      "id": "c4",
+      "label": "AWS Transit Gatewayを使っている",
+      "rule": {
+        "type": "hasService",
+        "serviceIds": [
+          "aws-transit-gateway"
+        ]
+      },
+      "reason": "多数のVPCとオンプレミスのネットワークを、中央のハブで接続します。"
+    },
+    {
+      "id": "c5",
+      "label": "Direct ConnectとTransit Gatewayが、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "aws-direct-connect"
+        ],
+        "to": [
+          "aws-transit-gateway"
+        ]
+      },
+      "reason": "本社からの専用の接続を、ハブに集めます。"
+    },
+    {
+      "id": "c6",
+      "label": "VPNとTransit Gatewayが、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "aws-vpn"
+        ],
+        "to": [
+          "aws-transit-gateway"
+        ]
+      },
+      "reason": "予備の接続も、同じハブに集めます。"
+    },
+    {
+      "id": "c7",
+      "label": "Transit GatewayとEC2が、線でつながっている",
+      "rule": {
+        "type": "connected",
+        "from": [
+          "aws-transit-gateway"
+        ],
+        "to": [
+          "amazon-ec2"
+        ]
+      },
+      "reason": "ハブから、各VPCのサーバーへ接続します。"
+    },
+    {
+      "id": "c8",
+      "label": "EC2がVPCの枠の中にある",
+      "rule": {
+        "type": "insideGroup",
+        "serviceIds": [
+          "amazon-ec2"
+        ],
+        "labelIncludes": [
+          "VPC"
+        ]
+      },
+      "reason": "サーバーは、それぞれのVPCの中に置きます。"
+    }
+  ]
+}
