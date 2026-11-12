@@ -1,0 +1,249 @@
+[
+  {
+    "id": "saa-q-maz-cl-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Configuring and managing a Multi-AZ deployment for Amazon RDS（Amazon RDS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html"
+      },
+      {
+        "title": "Multi-AZ DB cluster deployments for Amazon RDS（Amazon RDS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"
+      },
+      {
+        "title": "Supported Regions and DB engines for Multi-AZ DB clusters in Amazon RDS（Amazon RDS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-13",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "advanced",
+    "stem": "ある企業は、Amazon RDS for PostgreSQLで業務システムを動かしています。要件は3つです。1つのアベイラビリティゾーンに障害が起きても、自動で切り替わって使い続けられること。読み取りの処理を、書き込み用とは別のDBインスタンスに分散できること。書き込みの遅延を、スタンバイが1つの構成より小さくしたいこと。最も適切な構成はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "マルチAZ DBクラスター配置にする",
+        "correct": true,
+        "explanation": "マルチAZ DBクラスター配置は、書き込み用のDBインスタンスと、読み取り用の2つのDBインスタンスを、3つのアベイラビリティゾーンに置く高可用性の構成です。読み取り用のDBインスタンスは、フェイルオーバーに使えるうえ、読み取りの処理もできます。スタンバイが1つのマルチAZ DBインスタンス配置より、書き込みの遅延が一般に小さくなります。"
+      },
+      {
+        "id": "b",
+        "text": "マルチAZ DBインスタンス配置にする",
+        "correct": false,
+        "explanation": "自動で切り替わる要件は満たしますが、スタンバイは読み取りの処理をしません。読み取りを別のDBインスタンスに分散できること、という要件を満たせません。",
+        "eliminatedBy": "読み取りの処理を、書き込み用とは別のDBインスタンスに分散できること"
+      },
+      {
+        "id": "c",
+        "text": "1つのアベイラビリティゾーンのDBインスタンスに、同じアベイラビリティゾーンのリードレプリカを2つ追加する",
+        "correct": false,
+        "explanation": "読み取りは分散できますが、すべてが同じアベイラビリティゾーンにあるため、そのゾーンの障害で使えなくなります。リードレプリカの昇格も手動です。",
+        "eliminatedBy": "1つのアベイラビリティゾーンに障害が起きても、自動で切り替わって"
+      },
+      {
+        "id": "d",
+        "text": "DBインスタンスを、より大きなインスタンスクラスに変更する",
+        "correct": false,
+        "explanation": "1台のままなので、そのアベイラビリティゾーンの障害で止まります。読み取りを別のDBインスタンスに分散することもできません。",
+        "eliminatedBy": "1つのアベイラビリティゾーンに障害が起きても、自動で切り替わって"
+      }
+    ],
+    "keywords": [
+      "1つのアベイラビリティゾーンに障害が起きても、自動で切り替わって",
+      "読み取りの処理を、書き込み用とは別のDBインスタンスに分散できること",
+      "書き込みの遅延"
+    ],
+    "decisionPoint": "高可用性＋読み取りの分散＋書き込みの遅延を小さく＝マルチAZ DBクラスター配置（MySQLとPostgreSQL）。",
+    "serviceIds": [
+      "amazon-rds"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "comparison",
+        "id": "rds-ha"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-maz-cl-02",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Creating a Multi-AZ DB cluster for Amazon RDS（Amazon RDS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html"
+      },
+      {
+        "title": "Supported Regions and DB engines for Multi-AZ DB clusters in Amazon RDS（Amazon RDS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.MultiAZDBClusters.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-13",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "advanced",
+    "stem": "ある企業は、Amazon RDS for MySQLで、マルチAZ DBクラスターを作成しようとしています。使っているDBサブネットグループには、2つのアベイラビリティゾーンのサブネットしか含まれていません。リージョンには、アベイラビリティゾーンが3つ以上あります。クラスターを作成するために、必要な対応はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "3つ目のアベイラビリティゾーンのサブネットを、DBサブネットグループに追加する",
+        "correct": true,
+        "explanation": "マルチAZ DBクラスターは、書き込み用と読み取り用の3つのDBインスタンスを、それぞれ別のアベイラビリティゾーンに置きます。そのため、DBサブネットグループは、少なくとも3つのアベイラビリティゾーンをカバーする必要があります。"
+      },
+      {
+        "id": "b",
+        "text": "マルチAZ DBインスタンス配置に変更する",
+        "correct": false,
+        "explanation": "スタンバイが1つの構成なら2つのアベイラビリティゾーンで作れますが、作りたいのはマルチAZ DBクラスターです。目的の構成を、別の構成に置き換える対応になってしまいます。",
+        "eliminatedBy": "マルチAZ DBクラスターを作成しようとしています"
+      },
+      {
+        "id": "c",
+        "text": "データベースのエンジンを、MariaDBに変更する",
+        "correct": false,
+        "explanation": "マルチAZ DBクラスターは、MySQLとPostgreSQLで使えます。MariaDBでは使えないため、解決になりません。",
+        "eliminatedBy": "Amazon RDS for MySQLで"
+      },
+      {
+        "id": "d",
+        "text": "DBインスタンスを、より大きなインスタンスクラスに変更する",
+        "correct": false,
+        "explanation": "問題は、サブネットがカバーするアベイラビリティゾーンの数です。インスタンスクラスを変えても解決しません。",
+        "eliminatedBy": "2つのアベイラビリティゾーンのサブネットしか含まれていません"
+      }
+    ],
+    "keywords": [
+      "マルチAZ DBクラスター",
+      "2つのアベイラビリティゾーンのサブネットしか含まれていません"
+    ],
+    "decisionPoint": "マルチAZ DBクラスター＝3つのDBインスタンスを別々のアベイラビリティゾーンに置く。DBサブネットグループも3つのゾーンが必要。",
+    "serviceIds": [
+      "amazon-rds"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-ha-ft"
+      },
+      {
+        "type": "comparison",
+        "id": "rds-ha"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-nat-gwe-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "NAT gateway basics（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-basics.html"
+      },
+      {
+        "title": "Compare NAT gateways and NAT instances（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html"
+      },
+      {
+        "title": "Gateway endpoints（AWS PrivateLink ガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-13",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d4",
+    "taskId": "saa-4-4",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "advanced",
+    "stem": "ある企業の本番環境は、3つのアベイラビリティゾーンのプライベートサブネットにEC2インスタンスを置いています。インスタンスは、外部のAPIを呼び出すためにインターネットへアクセスし、また、大量のデータをAmazon S3に保存しています。現在は、1つのアベイラビリティゾーンにだけNATゲートウェイを置き、S3への通信もすべてそのNATゲートウェイを通しています。1つのアベイラビリティゾーンの障害でインターネットへのアクセスが止まらないようにし、あわせて、NATゲートウェイを通るデータの量に応じた料金を減らしたいと考えています。最も適切な組み合わせはどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "各アベイラビリティゾーンにNATゲートウェイを置き、さらにS3のゲートウェイエンドポイントを作成してS3への通信をそちらに向ける",
+        "correct": true,
+        "explanation": "NATゲートウェイは、作成したアベイラビリティゾーンに属します。各ゾーンに置けば、1つのゾーンの障害がほかのゾーンのインターネットへのアクセスに広がりません。S3への通信は、追加の料金がかからないゲートウェイエンドポイントに向けることで、NATゲートウェイを通るデータを減らせます。"
+      },
+      {
+        "id": "b",
+        "text": "1つのNATゲートウェイのまま、S3のゲートウェイエンドポイントだけを作成する",
+        "correct": false,
+        "explanation": "NATゲートウェイを通るデータの量は減りますが、NATゲートウェイのあるアベイラビリティゾーンが止まると、ほかのゾーンのインスタンスもインターネットにアクセスできなくなります。",
+        "eliminatedBy": "1つのアベイラビリティゾーンの障害でインターネットへのアクセスが止まらないように"
+      },
+      {
+        "id": "c",
+        "text": "各アベイラビリティゾーンにNATゲートウェイを置き、S3への通信も引き続きNATゲートウェイを通す",
+        "correct": false,
+        "explanation": "障害には強くなりますが、S3への大量のデータは引き続きNATゲートウェイを通るため、データの量に応じた料金は減りません。",
+        "eliminatedBy": "NATゲートウェイを通るデータの量に応じた料金を減らしたい"
+      },
+      {
+        "id": "d",
+        "text": "NATゲートウェイをNATインスタンス1台に置き換える",
+        "correct": false,
+        "explanation": "NATインスタンス1台は単一障害点になり、フェイルオーバーも利用者がスクリプトなどで管理する必要があります。障害への備えという要件に合いません。",
+        "eliminatedBy": "1つのアベイラビリティゾーンの障害でインターネットへのアクセスが止まらないように"
+      }
+    ],
+    "keywords": [
+      "1つのアベイラビリティゾーンの障害でインターネットへのアクセスが止まらないように",
+      "NATゲートウェイを通るデータの量に応じた料金を減らしたい"
+    ],
+    "decisionPoint": "回復力＝NATゲートウェイを各ゾーンに。コスト＝S3・DynamoDBへはゲートウェイエンドポイント。2つの要件を別々の手段で満たす。",
+    "serviceIds": [
+      "amazon-vpc",
+      "amazon-s3"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-cost-network"
+      },
+      {
+        "type": "comparison",
+        "id": "nat-options"
+      }
+    ]
+  }
+]

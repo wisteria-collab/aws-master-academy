@@ -88,7 +88,8 @@
     "saa-q-cn-05",
     "saa-q-cn-06",
     "saa-q-nat-train-01",
-    "saa-q-nat-train-02"
+    "saa-q-nat-train-02",
+    "saa-q-nat-gwe-01"
   ],
   "glossaryTermIds": [
     "nat-gateway",

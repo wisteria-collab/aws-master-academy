@@ -113,7 +113,9 @@
     "saa-q-ha-17",
     "saa-q-thr-01",
     "saa-q-thr-02",
-    "saa-q-vpce-ha-01"
+    "saa-q-vpce-ha-01",
+    "saa-q-maz-cl-01",
+    "saa-q-maz-cl-02"
   ],
   "glossaryTermIds": [
     "high-availability",
