@@ -40,6 +40,18 @@ with sync_playwright() as p:
     check('画面のエラーなし（模擬試験）', not errors, str(errors[:2]))
     ctx.close()
 
+    # PCの広い画面：横にはみ出さず、主な画面が表示される
+    ctx = b.new_context(viewport={'width': 1366, 'height': 900}); page = ctx.new_page(); errors = []
+    page.on('pageerror', lambda e: errors.append(str(e)))
+    wide_ok = []
+    for path in ['#/', '#/learn/saa', '#/services', '#/services/amazon-s3', '#/compare', '#/compare/rds-ha', '#/practice', '#/designer', '#/designer/challenges/ch-hybrid', '#/progress', '#/search?q=S3']:
+        page.goto(BASE + path); page.wait_for_timeout(500)
+        over = page.evaluate('document.documentElement.scrollWidth - document.documentElement.clientWidth')
+        wide_ok.append((path, over <= 0 and len(page.inner_text('main')) > 50))
+    check('PC画面：主な11画面が横にはみ出さず表示される', all(ok for _, ok in wide_ok), str([p for p, ok in wide_ok if not ok]))
+    check('画面のエラーなし（PC画面）', not errors, str(errors[:2]))
+    ctx.close()
+
     # ホーム画面用のアイコン
     ctx = b.new_context(); page = ctx.new_page(); page.goto(BASE); page.wait_for_timeout(400)
     href = page.get_attribute('link[rel="apple-touch-icon"]', 'href')

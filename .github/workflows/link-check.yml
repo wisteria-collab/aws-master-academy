@@ -1,4 +1,4 @@
-# 教材の公式リンクを、週に1回と手動で点検する。結果は実行結果のページ（Summary）に表示される。
+# 教材の公式リンクと、確認日が古い教材を、週に1回と手動で点検する。結果は実行結果のページ（Summary）に表示される。
 name: Check official links
 
 on:
@@ -17,6 +17,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+      - run: npm ci
+      # 確認日から180日を超えた教材は、検証で「警告」として一覧に出る
+      - name: 確認日が古い教材の一覧
+        run: |
+          { echo '# 確認日が古い教材（180日超）'; npm run validate --silent 2>&1 | grep -E '確認日|エラー|警告' || echo 'なし'; echo; } >> "$GITHUB_STEP_SUMMARY"
       - run: node scripts/check-links.mjs
       - if: always()
         run: cat link-report.md >> "$GITHUB_STEP_SUMMARY"

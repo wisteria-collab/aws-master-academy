@@ -1,6 +1,6 @@
 # 引き継ぎメモ（AWS Master Academy）
 
-最終更新：2026-11-12（v1.9.5）。このファイルを読めば、別の担当（別のモデル・別の会話）でも作業を続けられるようにまとめています。
+最終更新：2026-11-12（v1.9.6）。このファイルを読めば、別の担当（別のモデル・別の会話）でも作業を続けられるようにまとめています。
 
 ## 1. これは何か
 - AWS認定 CLF-C02（試験ガイド v1.3）と SAA-C03（v1.1）の学習用Webアプリ。**AWS非公式**。
@@ -62,7 +62,7 @@ git commit → git push → gh run list -R wisteria-collab/aws-master-academy -L
 - ElastiCache（Valkey）、CloudHSM（FIPS 140-3）、マルチAZ DBクラスター（読み取り可能なスタンバイ）は2026-11-12に公式で確認して反映済み。
 - 初回の表示：教材の検証はビルド時に1回だけ行う（`scripts/content-plugin.ts` が `virtual:content-bundle` を作る）。CPUを4倍遅くした計測で、ホームの表示が平均約1.3秒→約1.0秒。データ量そのもの（gzipで約480KB）は変わらず、教材を分けて読み込む作り替えは未着手。
 - 実機（特に iPhone）でのオフライン動作とホーム画面への追加は未確認。ホーム画面用の PNG アイコン（180・192・512）は作成済み。
-- 公式リンクの点検：`.github/workflows/link-check.yml`（毎週月曜と手動）。`scripts/check-links.mjs` が content の全URLを開き、結果を実行結果のSummaryに出す。403・429は「要確認」として分ける。
+- 公式リンクと古い教材の点検：`.github/workflows/link-check.yml`（毎週月曜と手動）。確認日から180日を超えた教材も一覧にする。`scripts/check-links.mjs` が content の全URLを開き、結果を実行結果のSummaryに出す。403・429は「要確認」として分ける。
 - 試験ガイドの版：2026-11-13に公式で確認。CLF-C02は v1.3（2026-10-29）、SAA-C03は v1.1（2026-10-29）が最新。後継試験の告知はなし（同時期の更新は SAP-C03・DVA-C03・MLA-C02）。
 - 正解が同じ問題の組は15組。うち文面がほぼ同じだった3組（Lambda・Fargate・EKS）は2026-11-13に書き分け済み。残りは問う角度が違うため残し、模擬試験とランダム演習では similarKey で重ならないよう調整している。
 
