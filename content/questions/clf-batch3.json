@@ -380,6 +380,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Secrets Manager?（AWS Secrets Manager ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -388,7 +392,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -457,6 +461,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Artifact?（AWS Artifact ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/artifact/latest/ug/what-is-aws-artifact.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -465,7 +473,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -532,6 +540,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "How CloudTrail works（AWS CloudTrail ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -540,7 +552,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -611,6 +623,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What Is AWS Config?（AWS Config デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -619,7 +635,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -689,6 +705,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon CloudWatch?（Amazon CloudWatch ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -697,7 +717,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -767,6 +787,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Certificate Manager?（AWS Certificate Manager ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -775,7 +799,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -843,6 +867,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "AWS WAF or AWS Shield?（AWS Decision Guides）",
+        "url": "https://docs.aws.amazon.com/decision-guides/latest/decision-guides/waf-or-shield.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -851,7 +879,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -917,6 +945,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What are AWS WAF, AWS Shield Advanced, AWS Shield network security director and AWS Firewall Manager?（AWS WAF デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -925,7 +957,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -994,6 +1026,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Overview（Amazon GuardDuty ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/guardduty/latest/ug/protection-plans-overview.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1002,7 +1038,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -1074,6 +1110,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Inspector?（Amazon Inspector ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1082,7 +1122,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -1232,6 +1272,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What are AWS WAF, AWS Shield Advanced, AWS Shield network security director and AWS Firewall Manager?（AWS WAF デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1240,7 +1284,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",

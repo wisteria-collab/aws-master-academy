@@ -4,6 +4,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Athena?（Amazon Athena ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/athena/latest/ug/what-is.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -12,7 +16,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -79,6 +83,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Kinesis Data Streams?（Amazon Kinesis Data Streams デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/streams/latest/dev/introduction.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -87,7 +95,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -154,6 +162,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Glue?（AWS Glue デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -162,7 +174,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -303,6 +315,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon SageMaker AI?（Amazon SageMaker AI デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -311,7 +327,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -452,6 +468,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon SNS?（Amazon SNS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/sns/latest/dg/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -460,7 +480,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -527,6 +547,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Simple Queue Service?（Amazon SQS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -535,7 +559,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -601,6 +625,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon EventBridge?（Amazon EventBridge ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -609,7 +637,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -676,6 +704,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Connect?（Amazon Connect 管理者ガイド）",
+        "url": "https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -684,7 +716,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -826,6 +858,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS CodePipeline?（AWS CodePipeline ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -834,7 +870,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -976,6 +1012,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon WorkSpaces?（Amazon WorkSpaces 管理ガイド）",
+        "url": "https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -984,7 +1024,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -1126,6 +1166,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Learn more about AWS IoT（AWS IoT Core デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-learn-more.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1134,7 +1178,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",

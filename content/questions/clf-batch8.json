@@ -1020,6 +1020,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon DynamoDB?（Amazon DynamoDB デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html"
+      },
+      {
         "title": "Shared Responsibility Model（AWS公式）",
         "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
       },
@@ -1028,7 +1032,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -1552,6 +1556,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Marketplace?（AWS Marketplace 購入者ガイド）",
+        "url": "https://docs.aws.amazon.com/marketplace/latest/userguide/what-is-marketplace.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1560,7 +1568,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",

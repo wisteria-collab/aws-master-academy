@@ -387,6 +387,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Welcome（Amazon RDS APIリファレンス）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -395,7 +399,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -466,6 +470,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Aurora?（Amazon Aurora ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -474,7 +482,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -546,6 +554,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon ElastiCache?（Amazon ElastiCache ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -554,7 +566,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -625,6 +637,14 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Lambda?（AWS Lambda デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html"
+      },
+      {
+        "title": "AWS Lambda pricing（AWS公式・英語）",
+        "url": "https://aws.amazon.com/en/lambda/pricing/"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -652,7 +672,7 @@
         "id": "a",
         "text": "AWS Lambda",
         "correct": true,
-        "explanation": "Lambdaは、サーバーを管理せずにコードを実行できます。使用したコンピューティング時間の分だけ支払い、コードが実行されていないときは料金が発生しません。"
+        "explanation": "Lambdaは、サーバーを管理せずにコードを実行できます。イベントに応じて動く関数は、リクエストの数と実行時間で課金されるため、処理が動いていない間に実行時間の料金はかかりません。"
       },
       {
         "id": "b",
@@ -705,6 +725,10 @@
     "id": "clf-q-cmp-train-02",
     "status": "verified",
     "sources": [
+      {
+        "title": "What is Amazon Elastic Container Service?（Fargateを含む・Amazon ECS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html"
+      },
       {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
@@ -786,6 +810,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon EKS?（Amazon EKS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -866,6 +894,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Simple Queue Service?（Amazon SQS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -874,7 +906,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -945,6 +977,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon SNS?（Amazon SNS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/sns/latest/dg/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -953,7 +989,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -1024,6 +1060,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Kinesis Data Streams?（Amazon Kinesis Data Streams デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/streams/latest/dev/introduction.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1032,7 +1072,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",

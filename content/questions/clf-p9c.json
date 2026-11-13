@@ -70,11 +70,15 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is IAM?（IAM ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html"
+      },
+      {
         "title": "AWS Identity and Access Management (IAM) FAQs（AWS公式）",
         "url": "https://aws.amazon.com/iam/faqs/"
       }
     ],
-    "verifiedAt": "2026-11-12",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",

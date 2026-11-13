@@ -62,7 +62,7 @@
         "availability": "高可用性を含めて、実行に必要なことはLambdaが行う",
         "performance": "実行のたびに必要な分のリソースが用意される",
         "scalability": "コードの実行とスケーリングはLambdaが行う",
-        "cost": "使用したコンピューティング時間の分だけ支払う。実行していないときは料金がかからない。Compute Savings Plansの対象",
+        "cost": "イベント関数は、リクエストの数と実行時間で支払う。Compute Savings Plansの対象",
         "operations": "サーバーの管理が不要",
         "limits": "OSを自分で管理することはできない",
         "chooseWhen": "サーバーを管理せずにコードを動かしたいとき、呼び出されたときだけ動けばよいとき",
@@ -177,7 +177,7 @@
     {
       "id": "r-lam",
       "resultItemKey": "lambda",
-      "note": "実行した時間の分だけ料金がかかります。"
+      "note": "イベント関数は、リクエストの数と実行時間で料金がかかります。"
     },
     {
       "id": "r-ec2",

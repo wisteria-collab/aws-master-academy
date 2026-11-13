@@ -3,6 +3,14 @@
   "status": "verified",
   "sources": [
     {
+      "title": "What is AWS Lambda?（AWS Lambda デベロッパーガイド）",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html"
+    },
+    {
+      "title": "AWS Lambda pricing（AWS公式・英語）",
+      "url": "https://aws.amazon.com/en/lambda/pricing/"
+    },
+    {
       "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
       "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
     },
@@ -11,15 +19,11 @@
       "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
     },
     {
-      "title": "AWS Lambda の料金（AWS公式）",
-      "url": "https://aws.amazon.com/jp/lambda/pricing/"
-    },
-    {
       "title": "AWS料金体系の仕組み（AWSホワイトペーパー）",
       "url": "https://docs.aws.amazon.com/ja_jp/whitepapers/latest/how-aws-pricing-works/how-aws-pricing-works.pdf"
     }
   ],
-  "verifiedAt": "2026-11-12",
+  "verifiedAt": "2026-11-13",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -35,14 +39,14 @@
   "summary": "サーバーを用意・管理せずに、コードを実行できるサーバーレスのコンピューティングサービス。",
   "beginner": {
     "analogy": "必要なときだけ来てくれる出張シェフのようなものです。厨房（サーバー）を自分で持たず、料理した時間の分だけ支払います。",
-    "description": "プログラムのコードをアップロードしておくと、必要なときに自動で実行されます。実行していない間は料金がかかりません。"
+    "description": "プログラムのコードをアップロードしておくと、必要なときに自動で実行されます。イベントをきっかけに動く通常の関数は、呼び出された回数と実行した時間で料金が決まります。"
   },
   "exam": {
-    "description": "サーバーのプロビジョニングや管理をせずにコードを実行できます。使用したコンピューティング時間に対してのみ料金を支払い、コードが実行されていないときは料金が発生しません。コードの実行とスケーリングに必要なことは、高可用性を含めてすべてLambdaが行います。他のAWSサービスから自動で呼び出すことも、ウェブやモバイルのアプリから直接呼び出すこともできます。",
+    "description": "サーバーのプロビジョニングや管理をせずにコードを実行できます。イベントに応じて動く関数（イベント関数）は、リクエストの数と実行時間で課金されます。コードの実行とスケーリングに必要なことは、高可用性を含めてすべてLambdaが行います。他のAWSサービスから自動で呼び出すことも、ウェブやモバイルのアプリから直接呼び出すこともできます。",
     "points": [
       "サーバーレスのコンピューティング＝Lambda（コード）とFargate（コンテナ）。",
       "サーバーのプロビジョニングや管理が不要。",
-      "料金は使用したコンピューティング時間の分だけ。実行していないときは無料。",
+      "イベント関数の料金は、リクエストの数と実行時間（実行していない間に実行時間の料金はかからない）。",
       "他のAWSサービスから自動で実行できる。"
     ]
   },
@@ -54,7 +58,7 @@
   "mechanism": "コードをアップロードすると、Lambdaがそのコードの実行とスケーリングに必要なことをすべて行います。",
   "pros": [
     "サーバーの管理が不要",
-    "実行した時間の分だけの支払い",
+    "イベント関数は、呼び出しの回数と実行時間に応じた支払い",
     "実行とスケーリングをLambdaが自動で行う"
   ],
   "cons": [
@@ -85,7 +89,7 @@
     }
   ],
   "docUrl": "https://docs.aws.amazon.com/lambda/",
-  "pricingUrl": "https://aws.amazon.com/jp/lambda/pricing/",
-  "pricingNote": "関数へのリクエストの数と、コードの実行にかかった時間。実行時間の料金は、関数に割り当てたメモリの量で変わります。無料利用枠があります。",
+  "pricingUrl": "https://aws.amazon.com/en/lambda/pricing/",
+  "pricingNote": "イベント関数は、リクエストの数と実行時間（割り当てたメモリの量で変わる）。イベント関数には無料利用枠があります。2026年に加わったWeb関数は、リクエスト、アクティブなCPU時間、実行環境のメモリ（リクエストの間の時間も含む）で課金されます。MicroVMsは、実行中の基本のコンピューティングと、スナップショットの読み書き・保存などで課金されます。",
   "volatile": true
 }

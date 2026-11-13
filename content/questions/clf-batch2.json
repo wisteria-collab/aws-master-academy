@@ -487,6 +487,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Database Migration Service?（AWS DMS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -495,7 +499,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain1.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -563,6 +567,14 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Lambda?（AWS Lambda デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html"
+      },
+      {
+        "title": "AWS Lambda pricing（AWS公式・英語）",
+        "url": "https://aws.amazon.com/en/lambda/pricing/"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -571,7 +583,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -590,7 +602,7 @@
         "id": "a",
         "text": "AWS Lambda",
         "correct": true,
-        "explanation": "Lambdaは、サーバーのプロビジョニングや管理をせずにコードを実行できます。使用したコンピューティング時間に対してのみ料金を支払い、コードが実行されていないときは料金が発生しません。"
+        "explanation": "Lambdaは、サーバーのプロビジョニングや管理をせずにコードを実行できます。イベントに応じて動く関数は、リクエストの数と実行時間で課金されるため、処理が動いていない間に実行時間の料金はかかりません。"
       },
       {
         "id": "b",
@@ -642,6 +654,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon EC2 Auto Scaling?（Amazon EC2 Auto Scaling ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -650,7 +666,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -719,6 +735,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Elastic Load Balancing?（Elastic Load Balancing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -727,7 +747,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -869,6 +889,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Elastic Container Service?（Fargateを含む・Amazon ECS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -877,7 +901,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -948,6 +972,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon EKS?（Amazon EKS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -956,7 +984,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
