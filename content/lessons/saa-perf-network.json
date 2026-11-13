@@ -86,7 +86,8 @@
     "saa-q-pn-03",
     "saa-q-pn-04",
     "saa-q-pn-05",
-    "saa-q-vc-train-01"
+    "saa-q-vc-train-01",
+    "saa-q-tgw-az-01"
   ],
   "glossaryTermIds": [
     "vpc-peering",

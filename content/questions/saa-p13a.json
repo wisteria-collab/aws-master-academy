@@ -1,0 +1,244 @@
+[
+  {
+    "id": "saa-q-gp3-cost-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon EBS General Purpose SSD volumes（Amazon EBS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html"
+      },
+      {
+        "title": "Amazon EBS General Purpose Volumes（AWS公式）",
+        "url": "https://aws.amazon.com/ebs/general-purpose/"
+      },
+      {
+        "title": "Modify an Amazon EBS volume using Elastic Volumes operations（Amazon EBS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-13",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d4",
+    "taskId": "saa-4-1",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "advanced",
+    "stem": "ある企業は、データベースのサーバーに、汎用SSD（gp2）のAmazon EBSボリュームを使っています。gp2は容量に比例して性能が上がるため、必要なIOPSを得るために、データの量より大きな容量を用意しています。今の性能を保ったまま、ストレージの費用を下げたいと考えています。サーバーは止めたくありません。最も適切な方法はどれですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Elastic Volumesでボリュームの種類をgp3に変更し、必要なIOPSとスループットを設定する",
+        "correct": true,
+        "explanation": "gp3は、容量とは別にIOPSとスループットを設定できるため、性能のために余分な容量を用意する必要がありません。容量あたりの料金もgp2より低く設定されています。Elastic Volumesを使えば、EC2インスタンスを止めずに、種類やIOPS、スループットを変更できます。"
+      },
+      {
+        "id": "b",
+        "text": "ボリュームの種類をプロビジョンドIOPS SSD（io2 Block Express）に変更する",
+        "correct": false,
+        "explanation": "io2 Block Expressは、gp3を超えるIOPSや低い遅延が必要なときの選択肢です。今の性能を保つだけなら、費用を下げる目的に合いません。",
+        "eliminatedBy": "ストレージの費用を下げたい"
+      },
+      {
+        "id": "c",
+        "text": "インスタンスを停止し、スナップショットからgp2の小さいボリュームを作り直す",
+        "correct": false,
+        "explanation": "gp2は容量に比例して性能が決まるため、容量を小さくすると性能も下がります。また、インスタンスを止める必要があります。",
+        "eliminatedBy": "今の性能を保ったまま"
+      },
+      {
+        "id": "d",
+        "text": "ボリュームの種類をスループット最適化HDD（st1）に変更する",
+        "correct": false,
+        "explanation": "st1は、大きなデータを順に読み書きする処理向けのHDDです。IOPSが重要なデータベースには向かず、今の性能を保てません。",
+        "eliminatedBy": "今の性能を保ったまま"
+      }
+    ],
+    "keywords": [
+      "今の性能を保ったまま",
+      "ストレージの費用を下げたい",
+      "サーバーは止めたくありません"
+    ],
+    "decisionPoint": "性能のために容量を大きくしている＝gp3へ。容量と性能を別に設定でき、Elastic Volumesで止めずに変更できる。",
+    "serviceIds": [
+      "amazon-ebs"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-cost-storage"
+      },
+      {
+        "type": "comparison",
+        "id": "ebs-volume-types"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-tgw-az-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "Amazon VPC attachments in AWS Transit Gateway（Amazon VPC Transit Gateways）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html"
+      },
+      {
+        "title": "How AWS Transit Gateway works（Amazon VPC Transit Gateways）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/tgw/how-transit-gateways-work.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-13",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d2",
+    "taskId": "saa-2-2",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "advanced",
+    "stem": "ある企業は、VPCをAWS Transit Gatewayに接続しています。VPCのアタッチメントには、アベイラビリティゾーンAのサブネットを1つだけ指定しました。アベイラビリティゾーンBのサブネットにあるEC2インスタンスから、Transit Gateway経由でほかのVPCに接続できません。ルートテーブルには、Transit Gatewayへの経路が設定されています。接続できるようにし、可用性も高めたいと考えています。どうすればよいですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "VPCのアタッチメントに、アベイラビリティゾーンBのサブネットを追加する",
+        "correct": true,
+        "explanation": "Transit Gatewayは、アタッチメントに指定したサブネットのあるアベイラビリティゾーンでだけ使えます。アタッチメントがないアベイラビリティゾーンのリソースは、Transit Gatewayに届きません。可用性のためにも、複数のアベイラビリティゾーンを有効にすることが推奨されています。"
+      },
+      {
+        "id": "b",
+        "text": "アベイラビリティゾーンBのサブネットのネットワークACLで、すべての通信を許可する",
+        "correct": false,
+        "explanation": "問題は、アベイラビリティゾーンBがアタッチメントで有効になっていないことです。ネットワークACLを広げても、Transit Gatewayには届きません。",
+        "eliminatedBy": "アベイラビリティゾーンAのサブネットを1つだけ指定しました"
+      },
+      {
+        "id": "c",
+        "text": "2つ目のTransit Gatewayを作成して、アベイラビリティゾーンBに置く",
+        "correct": false,
+        "explanation": "Transit Gatewayを増やす必要はありません。既存のアタッチメントで、アベイラビリティゾーンBを有効にすれば届くようになります。",
+        "eliminatedBy": "アベイラビリティゾーンAのサブネットを1つだけ指定しました"
+      },
+      {
+        "id": "d",
+        "text": "EC2インスタンスを、より大きなインスタンスタイプに変更する",
+        "correct": false,
+        "explanation": "インスタンスの性能の問題ではありません。アタッチメントのないアベイラビリティゾーンからは、Transit Gatewayに届きません。",
+        "eliminatedBy": "接続できません"
+      }
+    ],
+    "keywords": [
+      "アベイラビリティゾーンAのサブネットを1つだけ指定しました",
+      "アベイラビリティゾーンBのサブネットにある"
+    ],
+    "decisionPoint": "Transit Gatewayのアタッチメント＝アベイラビリティゾーンごとにサブネットを1つ指定。指定のないゾーンからは届かない。複数ゾーンを有効にする。",
+    "serviceIds": [
+      "aws-transit-gateway"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-network"
+      },
+      {
+        "type": "comparison",
+        "id": "vpc-connectivity"
+      }
+    ]
+  },
+  {
+    "id": "saa-q-ds-mode-01",
+    "status": "verified",
+    "sources": [
+      {
+        "title": "AWS DataSync quotas（AWS DataSync ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/datasync/latest/userguide/datasync-limits.html"
+      },
+      {
+        "title": "Choosing a task mode for your data transfer（AWS DataSync ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/ja_jp/datasync/latest/userguide/choosing-task-mode.html"
+      },
+      {
+        "title": "SAA-C03 試験ガイド（AWS公式）",
+        "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
+      }
+    ],
+    "verifiedAt": "2026-11-13",
+    "basedOnGuide": [
+      {
+        "exam": "saa",
+        "version": "1.1"
+      }
+    ],
+    "exam": "saa",
+    "domainId": "saa-d3",
+    "taskId": "saa-3-5",
+    "format": "scenario",
+    "select": "single",
+    "difficulty": "advanced",
+    "stem": "ある企業は、社内のNFSファイルサーバーにある約3億個の小さなファイルを、Amazon S3に移行します。AWS DataSyncを使う予定です。1回のタスクの実行で、すべてのファイルをまとめて転送したいと考えています。どの設定が適切ですか。",
+    "choices": [
+      {
+        "id": "a",
+        "text": "DataSyncのタスクを、拡張モード（Enhanced mode）で作成する",
+        "correct": true,
+        "explanation": "拡張モードは、扱えるオブジェクトの数が事実上無制限で、一覧の作成や転送、確認を並行して行います。ベーシックモードでは、オンプレミスとの転送で、1回の実行あたり最大5,000万のファイルやオブジェクトという上限があります。NFSのファイルサーバーからS3への転送は、拡張モードのエージェントで対応しています。"
+      },
+      {
+        "id": "b",
+        "text": "DataSyncのタスクを、ベーシックモードで作成する",
+        "correct": false,
+        "explanation": "ベーシックモードでは、オンプレミスとの転送で、1回の実行あたり最大5,000万のファイルやオブジェクトが上限です。約3億個を1回で転送できません。",
+        "eliminatedBy": "約3億個の小さなファイル"
+      },
+      {
+        "id": "c",
+        "text": "AWS Storage Gatewayを設置する",
+        "correct": false,
+        "explanation": "Storage Gatewayは、オンプレミスのアプリケーションが、AWSのクラウドストレージを使い続けるためのハイブリッドストレージのサービスです。この問題は、既存の大量のファイルをS3へ移行する設定を問うもので、DataSyncのタスクのモードを選ぶ必要があります。",
+        "eliminatedBy": "Amazon S3に移行します"
+      },
+      {
+        "id": "d",
+        "text": "Amazon Kinesis Data Streamsでファイルを1つずつ送る",
+        "correct": false,
+        "explanation": "Kinesis Data Streamsは、流れ続けるデータを取り込むサービスです。既存の大量のファイルの移行には、DataSyncのような転送サービスを使います。",
+        "eliminatedBy": "社内のNFSファイルサーバーにある"
+      }
+    ],
+    "keywords": [
+      "約3億個の小さなファイル",
+      "1回のタスクの実行で"
+    ],
+    "decisionPoint": "DataSyncのファイル数の上限：ベーシック＝1回5,000万（オンプレミス）、拡張モード＝事実上無制限。",
+    "serviceIds": [
+      "aws-datasync"
+    ],
+    "related": [
+      {
+        "type": "lesson",
+        "id": "saa-perf-data"
+      },
+      {
+        "type": "comparison",
+        "id": "data-transfer"
+      }
+    ]
+  }
+]
