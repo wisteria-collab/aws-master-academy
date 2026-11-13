@@ -1,0 +1,22 @@
+# 教材の公式リンクを、週に1回と手動で点検する。結果は実行結果のページ（Summary）に表示される。
+name: Check official links
+
+on:
+  schedule:
+    - cron: '17 0 * * 1' # 毎週月曜 9:17（日本時間）
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/check-links.mjs
+      - if: always()
+        run: cat link-report.md >> "$GITHUB_STEP_SUMMARY"

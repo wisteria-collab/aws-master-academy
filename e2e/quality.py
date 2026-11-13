@@ -40,6 +40,15 @@ with sync_playwright() as p:
     check('画面のエラーなし（模擬試験）', not errors, str(errors[:2]))
     ctx.close()
 
+    # ホーム画面用のアイコン
+    ctx = b.new_context(); page = ctx.new_page(); page.goto(BASE); page.wait_for_timeout(400)
+    href = page.get_attribute('link[rel="apple-touch-icon"]', 'href')
+    r = page.request.get(BASE + href.lstrip('./'))
+    m = page.request.get(BASE + 'manifest.webmanifest').json()
+    check('アイコン：iPhoneのホーム画面用（PNG）を読み込める', r.ok and r.headers.get('content-type','').startswith('image/png'))
+    check('アイコン：マニフェストに192と512のPNGがある', {'192x192','512x512'} <= {i['sizes'] for i in m['icons']} and all(page.request.get(BASE + i['src'].lstrip('./')).ok for i in m['icons']))
+    ctx.close()
+
     # オフライン：一度開いたあとは、通信なしでも開ける
     ctx = b.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True, has_touch=True)
     page = ctx.new_page(); errors = []
