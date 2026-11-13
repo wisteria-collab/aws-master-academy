@@ -41,6 +41,10 @@
     {
       "title": "Creating a Multi-AZ DB cluster for Amazon RDS（Amazon RDS ユーザーガイド）",
       "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html"
+    },
+    {
+      "title": "Amazon RDS Multi-AZ（AWS公式）",
+      "url": "https://aws.amazon.com/rds/features/multi-az/"
     }
   ],
   "verifiedAt": "2026-11-13",
@@ -87,7 +91,7 @@
         "availability": "読み取り用のDBインスタンスが、フェイルオーバーの切り替え先になる",
         "performance": "読み取り用のDBインスタンスで、読み取り専用の処理を実行できる。スタンバイが1つの構成より、書き込みの遅延が一般に小さい",
         "scalability": "2つの読み取り用のDBインスタンスで、読み取りの処理能力が増える",
-        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "DBインスタンスの時間に応じて課金される（1時間未満は秒単位、作成や変更などのあとは最低10分）。金額は公式の料金ページで確認する",
         "operations": "書き込み用のエンドポイントと、読み取り用のエンドポイントを使い分けて接続する",
         "limits": "MySQLとPostgreSQLのみ（Db2、MariaDB、Oracle、SQL Serverでは使えない）。アベイラビリティゾーンが3つ以上あるリージョンが必要。使えるDBインスタンスクラスに制限がある",
         "chooseWhen": "MySQLまたはPostgreSQLで、自動のフェイルオーバーと読み取りの分散を、1つの構成で実現したいとき",

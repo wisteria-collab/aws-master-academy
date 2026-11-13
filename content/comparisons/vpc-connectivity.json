@@ -57,9 +57,17 @@
     {
       "title": "Guidance for Network Connectivity on AWS（AWS公式）",
       "url": "https://docs.aws.amazon.com/solutions/network-connectivity-on-aws/"
+    },
+    {
+      "title": "Quotas for your transit gateways（Amazon VPC Transit Gateways）",
+      "url": "https://docs.aws.amazon.com/ja_jp/vpc/latest/tgw/transit-gateway-quotas.html"
+    },
+    {
+      "title": "Amazon VPC FAQs（AWS公式）",
+      "url": "https://aws.amazon.com/vpc/faqs/"
     }
   ],
-  "verifiedAt": "2026-11-12",
+  "verifiedAt": "2026-11-13",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -80,7 +88,7 @@
         "data": "互いのプライベートIPアドレスで、同じネットワークにあるかのように通信する",
         "useCases": "少数のVPCの間の接続",
         "availability": "VPCの機能として提供される",
-        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "ゲートウェイやVPNを使わず、既存のVPCの仕組みを使うため、単一障害点や帯域のボトルネックがない。ピアリングしたVPC間の帯域は、1つのVPC内と同じ",
         "scalability": "すべてのVPCを互いに通信させるには、VPCの組み合わせごとに接続が必要",
         "cost": "同じアベイラビリティゾーンの中にとどまるデータ転送は無料。アベイラビリティゾーンやリージョンをまたぐ転送には料金がかかる",
         "operations": "接続の数が増えると、管理が複雑になる",
@@ -100,7 +108,7 @@
         "data": "ハブを経由して、接続されたネットワークの間で通信する",
         "useCases": "多数のVPCとオンプレミスの相互接続",
         "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
-        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "VPCのアタッチメントごとに、アベイラビリティゾーンあたり、各方向で最大100 Gbps",
         "scalability": "VPCが増えても、ハブに接続するだけでよい",
         "cost": "接続（アタッチメント）の数に応じた時間単位の料金と、通過するデータの量に応じたデータ処理の料金がかかる。金額は公式の料金ページで確認する",
         "operations": "接続を1か所で管理できる",

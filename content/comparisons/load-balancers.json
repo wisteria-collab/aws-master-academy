@@ -17,9 +17,13 @@
     {
       "title": "Elastic Load Balancing の料金（AWS公式）",
       "url": "https://aws.amazon.com/jp/elasticloadbalancing/pricing/"
+    },
+    {
+      "title": "Gateway Load Balancers（Elastic Load Balancing ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-load-balancers.html"
     }
   ],
-  "verifiedAt": "2026-11-12",
+  "verifiedAt": "2026-11-13",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -80,7 +84,7 @@
         "data": "通信の送信元と送信先に対して透過的に動作する",
         "useCases": "他社製のファイアウォールなどのネットワーク機器を、通信の経路に入れる",
         "availability": "アプライアンスの集まりに負荷分散を提供する",
-        "performance": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "performance": "通信量の変化に合わせて、自動的に拡張する。ターゲットへは、GENEVEというプロトコル（ポート6081）で通信を転送する",
         "scalability": "アプライアンスの自動スケーリングを提供する",
         "cost": "ロードバランサーを動かした時間（1時間単位）と、処理の量を表す単位（GLCU）の使用量に応じて課金される。金額は公式の料金ページで確認する",
         "operations": "アプライアンスの展開と拡張がしやすくなる",

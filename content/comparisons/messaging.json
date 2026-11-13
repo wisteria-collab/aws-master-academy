@@ -21,9 +21,13 @@
     {
       "title": "Amazon EventBridge の料金（AWS公式）",
       "url": "https://aws.amazon.com/jp/eventbridge/pricing/"
+    },
+    {
+      "title": "Quotas and limits（Amazon Kinesis Data Streams デベロッパーガイド）",
+      "url": "https://docs.aws.amazon.com/ja_jp/streams/latest/dev/service-sizes-and-limits.html"
     }
   ],
-  "verifiedAt": "2026-11-12",
+  "verifiedAt": "2026-11-13",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -107,7 +111,7 @@
         "performance": "タイムリーに知見を得て、新しい情報に素早く対応できる",
         "scalability": "どんな規模のストリーミングデータでも処理できる",
         "cost": "どんな規模でも、コスト効率よく処理するための機能を提供する",
-        "operations": "この教材の出典には運用負荷の記載がないため、公式ドキュメントで確認する",
+        "operations": "容量のモードを選ぶ。オンデマンドではシャードが通信量に合わせて自動で増減し、プロビジョンドではシャードの数を自分で決めて変更する。データの保持期間は、24時間から最大365日まで変更できる",
         "limits": "システムの間に置くキューや、通知の配信のためのサービスではない",
         "chooseWhen": "流れ続けるデータを、リアルタイムに収集して分析したいとき",
         "avoidWhen": "担当者への通知や、処理の間のキューが目的のとき"

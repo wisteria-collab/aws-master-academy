@@ -19,7 +19,7 @@
       "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html"
     }
   ],
-  "verifiedAt": "2026-11-12",
+  "verifiedAt": "2026-11-13",
   "basedOnGuide": [
     {
       "exam": "saa",
@@ -64,7 +64,7 @@
         "scalability": "Elastic Volumesにより、対応するインスタンスでは、デタッチや再起動をせずに、サイズの拡張、種類の変更、性能（IOPS）の調整ができる",
         "cost": "性能が高い分、汎用SSDより費用がかかる",
         "operations": "Multi-Attachに対応する",
-        "limits": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "limits": "最大64 TiB、最大256,000 IOPS、最大4,000 MiB/秒。最大のIOPSを出せるのはNitroベースのインスタンス。それ以外のインスタンスでは、64,000 IOPSまでのボリュームを付けられるが、出せるのは最大32,000 IOPS",
         "chooseWhen": "極めて高いIOPSと、低い遅延が必要なデータベース",
         "avoidWhen": "そこまでの性能が必要ないとき（その場合はgp3）"
       },
