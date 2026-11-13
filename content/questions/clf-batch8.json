@@ -1167,6 +1167,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "AWS Key Management Service（AWS KMS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/kms/latest/developerguide/overview.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1175,7 +1179,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -1482,6 +1486,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Introduction to AWS Security Hub CSPM（AWS Security Hub ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1490,7 +1498,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",

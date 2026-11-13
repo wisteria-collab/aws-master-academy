@@ -999,6 +999,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Data protection / durability（Amazon S3 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/DataDurability.html"
+      },
+      {
         "title": "What is Amazon S3?（Amazon S3 ユーザーガイド）",
         "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html"
       },

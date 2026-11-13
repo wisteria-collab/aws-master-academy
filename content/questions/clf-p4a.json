@@ -470,6 +470,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Replication with Amazon Aurora（Amazon Aurora ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.html"
+      },
+      {
         "title": "What is Amazon Aurora?（Amazon Aurora ユーザーガイド）",
         "url": "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"
       },

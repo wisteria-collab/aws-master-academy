@@ -393,6 +393,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Lex V2?（Amazon Lex V2 デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/lexv2/latest/dg/what-is.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -401,7 +405,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -783,6 +787,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon SES?（Amazon SES デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/ses/latest/dg/Welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -791,7 +799,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -937,6 +945,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "AWS X-Ray（Introduction to DevOps on AWS・AWSホワイトペーパー）",
+        "url": "https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/aws-x-ray.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -945,7 +957,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",

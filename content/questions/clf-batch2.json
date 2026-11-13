@@ -487,6 +487,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Migrate an on-premises Oracle database to Amazon RDS for Oracle（AWS規範ガイダンス）",
+        "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/migrate-an-on-premises-oracle-database-to-amazon-rds-for-oracle.html"
+      },
+      {
         "title": "What is AWS Database Migration Service?（AWS DMS ユーザーガイド）",
         "url": "https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html"
       },
@@ -1053,11 +1057,15 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Elastic Beanstalk?（AWS Elastic Beanstalk デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",

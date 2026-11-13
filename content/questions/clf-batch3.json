@@ -1193,6 +1193,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Macie?（Amazon Macie ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1201,7 +1205,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -1271,6 +1275,10 @@
     "id": "clf-q-sec-06",
     "status": "verified",
     "sources": [
+      {
+        "title": "AWS Firewall Manager（AWS WAF デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html"
+      },
       {
         "title": "What are AWS WAF, AWS Shield Advanced, AWS Shield network security director and AWS Firewall Manager?（AWS WAF デベロッパーガイド）",
         "url": "https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html"
@@ -1354,6 +1362,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "AWS Trusted Advisor（AWS Support ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1362,7 +1374,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
