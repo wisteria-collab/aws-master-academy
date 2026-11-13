@@ -2,13 +2,13 @@
  * 教材データの読み込み口。content/ 配下の JSON をビルド時にまとめて読み込み、
  * 検証を通った verified の教材だけをアプリに渡す。
  */
-import { toLocalDate } from '../logic/dates'
+import bundled from 'virtual:content-bundle'
 import type { ExamId, ExamSpec } from './schema'
-import { validateContent } from './validate'
+import type { ValidationResult } from './validate'
 
-const files = import.meta.glob('../../content/**/*.json', { eager: true, import: 'default' }) as Record<string, unknown>
-
-const result = validateContent(files, toLocalDate(new Date()))
+// 教材の検証は、ビルドのときに1回だけ行う（scripts/content-plugin.ts）。
+// ここには、検証を通った verified の教材だけが届く。
+const result = bundled as Pick<ValidationResult, 'bundle' | 'counts' | 'issues'>
 
 if (import.meta.env.DEV) {
   for (const issue of result.issues) {

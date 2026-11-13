@@ -1,6 +1,6 @@
 # 引き継ぎメモ（AWS Master Academy）
 
-最終更新：2026-11-12（v1.9.4）。このファイルを読めば、別の担当（別のモデル・別の会話）でも作業を続けられるようにまとめています。
+最終更新：2026-11-12（v1.9.5）。このファイルを読めば、別の担当（別のモデル・別の会話）でも作業を続けられるようにまとめています。
 
 ## 1. これは何か
 - AWS認定 CLF-C02（試験ガイド v1.3）と SAA-C03（v1.1）の学習用Webアプリ。**AWS非公式**。
@@ -38,7 +38,7 @@ git commit → git push → gh run list -R wisteria-collab/aws-master-academy -L
 |---|---|
 | `content/<種類>/*.json` | 教材（exams, lessons, services, comparisons, questions, glossary, diagrams, challenges）。`status: "verified"` だけが表示される |
 | `src/content/schema.ts` | 教材の形式（Zod）。`validate.ts` が参照の整合性も確認 |
-| `src/content/index.ts` | 教材の読み込み。`arrangeChoices` が選択肢の並び順を問題ごとに決める |
+| `src/content/index.ts` | 教材の読み込み（ビルド時に検証済みのデータを受け取る）。`arrangeChoices` が選択肢の並び順を問題ごとに決める |
 | `src/logic/` | 計算の部分（模擬試験 exam.ts、構成図 diagram.ts、講評 challenge.ts、検索 search.ts、学習計画 plan.ts） |
 | `src/pages/` | 画面。経路は `App.tsx` |
 | `src/components/PricingCard.tsx` | 料金の案内。`pricingUrl`（料金ページ）、`pricingNote`（説明）、`pricingRefUrl`（料金ページがないときの根拠のページ） |
@@ -60,7 +60,7 @@ git commit → git push → gh run list -R wisteria-collab/aws-master-academy -L
 - Snow Family：新規の利用者には提供されていない（2026-11-12確認）。試験ガイドに名前があるため教材には残し、注記で代わりの方法（DataSync, Data Transfer Terminal, Outposts）を案内。
 - SAAの問題は140問中137問が standard。サービス名を当てる形式が多く、CLFとの難易度の差が小さい。複数の要件を比べる問題を増やすとよい。
 - ElastiCache（Valkey）、CloudHSM（FIPS 140-3）、マルチAZ DBクラスター（読み取り可能なスタンバイ）は2026-11-12に公式で確認して反映済み。
-- 初回の表示：読み込みの大半が教材データ（gzipで約475KB）。教材を分けて読み込む作り替えは未着手。
+- 初回の表示：教材の検証はビルド時に1回だけ行う（`scripts/content-plugin.ts` が `virtual:content-bundle` を作る）。CPUを4倍遅くした計測で、ホームの表示が平均約1.3秒→約1.0秒。データ量そのもの（gzipで約480KB）は変わらず、教材を分けて読み込む作り替えは未着手。
 - 実機（特に iPhone）でのオフライン動作とホーム画面への追加は未確認。ホーム画面用の PNG アイコン（180・192・512）は作成済み。
 - 公式リンクの点検：`.github/workflows/link-check.yml`（毎週月曜と手動）。`scripts/check-links.mjs` が content の全URLを開き、結果を実行結果のSummaryに出す。403・429は「要確認」として分ける。
 - 試験ガイドの版：2026-11-13に公式で確認。CLF-C02は v1.3（2026-10-29）、SAA-C03は v1.1（2026-10-29）が最新。後継試験の告知はなし（同時期の更新は SAP-C03・DVA-C03・MLA-C02）。
