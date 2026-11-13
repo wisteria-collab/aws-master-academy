@@ -65,6 +65,10 @@
     {
       "title": "Amazon VPC FAQs（AWS公式）",
       "url": "https://aws.amazon.com/vpc/faqs/"
+    },
+    {
+      "title": "How AWS Transit Gateway works（Amazon VPC Transit Gateways）",
+      "url": "https://docs.aws.amazon.com/vpc/latest/tgw/how-transit-gateways-work.html"
     }
   ],
   "verifiedAt": "2026-11-13",
@@ -107,7 +111,7 @@
         "mechanism": "各VPCやネットワークをハブに接続する（ハブアンドスポーク）",
         "data": "ハブを経由して、接続されたネットワークの間で通信する",
         "useCases": "多数のVPCとオンプレミスの相互接続",
-        "availability": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "availability": "VPCを接続するときは、アベイラビリティゾーンごとにサブネットを1つ指定して使えるようにする。可用性のために、複数のアベイラビリティゾーンを有効にすることが推奨されている",
         "performance": "VPCのアタッチメントごとに、アベイラビリティゾーンあたり、各方向で最大100 Gbps",
         "scalability": "VPCが増えても、ハブに接続するだけでよい",
         "cost": "接続（アタッチメント）の数に応じた時間単位の料金と、通過するデータの量に応じたデータ処理の料金がかかる。金額は公式の料金ページで確認する",

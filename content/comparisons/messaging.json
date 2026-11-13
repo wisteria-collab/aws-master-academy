@@ -25,6 +25,10 @@
     {
       "title": "Quotas and limits（Amazon Kinesis Data Streams デベロッパーガイド）",
       "url": "https://docs.aws.amazon.com/ja_jp/streams/latest/dev/service-sizes-and-limits.html"
+    },
+    {
+      "title": "Amazon Kinesis Data Streams FAQs（AWS公式）",
+      "url": "https://aws.amazon.com/kinesis/data-streams/faqs/"
     }
   ],
   "verifiedAt": "2026-11-13",
@@ -107,7 +111,7 @@
         "mechanism": "データが発生するそばから取り込み、処理や分析に回す",
         "data": "途切れなく流れてくるデータを扱う",
         "useCases": "クリックの記録やセンサーのデータのリアルタイム分析",
-        "availability": "この教材の出典には可用性の記載がないため、公式ドキュメントで確認する",
+        "availability": "データを、リージョン内の3つのアベイラビリティゾーンに同期して複製し、高い可用性と耐久性を持つ",
         "performance": "タイムリーに知見を得て、新しい情報に素早く対応できる",
         "scalability": "どんな規模のストリーミングデータでも処理できる",
         "cost": "どんな規模でも、コスト効率よく処理するための機能を提供する",

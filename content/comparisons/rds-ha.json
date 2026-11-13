@@ -45,6 +45,14 @@
     {
       "title": "Amazon RDS Multi-AZ（AWS公式）",
       "url": "https://aws.amazon.com/rds/features/multi-az/"
+    },
+    {
+      "title": "Working with DB instance read replicas（Amazon RDS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html"
+    },
+    {
+      "title": "Amazon RDS FAQs（AWS公式）",
+      "url": "https://aws.amazon.com/rds/faqs/"
     }
   ],
   "verifiedAt": "2026-11-13",
@@ -110,7 +118,7 @@
         "availability": "スタンドアロンのDBインスタンスへの昇格は手動（Aurora以外）",
         "performance": "すべてのレプリカが読み取りを処理できる",
         "scalability": "1つのDBインスタンスの容量の制約を超えて、スケールアウトできる",
-        "cost": "この教材の出典には記載がないため、公式ドキュメントで確認する",
+        "cost": "通常のDBインスタンスと同じ料金で課金される（料金はリードレプリカのDBインスタンスクラスで決まる）。同じリージョン内での複製のデータ転送には課金されない。金額は公式の料金ページで確認する",
         "operations": "既定ではバックアップは設定されない。昇格は手動",
         "limits": "自動のフェイルオーバーの仕組みではない（Aurora以外）",
         "chooseWhen": "読み取りが多く、読み取りの処理能力を増やしたいとき",

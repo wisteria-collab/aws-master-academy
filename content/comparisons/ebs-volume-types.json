@@ -17,6 +17,10 @@
     {
       "title": "Modify an Amazon EBS volume using Elastic Volumes operations（Amazon EBS ユーザーガイド）",
       "url": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html"
+    },
+    {
+      "title": "Amazon EBS General Purpose SSD volumes（Amazon EBS ユーザーガイド）",
+      "url": "https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html"
     }
   ],
   "verifiedAt": "2026-11-13",
@@ -43,7 +47,7 @@
         "performance": "価格と性能のバランスがよい",
         "scalability": "Elastic Volumesにより、対応するインスタンスでは、デタッチや再起動をせずに、サイズの拡張、種類の変更、性能（IOPS）の調整ができる",
         "cost": "io2 Block Expressより低コスト",
-        "operations": "この教材の出典には記載がないため、公式ドキュメントで確認する（ブートボリュームに使える）",
+        "operations": "IOPSとスループットを、容量とは別に設定できる。性能を上げるために、容量を増やす必要はない。容量・種類・IOPS・スループットは、Elastic Volumesで変更できる",
         "limits": "これ以上のIOPSが必要な場合はio2 Block Expressが推奨される",
         "chooseWhen": "特別な要件がない多くのワークロード",
         "avoidWhen": "極めて高いIOPSと低い遅延が必要なとき"
