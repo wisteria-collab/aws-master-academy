@@ -5,3 +5,5 @@
 - 次：④SAA難問追加 ⑤出典の絞り込み ⑥似た問題の整理 ⑦初回表示の高速化 …
 - リンク点検 初回（run 43340777762）：311件中 307 開けた、切れ 0、要確認 4（docs.aws.amazon.com の awssupport/ cost-management/ directoryservice/ elasticbeanstalk/ のトップが 403）。gh workflow run は GraphQL 不可 → gh api -X POST .../dispatches -f ref=main で起動
 - ④ SAA advanced 3問（gp3への変更、TGWのAZ、DataSync拡張モード）p13a.py v1.9.3。advanced 計11問。次：⑤出典の絞り込み
+- ⑤ 調査結果：問題299問の出典は 2件が170問、3件が73問。多くは「AWS概要ホワイトペーパー＋試験ガイド」のみ（以前の『6件共通』は誤り）。問題ごとの公式ページへの差し替えは、1問ずつの確認が必要で大きい → ユーザーに進め方を相談（分野ごと・URL提供）。次の自動再開では ⑥似た問題の整理 を進める
+- ⑥ 正解が同じ組15組を確認。文面がほぼ同じ3組（clf-q-cmp-train-01〜03）を別の場面に書き直し v1.9.4。次：⑦初回表示の高速化

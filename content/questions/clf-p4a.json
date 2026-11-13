@@ -633,7 +633,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -646,7 +646,7 @@
     "format": "comparison",
     "select": "single",
     "difficulty": "standard",
-    "stem": "ある企業は、ファイルがアップロードされたときだけ動く短い処理を作りたいと考えています。サーバーは管理したくありません。また、処理が動いていない間は料金を支払いたくありません。最も適切なサービスはどれですか。",
+    "stem": "ある企業は、社内の申請フォームから送信があったときにだけ、内容を確認して保存する短い処理を動かします。送信は1日に数回しかありません。サーバーは管理したくありません。また、処理が動いていない間は料金を支払いたくありません。最も適切なサービスはどれですか。",
     "choices": [
       {
         "id": "a",
@@ -665,8 +665,8 @@
         "id": "c",
         "text": "Amazon EKS",
         "correct": false,
-        "explanation": "EKSはKubernetesのサービスです。コンテナとKubernetesを使う構成になり、ファイルがアップロードされたときだけ動く短い処理、という要件にはLambdaのほうが合います。",
-        "eliminatedBy": "ファイルがアップロードされたときだけ動く短い処理"
+        "explanation": "EKSはKubernetesのサービスです。コンテナとKubernetesを使う構成になり、ファイルが送信があったときにだけ短い処理、という要件にはLambdaのほうが合います。",
+        "eliminatedBy": "送信があったときにだけ、内容を確認して保存する短い処理"
       },
       {
         "id": "d",
@@ -677,7 +677,7 @@
       }
     ],
     "keywords": [
-      "アップロードされたときだけ動く",
+      "送信があったときにだけ",
       "サーバーは管理したくありません",
       "動いていない間は料金を支払いたくありません"
     ],
@@ -714,7 +714,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -727,7 +727,7 @@
     "format": "comparison",
     "select": "single",
     "difficulty": "standard",
-    "stem": "ある開発チームは、アプリケーションをコンテナにまとめて動かしています。コンテナを動かすためのサーバーやクラスターの用意と管理は、したくないと考えています。最も適切なものはどれですか。",
+    "stem": "ある開発チームは、ウェブアプリケーションをコンテナで動かすことにしました。チームの人数が少ないため、コンテナを動かすためのサーバーやクラスターの用意と管理は、したくないと考えています。コンテナのまま動かせることが条件です。最も適切なものはどれですか。",
     "choices": [
       {
         "id": "a",
@@ -746,8 +746,8 @@
         "id": "c",
         "text": "AWS Lambda",
         "correct": false,
-        "explanation": "Lambdaはサーバーレスですが、コードを実行するサービスです。問題文のチームは、アプリケーションをコンテナにまとめて動かしています。",
-        "eliminatedBy": "コンテナにまとめて動かしています"
+        "explanation": "Lambdaはサーバーレスですが、コードを実行するサービスです。問題文のチームは、アプリケーションをコンテナのまま動かせることが条件です。",
+        "eliminatedBy": "コンテナのまま動かせることが条件です"
       },
       {
         "id": "d",
@@ -794,7 +794,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "clf",
@@ -807,7 +807,7 @@
     "format": "comparison",
     "select": "single",
     "difficulty": "standard",
-    "stem": "ある企業は、オンプレミスでKubernetesを使ってコンテナを運用しています。既存のKubernetesのツールやプラグインをそのまま使いながら、AWSに移行したいと考えています。最も適切なサービスはどれですか。",
+    "stem": "ある企業の開発者は、Kubernetesの操作に慣れています。AWSでも、既存のKubernetesのツールやプラグインをそのまま使いながら、コンテナを管理したいと考えています。Kubernetesの仕組みを自分たちで構築・運用する手間は減らしたいです。最も適切なサービスはどれですか。",
     "choices": [
       {
         "id": "a",
@@ -827,7 +827,7 @@
         "text": "AWS Lambda",
         "correct": false,
         "explanation": "Lambdaは、コードを実行するサーバーレスのサービスです。Kubernetesの環境ではありません。",
-        "eliminatedBy": "Kubernetesを使ってコンテナを運用"
+        "eliminatedBy": "Kubernetesの操作に慣れています"
       },
       {
         "id": "d",
