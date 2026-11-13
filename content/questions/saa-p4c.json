@@ -4,6 +4,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Simple Queue Service?（Amazon SQS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -12,7 +16,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -84,6 +88,14 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Elastic Load Balancing?（Elastic Load Balancing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html"
+      },
+      {
+        "title": "What is Amazon EC2 Auto Scaling?（Amazon EC2 Auto Scaling ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -92,7 +104,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -243,6 +255,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Step Functions?（AWS Step Functions デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -251,7 +267,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -318,6 +334,14 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Lambda?（AWS Lambda デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html"
+      },
+      {
+        "title": "What is Amazon API Gateway?（Amazon API Gateway デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -326,7 +350,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -632,6 +656,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Elastic Load Balancing?（Elastic Load Balancing ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -640,7 +668,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",

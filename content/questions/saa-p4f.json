@@ -75,6 +75,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon S3?（Amazon S3 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -83,7 +87,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -469,6 +473,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon EC2?（Amazon EC2 ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -477,7 +485,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -545,6 +553,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What are Savings Plans?（Savings Plans ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -553,7 +565,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -693,6 +705,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Lambda?（AWS Lambda デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -701,7 +717,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -765,6 +781,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon EC2 Auto Scaling?（Amazon EC2 Auto Scaling ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -773,7 +793,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -1061,6 +1081,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon ElastiCache?（Amazon ElastiCache ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1069,7 +1093,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -1210,6 +1234,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Redshift?（Amazon Redshift 管理ガイド）",
+        "url": "https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1218,7 +1246,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -1752,6 +1780,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Site-to-Site VPN?（AWS Site-to-Site VPN ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1760,7 +1792,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",

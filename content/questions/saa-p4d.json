@@ -4,6 +4,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Elastic File System?（Amazon EFS ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -12,7 +16,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -162,6 +166,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Storage Gateway?（AWS Storage Gateway ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -170,7 +178,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -397,6 +405,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is AWS Batch?（AWS Batch ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -405,7 +417,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -472,6 +484,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon EMR?（Amazon EMR 管理ガイド）",
+        "url": "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-what-is-emr.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -480,7 +496,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -547,6 +563,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Simple Queue Service?（Amazon SQS デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -555,7 +575,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -785,6 +805,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon Redshift?（Amazon Redshift 管理ガイド）",
+        "url": "https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -793,7 +817,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-13",
     "basedOnGuide": [
       {
         "exam": "saa",
