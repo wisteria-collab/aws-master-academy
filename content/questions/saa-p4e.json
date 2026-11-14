@@ -328,6 +328,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Subnets for your VPC（Amazon VPC ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -336,7 +340,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-15",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -408,6 +412,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Convert input data format in Amazon Data Firehose（Amazon Data Firehose デベロッパーガイド）",
+        "url": "https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html"
+      },
+      {
         "title": "What is Amazon Data Firehose?（Amazon Data Firehose デベロッパーガイド）",
         "url": "https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html"
       },
@@ -420,7 +428,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-15",
     "basedOnGuide": [
       {
         "exam": "saa",

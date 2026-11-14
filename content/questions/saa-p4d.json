@@ -166,6 +166,14 @@
     "status": "verified",
     "sources": [
       {
+        "title": "What is Amazon S3 File Gateway?（AWS Storage Gateway ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/filegateway/latest/files3/what-is-file-s3.html"
+      },
+      {
+        "title": "What is Volume Gateway?（AWS Storage Gateway ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/storagegateway/latest/vgw/WhatIsStorageGateway.html"
+      },
+      {
         "title": "What is AWS Storage Gateway?（AWS Storage Gateway ユーザーガイド）",
         "url": "https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsStorageGateway.html"
       },
@@ -178,7 +186,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-15",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -330,6 +338,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Predictive scaling for Amazon EC2 Auto Scaling（Amazon EC2 Auto Scaling ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -338,7 +350,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-15",
     "basedOnGuide": [
       {
         "exam": "saa",
