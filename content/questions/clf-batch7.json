@@ -1103,6 +1103,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Welcome to AWS Amplify Hosting（AWS Amplify ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html"
+      },
+      {
         "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
         "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
       },
@@ -1111,7 +1115,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain3.html"
       }
     ],
-    "verifiedAt": "2026-11-11",
+    "verifiedAt": "2026-11-15",
     "basedOnGuide": [
       {
         "exam": "clf",
