@@ -3,6 +3,10 @@
   "status": "verified",
   "sources": [
     {
+      "title": "AWS Security Hub is expanding to unify security operations across multicloud environments（2026年3月10日・AWS公式ブログ）",
+      "url": "https://aws.amazon.com/blogs/security/aws-security-hub-is-expanding-to-unify-security-operations-across-multicloud-environments/"
+    },
+    {
       "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
       "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
     },
@@ -15,7 +19,7 @@
       "url": "https://aws.amazon.com/jp/security-hub/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-12",
+  "verifiedAt": "2026-11-14",
   "basedOnGuide": [
     {
       "exam": "clf",

@@ -3,6 +3,10 @@
   "status": "verified",
   "sources": [
     {
+      "title": "AWS Weekly Roundup（2026年5月4日・AWS公式ブログ）",
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-whats-next-with-aws-2026-amazon-quick-openai-partnership-and-more-may-4-2026/"
+    },
+    {
       "title": "Overview of Amazon Web Services（AWSホワイトペーパー）",
       "url": "https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf"
     },
@@ -15,7 +19,7 @@
       "url": "https://aws.amazon.com/jp/connect/pricing/"
     }
   ],
-  "verifiedAt": "2026-11-12",
+  "verifiedAt": "2026-11-14",
   "basedOnGuide": [
     {
       "exam": "clf",
@@ -70,7 +74,7 @@
     }
   ],
   "docUrl": "https://docs.aws.amazon.com/connect/",
-  "uncertainNote": "試験ガイド（バージョン1.3）ではAmazon Connectと書かれています。AWSのホワイトペーパーでは「Connect Customer」という名前で説明されています。このアプリは試験ガイドの名前に合わせています。",
+  "uncertainNote": "試験ガイド（バージョン1.3）ではAmazon Connectと書かれています。AWSは2026年5月に、Amazon Connectを4つのAIソリューションのまとまりに広げ、これまでの製品を「Amazon Connect Customer」と呼ぶようになりました。このアプリは試験ガイドの名前に合わせています。",
   "pricingUrl": "https://aws.amazon.com/jp/connect/pricing/",
   "pricingNote": "音声、チャット、メールなどのチャネルごとの利用量（通話時間やメッセージ数）に応じた従量課金。",
   "volatile": true

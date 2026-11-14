@@ -540,6 +540,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "CloudTrail record contents（AWS CloudTrail ユーザーガイド）",
+        "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html"
+      },
+      {
         "title": "How CloudTrail works（AWS CloudTrail ユーザーガイド）",
         "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/how-cloudtrail-works.html"
       },
@@ -552,7 +556,7 @@
         "url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02-domain2.html"
       }
     ],
-    "verifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-14",
     "basedOnGuide": [
       {
         "exam": "clf",
