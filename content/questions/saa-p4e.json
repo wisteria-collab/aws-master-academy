@@ -576,6 +576,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Amazon Kinesis Data Streams FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/kinesis/data-streams/faqs/"
+      },
+      {
         "title": "What is Amazon Kinesis Data Streams?（Amazon Kinesis Data Streams デベロッパーガイド）",
         "url": "https://docs.aws.amazon.com/streams/latest/dev/introduction.html"
       },
@@ -588,7 +592,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-15",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -607,7 +611,7 @@
         "id": "a",
         "text": "Amazon Kinesis Data Streams",
         "correct": true,
-        "explanation": "Kinesis Data Streamsは、大規模に拡張でき、耐久性のあるリアルタイムのデータストリーミングサービスです。データはミリ秒単位で利用できるようになり、リアルタイムのダッシュボードや異常検知に使えます。"
+        "explanation": "Kinesis Data Streamsは、大規模に拡張でき、耐久性のあるリアルタイムのデータストリーミングサービスです。拡張ファンアウトを使うと、新しいデータは通常70ミリ秒以内に利用者のプログラムへ届きます。リアルタイムの指標の算出や分析に使えます。"
       },
       {
         "id": "b",

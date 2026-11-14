@@ -4,6 +4,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Amazon EFS のよくある質問（AWS公式）",
+        "url": "https://aws.amazon.com/jp/efs/faq/"
+      },
+      {
         "title": "What is Amazon Elastic File System?（Amazon EFS ユーザーガイド）",
         "url": "https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html"
       },
@@ -16,7 +20,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-15",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -417,6 +421,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "AWS Batch FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/batch/faqs/"
+      },
+      {
         "title": "What is AWS Batch?（AWS Batch ユーザーガイド）",
         "url": "https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html"
       },
@@ -429,7 +437,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-15",
     "basedOnGuide": [
       {
         "exam": "saa",
@@ -817,6 +825,10 @@
     "status": "verified",
     "sources": [
       {
+        "title": "Amazon Redshift FAQs（AWS公式）",
+        "url": "https://aws.amazon.com/redshift/faqs/"
+      },
+      {
         "title": "What is Amazon Redshift?（Amazon Redshift 管理ガイド）",
         "url": "https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html"
       },
@@ -829,7 +841,7 @@
         "url": "https://docs.aws.amazon.com/pdfs/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.pdf"
       }
     ],
-    "verifiedAt": "2026-11-13",
+    "verifiedAt": "2026-11-15",
     "basedOnGuide": [
       {
         "exam": "saa",
